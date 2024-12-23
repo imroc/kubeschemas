@@ -1,0 +1,250 @@
+{
+  "description": "FleetAutoscaler is the data structure for a FleetAutoscaler resource.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "autoscaling.agones.dev/v1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "FleetAutoscaler"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "FleetAutoscalerSpec is the spec for a Fleet Scaler. More info: https://agones.dev/site/docs/reference/agones_crd_api_reference/#autoscaling.agones.dev/v1.FleetAutoscaler",
+      "properties": {
+        "fleetName": {
+          "maxLength": 63,
+          "minLength": 1,
+          "pattern": "^[a-z0-9]([-\\.a-z0-9]*[a-z0-9])?$",
+          "type": "string"
+        },
+        "policy": {
+          "properties": {
+            "buffer": {
+              "nullable": true,
+              "properties": {
+                "bufferSize": {
+                  "anyOf": [
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ],
+                  "x-kubernetes-int-or-string": true
+                },
+                "maxReplicas": {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "minReplicas": {
+                  "minimum": 0,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "maxReplicas"
+              ],
+              "type": "object"
+            },
+            "counter": {
+              "nullable": true,
+              "properties": {
+                "bufferSize": {
+                  "anyOf": [
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ],
+                  "x-kubernetes-int-or-string": true
+                },
+                "key": {
+                  "type": "string"
+                },
+                "maxCapacity": {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "minCapacity": {
+                  "minimum": 0,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "key",
+                "bufferSize",
+                "maxCapacity"
+              ],
+              "type": "object"
+            },
+            "list": {
+              "nullable": true,
+              "properties": {
+                "bufferSize": {
+                  "anyOf": [
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ],
+                  "x-kubernetes-int-or-string": true
+                },
+                "key": {
+                  "type": "string"
+                },
+                "maxCapacity": {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "minCapacity": {
+                  "minimum": 0,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "key",
+                "bufferSize",
+                "maxCapacity"
+              ],
+              "type": "object"
+            },
+            "type": {
+              "enum": [
+                "Buffer",
+                "Webhook",
+                "Counter",
+                "List"
+              ],
+              "type": "string"
+            },
+            "webhook": {
+              "nullable": true,
+              "properties": {
+                "caBundle": {
+                  "format": "byte",
+                  "type": "string"
+                },
+                "service": {
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "type": "string"
+                    },
+                    "path": {
+                      "type": "string"
+                    },
+                    "port": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "namespace",
+                    "name"
+                  ],
+                  "type": "object"
+                },
+                "url": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "type": "object"
+        },
+        "sync": {
+          "properties": {
+            "fixedInterval": {
+              "nullable": true,
+              "properties": {
+                "seconds": {
+                  "exclusiveMinimum": 0,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "seconds"
+              ],
+              "type": "object"
+            },
+            "type": {
+              "enum": [
+                "FixedInterval"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "fleetName",
+        "policy"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "description": "FleetAutoscalerStatus defines the current status of a FleetAutoscaler. More info: https://agones.dev/site/docs/reference/agones_crd_api_reference/#autoscaling.agones.dev/v1.FleetAutoscaler",
+      "properties": {
+        "ableToScale": {
+          "type": "boolean"
+        },
+        "currentReplicas": {
+          "type": "integer"
+        },
+        "desiredReplicas": {
+          "type": "integer"
+        },
+        "lastScaleTime": {
+          "format": "date-time",
+          "nullable": true,
+          "type": "string"
+        },
+        "scalingLimited": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "autoscaling.agones.dev",
+      "kind": "FleetAutoscaler",
+      "version": "v1"
+    }
+  ]
+}

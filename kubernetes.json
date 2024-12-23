@@ -1,0 +1,2233 @@
+{
+  "oneOf": [
+    {
+      "$ref": "challengepayload_v1alpha1.json/challengepayload_v1alpha1.json"
+    },
+    {
+      "$ref": "challenge_v1.json/challenge_v1.json"
+    },
+    {
+      "$ref": "challengelist_v1.json/challengelist_v1.json"
+    },
+    {
+      "$ref": "order_v1.json/order_v1.json"
+    },
+    {
+      "$ref": "orderlist_v1.json/orderlist_v1.json"
+    },
+    {
+      "$ref": "addondeploymentconfig_v1alpha1.json/addondeploymentconfig_v1alpha1.json"
+    },
+    {
+      "$ref": "addondeploymentconfiglist_v1alpha1.json/addondeploymentconfiglist_v1alpha1.json"
+    },
+    {
+      "$ref": "addontemplate_v1alpha1.json/addontemplate_v1alpha1.json"
+    },
+    {
+      "$ref": "addontemplatelist_v1alpha1.json/addontemplatelist_v1alpha1.json"
+    },
+    {
+      "$ref": "clustermanagementaddon_v1alpha1.json/clustermanagementaddon_v1alpha1.json"
+    },
+    {
+      "$ref": "clustermanagementaddonlist_v1alpha1.json/clustermanagementaddonlist_v1alpha1.json"
+    },
+    {
+      "$ref": "managedclusteraddon_v1alpha1.json/managedclusteraddon_v1alpha1.json"
+    },
+    {
+      "$ref": "managedclusteraddonlist_v1alpha1.json/managedclusteraddonlist_v1alpha1.json"
+    },
+    {
+      "$ref": "mutatingwebhookconfiguration_v1.json/mutatingwebhookconfiguration_v1.json"
+    },
+    {
+      "$ref": "mutatingwebhookconfigurationlist_v1.json/mutatingwebhookconfigurationlist_v1.json"
+    },
+    {
+      "$ref": "validatingwebhookconfiguration_v1.json/validatingwebhookconfiguration_v1.json"
+    },
+    {
+      "$ref": "validatingwebhookconfigurationlist_v1.json/validatingwebhookconfigurationlist_v1.json"
+    },
+    {
+      "$ref": "fleet_v1.json/fleet_v1.json"
+    },
+    {
+      "$ref": "fleetlist_v1.json/fleetlist_v1.json"
+    },
+    {
+      "$ref": "gameserver_v1.json/gameserver_v1.json"
+    },
+    {
+      "$ref": "gameserverlist_v1.json/gameserverlist_v1.json"
+    },
+    {
+      "$ref": "gameserverset_v1.json/gameserverset_v1.json"
+    },
+    {
+      "$ref": "gameserversetlist_v1.json/gameserversetlist_v1.json"
+    },
+    {
+      "$ref": "analytics_v1alpha1.json/analytics_v1alpha1.json"
+    },
+    {
+      "$ref": "analyticslist_v1alpha1.json/analyticslist_v1alpha1.json"
+    },
+    {
+      "$ref": "recommendation_v1alpha1.json/recommendation_v1alpha1.json"
+    },
+    {
+      "$ref": "recommendationlist_v1alpha1.json/recommendationlist_v1alpha1.json"
+    },
+    {
+      "$ref": "customresourcedefinition_v1.json/customresourcedefinition_v1.json"
+    },
+    {
+      "$ref": "customresourcedefinitionlist_v1.json/customresourcedefinitionlist_v1.json"
+    },
+    {
+      "$ref": "apiservice_v1.json/apiservice_v1.json"
+    },
+    {
+      "$ref": "apiservicelist_v1.json/apiservicelist_v1.json"
+    },
+    {
+      "$ref": "application_v1beta1.json/application_v1beta1.json"
+    },
+    {
+      "$ref": "applicationlist_v1beta1.json/applicationlist_v1beta1.json"
+    },
+    {
+      "$ref": "controllerrevision_v1.json/controllerrevision_v1.json"
+    },
+    {
+      "$ref": "controllerrevisionlist_v1.json/controllerrevisionlist_v1.json"
+    },
+    {
+      "$ref": "daemonset_v1.json/daemonset_v1.json"
+    },
+    {
+      "$ref": "daemonsetlist_v1.json/daemonsetlist_v1.json"
+    },
+    {
+      "$ref": "deployment_v1.json/deployment_v1.json"
+    },
+    {
+      "$ref": "deploymentlist_v1.json/deploymentlist_v1.json"
+    },
+    {
+      "$ref": "replicaset_v1.json/replicaset_v1.json"
+    },
+    {
+      "$ref": "replicasetlist_v1.json/replicasetlist_v1.json"
+    },
+    {
+      "$ref": "statefulset_v1.json/statefulset_v1.json"
+    },
+    {
+      "$ref": "statefulsetlist_v1.json/statefulsetlist_v1.json"
+    },
+    {
+      "$ref": "base_v1alpha1.json/base_v1alpha1.json"
+    },
+    {
+      "$ref": "baselist_v1alpha1.json/baselist_v1alpha1.json"
+    },
+    {
+      "$ref": "description_v1alpha1.json/description_v1alpha1.json"
+    },
+    {
+      "$ref": "descriptionlist_v1alpha1.json/descriptionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "feedinventory_v1alpha1.json/feedinventory_v1alpha1.json"
+    },
+    {
+      "$ref": "feedinventorylist_v1alpha1.json/feedinventorylist_v1alpha1.json"
+    },
+    {
+      "$ref": "globalization_v1alpha1.json/globalization_v1alpha1.json"
+    },
+    {
+      "$ref": "globalizationlist_v1alpha1.json/globalizationlist_v1alpha1.json"
+    },
+    {
+      "$ref": "helmchart_v1alpha1.json/helmchart_v1alpha1.json"
+    },
+    {
+      "$ref": "helmchartlist_v1alpha1.json/helmchartlist_v1alpha1.json"
+    },
+    {
+      "$ref": "helmrelease_v1alpha1.json/helmrelease_v1alpha1.json"
+    },
+    {
+      "$ref": "helmreleaselist_v1alpha1.json/helmreleaselist_v1alpha1.json"
+    },
+    {
+      "$ref": "localization_v1alpha1.json/localization_v1alpha1.json"
+    },
+    {
+      "$ref": "localizationlist_v1alpha1.json/localizationlist_v1alpha1.json"
+    },
+    {
+      "$ref": "manifest_v1alpha1.json/manifest_v1alpha1.json"
+    },
+    {
+      "$ref": "manifestlist_v1alpha1.json/manifestlist_v1alpha1.json"
+    },
+    {
+      "$ref": "subscription_v1alpha1.json/subscription_v1alpha1.json"
+    },
+    {
+      "$ref": "subscriptionlist_v1alpha1.json/subscriptionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "cronworkflowlist_v1alpha1.json/cronworkflowlist_v1alpha1.json"
+    },
+    {
+      "$ref": "workflowlist_v1alpha1.json/workflowlist_v1alpha1.json"
+    },
+    {
+      "$ref": "workflowtemplatelist_v1alpha1.json/workflowtemplatelist_v1alpha1.json"
+    },
+    {
+      "$ref": "selfsubjectreview_v1.json/selfsubjectreview_v1.json"
+    },
+    {
+      "$ref": "tokenrequest_v1.json/tokenrequest_v1.json"
+    },
+    {
+      "$ref": "tokenreview_v1.json/tokenreview_v1.json"
+    },
+    {
+      "$ref": "localsubjectaccessreview_v1.json/localsubjectaccessreview_v1.json"
+    },
+    {
+      "$ref": "selfsubjectaccessreview_v1.json/selfsubjectaccessreview_v1.json"
+    },
+    {
+      "$ref": "selfsubjectrulesreview_v1.json/selfsubjectrulesreview_v1.json"
+    },
+    {
+      "$ref": "subjectaccessreview_v1.json/subjectaccessreview_v1.json"
+    },
+    {
+      "$ref": "fleetautoscaler_v1.json/fleetautoscaler_v1.json"
+    },
+    {
+      "$ref": "fleetautoscalerlist_v1.json/fleetautoscalerlist_v1.json"
+    },
+    {
+      "$ref": "horizontalpodautoscaler_v1.json/horizontalpodautoscaler_v1.json"
+    },
+    {
+      "$ref": "horizontalpodautoscaler_v2.json/horizontalpodautoscaler_v2.json"
+    },
+    {
+      "$ref": "horizontalpodautoscalerlist_v1.json/horizontalpodautoscalerlist_v1.json"
+    },
+    {
+      "$ref": "horizontalpodautoscalerlist_v2.json/horizontalpodautoscalerlist_v2.json"
+    },
+    {
+      "$ref": "scale_v1.json/scale_v1.json"
+    },
+    {
+      "$ref": "horizontalpodcronscaler_v1.json/horizontalpodcronscaler_v1.json"
+    },
+    {
+      "$ref": "horizontalpodcronscalerlist_v1.json/horizontalpodcronscalerlist_v1.json"
+    },
+    {
+      "$ref": "effectivehorizontalpodautoscaler_v1alpha1.json/effectivehorizontalpodautoscaler_v1alpha1.json"
+    },
+    {
+      "$ref": "effectivehorizontalpodautoscalerlist_v1alpha1.json/effectivehorizontalpodautoscalerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "effectiveverticalpodautoscaler_v1alpha1.json/effectiveverticalpodautoscaler_v1alpha1.json"
+    },
+    {
+      "$ref": "effectiveverticalpodautoscalerlist_v1alpha1.json/effectiveverticalpodautoscalerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "substitute_v1alpha1.json/substitute_v1alpha1.json"
+    },
+    {
+      "$ref": "substitutelist_v1alpha1.json/substitutelist_v1alpha1.json"
+    },
+    {
+      "$ref": "metric_v1alpha1.json/metric_v1alpha1.json"
+    },
+    {
+      "$ref": "metriclist_v1alpha1.json/metriclist_v1alpha1.json"
+    },
+    {
+      "$ref": "podautoscaler_v1alpha1.json/podautoscaler_v1alpha1.json"
+    },
+    {
+      "$ref": "podautoscalerlist_v1alpha1.json/podautoscalerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "cronfederatedhpa_v1alpha1.json/cronfederatedhpa_v1alpha1.json"
+    },
+    {
+      "$ref": "cronfederatedhpalist_v1alpha1.json/cronfederatedhpalist_v1alpha1.json"
+    },
+    {
+      "$ref": "federatedhpa_v1alpha1.json/federatedhpa_v1alpha1.json"
+    },
+    {
+      "$ref": "federatedhpalist_v1alpha1.json/federatedhpalist_v1alpha1.json"
+    },
+    {
+      "$ref": "backup_v1beta1.json/backup_v1beta1.json"
+    },
+    {
+      "$ref": "backuplist_v1beta1.json/backuplist_v1beta1.json"
+    },
+    {
+      "$ref": "backupstoragelocation_v1beta1.json/backupstoragelocation_v1beta1.json"
+    },
+    {
+      "$ref": "backupstoragelocationlist_v1beta1.json/backupstoragelocationlist_v1beta1.json"
+    },
+    {
+      "$ref": "deletebackuprequest_v1beta1.json/deletebackuprequest_v1beta1.json"
+    },
+    {
+      "$ref": "deletebackuprequestlist_v1beta1.json/deletebackuprequestlist_v1beta1.json"
+    },
+    {
+      "$ref": "restore_v1beta1.json/restore_v1beta1.json"
+    },
+    {
+      "$ref": "restorelist_v1beta1.json/restorelist_v1beta1.json"
+    },
+    {
+      "$ref": "schedule_v1beta1.json/schedule_v1beta1.json"
+    },
+    {
+      "$ref": "schedulelist_v1beta1.json/schedulelist_v1beta1.json"
+    },
+    {
+      "$ref": "cronjob_v1.json/cronjob_v1.json"
+    },
+    {
+      "$ref": "cronjoblist_v1.json/cronjoblist_v1.json"
+    },
+    {
+      "$ref": "job_v1.json/job_v1.json"
+    },
+    {
+      "$ref": "joblist_v1.json/joblist_v1.json"
+    },
+    {
+      "$ref": "image_v1alpha1.json/image_v1alpha1.json"
+    },
+    {
+      "$ref": "imagelist_v1alpha1.json/imagelist_v1alpha1.json"
+    },
+    {
+      "$ref": "certificate_v1.json/certificate_v1.json"
+    },
+    {
+      "$ref": "certificatelist_v1.json/certificatelist_v1.json"
+    },
+    {
+      "$ref": "certificaterequest_v1.json/certificaterequest_v1.json"
+    },
+    {
+      "$ref": "certificaterequestlist_v1.json/certificaterequestlist_v1.json"
+    },
+    {
+      "$ref": "clusterissuer_v1.json/clusterissuer_v1.json"
+    },
+    {
+      "$ref": "clusterissuerlist_v1.json/clusterissuerlist_v1.json"
+    },
+    {
+      "$ref": "issuer_v1.json/issuer_v1.json"
+    },
+    {
+      "$ref": "issuerlist_v1.json/issuerlist_v1.json"
+    },
+    {
+      "$ref": "certificatesigningrequest_v1.json/certificatesigningrequest_v1.json"
+    },
+    {
+      "$ref": "certificatesigningrequestlist_v1.json/certificatesigningrequestlist_v1.json"
+    },
+    {
+      "$ref": "nginxingress_v1alpha1.json/nginxingress_v1alpha1.json"
+    },
+    {
+      "$ref": "nginxingresslist_v1alpha1.json/nginxingresslist_v1alpha1.json"
+    },
+    {
+      "$ref": "tkeserviceconfig_v1alpha1.json/tkeserviceconfig_v1alpha1.json"
+    },
+    {
+      "$ref": "tkeserviceconfiglist_v1alpha1.json/tkeserviceconfiglist_v1alpha1.json"
+    },
+    {
+      "$ref": "logconfig_v1.json/logconfig_v1.json"
+    },
+    {
+      "$ref": "logconfiglist_v1.json/logconfiglist_v1.json"
+    },
+    {
+      "$ref": "addonplacementscore_v1alpha1.json/addonplacementscore_v1alpha1.json"
+    },
+    {
+      "$ref": "addonplacementscorelist_v1alpha1.json/addonplacementscorelist_v1alpha1.json"
+    },
+    {
+      "$ref": "managedcluster_v1.json/managedcluster_v1.json"
+    },
+    {
+      "$ref": "managedclusterlist_v1.json/managedclusterlist_v1.json"
+    },
+    {
+      "$ref": "managedclusterset_v1beta2.json/managedclusterset_v1beta2.json"
+    },
+    {
+      "$ref": "managedclustersetbinding_v1beta2.json/managedclustersetbinding_v1beta2.json"
+    },
+    {
+      "$ref": "managedclustersetbindinglist_v1beta2.json/managedclustersetbindinglist_v1beta2.json"
+    },
+    {
+      "$ref": "managedclustersetlist_v1beta2.json/managedclustersetlist_v1beta2.json"
+    },
+    {
+      "$ref": "placement_v1beta1.json/placement_v1beta1.json"
+    },
+    {
+      "$ref": "placementdecision_v1beta1.json/placementdecision_v1beta1.json"
+    },
+    {
+      "$ref": "placementdecisionlist_v1beta1.json/placementdecisionlist_v1beta1.json"
+    },
+    {
+      "$ref": "placementlist_v1beta1.json/placementlist_v1beta1.json"
+    },
+    {
+      "$ref": "clusterregistrationrequest_v1beta1.json/clusterregistrationrequest_v1beta1.json"
+    },
+    {
+      "$ref": "clusterregistrationrequestlist_v1beta1.json/clusterregistrationrequestlist_v1beta1.json"
+    },
+    {
+      "$ref": "managedcluster_v1beta1.json/managedcluster_v1beta1.json"
+    },
+    {
+      "$ref": "managedclusterlist_v1beta1.json/managedclusterlist_v1beta1.json"
+    },
+    {
+      "$ref": "config_v1alpha1.json/config_v1alpha1.json"
+    },
+    {
+      "$ref": "configlist_v1alpha1.json/configlist_v1alpha1.json"
+    },
+    {
+      "$ref": "resourceinterpretercustomization_v1alpha1.json/resourceinterpretercustomization_v1alpha1.json"
+    },
+    {
+      "$ref": "resourceinterpretercustomizationlist_v1alpha1.json/resourceinterpretercustomizationlist_v1alpha1.json"
+    },
+    {
+      "$ref": "resourceinterpreterwebhookconfiguration_v1alpha1.json/resourceinterpreterwebhookconfiguration_v1alpha1.json"
+    },
+    {
+      "$ref": "resourceinterpreterwebhookconfigurationlist_v1alpha1.json/resourceinterpreterwebhookconfigurationlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ingressclassparameters_v1alpha1.json/ingressclassparameters_v1alpha1.json"
+    },
+    {
+      "$ref": "ingressclassparameterslist_v1alpha1.json/ingressclassparameterslist_v1alpha1.json"
+    },
+    {
+      "$ref": "kongclusterplugin_v1.json/kongclusterplugin_v1.json"
+    },
+    {
+      "$ref": "kongclusterpluginlist_v1.json/kongclusterpluginlist_v1.json"
+    },
+    {
+      "$ref": "kongconsumer_v1.json/kongconsumer_v1.json"
+    },
+    {
+      "$ref": "kongconsumergroup_v1beta1.json/kongconsumergroup_v1beta1.json"
+    },
+    {
+      "$ref": "kongconsumergrouplist_v1beta1.json/kongconsumergrouplist_v1beta1.json"
+    },
+    {
+      "$ref": "kongconsumerlist_v1.json/kongconsumerlist_v1.json"
+    },
+    {
+      "$ref": "kongingress_v1.json/kongingress_v1.json"
+    },
+    {
+      "$ref": "kongingresslist_v1.json/kongingresslist_v1.json"
+    },
+    {
+      "$ref": "konglicense_v1alpha1.json/konglicense_v1alpha1.json"
+    },
+    {
+      "$ref": "konglicenselist_v1alpha1.json/konglicenselist_v1alpha1.json"
+    },
+    {
+      "$ref": "kongplugin_v1.json/kongplugin_v1.json"
+    },
+    {
+      "$ref": "kongpluginlist_v1.json/kongpluginlist_v1.json"
+    },
+    {
+      "$ref": "kongupstreampolicy_v1beta1.json/kongupstreampolicy_v1beta1.json"
+    },
+    {
+      "$ref": "kongupstreampolicylist_v1beta1.json/kongupstreampolicylist_v1beta1.json"
+    },
+    {
+      "$ref": "kongvault_v1alpha1.json/kongvault_v1alpha1.json"
+    },
+    {
+      "$ref": "kongvaultlist_v1alpha1.json/kongvaultlist_v1alpha1.json"
+    },
+    {
+      "$ref": "tcpingress_v1beta1.json/tcpingress_v1beta1.json"
+    },
+    {
+      "$ref": "tcpingresslist_v1beta1.json/tcpingresslist_v1beta1.json"
+    },
+    {
+      "$ref": "udpingress_v1beta1.json/udpingress_v1beta1.json"
+    },
+    {
+      "$ref": "udpingresslist_v1beta1.json/udpingresslist_v1beta1.json"
+    },
+    {
+      "$ref": "limitpublicingress_v1alpha1.json/limitpublicingress_v1alpha1.json"
+    },
+    {
+      "$ref": "limitpublicingress_v1beta1.json/limitpublicingress_v1beta1.json"
+    },
+    {
+      "$ref": "limitpublicingresslist_v1alpha1.json/limitpublicingresslist_v1alpha1.json"
+    },
+    {
+      "$ref": "limitpublicingresslist_v1beta1.json/limitpublicingresslist_v1beta1.json"
+    },
+    {
+      "$ref": "lease_v1.json/lease_v1.json"
+    },
+    {
+      "$ref": "leaselist_v1.json/leaselist_v1.json"
+    },
+    {
+      "$ref": "binding_v1.json/binding_v1.json"
+    },
+    {
+      "$ref": "componentstatus_v1.json/componentstatus_v1.json"
+    },
+    {
+      "$ref": "componentstatuslist_v1.json/componentstatuslist_v1.json"
+    },
+    {
+      "$ref": "configmap_v1.json/configmap_v1.json"
+    },
+    {
+      "$ref": "configmaplist_v1.json/configmaplist_v1.json"
+    },
+    {
+      "$ref": "endpoints_v1.json/endpoints_v1.json"
+    },
+    {
+      "$ref": "endpointslist_v1.json/endpointslist_v1.json"
+    },
+    {
+      "$ref": "event_v1.json/event_v1.json"
+    },
+    {
+      "$ref": "eventlist_v1.json/eventlist_v1.json"
+    },
+    {
+      "$ref": "limitrange_v1.json/limitrange_v1.json"
+    },
+    {
+      "$ref": "limitrangelist_v1.json/limitrangelist_v1.json"
+    },
+    {
+      "$ref": "namespace_v1.json/namespace_v1.json"
+    },
+    {
+      "$ref": "namespacelist_v1.json/namespacelist_v1.json"
+    },
+    {
+      "$ref": "node_v1.json/node_v1.json"
+    },
+    {
+      "$ref": "nodelist_v1.json/nodelist_v1.json"
+    },
+    {
+      "$ref": "persistentvolume_v1.json/persistentvolume_v1.json"
+    },
+    {
+      "$ref": "persistentvolumeclaim_v1.json/persistentvolumeclaim_v1.json"
+    },
+    {
+      "$ref": "persistentvolumeclaimlist_v1.json/persistentvolumeclaimlist_v1.json"
+    },
+    {
+      "$ref": "persistentvolumelist_v1.json/persistentvolumelist_v1.json"
+    },
+    {
+      "$ref": "pod_v1.json/pod_v1.json"
+    },
+    {
+      "$ref": "podlist_v1.json/podlist_v1.json"
+    },
+    {
+      "$ref": "podtemplate_v1.json/podtemplate_v1.json"
+    },
+    {
+      "$ref": "podtemplatelist_v1.json/podtemplatelist_v1.json"
+    },
+    {
+      "$ref": "replicationcontroller_v1.json/replicationcontroller_v1.json"
+    },
+    {
+      "$ref": "replicationcontrollerlist_v1.json/replicationcontrollerlist_v1.json"
+    },
+    {
+      "$ref": "resourcequota_v1.json/resourcequota_v1.json"
+    },
+    {
+      "$ref": "resourcequotalist_v1.json/resourcequotalist_v1.json"
+    },
+    {
+      "$ref": "secret_v1.json/secret_v1.json"
+    },
+    {
+      "$ref": "secretlist_v1.json/secretlist_v1.json"
+    },
+    {
+      "$ref": "service_v1.json/service_v1.json"
+    },
+    {
+      "$ref": "serviceaccount_v1.json/serviceaccount_v1.json"
+    },
+    {
+      "$ref": "serviceaccountlist_v1.json/serviceaccountlist_v1.json"
+    },
+    {
+      "$ref": "servicelist_v1.json/servicelist_v1.json"
+    },
+    {
+      "$ref": "application_v1beta1.json/application_v1beta1.json"
+    },
+    {
+      "$ref": "applicationlist_v1beta1.json/applicationlist_v1beta1.json"
+    },
+    {
+      "$ref": "applicationrevision_v1beta1.json/applicationrevision_v1beta1.json"
+    },
+    {
+      "$ref": "applicationrevisionlist_v1beta1.json/applicationrevisionlist_v1beta1.json"
+    },
+    {
+      "$ref": "componentdefinition_v1beta1.json/componentdefinition_v1beta1.json"
+    },
+    {
+      "$ref": "componentdefinitionlist_v1beta1.json/componentdefinitionlist_v1beta1.json"
+    },
+    {
+      "$ref": "definitionrevision_v1beta1.json/definitionrevision_v1beta1.json"
+    },
+    {
+      "$ref": "definitionrevisionlist_v1beta1.json/definitionrevisionlist_v1beta1.json"
+    },
+    {
+      "$ref": "policy_v1alpha1.json/policy_v1alpha1.json"
+    },
+    {
+      "$ref": "policydefinition_v1beta1.json/policydefinition_v1beta1.json"
+    },
+    {
+      "$ref": "policydefinitionlist_v1beta1.json/policydefinitionlist_v1beta1.json"
+    },
+    {
+      "$ref": "policylist_v1alpha1.json/policylist_v1alpha1.json"
+    },
+    {
+      "$ref": "resourcetracker_v1beta1.json/resourcetracker_v1beta1.json"
+    },
+    {
+      "$ref": "resourcetrackerlist_v1beta1.json/resourcetrackerlist_v1beta1.json"
+    },
+    {
+      "$ref": "traitdefinition_v1beta1.json/traitdefinition_v1beta1.json"
+    },
+    {
+      "$ref": "traitdefinitionlist_v1beta1.json/traitdefinitionlist_v1beta1.json"
+    },
+    {
+      "$ref": "workflow_v1alpha1.json/workflow_v1alpha1.json"
+    },
+    {
+      "$ref": "workflowlist_v1alpha1.json/workflowlist_v1alpha1.json"
+    },
+    {
+      "$ref": "workflowstepdefinition_v1beta1.json/workflowstepdefinition_v1beta1.json"
+    },
+    {
+      "$ref": "workflowstepdefinitionlist_v1beta1.json/workflowstepdefinitionlist_v1beta1.json"
+    },
+    {
+      "$ref": "workloaddefinition_v1alpha2.json/workloaddefinition_v1alpha2.json"
+    },
+    {
+      "$ref": "workloaddefinition_v1beta1.json/workloaddefinition_v1beta1.json"
+    },
+    {
+      "$ref": "workloaddefinitionlist_v1alpha2.json/workloaddefinitionlist_v1alpha2.json"
+    },
+    {
+      "$ref": "workloaddefinitionlist_v1beta1.json/workloaddefinitionlist_v1beta1.json"
+    },
+    {
+      "$ref": "metricvalue_v1beta1.json/metricvalue_v1beta1.json"
+    },
+    {
+      "$ref": "metricvalue_v1beta2.json/metricvalue_v1beta2.json"
+    },
+    {
+      "$ref": "metricvaluelist_v1beta1.json/metricvaluelist_v1beta1.json"
+    },
+    {
+      "$ref": "metricvaluelist_v1beta2.json/metricvaluelist_v1beta2.json"
+    },
+    {
+      "$ref": "custommetrics_v1alpha1.json/custommetrics_v1alpha1.json"
+    },
+    {
+      "$ref": "custommetricslist_v1alpha1.json/custommetricslist_v1alpha1.json"
+    },
+    {
+      "$ref": "endpointslice_v1.json/endpointslice_v1.json"
+    },
+    {
+      "$ref": "endpointslicelist_v1.json/endpointslicelist_v1.json"
+    },
+    {
+      "$ref": "injectpod_v1.json/injectpod_v1.json"
+    },
+    {
+      "$ref": "injectpodlist_v1.json/injectpodlist_v1.json"
+    },
+    {
+      "$ref": "gpu_v1alpha1.json/gpu_v1alpha1.json"
+    },
+    {
+      "$ref": "gpulist_v1alpha1.json/gpulist_v1alpha1.json"
+    },
+    {
+      "$ref": "avoidanceaction_v1alpha1.json/avoidanceaction_v1alpha1.json"
+    },
+    {
+      "$ref": "avoidanceactionlist_v1alpha1.json/avoidanceactionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "nodeqosensurancepolicy_v1alpha1.json/nodeqosensurancepolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "nodeqosensurancepolicylist_v1alpha1.json/nodeqosensurancepolicylist_v1alpha1.json"
+    },
+    {
+      "$ref": "podqosensurancepolicy_v1alpha1.json/podqosensurancepolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "podqosensurancepolicylist_v1alpha1.json/podqosensurancepolicylist_v1alpha1.json"
+    },
+    {
+      "$ref": "cloudeventsource_v1alpha1.json/cloudeventsource_v1alpha1.json"
+    },
+    {
+      "$ref": "cloudeventsourcelist_v1alpha1.json/cloudeventsourcelist_v1alpha1.json"
+    },
+    {
+      "$ref": "event_v1.json/event_v1.json"
+    },
+    {
+      "$ref": "eventlist_v1.json/eventlist_v1.json"
+    },
+    {
+      "$ref": "expansiontemplate_v1alpha1.json/expansiontemplate_v1alpha1.json"
+    },
+    {
+      "$ref": "expansiontemplate_v1beta1.json/expansiontemplate_v1beta1.json"
+    },
+    {
+      "$ref": "expansiontemplatelist_v1alpha1.json/expansiontemplatelist_v1alpha1.json"
+    },
+    {
+      "$ref": "expansiontemplatelist_v1beta1.json/expansiontemplatelist_v1beta1.json"
+    },
+    {
+      "$ref": "wasmplugin_v1alpha1.json/wasmplugin_v1alpha1.json"
+    },
+    {
+      "$ref": "wasmpluginlist_v1alpha1.json/wasmpluginlist_v1alpha1.json"
+    },
+    {
+      "$ref": "externalmetricvalue_v1beta1.json/externalmetricvalue_v1beta1.json"
+    },
+    {
+      "$ref": "externalmetricvaluelist_v1beta1.json/externalmetricvaluelist_v1beta1.json"
+    },
+    {
+      "$ref": "provider_v1alpha1.json/provider_v1alpha1.json"
+    },
+    {
+      "$ref": "provider_v1beta1.json/provider_v1beta1.json"
+    },
+    {
+      "$ref": "providerlist_v1alpha1.json/providerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "providerlist_v1beta1.json/providerlist_v1beta1.json"
+    },
+    {
+      "$ref": "flowschema_v1beta2.json/flowschema_v1beta2.json"
+    },
+    {
+      "$ref": "flowschema_v1beta3.json/flowschema_v1beta3.json"
+    },
+    {
+      "$ref": "flowschemalist_v1beta2.json/flowschemalist_v1beta2.json"
+    },
+    {
+      "$ref": "flowschemalist_v1beta3.json/flowschemalist_v1beta3.json"
+    },
+    {
+      "$ref": "prioritylevelconfiguration_v1beta2.json/prioritylevelconfiguration_v1beta2.json"
+    },
+    {
+      "$ref": "prioritylevelconfiguration_v1beta3.json/prioritylevelconfiguration_v1beta3.json"
+    },
+    {
+      "$ref": "prioritylevelconfigurationlist_v1beta2.json/prioritylevelconfigurationlist_v1beta2.json"
+    },
+    {
+      "$ref": "prioritylevelconfigurationlist_v1beta3.json/prioritylevelconfigurationlist_v1beta3.json"
+    },
+    {
+      "$ref": "room_v1alpha1.json/room_v1alpha1.json"
+    },
+    {
+      "$ref": "roomlist_v1alpha1.json/roomlist_v1alpha1.json"
+    },
+    {
+      "$ref": "backend_v1alpha1.json/backend_v1alpha1.json"
+    },
+    {
+      "$ref": "backendlist_v1alpha1.json/backendlist_v1alpha1.json"
+    },
+    {
+      "$ref": "backendtrafficpolicy_v1alpha1.json/backendtrafficpolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "backendtrafficpolicylist_v1alpha1.json/backendtrafficpolicylist_v1alpha1.json"
+    },
+    {
+      "$ref": "clienttrafficpolicy_v1alpha1.json/clienttrafficpolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "clienttrafficpolicylist_v1alpha1.json/clienttrafficpolicylist_v1alpha1.json"
+    },
+    {
+      "$ref": "envoyextensionpolicy_v1alpha1.json/envoyextensionpolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "envoyextensionpolicylist_v1alpha1.json/envoyextensionpolicylist_v1alpha1.json"
+    },
+    {
+      "$ref": "envoypatchpolicy_v1alpha1.json/envoypatchpolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "envoypatchpolicylist_v1alpha1.json/envoypatchpolicylist_v1alpha1.json"
+    },
+    {
+      "$ref": "envoyproxy_v1alpha1.json/envoyproxy_v1alpha1.json"
+    },
+    {
+      "$ref": "envoyproxylist_v1alpha1.json/envoyproxylist_v1alpha1.json"
+    },
+    {
+      "$ref": "httproutefilter_v1alpha1.json/httproutefilter_v1alpha1.json"
+    },
+    {
+      "$ref": "httproutefilterlist_v1alpha1.json/httproutefilterlist_v1alpha1.json"
+    },
+    {
+      "$ref": "securitypolicy_v1alpha1.json/securitypolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "securitypolicylist_v1alpha1.json/securitypolicylist_v1alpha1.json"
+    },
+    {
+      "$ref": "backendlbpolicy_v1alpha2.json/backendlbpolicy_v1alpha2.json"
+    },
+    {
+      "$ref": "backendlbpolicylist_v1alpha2.json/backendlbpolicylist_v1alpha2.json"
+    },
+    {
+      "$ref": "backendtlspolicy_v1alpha3.json/backendtlspolicy_v1alpha3.json"
+    },
+    {
+      "$ref": "backendtlspolicylist_v1alpha3.json/backendtlspolicylist_v1alpha3.json"
+    },
+    {
+      "$ref": "gateway_v1.json/gateway_v1.json"
+    },
+    {
+      "$ref": "gateway_v1beta1.json/gateway_v1beta1.json"
+    },
+    {
+      "$ref": "gatewayclass_v1.json/gatewayclass_v1.json"
+    },
+    {
+      "$ref": "gatewayclass_v1beta1.json/gatewayclass_v1beta1.json"
+    },
+    {
+      "$ref": "gatewayclasslist_v1.json/gatewayclasslist_v1.json"
+    },
+    {
+      "$ref": "gatewayclasslist_v1beta1.json/gatewayclasslist_v1beta1.json"
+    },
+    {
+      "$ref": "gatewaylist_v1.json/gatewaylist_v1.json"
+    },
+    {
+      "$ref": "gatewaylist_v1beta1.json/gatewaylist_v1beta1.json"
+    },
+    {
+      "$ref": "grpcroute_v1.json/grpcroute_v1.json"
+    },
+    {
+      "$ref": "grpcroutelist_v1.json/grpcroutelist_v1.json"
+    },
+    {
+      "$ref": "httproute_v1.json/httproute_v1.json"
+    },
+    {
+      "$ref": "httproute_v1beta1.json/httproute_v1beta1.json"
+    },
+    {
+      "$ref": "httproutelist_v1.json/httproutelist_v1.json"
+    },
+    {
+      "$ref": "httproutelist_v1beta1.json/httproutelist_v1beta1.json"
+    },
+    {
+      "$ref": "referencegrant_v1alpha2.json/referencegrant_v1alpha2.json"
+    },
+    {
+      "$ref": "referencegrant_v1beta1.json/referencegrant_v1beta1.json"
+    },
+    {
+      "$ref": "referencegrantlist_v1alpha2.json/referencegrantlist_v1alpha2.json"
+    },
+    {
+      "$ref": "referencegrantlist_v1beta1.json/referencegrantlist_v1beta1.json"
+    },
+    {
+      "$ref": "tcproute_v1alpha2.json/tcproute_v1alpha2.json"
+    },
+    {
+      "$ref": "tcproutelist_v1alpha2.json/tcproutelist_v1alpha2.json"
+    },
+    {
+      "$ref": "tlsroute_v1alpha2.json/tlsroute_v1alpha2.json"
+    },
+    {
+      "$ref": "tlsroutelist_v1alpha2.json/tlsroutelist_v1alpha2.json"
+    },
+    {
+      "$ref": "udproute_v1alpha2.json/udproute_v1alpha2.json"
+    },
+    {
+      "$ref": "udproutelist_v1alpha2.json/udproutelist_v1alpha2.json"
+    },
+    {
+      "$ref": "istiooperator_v1alpha1.json/istiooperator_v1alpha1.json"
+    },
+    {
+      "$ref": "istiooperatorlist_v1alpha1.json/istiooperatorlist_v1alpha1.json"
+    },
+    {
+      "$ref": "clustertriggerauthentication_v1alpha1.json/clustertriggerauthentication_v1alpha1.json"
+    },
+    {
+      "$ref": "clustertriggerauthenticationlist_v1alpha1.json/clustertriggerauthenticationlist_v1alpha1.json"
+    },
+    {
+      "$ref": "scaledjob_v1alpha1.json/scaledjob_v1alpha1.json"
+    },
+    {
+      "$ref": "scaledjoblist_v1alpha1.json/scaledjoblist_v1alpha1.json"
+    },
+    {
+      "$ref": "scaledobject_v1alpha1.json/scaledobject_v1alpha1.json"
+    },
+    {
+      "$ref": "scaledobjectlist_v1alpha1.json/scaledobjectlist_v1alpha1.json"
+    },
+    {
+      "$ref": "triggerauthentication_v1alpha1.json/triggerauthentication_v1alpha1.json"
+    },
+    {
+      "$ref": "triggerauthenticationlist_v1alpha1.json/triggerauthenticationlist_v1alpha1.json"
+    },
+    {
+      "$ref": "apigroup_v1.json/apigroup_v1.json"
+    },
+    {
+      "$ref": "apigrouplist_v1.json/apigrouplist_v1.json"
+    },
+    {
+      "$ref": "apiresourcelist_v1.json/apiresourcelist_v1.json"
+    },
+    {
+      "$ref": "deleteoptions_v1.json/deleteoptions_v1.json"
+    },
+    {
+      "$ref": "status_v1.json/status_v1.json"
+    },
+    {
+      "$ref": "nodemetrics_v1beta1.json/nodemetrics_v1beta1.json"
+    },
+    {
+      "$ref": "nodemetricslist_v1beta1.json/nodemetricslist_v1beta1.json"
+    },
+    {
+      "$ref": "podmetrics_v1beta1.json/podmetrics_v1beta1.json"
+    },
+    {
+      "$ref": "podmetricslist_v1beta1.json/podmetricslist_v1beta1.json"
+    },
+    {
+      "$ref": "alertmanager_v1.json/alertmanager_v1.json"
+    },
+    {
+      "$ref": "alertmanagerconfig_v1alpha1.json/alertmanagerconfig_v1alpha1.json"
+    },
+    {
+      "$ref": "alertmanagerconfiglist_v1alpha1.json/alertmanagerconfiglist_v1alpha1.json"
+    },
+    {
+      "$ref": "alertmanagerlist_v1.json/alertmanagerlist_v1.json"
+    },
+    {
+      "$ref": "podmonitor_v1.json/podmonitor_v1.json"
+    },
+    {
+      "$ref": "podmonitorlist_v1.json/podmonitorlist_v1.json"
+    },
+    {
+      "$ref": "probe_v1.json/probe_v1.json"
+    },
+    {
+      "$ref": "probelist_v1.json/probelist_v1.json"
+    },
+    {
+      "$ref": "prometheus_v1.json/prometheus_v1.json"
+    },
+    {
+      "$ref": "prometheusagent_v1alpha1.json/prometheusagent_v1alpha1.json"
+    },
+    {
+      "$ref": "prometheusagentlist_v1alpha1.json/prometheusagentlist_v1alpha1.json"
+    },
+    {
+      "$ref": "prometheuslist_v1.json/prometheuslist_v1.json"
+    },
+    {
+      "$ref": "prometheusrule_v1.json/prometheusrule_v1.json"
+    },
+    {
+      "$ref": "prometheusrulelist_v1.json/prometheusrulelist_v1.json"
+    },
+    {
+      "$ref": "scrapeconfig_v1alpha1.json/scrapeconfig_v1alpha1.json"
+    },
+    {
+      "$ref": "scrapeconfiglist_v1alpha1.json/scrapeconfiglist_v1alpha1.json"
+    },
+    {
+      "$ref": "servicemonitor_v1.json/servicemonitor_v1.json"
+    },
+    {
+      "$ref": "servicemonitorlist_v1.json/servicemonitorlist_v1.json"
+    },
+    {
+      "$ref": "thanosruler_v1.json/thanosruler_v1.json"
+    },
+    {
+      "$ref": "thanosrulerlist_v1.json/thanosrulerlist_v1.json"
+    },
+    {
+      "$ref": "gameserverallocationpolicy_v1.json/gameserverallocationpolicy_v1.json"
+    },
+    {
+      "$ref": "gameserverallocationpolicylist_v1.json/gameserverallocationpolicylist_v1.json"
+    },
+    {
+      "$ref": "serviceexport_v1alpha1.json/serviceexport_v1alpha1.json"
+    },
+    {
+      "$ref": "serviceexportlist_v1alpha1.json/serviceexportlist_v1alpha1.json"
+    },
+    {
+      "$ref": "serviceimport_v1alpha1.json/serviceimport_v1alpha1.json"
+    },
+    {
+      "$ref": "serviceimportlist_v1alpha1.json/serviceimportlist_v1alpha1.json"
+    },
+    {
+      "$ref": "assign_v1.json/assign_v1.json"
+    },
+    {
+      "$ref": "assign_v1alpha1.json/assign_v1alpha1.json"
+    },
+    {
+      "$ref": "assign_v1beta1.json/assign_v1beta1.json"
+    },
+    {
+      "$ref": "assignimage_v1alpha1.json/assignimage_v1alpha1.json"
+    },
+    {
+      "$ref": "assignimagelist_v1alpha1.json/assignimagelist_v1alpha1.json"
+    },
+    {
+      "$ref": "assignlist_v1.json/assignlist_v1.json"
+    },
+    {
+      "$ref": "assignlist_v1alpha1.json/assignlist_v1alpha1.json"
+    },
+    {
+      "$ref": "assignlist_v1beta1.json/assignlist_v1beta1.json"
+    },
+    {
+      "$ref": "assignmetadata_v1.json/assignmetadata_v1.json"
+    },
+    {
+      "$ref": "assignmetadata_v1alpha1.json/assignmetadata_v1alpha1.json"
+    },
+    {
+      "$ref": "assignmetadata_v1beta1.json/assignmetadata_v1beta1.json"
+    },
+    {
+      "$ref": "assignmetadatalist_v1.json/assignmetadatalist_v1.json"
+    },
+    {
+      "$ref": "assignmetadatalist_v1alpha1.json/assignmetadatalist_v1alpha1.json"
+    },
+    {
+      "$ref": "assignmetadatalist_v1beta1.json/assignmetadatalist_v1beta1.json"
+    },
+    {
+      "$ref": "modifyset_v1.json/modifyset_v1.json"
+    },
+    {
+      "$ref": "modifyset_v1alpha1.json/modifyset_v1alpha1.json"
+    },
+    {
+      "$ref": "modifyset_v1beta1.json/modifyset_v1beta1.json"
+    },
+    {
+      "$ref": "modifysetlist_v1.json/modifysetlist_v1.json"
+    },
+    {
+      "$ref": "modifysetlist_v1alpha1.json/modifysetlist_v1alpha1.json"
+    },
+    {
+      "$ref": "modifysetlist_v1beta1.json/modifysetlist_v1beta1.json"
+    },
+    {
+      "$ref": "ingress_v1.json/ingress_v1.json"
+    },
+    {
+      "$ref": "ingressclass_v1.json/ingressclass_v1.json"
+    },
+    {
+      "$ref": "ingressclasslist_v1.json/ingressclasslist_v1.json"
+    },
+    {
+      "$ref": "ingresslist_v1.json/ingresslist_v1.json"
+    },
+    {
+      "$ref": "networkpolicy_v1.json/networkpolicy_v1.json"
+    },
+    {
+      "$ref": "networkpolicylist_v1.json/networkpolicylist_v1.json"
+    },
+    {
+      "$ref": "dedicatedclblistener_v1alpha1.json/dedicatedclblistener_v1alpha1.json"
+    },
+    {
+      "$ref": "dedicatedclblistenerlist_v1alpha1.json/dedicatedclblistenerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "dedicatedclbservice_v1alpha1.json/dedicatedclbservice_v1alpha1.json"
+    },
+    {
+      "$ref": "dedicatedclbservicelist_v1alpha1.json/dedicatedclbservicelist_v1alpha1.json"
+    },
+    {
+      "$ref": "certificate_v1alpha1.json/certificate_v1alpha1.json"
+    },
+    {
+      "$ref": "certificatelist_v1alpha1.json/certificatelist_v1alpha1.json"
+    },
+    {
+      "$ref": "clusterdomainclaim_v1alpha1.json/clusterdomainclaim_v1alpha1.json"
+    },
+    {
+      "$ref": "clusterdomainclaimlist_v1alpha1.json/clusterdomainclaimlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ingress_v1alpha1.json/ingress_v1alpha1.json"
+    },
+    {
+      "$ref": "ingresslist_v1alpha1.json/ingresslist_v1alpha1.json"
+    },
+    {
+      "$ref": "serverlessservice_v1alpha1.json/serverlessservice_v1alpha1.json"
+    },
+    {
+      "$ref": "serverlessservicelist_v1alpha1.json/serverlessservicelist_v1alpha1.json"
+    },
+    {
+      "$ref": "destinationrule_v1.json/destinationrule_v1.json"
+    },
+    {
+      "$ref": "destinationrule_v1alpha3.json/destinationrule_v1alpha3.json"
+    },
+    {
+      "$ref": "destinationrule_v1beta1.json/destinationrule_v1beta1.json"
+    },
+    {
+      "$ref": "destinationrulelist_v1.json/destinationrulelist_v1.json"
+    },
+    {
+      "$ref": "destinationrulelist_v1alpha3.json/destinationrulelist_v1alpha3.json"
+    },
+    {
+      "$ref": "destinationrulelist_v1beta1.json/destinationrulelist_v1beta1.json"
+    },
+    {
+      "$ref": "envoyfilter_v1alpha3.json/envoyfilter_v1alpha3.json"
+    },
+    {
+      "$ref": "envoyfilterlist_v1alpha3.json/envoyfilterlist_v1alpha3.json"
+    },
+    {
+      "$ref": "gateway_v1.json/gateway_v1.json"
+    },
+    {
+      "$ref": "gateway_v1alpha3.json/gateway_v1alpha3.json"
+    },
+    {
+      "$ref": "gateway_v1beta1.json/gateway_v1beta1.json"
+    },
+    {
+      "$ref": "gatewaylist_v1.json/gatewaylist_v1.json"
+    },
+    {
+      "$ref": "gatewaylist_v1alpha3.json/gatewaylist_v1alpha3.json"
+    },
+    {
+      "$ref": "gatewaylist_v1beta1.json/gatewaylist_v1beta1.json"
+    },
+    {
+      "$ref": "proxyconfig_v1beta1.json/proxyconfig_v1beta1.json"
+    },
+    {
+      "$ref": "proxyconfiglist_v1beta1.json/proxyconfiglist_v1beta1.json"
+    },
+    {
+      "$ref": "serviceentry_v1.json/serviceentry_v1.json"
+    },
+    {
+      "$ref": "serviceentry_v1alpha3.json/serviceentry_v1alpha3.json"
+    },
+    {
+      "$ref": "serviceentry_v1beta1.json/serviceentry_v1beta1.json"
+    },
+    {
+      "$ref": "serviceentrylist_v1.json/serviceentrylist_v1.json"
+    },
+    {
+      "$ref": "serviceentrylist_v1alpha3.json/serviceentrylist_v1alpha3.json"
+    },
+    {
+      "$ref": "serviceentrylist_v1beta1.json/serviceentrylist_v1beta1.json"
+    },
+    {
+      "$ref": "sidecar_v1.json/sidecar_v1.json"
+    },
+    {
+      "$ref": "sidecar_v1alpha3.json/sidecar_v1alpha3.json"
+    },
+    {
+      "$ref": "sidecar_v1beta1.json/sidecar_v1beta1.json"
+    },
+    {
+      "$ref": "sidecarlist_v1.json/sidecarlist_v1.json"
+    },
+    {
+      "$ref": "sidecarlist_v1alpha3.json/sidecarlist_v1alpha3.json"
+    },
+    {
+      "$ref": "sidecarlist_v1beta1.json/sidecarlist_v1beta1.json"
+    },
+    {
+      "$ref": "virtualservice_v1.json/virtualservice_v1.json"
+    },
+    {
+      "$ref": "virtualservice_v1alpha3.json/virtualservice_v1alpha3.json"
+    },
+    {
+      "$ref": "virtualservice_v1beta1.json/virtualservice_v1beta1.json"
+    },
+    {
+      "$ref": "virtualservicelist_v1.json/virtualservicelist_v1.json"
+    },
+    {
+      "$ref": "virtualservicelist_v1alpha3.json/virtualservicelist_v1alpha3.json"
+    },
+    {
+      "$ref": "virtualservicelist_v1beta1.json/virtualservicelist_v1beta1.json"
+    },
+    {
+      "$ref": "workloadentry_v1.json/workloadentry_v1.json"
+    },
+    {
+      "$ref": "workloadentry_v1alpha3.json/workloadentry_v1alpha3.json"
+    },
+    {
+      "$ref": "workloadentry_v1beta1.json/workloadentry_v1beta1.json"
+    },
+    {
+      "$ref": "workloadentrylist_v1.json/workloadentrylist_v1.json"
+    },
+    {
+      "$ref": "workloadentrylist_v1alpha3.json/workloadentrylist_v1alpha3.json"
+    },
+    {
+      "$ref": "workloadentrylist_v1beta1.json/workloadentrylist_v1beta1.json"
+    },
+    {
+      "$ref": "workloadgroup_v1.json/workloadgroup_v1.json"
+    },
+    {
+      "$ref": "workloadgroup_v1alpha3.json/workloadgroup_v1alpha3.json"
+    },
+    {
+      "$ref": "workloadgroup_v1beta1.json/workloadgroup_v1beta1.json"
+    },
+    {
+      "$ref": "workloadgrouplist_v1.json/workloadgrouplist_v1.json"
+    },
+    {
+      "$ref": "workloadgrouplist_v1alpha3.json/workloadgrouplist_v1alpha3.json"
+    },
+    {
+      "$ref": "workloadgrouplist_v1beta1.json/workloadgrouplist_v1beta1.json"
+    },
+    {
+      "$ref": "multiclusteringress_v1alpha1.json/multiclusteringress_v1alpha1.json"
+    },
+    {
+      "$ref": "multiclusteringresslist_v1alpha1.json/multiclusteringresslist_v1alpha1.json"
+    },
+    {
+      "$ref": "multiclusterservice_v1alpha1.json/multiclusterservice_v1alpha1.json"
+    },
+    {
+      "$ref": "multiclusterservicelist_v1alpha1.json/multiclusterservicelist_v1alpha1.json"
+    },
+    {
+      "$ref": "eipclaim_v1.json/eipclaim_v1.json"
+    },
+    {
+      "$ref": "eipclaimlist_v1.json/eipclaimlist_v1.json"
+    },
+    {
+      "$ref": "loadbalancerresource_v1alpha1.json/loadbalancerresource_v1alpha1.json"
+    },
+    {
+      "$ref": "loadbalancerresourcelist_v1alpha1.json/loadbalancerresourcelist_v1alpha1.json"
+    },
+    {
+      "$ref": "nodeeniconfig_v1.json/nodeeniconfig_v1.json"
+    },
+    {
+      "$ref": "nodeeniconfiglist_v1.json/nodeeniconfiglist_v1.json"
+    },
+    {
+      "$ref": "vpceni_v1.json/vpceni_v1.json"
+    },
+    {
+      "$ref": "vpcenilist_v1.json/vpcenilist_v1.json"
+    },
+    {
+      "$ref": "vpcip_v1.json/vpcip_v1.json"
+    },
+    {
+      "$ref": "vpcipclaim_v1.json/vpcipclaim_v1.json"
+    },
+    {
+      "$ref": "vpcipclaimlist_v1.json/vpcipclaimlist_v1.json"
+    },
+    {
+      "$ref": "vpciplist_v1.json/vpciplist_v1.json"
+    },
+    {
+      "$ref": "nodefeaturerule_v1alpha1.json/nodefeaturerule_v1alpha1.json"
+    },
+    {
+      "$ref": "nodefeaturerulelist_v1alpha1.json/nodefeaturerulelist_v1alpha1.json"
+    },
+    {
+      "$ref": "runtimeclass_v1.json/runtimeclass_v1.json"
+    },
+    {
+      "$ref": "runtimeclasslist_v1.json/runtimeclasslist_v1.json"
+    },
+    {
+      "$ref": "karmada_v1alpha1.json/karmada_v1alpha1.json"
+    },
+    {
+      "$ref": "karmadalist_v1alpha1.json/karmadalist_v1alpha1.json"
+    },
+    {
+      "$ref": "knativeeventing_v1beta1.json/knativeeventing_v1beta1.json"
+    },
+    {
+      "$ref": "knativeeventinglist_v1beta1.json/knativeeventinglist_v1beta1.json"
+    },
+    {
+      "$ref": "knativeserving_v1beta1.json/knativeserving_v1beta1.json"
+    },
+    {
+      "$ref": "knativeservinglist_v1beta1.json/knativeservinglist_v1beta1.json"
+    },
+    {
+      "$ref": "tektonchain_v1alpha1.json/tektonchain_v1alpha1.json"
+    },
+    {
+      "$ref": "tektonchainlist_v1alpha1.json/tektonchainlist_v1alpha1.json"
+    },
+    {
+      "$ref": "tektonconfig_v1alpha1.json/tektonconfig_v1alpha1.json"
+    },
+    {
+      "$ref": "tektonconfiglist_v1alpha1.json/tektonconfiglist_v1alpha1.json"
+    },
+    {
+      "$ref": "tektonhub_v1alpha1.json/tektonhub_v1alpha1.json"
+    },
+    {
+      "$ref": "tektonhublist_v1alpha1.json/tektonhublist_v1alpha1.json"
+    },
+    {
+      "$ref": "tektoninstallerset_v1alpha1.json/tektoninstallerset_v1alpha1.json"
+    },
+    {
+      "$ref": "tektoninstallersetlist_v1alpha1.json/tektoninstallersetlist_v1alpha1.json"
+    },
+    {
+      "$ref": "tektonpipeline_v1alpha1.json/tektonpipeline_v1alpha1.json"
+    },
+    {
+      "$ref": "tektonpipelinelist_v1alpha1.json/tektonpipelinelist_v1alpha1.json"
+    },
+    {
+      "$ref": "tektonresult_v1alpha1.json/tektonresult_v1alpha1.json"
+    },
+    {
+      "$ref": "tektonresultlist_v1alpha1.json/tektonresultlist_v1alpha1.json"
+    },
+    {
+      "$ref": "tektontrigger_v1alpha1.json/tektontrigger_v1alpha1.json"
+    },
+    {
+      "$ref": "tektontriggerlist_v1alpha1.json/tektontriggerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "vlogs_v1beta1.json/vlogs_v1beta1.json"
+    },
+    {
+      "$ref": "vlogslist_v1beta1.json/vlogslist_v1beta1.json"
+    },
+    {
+      "$ref": "vmagent_v1beta1.json/vmagent_v1beta1.json"
+    },
+    {
+      "$ref": "vmagentlist_v1beta1.json/vmagentlist_v1beta1.json"
+    },
+    {
+      "$ref": "vmalert_v1beta1.json/vmalert_v1beta1.json"
+    },
+    {
+      "$ref": "vmalertlist_v1beta1.json/vmalertlist_v1beta1.json"
+    },
+    {
+      "$ref": "vmalertmanager_v1beta1.json/vmalertmanager_v1beta1.json"
+    },
+    {
+      "$ref": "vmalertmanagerconfig_v1beta1.json/vmalertmanagerconfig_v1beta1.json"
+    },
+    {
+      "$ref": "vmalertmanagerconfiglist_v1beta1.json/vmalertmanagerconfiglist_v1beta1.json"
+    },
+    {
+      "$ref": "vmalertmanagerlist_v1beta1.json/vmalertmanagerlist_v1beta1.json"
+    },
+    {
+      "$ref": "vmauth_v1beta1.json/vmauth_v1beta1.json"
+    },
+    {
+      "$ref": "vmauthlist_v1beta1.json/vmauthlist_v1beta1.json"
+    },
+    {
+      "$ref": "vmcluster_v1beta1.json/vmcluster_v1beta1.json"
+    },
+    {
+      "$ref": "vmclusterlist_v1beta1.json/vmclusterlist_v1beta1.json"
+    },
+    {
+      "$ref": "vmnodescrape_v1beta1.json/vmnodescrape_v1beta1.json"
+    },
+    {
+      "$ref": "vmnodescrapelist_v1beta1.json/vmnodescrapelist_v1beta1.json"
+    },
+    {
+      "$ref": "vmpodscrape_v1beta1.json/vmpodscrape_v1beta1.json"
+    },
+    {
+      "$ref": "vmpodscrapelist_v1beta1.json/vmpodscrapelist_v1beta1.json"
+    },
+    {
+      "$ref": "vmprobe_v1beta1.json/vmprobe_v1beta1.json"
+    },
+    {
+      "$ref": "vmprobelist_v1beta1.json/vmprobelist_v1beta1.json"
+    },
+    {
+      "$ref": "vmrule_v1beta1.json/vmrule_v1beta1.json"
+    },
+    {
+      "$ref": "vmrulelist_v1beta1.json/vmrulelist_v1beta1.json"
+    },
+    {
+      "$ref": "vmscrapeconfig_v1beta1.json/vmscrapeconfig_v1beta1.json"
+    },
+    {
+      "$ref": "vmscrapeconfiglist_v1beta1.json/vmscrapeconfiglist_v1beta1.json"
+    },
+    {
+      "$ref": "vmservicescrape_v1beta1.json/vmservicescrape_v1beta1.json"
+    },
+    {
+      "$ref": "vmservicescrapelist_v1beta1.json/vmservicescrapelist_v1beta1.json"
+    },
+    {
+      "$ref": "vmsingle_v1beta1.json/vmsingle_v1beta1.json"
+    },
+    {
+      "$ref": "vmsinglelist_v1beta1.json/vmsinglelist_v1beta1.json"
+    },
+    {
+      "$ref": "vmstaticscrape_v1beta1.json/vmstaticscrape_v1beta1.json"
+    },
+    {
+      "$ref": "vmstaticscrapelist_v1beta1.json/vmstaticscrapelist_v1beta1.json"
+    },
+    {
+      "$ref": "vmuser_v1beta1.json/vmuser_v1beta1.json"
+    },
+    {
+      "$ref": "vmuserlist_v1beta1.json/vmuserlist_v1beta1.json"
+    },
+    {
+      "$ref": "catalogsource_v1alpha1.json/catalogsource_v1alpha1.json"
+    },
+    {
+      "$ref": "catalogsourcelist_v1alpha1.json/catalogsourcelist_v1alpha1.json"
+    },
+    {
+      "$ref": "clusterserviceversion_v1alpha1.json/clusterserviceversion_v1alpha1.json"
+    },
+    {
+      "$ref": "clusterserviceversionlist_v1alpha1.json/clusterserviceversionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "installplan_v1alpha1.json/installplan_v1alpha1.json"
+    },
+    {
+      "$ref": "installplanlist_v1alpha1.json/installplanlist_v1alpha1.json"
+    },
+    {
+      "$ref": "operator_v1.json/operator_v1.json"
+    },
+    {
+      "$ref": "operatorgroup_v1.json/operatorgroup_v1.json"
+    },
+    {
+      "$ref": "operatorgroup_v1alpha2.json/operatorgroup_v1alpha2.json"
+    },
+    {
+      "$ref": "operatorgrouplist_v1.json/operatorgrouplist_v1.json"
+    },
+    {
+      "$ref": "operatorgrouplist_v1alpha2.json/operatorgrouplist_v1alpha2.json"
+    },
+    {
+      "$ref": "operatorlist_v1.json/operatorlist_v1.json"
+    },
+    {
+      "$ref": "subscription_v1alpha1.json/subscription_v1alpha1.json"
+    },
+    {
+      "$ref": "subscriptionlist_v1alpha1.json/subscriptionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "eviction_v1.json/eviction_v1.json"
+    },
+    {
+      "$ref": "poddisruptionbudget_v1.json/poddisruptionbudget_v1.json"
+    },
+    {
+      "$ref": "poddisruptionbudgetlist_v1.json/poddisruptionbudgetlist_v1.json"
+    },
+    {
+      "$ref": "clusteroverridepolicy_v1alpha1.json/clusteroverridepolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "clusteroverridepolicylist_v1alpha1.json/clusteroverridepolicylist_v1alpha1.json"
+    },
+    {
+      "$ref": "clusterpropagationpolicy_v1alpha1.json/clusterpropagationpolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "clusterpropagationpolicylist_v1alpha1.json/clusterpropagationpolicylist_v1alpha1.json"
+    },
+    {
+      "$ref": "federatedresourcequota_v1alpha1.json/federatedresourcequota_v1alpha1.json"
+    },
+    {
+      "$ref": "federatedresourcequotalist_v1alpha1.json/federatedresourcequotalist_v1alpha1.json"
+    },
+    {
+      "$ref": "overridepolicy_v1alpha1.json/overridepolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "overridepolicylist_v1alpha1.json/overridepolicylist_v1alpha1.json"
+    },
+    {
+      "$ref": "propagationpolicy_v1alpha1.json/propagationpolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "propagationpolicylist_v1alpha1.json/propagationpolicylist_v1alpha1.json"
+    },
+    {
+      "$ref": "clusternodeprediction_v1alpha1.json/clusternodeprediction_v1alpha1.json"
+    },
+    {
+      "$ref": "clusternodepredictionlist_v1alpha1.json/clusternodepredictionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "timeseriesprediction_v1alpha1.json/timeseriesprediction_v1alpha1.json"
+    },
+    {
+      "$ref": "timeseriespredictionlist_v1alpha1.json/timeseriespredictionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "clusterrole_v1.json/clusterrole_v1.json"
+    },
+    {
+      "$ref": "clusterrolebinding_v1.json/clusterrolebinding_v1.json"
+    },
+    {
+      "$ref": "clusterrolebindinglist_v1.json/clusterrolebindinglist_v1.json"
+    },
+    {
+      "$ref": "clusterrolelist_v1.json/clusterrolelist_v1.json"
+    },
+    {
+      "$ref": "role_v1.json/role_v1.json"
+    },
+    {
+      "$ref": "rolebinding_v1.json/rolebinding_v1.json"
+    },
+    {
+      "$ref": "rolebindinglist_v1.json/rolebindinglist_v1.json"
+    },
+    {
+      "$ref": "rolelist_v1.json/rolelist_v1.json"
+    },
+    {
+      "$ref": "resolutionrequest_v1alpha1.json/resolutionrequest_v1alpha1.json"
+    },
+    {
+      "$ref": "resolutionrequest_v1beta1.json/resolutionrequest_v1beta1.json"
+    },
+    {
+      "$ref": "resolutionrequestlist_v1alpha1.json/resolutionrequestlist_v1alpha1.json"
+    },
+    {
+      "$ref": "resolutionrequestlist_v1beta1.json/resolutionrequestlist_v1beta1.json"
+    },
+    {
+      "$ref": "priorityclass_v1.json/priorityclass_v1.json"
+    },
+    {
+      "$ref": "priorityclasslist_v1.json/priorityclasslist_v1.json"
+    },
+    {
+      "$ref": "clusternoderesourcepolicy_v1alpha1.json/clusternoderesourcepolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "clusternoderesourcepolicylist_v1alpha1.json/clusternoderesourcepolicylist_v1alpha1.json"
+    },
+    {
+      "$ref": "craneschedulerconfiguration_v1alpha1.json/craneschedulerconfiguration_v1alpha1.json"
+    },
+    {
+      "$ref": "craneschedulerconfigurationlist_v1alpha1.json/craneschedulerconfigurationlist_v1alpha1.json"
+    },
+    {
+      "$ref": "noderesourcepolicy_v1alpha1.json/noderesourcepolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "noderesourcepolicylist_v1alpha1.json/noderesourcepolicylist_v1alpha1.json"
+    },
+    {
+      "$ref": "authorizationpolicy_v1.json/authorizationpolicy_v1.json"
+    },
+    {
+      "$ref": "authorizationpolicy_v1beta1.json/authorizationpolicy_v1beta1.json"
+    },
+    {
+      "$ref": "authorizationpolicylist_v1.json/authorizationpolicylist_v1.json"
+    },
+    {
+      "$ref": "authorizationpolicylist_v1beta1.json/authorizationpolicylist_v1beta1.json"
+    },
+    {
+      "$ref": "peerauthentication_v1.json/peerauthentication_v1.json"
+    },
+    {
+      "$ref": "peerauthentication_v1beta1.json/peerauthentication_v1beta1.json"
+    },
+    {
+      "$ref": "peerauthenticationlist_v1.json/peerauthenticationlist_v1.json"
+    },
+    {
+      "$ref": "peerauthenticationlist_v1beta1.json/peerauthenticationlist_v1beta1.json"
+    },
+    {
+      "$ref": "requestauthentication_v1.json/requestauthentication_v1.json"
+    },
+    {
+      "$ref": "requestauthentication_v1beta1.json/requestauthentication_v1beta1.json"
+    },
+    {
+      "$ref": "requestauthenticationlist_v1.json/requestauthenticationlist_v1.json"
+    },
+    {
+      "$ref": "requestauthenticationlist_v1beta1.json/requestauthenticationlist_v1beta1.json"
+    },
+    {
+      "$ref": "configuration_v1.json/configuration_v1.json"
+    },
+    {
+      "$ref": "configurationlist_v1.json/configurationlist_v1.json"
+    },
+    {
+      "$ref": "domainmapping_v1alpha1.json/domainmapping_v1alpha1.json"
+    },
+    {
+      "$ref": "domainmapping_v1beta1.json/domainmapping_v1beta1.json"
+    },
+    {
+      "$ref": "domainmappinglist_v1alpha1.json/domainmappinglist_v1alpha1.json"
+    },
+    {
+      "$ref": "domainmappinglist_v1beta1.json/domainmappinglist_v1beta1.json"
+    },
+    {
+      "$ref": "revision_v1.json/revision_v1.json"
+    },
+    {
+      "$ref": "revisionlist_v1.json/revisionlist_v1.json"
+    },
+    {
+      "$ref": "route_v1.json/route_v1.json"
+    },
+    {
+      "$ref": "routelist_v1.json/routelist_v1.json"
+    },
+    {
+      "$ref": "service_v1.json/service_v1.json"
+    },
+    {
+      "$ref": "servicelist_v1.json/servicelist_v1.json"
+    },
+    {
+      "$ref": "volumesnapshot_v1.json/volumesnapshot_v1.json"
+    },
+    {
+      "$ref": "volumesnapshot_v1beta1.json/volumesnapshot_v1beta1.json"
+    },
+    {
+      "$ref": "volumesnapshotclass_v1.json/volumesnapshotclass_v1.json"
+    },
+    {
+      "$ref": "volumesnapshotclass_v1beta1.json/volumesnapshotclass_v1beta1.json"
+    },
+    {
+      "$ref": "volumesnapshotclasslist_v1.json/volumesnapshotclasslist_v1.json"
+    },
+    {
+      "$ref": "volumesnapshotclasslist_v1beta1.json/volumesnapshotclasslist_v1beta1.json"
+    },
+    {
+      "$ref": "volumesnapshotcontent_v1.json/volumesnapshotcontent_v1.json"
+    },
+    {
+      "$ref": "volumesnapshotcontent_v1beta1.json/volumesnapshotcontent_v1beta1.json"
+    },
+    {
+      "$ref": "volumesnapshotcontentlist_v1.json/volumesnapshotcontentlist_v1.json"
+    },
+    {
+      "$ref": "volumesnapshotcontentlist_v1beta1.json/volumesnapshotcontentlist_v1beta1.json"
+    },
+    {
+      "$ref": "volumesnapshotlist_v1.json/volumesnapshotlist_v1.json"
+    },
+    {
+      "$ref": "volumesnapshotlist_v1beta1.json/volumesnapshotlist_v1beta1.json"
+    },
+    {
+      "$ref": "crontab_v1.json/crontab_v1.json"
+    },
+    {
+      "$ref": "crontablist_v1.json/crontablist_v1.json"
+    },
+    {
+      "$ref": "constraintpodstatus_v1beta1.json/constraintpodstatus_v1beta1.json"
+    },
+    {
+      "$ref": "constraintpodstatuslist_v1beta1.json/constraintpodstatuslist_v1beta1.json"
+    },
+    {
+      "$ref": "constrainttemplatepodstatus_v1beta1.json/constrainttemplatepodstatus_v1beta1.json"
+    },
+    {
+      "$ref": "constrainttemplatepodstatuslist_v1beta1.json/constrainttemplatepodstatuslist_v1beta1.json"
+    },
+    {
+      "$ref": "expansiontemplatepodstatus_v1beta1.json/expansiontemplatepodstatus_v1beta1.json"
+    },
+    {
+      "$ref": "expansiontemplatepodstatuslist_v1beta1.json/expansiontemplatepodstatuslist_v1beta1.json"
+    },
+    {
+      "$ref": "mutatorpodstatus_v1beta1.json/mutatorpodstatus_v1beta1.json"
+    },
+    {
+      "$ref": "mutatorpodstatuslist_v1beta1.json/mutatorpodstatuslist_v1beta1.json"
+    },
+    {
+      "$ref": "csidriver_v1.json/csidriver_v1.json"
+    },
+    {
+      "$ref": "csidriverlist_v1.json/csidriverlist_v1.json"
+    },
+    {
+      "$ref": "csinode_v1.json/csinode_v1.json"
+    },
+    {
+      "$ref": "csinodelist_v1.json/csinodelist_v1.json"
+    },
+    {
+      "$ref": "csistoragecapacity_v1.json/csistoragecapacity_v1.json"
+    },
+    {
+      "$ref": "csistoragecapacitylist_v1.json/csistoragecapacitylist_v1.json"
+    },
+    {
+      "$ref": "storageclass_v1.json/storageclass_v1.json"
+    },
+    {
+      "$ref": "storageclasslist_v1.json/storageclasslist_v1.json"
+    },
+    {
+      "$ref": "volumeattachment_v1.json/volumeattachment_v1.json"
+    },
+    {
+      "$ref": "volumeattachmentlist_v1.json/volumeattachmentlist_v1.json"
+    },
+    {
+      "$ref": "syncset_v1alpha1.json/syncset_v1alpha1.json"
+    },
+    {
+      "$ref": "syncsetlist_v1alpha1.json/syncsetlist_v1alpha1.json"
+    },
+    {
+      "$ref": "tcfs_v1alpha1.json/tcfs_v1alpha1.json"
+    },
+    {
+      "$ref": "tcfslist_v1alpha1.json/tcfslist_v1alpha1.json"
+    },
+    {
+      "$ref": "clustertask_v1beta1.json/clustertask_v1beta1.json"
+    },
+    {
+      "$ref": "clustertasklist_v1beta1.json/clustertasklist_v1beta1.json"
+    },
+    {
+      "$ref": "customrun_v1beta1.json/customrun_v1beta1.json"
+    },
+    {
+      "$ref": "customrunlist_v1beta1.json/customrunlist_v1beta1.json"
+    },
+    {
+      "$ref": "pipeline_v1.json/pipeline_v1.json"
+    },
+    {
+      "$ref": "pipeline_v1beta1.json/pipeline_v1beta1.json"
+    },
+    {
+      "$ref": "pipelinelist_v1.json/pipelinelist_v1.json"
+    },
+    {
+      "$ref": "pipelinelist_v1beta1.json/pipelinelist_v1beta1.json"
+    },
+    {
+      "$ref": "pipelinerun_v1.json/pipelinerun_v1.json"
+    },
+    {
+      "$ref": "pipelinerun_v1beta1.json/pipelinerun_v1beta1.json"
+    },
+    {
+      "$ref": "pipelinerunlist_v1.json/pipelinerunlist_v1.json"
+    },
+    {
+      "$ref": "pipelinerunlist_v1beta1.json/pipelinerunlist_v1beta1.json"
+    },
+    {
+      "$ref": "task_v1.json/task_v1.json"
+    },
+    {
+      "$ref": "task_v1beta1.json/task_v1beta1.json"
+    },
+    {
+      "$ref": "tasklist_v1.json/tasklist_v1.json"
+    },
+    {
+      "$ref": "tasklist_v1beta1.json/tasklist_v1beta1.json"
+    },
+    {
+      "$ref": "taskrun_v1.json/taskrun_v1.json"
+    },
+    {
+      "$ref": "taskrun_v1beta1.json/taskrun_v1beta1.json"
+    },
+    {
+      "$ref": "taskrunlist_v1.json/taskrunlist_v1.json"
+    },
+    {
+      "$ref": "taskrunlist_v1beta1.json/taskrunlist_v1beta1.json"
+    },
+    {
+      "$ref": "verificationpolicy_v1alpha1.json/verificationpolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "verificationpolicylist_v1alpha1.json/verificationpolicylist_v1alpha1.json"
+    },
+    {
+      "$ref": "telemetry_v1.json/telemetry_v1.json"
+    },
+    {
+      "$ref": "telemetry_v1alpha1.json/telemetry_v1alpha1.json"
+    },
+    {
+      "$ref": "telemetrylist_v1.json/telemetrylist_v1.json"
+    },
+    {
+      "$ref": "telemetrylist_v1alpha1.json/telemetrylist_v1alpha1.json"
+    },
+    {
+      "$ref": "constrainttemplate_v1.json/constrainttemplate_v1.json"
+    },
+    {
+      "$ref": "constrainttemplate_v1alpha1.json/constrainttemplate_v1alpha1.json"
+    },
+    {
+      "$ref": "constrainttemplate_v1beta1.json/constrainttemplate_v1beta1.json"
+    },
+    {
+      "$ref": "constrainttemplatelist_v1.json/constrainttemplatelist_v1.json"
+    },
+    {
+      "$ref": "constrainttemplatelist_v1alpha1.json/constrainttemplatelist_v1alpha1.json"
+    },
+    {
+      "$ref": "constrainttemplatelist_v1beta1.json/constrainttemplatelist_v1beta1.json"
+    },
+    {
+      "$ref": "ingressroute_v1alpha1.json/ingressroute_v1alpha1.json"
+    },
+    {
+      "$ref": "ingressroutelist_v1alpha1.json/ingressroutelist_v1alpha1.json"
+    },
+    {
+      "$ref": "ingressroutetcp_v1alpha1.json/ingressroutetcp_v1alpha1.json"
+    },
+    {
+      "$ref": "ingressroutetcplist_v1alpha1.json/ingressroutetcplist_v1alpha1.json"
+    },
+    {
+      "$ref": "ingressrouteudp_v1alpha1.json/ingressrouteudp_v1alpha1.json"
+    },
+    {
+      "$ref": "ingressrouteudplist_v1alpha1.json/ingressrouteudplist_v1alpha1.json"
+    },
+    {
+      "$ref": "middleware_v1alpha1.json/middleware_v1alpha1.json"
+    },
+    {
+      "$ref": "middlewarelist_v1alpha1.json/middlewarelist_v1alpha1.json"
+    },
+    {
+      "$ref": "middlewaretcp_v1alpha1.json/middlewaretcp_v1alpha1.json"
+    },
+    {
+      "$ref": "middlewaretcplist_v1alpha1.json/middlewaretcplist_v1alpha1.json"
+    },
+    {
+      "$ref": "serverstransport_v1alpha1.json/serverstransport_v1alpha1.json"
+    },
+    {
+      "$ref": "serverstransportlist_v1alpha1.json/serverstransportlist_v1alpha1.json"
+    },
+    {
+      "$ref": "tlsoption_v1alpha1.json/tlsoption_v1alpha1.json"
+    },
+    {
+      "$ref": "tlsoptionlist_v1alpha1.json/tlsoptionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "tlsstore_v1alpha1.json/tlsstore_v1alpha1.json"
+    },
+    {
+      "$ref": "tlsstorelist_v1alpha1.json/tlsstorelist_v1alpha1.json"
+    },
+    {
+      "$ref": "traefikservice_v1alpha1.json/traefikservice_v1alpha1.json"
+    },
+    {
+      "$ref": "traefikservicelist_v1alpha1.json/traefikservicelist_v1alpha1.json"
+    },
+    {
+      "$ref": "clusterinterceptor_v1alpha1.json/clusterinterceptor_v1alpha1.json"
+    },
+    {
+      "$ref": "clusterinterceptorlist_v1alpha1.json/clusterinterceptorlist_v1alpha1.json"
+    },
+    {
+      "$ref": "clustertriggerbinding_v1alpha1.json/clustertriggerbinding_v1alpha1.json"
+    },
+    {
+      "$ref": "clustertriggerbinding_v1beta1.json/clustertriggerbinding_v1beta1.json"
+    },
+    {
+      "$ref": "clustertriggerbindinglist_v1alpha1.json/clustertriggerbindinglist_v1alpha1.json"
+    },
+    {
+      "$ref": "clustertriggerbindinglist_v1beta1.json/clustertriggerbindinglist_v1beta1.json"
+    },
+    {
+      "$ref": "eventlistener_v1alpha1.json/eventlistener_v1alpha1.json"
+    },
+    {
+      "$ref": "eventlistener_v1beta1.json/eventlistener_v1beta1.json"
+    },
+    {
+      "$ref": "eventlistenerlist_v1alpha1.json/eventlistenerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "eventlistenerlist_v1beta1.json/eventlistenerlist_v1beta1.json"
+    },
+    {
+      "$ref": "interceptor_v1alpha1.json/interceptor_v1alpha1.json"
+    },
+    {
+      "$ref": "interceptorlist_v1alpha1.json/interceptorlist_v1alpha1.json"
+    },
+    {
+      "$ref": "trigger_v1alpha1.json/trigger_v1alpha1.json"
+    },
+    {
+      "$ref": "trigger_v1beta1.json/trigger_v1beta1.json"
+    },
+    {
+      "$ref": "triggerbinding_v1alpha1.json/triggerbinding_v1alpha1.json"
+    },
+    {
+      "$ref": "triggerbinding_v1beta1.json/triggerbinding_v1beta1.json"
+    },
+    {
+      "$ref": "triggerbindinglist_v1alpha1.json/triggerbindinglist_v1alpha1.json"
+    },
+    {
+      "$ref": "triggerbindinglist_v1beta1.json/triggerbindinglist_v1beta1.json"
+    },
+    {
+      "$ref": "triggerlist_v1alpha1.json/triggerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "triggerlist_v1beta1.json/triggerlist_v1beta1.json"
+    },
+    {
+      "$ref": "triggertemplate_v1alpha1.json/triggertemplate_v1alpha1.json"
+    },
+    {
+      "$ref": "triggertemplate_v1beta1.json/triggertemplate_v1beta1.json"
+    },
+    {
+      "$ref": "triggertemplatelist_v1alpha1.json/triggertemplatelist_v1alpha1.json"
+    },
+    {
+      "$ref": "triggertemplatelist_v1beta1.json/triggertemplatelist_v1beta1.json"
+    },
+    {
+      "$ref": "backup_v1.json/backup_v1.json"
+    },
+    {
+      "$ref": "backuplist_v1.json/backuplist_v1.json"
+    },
+    {
+      "$ref": "backupstoragelocation_v1.json/backupstoragelocation_v1.json"
+    },
+    {
+      "$ref": "backupstoragelocationlist_v1.json/backupstoragelocationlist_v1.json"
+    },
+    {
+      "$ref": "deletebackuprequest_v1.json/deletebackuprequest_v1.json"
+    },
+    {
+      "$ref": "deletebackuprequestlist_v1.json/deletebackuprequestlist_v1.json"
+    },
+    {
+      "$ref": "downloadrequest_v1.json/downloadrequest_v1.json"
+    },
+    {
+      "$ref": "downloadrequestlist_v1.json/downloadrequestlist_v1.json"
+    },
+    {
+      "$ref": "podvolumebackup_v1.json/podvolumebackup_v1.json"
+    },
+    {
+      "$ref": "podvolumebackuplist_v1.json/podvolumebackuplist_v1.json"
+    },
+    {
+      "$ref": "podvolumerestore_v1.json/podvolumerestore_v1.json"
+    },
+    {
+      "$ref": "podvolumerestorelist_v1.json/podvolumerestorelist_v1.json"
+    },
+    {
+      "$ref": "resticrepository_v1.json/resticrepository_v1.json"
+    },
+    {
+      "$ref": "resticrepositorylist_v1.json/resticrepositorylist_v1.json"
+    },
+    {
+      "$ref": "restore_v1.json/restore_v1.json"
+    },
+    {
+      "$ref": "restorelist_v1.json/restorelist_v1.json"
+    },
+    {
+      "$ref": "schedule_v1.json/schedule_v1.json"
+    },
+    {
+      "$ref": "schedulelist_v1.json/schedulelist_v1.json"
+    },
+    {
+      "$ref": "serverstatusrequest_v1.json/serverstatusrequest_v1.json"
+    },
+    {
+      "$ref": "serverstatusrequestlist_v1.json/serverstatusrequestlist_v1.json"
+    },
+    {
+      "$ref": "volumesnapshotlocation_v1.json/volumesnapshotlocation_v1.json"
+    },
+    {
+      "$ref": "volumesnapshotlocationlist_v1.json/volumesnapshotlocationlist_v1.json"
+    },
+    {
+      "$ref": "clusterresourcebinding_v1alpha1.json/clusterresourcebinding_v1alpha1.json"
+    },
+    {
+      "$ref": "clusterresourcebinding_v1alpha2.json/clusterresourcebinding_v1alpha2.json"
+    },
+    {
+      "$ref": "clusterresourcebindinglist_v1alpha1.json/clusterresourcebindinglist_v1alpha1.json"
+    },
+    {
+      "$ref": "clusterresourcebindinglist_v1alpha2.json/clusterresourcebindinglist_v1alpha2.json"
+    },
+    {
+      "$ref": "resourcebinding_v1alpha1.json/resourcebinding_v1alpha1.json"
+    },
+    {
+      "$ref": "resourcebinding_v1alpha2.json/resourcebinding_v1alpha2.json"
+    },
+    {
+      "$ref": "resourcebindinglist_v1alpha1.json/resourcebindinglist_v1alpha1.json"
+    },
+    {
+      "$ref": "resourcebindinglist_v1alpha2.json/resourcebindinglist_v1alpha2.json"
+    },
+    {
+      "$ref": "work_v1alpha1.json/work_v1alpha1.json"
+    },
+    {
+      "$ref": "worklist_v1alpha1.json/worklist_v1alpha1.json"
+    },
+    {
+      "$ref": "manifestwork_v1.json/manifestwork_v1.json"
+    },
+    {
+      "$ref": "manifestworklist_v1.json/manifestworklist_v1.json"
+    },
+    {
+      "$ref": "manifestworkreplicaset_v1alpha1.json/manifestworkreplicaset_v1alpha1.json"
+    },
+    {
+      "$ref": "manifestworkreplicasetlist_v1alpha1.json/manifestworkreplicasetlist_v1alpha1.json"
+    }
+  ]
+}

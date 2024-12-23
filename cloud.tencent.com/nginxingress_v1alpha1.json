@@ -1,0 +1,1166 @@
+{
+  "description": "NginxIngress",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "cloud.tencent.com/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "NginxIngress"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "ingressClass": {
+          "pattern": "[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*",
+          "type": "string"
+        },
+        "logConfig": {
+          "properties": {
+            "dashboardId": {
+              "type": "string"
+            },
+            "enable": {
+              "type": "boolean"
+            },
+            "logSetId": {
+              "type": "string"
+            },
+            "logTopicId": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "enable"
+          ],
+          "type": "object"
+        },
+        "monitor": {
+          "properties": {
+            "enable": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "enable"
+          ],
+          "type": "object"
+        },
+        "service": {
+          "properties": {
+            "annotation": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            "clusterIP": {
+              "type": "string"
+            },
+            "directAccess": {
+              "type": "boolean"
+            },
+            "sessionAffinity": {
+              "enum": [
+                "ClientIP",
+                "None"
+              ],
+              "type": "string"
+            },
+            "tcp": {
+              "items": {
+                "properties": {
+                  "nodePort": {
+                    "maximum": 65535,
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "port": {
+                    "maximum": 65535,
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "targetPort": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ],
+                    "x-kubernetes-int-or-string": true
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "type": {
+              "enum": [
+                "ClusterIP",
+                "NodePort",
+                "LoadBalancer",
+                "ExternalName"
+              ],
+              "type": "string"
+            },
+            "udp": {
+              "items": {
+                "properties": {
+                  "nodePort": {
+                    "maximum": 65535,
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "port": {
+                    "maximum": 65535,
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "targetPort": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ],
+                    "x-kubernetes-int-or-string": true
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "type": "object"
+        },
+        "watchNamespace": {
+          "pattern": "[a-z0-9]([-a-z0-9]*[a-z0-9])?",
+          "type": "string"
+        },
+        "workLoad": {
+          "properties": {
+            "hpa": {
+              "properties": {
+                "behavior": {
+                  "properties": {
+                    "scaleDown": {
+                      "properties": {
+                        "policies": {
+                          "items": {
+                            "properties": {
+                              "periodSeconds": {
+                                "maximum": 1800,
+                                "minimum": 0,
+                                "type": "integer"
+                              },
+                              "type": {
+                                "enum": [
+                                  "Pods",
+                                  "Percent"
+                                ],
+                                "type": "string"
+                              },
+                              "value": {
+                                "minimum": 0,
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "value",
+                              "periodSeconds"
+                            ],
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "selectPolicy": {
+                          "enum": [
+                            "Max",
+                            "Min",
+                            "Disabled"
+                          ],
+                          "type": "string"
+                        },
+                        "stabilizationWindowSeconds": {
+                          "maximum": 3600,
+                          "minimum": 0,
+                          "type": "integer"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "scaleUp": {
+                      "properties": {
+                        "policies": {
+                          "items": {
+                            "properties": {
+                              "periodSeconds": {
+                                "maximum": 1800,
+                                "minimum": 0,
+                                "type": "integer"
+                              },
+                              "type": {
+                                "enum": [
+                                  "Pods",
+                                  "Percent"
+                                ],
+                                "type": "string"
+                              },
+                              "value": {
+                                "minimum": 0,
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "value",
+                              "periodSeconds"
+                            ],
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "selectPolicy": {
+                          "enum": [
+                            "Max",
+                            "Min",
+                            "Disabled"
+                          ],
+                          "type": "string"
+                        },
+                        "stabilizationWindowSeconds": {
+                          "maximum": 3600,
+                          "minimum": 0,
+                          "type": "integer"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                },
+                "enable": {
+                  "type": "boolean"
+                },
+                "maxReplicas": {
+                  "type": "integer"
+                },
+                "metrics": {
+                  "items": {
+                    "properties": {
+                      "external": {
+                        "properties": {
+                          "metricName": {
+                            "type": "string"
+                          },
+                          "metricSelector": {
+                            "properties": {
+                              "matchExpressions": {
+                                "items": {
+                                  "properties": {
+                                    "key": {
+                                      "type": "string"
+                                    },
+                                    "operator": {
+                                      "enum": [
+                                        "In",
+                                        "NotIn",
+                                        "Exists",
+                                        "DoesNotExist"
+                                      ],
+                                      "type": "string"
+                                    },
+                                    "values": {
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "type": "array"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              },
+                              "matchLabels": {
+                                "additionalProperties": {
+                                  "type": "string"
+                                },
+                                "type": "object"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "targetAverageValue": {
+                            "type": "string"
+                          },
+                          "targetValue": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "object": {
+                        "properties": {
+                          "averageValue": {
+                            "type": "string"
+                          },
+                          "metricName": {
+                            "type": "string"
+                          },
+                          "selector": {
+                            "properties": {
+                              "matchExpressions": {
+                                "items": {
+                                  "properties": {
+                                    "key": {
+                                      "type": "string"
+                                    },
+                                    "operator": {
+                                      "enum": [
+                                        "In",
+                                        "NotIn",
+                                        "Exists",
+                                        "DoesNotExist"
+                                      ],
+                                      "type": "string"
+                                    },
+                                    "values": {
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "type": "array"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              },
+                              "matchLabels": {
+                                "additionalProperties": {
+                                  "type": "string"
+                                },
+                                "type": "object"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "target": {
+                            "properties": {
+                              "apiVersion": {
+                                "type": "string"
+                              },
+                              "kind": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "kind",
+                              "name"
+                            ],
+                            "type": "object"
+                          },
+                          "targetValue": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "pods": {
+                        "properties": {
+                          "metricName": {
+                            "type": "string"
+                          },
+                          "selector": {
+                            "properties": {
+                              "matchExpressions": {
+                                "items": {
+                                  "properties": {
+                                    "key": {
+                                      "type": "string"
+                                    },
+                                    "operator": {
+                                      "enum": [
+                                        "In",
+                                        "NotIn",
+                                        "Exists",
+                                        "DoesNotExist"
+                                      ],
+                                      "type": "string"
+                                    },
+                                    "values": {
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "type": "array"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              },
+                              "matchLabels": {
+                                "additionalProperties": {
+                                  "type": "string"
+                                },
+                                "type": "object"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "targetAverageValue": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "resource": {
+                        "properties": {
+                          "name": {
+                            "enum": [
+                              "cpu",
+                              "memory",
+                              "storage",
+                              "ephemeral-storage"
+                            ],
+                            "type": "string"
+                          },
+                          "targetAverageUtilization": {
+                            "type": "integer"
+                          },
+                          "targetAverageValue": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": {
+                        "enum": [
+                          "Object",
+                          "Pods",
+                          "Resource",
+                          "External"
+                        ],
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "minReplicas": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "enable",
+                "maxReplicas"
+              ],
+              "type": "object"
+            },
+            "minReadySeconds": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "replica": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "revisionHistoryLimit": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "strategy": {
+              "properties": {
+                "rollingUpdate": {
+                  "properties": {
+                    "maxSurge": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ],
+                      "x-kubernetes-int-or-string": true
+                    },
+                    "maxUnavailable": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ],
+                      "x-kubernetes-int-or-string": true
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": {
+                  "enum": [
+                    "RollingUpdate",
+                    "Recreate",
+                    "OnDelete"
+                  ],
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "template": {
+              "properties": {
+                "affinity": {
+                  "properties": {
+                    "nodeAffinity": {
+                      "properties": {
+                        "preferredDuringSchedulingIgnoredDuringExecution": {
+                          "items": {
+                            "properties": {
+                              "preference": {
+                                "properties": {
+                                  "matchExpressions": {
+                                    "items": {
+                                      "properties": {
+                                        "key": {
+                                          "type": "string"
+                                        },
+                                        "operator": {
+                                          "enum": [
+                                            "In",
+                                            "NotIn",
+                                            "Exists",
+                                            "DoesNotExist"
+                                          ],
+                                          "type": "string"
+                                        },
+                                        "values": {
+                                          "items": {
+                                            "type": "string"
+                                          },
+                                          "type": "array"
+                                        }
+                                      },
+                                      "type": "object"
+                                    },
+                                    "type": "array"
+                                  },
+                                  "matchFields": {
+                                    "items": {
+                                      "properties": {
+                                        "key": {
+                                          "type": "string"
+                                        },
+                                        "operator": {
+                                          "enum": [
+                                            "In",
+                                            "NotIn",
+                                            "Exists",
+                                            "DoesNotExist"
+                                          ],
+                                          "type": "string"
+                                        },
+                                        "values": {
+                                          "items": {
+                                            "type": "string"
+                                          },
+                                          "type": "array"
+                                        }
+                                      },
+                                      "type": "object"
+                                    },
+                                    "type": "array"
+                                  }
+                                },
+                                "type": "object"
+                              },
+                              "weight": {
+                                "maximum": 100,
+                                "minimum": 1,
+                                "type": "integer"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "requiredDuringSchedulingIgnoredDuringExecution": {
+                          "properties": {
+                            "nodeSelectorTerms": {
+                              "items": {
+                                "properties": {
+                                  "matchExpressions": {
+                                    "items": {
+                                      "properties": {
+                                        "key": {
+                                          "type": "string"
+                                        },
+                                        "operator": {
+                                          "enum": [
+                                            "In",
+                                            "NotIn",
+                                            "Exists",
+                                            "DoesNotExist"
+                                          ],
+                                          "type": "string"
+                                        },
+                                        "values": {
+                                          "items": {
+                                            "type": "string"
+                                          },
+                                          "type": "array"
+                                        }
+                                      },
+                                      "type": "object"
+                                    },
+                                    "type": "array"
+                                  },
+                                  "matchFields": {
+                                    "items": {
+                                      "properties": {
+                                        "key": {
+                                          "type": "string"
+                                        },
+                                        "operator": {
+                                          "enum": [
+                                            "In",
+                                            "NotIn",
+                                            "Exists",
+                                            "DoesNotExist"
+                                          ],
+                                          "type": "string"
+                                        },
+                                        "values": {
+                                          "items": {
+                                            "type": "string"
+                                          },
+                                          "type": "array"
+                                        }
+                                      },
+                                      "type": "object"
+                                    },
+                                    "type": "array"
+                                  }
+                                },
+                                "type": "object"
+                              },
+                              "type": "array"
+                            }
+                          },
+                          "type": "object"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "podAffinity": {
+                      "properties": {
+                        "preferredDuringSchedulingIgnoredDuringExecution": {
+                          "items": {
+                            "properties": {
+                              "podAffinityTerm": {
+                                "properties": {
+                                  "labelSelector": {
+                                    "properties": {
+                                      "matchExpressions": {
+                                        "items": {
+                                          "properties": {
+                                            "key": {
+                                              "type": "string"
+                                            },
+                                            "operator": {
+                                              "enum": [
+                                                "In",
+                                                "NotIn",
+                                                "Exists",
+                                                "DoesNotExist"
+                                              ],
+                                              "type": "string"
+                                            },
+                                            "values": {
+                                              "items": {
+                                                "type": "string"
+                                              },
+                                              "type": "array"
+                                            }
+                                          },
+                                          "type": "object"
+                                        },
+                                        "type": "array"
+                                      },
+                                      "matchLabels": {
+                                        "additionalProperties": {
+                                          "type": "string"
+                                        },
+                                        "type": "object"
+                                      }
+                                    },
+                                    "type": "object"
+                                  },
+                                  "namespaces": {
+                                    "additionalProperties": {
+                                      "type": "string"
+                                    },
+                                    "type": "object"
+                                  },
+                                  "topologyKey": {
+                                    "type": "string"
+                                  }
+                                },
+                                "type": "object"
+                              },
+                              "weight": {
+                                "maximum": 100,
+                                "minimum": 1,
+                                "type": "integer"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "requiredDuringSchedulingIgnoredDuringExecution": {
+                          "items": {
+                            "properties": {
+                              "labelSelector": {
+                                "properties": {
+                                  "matchExpressions": {
+                                    "items": {
+                                      "properties": {
+                                        "key": {
+                                          "type": "string"
+                                        },
+                                        "operator": {
+                                          "enum": [
+                                            "In",
+                                            "NotIn",
+                                            "Exists",
+                                            "DoesNotExist"
+                                          ],
+                                          "type": "string"
+                                        },
+                                        "values": {
+                                          "items": {
+                                            "type": "string"
+                                          },
+                                          "type": "array"
+                                        }
+                                      },
+                                      "type": "object"
+                                    },
+                                    "type": "array"
+                                  },
+                                  "matchLabels": {
+                                    "additionalProperties": {
+                                      "type": "string"
+                                    },
+                                    "type": "object"
+                                  }
+                                },
+                                "type": "object"
+                              },
+                              "namespaces": {
+                                "additionalProperties": {
+                                  "type": "string"
+                                },
+                                "type": "object"
+                              },
+                              "topologyKey": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "podAntiAffinity": {
+                      "properties": {
+                        "preferredDuringSchedulingIgnoredDuringExecution": {
+                          "items": {
+                            "properties": {
+                              "podAffinityTerm": {
+                                "properties": {
+                                  "labelSelector": {
+                                    "properties": {
+                                      "matchExpressions": {
+                                        "items": {
+                                          "properties": {
+                                            "key": {
+                                              "type": "string"
+                                            },
+                                            "operator": {
+                                              "enum": [
+                                                "In",
+                                                "NotIn",
+                                                "Exists",
+                                                "DoesNotExist"
+                                              ],
+                                              "type": "string"
+                                            },
+                                            "values": {
+                                              "items": {
+                                                "type": "string"
+                                              },
+                                              "type": "array"
+                                            }
+                                          },
+                                          "type": "object"
+                                        },
+                                        "type": "array"
+                                      },
+                                      "matchLabels": {
+                                        "additionalProperties": {
+                                          "type": "string"
+                                        },
+                                        "type": "object"
+                                      }
+                                    },
+                                    "type": "object"
+                                  },
+                                  "namespaces": {
+                                    "additionalProperties": {
+                                      "type": "string"
+                                    },
+                                    "type": "object"
+                                  },
+                                  "topologyKey": {
+                                    "type": "string"
+                                  }
+                                },
+                                "type": "object"
+                              },
+                              "weight": {
+                                "maximum": 100,
+                                "minimum": 1,
+                                "type": "integer"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "requiredDuringSchedulingIgnoredDuringExecution": {
+                          "items": {
+                            "properties": {
+                              "labelSelector": {
+                                "properties": {
+                                  "matchExpressions": {
+                                    "items": {
+                                      "properties": {
+                                        "key": {
+                                          "type": "string"
+                                        },
+                                        "operator": {
+                                          "enum": [
+                                            "In",
+                                            "NotIn",
+                                            "Exists",
+                                            "DoesNotExist"
+                                          ],
+                                          "type": "string"
+                                        },
+                                        "values": {
+                                          "items": {
+                                            "type": "string"
+                                          },
+                                          "type": "array"
+                                        }
+                                      },
+                                      "type": "object"
+                                    },
+                                    "type": "array"
+                                  },
+                                  "matchLabels": {
+                                    "additionalProperties": {
+                                      "type": "string"
+                                    },
+                                    "type": "object"
+                                  }
+                                },
+                                "type": "object"
+                              },
+                              "namespaces": {
+                                "additionalProperties": {
+                                  "type": "string"
+                                },
+                                "type": "object"
+                              },
+                              "topologyKey": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                },
+                "container": {
+                  "properties": {
+                    "args": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "env": {
+                      "items": {
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "string"
+                          },
+                          "valueFrom": {
+                            "properties": {
+                              "configMapKeyRef": {
+                                "properties": {
+                                  "key": {
+                                    "type": "string"
+                                  },
+                                  "name": {
+                                    "type": "string"
+                                  },
+                                  "optional": {
+                                    "type": "object"
+                                  }
+                                },
+                                "required": [
+                                  "key"
+                                ],
+                                "type": "object"
+                              },
+                              "fieldRef": {
+                                "properties": {
+                                  "apiVersion": {
+                                    "type": "string"
+                                  },
+                                  "fieldPath": {
+                                    "type": "string"
+                                  }
+                                },
+                                "type": "object"
+                              },
+                              "resourceFieldRef": {
+                                "properties": {
+                                  "containerName": {
+                                    "type": "string"
+                                  },
+                                  "divisor": {
+                                    "type": "object"
+                                  },
+                                  "resource": {
+                                    "type": "string"
+                                  }
+                                },
+                                "type": "object"
+                              },
+                              "secretKeyRef": {
+                                "properties": {
+                                  "key": {
+                                    "type": "string"
+                                  },
+                                  "name": {
+                                    "type": "string"
+                                  },
+                                  "optional": {
+                                    "type": "object"
+                                  }
+                                },
+                                "required": [
+                                  "key"
+                                ],
+                                "type": "object"
+                              }
+                            },
+                            "type": "object"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "image": {
+                      "type": "string"
+                    },
+                    "resources": {
+                      "properties": {
+                        "limits": {
+                          "additionalProperties": {
+                            "type": "string"
+                          },
+                          "type": "object"
+                        },
+                        "requests": {
+                          "additionalProperties": {
+                            "type": "string"
+                          },
+                          "type": "object"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                },
+                "dnsConfig": {
+                  "properties": {
+                    "nameservers": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "options": {
+                      "items": {
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "name"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "searches": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                },
+                "dnsPolicy": {
+                  "enum": [
+                    "ClusterFirstWithHostNet",
+                    "ClusterFirst",
+                    "Default",
+                    "None"
+                  ],
+                  "type": "string"
+                },
+                "hostNetwork": {
+                  "type": "boolean"
+                },
+                "nodeSelector": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "type": "object"
+                },
+                "priorityClassName": {
+                  "type": "string"
+                },
+                "terminationGracePeriodSeconds": {
+                  "type": "integer"
+                },
+                "tolerations": {
+                  "items": {
+                    "properties": {
+                      "effect": {
+                        "enum": [
+                          "NoSchedule",
+                          "PreferNoSchedule",
+                          "NoExecute"
+                        ],
+                        "type": "string"
+                      },
+                      "key": {
+                        "type": "string"
+                      },
+                      "operator": {
+                        "enum": [
+                          "Exists",
+                          "Equal"
+                        ],
+                        "type": "string"
+                      },
+                      "tolerationSeconds": {
+                        "type": "integer"
+                      },
+                      "value": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "container"
+              ],
+              "type": "object"
+            },
+            "type": {
+              "enum": [
+                "deployment",
+                "daemonSet"
+              ],
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "ingressClass",
+        "workLoad",
+        "service"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "cloud.tencent.com",
+      "kind": "NginxIngress",
+      "version": "v1alpha1"
+    }
+  ]
+}

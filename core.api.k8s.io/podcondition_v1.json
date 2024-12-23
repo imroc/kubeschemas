@@ -1,0 +1,46 @@
+{
+  "description": "PodCondition contains details for the current condition of this pod.",
+  "properties": {
+    "lastProbeTime": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/time_v1.json"
+        }
+      ],
+      "default": {},
+      "description": "Last time we probed the condition."
+    },
+    "lastTransitionTime": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/time_v1.json"
+        }
+      ],
+      "default": {},
+      "description": "Last time the condition transitioned from one status to another."
+    },
+    "message": {
+      "description": "Human-readable message indicating details about last transition.",
+      "type": "string"
+    },
+    "reason": {
+      "description": "Unique, one-word, CamelCase reason for the condition's last transition.",
+      "type": "string"
+    },
+    "status": {
+      "default": "",
+      "description": "Status is the status of the condition. Can be True, False, Unknown. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions",
+      "type": "string"
+    },
+    "type": {
+      "default": "",
+      "description": "Type is the type of the condition. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions",
+      "type": "string"
+    }
+  },
+  "required": [
+    "type",
+    "status"
+  ],
+  "type": "object"
+}

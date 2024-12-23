@@ -1,0 +1,229 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "networking.istio.io/v1alpha3"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "ServiceEntry"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "Configuration affecting service registry. See more details at: https://istio.io/docs/reference/config/networking/service-entry.html",
+      "properties": {
+        "addresses": {
+          "description": "The virtual IP addresses associated with the service.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "endpoints": {
+          "description": "One or more endpoints associated with the service.",
+          "items": {
+            "properties": {
+              "address": {
+                "description": "Address associated with the network endpoint without the port.",
+                "maxLength": 256,
+                "type": "string",
+                "x-kubernetes-validations": [
+                  {
+                    "message": "UDS must be an absolute path or abstract socket",
+                    "rule": "self.startsWith('unix://') ? (self.substring(7,8) == '/' || self.substring(7,8) == '@') : true"
+                  },
+                  {
+                    "message": "UDS may not be a dir",
+                    "rule": "self.startsWith('unix://') ? !self.endsWith('/') : true"
+                  }
+                ]
+              },
+              "labels": {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "description": "One or more labels associated with the endpoint.",
+                "maxProperties": 256,
+                "type": "object"
+              },
+              "locality": {
+                "description": "The locality associated with the endpoint.",
+                "maxLength": 2048,
+                "type": "string"
+              },
+              "network": {
+                "description": "Network enables Istio to group endpoints resident in the same L3 domain/network.",
+                "maxLength": 2048,
+                "type": "string"
+              },
+              "ports": {
+                "additionalProperties": {
+                  "maximum": 4294967295,
+                  "minimum": 0,
+                  "type": "integer",
+                  "x-kubernetes-validations": [
+                    {
+                      "message": "port must be between 1-65535",
+                      "rule": "0 \u003c self \u0026\u0026 self \u003c= 65535"
+                    }
+                  ]
+                },
+                "description": "Set of ports associated with the endpoint.",
+                "maxProperties": 128,
+                "type": "object",
+                "x-kubernetes-validations": [
+                  {
+                    "message": "port name must be valid",
+                    "rule": "self.all(key, size(key) \u003c 63 \u0026\u0026 key.matches('^[a-zA-Z0-9](?:[-a-zA-Z0-9]*[a-zA-Z0-9])?$'))"
+                  }
+                ]
+              },
+              "serviceAccount": {
+                "description": "The service account associated with the workload if a sidecar is present in the workload.",
+                "maxLength": 253,
+                "type": "string"
+              },
+              "weight": {
+                "description": "The load balancing weight associated with the endpoint.",
+                "maximum": 4294967295,
+                "minimum": 0,
+                "type": "integer"
+              }
+            },
+            "type": "object",
+            "x-kubernetes-validations": [
+              {
+                "message": "Address is required",
+                "rule": "has(self.address) || has(self.network)"
+              },
+              {
+                "message": "UDS may not include ports",
+                "rule": "(has(self.address) \u0026\u0026 self.address.startsWith('unix://')) ? !has(self.ports) : true"
+              }
+            ]
+          },
+          "maxItems": 4096,
+          "type": "array"
+        },
+        "exportTo": {
+          "description": "A list of namespaces to which this service is exported.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "hosts": {
+          "description": "The hosts associated with the ServiceEntry.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "location": {
+          "description": "Specify whether the service should be considered external to the mesh or part of the mesh.\n\nValid Options: MESH_EXTERNAL, MESH_INTERNAL",
+          "enum": [
+            "MESH_EXTERNAL",
+            "MESH_INTERNAL"
+          ],
+          "type": "string"
+        },
+        "ports": {
+          "description": "The ports associated with the external service.",
+          "items": {
+            "properties": {
+              "name": {
+                "description": "Label assigned to the port.",
+                "type": "string"
+              },
+              "number": {
+                "description": "A valid non-negative integer port number.",
+                "maximum": 4294967295,
+                "minimum": 0,
+                "type": "integer"
+              },
+              "protocol": {
+                "description": "The protocol exposed on the port.",
+                "type": "string"
+              },
+              "targetPort": {
+                "description": "The port number on the endpoint where the traffic will be received.",
+                "maximum": 4294967295,
+                "minimum": 0,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "number",
+              "name"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "resolution": {
+          "description": "Service resolution mode for the hosts.\n\nValid Options: NONE, STATIC, DNS, DNS_ROUND_ROBIN",
+          "enum": [
+            "NONE",
+            "STATIC",
+            "DNS",
+            "DNS_ROUND_ROBIN"
+          ],
+          "type": "string"
+        },
+        "subjectAltNames": {
+          "description": "If specified, the proxy will verify that the server certificate's subject alternate name matches one of the specified values.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "workloadSelector": {
+          "description": "Applicable only for MESH_INTERNAL services.",
+          "properties": {
+            "labels": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "description": "One or more labels that indicate a specific set of pods/VMs on which the configuration should be applied.",
+              "type": "object"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "hosts"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "type": "object",
+      "x-kubernetes-preserve-unknown-fields": true
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "networking.istio.io",
+      "kind": "ServiceEntry",
+      "version": "v1alpha3"
+    }
+  ]
+}

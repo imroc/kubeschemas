@@ -1,0 +1,270 @@
+{
+  "description": "NodeENIConfig is a specification for a NodeENIConfig resource",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "networking.tke.cloud.tencent.com/v1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "NodeENIConfig"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "NodeENIConfigSpec is a description for a NodeENIConfig",
+      "properties": {
+        "desiredDirectENI": {
+          "description": "number of enis needs to attach to the node",
+          "format": "int32",
+          "type": "integer"
+        },
+        "desiredRouteENI": {
+          "description": "number of route enis needs to attach to the node",
+          "format": "int32",
+          "type": "integer"
+        },
+        "desiredRouteENIIP": {
+          "description": "number of eni ip needs to attach to the node",
+          "format": "int32",
+          "type": "integer"
+        },
+        "disableRouteENI": {
+          "description": "whether disable route eni of the node",
+          "type": "boolean"
+        },
+        "maxDirectENI": {
+          "description": "max direct ENIS the node can attach",
+          "format": "int32",
+          "type": "integer"
+        },
+        "maxEIP": {
+          "description": "max EIPs the node can associate",
+          "format": "int32",
+          "type": "integer"
+        },
+        "maxENI": {
+          "description": "max ENIs the node can attach",
+          "format": "int32",
+          "type": "integer"
+        },
+        "maxIPPerENI": {
+          "description": "max IP per eni can assign",
+          "format": "int32",
+          "type": "integer"
+        },
+        "maxRouteENI": {
+          "description": "max route ENIS the node can attach",
+          "format": "int32",
+          "type": "integer"
+        },
+        "nominatedENISubnets": {
+          "description": "NominatedENISubnets is the subnets expected to be allocated to the node enis",
+          "items": {
+            "default": "",
+            "type": "string"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
+        },
+        "providerID": {
+          "description": "ID of the node assigned by ENI provider",
+          "type": "string"
+        },
+        "securityGroups": {
+          "description": "SecurityGroups is the security groups expected to be associated with the node enis",
+          "items": {
+            "default": "",
+            "type": "string"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
+        },
+        "zone": {
+          "default": "",
+          "description": "zone of the node",
+          "type": "string"
+        }
+      },
+      "required": [
+        "zone"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "properties": {
+        "conditions": {
+          "description": "Current Condition of nec.",
+          "items": {
+            "description": "NodeENIConfigCondition contains details about state of nec",
+            "properties": {
+              "attempts": {
+                "description": "The number of attempts for this condition.",
+                "format": "int32",
+                "type": "integer"
+              },
+              "lastProbeTime": {
+                "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+                "format": "date-time",
+                "type": "string"
+              },
+              "lastTransitionTime": {
+                "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "description": "Human-readable message indicating details about last transition.",
+                "type": "string"
+              },
+              "reason": {
+                "description": "Unique, one-word, CamelCase reason for the condition's last transition.",
+                "type": "string"
+              },
+              "status": {
+                "default": "",
+                "type": "string"
+              },
+              "type": {
+                "default": "",
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "status"
+            ],
+            "type": "object"
+          },
+          "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map"
+        },
+        "dynamicReserv": {
+          "description": "number of dynamic reservation ip resource for scheduler pod to node",
+          "format": "int32",
+          "type": "integer"
+        },
+        "eniInfos": {
+          "description": "ENIs is a list of enis attached by the node",
+          "items": {
+            "properties": {
+              "attachedInsID": {
+                "description": "ID of instance that eni attached",
+                "type": "string"
+              },
+              "eniID": {
+                "default": "",
+                "description": "ENI ID",
+                "type": "string"
+              },
+              "mac": {
+                "default": "",
+                "description": "ENI mac address",
+                "type": "string"
+              },
+              "primary": {
+                "description": "Primary eni of the node",
+                "type": "boolean"
+              },
+              "primaryIP": {
+                "default": "",
+                "description": "ENI primary ip",
+                "type": "string"
+              },
+              "secondaryIPs": {
+                "description": "SecondaryIPs assigned by the eni",
+                "items": {
+                  "default": "",
+                  "type": "string"
+                },
+                "type": "array",
+                "x-kubernetes-list-type": "atomic"
+              },
+              "secondaryIPv6s": {
+                "description": "SecondaryIPv6s assigned by the eni",
+                "items": {
+                  "default": "",
+                  "type": "string"
+                },
+                "type": "array",
+                "x-kubernetes-list-type": "atomic"
+              },
+              "securityGroups": {
+                "description": "SecurityGroups is the security groups associated with the node enis",
+                "items": {
+                  "default": "",
+                  "type": "string"
+                },
+                "type": "array",
+                "x-kubernetes-list-type": "atomic"
+              },
+              "sgPhase": {
+                "description": "phase of eni security groups",
+                "type": "string"
+              },
+              "subnetCIDR": {
+                "default": "",
+                "description": "Subnet CIDR of the eni",
+                "type": "string"
+              },
+              "subnetIPv6CIDR": {
+                "description": "Subnet IPv6 CIDR of the eni",
+                "type": "string"
+              }
+            },
+            "required": [
+              "eniID",
+              "mac",
+              "primaryIP",
+              "subnetCIDR"
+            ],
+            "type": "object"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
+        },
+        "podCIDRs": {
+          "description": "list of podCIDR allocated to this node",
+          "items": {
+            "default": "",
+            "type": "string"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
+        },
+        "podsBinding": {
+          "description": "whether there are pods binding the node",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "networking.tke.cloud.tencent.com",
+      "kind": "NodeENIConfig",
+      "version": "v1"
+    }
+  ]
+}

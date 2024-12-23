@@ -1,0 +1,201 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "scheduling.crane.io/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "CraneSchedulerConfiguration"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "ScheduleApplyScope is a global config, use a crd is not suitable, use configmap instead. so now it will be not used.",
+      "properties": {
+        "scheduleApplyScope": {
+          "description": "ScheduleApplyScope",
+          "properties": {
+            "clusterScope": {
+              "description": "ClusterScope means the newly scheduling policy will applied to the whole cluster, all newly pods default is false which means scheduler will keep the original logic to schedule pods and when ClusterScope is true, Selectors is not valid, its priority is highest",
+              "type": "boolean"
+            },
+            "namespaceScopeSelector": {
+              "description": "NamespaceSelector means the newly scheduling policy will be applied to all the namespaces specified",
+              "properties": {
+                "namespaces": {
+                  "additionalProperties": {
+                    "type": "boolean"
+                  },
+                  "description": "Namespaces is applied namespaces which means all newly pods in these namespaces will use newly predicates \u0026 priorities to do scheduling if it there is no namespaces, then all newly pods will keep the original scheduling logic",
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "podScopeSelector": {
+              "description": "PodScopeSelector means the newly scheduling policy will be applied to all selected pods satisfied the selector",
+              "items": {
+                "properties": {
+                  "namespace": {
+                    "type": "string"
+                  },
+                  "selector": {
+                    "description": "A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.",
+                    "properties": {
+                      "matchExpressions": {
+                        "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
+                        "items": {
+                          "description": "A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.",
+                          "properties": {
+                            "key": {
+                              "description": "key is the label key that the selector applies to.",
+                              "type": "string"
+                            },
+                            "operator": {
+                              "description": "operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.",
+                              "type": "string"
+                            },
+                            "values": {
+                              "description": "values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            }
+                          },
+                          "required": [
+                            "key",
+                            "operator"
+                          ],
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "matchLabels": {
+                        "additionalProperties": {
+                          "type": "string"
+                        },
+                        "description": "matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is \"key\", the operator is \"In\", and the values array contains only \"value\". The requirements are ANDed.",
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        },
+        "schedulePolicy": {
+          "description": "SchedulePolicy is the policy used to do scheduling by crane scheduler",
+          "properties": {
+            "predicates": {
+              "additionalProperties": {
+                "properties": {
+                  "defaultScheduleRule": {
+                    "type": "object"
+                  },
+                  "expressionScheduleRule": {
+                    "properties": {
+                      "expression": {
+                        "description": "Expression is the expression of the schedule rule used to do computing by evaluate an expression for example:  max_avg_5m \u003e 0.6 \u0026\u0026 max_avg_1h \u003e 0.6  in predicates",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "Name is the name of the schedule rule",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "name": {
+                    "description": "Name of the predicate policy. such as overLoadFit",
+                    "type": "string"
+                  },
+                  "scheduleRuleType": {
+                    "default": "default",
+                    "description": "ScheduleRuleType is the predicate schedule rule type. default is a hard-code way to do some computing. same as the original configured policy. This is the default expression is a go template expression way, user can write the expression, then scheduler will evaluate dynamically.",
+                    "enum": [
+                      "default",
+                      "expression"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "object"
+            },
+            "priorities": {
+              "additionalProperties": {
+                "properties": {
+                  "defaultScheduleRule": {
+                    "type": "object"
+                  },
+                  "expressionScheduleRule": {
+                    "properties": {
+                      "expression": {
+                        "description": "Expression is the expression of the schedule rule used to do computing by evalute an expression for example:  ((1 - max_avg_5m) * w1 + (1- max_avg_1h) * w2 + (1- max_avg_1d) * w3)/(w1+w2+w3) - node_hot_value in priorities",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "Name is the name of the schedule rule",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "name": {
+                    "description": "Name of the predicate policy. such as safeLoadBalanced",
+                    "type": "string"
+                  },
+                  "scheduleRuleType": {
+                    "default": "default",
+                    "description": "ScheduleRuleType is the priority schedule rule type. default is a hard-code way to do some computing. same as the original configured policy. This is the default expression is a go template expression way, user can write the expression, then scheduler will evaluate dynamically.",
+                    "enum": [
+                      "default",
+                      "expression"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "scheduling.crane.io",
+      "kind": "CraneSchedulerConfiguration",
+      "version": "v1alpha1"
+    }
+  ]
+}

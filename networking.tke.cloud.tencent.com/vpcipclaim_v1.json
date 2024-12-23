@@ -1,0 +1,146 @@
+{
+  "description": "VpcIPClaim is a specification for a VpcIPClaim resource",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "networking.tke.cloud.tencent.com/v1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "VpcIPClaim"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "VpcIPClaimSpec is a description for a VpcIPClaim",
+      "properties": {
+        "cniType": {
+          "description": "CNIType of the vpcip, TKEDirectENI or TKERouteENI, default is TKERouteENI",
+          "type": "string"
+        },
+        "crossTenant": {
+          "description": "CrossTenantSpec is a description for a cross tenant eni param",
+          "properties": {
+            "appId": {
+              "description": "AppId peerAppId",
+              "format": "int64",
+              "type": "integer"
+            },
+            "business": {
+              "description": "Business specify the cross tenant eni owned business",
+              "type": "string"
+            },
+            "eniLimit": {
+              "description": "ENILimit cross tenant eni num limit on one node",
+              "format": "int32",
+              "type": "integer"
+            },
+            "ifName": {
+              "description": "IfName specify the cross tenant eni interface will use",
+              "type": "string"
+            },
+            "subnetId": {
+              "description": "SubnetId, peer subnetId, only if wan to use user's real ip",
+              "type": "string"
+            },
+            "trunkingFlag": {
+              "description": "TrunkingFlag specify whether to enable trunking mode, 'Enable' or 'Disable'",
+              "type": "string"
+            },
+            "uin": {
+              "description": "Uin peerUin",
+              "type": "string"
+            },
+            "uniqVpcId": {
+              "description": "uniqVpcId peer uniqVpcId",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "nominatedSubnets": {
+          "description": "NominatedSubnets represents the nominated subnets of vpcipclaim",
+          "items": {
+            "default": "",
+            "type": "string"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
+        },
+        "podUID": {
+          "description": "UID of the pod",
+          "type": "string"
+        },
+        "securityGroups": {
+          "description": "SecurityGroup represents the securitygroup of vpcipclaim",
+          "items": {
+            "default": "",
+            "type": "string"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
+        },
+        "subnetCIDR": {
+          "default": "",
+          "description": "Subnet CIDR of the vpcIP",
+          "type": "string"
+        },
+        "vpcENI": {
+          "description": "vpcENI of the claim",
+          "type": "string"
+        },
+        "vpcIP": {
+          "description": "vpcIP of the claim",
+          "type": "string"
+        },
+        "vpcIPClaimDeletePolicy": {
+          "default": "",
+          "description": "VpcIPClaimDeletePolicy",
+          "type": "string"
+        },
+        "zone": {
+          "description": "Zone of the vpcIP",
+          "type": "string"
+        }
+      },
+      "required": [
+        "vpcIPClaimDeletePolicy",
+        "subnetCIDR"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "properties": {
+        "phase": {
+          "description": "Phase represents the current phase of VpcIPClaim.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "networking.tke.cloud.tencent.com",
+      "kind": "VpcIPClaim",
+      "version": "v1"
+    }
+  ]
+}

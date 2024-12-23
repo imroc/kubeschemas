@@ -1,0 +1,21 @@
+{
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "timestamp": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "value": {
+      "format": "double",
+      "type": "number"
+    }
+  },
+  "required": [
+    "name",
+    "value",
+    "timestamp"
+  ],
+  "type": "object"
+}

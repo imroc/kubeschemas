@@ -1,0 +1,21 @@
+{
+  "description": "ContainerMetrics sets resource usage metrics of a container.",
+  "properties": {
+    "name": {
+      "description": "Container name corresponding to the one from pod.spec.containers.",
+      "type": "string"
+    },
+    "usage": {
+      "additionalProperties": {
+        "$ref": "../api.pkg.apimachinery.k8s.io/quantity_resource.json"
+      },
+      "description": "The memory usage is the memory working set.",
+      "type": "object"
+    }
+  },
+  "required": [
+    "name",
+    "usage"
+  ],
+  "type": "object"
+}

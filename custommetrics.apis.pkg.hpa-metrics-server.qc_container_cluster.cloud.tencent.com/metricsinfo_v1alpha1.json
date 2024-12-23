@@ -1,0 +1,23 @@
+{
+  "properties": {
+    "namespace": {
+      "description": "store metrics of one pod",
+      "type": "string"
+    },
+    "podMetrics": {
+      "items": {
+        "$ref": "../custommetrics.apis.pkg.hpa-metrics-server.qc_container_cluster.cloud.tencent.com/metrics_v1alpha1.json"
+      },
+      "type": "array"
+    },
+    "podName": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "namespace",
+    "podName",
+    "podMetrics"
+  ],
+  "type": "object"
+}

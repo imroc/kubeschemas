@@ -1,0 +1,34 @@
+{
+  "description": "NamespaceCondition contains details about state of namespace.",
+  "properties": {
+    "lastTransitionTime": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/time_v1.json"
+        }
+      ],
+      "default": {}
+    },
+    "message": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "status": {
+      "default": "",
+      "description": "Status of the condition, one of True, False, Unknown.",
+      "type": "string"
+    },
+    "type": {
+      "default": "",
+      "description": "Type of namespace controller condition.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "type",
+    "status"
+  ],
+  "type": "object"
+}

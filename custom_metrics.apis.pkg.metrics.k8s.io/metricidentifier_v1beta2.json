@@ -1,0 +1,21 @@
+{
+  "description": "MetricIdentifier identifies a metric by name and, optionally, selector",
+  "properties": {
+    "name": {
+      "description": "name is the name of the given metric",
+      "type": "string"
+    },
+    "selector": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/labelselector_v1.json"
+        }
+      ],
+      "description": "selector represents the label selector that could be used to select this metric, and will generally just be the selector passed in to the query used to fetch this metric. When left blank, only the metric's Name will be used to gather metrics."
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "type": "object"
+}

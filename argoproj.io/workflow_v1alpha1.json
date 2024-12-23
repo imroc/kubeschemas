@@ -1,0 +1,14 @@
+{
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "argoproj.io",
+      "kind": "Workflow",
+      "version": "v1alpha1"
+    }
+  ]
+}

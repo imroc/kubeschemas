@@ -1,0 +1,18 @@
+{
+  "description": "Overhead structure represents the resource overhead associated with running a pod.",
+  "properties": {
+    "podFixed": {
+      "additionalProperties": {
+        "allOf": [
+          {
+            "$ref": "../api.pkg.apimachinery.k8s.io/quantity_resource.json"
+          }
+        ],
+        "default": {}
+      },
+      "description": "podFixed represents the fixed resource overhead associated with running a pod.",
+      "type": "object"
+    }
+  },
+  "type": "object"
+}

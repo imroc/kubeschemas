@@ -1,0 +1,127 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "security.istio.io/v1beta1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "PeerAuthentication"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "Peer authentication configuration for workloads. See more details at: https://istio.io/docs/reference/config/security/peer_authentication.html",
+      "properties": {
+        "mtls": {
+          "description": "Mutual TLS settings for workload.",
+          "properties": {
+            "mode": {
+              "description": "Defines the mTLS mode used for peer authentication.\n\nValid Options: DISABLE, PERMISSIVE, STRICT",
+              "enum": [
+                "UNSET",
+                "DISABLE",
+                "PERMISSIVE",
+                "STRICT"
+              ],
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "portLevelMtls": {
+          "additionalProperties": {
+            "properties": {
+              "mode": {
+                "description": "Defines the mTLS mode used for peer authentication.\n\nValid Options: DISABLE, PERMISSIVE, STRICT",
+                "enum": [
+                  "UNSET",
+                  "DISABLE",
+                  "PERMISSIVE",
+                  "STRICT"
+                ],
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "description": "Port specific mutual TLS settings.",
+          "minProperties": 1,
+          "type": "object",
+          "x-kubernetes-validations": [
+            {
+              "message": "port must be between 1-65535",
+              "rule": "self.all(key, 0 \u003c int(key) \u0026\u0026 int(key) \u003c= 65535)"
+            }
+          ]
+        },
+        "selector": {
+          "description": "The selector determines the workloads to apply the PeerAuthentication on.",
+          "properties": {
+            "matchLabels": {
+              "additionalProperties": {
+                "maxLength": 63,
+                "type": "string",
+                "x-kubernetes-validations": [
+                  {
+                    "message": "wildcard not allowed in label value match",
+                    "rule": "!self.contains('*')"
+                  }
+                ]
+              },
+              "description": "One or more labels that indicate a specific set of pods/VMs on which a policy should be applied.",
+              "maxProperties": 4096,
+              "type": "object",
+              "x-kubernetes-validations": [
+                {
+                  "message": "wildcard not allowed in label key match",
+                  "rule": "self.all(key, !key.contains('*'))"
+                },
+                {
+                  "message": "key must not be empty",
+                  "rule": "self.all(key, key.size() != 0)"
+                }
+              ]
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "x-kubernetes-validations": [
+        {
+          "message": "portLevelMtls requires selector",
+          "rule": "(has(self.selector) \u0026\u0026 has(self.selector.matchLabels) \u0026\u0026 self.selector.matchLabels.size() \u003e 0) || !has(self.portLevelMtls)"
+        }
+      ]
+    },
+    "status": {
+      "type": "object",
+      "x-kubernetes-preserve-unknown-fields": true
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "security.istio.io",
+      "kind": "PeerAuthentication",
+      "version": "v1beta1"
+    }
+  ]
+}

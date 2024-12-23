@@ -1,0 +1,85 @@
+{
+  "description": "Tcfs is the Schema for the tcfs API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "tcfsoperator.k8s.io/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "Tcfs"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "TcfsSpec defines the desired state of Tcfs",
+      "properties": {
+        "fromexistcfs": {
+          "type": "string"
+        },
+        "pgroupid": {
+          "type": "string"
+        },
+        "provisionername": {
+          "type": "string"
+        },
+        "reclaimpolicy": {
+          "type": "string"
+        },
+        "resourcetags": {
+          "type": "string"
+        },
+        "storagetype": {
+          "type": "string"
+        },
+        "subnetid": {
+          "type": "string"
+        },
+        "vpcid": {
+          "type": "string"
+        },
+        "zone": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "description": "TcfsStatus defines the observed state of Tcfs",
+      "properties": {
+        "cfsfilesystemid": {
+          "type": "string"
+        },
+        "cfsserver": {
+          "description": "INSERT ADDITIONAL STATUS FIELD - define observed state of cluster Important: Run \"make\" to regenerate code after modifying this file",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "tcfsoperator.k8s.io",
+      "kind": "Tcfs",
+      "version": "v1alpha1"
+    }
+  ]
+}

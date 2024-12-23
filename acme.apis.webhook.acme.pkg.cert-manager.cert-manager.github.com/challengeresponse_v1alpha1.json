@@ -1,0 +1,28 @@
+{
+  "description": "ChallengeResponse represents a response from an ACME challenge.",
+  "properties": {
+    "status": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/status_v1.json"
+        }
+      ],
+      "description": "Result contains extra details into why a challenge request failed. This field will be completely ignored if 'success' is true."
+    },
+    "success": {
+      "default": false,
+      "description": "Success will be set to true if the request action (i.e. presenting or cleaning up) was successful.",
+      "type": "boolean"
+    },
+    "uid": {
+      "default": "",
+      "description": "UID is an identifier for the individual request/response. This should be copied over from the corresponding ChallengeRequest.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "uid",
+    "success"
+  ],
+  "type": "object"
+}

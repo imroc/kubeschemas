@@ -1,0 +1,14 @@
+{
+  "description": "CustomResourceValidation is a list of validation methods for CustomResources.",
+  "properties": {
+    "openAPIV3Schema": {
+      "allOf": [
+        {
+          "$ref": "../apiextensions.apis.pkg.apiextensions-apiserver.k8s.io/jsonschemaprops_v1.json"
+        }
+      ],
+      "description": "openAPIV3Schema is the OpenAPI v3 schema to use for validation and pruning."
+    }
+  },
+  "type": "object"
+}

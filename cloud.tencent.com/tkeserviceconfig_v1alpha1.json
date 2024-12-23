@@ -1,0 +1,414 @@
+{
+  "description": "TkeServiceConfig",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "cloud.tencent.com/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "TkeServiceConfig"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "loadBalancer": {
+          "properties": {
+            "internetMaxBandwidthOut": {
+              "maximum": 2048,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "l4Listeners": {
+              "items": {
+                "properties": {
+                  "deregisterTargetRst": {
+                    "type": "boolean"
+                  },
+                  "healthCheck": {
+                    "properties": {
+                      "checkPort": {
+                        "maximum": 65535,
+                        "minimum": 1,
+                        "type": "integer"
+                      },
+                      "checkType": {
+                        "enum": [
+                          "TCP",
+                          "HTTP",
+                          "CUSTOM",
+                          "PING"
+                        ],
+                        "type": "string"
+                      },
+                      "enable": {
+                        "type": "boolean"
+                      },
+                      "healthNum": {
+                        "maximum": 10,
+                        "minimum": 2,
+                        "type": "integer"
+                      },
+                      "httpCheckDomain": {
+                        "maxLength": 80,
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "httpCheckMethod": {
+                        "enum": [
+                          "HEAD",
+                          "GET"
+                        ],
+                        "type": "string"
+                      },
+                      "httpCheckPath": {
+                        "maxLength": 200,
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "httpCode": {
+                        "maximum": 31,
+                        "minimum": 1,
+                        "type": "integer"
+                      },
+                      "httpVersion": {
+                        "enum": [
+                          "HTTP/1.0",
+                          "HTTP/1.1"
+                        ],
+                        "type": "string"
+                      },
+                      "intervalTime": {
+                        "maximum": 300,
+                        "minimum": 5,
+                        "type": "integer"
+                      },
+                      "sourceIpType": {
+                        "maximum": 1,
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "timeout": {
+                        "maximum": 60,
+                        "minimum": 2,
+                        "type": "integer"
+                      },
+                      "unHealthNum": {
+                        "maximum": 10,
+                        "minimum": 2,
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "enable"
+                    ],
+                    "type": "object"
+                  },
+                  "port": {
+                    "maximum": 65535,
+                    "minimum": 1,
+                    "type": "integer"
+                  },
+                  "protocol": {
+                    "enum": [
+                      "TCP",
+                      "UDP",
+                      "TCP_SSL",
+                      "QUIC"
+                    ],
+                    "type": "string"
+                  },
+                  "proxyProtocol": {
+                    "properties": {
+                      "enable": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "enable"
+                    ],
+                    "type": "object"
+                  },
+                  "scheduler": {
+                    "enum": [
+                      "WRR",
+                      "LEAST_CONN"
+                    ],
+                    "type": "string"
+                  },
+                  "session": {
+                    "properties": {
+                      "enable": {
+                        "type": "boolean"
+                      },
+                      "sessionExpireTime": {
+                        "maximum": 3600,
+                        "minimum": 30,
+                        "type": "integer"
+                      },
+                      "sessionType": {
+                        "enum": [
+                          "NORMAL",
+                          "QUIC_CID"
+                        ],
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "enable"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "protocol",
+                  "port"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "l7Listeners": {
+              "items": {
+                "properties": {
+                  "certificate": {
+                    "properties": {
+                      "certCaId": {
+                        "type": "string"
+                      },
+                      "certId": {
+                        "type": "string"
+                      },
+                      "sslMode": {
+                        "enum": [
+                          "UNIDIRECTIONAL",
+                          "MUTUAL"
+                        ],
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "sslMode",
+                      "certId"
+                    ],
+                    "type": "object"
+                  },
+                  "defaultServer": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "domains": {
+                    "items": {
+                      "properties": {
+                        "domain": {
+                          "maxLength": 80,
+                          "minLength": 0,
+                          "nullable": true,
+                          "type": "string"
+                        },
+                        "http2": {
+                          "type": "boolean"
+                        },
+                        "rules": {
+                          "items": {
+                            "properties": {
+                              "forwardType": {
+                                "enum": [
+                                  "HTTP",
+                                  "HTTPS",
+                                  "TRPC",
+                                  "GRPC"
+                                ],
+                                "type": "string"
+                              },
+                              "healthCheck": {
+                                "properties": {
+                                  "checkType": {
+                                    "enum": [
+                                      "TCP",
+                                      "HTTP",
+                                      "HTTPS"
+                                    ],
+                                    "type": "string"
+                                  },
+                                  "enable": {
+                                    "type": "boolean"
+                                  },
+                                  "extendedCode": {
+                                    "maxLength": 128,
+                                    "minLength": 0,
+                                    "type": "string"
+                                  },
+                                  "healthNum": {
+                                    "maximum": 10,
+                                    "minimum": 2,
+                                    "type": "integer"
+                                  },
+                                  "httpCheckDomain": {
+                                    "maxLength": 80,
+                                    "minLength": 1,
+                                    "type": "string"
+                                  },
+                                  "httpCheckMethod": {
+                                    "enum": [
+                                      "HEAD",
+                                      "GET"
+                                    ],
+                                    "type": "string"
+                                  },
+                                  "httpCheckPath": {
+                                    "maxLength": 200,
+                                    "minLength": 1,
+                                    "type": "string"
+                                  },
+                                  "httpCode": {
+                                    "maximum": 31,
+                                    "minimum": 1,
+                                    "type": "integer"
+                                  },
+                                  "intervalTime": {
+                                    "maximum": 300,
+                                    "minimum": 5,
+                                    "type": "integer"
+                                  },
+                                  "sourceIpType": {
+                                    "maximum": 1,
+                                    "minimum": 0,
+                                    "type": "integer"
+                                  },
+                                  "timeout": {
+                                    "maximum": 60,
+                                    "minimum": 2,
+                                    "type": "integer"
+                                  },
+                                  "unHealthNum": {
+                                    "maximum": 10,
+                                    "minimum": 2,
+                                    "type": "integer"
+                                  }
+                                },
+                                "required": [
+                                  "enable"
+                                ],
+                                "type": "object"
+                              },
+                              "scheduler": {
+                                "enum": [
+                                  "WRR",
+                                  "LEAST_CONN",
+                                  "IP_HASH"
+                                ],
+                                "type": "string"
+                              },
+                              "session": {
+                                "properties": {
+                                  "enable": {
+                                    "type": "boolean"
+                                  },
+                                  "sessionExpireTime": {
+                                    "maximum": 3600,
+                                    "minimum": 30,
+                                    "type": "integer"
+                                  },
+                                  "sessionType": {
+                                    "enum": [
+                                      "NORMAL",
+                                      "QUIC_CID"
+                                    ],
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "enable"
+                                ],
+                                "type": "object"
+                              },
+                              "url": {
+                                "maxLength": 200,
+                                "minLength": 1,
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "url"
+                            ],
+                            "type": "object"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "required": [
+                        "domain"
+                      ],
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "keepaliveEnable": {
+                    "maximum": 1,
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "port": {
+                    "maximum": 65535,
+                    "minimum": 1,
+                    "type": "integer"
+                  },
+                  "protocol": {
+                    "enum": [
+                      "HTTP",
+                      "HTTPS"
+                    ],
+                    "type": "string"
+                  },
+                  "sniSwitch": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "protocol",
+                  "port"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "securityGroups": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "cloud.tencent.com",
+      "kind": "TkeServiceConfig",
+      "version": "v1alpha1"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "description": "Room is the Schema for the rooms API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "game.cloud.tencent.com/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "Room"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "RoomSpec defines the desired state of Room",
+      "properties": {
+        "externalAddress": {
+          "type": "string"
+        },
+        "podName": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "externalAddress",
+        "podName",
+        "type"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "description": "RoomStatus defines the observed state of Room",
+      "properties": {
+        "idle": {
+          "type": "boolean"
+        },
+        "lastHeartbeatTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "ready": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "game.cloud.tencent.com",
+      "kind": "Room",
+      "version": "v1alpha1"
+    }
+  ]
+}

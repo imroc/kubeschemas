@@ -1,0 +1,679 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "cls.cloud.tencent.com/v1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "LogConfig"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "clsDetail": {
+          "nullable": true,
+          "properties": {
+            "advancedConfig": {
+              "nullable": true,
+              "properties": {
+                "ClsAgentFileTimeout": {
+                  "nullable": true,
+                  "type": "integer"
+                },
+                "ClsAgentMaxDepth": {
+                  "nullable": true,
+                  "type": "integer"
+                },
+                "ClsAgentParseFailMerge": {
+                  "nullable": true,
+                  "type": "boolean"
+                }
+              },
+              "type": "object"
+            },
+            "autoIndex": {
+              "nullable": true,
+              "type": "string"
+            },
+            "autoSplit": {
+              "nullable": true,
+              "type": "string"
+            },
+            "excludePaths": {
+              "items": {
+                "nullable": true,
+                "properties": {
+                  "excludeType": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "value": {
+                    "nullable": true,
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "nullable": true,
+              "type": "array"
+            },
+            "extractRule": {
+              "nullable": true,
+              "properties": {
+                "advancedFilters": {
+                  "items": {
+                    "nullable": true,
+                    "properties": {
+                      "key": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "rule": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "value": {
+                        "nullable": true,
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "nullable": true,
+                  "type": "array"
+                },
+                "backtracking": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "beginningRegex": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "delimiter": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "filterKeys": {
+                  "items": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "nullable": true,
+                  "type": "array"
+                },
+                "filterRegex": {
+                  "items": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "nullable": true,
+                  "type": "array"
+                },
+                "isGBK": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "jsonStandard": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "keys": {
+                  "items": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "nullable": true,
+                  "type": "array"
+                },
+                "logRegex": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "timeFormat": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "timeKey": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "unMatchUpload": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "unMatchedKey": {
+                  "nullable": true,
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "fullTextIndex": {
+              "properties": {
+                "caseSensitive": {
+                  "type": "boolean"
+                },
+                "containZH": {
+                  "type": "boolean"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "tokenizer": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "hotPeriod": {
+              "nullable": true,
+              "type": "integer"
+            },
+            "indexStatus": {
+              "nullable": true,
+              "type": "string"
+            },
+            "indexs": {
+              "items": {
+                "nullable": true,
+                "properties": {
+                  "containZH": {
+                    "nullable": true,
+                    "type": "boolean"
+                  },
+                  "indexName": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "indexType": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "sqlFlag": {
+                    "nullable": true,
+                    "type": "boolean"
+                  },
+                  "tokenizer": {
+                    "nullable": true,
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "nullable": true,
+              "type": "array"
+            },
+            "logFormat": {
+              "nullable": true,
+              "type": "string"
+            },
+            "logType": {
+              "nullable": true,
+              "type": "string"
+            },
+            "logsetId": {
+              "nullable": true,
+              "type": "string"
+            },
+            "logsetName": {
+              "nullable": true,
+              "type": "string"
+            },
+            "maxSplitPartitions": {
+              "nullable": true,
+              "type": "integer"
+            },
+            "partitionCount": {
+              "nullable": true,
+              "type": "integer"
+            },
+            "period": {
+              "nullable": true,
+              "type": "integer"
+            },
+            "region": {
+              "nullable": true,
+              "type": "string"
+            },
+            "storageType": {
+              "nullable": true,
+              "type": "string"
+            },
+            "tags": {
+              "items": {
+                "nullable": true,
+                "properties": {
+                  "key": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "value": {
+                    "nullable": true,
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "nullable": true,
+              "type": "array"
+            },
+            "topicId": {
+              "nullable": true,
+              "type": "string"
+            },
+            "topicName": {
+              "nullable": true,
+              "type": "string"
+            },
+            "userDefineRule": {
+              "nullable": true,
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "inputDetail": {
+          "nullable": true,
+          "properties": {
+            "containerFile": {
+              "nullable": true,
+              "properties": {
+                "container": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "containerOperator": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "customLabels": {
+                  "additionalProperties": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "nullable": true,
+                  "type": "object"
+                },
+                "excludeLabels": {
+                  "additionalProperties": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "nullable": true,
+                  "type": "object"
+                },
+                "excludeNamespace": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "filePaths": {
+                  "items": {
+                    "nullable": true,
+                    "properties": {
+                      "file": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "path": {
+                        "nullable": true,
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "nullable": true,
+                  "type": "array"
+                },
+                "filePattern": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "includeLabels": {
+                  "additionalProperties": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "nullable": true,
+                  "type": "object"
+                },
+                "logPath": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "metadataContainer": {
+                  "items": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "nullable": true,
+                  "type": "array"
+                },
+                "metadataLabels": {
+                  "items": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "nullable": true,
+                  "type": "array"
+                },
+                "namespace": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "nsLabelSelector": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "workload": {
+                  "nullable": true,
+                  "properties": {
+                    "kind": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "name": {
+                      "nullable": true,
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "containerStdout": {
+              "nullable": true,
+              "properties": {
+                "allContainers": {
+                  "nullable": true,
+                  "type": "boolean"
+                },
+                "container": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "containerOperator": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "customLabels": {
+                  "additionalProperties": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "nullable": true,
+                  "type": "object"
+                },
+                "excludeLabels": {
+                  "additionalProperties": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "nullable": true,
+                  "type": "object"
+                },
+                "excludeNamespace": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "includeLabels": {
+                  "additionalProperties": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "nullable": true,
+                  "type": "object"
+                },
+                "metadataContainer": {
+                  "items": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "nullable": true,
+                  "type": "array"
+                },
+                "metadataLabels": {
+                  "items": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "nullable": true,
+                  "type": "array"
+                },
+                "namespace": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "nsLabelSelector": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "workloads": {
+                  "items": {
+                    "nullable": true,
+                    "properties": {
+                      "container": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "containerOperator": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "kind": {
+                        "enum": [
+                          "deployment",
+                          "daemonset",
+                          "statefulset",
+                          "job",
+                          "cronjob"
+                        ],
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "name": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "namespace": {
+                        "nullable": true,
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "nullable": true,
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "hostFile": {
+              "nullable": true,
+              "properties": {
+                "customLabels": {
+                  "additionalProperties": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "nullable": true,
+                  "type": "object"
+                },
+                "filePaths": {
+                  "items": {
+                    "nullable": true,
+                    "properties": {
+                      "file": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "path": {
+                        "nullable": true,
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "nullable": true,
+                  "type": "array"
+                },
+                "filePattern": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "logPath": {
+                  "nullable": true,
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": {
+              "enum": [
+                "container_stdout",
+                "container_file",
+                "host_file"
+              ],
+              "nullable": true,
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "kafkaDetail": {
+          "nullable": true,
+          "properties": {
+            "brokers": {
+              "nullable": true,
+              "type": "string"
+            },
+            "extractRule": {
+              "nullable": true,
+              "properties": {
+                "beginningRegex": {
+                  "nullable": true,
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "instanceId": {
+              "nullable": true,
+              "type": "string"
+            },
+            "kafkaType": {
+              "nullable": true,
+              "type": "string"
+            },
+            "logType": {
+              "nullable": true,
+              "type": "string"
+            },
+            "messageKey": {
+              "nullable": true,
+              "properties": {
+                "value": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "valueFrom": {
+                  "nullable": true,
+                  "properties": {
+                    "fieldRef": {
+                      "nullable": true,
+                      "properties": {
+                        "fieldPath": {
+                          "nullable": true,
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "metadata": {
+              "nullable": true,
+              "properties": {
+                "formatType": {
+                  "nullable": true,
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "rdKafka": {
+              "additionalProperties": {
+                "nullable": true,
+                "type": "string"
+              },
+              "nullable": true,
+              "type": "object"
+            },
+            "timestampFormat": {
+              "nullable": true,
+              "type": "string"
+            },
+            "timestampKey": {
+              "nullable": true,
+              "type": "string"
+            },
+            "topic": {
+              "nullable": true,
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "properties": {
+        "code": {
+          "nullable": true,
+          "type": "string"
+        },
+        "reason": {
+          "nullable": true,
+          "type": "string"
+        },
+        "status": {
+          "nullable": true,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "cls.cloud.tencent.com",
+      "kind": "LogConfig",
+      "version": "v1"
+    }
+  ]
+}

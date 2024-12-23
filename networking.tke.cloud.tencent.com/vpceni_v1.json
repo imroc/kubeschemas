@@ -1,0 +1,290 @@
+{
+  "description": "VpcENI is a specification for a VpcENI resource",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "networking.tke.cloud.tencent.com/v1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "VpcENI"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "VpcENISpec is a description for a VpcENI",
+      "properties": {
+        "claimRef": {
+          "description": "ObjectReference contains enough information to let you inspect or modify the referred object.",
+          "properties": {
+            "apiVersion": {
+              "description": "API version of the referent.",
+              "type": "string"
+            },
+            "fieldPath": {
+              "description": "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object.",
+              "type": "string"
+            },
+            "kind": {
+              "description": "Kind of the referent. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+              "type": "string"
+            },
+            "name": {
+              "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+              "type": "string"
+            },
+            "namespace": {
+              "description": "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/",
+              "type": "string"
+            },
+            "resourceVersion": {
+              "description": "Specific resourceVersion to which this reference is made, if any. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency",
+              "type": "string"
+            },
+            "uid": {
+              "description": "UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "crossTenant": {
+          "description": "CrossTenantSpec is a description for a cross tenant eni param",
+          "properties": {
+            "appId": {
+              "description": "AppId peerAppId",
+              "format": "int64",
+              "type": "integer"
+            },
+            "business": {
+              "description": "Business specify the cross tenant eni owned business",
+              "type": "string"
+            },
+            "eniLimit": {
+              "description": "ENILimit cross tenant eni num limit on one node",
+              "format": "int32",
+              "type": "integer"
+            },
+            "ifName": {
+              "description": "IfName specify the cross tenant eni interface will use",
+              "type": "string"
+            },
+            "subnetId": {
+              "description": "SubnetId, peer subnetId, only if wan to use user's real ip",
+              "type": "string"
+            },
+            "trunkingFlag": {
+              "description": "TrunkingFlag specify whether to enable trunking mode, 'Enable' or 'Disable'",
+              "type": "string"
+            },
+            "uin": {
+              "description": "Uin peerUin",
+              "type": "string"
+            },
+            "uniqVpcId": {
+              "description": "uniqVpcId peer uniqVpcId",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "maxSecondaryIP": {
+          "description": "max secondary IPs the eni can attach",
+          "format": "int32",
+          "type": "integer"
+        },
+        "mode": {
+          "description": "Mode of the eni: route-eni, direct-eni, cross",
+          "type": "string"
+        },
+        "nominatedENISubnets": {
+          "description": "NominatedENISubnets is the subnets expected to be allocated to the vpc enis",
+          "items": {
+            "default": "",
+            "type": "string"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
+        },
+        "providerID": {
+          "description": "ID of the attached node assigned by ENI provider",
+          "type": "string"
+        },
+        "securityGroups": {
+          "description": "SecurityGroup represents the securitygroup of vpcENI",
+          "items": {
+            "default": "",
+            "type": "string"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
+        },
+        "zone": {
+          "default": "",
+          "description": "zone of the eni",
+          "type": "string"
+        }
+      },
+      "required": [
+        "zone"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "properties": {
+        "conditions": {
+          "description": "Current Condition of vpc ip.",
+          "items": {
+            "description": "VpcENICondition contains details about state of vpceni",
+            "properties": {
+              "attempts": {
+                "description": "The number of attempts for this condition.",
+                "format": "int32",
+                "type": "integer"
+              },
+              "lastProbeTime": {
+                "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+                "format": "date-time",
+                "type": "string"
+              },
+              "lastTransitionTime": {
+                "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "description": "Human-readable message indicating details about last transition.",
+                "type": "string"
+              },
+              "reason": {
+                "description": "Unique, one-word, CamelCase reason for the condition's last transition.",
+                "type": "string"
+              },
+              "status": {
+                "default": "",
+                "type": "string"
+              },
+              "type": {
+                "default": "",
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "status"
+            ],
+            "type": "object"
+          },
+          "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map"
+        },
+        "eni": {
+          "properties": {
+            "attachedInsID": {
+              "description": "ID of instance that eni attached",
+              "type": "string"
+            },
+            "eniID": {
+              "default": "",
+              "description": "ENI ID",
+              "type": "string"
+            },
+            "mac": {
+              "default": "",
+              "description": "ENI mac address",
+              "type": "string"
+            },
+            "primary": {
+              "description": "Primary eni of the node",
+              "type": "boolean"
+            },
+            "primaryIP": {
+              "default": "",
+              "description": "ENI primary ip",
+              "type": "string"
+            },
+            "secondaryIPs": {
+              "description": "SecondaryIPs assigned by the eni",
+              "items": {
+                "default": "",
+                "type": "string"
+              },
+              "type": "array",
+              "x-kubernetes-list-type": "atomic"
+            },
+            "secondaryIPv6s": {
+              "description": "SecondaryIPv6s assigned by the eni",
+              "items": {
+                "default": "",
+                "type": "string"
+              },
+              "type": "array",
+              "x-kubernetes-list-type": "atomic"
+            },
+            "securityGroups": {
+              "description": "SecurityGroups is the security groups associated with the node enis",
+              "items": {
+                "default": "",
+                "type": "string"
+              },
+              "type": "array",
+              "x-kubernetes-list-type": "atomic"
+            },
+            "sgPhase": {
+              "description": "phase of eni security groups",
+              "type": "string"
+            },
+            "subnetCIDR": {
+              "default": "",
+              "description": "Subnet CIDR of the eni",
+              "type": "string"
+            },
+            "subnetIPv6CIDR": {
+              "description": "Subnet IPv6 CIDR of the eni",
+              "type": "string"
+            }
+          },
+          "required": [
+            "eniID",
+            "mac",
+            "primaryIP",
+            "subnetCIDR"
+          ],
+          "type": "object"
+        },
+        "phase": {
+          "description": "Phase represents the current phase of VpcENI.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "networking.tke.cloud.tencent.com",
+      "kind": "VpcENI",
+      "version": "v1"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "properties": {
+    "metricsInfo": {
+      "items": {
+        "$ref": "../custommetrics.apis.pkg.hpa-metrics-server.qc_container_cluster.cloud.tencent.com/metricsinfo_v1alpha1.json"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

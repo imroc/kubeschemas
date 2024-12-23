@@ -1,0 +1,21 @@
+{
+  "properties": {
+    "cbsDiskId": {
+      "default": "",
+      "description": "Unique id of the persistent disk resource. Used to identify the disk in Qcloud",
+      "type": "string"
+    },
+    "fsType": {
+      "description": "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.",
+      "type": "string"
+    },
+    "readOnly": {
+      "description": "Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "cbsDiskId"
+  ],
+  "type": "object"
+}
