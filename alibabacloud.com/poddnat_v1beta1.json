@@ -1,0 +1,127 @@
+{
+  "description": "PodDNAT is the Schema for the poddnats API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "alibabacloud.com/v1beta1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "PodDNAT"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "PodDNATSpec defines the desired state of PodDNAT",
+      "properties": {
+        "eni": {
+          "type": "string"
+        },
+        "entryId": {
+          "type": "string"
+        },
+        "externalIP": {
+          "type": "string"
+        },
+        "externalPort": {
+          "type": "string"
+        },
+        "internalIP": {
+          "type": "string"
+        },
+        "internalPort": {
+          "type": "string"
+        },
+        "portMapping": {
+          "items": {
+            "properties": {
+              "externalPort": {
+                "type": "string"
+              },
+              "internalPort": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "protocol": {
+          "type": "string"
+        },
+        "tableId": {
+          "type": "string"
+        },
+        "vswitch": {
+          "type": "string"
+        },
+        "zoneID": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "description": "PodDNATStatus defines the observed state of PodDNAT",
+      "properties": {
+        "created": {
+          "description": "created create status",
+          "type": "string"
+        },
+        "entries": {
+          "description": "entries",
+          "items": {
+            "description": "Entry record for forwardEntry",
+            "properties": {
+              "externalIP": {
+                "type": "string"
+              },
+              "externalPort": {
+                "type": "string"
+              },
+              "forwardEntryId": {
+                "type": "string"
+              },
+              "internalIP": {
+                "type": "string"
+              },
+              "internalPort": {
+                "type": "string"
+              },
+              "ipProtocol": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "alibabacloud.com",
+      "kind": "PodDNAT",
+      "version": "v1beta1"
+    }
+  ]
+}

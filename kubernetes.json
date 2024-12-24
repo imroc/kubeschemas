@@ -70,6 +70,12 @@
       "$ref": "agones.dev/gameserversetlist_v1.json"
     },
     {
+      "$ref": "alibabacloud.com/poddnat_v1beta1.json"
+    },
+    {
+      "$ref": "alibabacloud.com/poddnatlist_v1beta1.json"
+    },
+    {
       "$ref": "analysis.crane.io/analytics_v1alpha1.json"
     },
     {
@@ -182,6 +188,108 @@
     },
     {
       "$ref": "apps.clusternet.io/subscriptionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/advancedcronjob_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/advancedcronjoblist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/broadcastjob_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/broadcastjoblist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/cloneset_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/clonesetlist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/containerrecreaterequest_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/containerrecreaterequestlist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/daemonset_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/daemonsetlist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/imagelistpulljob_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/imagelistpulljoblist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/imagepulljob_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/imagepulljoblist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/nodeimage_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/nodeimagelist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/nodepodprobe_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/nodepodprobelist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/persistentpodstate_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/persistentpodstatelist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/podprobemarker_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/podprobemarkerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/resourcedistribution_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/resourcedistributionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/sidecarset_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/sidecarsetlist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/statefulset_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/statefulset_v1beta1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/statefulsetlist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/statefulsetlist_v1beta1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/uniteddeployment_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/uniteddeploymentlist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/workloadspread_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kruise.io/workloadspreadlist_v1alpha1.json"
     },
     {
       "$ref": "argoproj.io/cronworkflowlist_v1alpha1.json"
@@ -830,6 +938,18 @@
     },
     {
       "$ref": "game.cloud.tencent.com/roomlist_v1alpha1.json"
+    },
+    {
+      "$ref": "game.kruise.io/gameserver_v1alpha1.json"
+    },
+    {
+      "$ref": "game.kruise.io/gameserverlist_v1alpha1.json"
+    },
+    {
+      "$ref": "game.kruise.io/gameserverset_v1alpha1.json"
+    },
+    {
+      "$ref": "game.kruise.io/gameserversetlist_v1alpha1.json"
     },
     {
       "$ref": "gateway.envoyproxy.io/backend_v1alpha1.json"
@@ -1646,6 +1766,12 @@
     },
     {
       "$ref": "policy.karmada.io/propagationpolicylist_v1alpha1.json"
+    },
+    {
+      "$ref": "policy.kruise.io/podunavailablebudget_v1alpha1.json"
+    },
+    {
+      "$ref": "policy.kruise.io/podunavailablebudgetlist_v1alpha1.json"
     },
     {
       "$ref": "prediction.crane.io/clusternodeprediction_v1alpha1.json"

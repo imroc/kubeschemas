@@ -1,0 +1,601 @@
+{
+  "description": "SidecarSet is the Schema for the sidecarsets API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "apps.kruise.io/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "SidecarSet"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "SidecarSetSpec defines the desired state of SidecarSet",
+      "properties": {
+        "containers": {
+          "description": "Containers is the list of sidecar containers to be injected into the selected pod",
+          "items": {
+            "description": "SidecarContainer defines the container of Sidecar",
+            "properties": {
+              "podInjectPolicy": {
+                "description": "The rules that injected SidecarContainer into Pod.spec.containers,\nnot takes effect in initContainers\nIf BeforeAppContainer, the SidecarContainer will be injected in front of the pod.spec.containers\notherwise it will be injected into the back.\ndefault BeforeAppContainerType",
+                "type": "string"
+              },
+              "shareVolumePolicy": {
+                "description": "If ShareVolumePolicy is enabled, the sidecar container will share the other container's VolumeMounts\nin the pod(don't contains the injected sidecar container).",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "transferEnv": {
+                "description": "TransferEnv will transfer env info from other container\nSourceContainerName is pod.spec.container[x].name; EnvName is pod.spec.container[x].Env.name",
+                "items": {
+                  "properties": {
+                    "envName": {
+                      "type": "string"
+                    },
+                    "envNames": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "sourceContainerName": {
+                      "type": "string"
+                    },
+                    "sourceContainerNameFrom": {
+                      "properties": {
+                        "fieldRef": {
+                          "description": "Selects a field of the pod: supports metadata.name, `metadata.labels['\u003cKEY\u003e']`, `metadata.annotations['\u003cKEY\u003e']`,",
+                          "properties": {
+                            "apiVersion": {
+                              "description": "Version of the schema the FieldPath is written in terms of, defaults to \"v1\".",
+                              "type": "string"
+                            },
+                            "fieldPath": {
+                              "description": "Path of the field to select in the specified API version.",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "fieldPath"
+                          ],
+                          "type": "object",
+                          "x-kubernetes-map-type": "atomic"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "upgradeStrategy": {
+                "description": "sidecarContainer upgrade strategy, include: ColdUpgrade, HotUpgrade",
+                "properties": {
+                  "hotUpgradeEmptyImage": {
+                    "description": "when HotUpgrade, HotUpgradeEmptyImage is used to complete the hot upgrading process\nHotUpgradeEmptyImage is consistent of sidecar container in Command, Args, Liveness probe, etc.\nbut it does no actual work.",
+                    "type": "string"
+                  },
+                  "upgradeType": {
+                    "description": "when sidecar container is stateless, use ColdUpgrade\notherwise HotUpgrade are more HotUpgrade.\nexamples for istio envoy container is suitable for HotUpgrade\ndefault is ColdUpgrade",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object",
+            "x-kubernetes-preserve-unknown-fields": true
+          },
+          "type": "array"
+        },
+        "imagePullSecrets": {
+          "description": "List of the names of secrets required by pulling sidecar container images",
+          "items": {
+            "description": "LocalObjectReference contains enough information to let you locate the\nreferenced object inside the same namespace.",
+            "properties": {
+              "name": {
+                "description": "Name of the referent.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names\nTODO: Add other useful fields. apiVersion, kind, uid?",
+                "type": "string"
+              }
+            },
+            "type": "object",
+            "x-kubernetes-map-type": "atomic"
+          },
+          "type": "array"
+        },
+        "initContainers": {
+          "description": "InitContainers is the list of init containers to be injected into the selected pod\nWe will inject those containers by their name in ascending order\nWe only inject init containers when a new pod is created, it does not apply to any existing pod",
+          "items": {
+            "description": "SidecarContainer defines the container of Sidecar",
+            "properties": {
+              "podInjectPolicy": {
+                "description": "The rules that injected SidecarContainer into Pod.spec.containers,\nnot takes effect in initContainers\nIf BeforeAppContainer, the SidecarContainer will be injected in front of the pod.spec.containers\notherwise it will be injected into the back.\ndefault BeforeAppContainerType",
+                "type": "string"
+              },
+              "shareVolumePolicy": {
+                "description": "If ShareVolumePolicy is enabled, the sidecar container will share the other container's VolumeMounts\nin the pod(don't contains the injected sidecar container).",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "transferEnv": {
+                "description": "TransferEnv will transfer env info from other container\nSourceContainerName is pod.spec.container[x].name; EnvName is pod.spec.container[x].Env.name",
+                "items": {
+                  "properties": {
+                    "envName": {
+                      "type": "string"
+                    },
+                    "envNames": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "sourceContainerName": {
+                      "type": "string"
+                    },
+                    "sourceContainerNameFrom": {
+                      "properties": {
+                        "fieldRef": {
+                          "description": "Selects a field of the pod: supports metadata.name, `metadata.labels['\u003cKEY\u003e']`, `metadata.annotations['\u003cKEY\u003e']`,",
+                          "properties": {
+                            "apiVersion": {
+                              "description": "Version of the schema the FieldPath is written in terms of, defaults to \"v1\".",
+                              "type": "string"
+                            },
+                            "fieldPath": {
+                              "description": "Path of the field to select in the specified API version.",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "fieldPath"
+                          ],
+                          "type": "object",
+                          "x-kubernetes-map-type": "atomic"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "upgradeStrategy": {
+                "description": "sidecarContainer upgrade strategy, include: ColdUpgrade, HotUpgrade",
+                "properties": {
+                  "hotUpgradeEmptyImage": {
+                    "description": "when HotUpgrade, HotUpgradeEmptyImage is used to complete the hot upgrading process\nHotUpgradeEmptyImage is consistent of sidecar container in Command, Args, Liveness probe, etc.\nbut it does no actual work.",
+                    "type": "string"
+                  },
+                  "upgradeType": {
+                    "description": "when sidecar container is stateless, use ColdUpgrade\notherwise HotUpgrade are more HotUpgrade.\nexamples for istio envoy container is suitable for HotUpgrade\ndefault is ColdUpgrade",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object",
+            "x-kubernetes-preserve-unknown-fields": true
+          },
+          "type": "array"
+        },
+        "injectionStrategy": {
+          "description": "InjectionStrategy describe the strategy when sidecarset is injected into pods",
+          "properties": {
+            "paused": {
+              "description": "Paused indicates that SidecarSet will suspend injection into Pods\nIf Paused is true, the sidecarSet will not be injected to newly created Pods,\nbut the injected sidecar container remains updating and running.\ndefault is false",
+              "type": "boolean"
+            },
+            "revision": {
+              "description": "Revision can help users rolling update SidecarSet safely. If users set\nthis filed, SidecarSet will try to inject specific revision according to\ndifferent policies.",
+              "properties": {
+                "customVersion": {
+                  "description": "CustomVersion corresponds to label 'apps.kruise.io/sidecarset-custom-version' of (History) SidecarSet.\nSidecarSet will select the specific ControllerRevision via this CustomVersion, and then restore the\nhistory SidecarSet to inject specific version of the sidecar to pods.",
+                  "type": "string"
+                },
+                "policy": {
+                  "description": "Policy describes the behavior of revision injection.\nDefaults to Always.",
+                  "type": "string"
+                },
+                "revisionName": {
+                  "description": "RevisionName corresponds to a specific ControllerRevision name of SidecarSet that you want to inject to Pods.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "namespace": {
+          "description": "Namespace sidecarSet will only match the pods in the namespace\notherwise, match pods in all namespaces(in cluster)",
+          "type": "string"
+        },
+        "namespaceSelector": {
+          "description": "NamespaceSelector select which namespaces to inject sidecar containers.\nDefault to the empty LabelSelector, which matches everything.",
+          "properties": {
+            "matchExpressions": {
+              "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
+              "items": {
+                "description": "A label selector requirement is a selector that contains values, a key, and an operator that\nrelates the key and values.",
+                "properties": {
+                  "key": {
+                    "description": "key is the label key that the selector applies to.",
+                    "type": "string"
+                  },
+                  "operator": {
+                    "description": "operator represents a key's relationship to a set of values.\nValid operators are In, NotIn, Exists and DoesNotExist.",
+                    "type": "string"
+                  },
+                  "values": {
+                    "description": "values is an array of string values. If the operator is In or NotIn,\nthe values array must be non-empty. If the operator is Exists or DoesNotExist,\nthe values array must be empty. This array is replaced during a strategic\nmerge patch.",
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "key",
+                  "operator"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "matchLabels": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "description": "matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels\nmap is equivalent to an element of matchExpressions, whose key field is \"key\", the\noperator is \"In\", and the values array contains only \"value\". The requirements are ANDed.",
+              "type": "object"
+            }
+          },
+          "type": "object",
+          "x-kubernetes-map-type": "atomic"
+        },
+        "patchPodMetadata": {
+          "description": "SidecarSet support to inject \u0026 in-place update metadata in pod.",
+          "items": {
+            "properties": {
+              "annotations": {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "description": "annotations",
+                "type": "object"
+              },
+              "patchPolicy": {
+                "description": "labels map[string]string `json:\"labels,omitempty\"`\npatch pod metadata policy, Default is \"Retain\"",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "revisionHistoryLimit": {
+          "description": "RevisionHistoryLimit indicates the maximum quantity of stored revisions about the SidecarSet.\ndefault value is 10",
+          "format": "int32",
+          "type": "integer"
+        },
+        "selector": {
+          "description": "selector is a label query over pods that should be injected",
+          "properties": {
+            "matchExpressions": {
+              "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
+              "items": {
+                "description": "A label selector requirement is a selector that contains values, a key, and an operator that\nrelates the key and values.",
+                "properties": {
+                  "key": {
+                    "description": "key is the label key that the selector applies to.",
+                    "type": "string"
+                  },
+                  "operator": {
+                    "description": "operator represents a key's relationship to a set of values.\nValid operators are In, NotIn, Exists and DoesNotExist.",
+                    "type": "string"
+                  },
+                  "values": {
+                    "description": "values is an array of string values. If the operator is In or NotIn,\nthe values array must be non-empty. If the operator is Exists or DoesNotExist,\nthe values array must be empty. This array is replaced during a strategic\nmerge patch.",
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "key",
+                  "operator"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "matchLabels": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "description": "matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels\nmap is equivalent to an element of matchExpressions, whose key field is \"key\", the\noperator is \"In\", and the values array contains only \"value\". The requirements are ANDed.",
+              "type": "object"
+            }
+          },
+          "type": "object",
+          "x-kubernetes-map-type": "atomic"
+        },
+        "updateStrategy": {
+          "description": "The sidecarset updateStrategy to use to replace existing pods with new ones.",
+          "properties": {
+            "maxUnavailable": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
+              ],
+              "description": "The maximum number of SidecarSet pods that can be unavailable during the\nupdate. Value can be an absolute number (ex: 5) or a percentage of total\nnumber of SidecarSet pods at the start of the update (ex: 10%). Absolute\nnumber is calculated from percentage by rounding up.\nThis cannot be 0.\nDefault value is 1.",
+              "x-kubernetes-int-or-string": true
+            },
+            "partition": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
+              ],
+              "description": "Partition is the desired number of pods in old revisions. It means when partition\nis set during pods updating, (replicas - partition) number of pods will be updated.\nDefault value is 0.",
+              "x-kubernetes-int-or-string": true
+            },
+            "paused": {
+              "description": "Paused indicates that the SidecarSet is paused to update the injected pods,\nbut it don't affect the webhook inject sidecar container into the newly created pods.\ndefault is false",
+              "type": "boolean"
+            },
+            "priorityStrategy": {
+              "description": "Priorities are the rules for calculating the priority of updating pods.\nEach pod to be updated, will pass through these terms and get a sum of weights.",
+              "properties": {
+                "orderPriority": {
+                  "description": "Order priority terms, pods will be sorted by the value of orderedKey.\nFor example:\n```\norderPriority:\n- orderedKey: key1\n- orderedKey: key2\n```\nFirst, all pods which have key1 in labels will be sorted by the value of key1.\nThen, the left pods which have no key1 but have key2 in labels will be sorted by\nthe value of key2 and put behind those pods have key1.",
+                  "items": {
+                    "description": "UpdatePriorityOrderTerm defines order priority.",
+                    "properties": {
+                      "orderedKey": {
+                        "description": "Calculate priority by value of this key.\nValues of this key, will be sorted by GetInt(val). GetInt method will find the last int in value,\nsuch as getting 5 in value '5', getting 10 in value 'sts-10'.",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "orderedKey"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "weightPriority": {
+                  "description": "Weight priority terms, pods will be sorted by the sum of all terms weight.",
+                  "items": {
+                    "description": "UpdatePriorityWeightTerm defines weight priority.",
+                    "properties": {
+                      "matchSelector": {
+                        "description": "MatchSelector is used to select by pod's labels.",
+                        "properties": {
+                          "matchExpressions": {
+                            "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
+                            "items": {
+                              "description": "A label selector requirement is a selector that contains values, a key, and an operator that\nrelates the key and values.",
+                              "properties": {
+                                "key": {
+                                  "description": "key is the label key that the selector applies to.",
+                                  "type": "string"
+                                },
+                                "operator": {
+                                  "description": "operator represents a key's relationship to a set of values.\nValid operators are In, NotIn, Exists and DoesNotExist.",
+                                  "type": "string"
+                                },
+                                "values": {
+                                  "description": "values is an array of string values. If the operator is In or NotIn,\nthe values array must be non-empty. If the operator is Exists or DoesNotExist,\nthe values array must be empty. This array is replaced during a strategic\nmerge patch.",
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "type": "array"
+                                }
+                              },
+                              "required": [
+                                "key",
+                                "operator"
+                              ],
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "matchLabels": {
+                            "additionalProperties": {
+                              "type": "string"
+                            },
+                            "description": "matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels\nmap is equivalent to an element of matchExpressions, whose key field is \"key\", the\noperator is \"In\", and the values array contains only \"value\". The requirements are ANDed.",
+                            "type": "object"
+                          }
+                        },
+                        "type": "object",
+                        "x-kubernetes-map-type": "atomic"
+                      },
+                      "weight": {
+                        "description": "Weight associated with matching the corresponding matchExpressions, in the range 1-100.",
+                        "format": "int32",
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "matchSelector",
+                      "weight"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "scatterStrategy": {
+              "description": "ScatterStrategy defines the scatter rules to make pods been scattered when update.\nThis will avoid pods with the same key-value to be updated in one batch.\n- Note that pods will be scattered after priority sort. So, although priority strategy and scatter strategy can be applied together, we suggest to use either one of them.\n- If scatterStrategy is used, we suggest to just use one term. Otherwise, the update order can be hard to understand.",
+              "items": {
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "value"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "selector": {
+              "description": "If selector is not nil, this upgrade will only update the selected pods.",
+              "properties": {
+                "matchExpressions": {
+                  "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
+                  "items": {
+                    "description": "A label selector requirement is a selector that contains values, a key, and an operator that\nrelates the key and values.",
+                    "properties": {
+                      "key": {
+                        "description": "key is the label key that the selector applies to.",
+                        "type": "string"
+                      },
+                      "operator": {
+                        "description": "operator represents a key's relationship to a set of values.\nValid operators are In, NotIn, Exists and DoesNotExist.",
+                        "type": "string"
+                      },
+                      "values": {
+                        "description": "values is an array of string values. If the operator is In or NotIn,\nthe values array must be non-empty. If the operator is Exists or DoesNotExist,\nthe values array must be empty. This array is replaced during a strategic\nmerge patch.",
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "key",
+                      "operator"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "matchLabels": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "description": "matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels\nmap is equivalent to an element of matchExpressions, whose key field is \"key\", the\noperator is \"In\", and the values array contains only \"value\". The requirements are ANDed.",
+                  "type": "object"
+                }
+              },
+              "type": "object",
+              "x-kubernetes-map-type": "atomic"
+            },
+            "type": {
+              "description": "Type is NotUpdate, the SidecarSet don't update the injected pods,\nit will only inject sidecar container into the newly created pods.\nType is RollingUpdate, the SidecarSet will update the injected pods to the latest version on RollingUpdate Strategy.\ndefault is RollingUpdate",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "volumes": {
+          "description": "List of volumes that can be mounted by sidecar containers",
+          "x-kubernetes-preserve-unknown-fields": true
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "description": "SidecarSetStatus defines the observed state of SidecarSet",
+      "properties": {
+        "collisionCount": {
+          "description": "CollisionCount is the count of hash collisions for the SidecarSet. The SidecarSet controller\nuses this field as a collision avoidance mechanism when it needs to create the name for the\nnewest ControllerRevision.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "latestRevision": {
+          "description": "LatestRevision, if not empty, indicates the latest controllerRevision name of the SidecarSet.",
+          "type": "string"
+        },
+        "matchedPods": {
+          "description": "matchedPods is the number of Pods whose labels are matched with this SidecarSet's selector and are created after sidecarset creates",
+          "format": "int32",
+          "type": "integer"
+        },
+        "observedGeneration": {
+          "description": "observedGeneration is the most recent generation observed for this SidecarSet. It corresponds to the\nSidecarSet's generation, which is updated on mutation by the API Server.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "readyPods": {
+          "description": "readyPods is the number of matched Pods that have a ready condition",
+          "format": "int32",
+          "type": "integer"
+        },
+        "updatedPods": {
+          "description": "updatedPods is the number of matched Pods that are injected with the latest SidecarSet's containers",
+          "format": "int32",
+          "type": "integer"
+        },
+        "updatedReadyPods": {
+          "description": "updatedReadyPods is the number of matched pods that updated and ready",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "matchedPods",
+        "readyPods",
+        "updatedPods"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "apps.kruise.io",
+      "kind": "SidecarSet",
+      "version": "v1alpha1"
+    }
+  ]
+}
