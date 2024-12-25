@@ -43,6 +43,18 @@
       "$ref": "admissionregistration.k8s.io/mutatingwebhookconfigurationlist_v1.json"
     },
     {
+      "$ref": "admissionregistration.k8s.io/validatingadmissionpolicy_v1.json"
+    },
+    {
+      "$ref": "admissionregistration.k8s.io/validatingadmissionpolicybinding_v1.json"
+    },
+    {
+      "$ref": "admissionregistration.k8s.io/validatingadmissionpolicybindinglist_v1.json"
+    },
+    {
+      "$ref": "admissionregistration.k8s.io/validatingadmissionpolicylist_v1.json"
+    },
+    {
       "$ref": "admissionregistration.k8s.io/validatingwebhookconfiguration_v1.json"
     },
     {
@@ -913,10 +925,16 @@
       "$ref": "flink.apache.org/flinksessionjoblist_v1beta1.json"
     },
     {
+      "$ref": "flowcontrol.apiserver.k8s.io/flowschema_v1.json"
+    },
+    {
       "$ref": "flowcontrol.apiserver.k8s.io/flowschema_v1beta2.json"
     },
     {
       "$ref": "flowcontrol.apiserver.k8s.io/flowschema_v1beta3.json"
+    },
+    {
+      "$ref": "flowcontrol.apiserver.k8s.io/flowschemalist_v1.json"
     },
     {
       "$ref": "flowcontrol.apiserver.k8s.io/flowschemalist_v1beta2.json"
@@ -925,10 +943,16 @@
       "$ref": "flowcontrol.apiserver.k8s.io/flowschemalist_v1beta3.json"
     },
     {
+      "$ref": "flowcontrol.apiserver.k8s.io/prioritylevelconfiguration_v1.json"
+    },
+    {
       "$ref": "flowcontrol.apiserver.k8s.io/prioritylevelconfiguration_v1beta2.json"
     },
     {
       "$ref": "flowcontrol.apiserver.k8s.io/prioritylevelconfiguration_v1beta3.json"
+    },
+    {
+      "$ref": "flowcontrol.apiserver.k8s.io/prioritylevelconfigurationlist_v1.json"
     },
     {
       "$ref": "flowcontrol.apiserver.k8s.io/prioritylevelconfigurationlist_v1beta2.json"
@@ -1009,7 +1033,13 @@
       "$ref": "gateway.networking.k8s.io/backendlbpolicylist_v1alpha2.json"
     },
     {
+      "$ref": "gateway.networking.k8s.io/backendtlspolicy_v1alpha2.json"
+    },
+    {
       "$ref": "gateway.networking.k8s.io/backendtlspolicy_v1alpha3.json"
+    },
+    {
+      "$ref": "gateway.networking.k8s.io/backendtlspolicylist_v1alpha2.json"
     },
     {
       "$ref": "gateway.networking.k8s.io/backendtlspolicylist_v1alpha3.json"
@@ -1042,7 +1072,13 @@
       "$ref": "gateway.networking.k8s.io/grpcroute_v1.json"
     },
     {
+      "$ref": "gateway.networking.k8s.io/grpcroute_v1alpha2.json"
+    },
+    {
       "$ref": "gateway.networking.k8s.io/grpcroutelist_v1.json"
+    },
+    {
+      "$ref": "gateway.networking.k8s.io/grpcroutelist_v1alpha2.json"
     },
     {
       "$ref": "gateway.networking.k8s.io/httproute_v1.json"
@@ -1087,10 +1123,34 @@
       "$ref": "gateway.networking.k8s.io/udproutelist_v1alpha2.json"
     },
     {
+      "$ref": "helm.cattle.io/helmchart_v1.json"
+    },
+    {
+      "$ref": "helm.cattle.io/helmchartconfig_v1.json"
+    },
+    {
+      "$ref": "helm.cattle.io/helmchartconfiglist_v1.json"
+    },
+    {
+      "$ref": "helm.cattle.io/helmchartlist_v1.json"
+    },
+    {
       "$ref": "install.istio.io/istiooperator_v1alpha1.json"
     },
     {
       "$ref": "install.istio.io/istiooperatorlist_v1alpha1.json"
+    },
+    {
+      "$ref": "k3s.cattle.io/addon_v1.json"
+    },
+    {
+      "$ref": "k3s.cattle.io/addonlist_v1.json"
+    },
+    {
+      "$ref": "k3s.cattle.io/etcdsnapshotfile_v1.json"
+    },
+    {
+      "$ref": "k3s.cattle.io/etcdsnapshotfilelist_v1.json"
     },
     {
       "$ref": "keda.sh/clustertriggerauthentication_v1alpha1.json"

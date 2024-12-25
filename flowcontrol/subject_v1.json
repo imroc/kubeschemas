@@ -1,0 +1,48 @@
+{
+  "description": "Subject matches the originator of a request, as identified by the request authentication system. There are three ways of matching an originator; by user, group, or service account.",
+  "properties": {
+    "group": {
+      "allOf": [
+        {
+          "$ref": "../flowcontrol/groupsubject_v1.json"
+        }
+      ],
+      "description": "`group` matches based on user group name."
+    },
+    "kind": {
+      "default": "",
+      "description": "`kind` indicates which one of the other fields is non-empty. Required",
+      "type": "string"
+    },
+    "serviceAccount": {
+      "allOf": [
+        {
+          "$ref": "../flowcontrol/serviceaccountsubject_v1.json"
+        }
+      ],
+      "description": "`serviceAccount` matches ServiceAccounts."
+    },
+    "user": {
+      "allOf": [
+        {
+          "$ref": "../flowcontrol/usersubject_v1.json"
+        }
+      ],
+      "description": "`user` matches based on username."
+    }
+  },
+  "required": [
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-unions": [
+    {
+      "discriminator": "kind",
+      "fields-to-discriminateBy": {
+        "group": "Group",
+        "serviceAccount": "ServiceAccount",
+        "user": "User"
+      }
+    }
+  ]
+}
