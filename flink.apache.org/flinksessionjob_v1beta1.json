@@ -1,0 +1,216 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "flink.apache.org/v1beta1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "FlinkSessionJob"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "deploymentName": {
+          "type": "string"
+        },
+        "flinkConfiguration": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "job": {
+          "properties": {
+            "allowNonRestoredState": {
+              "type": "boolean"
+            },
+            "args": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "entryClass": {
+              "type": "string"
+            },
+            "initialSavepointPath": {
+              "type": "string"
+            },
+            "jarURI": {
+              "type": "string"
+            },
+            "parallelism": {
+              "type": "integer"
+            },
+            "savepointTriggerNonce": {
+              "type": "integer"
+            },
+            "state": {
+              "enum": [
+                "running",
+                "suspended"
+              ],
+              "type": "string"
+            },
+            "upgradeMode": {
+              "enum": [
+                "savepoint",
+                "last-state",
+                "stateless"
+              ],
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "restartNonce": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "jobStatus": {
+          "properties": {
+            "jobId": {
+              "type": "string"
+            },
+            "jobName": {
+              "type": "string"
+            },
+            "savepointInfo": {
+              "properties": {
+                "lastPeriodicSavepointTimestamp": {
+                  "type": "integer"
+                },
+                "lastSavepoint": {
+                  "properties": {
+                    "location": {
+                      "type": "string"
+                    },
+                    "timeStamp": {
+                      "type": "integer"
+                    },
+                    "triggerType": {
+                      "enum": [
+                        "MANUAL",
+                        "PERIODIC",
+                        "UPGRADE",
+                        "UNKNOWN"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "savepointHistory": {
+                  "items": {
+                    "properties": {
+                      "location": {
+                        "type": "string"
+                      },
+                      "timeStamp": {
+                        "type": "integer"
+                      },
+                      "triggerType": {
+                        "enum": [
+                          "MANUAL",
+                          "PERIODIC",
+                          "UPGRADE",
+                          "UNKNOWN"
+                        ],
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "triggerId": {
+                  "type": "string"
+                },
+                "triggerTimestamp": {
+                  "type": "integer"
+                },
+                "triggerType": {
+                  "enum": [
+                    "MANUAL",
+                    "PERIODIC",
+                    "UPGRADE",
+                    "UNKNOWN"
+                  ],
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "startTime": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            },
+            "updateTime": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "reconciliationStatus": {
+          "properties": {
+            "lastReconciledSpec": {
+              "type": "string"
+            },
+            "lastStableSpec": {
+              "type": "string"
+            },
+            "reconciliationTimestamp": {
+              "type": "integer"
+            },
+            "state": {
+              "enum": [
+                "DEPLOYED",
+                "UPGRADING",
+                "ROLLING_BACK",
+                "ROLLED_BACK"
+              ],
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "flink.apache.org",
+      "kind": "FlinkSessionJob",
+      "version": "v1beta1"
+    }
+  ]
+}

@@ -1,9 +1,6 @@
 {
   "oneOf": [
     {
-      "$ref": "acme.apis.webhook.acme.pkg.cert-manager.cert-manager.github.com/challengepayload_v1alpha1.json"
-    },
-    {
       "$ref": "acme.cert-manager.io/challenge_v1.json"
     },
     {
@@ -40,16 +37,16 @@
       "$ref": "addon.open-cluster-management.io/managedclusteraddonlist_v1alpha1.json"
     },
     {
-      "$ref": "admissionregistration.api.k8s.io/mutatingwebhookconfiguration_v1.json"
+      "$ref": "admissionregistration.k8s.io/mutatingwebhookconfiguration_v1.json"
     },
     {
-      "$ref": "admissionregistration.api.k8s.io/mutatingwebhookconfigurationlist_v1.json"
+      "$ref": "admissionregistration.k8s.io/mutatingwebhookconfigurationlist_v1.json"
     },
     {
-      "$ref": "admissionregistration.api.k8s.io/validatingwebhookconfiguration_v1.json"
+      "$ref": "admissionregistration.k8s.io/validatingwebhookconfiguration_v1.json"
     },
     {
-      "$ref": "admissionregistration.api.k8s.io/validatingwebhookconfigurationlist_v1.json"
+      "$ref": "admissionregistration.k8s.io/validatingwebhookconfigurationlist_v1.json"
     },
     {
       "$ref": "agones.dev/fleet_v1.json"
@@ -88,16 +85,16 @@
       "$ref": "analysis.crane.io/recommendationlist_v1alpha1.json"
     },
     {
-      "$ref": "apiextensions.apis.pkg.apiextensions-apiserver.k8s.io/customresourcedefinition_v1.json"
+      "$ref": "apiextensions.k8s.io/customresourcedefinition_v1.json"
     },
     {
-      "$ref": "apiextensions.apis.pkg.apiextensions-apiserver.k8s.io/customresourcedefinitionlist_v1.json"
+      "$ref": "apiextensions.k8s.io/customresourcedefinitionlist_v1.json"
     },
     {
-      "$ref": "apiregistration.apis.pkg.kube-aggregator.k8s.io/apiservice_v1.json"
+      "$ref": "apiregistration.k8s.io/apiservice_v1.json"
     },
     {
-      "$ref": "apiregistration.apis.pkg.kube-aggregator.k8s.io/apiservicelist_v1.json"
+      "$ref": "apiregistration.k8s.io/apiservicelist_v1.json"
     },
     {
       "$ref": "app.k8s.io/application_v1beta1.json"
@@ -106,34 +103,34 @@
       "$ref": "app.k8s.io/applicationlist_v1beta1.json"
     },
     {
-      "$ref": "apps.api.k8s.io/controllerrevision_v1.json"
+      "$ref": "apps/controllerrevision_v1.json"
     },
     {
-      "$ref": "apps.api.k8s.io/controllerrevisionlist_v1.json"
+      "$ref": "apps/controllerrevisionlist_v1.json"
     },
     {
-      "$ref": "apps.api.k8s.io/daemonset_v1.json"
+      "$ref": "apps/daemonset_v1.json"
     },
     {
-      "$ref": "apps.api.k8s.io/daemonsetlist_v1.json"
+      "$ref": "apps/daemonsetlist_v1.json"
     },
     {
-      "$ref": "apps.api.k8s.io/deployment_v1.json"
+      "$ref": "apps/deployment_v1.json"
     },
     {
-      "$ref": "apps.api.k8s.io/deploymentlist_v1.json"
+      "$ref": "apps/deploymentlist_v1.json"
     },
     {
-      "$ref": "apps.api.k8s.io/replicaset_v1.json"
+      "$ref": "apps/replicaset_v1.json"
     },
     {
-      "$ref": "apps.api.k8s.io/replicasetlist_v1.json"
+      "$ref": "apps/replicasetlist_v1.json"
     },
     {
-      "$ref": "apps.api.k8s.io/statefulset_v1.json"
+      "$ref": "apps/statefulset_v1.json"
     },
     {
-      "$ref": "apps.api.k8s.io/statefulsetlist_v1.json"
+      "$ref": "apps/statefulsetlist_v1.json"
     },
     {
       "$ref": "apps.clusternet.io/base_v1alpha1.json"
@@ -301,46 +298,46 @@
       "$ref": "argoproj.io/workflowtemplatelist_v1alpha1.json"
     },
     {
-      "$ref": "authentication.api.k8s.io/selfsubjectreview_v1.json"
+      "$ref": "authentication.k8s.io/selfsubjectreview_v1.json"
     },
     {
-      "$ref": "authentication.api.k8s.io/tokenrequest_v1.json"
+      "$ref": "authentication.k8s.io/tokenrequest_v1.json"
     },
     {
-      "$ref": "authentication.api.k8s.io/tokenreview_v1.json"
+      "$ref": "authentication.k8s.io/tokenreview_v1.json"
     },
     {
-      "$ref": "authorization.api.k8s.io/localsubjectaccessreview_v1.json"
+      "$ref": "authorization.k8s.io/localsubjectaccessreview_v1.json"
     },
     {
-      "$ref": "authorization.api.k8s.io/selfsubjectaccessreview_v1.json"
+      "$ref": "authorization.k8s.io/selfsubjectaccessreview_v1.json"
     },
     {
-      "$ref": "authorization.api.k8s.io/selfsubjectrulesreview_v1.json"
+      "$ref": "authorization.k8s.io/selfsubjectrulesreview_v1.json"
     },
     {
-      "$ref": "authorization.api.k8s.io/subjectaccessreview_v1.json"
+      "$ref": "authorization.k8s.io/subjectaccessreview_v1.json"
+    },
+    {
+      "$ref": "autoscaling/horizontalpodautoscaler_v1.json"
+    },
+    {
+      "$ref": "autoscaling/horizontalpodautoscaler_v2.json"
+    },
+    {
+      "$ref": "autoscaling/horizontalpodautoscalerlist_v1.json"
+    },
+    {
+      "$ref": "autoscaling/horizontalpodautoscalerlist_v2.json"
+    },
+    {
+      "$ref": "autoscaling/scale_v1.json"
     },
     {
       "$ref": "autoscaling.agones.dev/fleetautoscaler_v1.json"
     },
     {
       "$ref": "autoscaling.agones.dev/fleetautoscalerlist_v1.json"
-    },
-    {
-      "$ref": "autoscaling.api.k8s.io/horizontalpodautoscaler_v1.json"
-    },
-    {
-      "$ref": "autoscaling.api.k8s.io/horizontalpodautoscaler_v2.json"
-    },
-    {
-      "$ref": "autoscaling.api.k8s.io/horizontalpodautoscalerlist_v1.json"
-    },
-    {
-      "$ref": "autoscaling.api.k8s.io/horizontalpodautoscalerlist_v2.json"
-    },
-    {
-      "$ref": "autoscaling.api.k8s.io/scale_v1.json"
     },
     {
       "$ref": "autoscaling.cloud.tencent.com/horizontalpodcronscaler_v1.json"
@@ -421,16 +418,16 @@
       "$ref": "backup.tke.cloud.tencent.com/schedulelist_v1beta1.json"
     },
     {
-      "$ref": "batch.api.k8s.io/cronjob_v1.json"
+      "$ref": "batch/cronjob_v1.json"
     },
     {
-      "$ref": "batch.api.k8s.io/cronjoblist_v1.json"
+      "$ref": "batch/cronjoblist_v1.json"
     },
     {
-      "$ref": "batch.api.k8s.io/job_v1.json"
+      "$ref": "batch/job_v1.json"
     },
     {
-      "$ref": "batch.api.k8s.io/joblist_v1.json"
+      "$ref": "batch/joblist_v1.json"
     },
     {
       "$ref": "caching.internal.knative.dev/image_v1alpha1.json"
@@ -463,10 +460,10 @@
       "$ref": "cert-manager.io/issuerlist_v1.json"
     },
     {
-      "$ref": "certificates.api.k8s.io/certificatesigningrequest_v1.json"
+      "$ref": "certificates.k8s.io/certificatesigningrequest_v1.json"
     },
     {
-      "$ref": "certificates.api.k8s.io/certificatesigningrequestlist_v1.json"
+      "$ref": "certificates.k8s.io/certificatesigningrequestlist_v1.json"
     },
     {
       "$ref": "cloud.tencent.com/nginxingress_v1alpha1.json"
@@ -631,109 +628,109 @@
       "$ref": "constraints.gatekeeper.sh/limitpublicingresslist_v1beta1.json"
     },
     {
-      "$ref": "coordination.api.k8s.io/lease_v1.json"
+      "$ref": "coordination.k8s.io/lease_v1.json"
     },
     {
-      "$ref": "coordination.api.k8s.io/leaselist_v1.json"
+      "$ref": "coordination.k8s.io/leaselist_v1.json"
     },
     {
-      "$ref": "core.api.k8s.io/binding_v1.json"
+      "$ref": "core/binding_v1.json"
     },
     {
-      "$ref": "core.api.k8s.io/componentstatus_v1.json"
+      "$ref": "core/componentstatus_v1.json"
     },
     {
-      "$ref": "core.api.k8s.io/componentstatuslist_v1.json"
+      "$ref": "core/componentstatuslist_v1.json"
     },
     {
-      "$ref": "core.api.k8s.io/configmap_v1.json"
+      "$ref": "core/configmap_v1.json"
     },
     {
-      "$ref": "core.api.k8s.io/configmaplist_v1.json"
+      "$ref": "core/configmaplist_v1.json"
     },
     {
-      "$ref": "core.api.k8s.io/endpoints_v1.json"
+      "$ref": "core/endpoints_v1.json"
     },
     {
-      "$ref": "core.api.k8s.io/endpointslist_v1.json"
+      "$ref": "core/endpointslist_v1.json"
     },
     {
-      "$ref": "core.api.k8s.io/event_v1.json"
+      "$ref": "core/event_v1.json"
     },
     {
-      "$ref": "core.api.k8s.io/eventlist_v1.json"
+      "$ref": "core/eventlist_v1.json"
     },
     {
-      "$ref": "core.api.k8s.io/limitrange_v1.json"
+      "$ref": "core/limitrange_v1.json"
     },
     {
-      "$ref": "core.api.k8s.io/limitrangelist_v1.json"
+      "$ref": "core/limitrangelist_v1.json"
     },
     {
-      "$ref": "core.api.k8s.io/namespace_v1.json"
+      "$ref": "core/namespace_v1.json"
     },
     {
-      "$ref": "core.api.k8s.io/namespacelist_v1.json"
+      "$ref": "core/namespacelist_v1.json"
     },
     {
-      "$ref": "core.api.k8s.io/node_v1.json"
+      "$ref": "core/node_v1.json"
     },
     {
-      "$ref": "core.api.k8s.io/nodelist_v1.json"
+      "$ref": "core/nodelist_v1.json"
     },
     {
-      "$ref": "core.api.k8s.io/persistentvolume_v1.json"
+      "$ref": "core/persistentvolume_v1.json"
     },
     {
-      "$ref": "core.api.k8s.io/persistentvolumeclaim_v1.json"
+      "$ref": "core/persistentvolumeclaim_v1.json"
     },
     {
-      "$ref": "core.api.k8s.io/persistentvolumeclaimlist_v1.json"
+      "$ref": "core/persistentvolumeclaimlist_v1.json"
     },
     {
-      "$ref": "core.api.k8s.io/persistentvolumelist_v1.json"
+      "$ref": "core/persistentvolumelist_v1.json"
     },
     {
-      "$ref": "core.api.k8s.io/pod_v1.json"
+      "$ref": "core/pod_v1.json"
     },
     {
-      "$ref": "core.api.k8s.io/podlist_v1.json"
+      "$ref": "core/podlist_v1.json"
     },
     {
-      "$ref": "core.api.k8s.io/podtemplate_v1.json"
+      "$ref": "core/podtemplate_v1.json"
     },
     {
-      "$ref": "core.api.k8s.io/podtemplatelist_v1.json"
+      "$ref": "core/podtemplatelist_v1.json"
     },
     {
-      "$ref": "core.api.k8s.io/replicationcontroller_v1.json"
+      "$ref": "core/replicationcontroller_v1.json"
     },
     {
-      "$ref": "core.api.k8s.io/replicationcontrollerlist_v1.json"
+      "$ref": "core/replicationcontrollerlist_v1.json"
     },
     {
-      "$ref": "core.api.k8s.io/resourcequota_v1.json"
+      "$ref": "core/resourcequota_v1.json"
     },
     {
-      "$ref": "core.api.k8s.io/resourcequotalist_v1.json"
+      "$ref": "core/resourcequotalist_v1.json"
     },
     {
-      "$ref": "core.api.k8s.io/secret_v1.json"
+      "$ref": "core/secret_v1.json"
     },
     {
-      "$ref": "core.api.k8s.io/secretlist_v1.json"
+      "$ref": "core/secretlist_v1.json"
     },
     {
-      "$ref": "core.api.k8s.io/service_v1.json"
+      "$ref": "core/service_v1.json"
     },
     {
-      "$ref": "core.api.k8s.io/serviceaccount_v1.json"
+      "$ref": "core/serviceaccount_v1.json"
     },
     {
-      "$ref": "core.api.k8s.io/serviceaccountlist_v1.json"
+      "$ref": "core/serviceaccountlist_v1.json"
     },
     {
-      "$ref": "core.api.k8s.io/servicelist_v1.json"
+      "$ref": "core/servicelist_v1.json"
     },
     {
       "$ref": "core.oam.dev/application_v1beta1.json"
@@ -808,28 +805,22 @@
       "$ref": "core.oam.dev/workloaddefinitionlist_v1beta1.json"
     },
     {
-      "$ref": "custom_metrics.apis.pkg.metrics.k8s.io/metricvalue_v1beta1.json"
+      "$ref": "custom.metrics.k8s.io/metricvalue_v1beta1.json"
     },
     {
-      "$ref": "custom_metrics.apis.pkg.metrics.k8s.io/metricvalue_v1beta2.json"
+      "$ref": "custom.metrics.k8s.io/metricvalue_v1beta2.json"
     },
     {
-      "$ref": "custom_metrics.apis.pkg.metrics.k8s.io/metricvaluelist_v1beta1.json"
+      "$ref": "custom.metrics.k8s.io/metricvaluelist_v1beta1.json"
     },
     {
-      "$ref": "custom_metrics.apis.pkg.metrics.k8s.io/metricvaluelist_v1beta2.json"
+      "$ref": "custom.metrics.k8s.io/metricvaluelist_v1beta2.json"
     },
     {
-      "$ref": "custommetrics.apis.pkg.hpa-metrics-server.qc_container_cluster.cloud.tencent.com/custommetrics_v1alpha1.json"
+      "$ref": "discovery.k8s.io/endpointslice_v1.json"
     },
     {
-      "$ref": "custommetrics.apis.pkg.hpa-metrics-server.qc_container_cluster.cloud.tencent.com/custommetricslist_v1alpha1.json"
-    },
-    {
-      "$ref": "discovery.api.k8s.io/endpointslice_v1.json"
-    },
-    {
-      "$ref": "discovery.api.k8s.io/endpointslicelist_v1.json"
+      "$ref": "discovery.k8s.io/endpointslicelist_v1.json"
     },
     {
       "$ref": "eks.tke.cloud.tencent.com/injectpod_v1.json"
@@ -868,10 +859,10 @@
       "$ref": "eventing.keda.sh/cloudeventsourcelist_v1alpha1.json"
     },
     {
-      "$ref": "events.api.k8s.io/event_v1.json"
+      "$ref": "events.k8s.io/event_v1.json"
     },
     {
-      "$ref": "events.api.k8s.io/eventlist_v1.json"
+      "$ref": "events.k8s.io/eventlist_v1.json"
     },
     {
       "$ref": "expansion.gatekeeper.sh/expansiontemplate_v1alpha1.json"
@@ -892,10 +883,10 @@
       "$ref": "extensions.istio.io/wasmpluginlist_v1alpha1.json"
     },
     {
-      "$ref": "external_metrics.apis.pkg.metrics.k8s.io/externalmetricvalue_v1beta1.json"
+      "$ref": "external.metrics.k8s.io/externalmetricvalue_v1beta1.json"
     },
     {
-      "$ref": "external_metrics.apis.pkg.metrics.k8s.io/externalmetricvaluelist_v1beta1.json"
+      "$ref": "external.metrics.k8s.io/externalmetricvaluelist_v1beta1.json"
     },
     {
       "$ref": "externaldata.gatekeeper.sh/provider_v1alpha1.json"
@@ -910,28 +901,40 @@
       "$ref": "externaldata.gatekeeper.sh/providerlist_v1beta1.json"
     },
     {
-      "$ref": "flowcontrol.api.k8s.io/flowschema_v1beta2.json"
+      "$ref": "flink.apache.org/flinkdeployment_v1beta1.json"
     },
     {
-      "$ref": "flowcontrol.api.k8s.io/flowschema_v1beta3.json"
+      "$ref": "flink.apache.org/flinkdeploymentlist_v1beta1.json"
     },
     {
-      "$ref": "flowcontrol.api.k8s.io/flowschemalist_v1beta2.json"
+      "$ref": "flink.apache.org/flinksessionjob_v1beta1.json"
     },
     {
-      "$ref": "flowcontrol.api.k8s.io/flowschemalist_v1beta3.json"
+      "$ref": "flink.apache.org/flinksessionjoblist_v1beta1.json"
     },
     {
-      "$ref": "flowcontrol.api.k8s.io/prioritylevelconfiguration_v1beta2.json"
+      "$ref": "flowcontrol.apiserver.k8s.io/flowschema_v1beta2.json"
     },
     {
-      "$ref": "flowcontrol.api.k8s.io/prioritylevelconfiguration_v1beta3.json"
+      "$ref": "flowcontrol.apiserver.k8s.io/flowschema_v1beta3.json"
     },
     {
-      "$ref": "flowcontrol.api.k8s.io/prioritylevelconfigurationlist_v1beta2.json"
+      "$ref": "flowcontrol.apiserver.k8s.io/flowschemalist_v1beta2.json"
     },
     {
-      "$ref": "flowcontrol.api.k8s.io/prioritylevelconfigurationlist_v1beta3.json"
+      "$ref": "flowcontrol.apiserver.k8s.io/flowschemalist_v1beta3.json"
+    },
+    {
+      "$ref": "flowcontrol.apiserver.k8s.io/prioritylevelconfiguration_v1beta2.json"
+    },
+    {
+      "$ref": "flowcontrol.apiserver.k8s.io/prioritylevelconfiguration_v1beta3.json"
+    },
+    {
+      "$ref": "flowcontrol.apiserver.k8s.io/prioritylevelconfigurationlist_v1beta2.json"
+    },
+    {
+      "$ref": "flowcontrol.apiserver.k8s.io/prioritylevelconfigurationlist_v1beta3.json"
     },
     {
       "$ref": "game.cloud.tencent.com/room_v1alpha1.json"
@@ -1129,16 +1132,22 @@
       "$ref": "meta.apis.pkg.apimachinery.k8s.io/status_v1.json"
     },
     {
-      "$ref": "metrics.apis.pkg.metrics.k8s.io/nodemetrics_v1beta1.json"
+      "$ref": "metrics.k8s.io/nodemetrics_v1beta1.json"
     },
     {
-      "$ref": "metrics.apis.pkg.metrics.k8s.io/nodemetricslist_v1beta1.json"
+      "$ref": "metrics.k8s.io/nodemetricslist_v1beta1.json"
     },
     {
-      "$ref": "metrics.apis.pkg.metrics.k8s.io/podmetrics_v1beta1.json"
+      "$ref": "metrics.k8s.io/podmetrics_v1beta1.json"
     },
     {
-      "$ref": "metrics.apis.pkg.metrics.k8s.io/podmetricslist_v1beta1.json"
+      "$ref": "metrics.k8s.io/podmetricslist_v1beta1.json"
+    },
+    {
+      "$ref": "monitor.tencent.io/custommetrics_v1alpha1.json"
+    },
+    {
+      "$ref": "monitor.tencent.io/custommetricslist_v1alpha1.json"
     },
     {
       "$ref": "monitoring.coreos.com/alertmanager_v1.json"
@@ -1277,24 +1286,6 @@
     },
     {
       "$ref": "mutations.gatekeeper.sh/modifysetlist_v1beta1.json"
-    },
-    {
-      "$ref": "networking.api.k8s.io/ingress_v1.json"
-    },
-    {
-      "$ref": "networking.api.k8s.io/ingressclass_v1.json"
-    },
-    {
-      "$ref": "networking.api.k8s.io/ingressclasslist_v1.json"
-    },
-    {
-      "$ref": "networking.api.k8s.io/ingresslist_v1.json"
-    },
-    {
-      "$ref": "networking.api.k8s.io/networkpolicy_v1.json"
-    },
-    {
-      "$ref": "networking.api.k8s.io/networkpolicylist_v1.json"
     },
     {
       "$ref": "networking.cloud.tencent.com/dedicatedclblistener_v1alpha1.json"
@@ -1471,6 +1462,24 @@
       "$ref": "networking.istio.io/workloadgrouplist_v1beta1.json"
     },
     {
+      "$ref": "networking.k8s.io/ingress_v1.json"
+    },
+    {
+      "$ref": "networking.k8s.io/ingressclass_v1.json"
+    },
+    {
+      "$ref": "networking.k8s.io/ingressclasslist_v1.json"
+    },
+    {
+      "$ref": "networking.k8s.io/ingresslist_v1.json"
+    },
+    {
+      "$ref": "networking.k8s.io/networkpolicy_v1.json"
+    },
+    {
+      "$ref": "networking.k8s.io/networkpolicylist_v1.json"
+    },
+    {
       "$ref": "networking.karmada.io/multiclusteringress_v1alpha1.json"
     },
     {
@@ -1525,10 +1534,10 @@
       "$ref": "nfd.k8s-sigs.io/nodefeaturerulelist_v1alpha1.json"
     },
     {
-      "$ref": "node.api.k8s.io/runtimeclass_v1.json"
+      "$ref": "node.k8s.io/runtimeclass_v1.json"
     },
     {
-      "$ref": "node.api.k8s.io/runtimeclasslist_v1.json"
+      "$ref": "node.k8s.io/runtimeclasslist_v1.json"
     },
     {
       "$ref": "operator.karmada.io/karmada_v1alpha1.json"
@@ -1729,13 +1738,13 @@
       "$ref": "operators.coreos.com/subscriptionlist_v1alpha1.json"
     },
     {
-      "$ref": "policy.api.k8s.io/eviction_v1.json"
+      "$ref": "policy/eviction_v1.json"
     },
     {
-      "$ref": "policy.api.k8s.io/poddisruptionbudget_v1.json"
+      "$ref": "policy/poddisruptionbudget_v1.json"
     },
     {
-      "$ref": "policy.api.k8s.io/poddisruptionbudgetlist_v1.json"
+      "$ref": "policy/poddisruptionbudgetlist_v1.json"
     },
     {
       "$ref": "policy.karmada.io/clusteroverridepolicy_v1alpha1.json"
@@ -1786,28 +1795,28 @@
       "$ref": "prediction.crane.io/timeseriespredictionlist_v1alpha1.json"
     },
     {
-      "$ref": "rbac.api.k8s.io/clusterrole_v1.json"
+      "$ref": "rbac.authorization.k8s.io/clusterrole_v1.json"
     },
     {
-      "$ref": "rbac.api.k8s.io/clusterrolebinding_v1.json"
+      "$ref": "rbac.authorization.k8s.io/clusterrolebinding_v1.json"
     },
     {
-      "$ref": "rbac.api.k8s.io/clusterrolebindinglist_v1.json"
+      "$ref": "rbac.authorization.k8s.io/clusterrolebindinglist_v1.json"
     },
     {
-      "$ref": "rbac.api.k8s.io/clusterrolelist_v1.json"
+      "$ref": "rbac.authorization.k8s.io/clusterrolelist_v1.json"
     },
     {
-      "$ref": "rbac.api.k8s.io/role_v1.json"
+      "$ref": "rbac.authorization.k8s.io/role_v1.json"
     },
     {
-      "$ref": "rbac.api.k8s.io/rolebinding_v1.json"
+      "$ref": "rbac.authorization.k8s.io/rolebinding_v1.json"
     },
     {
-      "$ref": "rbac.api.k8s.io/rolebindinglist_v1.json"
+      "$ref": "rbac.authorization.k8s.io/rolebindinglist_v1.json"
     },
     {
-      "$ref": "rbac.api.k8s.io/rolelist_v1.json"
+      "$ref": "rbac.authorization.k8s.io/rolelist_v1.json"
     },
     {
       "$ref": "resolution.tekton.dev/resolutionrequest_v1alpha1.json"
@@ -1820,12 +1829,6 @@
     },
     {
       "$ref": "resolution.tekton.dev/resolutionrequestlist_v1beta1.json"
-    },
-    {
-      "$ref": "scheduling.api.k8s.io/priorityclass_v1.json"
-    },
-    {
-      "$ref": "scheduling.api.k8s.io/priorityclasslist_v1.json"
     },
     {
       "$ref": "scheduling.crane.io/clusternoderesourcepolicy_v1alpha1.json"
@@ -1844,6 +1847,12 @@
     },
     {
       "$ref": "scheduling.crane.io/noderesourcepolicylist_v1alpha1.json"
+    },
+    {
+      "$ref": "scheduling.k8s.io/priorityclass_v1.json"
+    },
+    {
+      "$ref": "scheduling.k8s.io/priorityclasslist_v1.json"
     },
     {
       "$ref": "security.istio.io/authorizationpolicy_v1.json"
@@ -1984,34 +1993,34 @@
       "$ref": "status.gatekeeper.sh/mutatorpodstatuslist_v1beta1.json"
     },
     {
-      "$ref": "storage.api.k8s.io/csidriver_v1.json"
+      "$ref": "storage.k8s.io/csidriver_v1.json"
     },
     {
-      "$ref": "storage.api.k8s.io/csidriverlist_v1.json"
+      "$ref": "storage.k8s.io/csidriverlist_v1.json"
     },
     {
-      "$ref": "storage.api.k8s.io/csinode_v1.json"
+      "$ref": "storage.k8s.io/csinode_v1.json"
     },
     {
-      "$ref": "storage.api.k8s.io/csinodelist_v1.json"
+      "$ref": "storage.k8s.io/csinodelist_v1.json"
     },
     {
-      "$ref": "storage.api.k8s.io/csistoragecapacity_v1.json"
+      "$ref": "storage.k8s.io/csistoragecapacity_v1.json"
     },
     {
-      "$ref": "storage.api.k8s.io/csistoragecapacitylist_v1.json"
+      "$ref": "storage.k8s.io/csistoragecapacitylist_v1.json"
     },
     {
-      "$ref": "storage.api.k8s.io/storageclass_v1.json"
+      "$ref": "storage.k8s.io/storageclass_v1.json"
     },
     {
-      "$ref": "storage.api.k8s.io/storageclasslist_v1.json"
+      "$ref": "storage.k8s.io/storageclasslist_v1.json"
     },
     {
-      "$ref": "storage.api.k8s.io/volumeattachment_v1.json"
+      "$ref": "storage.k8s.io/volumeattachment_v1.json"
     },
     {
-      "$ref": "storage.api.k8s.io/volumeattachmentlist_v1.json"
+      "$ref": "storage.k8s.io/volumeattachmentlist_v1.json"
     },
     {
       "$ref": "syncset.gatekeeper.sh/syncset_v1alpha1.json"
@@ -2312,6 +2321,9 @@
     },
     {
       "$ref": "velero.io/volumesnapshotlocationlist_v1.json"
+    },
+    {
+      "$ref": "webhook.acme.cert-manager.io/challengepayload_v1alpha1.json"
     },
     {
       "$ref": "work.karmada.io/clusterresourcebinding_v1alpha1.json"

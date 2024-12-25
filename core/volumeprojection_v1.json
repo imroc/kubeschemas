@@ -1,0 +1,38 @@
+{
+  "description": "Projection that may be projected along with other supported volume types",
+  "properties": {
+    "configMap": {
+      "allOf": [
+        {
+          "$ref": "../core/configmapprojection_v1.json"
+        }
+      ],
+      "description": "configMap information about the configMap data to project"
+    },
+    "downwardAPI": {
+      "allOf": [
+        {
+          "$ref": "../core/downwardapiprojection_v1.json"
+        }
+      ],
+      "description": "downwardAPI information about the downwardAPI data to project"
+    },
+    "secret": {
+      "allOf": [
+        {
+          "$ref": "../core/secretprojection_v1.json"
+        }
+      ],
+      "description": "secret information about the secret data to project"
+    },
+    "serviceAccountToken": {
+      "allOf": [
+        {
+          "$ref": "../core/serviceaccounttokenprojection_v1.json"
+        }
+      ],
+      "description": "serviceAccountToken is information about the serviceAccountToken data to project"
+    }
+  },
+  "type": "object"
+}

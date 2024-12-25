@@ -1,0 +1,27 @@
+{
+  "description": "IngressLoadBalancerIngress represents the status of a load-balancer ingress point.",
+  "properties": {
+    "hostname": {
+      "description": "hostname is set for load-balancer ingress points that are DNS based.",
+      "type": "string"
+    },
+    "ip": {
+      "description": "ip is set for load-balancer ingress points that are IP based.",
+      "type": "string"
+    },
+    "ports": {
+      "description": "ports provides information about the ports exposed by this LoadBalancer.",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "../networking/ingressportstatus_v1.json"
+          }
+        ],
+        "default": {}
+      },
+      "type": "array",
+      "x-kubernetes-list-type": "atomic"
+    }
+  },
+  "type": "object"
+}
