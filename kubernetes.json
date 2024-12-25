@@ -1117,6 +1117,36 @@
       "$ref": "keda.sh/triggerauthenticationlist_v1alpha1.json"
     },
     {
+      "$ref": "kubeflow.tkestack.io/jupytergateway_v1alpha1.json"
+    },
+    {
+      "$ref": "kubeflow.tkestack.io/jupytergatewaylist_v1alpha1.json"
+    },
+    {
+      "$ref": "kubeflow.tkestack.io/jupyterkernel_v1alpha1.json"
+    },
+    {
+      "$ref": "kubeflow.tkestack.io/jupyterkernellist_v1alpha1.json"
+    },
+    {
+      "$ref": "kubeflow.tkestack.io/jupyterkernelspec_v1alpha1.json"
+    },
+    {
+      "$ref": "kubeflow.tkestack.io/jupyterkernelspeclist_v1alpha1.json"
+    },
+    {
+      "$ref": "kubeflow.tkestack.io/jupyterkerneltemplate_v1alpha1.json"
+    },
+    {
+      "$ref": "kubeflow.tkestack.io/jupyterkerneltemplatelist_v1alpha1.json"
+    },
+    {
+      "$ref": "kubeflow.tkestack.io/jupyternotebook_v1alpha1.json"
+    },
+    {
+      "$ref": "kubeflow.tkestack.io/jupyternotebooklist_v1alpha1.json"
+    },
+    {
       "$ref": "meta.apis.pkg.apimachinery.k8s.io/apigroup_v1.json"
     },
     {
