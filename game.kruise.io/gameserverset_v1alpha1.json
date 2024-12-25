@@ -28,12 +28,21 @@
       "properties": {
         "gameServerTemplate": {
           "description": "INSERT ADDITIONAL SPEC FIELDS - desired state of cluster Important: Run \"make\" to regenerate code after modifying this file",
-          "allOf": [
-            {
-              "$ref": "../core/podspec_v1.json"
-            }
-          ],
           "properties": {
+            "metadata": {
+              "allOf": [
+                {
+                  "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+                }
+              ]
+            },
+            "spec": {
+              "allOf": [
+                {
+                  "$ref": "../core/podspec_v1.json"
+                }
+              ]
+            },
             "reclaimPolicy": {
               "description": "ReclaimPolicy indicates the reclaim policy for GameServer. Default is Cascade.",
               "type": "string"
