@@ -1,0 +1,4 @@
+{
+  "description": "KCMStatus defines the observed state of KCM",
+  "type": "object"
+}

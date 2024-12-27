@@ -592,6 +592,30 @@
       "$ref": "cloud.tencent.com/tkeserviceconfiglist_v1alpha1.json"
     },
     {
+      "$ref": "cloudwatch.aws.amazon.com/amazoncloudwatchagent_v1alpha1.json"
+    },
+    {
+      "$ref": "cloudwatch.aws.amazon.com/amazoncloudwatchagentlist_v1alpha1.json"
+    },
+    {
+      "$ref": "cloudwatch.aws.amazon.com/dcgmexporter_v1alpha1.json"
+    },
+    {
+      "$ref": "cloudwatch.aws.amazon.com/dcgmexporterlist_v1alpha1.json"
+    },
+    {
+      "$ref": "cloudwatch.aws.amazon.com/instrumentation_v1alpha1.json"
+    },
+    {
+      "$ref": "cloudwatch.aws.amazon.com/instrumentationlist_v1alpha1.json"
+    },
+    {
+      "$ref": "cloudwatch.aws.amazon.com/neuronmonitor_v1alpha1.json"
+    },
+    {
+      "$ref": "cloudwatch.aws.amazon.com/neuronmonitorlist_v1alpha1.json"
+    },
+    {
       "$ref": "cls.cloud.tencent.com/logconfig_v1.json"
     },
     {
@@ -919,6 +943,12 @@
       "$ref": "core.oam.dev/workloaddefinitionlist_v1beta1.json"
     },
     {
+      "$ref": "crd.k8s.amazonaws.com/eniconfig_v1alpha1.json"
+    },
+    {
+      "$ref": "crd.k8s.amazonaws.com/eniconfiglist_v1alpha1.json"
+    },
+    {
       "$ref": "custom.metrics.k8s.io/metricvalue_v1beta1.json"
     },
     {
@@ -935,6 +965,36 @@
     },
     {
       "$ref": "discovery.k8s.io/endpointslicelist_v1.json"
+    },
+    {
+      "$ref": "eks.amazonaws.com/cninode_v1alpha1.json"
+    },
+    {
+      "$ref": "eks.amazonaws.com/cninodelist_v1alpha1.json"
+    },
+    {
+      "$ref": "eks.amazonaws.com/ingressclassparams_v1.json"
+    },
+    {
+      "$ref": "eks.amazonaws.com/ingressclassparamslist_v1.json"
+    },
+    {
+      "$ref": "eks.amazonaws.com/nodeclass_v1.json"
+    },
+    {
+      "$ref": "eks.amazonaws.com/nodeclasslist_v1.json"
+    },
+    {
+      "$ref": "eks.amazonaws.com/nodediagnostic_v1alpha1.json"
+    },
+    {
+      "$ref": "eks.amazonaws.com/nodediagnosticlist_v1alpha1.json"
+    },
+    {
+      "$ref": "eks.amazonaws.com/targetgroupbinding_v1.json"
+    },
+    {
+      "$ref": "eks.amazonaws.com/targetgroupbindinglist_v1.json"
     },
     {
       "$ref": "eks.tke.cloud.tencent.com/injectpod_v1.json"
@@ -1225,6 +1285,24 @@
       "$ref": "gateway.networking.k8s.io/udproutelist_v1alpha2.json"
     },
     {
+      "$ref": "groupsnapshot.storage.k8s.io/volumegroupsnapshot_v1alpha1.json"
+    },
+    {
+      "$ref": "groupsnapshot.storage.k8s.io/volumegroupsnapshotclass_v1alpha1.json"
+    },
+    {
+      "$ref": "groupsnapshot.storage.k8s.io/volumegroupsnapshotclasslist_v1alpha1.json"
+    },
+    {
+      "$ref": "groupsnapshot.storage.k8s.io/volumegroupsnapshotcontent_v1alpha1.json"
+    },
+    {
+      "$ref": "groupsnapshot.storage.k8s.io/volumegroupsnapshotcontentlist_v1alpha1.json"
+    },
+    {
+      "$ref": "groupsnapshot.storage.k8s.io/volumegroupsnapshotlist_v1alpha1.json"
+    },
+    {
       "$ref": "ha.gke.io/highavailabilityapplication_v1.json"
     },
     {
@@ -1271,6 +1349,18 @@
     },
     {
       "$ref": "k3s.cattle.io/etcdsnapshotfilelist_v1.json"
+    },
+    {
+      "$ref": "karpenter.sh/nodeclaim_v1.json"
+    },
+    {
+      "$ref": "karpenter.sh/nodeclaimlist_v1.json"
+    },
+    {
+      "$ref": "karpenter.sh/nodepool_v1.json"
+    },
+    {
+      "$ref": "karpenter.sh/nodepoollist_v1.json"
     },
     {
       "$ref": "keda.sh/clustertriggerauthentication_v1alpha1.json"
@@ -1327,6 +1417,60 @@
       "$ref": "kubeflow.tkestack.io/jupyternotebooklist_v1alpha1.json"
     },
     {
+      "$ref": "kueue.x-k8s.io/admissioncheck_v1beta1.json"
+    },
+    {
+      "$ref": "kueue.x-k8s.io/admissionchecklist_v1beta1.json"
+    },
+    {
+      "$ref": "kueue.x-k8s.io/clusterqueue_v1beta1.json"
+    },
+    {
+      "$ref": "kueue.x-k8s.io/clusterqueuelist_v1beta1.json"
+    },
+    {
+      "$ref": "kueue.x-k8s.io/localqueue_v1beta1.json"
+    },
+    {
+      "$ref": "kueue.x-k8s.io/localqueuelist_v1beta1.json"
+    },
+    {
+      "$ref": "kueue.x-k8s.io/multikueuecluster_v1beta1.json"
+    },
+    {
+      "$ref": "kueue.x-k8s.io/multikueueclusterlist_v1beta1.json"
+    },
+    {
+      "$ref": "kueue.x-k8s.io/multikueueconfig_v1beta1.json"
+    },
+    {
+      "$ref": "kueue.x-k8s.io/multikueueconfiglist_v1beta1.json"
+    },
+    {
+      "$ref": "kueue.x-k8s.io/provisioningrequestconfig_v1beta1.json"
+    },
+    {
+      "$ref": "kueue.x-k8s.io/provisioningrequestconfiglist_v1beta1.json"
+    },
+    {
+      "$ref": "kueue.x-k8s.io/resourceflavor_v1beta1.json"
+    },
+    {
+      "$ref": "kueue.x-k8s.io/resourceflavorlist_v1beta1.json"
+    },
+    {
+      "$ref": "kueue.x-k8s.io/workload_v1beta1.json"
+    },
+    {
+      "$ref": "kueue.x-k8s.io/workloadlist_v1beta1.json"
+    },
+    {
+      "$ref": "kueue.x-k8s.io/workloadpriorityclass_v1beta1.json"
+    },
+    {
+      "$ref": "kueue.x-k8s.io/workloadpriorityclasslist_v1beta1.json"
+    },
+    {
       "$ref": "meta.apis.pkg.apimachinery.k8s.io/apigroup_v1.json"
     },
     {
@@ -1340,6 +1484,18 @@
     },
     {
       "$ref": "meta.apis.pkg.apimachinery.k8s.io/status_v1.json"
+    },
+    {
+      "$ref": "metrics.eks.amazonaws.com/kcm_v1.json"
+    },
+    {
+      "$ref": "metrics.eks.amazonaws.com/kcmlist_v1.json"
+    },
+    {
+      "$ref": "metrics.eks.amazonaws.com/ksh_v1.json"
+    },
+    {
+      "$ref": "metrics.eks.amazonaws.com/kshlist_v1.json"
     },
     {
       "$ref": "metrics.k8s.io/nodemetrics_v1beta1.json"
@@ -1852,6 +2008,12 @@
       "$ref": "networking.istio.io/workloadgrouplist_v1beta1.json"
     },
     {
+      "$ref": "networking.k8s.aws/policyendpoint_v1alpha1.json"
+    },
+    {
+      "$ref": "networking.k8s.aws/policyendpointlist_v1alpha1.json"
+    },
+    {
       "$ref": "networking.k8s.io/ingress_v1.json"
     },
     {
@@ -1940,6 +2102,30 @@
     },
     {
       "$ref": "nodemanagement.gke.io/updateinfolist_v1alpha1.json"
+    },
+    {
+      "$ref": "opentelemetry.io/instrumentation_v1alpha1.json"
+    },
+    {
+      "$ref": "opentelemetry.io/instrumentationlist_v1alpha1.json"
+    },
+    {
+      "$ref": "opentelemetry.io/opampbridge_v1alpha1.json"
+    },
+    {
+      "$ref": "opentelemetry.io/opampbridgelist_v1alpha1.json"
+    },
+    {
+      "$ref": "opentelemetry.io/opentelemetrycollector_v1alpha1.json"
+    },
+    {
+      "$ref": "opentelemetry.io/opentelemetrycollector_v1beta1.json"
+    },
+    {
+      "$ref": "opentelemetry.io/opentelemetrycollectorlist_v1alpha1.json"
+    },
+    {
+      "$ref": "opentelemetry.io/opentelemetrycollectorlist_v1beta1.json"
     },
     {
       "$ref": "operator.karmada.io/karmada_v1alpha1.json"
@@ -2449,6 +2635,12 @@
       "$ref": "storage.k8s.io/volumeattachmentlist_v1.json"
     },
     {
+      "$ref": "storage.k8s.io/volumeattributesclass_v1beta1.json"
+    },
+    {
+      "$ref": "storage.k8s.io/volumeattributesclasslist_v1beta1.json"
+    },
+    {
       "$ref": "syncset.gatekeeper.sh/syncset_v1alpha1.json"
     },
     {
@@ -2747,6 +2939,18 @@
     },
     {
       "$ref": "velero.io/volumesnapshotlocationlist_v1.json"
+    },
+    {
+      "$ref": "vpcresources.k8s.aws/cninode_v1alpha1.json"
+    },
+    {
+      "$ref": "vpcresources.k8s.aws/cninodelist_v1alpha1.json"
+    },
+    {
+      "$ref": "vpcresources.k8s.aws/securitygrouppolicy_v1beta1.json"
+    },
+    {
+      "$ref": "vpcresources.k8s.aws/securitygrouppolicylist_v1beta1.json"
     },
     {
       "$ref": "warden.gke.io/audit_v1.json"

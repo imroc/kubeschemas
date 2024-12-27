@@ -1,0 +1,4 @@
+{
+  "description": "KCMSpec defines the desired state of KCM",
+  "type": "object"
+}
