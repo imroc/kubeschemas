@@ -1252,12 +1252,6 @@
       "$ref": "events.api.k8s.io/eventlist_v1.json"
     },
     {
-      "$ref": "events.k8s.io/event_v1.json"
-    },
-    {
-      "$ref": "events.k8s.io/eventlist_v1.json"
-    },
-    {
       "$ref": "expansion.gatekeeper.sh/expansiontemplate_v1alpha1.json"
     },
     {
