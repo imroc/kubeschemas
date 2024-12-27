@@ -2728,30 +2728,6 @@
       "$ref": "rbac.api.k8s.io/rolelist_v1.json"
     },
     {
-      "$ref": "rbac.authorization.k8s.io/clusterrole_v1.json"
-    },
-    {
-      "$ref": "rbac.authorization.k8s.io/clusterrolebinding_v1.json"
-    },
-    {
-      "$ref": "rbac.authorization.k8s.io/clusterrolebindinglist_v1.json"
-    },
-    {
-      "$ref": "rbac.authorization.k8s.io/clusterrolelist_v1.json"
-    },
-    {
-      "$ref": "rbac.authorization.k8s.io/role_v1.json"
-    },
-    {
-      "$ref": "rbac.authorization.k8s.io/rolebinding_v1.json"
-    },
-    {
-      "$ref": "rbac.authorization.k8s.io/rolebindinglist_v1.json"
-    },
-    {
-      "$ref": "rbac.authorization.k8s.io/rolelist_v1.json"
-    },
-    {
       "$ref": "rbac.cce.io/permission_v1beta1.json"
     },
     {
