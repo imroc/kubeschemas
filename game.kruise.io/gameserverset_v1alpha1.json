@@ -39,7 +39,7 @@
             "spec": {
               "allOf": [
                 {
-                  "$ref": "../core/podspec_v1.json"
+                  "$ref": "../core.api.k8s.io/podspec_v1.json"
                 }
               ]
             },
