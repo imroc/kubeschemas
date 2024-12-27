@@ -1336,42 +1336,6 @@
       "$ref": "flowcontrol.api.k8s.io/prioritylevelconfigurationlist_v1beta3.json"
     },
     {
-      "$ref": "flowcontrol.apiserver.k8s.io/flowschema_v1.json"
-    },
-    {
-      "$ref": "flowcontrol.apiserver.k8s.io/flowschema_v1beta2.json"
-    },
-    {
-      "$ref": "flowcontrol.apiserver.k8s.io/flowschema_v1beta3.json"
-    },
-    {
-      "$ref": "flowcontrol.apiserver.k8s.io/flowschemalist_v1.json"
-    },
-    {
-      "$ref": "flowcontrol.apiserver.k8s.io/flowschemalist_v1beta2.json"
-    },
-    {
-      "$ref": "flowcontrol.apiserver.k8s.io/flowschemalist_v1beta3.json"
-    },
-    {
-      "$ref": "flowcontrol.apiserver.k8s.io/prioritylevelconfiguration_v1.json"
-    },
-    {
-      "$ref": "flowcontrol.apiserver.k8s.io/prioritylevelconfiguration_v1beta2.json"
-    },
-    {
-      "$ref": "flowcontrol.apiserver.k8s.io/prioritylevelconfiguration_v1beta3.json"
-    },
-    {
-      "$ref": "flowcontrol.apiserver.k8s.io/prioritylevelconfigurationlist_v1.json"
-    },
-    {
-      "$ref": "flowcontrol.apiserver.k8s.io/prioritylevelconfigurationlist_v1beta2.json"
-    },
-    {
-      "$ref": "flowcontrol.apiserver.k8s.io/prioritylevelconfigurationlist_v1beta3.json"
-    },
-    {
       "$ref": "game.cloud.tencent.com/room_v1alpha1.json"
     },
     {
