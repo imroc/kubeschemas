@@ -859,6 +859,9 @@
       "$ref": "core/componentstatuslist_v1.json"
     },
     {
+      "$ref": "core/config_v1.json"
+    },
+    {
       "$ref": "core/configmap_v1.json"
     },
     {
