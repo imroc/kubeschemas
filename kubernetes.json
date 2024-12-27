@@ -1759,6 +1759,18 @@
       "$ref": "meta.apis.pkg.apimachinery.k8s.io/status_v1.json"
     },
     {
+      "$ref": "metrics.apis.pkg.eks-extension-metrics-apiserver.aws.gitlab.com/kcm_v1.json"
+    },
+    {
+      "$ref": "metrics.apis.pkg.eks-extension-metrics-apiserver.aws.gitlab.com/kcmlist_v1.json"
+    },
+    {
+      "$ref": "metrics.apis.pkg.eks-extension-metrics-apiserver.aws.gitlab.com/ksh_v1.json"
+    },
+    {
+      "$ref": "metrics.apis.pkg.eks-extension-metrics-apiserver.aws.gitlab.com/kshlist_v1.json"
+    },
+    {
       "$ref": "metrics.apis.pkg.metrics.k8s.io/nodemetrics_v1beta1.json"
     },
     {
@@ -1769,18 +1781,6 @@
     },
     {
       "$ref": "metrics.apis.pkg.metrics.k8s.io/podmetricslist_v1beta1.json"
-    },
-    {
-      "$ref": "metrics.eks.amazonaws.com/kcm_v1.json"
-    },
-    {
-      "$ref": "metrics.eks.amazonaws.com/kcmlist_v1.json"
-    },
-    {
-      "$ref": "metrics.eks.amazonaws.com/ksh_v1.json"
-    },
-    {
-      "$ref": "metrics.eks.amazonaws.com/kshlist_v1.json"
     },
     {
       "$ref": "metrics.k8s.io/nodemetrics_v1beta1.json"
