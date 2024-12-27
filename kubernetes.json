@@ -331,6 +331,30 @@
       "$ref": "authorization.k8s.io/subjectaccessreview_v1.json"
     },
     {
+      "$ref": "auto.gke.io/allowlistedv2workload_v1.json"
+    },
+    {
+      "$ref": "auto.gke.io/allowlistedv2workloadlist_v1.json"
+    },
+    {
+      "$ref": "auto.gke.io/allowlistedworkload_v1.json"
+    },
+    {
+      "$ref": "auto.gke.io/allowlistedworkload_v1alpha1.json"
+    },
+    {
+      "$ref": "auto.gke.io/allowlistedworkloadlist_v1.json"
+    },
+    {
+      "$ref": "auto.gke.io/allowlistedworkloadlist_v1alpha1.json"
+    },
+    {
+      "$ref": "auto.gke.io/workloadallowlist_v1.json"
+    },
+    {
+      "$ref": "auto.gke.io/workloadallowlistlist_v1.json"
+    },
+    {
       "$ref": "autoscaling/horizontalpodautoscaler_v1.json"
     },
     {
@@ -376,6 +400,12 @@
       "$ref": "autoscaling.crane.io/substitutelist_v1alpha1.json"
     },
     {
+      "$ref": "autoscaling.gke.io/multidimpodautoscaler_v1beta1.json"
+    },
+    {
+      "$ref": "autoscaling.gke.io/multidimpodautoscalerlist_v1beta1.json"
+    },
+    {
       "$ref": "autoscaling.internal.knative.dev/metric_v1alpha1.json"
     },
     {
@@ -388,6 +418,18 @@
       "$ref": "autoscaling.internal.knative.dev/podautoscalerlist_v1alpha1.json"
     },
     {
+      "$ref": "autoscaling.k8s.io/verticalpodautoscaler_v1.json"
+    },
+    {
+      "$ref": "autoscaling.k8s.io/verticalpodautoscaler_v1beta2.json"
+    },
+    {
+      "$ref": "autoscaling.k8s.io/verticalpodautoscalerlist_v1.json"
+    },
+    {
+      "$ref": "autoscaling.k8s.io/verticalpodautoscalerlist_v1beta2.json"
+    },
+    {
       "$ref": "autoscaling.karmada.io/cronfederatedhpa_v1alpha1.json"
     },
     {
@@ -398,6 +440,12 @@
     },
     {
       "$ref": "autoscaling.karmada.io/federatedhpalist_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.x-k8s.io/provisioningrequest_v1beta1.json"
+    },
+    {
+      "$ref": "autoscaling.x-k8s.io/provisioningrequestlist_v1beta1.json"
     },
     {
       "$ref": "backup.tke.cloud.tencent.com/backup_v1beta1.json"
@@ -476,6 +524,60 @@
     },
     {
       "$ref": "certificates.k8s.io/certificatesigningrequestlist_v1.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumendpoint_v2.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumendpointlist_v2.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumendpointslice_v2alpha1.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumendpointslicelist_v2alpha1.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumexternalworkload_v2.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumexternalworkloadlist_v2.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumidentity_v2.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumidentitylist_v2.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumlocalredirectpolicy_v2.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumlocalredirectpolicylist_v2.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumnode_v2.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumnodelist_v2.json"
+    },
+    {
+      "$ref": "cloud.google.com/backendconfig_v1.json"
+    },
+    {
+      "$ref": "cloud.google.com/backendconfig_v1beta1.json"
+    },
+    {
+      "$ref": "cloud.google.com/backendconfiglist_v1.json"
+    },
+    {
+      "$ref": "cloud.google.com/backendconfiglist_v1beta1.json"
+    },
+    {
+      "$ref": "cloud.google.com/computeclass_v1.json"
+    },
+    {
+      "$ref": "cloud.google.com/computeclasslist_v1.json"
     },
     {
       "$ref": "cloud.tencent.com/nginxingress_v1alpha1.json"
@@ -1123,6 +1225,12 @@
       "$ref": "gateway.networking.k8s.io/udproutelist_v1alpha2.json"
     },
     {
+      "$ref": "ha.gke.io/highavailabilityapplication_v1.json"
+    },
+    {
+      "$ref": "ha.gke.io/highavailabilityapplicationlist_v1.json"
+    },
+    {
       "$ref": "helm.cattle.io/helmchart_v1.json"
     },
     {
@@ -1135,10 +1243,22 @@
       "$ref": "helm.cattle.io/helmchartlist_v1.json"
     },
     {
+      "$ref": "hub.gke.io/membership_v1.json"
+    },
+    {
+      "$ref": "hub.gke.io/membershiplist_v1.json"
+    },
+    {
       "$ref": "install.istio.io/istiooperator_v1alpha1.json"
     },
     {
       "$ref": "install.istio.io/istiooperatorlist_v1alpha1.json"
+    },
+    {
+      "$ref": "internal.autoscaling.gke.io/capacityrequest_v1.json"
+    },
+    {
+      "$ref": "internal.autoscaling.gke.io/capacityrequestlist_v1.json"
     },
     {
       "$ref": "k3s.cattle.io/addon_v1.json"
@@ -1300,6 +1420,84 @@
       "$ref": "monitoring.coreos.com/thanosrulerlist_v1.json"
     },
     {
+      "$ref": "monitoring.googleapis.com/clusternodemonitoring_v1.json"
+    },
+    {
+      "$ref": "monitoring.googleapis.com/clusternodemonitoringlist_v1.json"
+    },
+    {
+      "$ref": "monitoring.googleapis.com/clusterpodmonitoring_v1.json"
+    },
+    {
+      "$ref": "monitoring.googleapis.com/clusterpodmonitoring_v1alpha1.json"
+    },
+    {
+      "$ref": "monitoring.googleapis.com/clusterpodmonitoringlist_v1.json"
+    },
+    {
+      "$ref": "monitoring.googleapis.com/clusterpodmonitoringlist_v1alpha1.json"
+    },
+    {
+      "$ref": "monitoring.googleapis.com/clusterrules_v1.json"
+    },
+    {
+      "$ref": "monitoring.googleapis.com/clusterrules_v1alpha1.json"
+    },
+    {
+      "$ref": "monitoring.googleapis.com/clusterruleslist_v1.json"
+    },
+    {
+      "$ref": "monitoring.googleapis.com/clusterruleslist_v1alpha1.json"
+    },
+    {
+      "$ref": "monitoring.googleapis.com/globalrules_v1.json"
+    },
+    {
+      "$ref": "monitoring.googleapis.com/globalrules_v1alpha1.json"
+    },
+    {
+      "$ref": "monitoring.googleapis.com/globalruleslist_v1.json"
+    },
+    {
+      "$ref": "monitoring.googleapis.com/globalruleslist_v1alpha1.json"
+    },
+    {
+      "$ref": "monitoring.googleapis.com/operatorconfig_v1.json"
+    },
+    {
+      "$ref": "monitoring.googleapis.com/operatorconfig_v1alpha1.json"
+    },
+    {
+      "$ref": "monitoring.googleapis.com/operatorconfiglist_v1.json"
+    },
+    {
+      "$ref": "monitoring.googleapis.com/operatorconfiglist_v1alpha1.json"
+    },
+    {
+      "$ref": "monitoring.googleapis.com/podmonitoring_v1.json"
+    },
+    {
+      "$ref": "monitoring.googleapis.com/podmonitoring_v1alpha1.json"
+    },
+    {
+      "$ref": "monitoring.googleapis.com/podmonitoringlist_v1.json"
+    },
+    {
+      "$ref": "monitoring.googleapis.com/podmonitoringlist_v1alpha1.json"
+    },
+    {
+      "$ref": "monitoring.googleapis.com/rules_v1.json"
+    },
+    {
+      "$ref": "monitoring.googleapis.com/rules_v1alpha1.json"
+    },
+    {
+      "$ref": "monitoring.googleapis.com/ruleslist_v1.json"
+    },
+    {
+      "$ref": "monitoring.googleapis.com/ruleslist_v1alpha1.json"
+    },
+    {
       "$ref": "multicluster.agones.dev/gameserverallocationpolicy_v1.json"
     },
     {
@@ -1388,6 +1586,108 @@
     },
     {
       "$ref": "networking.cloud.tencent.com/dedicatedclbservicelist_v1alpha1.json"
+    },
+    {
+      "$ref": "networking.gke.io/frontendconfig_v1beta1.json"
+    },
+    {
+      "$ref": "networking.gke.io/frontendconfiglist_v1beta1.json"
+    },
+    {
+      "$ref": "networking.gke.io/gcpbackendpolicy_v1.json"
+    },
+    {
+      "$ref": "networking.gke.io/gcpbackendpolicylist_v1.json"
+    },
+    {
+      "$ref": "networking.gke.io/gcpgatewaypolicy_v1.json"
+    },
+    {
+      "$ref": "networking.gke.io/gcpgatewaypolicylist_v1.json"
+    },
+    {
+      "$ref": "networking.gke.io/gkenetworkparamset_v1.json"
+    },
+    {
+      "$ref": "networking.gke.io/gkenetworkparamsetlist_v1.json"
+    },
+    {
+      "$ref": "networking.gke.io/healthcheckpolicy_v1.json"
+    },
+    {
+      "$ref": "networking.gke.io/healthcheckpolicylist_v1.json"
+    },
+    {
+      "$ref": "networking.gke.io/lbpolicy_v1.json"
+    },
+    {
+      "$ref": "networking.gke.io/lbpolicylist_v1.json"
+    },
+    {
+      "$ref": "networking.gke.io/managedcertificate_v1.json"
+    },
+    {
+      "$ref": "networking.gke.io/managedcertificate_v1beta1.json"
+    },
+    {
+      "$ref": "networking.gke.io/managedcertificate_v1beta2.json"
+    },
+    {
+      "$ref": "networking.gke.io/managedcertificatelist_v1.json"
+    },
+    {
+      "$ref": "networking.gke.io/managedcertificatelist_v1beta1.json"
+    },
+    {
+      "$ref": "networking.gke.io/managedcertificatelist_v1beta2.json"
+    },
+    {
+      "$ref": "networking.gke.io/network_v1.json"
+    },
+    {
+      "$ref": "networking.gke.io/networklist_v1.json"
+    },
+    {
+      "$ref": "networking.gke.io/networklogging_v1alpha1.json"
+    },
+    {
+      "$ref": "networking.gke.io/networklogginglist_v1alpha1.json"
+    },
+    {
+      "$ref": "networking.gke.io/redirectservice_v1alpha1.json"
+    },
+    {
+      "$ref": "networking.gke.io/redirectservicelist_v1alpha1.json"
+    },
+    {
+      "$ref": "networking.gke.io/serviceattachment_v1.json"
+    },
+    {
+      "$ref": "networking.gke.io/serviceattachment_v1beta1.json"
+    },
+    {
+      "$ref": "networking.gke.io/serviceattachmentlist_v1.json"
+    },
+    {
+      "$ref": "networking.gke.io/serviceattachmentlist_v1beta1.json"
+    },
+    {
+      "$ref": "networking.gke.io/servicefunctionchain_v1.json"
+    },
+    {
+      "$ref": "networking.gke.io/servicefunctionchainlist_v1.json"
+    },
+    {
+      "$ref": "networking.gke.io/servicenetworkendpointgroup_v1beta1.json"
+    },
+    {
+      "$ref": "networking.gke.io/servicenetworkendpointgrouplist_v1beta1.json"
+    },
+    {
+      "$ref": "networking.gke.io/trafficselector_v1.json"
+    },
+    {
+      "$ref": "networking.gke.io/trafficselectorlist_v1.json"
     },
     {
       "$ref": "networking.internal.knative.dev/certificate_v1alpha1.json"
@@ -1624,10 +1924,22 @@
       "$ref": "nfd.k8s-sigs.io/nodefeaturerulelist_v1alpha1.json"
     },
     {
+      "$ref": "node.gke.io/gcpresourceallowlist_v1.json"
+    },
+    {
+      "$ref": "node.gke.io/gcpresourceallowlistlist_v1.json"
+    },
+    {
       "$ref": "node.k8s.io/runtimeclass_v1.json"
     },
     {
       "$ref": "node.k8s.io/runtimeclasslist_v1.json"
+    },
+    {
+      "$ref": "nodemanagement.gke.io/updateinfo_v1alpha1.json"
+    },
+    {
+      "$ref": "nodemanagement.gke.io/updateinfolist_v1alpha1.json"
     },
     {
       "$ref": "operator.karmada.io/karmada_v1alpha1.json"
@@ -1943,6 +2255,30 @@
     },
     {
       "$ref": "scheduling.k8s.io/priorityclasslist_v1.json"
+    },
+    {
+      "$ref": "security.cloud.google.com/trustconfig_v1.json"
+    },
+    {
+      "$ref": "security.cloud.google.com/trustconfig_v1alpha1.json"
+    },
+    {
+      "$ref": "security.cloud.google.com/trustconfiglist_v1.json"
+    },
+    {
+      "$ref": "security.cloud.google.com/trustconfiglist_v1alpha1.json"
+    },
+    {
+      "$ref": "security.cloud.google.com/workloadcertificateconfig_v1.json"
+    },
+    {
+      "$ref": "security.cloud.google.com/workloadcertificateconfig_v1alpha1.json"
+    },
+    {
+      "$ref": "security.cloud.google.com/workloadcertificateconfiglist_v1.json"
+    },
+    {
+      "$ref": "security.cloud.google.com/workloadcertificateconfiglist_v1alpha1.json"
     },
     {
       "$ref": "security.istio.io/authorizationpolicy_v1.json"
@@ -2411,6 +2747,12 @@
     },
     {
       "$ref": "velero.io/volumesnapshotlocationlist_v1.json"
+    },
+    {
+      "$ref": "warden.gke.io/audit_v1.json"
+    },
+    {
+      "$ref": "warden.gke.io/auditlist_v1.json"
     },
     {
       "$ref": "webhook.acme.cert-manager.io/challengepayload_v1alpha1.json"

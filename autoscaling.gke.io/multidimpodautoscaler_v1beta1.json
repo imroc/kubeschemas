@@ -1,0 +1,244 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "autoscaling.gke.io/v1beta1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "MultidimPodAutoscaler"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "constraints": {
+          "properties": {
+            "container": {
+              "items": {
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "requests": {
+                    "properties": {
+                      "maxAllowed": {
+                        "type": "object",
+                        "x-kubernetes-preserve-unknown-fields": true
+                      },
+                      "minAllowed": {
+                        "type": "object",
+                        "x-kubernetes-preserve-unknown-fields": true
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "containerControlledResources": {
+              "items": {
+                "enum": [
+                  "memory"
+                ],
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "global": {
+              "properties": {
+                "maxReplicas": {
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "minReplicas": {
+                  "default": 1,
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "requests": {
+                  "properties": {
+                    "maxAllowed": {
+                      "type": "object",
+                      "x-kubernetes-preserve-unknown-fields": true
+                    },
+                    "minAllowed": {
+                      "type": "object",
+                      "x-kubernetes-preserve-unknown-fields": true
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "pod": {
+              "properties": {
+                "requests": {
+                  "properties": {
+                    "maxAllowed": {
+                      "type": "object",
+                      "x-kubernetes-preserve-unknown-fields": true
+                    },
+                    "minAllowed": {
+                      "type": "object",
+                      "x-kubernetes-preserve-unknown-fields": true
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "required": [
+            "containerControlledResources"
+          ],
+          "type": "object"
+        },
+        "goals": {
+          "properties": {
+            "metrics": {
+              "items": {
+                "properties": {
+                  "resource": {
+                    "properties": {
+                      "name": {
+                        "enum": [
+                          "cpu"
+                        ],
+                        "type": "string"
+                      },
+                      "target": {
+                        "properties": {
+                          "averageUtilization": {
+                            "maximum": 100,
+                            "minimum": 0,
+                            "type": "integer"
+                          },
+                          "averageValue": {
+                            "anyOf": [
+                              {
+                                "type": "integer"
+                              },
+                              {
+                                "type": "string"
+                              }
+                            ],
+                            "x-kubernetes-int-or-string": true
+                          },
+                          "type": {
+                            "enum": [
+                              "Utilization",
+                              "Value",
+                              "AverageValue"
+                            ],
+                            "type": "string"
+                          },
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "integer"
+                              },
+                              {
+                                "type": "string"
+                              }
+                            ],
+                            "x-kubernetes-int-or-string": true
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "target"
+                    ],
+                    "type": "object"
+                  },
+                  "type": {
+                    "enum": [
+                      "Resource"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "type",
+                  "resource"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "metrics"
+          ],
+          "type": "object"
+        },
+        "policy": {
+          "properties": {
+            "updateMode": {
+              "enum": [
+                "Auto"
+              ],
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "scaleTargetRef": {
+          "properties": {
+            "apiVersion": {
+              "type": "string"
+            },
+            "kind": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "scaleTargetRef",
+        "goals",
+        "constraints"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "type": "object",
+      "x-kubernetes-preserve-unknown-fields": true
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "autoscaling.gke.io",
+      "kind": "MultidimPodAutoscaler",
+      "version": "v1beta1"
+    }
+  ]
+}

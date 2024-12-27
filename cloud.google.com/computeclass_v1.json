@@ -1,0 +1,282 @@
+{
+  "description": "ComputeClass is a way to impact Cluster Autoscaler scaling\ndecisions based on user preferences. It gives control over preference of\nhardware to be selected by Cluster Autoscaler.\nGiven ComputeClass affects only workloads using workload separation\nlabel equal to CCs name, except ComputeClass with name default\nwhich will be used for workloads not specifying any preferences.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "cloud.google.com/v1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "ComputeClass"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "Specification of the ComputeClass object.\nMore info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.",
+      "properties": {
+        "activeMigration": {
+          "description": "ActiveMigration describes settings related to active reconciliation of\na given ComputeClass.",
+          "properties": {
+            "optimizeRulePriority": {
+              "default": false,
+              "description": "OptimizeRulePriority defines whether workloads affected by given\nComputeClass should be migrated to nodepool defined by higher priority rule, if possible.",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "optimizeRulePriority"
+          ],
+          "type": "object"
+        },
+        "autoscalingPolicy": {
+          "description": "AutoscalingPolicy describes settings related to active reconciliation of\na given ComputeClass.",
+          "properties": {
+            "consolidationDelayMinutes": {
+              "description": "ConsolidationDelayMinutes determines how long a node should be unneeded before it is eligible for scale down.\nMinimum duration is 1 minute, maximum is 24 hours or 1440 minutes",
+              "maximum": 1440,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "consolidationThreshold": {
+              "description": "ConsolidationThreshold determines resource utilization threshold below which a node can be considered for scale down.",
+              "maximum": 100,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "gpuConsolidationThreshold": {
+              "description": "GPUConsolidationThreshold determines GPU resource utilization threshold below which a node can be considered for scale down.\nUtilization calculation only cares about GPU resource for accelerator node, CPU and memory utilization will be ignored.",
+              "maximum": 100,
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
+        "nodePoolAutoCreation": {
+          "description": "NodePoolAutoCreation describes the auto provisioning settings for a given\nComputeClass.",
+          "properties": {
+            "enabled": {
+              "default": false,
+              "description": "Enabled indicates whether NodePoolAutoCreation is enabled for a given ComputeClass.",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "enabled"
+          ],
+          "type": "object"
+        },
+        "priorities": {
+          "description": "Priorities is a description of user preferences to be\nused by a given ComputeClass.",
+          "items": {
+            "description": "Priority is a specification of preferred machine characteristics.",
+            "minProperties": 1,
+            "properties": {
+              "gpu": {
+                "description": "Gpu defines preferred GPU config for a node.",
+                "properties": {
+                  "count": {
+                    "description": "Count describes preferred count of GPUs for a node.",
+                    "format": "int64",
+                    "type": "integer"
+                  },
+                  "type": {
+                    "description": "Type describes preferred GPU accelerator type for a node.",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "machineFamily": {
+                "description": "Machine family describes preferred instance family for a node. If none is specified,\nthe default autoprovisioning machine family is used.",
+                "type": "string"
+              },
+              "machineType": {
+                "description": "MachineType defines preferred machine type for a node.",
+                "type": "string"
+              },
+              "minCores": {
+                "description": "MinCores describes a minimum number of CPU cores of a node.",
+                "minimum": 0,
+                "type": "integer"
+              },
+              "minMemoryGb": {
+                "description": "MinMemoryGb describes a minimum GBs of memory of a node.",
+                "minimum": 0,
+                "type": "integer"
+              },
+              "nodepools": {
+                "description": "Nodepools describes preference of specific, preexisting nodepools.",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "spot": {
+                "description": "Spot if set to true specifies that a node should be a spot instance, on-demand otherwise.",
+                "type": "boolean"
+              },
+              "storage": {
+                "description": "Storage describes storage config of a node.",
+                "properties": {
+                  "bootDiskKMSKey": {
+                    "description": "BootDiskKMSKey defines a key used to encrypt the boot disk attached.",
+                    "pattern": "projects/[^/]+/locations/[^/]+/keyRings/[^/]+/cryptoKeys/[^/]+",
+                    "type": "string"
+                  },
+                  "bootDiskSize": {
+                    "description": "BootDiskSize defines the size of a disk attached to node, specified in GB.",
+                    "minimum": 10,
+                    "type": "integer"
+                  },
+                  "bootDiskType": {
+                    "description": "BootDiskType defines type of the disk attached to the node.\nNote that available boot disk types depend on the machine family / machine type selected.\nCurrently supported types:\n* pd-balanced\n* pd-standard\n* pd-ssd\n* hyperdisk-balanced",
+                    "enum": [
+                      "pd-balanced",
+                      "pd-standard",
+                      "pd-ssd",
+                      "hyperdisk-balanced"
+                    ],
+                    "type": "string"
+                  },
+                  "localSSDCount": {
+                    "description": "LocalSSDCount defines a number of local SSDs attached to node.",
+                    "minimum": 1,
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              },
+              "tpu": {
+                "description": "Tpu defines preferred TPU config for a node.",
+                "properties": {
+                  "count": {
+                    "description": "Count describes preferred count of TPU chips for a node.",
+                    "format": "int64",
+                    "type": "integer"
+                  },
+                  "topology": {
+                    "description": "Topology describes preferred TPU topology of a node.",
+                    "type": "string"
+                  },
+                  "type": {
+                    "description": "Type describes preferred TPU type for a node.",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object",
+            "x-kubernetes-validations": [
+              {
+                "message": "Nodepool field cannot be set along with other fields",
+                "rule": "has(self.nodepools) ? (size(dyn(self)) == 1) : true"
+              }
+            ]
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "whenUnsatisfiable": {
+          "default": "ScaleUpAnyway",
+          "description": "WhenUnsatisfiable describes autoscaler behaviour in case none\nof the provided priorities is satisfiable.\nCurrently supported values:\n* ScaleUpAnyway\n* DoNotScaleUp",
+          "enum": [
+            "ScaleUpAnyway",
+            "DoNotScaleUp"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "whenUnsatisfiable"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "description": "Status of the ComputeClass.",
+      "properties": {
+        "conditions": {
+          "description": "Conditions represent the observations of a ComputeClass's current state.",
+          "items": {
+            "description": "Condition contains details for one aspect of the current state of this API Resource.\n---\nThis struct is intended for direct use as an array at the field path .status.conditions.  For example,\n\n\n\ttype FooStatus struct{\n\t    // Represents the observations of a foo's current state.\n\t    // Known .status.conditions.type are: \"Available\", \"Progressing\", and \"Degraded\"\n\t    // +patchMergeKey=type\n\t    // +patchStrategy=merge\n\t    // +listType=map\n\t    // +listMapKey=type\n\t    Conditions []metav1.Condition `json:\"conditions,omitempty\" patchStrategy:\"merge\" patchMergeKey:\"type\" protobuf:\"bytes,1,rep,name=conditions\"`\n\n\n\t    // other fields\n\t}",
+            "properties": {
+              "lastTransitionTime": {
+                "description": "lastTransitionTime is the last time the condition transitioned from one status to another.\nThis should be when the underlying condition changed.  If that is not known, then using the time when the API field changed is acceptable.",
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "description": "message is a human readable message indicating details about the transition.\nThis may be an empty string.",
+                "maxLength": 32768,
+                "type": "string"
+              },
+              "observedGeneration": {
+                "description": "observedGeneration represents the .metadata.generation that the condition was set based upon.\nFor instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date\nwith respect to the current state of the instance.",
+                "format": "int64",
+                "minimum": 0,
+                "type": "integer"
+              },
+              "reason": {
+                "description": "reason contains a programmatic identifier indicating the reason for the condition's last transition.\nProducers of specific condition types may define expected values and meanings for this field,\nand whether the values are considered a guaranteed API.\nThe value should be a CamelCase string.\nThis field may not be empty.",
+                "maxLength": 1024,
+                "minLength": 1,
+                "pattern": "^[A-Za-z]([A-Za-z0-9_,:]*[A-Za-z0-9_])?$",
+                "type": "string"
+              },
+              "status": {
+                "description": "status of the condition, one of True, False, Unknown.",
+                "enum": [
+                  "True",
+                  "False",
+                  "Unknown"
+                ],
+                "type": "string"
+              },
+              "type": {
+                "description": "type of condition in CamelCase or in foo.example.com/CamelCase.\n---\nMany .condition.type values are consistent across resources like Available, but because arbitrary conditions can be\nuseful (see .node.status.conditions), the ability to deconflict is important.\nThe regex it matches is (dns1123SubdomainFmt/)?(qualifiedNameFmt)",
+                "maxLength": 316,
+                "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "lastTransitionTime",
+              "message",
+              "reason",
+              "status",
+              "type"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "cloud.google.com",
+      "kind": "ComputeClass",
+      "version": "v1"
+    }
+  ]
+}
