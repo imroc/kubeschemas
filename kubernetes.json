@@ -2407,12 +2407,6 @@
       "$ref": "node.gke.io/gcpresourceallowlistlist_v1.json"
     },
     {
-      "$ref": "node.k8s.io/runtimeclass_v1.json"
-    },
-    {
-      "$ref": "node.k8s.io/runtimeclasslist_v1.json"
-    },
-    {
       "$ref": "nodeinfo.volcano.sh/numatopology_v1alpha1.json"
     },
     {
