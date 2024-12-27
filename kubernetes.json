@@ -919,12 +919,6 @@
       "$ref": "coordination.api.k8s.io/leaselist_v1.json"
     },
     {
-      "$ref": "coordination.k8s.io/lease_v1.json"
-    },
-    {
-      "$ref": "coordination.k8s.io/leaselist_v1.json"
-    },
-    {
       "$ref": "core.api.k8s.io/binding_v1.json"
     },
     {
