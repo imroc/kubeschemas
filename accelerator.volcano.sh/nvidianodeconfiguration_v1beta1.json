@@ -1,0 +1,71 @@
+{
+  "description": "NvidiaNodeConfiguration is the Schema for the nvidianodeconfigurations API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "accelerator.volcano.sh/v1beta1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "NvidiaNodeConfiguration"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "NvidiaNodeConfigurationSpec defines the desired state of NvidiaNodeConfiguration",
+      "properties": {
+        "configuration": {
+          "description": "Configuration defines the desired configuration of node",
+          "properties": {
+            "xgpuEnable": {
+              "description": "XGPUEnable tells the controller to enable xgpu for nodes",
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        },
+        "nodeName": {
+          "description": "NodeName is a request to associate this cr to a specific node. If it is non-empty,\nthe controller simply associate this configuration to that node. Nodename and NodeSelector shouldn't be used togather.",
+          "type": "string"
+        },
+        "nodeSelector": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "NodeSelector is a selector which must be true for the cr to be associated to nodes.\nSelector which must match a nodes' labels for the cr to be associated to that node. Nodename and NodeSelector shouldn't be used togather.",
+          "type": "object",
+          "x-kubernetes-map-type": "atomic"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "description": "NvidiaNodeConfigurationStatus defines the observed state of NvidiaNodeConfiguration",
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "accelerator.volcano.sh",
+      "kind": "NvidiaNodeConfiguration",
+      "version": "v1beta1"
+    }
+  ]
+}

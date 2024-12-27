@@ -1,0 +1,329 @@
+{
+  "description": "EIP contains information about a EIP resource.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "crd.yangtse.cni/v1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "EIP"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "Specification of the EIP.",
+      "properties": {
+        "eipAttributes": {
+          "description": "Attributes is the eip attributes which used to create eip.",
+          "properties": {
+            "alias": {
+              "description": "Alias of PublicIP",
+              "type": "string"
+            },
+            "bandwidth": {
+              "description": "Bandwidth create attributes",
+              "properties": {
+                "chargeMode": {
+                  "description": "Bandwidth Charge Mode",
+                  "enum": [
+                    "bandwidth",
+                    "traffic"
+                  ],
+                  "type": "string"
+                },
+                "id": {
+                  "description": "Bandwidth id, only useful for WHOLE bandwidth share type",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "Bandwidth name, only useful for PER bandwidth share type",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "pattern": "^[a-zA-Z0-9_\\-\\.]+$",
+                  "type": "string"
+                },
+                "shareType": {
+                  "description": "Bandwidth Share Type",
+                  "enum": [
+                    "PER",
+                    "WHOLE"
+                  ],
+                  "type": "string"
+                },
+                "size": {
+                  "description": "Bandwidth size",
+                  "format": "int32",
+                  "maximum": 200000,
+                  "minimum": 0,
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "ipVersion": {
+              "default": 4,
+              "description": "IP Version of PublicIP",
+              "enum": [
+                4,
+                6
+              ],
+              "format": "int32",
+              "type": "integer"
+            },
+            "networkType": {
+              "description": "Network Type of PublicIP",
+              "type": "string"
+            }
+          },
+          "required": [
+            "bandwidth",
+            "networkType"
+          ],
+          "type": "object"
+        },
+        "eipID": {
+          "description": "EIPID is custom EIP ID.",
+          "type": "string"
+        },
+        "eipPoolOwner": {
+          "description": "EIPPoolOwner is EIPPool owner of the EIP.",
+          "type": "string"
+        },
+        "expireDuration": {
+          "description": "ExpireDuration is expire duration time.",
+          "type": "string"
+        },
+        "statefulSet": {
+          "description": "StatefulSet is static EIP related statefulset, value is 'namespace/name'.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "description": "Status of the EIP.",
+      "properties": {
+        "associate": {
+          "description": "eip associate infos.",
+          "properties": {
+            "attachment": {
+              "description": "Attachment is the eip attachment info.",
+              "properties": {
+                "neutronPortName": {
+                  "description": "NeutronPortName is NeutronPort name which associated.",
+                  "type": "string"
+                },
+                "neutronPortNamespace": {
+                  "description": "NeutronPortNamespace is NeutronPort namespace which associated.",
+                  "type": "string"
+                },
+                "nodeName": {
+                  "description": "NodeName is node name where the NeutronPort resides, must with phase Bound, PreBound or FixedBound.",
+                  "type": "string"
+                },
+                "podName": {
+                  "description": "Pod name",
+                  "type": "string"
+                },
+                "podNamespace": {
+                  "description": "Pod Namespace",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "privateIP": {
+              "description": "PrivateIP is private ip information",
+              "properties": {
+                "id": {
+                  "description": "Port ID or EIP ID",
+                  "type": "string"
+                },
+                "ipv4": {
+                  "description": "IPv4 is the IPv4 address for traffic from the eni.",
+                  "type": "string"
+                },
+                "ipv6": {
+                  "description": "IPv6 is the IPv6 address for traffic from the eni.",
+                  "type": "string"
+                },
+                "mac": {
+                  "description": "MAC is the MAC address of the endpoint interface.",
+                  "type": "string"
+                },
+                "status": {
+                  "description": "Status of this IP",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "conditions": {
+          "description": "Conditions describe the current conditions of the EIP.",
+          "items": {
+            "description": "Condition contains details for one aspect of the current state of this API Resource. --- This struct is intended for direct use as an array at the field path .status.conditions.  For example, \n \ttype FooStatus struct{ \t    // Represents the observations of a foo's current state. \t    // Known .status.conditions.type are: \"Available\", \"Progressing\", and \"Degraded\" \t    // +patchMergeKey=type \t    // +patchStrategy=merge \t    // +listType=map \t    // +listMapKey=type \t    Conditions []metav1.Condition `json:\"conditions,omitempty\" patchStrategy:\"merge\" patchMergeKey:\"type\" protobuf:\"bytes,1,rep,name=conditions\"` \n \t    // other fields \t}",
+            "properties": {
+              "lastTransitionTime": {
+                "description": "lastTransitionTime is the last time the condition transitioned from one status to another. This should be when the underlying condition changed.  If that is not known, then using the time when the API field changed is acceptable.",
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "description": "message is a human readable message indicating details about the transition. This may be an empty string.",
+                "maxLength": 32768,
+                "type": "string"
+              },
+              "observedGeneration": {
+                "description": "observedGeneration represents the .metadata.generation that the condition was set based upon. For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date with respect to the current state of the instance.",
+                "format": "int64",
+                "minimum": 0,
+                "type": "integer"
+              },
+              "reason": {
+                "description": "reason contains a programmatic identifier indicating the reason for the condition's last transition. Producers of specific condition types may define expected values and meanings for this field, and whether the values are considered a guaranteed API. The value should be a CamelCase string. This field may not be empty.",
+                "maxLength": 1024,
+                "minLength": 1,
+                "pattern": "^[A-Za-z]([A-Za-z0-9_,:]*[A-Za-z0-9_])?$",
+                "type": "string"
+              },
+              "status": {
+                "description": "status of the condition, one of True, False, Unknown.",
+                "enum": [
+                  "True",
+                  "False",
+                  "Unknown"
+                ],
+                "type": "string"
+              },
+              "type": {
+                "description": "type of condition in CamelCase or in foo.example.com/CamelCase. --- Many .condition.type values are consistent across resources like Available, but because arbitrary conditions can be useful (see .node.status.conditions), the ability to deconflict is important. The regex it matches is (dns1123SubdomainFmt/)?(qualifiedNameFmt)",
+                "maxLength": 316,
+                "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "lastTransitionTime",
+              "message",
+              "reason",
+              "status",
+              "type"
+            ],
+            "type": "object"
+          },
+          "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map"
+        },
+        "fixedEIPLastUpdateTimestamp": {
+          "description": "Record fixed EIP last update time.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "publicIP": {
+          "description": "PublicIP is information of this public ip.",
+          "properties": {
+            "alias": {
+              "description": "Alias of the PublicIP",
+              "type": "string"
+            },
+            "associateInstanceID": {
+              "description": "Associate instance id",
+              "type": "string"
+            },
+            "associateInstanceType": {
+              "description": "Associate instance type",
+              "type": "string"
+            },
+            "bandWidthChargeMode": {
+              "description": "Bandwidth charge mode of the PublicIP",
+              "type": "string"
+            },
+            "bandwidthShareType": {
+              "description": "Bandwidth share type of the PublicIP",
+              "type": "string"
+            },
+            "bandwidthSize": {
+              "description": "Bandwidth size of the PublicIP",
+              "format": "int32",
+              "type": "integer"
+            },
+            "id": {
+              "description": "The ID of the PublicIP",
+              "type": "string"
+            },
+            "ipv4": {
+              "description": "The ipv4 address of the PublicIP",
+              "type": "string"
+            },
+            "ipv6": {
+              "description": "The ipv6 address of the PublicIP",
+              "type": "string"
+            },
+            "networkType": {
+              "description": "Network Type of PublicIP",
+              "type": "string"
+            },
+            "status": {
+              "description": "PublicIP status",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "tags": {
+          "description": "Tags describe the current tags created by yangtse of the EIP.",
+          "items": {
+            "description": "EIPTag defines eip tag struct.",
+            "properties": {
+              "key": {
+                "description": "Key is tag key",
+                "type": "string"
+              },
+              "value": {
+                "description": "Value is tag value",
+                "type": "string"
+              }
+            },
+            "required": [
+              "key"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "crd.yangtse.cni",
+      "kind": "EIP",
+      "version": "v1"
+    }
+  ]
+}

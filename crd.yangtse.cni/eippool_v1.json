@@ -1,0 +1,253 @@
+{
+  "description": "EIPPool contains information about a EIPPool resource.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "crd.yangtse.cni/v1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "EIPPool"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "Specification of the EIPPool.",
+      "properties": {
+        "amount": {
+          "description": "Amount is the amount of eips need to be create.",
+          "maximum": 500,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "eipAttributes": {
+          "description": "Attributes is the eip attributes which used to create eip.",
+          "properties": {
+            "alias": {
+              "description": "Alias of PublicIP",
+              "type": "string"
+            },
+            "bandwidth": {
+              "description": "Bandwidth create attributes",
+              "properties": {
+                "chargeMode": {
+                  "description": "Bandwidth Charge Mode",
+                  "enum": [
+                    "bandwidth",
+                    "traffic"
+                  ],
+                  "type": "string"
+                },
+                "id": {
+                  "description": "Bandwidth id, only useful for WHOLE bandwidth share type",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "Bandwidth name, only useful for PER bandwidth share type",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "pattern": "^[a-zA-Z0-9_\\-\\.]+$",
+                  "type": "string"
+                },
+                "shareType": {
+                  "description": "Bandwidth Share Type",
+                  "enum": [
+                    "PER",
+                    "WHOLE"
+                  ],
+                  "type": "string"
+                },
+                "size": {
+                  "description": "Bandwidth size",
+                  "format": "int32",
+                  "maximum": 200000,
+                  "minimum": 0,
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "ipVersion": {
+              "default": 4,
+              "description": "IP Version of PublicIP",
+              "enum": [
+                4,
+                6
+              ],
+              "format": "int32",
+              "type": "integer"
+            },
+            "networkType": {
+              "description": "Network Type of PublicIP",
+              "type": "string"
+            }
+          },
+          "required": [
+            "bandwidth",
+            "networkType"
+          ],
+          "type": "object"
+        },
+        "eips": {
+          "description": "EIPs used to generate EIP resources.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "description": "Status of the EIPPool.",
+      "properties": {
+        "associates": {
+          "additionalProperties": {
+            "description": "EIPAssociate is a eip associate info.",
+            "properties": {
+              "attachment": {
+                "description": "Attachment is the eip attachment info.",
+                "properties": {
+                  "neutronPortName": {
+                    "description": "NeutronPortName is NeutronPort name which associated.",
+                    "type": "string"
+                  },
+                  "neutronPortNamespace": {
+                    "description": "NeutronPortNamespace is NeutronPort namespace which associated.",
+                    "type": "string"
+                  },
+                  "nodeName": {
+                    "description": "NodeName is node name where the NeutronPort resides, must with phase Bound, PreBound or FixedBound.",
+                    "type": "string"
+                  },
+                  "podName": {
+                    "description": "Pod name",
+                    "type": "string"
+                  },
+                  "podNamespace": {
+                    "description": "Pod Namespace",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "privateIP": {
+                "description": "PrivateIP is private ip information",
+                "properties": {
+                  "id": {
+                    "description": "Port ID or EIP ID",
+                    "type": "string"
+                  },
+                  "ipv4": {
+                    "description": "IPv4 is the IPv4 address for traffic from the eni.",
+                    "type": "string"
+                  },
+                  "ipv6": {
+                    "description": "IPv6 is the IPv6 address for traffic from the eni.",
+                    "type": "string"
+                  },
+                  "mac": {
+                    "description": "MAC is the MAC address of the endpoint interface.",
+                    "type": "string"
+                  },
+                  "status": {
+                    "description": "Status of this IP",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "description": "eip associate infos.",
+          "type": "object"
+        },
+        "eips": {
+          "description": "EIPs is a set of generated EIP resources.",
+          "items": {
+            "description": "PublicIPInfo is information of a public ip.",
+            "properties": {
+              "alias": {
+                "description": "Alias of the PublicIP",
+                "type": "string"
+              },
+              "associateInstanceID": {
+                "description": "Associate instance id",
+                "type": "string"
+              },
+              "associateInstanceType": {
+                "description": "Associate instance type",
+                "type": "string"
+              },
+              "bandWidthChargeMode": {
+                "description": "Bandwidth charge mode of the PublicIP",
+                "type": "string"
+              },
+              "bandwidthShareType": {
+                "description": "Bandwidth share type of the PublicIP",
+                "type": "string"
+              },
+              "bandwidthSize": {
+                "description": "Bandwidth size of the PublicIP",
+                "format": "int32",
+                "type": "integer"
+              },
+              "id": {
+                "description": "The ID of the PublicIP",
+                "type": "string"
+              },
+              "ipv4": {
+                "description": "The ipv4 address of the PublicIP",
+                "type": "string"
+              },
+              "ipv6": {
+                "description": "The ipv6 address of the PublicIP",
+                "type": "string"
+              },
+              "networkType": {
+                "description": "Network Type of PublicIP",
+                "type": "string"
+              },
+              "status": {
+                "description": "PublicIP status",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "usage": {
+          "description": "Usage is usage of eip in this pool, e.g. 2/10.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "crd.yangtse.cni",
+      "kind": "EIPPool",
+      "version": "v1"
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "description": "AdvancedHorizontalPodAutoscalerCheckpoint is the checkpoint of the internal state of AHPA that\nis used for recovery after recommender's restart.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "autoscaling.cce.io/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "AdvancedHorizontalPodAutoscalerCheckpoint"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "Specification of the checkpoint.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.",
+      "properties": {
+        "ahpaObjectName": {
+          "description": "Name of the VPA object that stored AdvancedHorizontalPodAutoscalerCheckpoint object.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "description": "Data of the checkpoint.",
+      "properties": {
+        "lastUpdateStatus": {
+          "description": "LastUpdateStatus store the generations for scale target and AHPA",
+          "properties": {
+            "ahpaGeneration": {
+              "format": "int64",
+              "type": "integer"
+            },
+            "scaleResourceFlavor": {
+              "additionalProperties": {
+                "format": "int64",
+                "type": "integer"
+              },
+              "type": "object"
+            }
+          },
+          "required": [
+            "ahpaGeneration",
+            "scaleResourceFlavor"
+          ],
+          "type": "object"
+        },
+        "lastUpdateTime": {
+          "description": "The time when the status was last refreshed.",
+          "format": "date-time",
+          "nullable": true,
+          "type": "string"
+        },
+        "recommendReplicas": {
+          "additionalProperties": {
+            "additionalProperties": {
+              "format": "int32",
+              "type": "integer"
+            },
+            "type": "object"
+          },
+          "description": "RecommendReplicas stores the recommend replicas for some time to come.",
+          "type": "object"
+        },
+        "version": {
+          "description": "Version of the format of the stored data.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "autoscaling.cce.io",
+      "kind": "AdvancedHorizontalPodAutoscalerCheckpoint",
+      "version": "v1alpha1"
+    }
+  ]
+}

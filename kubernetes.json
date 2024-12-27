@@ -1,6 +1,12 @@
 {
   "oneOf": [
     {
+      "$ref": "accelerator.volcano.sh/nvidianodeconfiguration_v1beta1.json"
+    },
+    {
+      "$ref": "accelerator.volcano.sh/nvidianodeconfigurationlist_v1beta1.json"
+    },
+    {
       "$ref": "acme.cert-manager.io/challenge_v1.json"
     },
     {
@@ -376,6 +382,36 @@
       "$ref": "autoscaling.agones.dev/fleetautoscalerlist_v1.json"
     },
     {
+      "$ref": "autoscaling.cce.io/advancedhorizontalpodautoscaler_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.cce.io/advancedhorizontalpodautoscalercheckpoint_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.cce.io/advancedhorizontalpodautoscalercheckpointlist_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.cce.io/advancedhorizontalpodautoscalerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.cce.io/cronhorizontalpodautoscaler_v2alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.cce.io/cronhorizontalpodautoscalerlist_v2alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.cce.io/customedhorizontalpodautoscaler_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.cce.io/customedhorizontalpodautoscalerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.cce.io/horizontalnodeautoscaler_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.cce.io/horizontalnodeautoscalerlist_v1alpha1.json"
+    },
+    {
       "$ref": "autoscaling.cloud.tencent.com/horizontalpodcronscaler_v1.json"
     },
     {
@@ -422,6 +458,18 @@
     },
     {
       "$ref": "autoscaling.k8s.io/verticalpodautoscaler_v1beta2.json"
+    },
+    {
+      "$ref": "autoscaling.k8s.io/verticalpodautoscalercheckpoint_v1.json"
+    },
+    {
+      "$ref": "autoscaling.k8s.io/verticalpodautoscalercheckpoint_v1beta2.json"
+    },
+    {
+      "$ref": "autoscaling.k8s.io/verticalpodautoscalercheckpointlist_v1.json"
+    },
+    {
+      "$ref": "autoscaling.k8s.io/verticalpodautoscalercheckpointlist_v1beta2.json"
     },
     {
       "$ref": "autoscaling.k8s.io/verticalpodautoscalerlist_v1.json"
@@ -488,6 +536,36 @@
     },
     {
       "$ref": "batch/joblist_v1.json"
+    },
+    {
+      "$ref": "batch.volcano.sh/hyperjob_v1alpha1.json"
+    },
+    {
+      "$ref": "batch.volcano.sh/hyperjoblist_v1alpha1.json"
+    },
+    {
+      "$ref": "batch.volcano.sh/job_v1alpha1.json"
+    },
+    {
+      "$ref": "batch.volcano.sh/joblist_v1alpha1.json"
+    },
+    {
+      "$ref": "bursting.cci.io/clusterextensionprofile_v1.json"
+    },
+    {
+      "$ref": "bursting.cci.io/clusterextensionprofilelist_v1.json"
+    },
+    {
+      "$ref": "bursting.cci.io/extensionprofile_v1.json"
+    },
+    {
+      "$ref": "bursting.cci.io/extensionprofilelist_v1.json"
+    },
+    {
+      "$ref": "bus.volcano.sh/command_v1alpha1.json"
+    },
+    {
+      "$ref": "bus.volcano.sh/commandlist_v1alpha1.json"
     },
     {
       "$ref": "caching.internal.knative.dev/image_v1alpha1.json"
@@ -949,6 +1027,42 @@
       "$ref": "crd.k8s.amazonaws.com/eniconfiglist_v1alpha1.json"
     },
     {
+      "$ref": "crd.yangtse.cni/eip_v1.json"
+    },
+    {
+      "$ref": "crd.yangtse.cni/eiplist_v1.json"
+    },
+    {
+      "$ref": "crd.yangtse.cni/eippool_v1.json"
+    },
+    {
+      "$ref": "crd.yangtse.cni/eippoollist_v1.json"
+    },
+    {
+      "$ref": "crd.yangtse.cni/nodenetworkconfig_v1.json"
+    },
+    {
+      "$ref": "crd.yangtse.cni/nodenetworkconfiglist_v1.json"
+    },
+    {
+      "$ref": "crd.yangtse.cni/podnetworkinterfaceqosconfig_v1.json"
+    },
+    {
+      "$ref": "crd.yangtse.cni/podnetworkinterfaceqosconfiglist_v1.json"
+    },
+    {
+      "$ref": "crd.yangtse.cni/securitygroup_v1.json"
+    },
+    {
+      "$ref": "crd.yangtse.cni/securitygrouplist_v1.json"
+    },
+    {
+      "$ref": "crd.yangtse.cni/yangtseconfiguration_v1.json"
+    },
+    {
+      "$ref": "crd.yangtse.cni/yangtseconfigurationlist_v1.json"
+    },
+    {
       "$ref": "custom.metrics.k8s.io/metricvalue_v1beta1.json"
     },
     {
@@ -1285,6 +1399,12 @@
       "$ref": "gateway.networking.k8s.io/udproutelist_v1alpha2.json"
     },
     {
+      "$ref": "geip.cce.io/geip_v1alpha1.json"
+    },
+    {
+      "$ref": "geip.cce.io/geiplist_v1alpha1.json"
+    },
+    {
       "$ref": "groupsnapshot.storage.k8s.io/volumegroupsnapshot_v1alpha1.json"
     },
     {
@@ -1349,6 +1469,12 @@
     },
     {
       "$ref": "k3s.cattle.io/etcdsnapshotfilelist_v1.json"
+    },
+    {
+      "$ref": "k8s.cni.cncf.io/networkattachmentdefinition_v1.json"
+    },
+    {
+      "$ref": "k8s.cni.cncf.io/networkattachmentdefinitionlist_v1.json"
     },
     {
       "$ref": "karpenter.sh/nodeclaim_v1.json"
@@ -1469,6 +1595,12 @@
     },
     {
       "$ref": "kueue.x-k8s.io/workloadpriorityclasslist_v1beta1.json"
+    },
+    {
+      "$ref": "localvolume.everest.io/nodelocalvolume_v1.json"
+    },
+    {
+      "$ref": "localvolume.everest.io/nodelocalvolumelist_v1.json"
     },
     {
       "$ref": "meta.apis.pkg.apimachinery.k8s.io/apigroup_v1.json"
@@ -2086,6 +2218,12 @@
       "$ref": "nfd.k8s-sigs.io/nodefeaturerulelist_v1alpha1.json"
     },
     {
+      "$ref": "node.cce.io/drainage_v1.json"
+    },
+    {
+      "$ref": "node.cce.io/drainagelist_v1.json"
+    },
+    {
       "$ref": "node.gke.io/gcpresourceallowlist_v1.json"
     },
     {
@@ -2096,6 +2234,12 @@
     },
     {
       "$ref": "node.k8s.io/runtimeclasslist_v1.json"
+    },
+    {
+      "$ref": "nodeinfo.volcano.sh/numatopology_v1alpha1.json"
+    },
+    {
+      "$ref": "nodeinfo.volcano.sh/numatopologylist_v1alpha1.json"
     },
     {
       "$ref": "nodemanagement.gke.io/updateinfo_v1alpha1.json"
@@ -2407,6 +2551,12 @@
       "$ref": "rbac.authorization.k8s.io/rolelist_v1.json"
     },
     {
+      "$ref": "rbac.cce.io/permission_v1beta1.json"
+    },
+    {
+      "$ref": "rbac.cce.io/permissionlist_v1beta1.json"
+    },
+    {
       "$ref": "resolution.tekton.dev/resolutionrequest_v1alpha1.json"
     },
     {
@@ -2417,6 +2567,18 @@
     },
     {
       "$ref": "resolution.tekton.dev/resolutionrequestlist_v1beta1.json"
+    },
+    {
+      "$ref": "scheduling.cci.io/scheduleprofile_v1.json"
+    },
+    {
+      "$ref": "scheduling.cci.io/scheduleprofile_v2.json"
+    },
+    {
+      "$ref": "scheduling.cci.io/scheduleprofilelist_v1.json"
+    },
+    {
+      "$ref": "scheduling.cci.io/scheduleprofilelist_v2.json"
     },
     {
       "$ref": "scheduling.crane.io/clusternoderesourcepolicy_v1alpha1.json"
@@ -2441,6 +2603,42 @@
     },
     {
       "$ref": "scheduling.k8s.io/priorityclasslist_v1.json"
+    },
+    {
+      "$ref": "scheduling.volcano.sh/podgroup_v1beta1.json"
+    },
+    {
+      "$ref": "scheduling.volcano.sh/podgrouplist_v1beta1.json"
+    },
+    {
+      "$ref": "scheduling.volcano.sh/queue_v1beta1.json"
+    },
+    {
+      "$ref": "scheduling.volcano.sh/queuelist_v1beta1.json"
+    },
+    {
+      "$ref": "secrets-store.csi.x-k8s.io/secretproviderclass_v1.json"
+    },
+    {
+      "$ref": "secrets-store.csi.x-k8s.io/secretproviderclass_v1alpha1.json"
+    },
+    {
+      "$ref": "secrets-store.csi.x-k8s.io/secretproviderclasslist_v1.json"
+    },
+    {
+      "$ref": "secrets-store.csi.x-k8s.io/secretproviderclasslist_v1alpha1.json"
+    },
+    {
+      "$ref": "secrets-store.csi.x-k8s.io/secretproviderclasspodstatus_v1.json"
+    },
+    {
+      "$ref": "secrets-store.csi.x-k8s.io/secretproviderclasspodstatus_v1alpha1.json"
+    },
+    {
+      "$ref": "secrets-store.csi.x-k8s.io/secretproviderclasspodstatuslist_v1.json"
+    },
+    {
+      "$ref": "secrets-store.csi.x-k8s.io/secretproviderclasspodstatuslist_v1alpha1.json"
     },
     {
       "$ref": "security.cloud.google.com/trustconfig_v1.json"
@@ -2749,6 +2947,12 @@
       "$ref": "templates.gatekeeper.sh/constrainttemplatelist_v1beta1.json"
     },
     {
+      "$ref": "topology.volcano.sh/hypercluster_v1alpha1.json"
+    },
+    {
+      "$ref": "topology.volcano.sh/hyperclusterlist_v1alpha1.json"
+    },
+    {
       "$ref": "traefik.containo.us/ingressroute_v1alpha1.json"
     },
     {
@@ -2939,6 +3143,12 @@
     },
     {
       "$ref": "velero.io/volumesnapshotlocationlist_v1.json"
+    },
+    {
+      "$ref": "version.cce.io/packageversion_v1beta1.json"
+    },
+    {
+      "$ref": "version.cce.io/packageversionlist_v1beta1.json"
     },
     {
       "$ref": "vpcresources.k8s.aws/cninode_v1alpha1.json"

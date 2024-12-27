@@ -1,0 +1,179 @@
+{
+  "description": "ScheduleProfile",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "scheduling.cci.io/v1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "ScheduleProfile"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "Spec of the ScheduleProfile",
+      "properties": {
+        "location": {
+          "description": "location contains the configuration of local pod or cci pod",
+          "properties": {
+            "cci": {
+              "description": "CCI records the  pod configuration of cci",
+              "properties": {
+                "maxNum": {
+                  "description": "MaxNum records the maxNum limit of pod",
+                  "type": "integer"
+                },
+                "scaleDownPriority": {
+                  "description": "ScaleDownPriority records the pod-deletion-cost",
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "local": {
+              "description": "Local records the pod configuration of local",
+              "properties": {
+                "maxNum": {
+                  "description": "MaxNum records the maxNum limit of pod",
+                  "type": "integer"
+                },
+                "scaleDownPriority": {
+                  "description": "ScaleDownPriority records the pod-deletion-cost",
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "objectLabels": {
+          "description": "ObjectLabels is label of object",
+          "properties": {
+            "matchExpressions": {
+              "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
+              "items": {
+                "description": "A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.",
+                "properties": {
+                  "key": {
+                    "description": "key is the label key that the selector applies to.",
+                    "type": "string"
+                  },
+                  "operator": {
+                    "description": "operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.",
+                    "type": "string"
+                  },
+                  "values": {
+                    "description": "values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.",
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "key",
+                  "operator"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "matchLabels": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "description": "matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is \"key\", the operator is \"In\", and the values array contains only \"value\". The requirements are ANDed.",
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "strategy": {
+          "description": "Strategy is the current strategy of ScheduleProfile",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "description": "Status of the ScheduleProfile",
+      "properties": {
+        "phase": {
+          "description": "Phase is the current status of ScheduleProfile",
+          "type": "string"
+        },
+        "restrict": {
+          "description": "Restrict records the pod restricted number",
+          "properties": {
+            "cci": {
+              "description": "CCI records the restricted number or used number of cci pod",
+              "type": "integer"
+            },
+            "cciDeleting": {
+              "description": "CCIDeleting records the used number of cci deleting pod",
+              "type": "integer"
+            },
+            "local": {
+              "description": "Local records the restricted number or used number of local pod",
+              "type": "integer"
+            },
+            "localDeleting": {
+              "description": "LocalDeleting records the used number of local deleting pod",
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
+        "used": {
+          "description": "Used records the pod used number",
+          "properties": {
+            "cci": {
+              "description": "CCI records the restricted number or used number of cci pod",
+              "type": "integer"
+            },
+            "cciDeleting": {
+              "description": "CCIDeleting records the used number of cci deleting pod",
+              "type": "integer"
+            },
+            "local": {
+              "description": "Local records the restricted number or used number of local pod",
+              "type": "integer"
+            },
+            "localDeleting": {
+              "description": "LocalDeleting records the used number of local deleting pod",
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "scheduling.cci.io",
+      "kind": "ScheduleProfile",
+      "version": "v1"
+    }
+  ]
+}

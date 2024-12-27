@@ -1,0 +1,765 @@
+{
+  "description": "YangtseConfiguration contains information about a YangtseConfiguration resource.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "crd.yangtse.cni/v1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "YangtseConfiguration"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "Specification of the YangtseConfiguration.",
+      "properties": {
+        "common": {
+          "description": "The common configuration.",
+          "properties": {
+            "autopilotServerAddress": {
+              "description": "AutopilotServerAddress is the autopilot proxy address.",
+              "type": "string"
+            },
+            "autopilotServerAuthMethod": {
+              "description": "AutopilotServerAuthMethod is the autopilot proxy address authentication method",
+              "type": "string"
+            },
+            "bmsServerAddress": {
+              "description": "BMSServerAddress is the bms address.",
+              "type": "string"
+            },
+            "bmsServerAuthMethod": {
+              "description": "BMSServerAuthMethod is the bms address authentication method",
+              "type": "string"
+            },
+            "clientReadMaxBurst": {
+              "default": 80,
+              "description": "ClientReadMaxBurst is flow control of client read max burst.",
+              "maximum": 1000,
+              "minimum": 10,
+              "type": "integer"
+            },
+            "clientReadMaxQPS": {
+              "default": 40,
+              "description": "ClientReadMaxQPS is flow control of client read max qps.",
+              "format": "float",
+              "type": "number"
+            },
+            "clientWriteMaxBurst": {
+              "default": 40,
+              "description": "ClientWriteMaxBurst is flow control of client write max burst.",
+              "maximum": 1000,
+              "minimum": 10,
+              "type": "integer"
+            },
+            "clientWriteMaxQPS": {
+              "default": 20,
+              "description": "ClientWriteMaxQPS is flow control of client write max qps.",
+              "format": "float",
+              "type": "number"
+            },
+            "clusterID": {
+              "description": "ClusterID is default cluster id.",
+              "type": "string"
+            },
+            "containerGCEnable": {
+              "default": true,
+              "description": "ContainerGCEnable enables garbage collection of containers.",
+              "type": "boolean"
+            },
+            "containerGCIntervalInMinutes": {
+              "default": 5,
+              "description": "ContainerGCIntervalInMinutes is the interval to attempt garbage collection of containers that are no longer alive and healthy.",
+              "maximum": 1000,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "ecsServerAddress": {
+              "description": "ECSServerAddress is the ecs address.",
+              "type": "string"
+            },
+            "ecsServerAuthMethod": {
+              "description": "ECSServerAuthMethod is the ecs address authentication method",
+              "type": "string"
+            },
+            "eipServerAddress": {
+              "description": "EIPServerAddress is the eip server address.",
+              "type": "string"
+            },
+            "eipServerAuthMethod": {
+              "description": "EIPServerAuthMethod is the eip server address authentication method",
+              "type": "string"
+            },
+            "gcbServerAddress": {
+              "description": "GCBServerAddress is the gcb server address.",
+              "type": "string"
+            },
+            "gcbServerAuthMethod": {
+              "description": "GCBServerAuthMethod is the gcb server address authentication method",
+              "type": "string"
+            },
+            "geipServerAddress": {
+              "description": "GlobalEIPServerAddress is the geip server address.",
+              "type": "string"
+            },
+            "geipServerAuthMethod": {
+              "description": "GlobalEIPServerAuthMethod is the geip server address authentication method",
+              "type": "string"
+            },
+            "heartBeatIntervalInSeconds": {
+              "default": 300,
+              "description": "HeartBeatIntervalInSeconds is the heart beat interval of node, in seconds.",
+              "maximum": 3600,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "iamServerAddress": {
+              "description": "IAMServerAddress is the IAM address.",
+              "type": "string"
+            },
+            "insecureSkipVerify": {
+              "default": false,
+              "description": "InsecureSkipVerify is the flag of disable ssl verify when do http request",
+              "type": "boolean"
+            },
+            "iptablesSyncIntervalInSeconds": {
+              "default": 90,
+              "description": "IPTablesSyncIntervalInSeconds is the sync interval of iptables, in seconds.",
+              "maximum": 6000,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "ipv6Enable": {
+              "default": false,
+              "description": "IPv6Enable is the switches of ipv6.",
+              "type": "boolean"
+            },
+            "logLevel": {
+              "default": "4",
+              "description": "LogLevel is the V logging level.",
+              "type": "string"
+            },
+            "namespaceIsolation": {
+              "default": false,
+              "description": "NamespaceIsolation isolate the newtork to the namespace in which a pod resides.",
+              "type": "boolean"
+            },
+            "networkSyncIntervalInSeconds": {
+              "default": 120,
+              "description": "NetworkSyncIntervalInSeconds is the network sync interval, in seconds.",
+              "maximum": 1800,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "networkSyncWorkers": {
+              "default": 5,
+              "description": "NetworkSyncWorkers is the worker number for syncing network.",
+              "maximum": 200,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "nodeSyncIntervalInMinutes": {
+              "default": 2,
+              "description": "NodeSyncIntervalInMinutes is the node sync interval, in minutes.",
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "serviceClusterIPRanges": {
+              "description": "ServiceClusterIPRanges is the ip ranges of cluster ip.",
+              "type": "string"
+            },
+            "supportVPCConsoleProtection": {
+              "default": false,
+              "description": "SupportVPCConsoleProtection is the flag of opening vpc foolproof protection in console",
+              "type": "boolean"
+            },
+            "tenantSecretName": {
+              "description": "TenantSecretName is the tenant secret name.",
+              "type": "string"
+            },
+            "vpcNetworkCacheSize": {
+              "default": 10,
+              "description": "VPCNetworkCacheSize is the maximum number of vpc networks which are cached in memory.",
+              "type": "integer"
+            },
+            "vpcRegion": {
+              "description": "VPCRegion is the vpc region for v3 iam.",
+              "type": "string"
+            },
+            "vpcServerAddress": {
+              "description": "VPCServerAddress is the vpc address.",
+              "type": "string"
+            },
+            "vpcServerAuthMethod": {
+              "description": "VPCServerAuthMethod is the vpc address authentication method",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "ebpf": {
+          "description": "The ebpf configuration.",
+          "properties": {
+            "enableK8sTerminatingEndpoint": {
+              "default": true,
+              "description": "EnableK8sTerminatingEndpoint enable k8s terminating endpoint",
+              "type": "boolean"
+            },
+            "enableSessionAffinity": {
+              "default": true,
+              "description": "EnableSessionAffinity enable sessionaffinity",
+              "type": "boolean"
+            },
+            "enableSocketLB": {
+              "default": false,
+              "description": "EnableSocketLB is enable socket lb.",
+              "type": "boolean"
+            },
+            "restoreState": {
+              "default": true,
+              "description": "RestoreState restore state.",
+              "type": "boolean"
+            },
+            "serviceCacheSize": {
+              "default": 100,
+              "description": "ServiceCacheSize is the service cache size.",
+              "format": "int32",
+              "maximum": 10000,
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
+        "eni": {
+          "description": "The eni configuration.",
+          "properties": {
+            "acceleratorSyncWorkers": {
+              "default": 10,
+              "description": "AcceleratorSyncWorkers : max num of accelerator pre-bound concurrent.",
+              "maximum": 200,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "allowMetadataNetworkAccess": {
+              "default": false,
+              "description": "AllowMetadataNetworkAccess is the flag whether the cluster is enabled with medata access.",
+              "type": "boolean"
+            },
+            "apiRetryIntervalInSeconds": {
+              "default": 2,
+              "description": "APIRetryIntervalInSeconds defines how long should wait before retrying a API operation, in seconds.",
+              "format": "float",
+              "type": "number"
+            },
+            "autopilotScene": {
+              "default": false,
+              "description": "AutopilotScene is the flag whether the cluster is an autopilot scene.",
+              "type": "boolean"
+            },
+            "concurrentCNISyncsForSriovNetwork": {
+              "default": 10,
+              "description": "ConcurrentCNISyncsForSriovNetwork is the number of cni requests that are allowed to sync concurrently for SR-IOV network.",
+              "maximum": 1024,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "enableNicAdmit": {
+              "default": false,
+              "description": "EnableNicAdmit is the flag whether the cluster is enabled nic admit server.",
+              "type": "boolean"
+            },
+            "enableRemoveDirectRoute": {
+              "default": false,
+              "description": "EnableRemoveDirectRoute is the flag whether the cluster is enabled remove direct route.",
+              "type": "boolean"
+            },
+            "eniUnbindMaxBurst": {
+              "default": 150,
+              "description": "EniUnbindMaxBurst is flow control of controller unbind eni max burst.",
+              "maximum": 1000,
+              "minimum": 10,
+              "type": "integer"
+            },
+            "eniUnbindMaxQPS": {
+              "default": 2,
+              "description": "EniUnbindMaxQPS is flow control of controller unbind eni max qps.",
+              "format": "float",
+              "type": "number"
+            },
+            "floatingipCidrs": {
+              "description": "FloatingIPCIDRs : cascading external_id_network or intra_network's cidr for floatingips.",
+              "type": "string"
+            },
+            "geipEnable": {
+              "default": false,
+              "description": "GlobalEIPEnable is the switches of geip",
+              "type": "boolean"
+            },
+            "geipSyncWorkers": {
+              "default": 5,
+              "description": "GlobalEIPSyncWorkers : max num of geips concurrent been processed.",
+              "maximum": 200,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "ipUsageThreshold": {
+              "description": "IPUsageThreshold is the threshold about ip usage, if ip usage greater than this value, we should warn event",
+              "format": "float",
+              "type": "number"
+            },
+            "jobAPIRetryIntervalInSeconds": {
+              "default": 20,
+              "description": "JobAPIRetryIntervalInSeconds defines how long should wait before retrying a Job API operation, in seconds.",
+              "maximum": 60,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "jobAPIRetryTimeoutInSeconds": {
+              "default": 600,
+              "description": "JobAPIRetryTimeoutInSeconds is timeout of retrying a Job API operation, in seconds.",
+              "maximum": 1800,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "keystoneAuth": {
+              "description": "KeyStoneAuth : keystone auth config for cascaded neutron APIs.",
+              "properties": {
+                "expireDurationInMinutes": {
+                  "type": "integer"
+                },
+                "keystoneServerAddress": {
+                  "type": "string"
+                },
+                "projectDomainName": {
+                  "type": "string"
+                },
+                "projectName": {
+                  "type": "string"
+                },
+                "userDomainName": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "neutronPortSyncIntervalInMinutes": {
+              "default": 5,
+              "description": "NeutronPortSyncIntervalInMinutes is the neutronPort update sync interval, in minutes.",
+              "maximum": 1000,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "nicBatchCreateLimit": {
+              "default": 10,
+              "description": "NicBatchCreateLimit",
+              "maximum": 10,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "nicMaxAboveWarmTarget": {
+              "default": 0,
+              "description": "NicMaxAboveWarmTarget is the maximum number of nics to warm beyond the nicWarmTarget when scale down nics which can help reduce the number of API calls to release nics and allocate nics.",
+              "maximum": 256,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "nicMaximumTarget": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
+              ],
+              "description": "NicMaximumTarget is the maximum number of nics that can be allocated to a node. When the current amount of allocated nics will approach this value, the considered value for nicMaximumTarget will decrease down to 0 in order to not attempt to allocate more nics than defined.",
+              "pattern": "^([1-9]\\d*|0)$|^([1-9][0-9]{0,1}|100)%$",
+              "type": "string",
+              "x-kubernetes-int-or-string": true
+            },
+            "nicMinimumTarget": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
+              ],
+              "description": "NicMinimumTarget is the minimum number nics that must be allocated to a node, After reaching this watermark, the NicWarmTarget and nicMaximumTarget logic takes over to continue allocating nics.",
+              "pattern": "^([1-9]\\d*|0)$|^([1-9][0-9]{0,1}|100)%$",
+              "type": "string",
+              "x-kubernetes-int-or-string": true
+            },
+            "nicTargetCheckIntervalInSeconds": {
+              "default": 10,
+              "description": "NicTargetCheckIntervalInSeconds is the nic target check interval, in seconds.",
+              "maximum": 600,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "nicWarmTarget": {
+              "default": 0,
+              "description": "NicWarmTarget defines the number of nics that must be warm for allocation. It defines the buffer of nics available immediately without requiring yangtse-controller to get involved.",
+              "maximum": 256,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "nodeFullConcurrency": {
+              "default": false,
+              "description": "NodeFullConcurrency : node full concurrency switch.",
+              "type": "boolean"
+            },
+            "nodeSyncBatchNumber": {
+              "default": 1,
+              "description": "NodeSyncBatchNumber : batch number per node in worker to bind or unbind.",
+              "maximum": 200,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "parentEniPreparedSyncWorkers": {
+              "default": 20,
+              "description": "ParentEniPreparedSyncWorkers : max num of parent-eni prepared concurrent been processed.",
+              "maximum": 200,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "podNetworkReadinessCheckMode": {
+              "description": "PodNetworkReadinessCheckMode is the check mode of pod network readiness",
+              "enum": [
+                "",
+                "disable",
+                "arping-gateway",
+                "ping-gateway"
+              ],
+              "type": "string"
+            },
+            "podNetworkReadinessCheckSupport": {
+              "default": false,
+              "description": "PodNetworkReadinessCheckSupport configures whether we implement support for pod network readiness checking. It is effected only for cci, because cce is supported by default.",
+              "type": "boolean"
+            },
+            "podNetworkReadinessCheckTimeoutSeconds": {
+              "default": 120,
+              "description": "PodNetworkReadinessCheckTimeout configures we check pod network readiness timeout seconds",
+              "maximum": 600,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "podSyncWorkers": {
+              "default": 10,
+              "description": "PodSyncWorkers : max num of pods concurrent been processed.",
+              "maximum": 200,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "poolSize": {
+              "default": 10,
+              "description": "PoolSize : decides the size of the ports pool per network.",
+              "maximum": 500,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "portFinalizersAgingTimeoutInMinutes": {
+              "default": 0,
+              "description": "PortFinalizersAgingTimeoutInMinutes is timeout of aging neutronPort finalizers, in minutes.",
+              "maximum": 1440,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "portHWPercentage": {
+              "default": 2,
+              "description": "PortHWPercentage : decides the threshold when the port pool need scale down.",
+              "format": "float",
+              "type": "number"
+            },
+            "portLWPercentage": {
+              "description": "PortLWPercentage : decides the threshold when the port pool need do filling.",
+              "format": "float",
+              "type": "number"
+            },
+            "portMaxInFlight": {
+              "default": 50,
+              "description": "PortMaxInFlight : max num of ports concurrent been created.",
+              "maximum": 1000,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "portRecycleInETCDIntervalInMinutes": {
+              "default": 5,
+              "description": "portRecycleInETCDIntervalInMinutes : port recycle interval in ETCD, in minutes.",
+              "maximum": 1500,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "portRecycleInNeutronIntervalInHours": {
+              "default": 24,
+              "description": "PortRecycleInNeutronIntervalInHours : port recycle interval in neutron server, in hours.",
+              "maximum": 300,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "portReleasedFinalizersAgingTimeoutInMinutes": {
+              "default": 2,
+              "description": "PortReleasedFinalizersAgingTimeoutInMinutes is timeout of aging neutronPort finalizers when not found or unbind in vpc, in minutes.",
+              "maximum": 1440,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "portReuseIntervalInSeconds": {
+              "default": 10,
+              "description": "portReuseIntervalInSeconds : decides the minimum interval the port should be reused, in seconds.",
+              "maximum": 1500,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "portSecurityGroupLimit": {
+              "default": 5,
+              "description": "PortSecurityGroupLimit : max num security group of one port.",
+              "maximum": 100,
+              "minimum": 2,
+              "type": "integer"
+            },
+            "preboundRecycleIntervalInSeconds": {
+              "default": 120,
+              "description": "PreBoundRecycleIntervalInSeconds : decides the prebound eni/subeni minumum wait time before to release.",
+              "maximum": 600,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "preboundSubENIHighPercentage": {
+              "description": "PreBoundSubENIHWPercentage : decides the high prebound subeni percentage on node pre-bound per node.",
+              "format": "float",
+              "type": "number"
+            },
+            "preboundSubENILowPercentage": {
+              "description": "PreBoundSubENILWPercentage : decides the low prebound subeni percentage on node pre-bound per node.",
+              "format": "float",
+              "type": "number"
+            },
+            "publicIPEnable": {
+              "default": true,
+              "description": "PublicIPEnable is the switches of PublicIP",
+              "type": "boolean"
+            },
+            "publicIPRecycleIntervalInMinutes": {
+              "default": 10,
+              "description": "PublicIPRecycleIntervalInMinutes is the publicIP recycle interval, in minutes.",
+              "maximum": 1440,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "publicIPSyncWorkers": {
+              "default": 5,
+              "description": "PublicIPSyncWorkers : max num of eipPools or eips concurrent been processed.",
+              "maximum": 200,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "reservedNamespace": {
+              "default": "kube-system",
+              "description": "ReservedNamespace is the namespace store reserved port",
+              "type": "string"
+            },
+            "reservedScopeSubnet": {
+              "default": false,
+              "description": "ReservedScopeSubnet is the reserved feature that prebind port for subnet scope. It must be true for cci.",
+              "type": "boolean"
+            },
+            "securityGroupAttachedPortsQuota": {
+              "default": 20000,
+              "description": "SecurityGroupAttachedPortsQuota is the quota of one security group can attach ports, when over quota, will raise event on NetworkAttachmentDefinition.",
+              "maximum": 100000,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "securityGroupEnable": {
+              "default": false,
+              "description": "SecurityGroupEnable is the switches of SecurityGroup.",
+              "type": "boolean"
+            },
+            "sgSyncWorkers": {
+              "default": 20,
+              "description": "SGSyncWorkers : max num of securityGroups concurrent been processed.",
+              "maximum": 200,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "skipPortCheck": {
+              "default": false,
+              "description": "SkipPortCheck is to skip checking the port when creating a pod.",
+              "type": "boolean"
+            },
+            "skipPublicIPReadyCheck": {
+              "default": false,
+              "description": "SkipPublicIPReadyCheck configures whether we skip pod public ip ready check.",
+              "type": "boolean"
+            },
+            "snatIPRanges": {
+              "description": "SNATIPRanges is the ip ranges of snat.",
+              "type": "string"
+            },
+            "subeniBalancedEnable": {
+              "default": true,
+              "description": "SubeniBalancedEnable is the switch to control each eni create sub-eni number balanced",
+              "type": "boolean"
+            },
+            "suppressIntervalInSeconds": {
+              "default": 10,
+              "description": "SuppressIntervalInSeconds is the suppress cycle interval, in seconds.",
+              "maximum": 600,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "v1beta1NetworkEnable": {
+              "default": false,
+              "description": "V1beta1NetworkEnable is switch of cci v1beta1network.",
+              "type": "boolean"
+            },
+            "vpcCascadedServer": {
+              "description": "VPCCascadedServer : cascaded neutron server addresses, there will be multi POD Zone in a single cluster.",
+              "properties": {
+                "podZones": {
+                  "description": "PodZones : podZones for cascaded.",
+                  "items": {
+                    "description": "PodZone :",
+                    "properties": {
+                      "apiRateLimitFactor": {
+                        "default": 10,
+                        "description": "APIRateLimitFactor is the divide by global APIRateLimit",
+                        "maximum": 40,
+                        "minimum": 1,
+                        "type": "integer"
+                      },
+                      "authMethod": {
+                        "description": "AuthMethod is then method for auth, support auth-signer/auth-token/auth-token-or-singer/auth-appcode-and-token/auth-keystone-token",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "Name is the pod zone name.",
+                        "type": "string"
+                      },
+                      "vpcCascadedAddress": {
+                        "description": "VPCCascadedAddress is the vpc cascaded address.",
+                        "type": "string"
+                      },
+                      "weight": {
+                        "description": "Weight is the weight for pod zone to calculate neutron port number",
+                        "maximum": 100,
+                        "minimum": 0,
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "vpcCascadedAddress"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "vpcNetNSPrefix": {
+              "default": "qrouter",
+              "description": "VPCNetNSPrefix is the vpc network namespace prefix on CNA node.",
+              "enum": [
+                "qrouter",
+                "vpc",
+                "qdhcp"
+              ],
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "vpc": {
+          "description": "The vpc-router configuration.",
+          "properties": {
+            "distNodeSubnetSyncIntervalInMinutes": {
+              "default": 10,
+              "description": "DistNodeSubnetSyncIntervalInMinutes is the route sync interval, in minutes.",
+              "maximum": 3600,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "ipv4PrivateIPAddressRanges": {
+              "description": "IPv4PrivateIPAddressRanges is the ipv4 private ip address ranges.",
+              "pattern": "^((?:^|,)(?:(?:[0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}(?:[0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\/([1-9]|[1-2]\\d|3[0-2]))*$",
+              "type": "string"
+            },
+            "ipv6PrivateIPAddressRanges": {
+              "description": "IPv6PrivateIPAddressRanges is the ipv6 private ip address ranges.",
+              "type": "string"
+            },
+            "nodeMask": {
+              "description": "NodeMask is the mask of node container network.",
+              "format": "int32",
+              "maximum": 32,
+              "minimum": 16,
+              "type": "integer"
+            },
+            "podNetworkReadinessCheckSupport": {
+              "default": false,
+              "description": "PodNetworkReadinessCheckSupport configures whether we implement support for pod network readiness checking. It must be false now. If set to true, no new pods will run. Deprecated",
+              "type": "boolean"
+            },
+            "referenceNIC": {
+              "description": "ReferenceNIC is the name of uplink nic.",
+              "type": "string"
+            },
+            "reservedIPAddresses": {
+              "description": "ReservedIPAddresses is a list of ip block that pod subnets can not conflict with.",
+              "type": "string"
+            },
+            "routeAggregateDelayInSeconds": {
+              "default": 5,
+              "description": "RouteAggregateDelayInSeconds is the route request aggregate delay, in seconds.",
+              "maximum": 600,
+              "minimum": 0,
+              "type": "integer"
+            },
+            "type": {
+              "default": "ipvlan",
+              "description": "Type name of vpc-router.",
+              "enum": [
+                "ipvlan"
+              ],
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "crd.yangtse.cni",
+      "kind": "YangtseConfiguration",
+      "version": "v1"
+    }
+  ]
+}

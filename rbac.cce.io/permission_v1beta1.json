@@ -1,0 +1,163 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "rbac.cce.io/v1beta1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "Permission"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "roles": {
+      "items": {
+        "properties": {
+          "roleRef": {
+            "description": "RoleRef can reference a Role in a namespace or a ClusterRole in the global namespace.",
+            "properties": {
+              "apiGroup": {
+                "description": "APIGroup is the group for the resource being referenced",
+                "type": "string"
+              },
+              "kind": {
+                "description": "Kind is the type of resource being referenced",
+                "type": "string"
+              },
+              "name": {
+                "description": "Name is the name of resource being referenced",
+                "type": "string"
+              }
+            },
+            "required": [
+              "apiGroup",
+              "kind",
+              "name"
+            ],
+            "type": "object"
+          },
+          "rules": {
+            "description": "Rules holds all the PolicyRules for this ClusterRole or Role",
+            "items": {
+              "properties": {
+                "apiGroups": {
+                  "description": "APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed.",
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "nonResourceURLs": {
+                  "description": "NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path Since non-resource URLs are not namespaced, this field is only applicable for ClusterRoles referenced from a ClusterRoleBinding. Rules can either apply to API resources (such as \"pods\" or \"secrets\") or non-resource URL paths (such as \"/api\"),  but not both.",
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "resourceNames": {
+                  "description": "ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.",
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "resources": {
+                  "description": "Resources is a list of resources this rule applies to.  ResourceAll represents all resources.",
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "verbs": {
+                  "description": "Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.",
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "verbs"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "scope": {
+            "description": "Scope describe this role's sphere of influence",
+            "properties": {
+              "kind": {
+                "description": "Kind is the influence of scope. Values are \"namespace\", \"cluster\".",
+                "type": "string"
+              },
+              "name": {
+                "description": "If Kind is \"cluster\", Name is empty. Otherwise value is the name of the namespace.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "scope",
+          "roleRef",
+          "rules"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "subject": {
+      "properties": {
+        "apiGroup": {
+          "description": "APIGroup holds the API group of the referenced subject. Defaults to \"\" for ServiceAccount subjects. Defaults to \"rbac.authorization.k8s.io\" for User and Group subjects.",
+          "type": "string"
+        },
+        "kind": {
+          "description": "Kind of object being referenced. Values defined by this API group are \"User\", \"Group\", and \"ServiceAccount\". If the Authorizer does not recognized the kind value, the Authorizer should report an error.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the object being referenced.",
+          "type": "string"
+        },
+        "namespace": {
+          "description": "Namespace of the referenced object.  If the object kind is non-namespace, such as \"User\" or \"Group\", and this value is not empty the Authorizer should report an error.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "name"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "rbac.cce.io",
+      "kind": "Permission",
+      "version": "v1beta1"
+    }
+  ]
+}

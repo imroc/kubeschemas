@@ -1,0 +1,170 @@
+{
+  "description": "Geip is the Schema for the geips API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "geip.cce.io/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "Geip"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "GeipSpec defines the desired state of Geip",
+      "properties": {
+        "geipAutoCreateInfo": {
+          "properties": {
+            "geipAccessSite": {
+              "type": "string"
+            },
+            "geipName": {
+              "type": "string"
+            },
+            "geipPoolName": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "geipID": {
+          "description": "user-specified geipID",
+          "type": "string"
+        },
+        "globalConnectionBandwidthAutoCreateInfo": {
+          "properties": {
+            "bordercross": {
+              "type": "boolean"
+            },
+            "chargeMode": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "size": {
+              "format": "int32",
+              "type": "integer"
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "globalConnectionBandwidthID": {
+          "type": "string"
+        },
+        "internetBandwidthAutoCreateInfo": {
+          "properties": {
+            "accessSite": {
+              "type": "string"
+            },
+            "chargeMode": {
+              "type": "string"
+            },
+            "isp": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "size": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
+        "internetBandwidthID": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "description": "GeipStatus defines the observed state of Geip",
+      "properties": {
+        "conditions": {
+          "properties": {
+            "status": {
+              "items": {
+                "properties": {
+                  "errorMsg": {
+                    "description": "Record the reason why the task failed",
+                    "type": "string"
+                  },
+                  "jobID": {
+                    "description": "ID of the asynchronous task",
+                    "type": "string"
+                  },
+                  "jobStatus": {
+                    "description": "Record the current task status",
+                    "type": "string"
+                  },
+                  "jobType": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        },
+        "geipAlreadyBindedWithInternetBandwidth": {
+          "description": "tag GEIP has already bind with InternetBandwidth, if value is ture, we will not unbind G-EIP with Internet Bandwidth when we need rollback geip resource",
+          "type": "boolean"
+        },
+        "geipID": {
+          "type": "string"
+        },
+        "globalConnectionBandwidthID": {
+          "type": "string"
+        },
+        "inUsed": {
+          "type": "boolean"
+        },
+        "internetBandwidthID": {
+          "type": "string"
+        },
+        "phase": {
+          "enum": [
+            "Success",
+            "Pending",
+            "Failed",
+            "Delete"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "geip.cce.io",
+      "kind": "Geip",
+      "version": "v1alpha1"
+    }
+  ]
+}

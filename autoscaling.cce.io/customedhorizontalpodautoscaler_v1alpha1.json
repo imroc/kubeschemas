@@ -1,0 +1,328 @@
+{
+  "description": "CustomedHorizontalPodAutoscaler is the Schema for the customedhorizontalpodautoscalers API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "autoscaling.cce.io/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "CustomedHorizontalPodAutoscaler"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "CustomedHorizontalPodAutoscalerSpec defines the desired state of CustomedHorizontalPodAutoscaler",
+      "properties": {
+        "coolDownTime": {
+          "type": "string"
+        },
+        "maxReplicas": {
+          "exclusiveMinimum": 0,
+          "format": "int32",
+          "maximum": 2147483647,
+          "type": "integer"
+        },
+        "minReplicas": {
+          "exclusiveMinimum": 0,
+          "format": "int32",
+          "maximum": 2147483647,
+          "type": "integer"
+        },
+        "rules": {
+          "items": {
+            "properties": {
+              "actions": {
+                "description": "actions to take when trigger is hit",
+                "items": {
+                  "description": "What to do When Triggers be triggered",
+                  "properties": {
+                    "metricRange": {
+                      "description": "When metrics' value is in this range, do the action. Not avaliable when rule type = Cron",
+                      "type": "string"
+                    },
+                    "minIncrement": {
+                      "description": "The minimum increment when Unit is Percent",
+                      "format": "int32",
+                      "maximum": 2147483647,
+                      "minimum": 0,
+                      "type": "integer"
+                    },
+                    "operationType": {
+                      "description": "ScaleUp/ScaleDown/ScaleTo",
+                      "enum": [
+                        "ScaleUp",
+                        "ScaleDown",
+                        "ScaleTo"
+                      ],
+                      "type": "string"
+                    },
+                    "operationUnit": {
+                      "enum": [
+                        "Percent",
+                        "Task"
+                      ],
+                      "type": "string"
+                    },
+                    "operationValue": {
+                      "format": "int32",
+                      "maximum": 2147483647,
+                      "minimum": 0,
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "operationType",
+                    "operationUnit",
+                    "operationValue"
+                  ],
+                  "type": "object"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "cronTrigger": {
+                "description": "trigger based on cron schedule",
+                "properties": {
+                  "schedule": {
+                    "description": "cron expression",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "schedule"
+                ],
+                "type": "object"
+              },
+              "disable": {
+                "description": "whether to disable this rule",
+                "type": "boolean"
+              },
+              "metricTrigger": {
+                "description": "trigger based on metric MetricTrigger",
+                "properties": {
+                  "hitThreshold": {
+                    "description": "how much time the metric hit expression",
+                    "format": "int32",
+                    "type": "integer"
+                  },
+                  "metricName": {
+                    "description": "metric name: support CPURatioToRequest/MemoryRatioToRequest",
+                    "type": "string"
+                  },
+                  "metricOperation": {
+                    "description": "\"\u003e\" or \"\u003c\"",
+                    "type": "string"
+                  },
+                  "metricValue": {
+                    "description": "threshold，min=0,max = maxInt32",
+                    "type": "number"
+                  },
+                  "periodSeconds": {
+                    "description": "only 60/300/900/3600 s",
+                    "enum": [
+                      60,
+                      300,
+                      900,
+                      3600
+                    ],
+                    "format": "int32",
+                    "type": "integer"
+                  },
+                  "statistic": {
+                    "description": "instantaneous/average",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "hitThreshold",
+                  "metricName",
+                  "metricOperation",
+                  "metricValue",
+                  "periodSeconds",
+                  "statistic"
+                ],
+                "type": "object"
+              },
+              "ruleName": {
+                "description": "rule name :",
+                "maxLength": 20,
+                "pattern": "[a-z0-9]+",
+                "type": "string"
+              },
+              "ruleType": {
+                "description": "rule type : Metric/Cron",
+                "enum": [
+                  "Metric",
+                  "Cron"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "actions",
+              "disable",
+              "ruleName",
+              "ruleType"
+            ],
+            "type": "object"
+          },
+          "maxItems": 10,
+          "type": "array"
+        },
+        "scaleTargetRef": {
+          "description": "INSERT ADDITIONAL SPEC FIELDS - desired state of cluster Important: Run \"make\" to regenerate code after modifying this file",
+          "properties": {
+            "apiVersion": {
+              "type": "string"
+            },
+            "kind": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "apiVersion",
+            "kind",
+            "name"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "coolDownTime",
+        "maxReplicas",
+        "minReplicas",
+        "scaleTargetRef"
+      ],
+      "type": "object",
+      "x-kubernetes-validations": [
+        {
+          "message": "maxReplicas should be greater than or equal to minReplicas.",
+          "rule": "self.minReplicas \u003c= self.maxReplicas"
+        }
+      ]
+    },
+    "status": {
+      "description": "CustomedHorizontalPodAutoscalerStatus defines the observed state of CustomedHorizontalPodAutoscaler",
+      "properties": {
+        "conditions": {
+          "description": "INSERT ADDITIONAL STATUS FIELD - define observed state of cluster Important: Run \"make\" to regenerate code after modifying this file",
+          "items": {
+            "properties": {
+              "countAfterScale": {
+                "description": "The number of deployment instances after this rule executes.",
+                "format": "int32",
+                "type": "integer"
+              },
+              "countBeforeScale": {
+                "description": "The number of deployment instances before this rule executes.",
+                "format": "int32",
+                "type": "integer"
+              },
+              "lastProbeTime": {
+                "description": "Last execution time for this rule.",
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "description": "Human readable message indicating details about last transition.",
+                "type": "string"
+              },
+              "ruleName": {
+                "description": "The name of this rule to uniquely identify a rule",
+                "type": "string"
+              },
+              "scaleAction": {
+                "description": "The action which this rule take",
+                "properties": {
+                  "metricRange": {
+                    "description": "When metrics' value is in this range, do the action. Not avaliable when rule type = Cron",
+                    "type": "string"
+                  },
+                  "minIncrement": {
+                    "description": "The minimum increment when Unit is Percent",
+                    "format": "int32",
+                    "maximum": 2147483647,
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "operationType": {
+                    "description": "ScaleUp/ScaleDown/ScaleTo",
+                    "enum": [
+                      "ScaleUp",
+                      "ScaleDown",
+                      "ScaleTo"
+                    ],
+                    "type": "string"
+                  },
+                  "operationUnit": {
+                    "enum": [
+                      "Percent",
+                      "Task"
+                    ],
+                    "type": "string"
+                  },
+                  "operationValue": {
+                    "format": "int32",
+                    "maximum": 2147483647,
+                    "minimum": 0,
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "operationType",
+                  "operationUnit",
+                  "operationValue"
+                ],
+                "type": "object"
+              },
+              "state": {
+                "description": "The State of this rule",
+                "type": "string"
+              }
+            },
+            "required": [
+              "countAfterScale",
+              "countBeforeScale",
+              "ruleName",
+              "state"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "conditions"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "autoscaling.cce.io",
+      "kind": "CustomedHorizontalPodAutoscaler",
+      "version": "v1alpha1"
+    }
+  ]
+}

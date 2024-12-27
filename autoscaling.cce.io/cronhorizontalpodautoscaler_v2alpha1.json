@@ -1,0 +1,154 @@
+{
+  "description": "CronHorizontalPodAutoscaler is the Schema for the cronhorizontalpodautoscalers API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "autoscaling.cce.io/v2alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "CronHorizontalPodAutoscaler"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "CronHorizontalPodAutoscalerSpec defines the desired state of CronHorizontalPodAutoscaler",
+      "properties": {
+        "rules": {
+          "items": {
+            "properties": {
+              "disable": {
+                "description": "whether to disable this rule",
+                "type": "boolean"
+              },
+              "ruleName": {
+                "description": "rule name :",
+                "maxLength": 20,
+                "pattern": "[a-z0-9]+",
+                "type": "string"
+              },
+              "schedule": {
+                "description": "cron expression",
+                "type": "string"
+              },
+              "targetReplicas": {
+                "format": "int32",
+                "maximum": 2147483647,
+                "minimum": 0,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "disable",
+              "ruleName",
+              "schedule",
+              "targetReplicas"
+            ],
+            "type": "object"
+          },
+          "maxItems": 10,
+          "type": "array"
+        },
+        "scaleTargetRef": {
+          "description": "INSERT ADDITIONAL SPEC FIELDS - desired state of cluster Important: Run \"make\" to regenerate code after modifying this file",
+          "properties": {
+            "apiVersion": {
+              "type": "string"
+            },
+            "kind": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "apiVersion",
+            "kind",
+            "name"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "scaleTargetRef"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "description": "CronHorizontalPodAutoscalerStatus defines the observed state of CronHorizontalPodAutoscaler",
+      "properties": {
+        "conditions": {
+          "description": "INSERT ADDITIONAL STATUS FIELD - define observed state of cluster Important: Run \"make\" to regenerate code after modifying this file",
+          "items": {
+            "properties": {
+              "countAfterScale": {
+                "description": "The number of deployment instances after this rule executes.",
+                "format": "int32",
+                "type": "integer"
+              },
+              "countBeforeScale": {
+                "description": "The number of deployment instances before this rule executes.",
+                "format": "int32",
+                "type": "integer"
+              },
+              "lastProbeTime": {
+                "description": "Last execution time for this rule.",
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "description": "Human readable message indicating details about last transition.",
+                "type": "string"
+              },
+              "ruleName": {
+                "description": "The name of this rule to uniquely identify a rule",
+                "type": "string"
+              },
+              "state": {
+                "description": "The State of this rule",
+                "type": "string"
+              }
+            },
+            "required": [
+              "countAfterScale",
+              "countBeforeScale",
+              "ruleName",
+              "state"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "conditions"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "autoscaling.cce.io",
+      "kind": "CronHorizontalPodAutoscaler",
+      "version": "v2alpha1"
+    }
+  ]
+}

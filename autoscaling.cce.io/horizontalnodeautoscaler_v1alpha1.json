@@ -1,0 +1,251 @@
+{
+  "description": "HorizontalNodeAutoscaler is the Schema for the horizontalNodeAutoscalers API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "autoscaling.cce.io/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "HorizontalNodeAutoscaler"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "HorizontalNodeAutoscalerSpec defines the desired state of HorizontalNodeAutoscaler",
+      "properties": {
+        "disable": {
+          "description": "INSERT ADDITIONAL SPEC FIELDS - desired state of cluster Important: Run \"make\" to regenerate code after modifying this file whether to disable this policy",
+          "type": "boolean"
+        },
+        "rules": {
+          "items": {
+            "description": "Rule is created for a autoscaling strategy",
+            "properties": {
+              "action": {
+                "description": "actions to take when trigger is hit",
+                "properties": {
+                  "type": {
+                    "description": "OperationType is the type of the Operation",
+                    "enum": [
+                      "ScaleUp",
+                      "ScaleDown",
+                      "ScaleTo"
+                    ],
+                    "type": "string"
+                  },
+                  "unit": {
+                    "description": "ScaleUnit is the scale unit of Action",
+                    "enum": [
+                      "Percent",
+                      "Node"
+                    ],
+                    "type": "string"
+                  },
+                  "value": {
+                    "maximum": 2147483647,
+                    "minimum": -1,
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "type",
+                  "unit",
+                  "value"
+                ],
+                "type": "object"
+              },
+              "cronTrigger": {
+                "description": "CronTrigger is based on the scheduling capabilities of cron",
+                "properties": {
+                  "schedule": {
+                    "description": "cron expression",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "schedule"
+                ],
+                "type": "object"
+              },
+              "disable": {
+                "description": "whether to disable this rule",
+                "type": "boolean"
+              },
+              "metricTrigger": {
+                "description": "MetricTrigger is based on the scheduling capabilities of metrics",
+                "properties": {
+                  "metricName": {
+                    "description": "\"Cpu\" or \"Memory\"",
+                    "type": "string"
+                  },
+                  "metricOperation": {
+                    "description": "\"\u003e\"",
+                    "type": "string"
+                  },
+                  "metricValue": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ],
+                    "description": "min = 0, max = maxInt32",
+                    "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                    "x-kubernetes-int-or-string": true
+                  },
+                  "unit": {
+                    "description": "MetricUnit is the metric unit",
+                    "enum": [
+                      "Core",
+                      "MiB",
+                      "Percent"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "metricName",
+                  "metricOperation",
+                  "metricValue",
+                  "unit"
+                ],
+                "type": "object"
+              },
+              "ruleName": {
+                "description": "The name of this rule to uniquely identify a rule",
+                "maxLength": 20,
+                "pattern": "[a-z0-9]+",
+                "type": "string"
+              },
+              "type": {
+                "description": "RuleType is the type of Rule",
+                "enum": [
+                  "Metric",
+                  "Cron"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "action",
+              "disable",
+              "ruleName",
+              "type"
+            ],
+            "type": "object"
+          },
+          "maxItems": 10,
+          "type": "array"
+        },
+        "targetNodepoolIds": {
+          "description": "associated nodepools of current policy",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 100,
+          "type": "array"
+        }
+      },
+      "required": [
+        "disable"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "description": "HorizontalNodeAutoscalerStatus defines the observed state of HorizontalNodeAutoscaler",
+      "properties": {
+        "conditions": {
+          "description": "INSERT ADDITIONAL STATUS FIELD - define observed state of cluster Important: Run \"make\" to regenerate code after modifying this file",
+          "items": {
+            "description": "Condition is set to execute a triggered rule",
+            "properties": {
+              "countAfterScale": {
+                "description": "Nodepool instance count after this rule executes.",
+                "type": "integer"
+              },
+              "countBeforeScale": {
+                "description": "Nodepool instance count before this rule executes.",
+                "type": "integer"
+              },
+              "lastProbeTime": {
+                "description": "Last execution time for this rule.",
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "description": "Human readable message indicating details about last transition.",
+                "type": "string"
+              },
+              "ruleName": {
+                "description": "The name of a triggered rule",
+                "type": "string"
+              },
+              "state": {
+                "description": "State is the state of this rule",
+                "enum": [
+                  "Successful",
+                  "Failed",
+                  "Submitted",
+                  "InCool",
+                  "Invalid"
+                ],
+                "type": "string"
+              },
+              "targetNodepoolId": {
+                "description": "The nodepool that previous rule takes effect",
+                "type": "string"
+              },
+              "targetScaleGroup": {
+                "description": "The scale group that previous rule takes effect",
+                "type": "string"
+              }
+            },
+            "required": [
+              "countAfterScale",
+              "countBeforeScale",
+              "lastProbeTime",
+              "message",
+              "ruleName",
+              "state",
+              "targetNodepoolId"
+            ],
+            "type": "object"
+          },
+          "maxItems": 10,
+          "type": "array"
+        }
+      },
+      "required": [
+        "conditions"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "autoscaling.cce.io",
+      "kind": "HorizontalNodeAutoscaler",
+      "version": "v1alpha1"
+    }
+  ]
+}
