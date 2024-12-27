@@ -2317,24 +2317,6 @@
       "$ref": "networking.k8s.aws/policyendpointlist_v1alpha1.json"
     },
     {
-      "$ref": "networking.k8s.io/ingress_v1.json"
-    },
-    {
-      "$ref": "networking.k8s.io/ingressclass_v1.json"
-    },
-    {
-      "$ref": "networking.k8s.io/ingressclasslist_v1.json"
-    },
-    {
-      "$ref": "networking.k8s.io/ingresslist_v1.json"
-    },
-    {
-      "$ref": "networking.k8s.io/networkpolicy_v1.json"
-    },
-    {
-      "$ref": "networking.k8s.io/networkpolicylist_v1.json"
-    },
-    {
       "$ref": "networking.karmada.io/multiclusteringress_v1alpha1.json"
     },
     {
