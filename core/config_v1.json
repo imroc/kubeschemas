@@ -202,10 +202,7 @@
                 "$ref": "#/$defs/Extension"
               }
             },
-            "additionalProperties": false,
-            "required": [
-              "server"
-            ]
+            "additionalProperties": false
           }
         }
       },
