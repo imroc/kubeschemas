@@ -3040,40 +3040,10 @@
       "$ref": "storage.api.k8s.io/volumeattachmentlist_v1.json"
     },
     {
-      "$ref": "storage.k8s.io/csidriver_v1.json"
+      "$ref": "storage.api.k8s.io/volumeattributesclass_v1beta1.json"
     },
     {
-      "$ref": "storage.k8s.io/csidriverlist_v1.json"
-    },
-    {
-      "$ref": "storage.k8s.io/csinode_v1.json"
-    },
-    {
-      "$ref": "storage.k8s.io/csinodelist_v1.json"
-    },
-    {
-      "$ref": "storage.k8s.io/csistoragecapacity_v1.json"
-    },
-    {
-      "$ref": "storage.k8s.io/csistoragecapacitylist_v1.json"
-    },
-    {
-      "$ref": "storage.k8s.io/storageclass_v1.json"
-    },
-    {
-      "$ref": "storage.k8s.io/storageclasslist_v1.json"
-    },
-    {
-      "$ref": "storage.k8s.io/volumeattachment_v1.json"
-    },
-    {
-      "$ref": "storage.k8s.io/volumeattachmentlist_v1.json"
-    },
-    {
-      "$ref": "storage.k8s.io/volumeattributesclass_v1beta1.json"
-    },
-    {
-      "$ref": "storage.k8s.io/volumeattributesclasslist_v1beta1.json"
+      "$ref": "storage.api.k8s.io/volumeattributesclasslist_v1beta1.json"
     },
     {
       "$ref": "syncset.gatekeeper.sh/syncset_v1alpha1.json"
