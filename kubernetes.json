@@ -2806,12 +2806,6 @@
       "$ref": "scheduling.crane.io/noderesourcepolicylist_v1alpha1.json"
     },
     {
-      "$ref": "scheduling.k8s.io/priorityclass_v1.json"
-    },
-    {
-      "$ref": "scheduling.k8s.io/priorityclasslist_v1.json"
-    },
-    {
       "$ref": "scheduling.volcano.sh/podgroup_v1beta1.json"
     },
     {
