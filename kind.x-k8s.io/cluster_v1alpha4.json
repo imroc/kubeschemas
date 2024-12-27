@@ -1,0 +1,259 @@
+{
+  "description": "Cluster contains kind cluster configuration",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "kind.x-k8s.io/v1alpha4"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "Cluster"
+      ],
+      "type": "string"
+    },
+    "name": {
+      "description": "The cluster name.\n\nOptional, this will be overridden by --name / KIND_CLUSTER_NAME",
+      "type": "string"
+    },
+    "nodes": {
+      "description": "Nodes contains the list of nodes defined in the `kind` Cluster.\nIf unset this will default to a single control-plane node Note that if more than one control plane is specified, an external control plane load balancer will be provisioned implicitly",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Node"
+      }
+    },
+    "networking": {
+      "$ref": "#/$defs/Node"
+    },
+    "featureGates": {
+      "description": "FeatureGates contains a map of Kubernetes feature gates to whether they are enabled. The feature gates specified here are passed to all Kubernetes components as flags or in config.\n\nhttps://kubernetes.io/docs/reference/command-line-tools-reference/feature-gates/",
+      "type": "object"
+    },
+    "runtimeConfig": {
+      "description": "RuntimeConfig Keys and values are translated into --runtime-config values for kube-apiserver, separated by commas.\n\nUse this to enable alpha APIs.",
+      "type": "object"
+    },
+    "kubeadmConfigPatches": {
+      "description": "KubeadmConfigPatches are applied to the generated kubeadm config as merge patches. The `kind` field must match the target object, and if `apiVersion` is specified it will only be applied to matching objects.\n\nThis should be an inline yaml blob-string\n\nhttps://tools.ietf.org/html/rfc7386\n\nThe cluster-level patches are applied before the node-level patches.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "kubeadmConfigPatchesJSON6902": {
+      "description": "KubeadmConfigPatchesJSON6902 are applied to the generated kubeadm config as JSON 6902 patches. The `kind` field must match the target object, and if group or version are specified it will only be objects matching the apiVersion: group+\"/\"+version\n\nName and Namespace are now ignored, but the fields continue to exist for backwards compatibility of parsing the config. The name of the generated config was/is always fixed as is the namespace so these fields have always been a no-op.\n\nhttps://tools.ietf.org/html/rfc6902\n\nThe node-level patches will be applied after the cluster-level patches have been applied. (See Cluster.KubeadmConfigPatchesJSON6902)",
+      "items": {
+        "$ref": "#/$defs/PatchJSON6902"
+      },
+      "type": "array"
+    },
+    "containerdConfigPatches": {
+      "description": "ContainerdConfigPatches are applied to every node's containerd config in the order listed.\n\nThese should be toml stringsto be applied as merge patches",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "containerdConfigPatchesJSON6902": {
+      "description": "ContainerdConfigPatchesJSON6902 are applied to every node's containerd config in the order listed.\n\nThese should be YAML or JSON formatting RFC 6902 JSON patches",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "kind.x-k8s.io",
+      "kind": "Cluster",
+      "version": "v1alpha4"
+    }
+  ],
+  "$defs": {
+    "Node": {
+      "description": "Node contains settings for a node in the `kind` Cluster.\nA node in kind config represent a container that will be provisioned with all the components required for the assigned role in the Kubernetes cluster",
+      "type": "object",
+      "properties": {
+        "role": {
+          "description": "Role defines the role of the node in the Kubernetes cluster created by kind\n\nDefaults to \"control-plane\".\n\n\"control-plane\" identifies a node that hosts a Kubernetes control-plane.\n\"worker\" identifies a node that hosts a Kubernetes worker",
+          "type": "string",
+          "enum": [
+            "control-plane",
+            "worker"
+          ]
+        },
+        "image": {
+          "description": "Image is the node image to use when creating this node\nIf unset a default image will be used, see defaults.Image",
+          "type": "string"
+        },
+        "labels": {
+          "description": "Labels are the labels with which the respective node will be labeled",
+          "type": "object"
+        },
+        "extraMounts": {
+          "description": "ExtraMounts describes additional mount points for the node container These may be used to bind a hostPath",
+          "items": {
+            "$ref": "#/$defs/Mount"
+          },
+          "type": "array"
+        },
+        "extraPortMappings": {
+          "description": "ExtraMounts describes additional mount points for the node container These may be used to bind a hostPath",
+          "items": {
+            "$ref": "#/$defs/PortMapping"
+          },
+          "type": "array"
+        },
+        "kubeadmConfigPatches": {
+          "description": "KubeadmConfigPatches are applied to the generated kubeadm config as merge patches. The `kind` field must match the target object, and if `apiVersion` is specified it will only be applied to matching objects.\n\nThis should be an inline yaml blob-string\n\nhttps://tools.ietf.org/html/rfc7386\n\nThe node-level patches will be applied after the cluster-level patches have been applied. (See Cluster.KubeadmConfigPatches)",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "kubeadmConfigPatchesJSON6902": {
+          "description": "KubeadmConfigPatchesJSON6902 are applied to the generated kubeadm config as JSON 6902 patches. The `kind` field must match the target object, and if group or version are specified it will only be objects matching the apiVersion: group+\"/\"+version\n\nName and Namespace are now ignored, but the fields continue to exist for backwards compatibility of parsing the config. The name of the generated config was/is always fixed as is the namespace so these fields have always been a no-op.\n\nhttps://tools.ietf.org/html/rfc6902\n\nThe node-level patches will be applied after the cluster-level patches have been applied. (See Cluster.KubeadmConfigPatchesJSON6902)",
+          "items": {
+            "$ref": "#/$defs/PatchJSON6902"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "Mount": {
+      "type": "object",
+      "properties": {
+        "containerPath": {
+          "description": "Path of the mount within the container.",
+          "type": "string"
+        },
+        "hostPath": {
+          "description": "Path of the mount on the host. If the hostPath doesn't exist, then runtimes should report error. If the hostpath is a symbolic link, runtimes should follow the symlink and mount the real destination to container.",
+          "type": "string"
+        },
+        "readOnly": {
+          "description": "If set, the mount is read-only.",
+          "type:": "boolean"
+        },
+        "selinuxRelabel": {
+          "description": "If set, the mount needs SELinux relabeling.",
+          "type:": "boolean"
+        },
+        "propagation": {
+          "description": "Requested propagation mode.\n\n\"None\" specifies that no mount propagation.\n\"HostToContainer\" specifies that mounts get propagated from the host to the container (\"rslave\" in Linux).\n \"Bidirectional\" specifies that mounts get propagated from the host to the container and from the container to the host (\"rshared\" in Linux). ",
+          "type": "string",
+          "enum": [
+            "None",
+            "HostToContainer",
+            "Bidirectional"
+          ]
+        }
+      }
+    },
+    "PortMapping": {
+      "type": "object",
+      "properties": {
+        "containerPort": {
+          "description": "Port within the container.",
+          "type": "integer"
+        },
+        "hostPort": {
+          "description": "Port on the host.\n\nIf unset, a random port will be selected.",
+          "type": "integer"
+        },
+        "listenAddress": {
+          "type": "string"
+        },
+        "protocol": {
+          "description": "Protocol (tcp/udp/sctp)",
+          "enum": [
+            "tcp",
+            "udp",
+            "sctp"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "PatchJSON6902": {
+      "type": "object",
+      "properties": {
+        "group": {
+          "description": "The patch target resource group",
+          "type": "string"
+        },
+        "kind": {
+          "description": "The patch target resource kind",
+          "type": "string"
+        },
+        "version": {
+          "description": "The patch target resource version",
+          "type": "string"
+        },
+        "patch": {
+          "description": "Patch should contain the contents of the json patch as a string",
+          "type": "string"
+        }
+      }
+    },
+    "Networking": {
+      "type": "object",
+      "properties": {
+        "ipFamily": {
+          "description": "IPFamily is the network cluster model, currently it can be ipv4 or ipv6",
+          "type": "string",
+          "enum": [
+            "ipv4",
+            "ipv6",
+            "dual"
+          ]
+        },
+        "apiServerPort": {
+          "description": "APIServerPort is the listen port on the host for the Kubernetes API Server.\n\nDefaults to a random port on the host obtained by kind",
+          "type": "integer"
+        },
+        "apiServerAddress": {
+          "description": "APIServerAddress is the listen address on the host for the Kubernetes API Server. This should be an IP address.\n\nDefaults to 127.0.0.1",
+          "type": "string"
+        },
+        "podSubnet": {
+          "description": "PodSubnet is the CIDR used for pod IPs kind will select a default if unspecified",
+          "type": "string"
+        },
+        "serviceSubnet": {
+          "description": "ServiceSubnet is the CIDR used for services VIPs kind will select a default if unspecified for IPv6",
+          "type": "string"
+        },
+        "disableDefaultCNI": {
+          "description": "If DisableDefaultCNI is true, kind will not install the default CNI setup.\nInstead the user should install their own CNI after creating the cluster.",
+          "type": "boolean"
+        },
+        "kubeProxyMode": {
+          "description": "KubeProxyMode defines if kube-proxy should operate in iptables, ipvs or nftables mode.\n\nDefaults to 'iptables' mode",
+          "type": "string",
+          "enum": [
+            "iptables",
+            "ipvs",
+            "nftables"
+          ]
+        },
+        "dnsSearch": {
+          "description": "DNSSearch defines the DNS search domain to use for nodes. If not set, this will be inherited from the host.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

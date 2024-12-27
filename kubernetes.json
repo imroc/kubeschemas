@@ -1516,6 +1516,9 @@
       "$ref": "keda.sh/triggerauthenticationlist_v1alpha1.json"
     },
     {
+      "$ref": "kind.x-k8s.io/cluster_v1alpha4.json"
+    },
+    {
       "$ref": "kubeflow.tkestack.io/jupytergateway_v1alpha1.json"
     },
     {
