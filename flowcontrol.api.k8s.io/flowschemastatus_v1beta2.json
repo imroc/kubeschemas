@@ -1,0 +1,22 @@
+{
+  "description": "FlowSchemaStatus represents the current state of a FlowSchema.",
+  "properties": {
+    "conditions": {
+      "description": "`conditions` is a list of the current states of FlowSchema.",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "../flowcontrol.api.k8s.io/flowschemacondition_v1beta2.json"
+          }
+        ],
+        "default": {}
+      },
+      "type": "array",
+      "x-kubernetes-list-map-keys": [
+        "type"
+      ],
+      "x-kubernetes-list-type": "map"
+    }
+  },
+  "type": "object"
+}

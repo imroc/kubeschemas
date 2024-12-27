@@ -1,0 +1,58 @@
+{
+  "description": "configuration of a horizontal pod autoscaler.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "autoscaling/v1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "HorizontalPodAutoscaler"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "default": {},
+      "description": "Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "allOf": [
+        {
+          "$ref": "../autoscaling.api.k8s.io/horizontalpodautoscalerspec_v1.json"
+        }
+      ],
+      "default": {},
+      "description": "spec defines the behaviour of autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status."
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "../autoscaling.api.k8s.io/horizontalpodautoscalerstatus_v1.json"
+        }
+      ],
+      "default": {},
+      "description": "status is the current information about the autoscaler."
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "autoscaling",
+      "kind": "HorizontalPodAutoscaler",
+      "version": "v1"
+    }
+  ]
+}
