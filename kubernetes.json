@@ -58,30 +58,6 @@
       "$ref": "admissionregistration.api.k8s.io/validatingwebhookconfigurationlist_v1.json"
     },
     {
-      "$ref": "admissionregistration.k8s.io/mutatingwebhookconfiguration_v1.json"
-    },
-    {
-      "$ref": "admissionregistration.k8s.io/mutatingwebhookconfigurationlist_v1.json"
-    },
-    {
-      "$ref": "admissionregistration.k8s.io/validatingadmissionpolicy_v1.json"
-    },
-    {
-      "$ref": "admissionregistration.k8s.io/validatingadmissionpolicybinding_v1.json"
-    },
-    {
-      "$ref": "admissionregistration.k8s.io/validatingadmissionpolicybindinglist_v1.json"
-    },
-    {
-      "$ref": "admissionregistration.k8s.io/validatingadmissionpolicylist_v1.json"
-    },
-    {
-      "$ref": "admissionregistration.k8s.io/validatingwebhookconfiguration_v1.json"
-    },
-    {
-      "$ref": "admissionregistration.k8s.io/validatingwebhookconfigurationlist_v1.json"
-    },
-    {
       "$ref": "agones.dev/fleet_v1.json"
     },
     {
