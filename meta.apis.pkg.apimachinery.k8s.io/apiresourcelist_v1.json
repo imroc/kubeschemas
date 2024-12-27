@@ -9,7 +9,6 @@
       "type": "string"
     },
     "groupVersion": {
-      "default": "",
       "description": "groupVersion is the group and version this APIResourceList is for.",
       "type": "string"
     },
@@ -23,12 +22,7 @@
     "resources": {
       "description": "resources contains the name of the resources and if they are namespaced.",
       "items": {
-        "allOf": [
-          {
-            "$ref": "../meta.apis.pkg.apimachinery.k8s.io/apiresource_v1.json"
-          }
-        ],
-        "default": {}
+        "$ref": "../meta.apis.pkg.apimachinery.k8s.io/apiresource_v1.json"
       },
       "type": "array"
     }
