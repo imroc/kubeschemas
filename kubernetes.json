@@ -7,6 +7,24 @@
       "$ref": "accelerator.volcano.sh/nvidianodeconfigurationlist_v1beta1.json"
     },
     {
+      "$ref": "acid.zalan.do/operatorconfiguration_v1.json"
+    },
+    {
+      "$ref": "acid.zalan.do/operatorconfigurationlist_v1.json"
+    },
+    {
+      "$ref": "acid.zalan.do/postgresql_v1.json"
+    },
+    {
+      "$ref": "acid.zalan.do/postgresqllist_v1.json"
+    },
+    {
+      "$ref": "acid.zalan.do/postgresteam_v1.json"
+    },
+    {
+      "$ref": "acid.zalan.do/postgresteamlist_v1.json"
+    },
+    {
       "$ref": "acme.apis.webhook.acme.pkg.cert-manager.cert-manager.github.com/challengepayload_v1alpha1.json"
     },
     {
@@ -3362,6 +3380,12 @@
     },
     {
       "$ref": "work.open-cluster-management.io/manifestworkreplicasetlist_v1alpha1.json"
+    },
+    {
+      "$ref": "zalando.org/fabriceventstream_v1.json"
+    },
+    {
+      "$ref": "zalando.org/fabriceventstreamlist_v1.json"
     }
   ]
 }
