@@ -691,6 +691,30 @@
       "$ref": "cilium.io/ciliumnodelist_v2.json"
     },
     {
+      "$ref": "clickhouse-keeper.altinity.com/clickhousekeeperinstallation_v1.json"
+    },
+    {
+      "$ref": "clickhouse-keeper.altinity.com/clickhousekeeperinstallationlist_v1.json"
+    },
+    {
+      "$ref": "clickhouse.altinity.com/clickhouseinstallation_v1.json"
+    },
+    {
+      "$ref": "clickhouse.altinity.com/clickhouseinstallationlist_v1.json"
+    },
+    {
+      "$ref": "clickhouse.altinity.com/clickhouseinstallationtemplate_v1.json"
+    },
+    {
+      "$ref": "clickhouse.altinity.com/clickhouseinstallationtemplatelist_v1.json"
+    },
+    {
+      "$ref": "clickhouse.altinity.com/clickhouseoperatorconfiguration_v1.json"
+    },
+    {
+      "$ref": "clickhouse.altinity.com/clickhouseoperatorconfigurationlist_v1.json"
+    },
+    {
       "$ref": "cloud.google.com/backendconfig_v1.json"
     },
     {
