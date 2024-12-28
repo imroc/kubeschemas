@@ -2668,6 +2668,66 @@
       "$ref": "operators.coreos.com/subscriptionlist_v1alpha1.json"
     },
     {
+      "$ref": "pingcap.com/backup_v1alpha1.json"
+    },
+    {
+      "$ref": "pingcap.com/backuplist_v1alpha1.json"
+    },
+    {
+      "$ref": "pingcap.com/backupschedule_v1alpha1.json"
+    },
+    {
+      "$ref": "pingcap.com/backupschedulelist_v1alpha1.json"
+    },
+    {
+      "$ref": "pingcap.com/dmcluster_v1alpha1.json"
+    },
+    {
+      "$ref": "pingcap.com/dmclusterlist_v1alpha1.json"
+    },
+    {
+      "$ref": "pingcap.com/restore_v1alpha1.json"
+    },
+    {
+      "$ref": "pingcap.com/restorelist_v1alpha1.json"
+    },
+    {
+      "$ref": "pingcap.com/tidbcluster_v1alpha1.json"
+    },
+    {
+      "$ref": "pingcap.com/tidbclusterautoscaler_v1alpha1.json"
+    },
+    {
+      "$ref": "pingcap.com/tidbclusterautoscalerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "pingcap.com/tidbclusterlist_v1alpha1.json"
+    },
+    {
+      "$ref": "pingcap.com/tidbdashboard_v1alpha1.json"
+    },
+    {
+      "$ref": "pingcap.com/tidbdashboardlist_v1alpha1.json"
+    },
+    {
+      "$ref": "pingcap.com/tidbinitializer_v1alpha1.json"
+    },
+    {
+      "$ref": "pingcap.com/tidbinitializerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "pingcap.com/tidbmonitor_v1alpha1.json"
+    },
+    {
+      "$ref": "pingcap.com/tidbmonitorlist_v1alpha1.json"
+    },
+    {
+      "$ref": "pingcap.com/tidbngmonitoring_v1alpha1.json"
+    },
+    {
+      "$ref": "pingcap.com/tidbngmonitoringlist_v1alpha1.json"
+    },
+    {
       "$ref": "policy.api.k8s.io/eviction_v1.json"
     },
     {

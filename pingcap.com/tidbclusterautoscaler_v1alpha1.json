@@ -1,0 +1,362 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "pingcap.com/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "TidbClusterAutoScaler"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "cluster": {
+          "properties": {
+            "clusterDomain": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "namespace": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "type": "object"
+        },
+        "tidb": {
+          "properties": {
+            "external": {
+              "properties": {
+                "endpoint": {
+                  "properties": {
+                    "host": {
+                      "type": "string"
+                    },
+                    "path": {
+                      "type": "string"
+                    },
+                    "port": {
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "tlsSecret": {
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "namespace": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "namespace"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "host",
+                    "path",
+                    "port"
+                  ],
+                  "type": "object"
+                },
+                "maxReplicas": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "maxReplicas"
+              ],
+              "type": "object"
+            },
+            "resources": {
+              "additionalProperties": {
+                "properties": {
+                  "count": {
+                    "format": "int32",
+                    "type": "integer"
+                  },
+                  "cpu": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ],
+                    "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                    "x-kubernetes-int-or-string": true
+                  },
+                  "memory": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ],
+                    "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                    "x-kubernetes-int-or-string": true
+                  },
+                  "storage": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ],
+                    "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                    "x-kubernetes-int-or-string": true
+                  }
+                },
+                "required": [
+                  "cpu",
+                  "memory"
+                ],
+                "type": "object"
+              },
+              "type": "object"
+            },
+            "rules": {
+              "additionalProperties": {
+                "properties": {
+                  "max_threshold": {
+                    "type": "number"
+                  },
+                  "min_threshold": {
+                    "type": "number"
+                  },
+                  "resource_types": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "max_threshold"
+                ],
+                "type": "object"
+              },
+              "type": "object"
+            },
+            "scaleInIntervalSeconds": {
+              "format": "int32",
+              "type": "integer"
+            },
+            "scaleOutIntervalSeconds": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
+        "tikv": {
+          "properties": {
+            "external": {
+              "properties": {
+                "endpoint": {
+                  "properties": {
+                    "host": {
+                      "type": "string"
+                    },
+                    "path": {
+                      "type": "string"
+                    },
+                    "port": {
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "tlsSecret": {
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "namespace": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "namespace"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "host",
+                    "path",
+                    "port"
+                  ],
+                  "type": "object"
+                },
+                "maxReplicas": {
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "maxReplicas"
+              ],
+              "type": "object"
+            },
+            "resources": {
+              "additionalProperties": {
+                "properties": {
+                  "count": {
+                    "format": "int32",
+                    "type": "integer"
+                  },
+                  "cpu": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ],
+                    "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                    "x-kubernetes-int-or-string": true
+                  },
+                  "memory": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ],
+                    "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                    "x-kubernetes-int-or-string": true
+                  },
+                  "storage": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ],
+                    "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                    "x-kubernetes-int-or-string": true
+                  }
+                },
+                "required": [
+                  "cpu",
+                  "memory"
+                ],
+                "type": "object"
+              },
+              "type": "object"
+            },
+            "rules": {
+              "additionalProperties": {
+                "properties": {
+                  "max_threshold": {
+                    "type": "number"
+                  },
+                  "min_threshold": {
+                    "type": "number"
+                  },
+                  "resource_types": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "max_threshold"
+                ],
+                "type": "object"
+              },
+              "type": "object"
+            },
+            "scaleInIntervalSeconds": {
+              "format": "int32",
+              "type": "integer"
+            },
+            "scaleOutIntervalSeconds": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "cluster"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "properties": {
+        "tidb": {
+          "additionalProperties": {
+            "properties": {
+              "lastAutoScalingTimestamp": {
+                "format": "date-time",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "object"
+        },
+        "tikv": {
+          "additionalProperties": {
+            "properties": {
+              "lastAutoScalingTimestamp": {
+                "format": "date-time",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "pingcap.com",
+      "kind": "TidbClusterAutoScaler",
+      "version": "v1alpha1"
+    }
+  ]
+}
