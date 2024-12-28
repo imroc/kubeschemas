@@ -1,0 +1,140 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "networking.higress.io/v1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "Http2Rpc"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "oneOf": [
+        {
+          "not": {
+            "anyOf": [
+              {
+                "required": [
+                  "dubbo"
+                ]
+              },
+              {
+                "required": [
+                  "grpc"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "required": [
+            "dubbo"
+          ]
+        },
+        {
+          "required": [
+            "grpc"
+          ]
+        }
+      ],
+      "properties": {
+        "dubbo": {
+          "properties": {
+            "group": {
+              "type": "string"
+            },
+            "methods": {
+              "items": {
+                "properties": {
+                  "headersAttach": {
+                    "type": "string"
+                  },
+                  "httpMethods": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "httpPath": {
+                    "type": "string"
+                  },
+                  "paramFromEntireBody": {
+                    "properties": {
+                      "paramType": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "params": {
+                    "items": {
+                      "properties": {
+                        "paramKey": {
+                          "type": "string"
+                        },
+                        "paramSource": {
+                          "type": "string"
+                        },
+                        "paramType": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "serviceMethod": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "service": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "grpc": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "type": "object",
+      "x-kubernetes-preserve-unknown-fields": true
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "networking.higress.io",
+      "kind": "Http2Rpc",
+      "version": "v1"
+    }
+  ]
+}

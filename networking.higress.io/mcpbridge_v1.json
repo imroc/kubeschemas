@@ -1,0 +1,120 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "networking.higress.io/v1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "McpBridge"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "registries": {
+          "items": {
+            "properties": {
+              "authSecretName": {
+                "type": "string"
+              },
+              "consulDatacenter": {
+                "type": "string"
+              },
+              "consulNamespace": {
+                "type": "string"
+              },
+              "consulRefreshInterval": {
+                "format": "int64",
+                "type": "integer"
+              },
+              "consulServiceTag": {
+                "type": "string"
+              },
+              "domain": {
+                "type": "string"
+              },
+              "nacosAccessKey": {
+                "type": "string"
+              },
+              "nacosAddressServer": {
+                "type": "string"
+              },
+              "nacosGroups": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "nacosNamespace": {
+                "type": "string"
+              },
+              "nacosNamespaceId": {
+                "type": "string"
+              },
+              "nacosRefreshInterval": {
+                "format": "int64",
+                "type": "integer"
+              },
+              "nacosSecretKey": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "port": {
+                "type": "integer"
+              },
+              "protocol": {
+                "type": "string"
+              },
+              "sni": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "zkServicesPath": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "type": "object",
+      "x-kubernetes-preserve-unknown-fields": true
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "networking.higress.io",
+      "kind": "McpBridge",
+      "version": "v1"
+    }
+  ]
+}

@@ -1204,6 +1204,12 @@
       "$ref": "expansion.gatekeeper.sh/expansiontemplatelist_v1beta1.json"
     },
     {
+      "$ref": "extensions.higress.io/wasmplugin_v1alpha1.json"
+    },
+    {
+      "$ref": "extensions.higress.io/wasmpluginlist_v1alpha1.json"
+    },
+    {
       "$ref": "extensions.istio.io/wasmplugin_v1alpha1.json"
     },
     {
@@ -2030,6 +2036,18 @@
     },
     {
       "$ref": "networking.gke.io/trafficselectorlist_v1.json"
+    },
+    {
+      "$ref": "networking.higress.io/http2rpc_v1.json"
+    },
+    {
+      "$ref": "networking.higress.io/http2rpclist_v1.json"
+    },
+    {
+      "$ref": "networking.higress.io/mcpbridge_v1.json"
+    },
+    {
+      "$ref": "networking.higress.io/mcpbridgelist_v1.json"
     },
     {
       "$ref": "networking.internal.knative.dev/certificate_v1alpha1.json"
