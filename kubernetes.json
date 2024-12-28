@@ -1186,6 +1186,42 @@
       "$ref": "eventing.keda.sh/cloudeventsourcelist_v1alpha1.json"
     },
     {
+      "$ref": "eventing.knative.dev/broker_v1.json"
+    },
+    {
+      "$ref": "eventing.knative.dev/brokerlist_v1.json"
+    },
+    {
+      "$ref": "eventing.knative.dev/eventpolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "eventing.knative.dev/eventpolicylist_v1alpha1.json"
+    },
+    {
+      "$ref": "eventing.knative.dev/eventtype_v1beta1.json"
+    },
+    {
+      "$ref": "eventing.knative.dev/eventtype_v1beta2.json"
+    },
+    {
+      "$ref": "eventing.knative.dev/eventtype_v1beta3.json"
+    },
+    {
+      "$ref": "eventing.knative.dev/eventtypelist_v1beta1.json"
+    },
+    {
+      "$ref": "eventing.knative.dev/eventtypelist_v1beta2.json"
+    },
+    {
+      "$ref": "eventing.knative.dev/eventtypelist_v1beta3.json"
+    },
+    {
+      "$ref": "eventing.knative.dev/trigger_v1.json"
+    },
+    {
+      "$ref": "eventing.knative.dev/triggerlist_v1.json"
+    },
+    {
       "$ref": "events.api.k8s.io/event_v1.json"
     },
     {
@@ -1274,6 +1310,18 @@
     },
     {
       "$ref": "flowcontrol.api.k8s.io/prioritylevelconfigurationlist_v1beta3.json"
+    },
+    {
+      "$ref": "flows.knative.dev/parallel_v1.json"
+    },
+    {
+      "$ref": "flows.knative.dev/parallellist_v1.json"
+    },
+    {
+      "$ref": "flows.knative.dev/sequence_v1.json"
+    },
+    {
+      "$ref": "flows.knative.dev/sequencelist_v1.json"
     },
     {
       "$ref": "game.cloud.tencent.com/room_v1alpha1.json"
@@ -1646,6 +1694,18 @@
     },
     {
       "$ref": "localvolume.everest.io/nodelocalvolumelist_v1.json"
+    },
+    {
+      "$ref": "messaging.knative.dev/channel_v1.json"
+    },
+    {
+      "$ref": "messaging.knative.dev/channellist_v1.json"
+    },
+    {
+      "$ref": "messaging.knative.dev/subscription_v1.json"
+    },
+    {
+      "$ref": "messaging.knative.dev/subscriptionlist_v1.json"
     },
     {
       "$ref": "metrics.apis.pkg.eks-extension-metrics-apiserver.aws.gitlab.com/kcm_v1.json"
@@ -2791,6 +2851,12 @@
       "$ref": "serving.knative.dev/servicelist_v1.json"
     },
     {
+      "$ref": "sinks.knative.dev/jobsink_v1alpha1.json"
+    },
+    {
+      "$ref": "sinks.knative.dev/jobsinklist_v1alpha1.json"
+    },
+    {
       "$ref": "snapshot.storage.k8s.io/volumesnapshot_v1.json"
     },
     {
@@ -2825,6 +2891,36 @@
     },
     {
       "$ref": "snapshot.storage.k8s.io/volumesnapshotlist_v1beta1.json"
+    },
+    {
+      "$ref": "sources.knative.dev/apiserversource_v1.json"
+    },
+    {
+      "$ref": "sources.knative.dev/apiserversourcelist_v1.json"
+    },
+    {
+      "$ref": "sources.knative.dev/containersource_v1.json"
+    },
+    {
+      "$ref": "sources.knative.dev/containersourcelist_v1.json"
+    },
+    {
+      "$ref": "sources.knative.dev/pingsource_v1.json"
+    },
+    {
+      "$ref": "sources.knative.dev/pingsource_v1beta2.json"
+    },
+    {
+      "$ref": "sources.knative.dev/pingsourcelist_v1.json"
+    },
+    {
+      "$ref": "sources.knative.dev/pingsourcelist_v1beta2.json"
+    },
+    {
+      "$ref": "sources.knative.dev/sinkbinding_v1.json"
+    },
+    {
+      "$ref": "sources.knative.dev/sinkbindinglist_v1.json"
     },
     {
       "$ref": "stable.example.com/crontab_v1.json"
