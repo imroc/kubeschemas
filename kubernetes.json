@@ -2941,6 +2941,18 @@
       "$ref": "sources.knative.dev/sinkbindinglist_v1.json"
     },
     {
+      "$ref": "sparkoperator.k8s.io/scheduledsparkapplication_v1beta2.json"
+    },
+    {
+      "$ref": "sparkoperator.k8s.io/scheduledsparkapplicationlist_v1beta2.json"
+    },
+    {
+      "$ref": "sparkoperator.k8s.io/sparkapplication_v1beta2.json"
+    },
+    {
+      "$ref": "sparkoperator.k8s.io/sparkapplicationlist_v1beta2.json"
+    },
+    {
       "$ref": "stable.example.com/crontab_v1.json"
     },
     {
