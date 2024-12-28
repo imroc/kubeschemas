@@ -1624,6 +1624,42 @@
       "$ref": "kind.x-k8s.io/cluster_v1alpha4.json"
     },
     {
+      "$ref": "kubeflow.org/mpijob_v1.json"
+    },
+    {
+      "$ref": "kubeflow.org/mpijoblist_v1.json"
+    },
+    {
+      "$ref": "kubeflow.org/mxjob_v1.json"
+    },
+    {
+      "$ref": "kubeflow.org/mxjoblist_v1.json"
+    },
+    {
+      "$ref": "kubeflow.org/paddlejob_v1.json"
+    },
+    {
+      "$ref": "kubeflow.org/paddlejoblist_v1.json"
+    },
+    {
+      "$ref": "kubeflow.org/pytorchjob_v1.json"
+    },
+    {
+      "$ref": "kubeflow.org/pytorchjoblist_v1.json"
+    },
+    {
+      "$ref": "kubeflow.org/tfjob_v1.json"
+    },
+    {
+      "$ref": "kubeflow.org/tfjoblist_v1.json"
+    },
+    {
+      "$ref": "kubeflow.org/xgboostjob_v1.json"
+    },
+    {
+      "$ref": "kubeflow.org/xgboostjoblist_v1.json"
+    },
+    {
       "$ref": "kubeflow.tkestack.io/jupytergateway_v1alpha1.json"
     },
     {
