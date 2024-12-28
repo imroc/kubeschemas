@@ -100,12 +100,6 @@
       "$ref": "apiextensions.apis.pkg.apiextensions-apiserver.k8s.io/customresourcedefinitionlist_v1.json"
     },
     {
-      "$ref": "apiextensions.k8s.io/customresourcedefinition_v1.json"
-    },
-    {
-      "$ref": "apiextensions.k8s.io/customresourcedefinitionlist_v1.json"
-    },
-    {
       "$ref": "apiregistration.apis.pkg.kube-aggregator.k8s.io/apiservice_v1.json"
     },
     {
