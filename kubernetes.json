@@ -1648,15 +1648,6 @@
       "$ref": "localvolume.everest.io/nodelocalvolumelist_v1.json"
     },
     {
-      "$ref": "meta.apis.pkg.apimachinery.k8s.io/apigroup_v1.json"
-    },
-    {
-      "$ref": "meta.apis.pkg.apimachinery.k8s.io/apigrouplist_v1.json"
-    },
-    {
-      "$ref": "meta.apis.pkg.apimachinery.k8s.io/apiresourcelist_v1.json"
-    },
-    {
       "$ref": "metrics.apis.pkg.eks-extension-metrics-apiserver.aws.gitlab.com/kcm_v1.json"
     },
     {
