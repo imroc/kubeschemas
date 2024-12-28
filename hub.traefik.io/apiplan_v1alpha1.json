@@ -1,0 +1,133 @@
+{
+  "description": "APIPlan defines API Plan policy.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "hub.traefik.io/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "APIPlan"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "The desired behavior of this APIPlan.",
+      "properties": {
+        "description": {
+          "description": "Description describes the plan.",
+          "type": "string"
+        },
+        "quota": {
+          "description": "Quota defines the quota policy.",
+          "properties": {
+            "limit": {
+              "description": "Limit is the maximum number of token in the bucket.",
+              "type": "integer",
+              "x-kubernetes-validations": [
+                {
+                  "message": "must be a positive number",
+                  "rule": "self \u003e= 0"
+                }
+              ]
+            },
+            "period": {
+              "description": "Period is the unit of time for the Limit.",
+              "format": "duration",
+              "type": "string",
+              "x-kubernetes-validations": [
+                {
+                  "message": "must be between 1s and 9999h",
+                  "rule": "self \u003e= duration('1s') \u0026\u0026 self \u003c= duration('9999h')"
+                }
+              ]
+            }
+          },
+          "required": [
+            "limit"
+          ],
+          "type": "object"
+        },
+        "rateLimit": {
+          "description": "RateLimit defines the rate limit policy.",
+          "properties": {
+            "limit": {
+              "description": "Limit is the maximum number of token in the bucket.",
+              "type": "integer",
+              "x-kubernetes-validations": [
+                {
+                  "message": "must be a positive number",
+                  "rule": "self \u003e= 0"
+                }
+              ]
+            },
+            "period": {
+              "description": "Period is the unit of time for the Limit.",
+              "format": "duration",
+              "type": "string",
+              "x-kubernetes-validations": [
+                {
+                  "message": "must be between 1s and 1h",
+                  "rule": "self \u003e= duration('1s') \u0026\u0026 self \u003c= duration('1h')"
+                }
+              ]
+            }
+          },
+          "required": [
+            "limit"
+          ],
+          "type": "object"
+        },
+        "title": {
+          "description": "Title is the human-readable name of the plan.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "title"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "description": "The current status of this APIPlan.",
+      "properties": {
+        "hash": {
+          "description": "Hash is a hash representing the APIPlan.",
+          "type": "string"
+        },
+        "syncedAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "hub.traefik.io",
+      "kind": "APIPlan",
+      "version": "v1alpha1"
+    }
+  ]
+}

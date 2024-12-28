@@ -1576,6 +1576,72 @@
       "$ref": "hub.gke.io/membershiplist_v1.json"
     },
     {
+      "$ref": "hub.traefik.io/accesscontrolpolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "hub.traefik.io/accesscontrolpolicylist_v1alpha1.json"
+    },
+    {
+      "$ref": "hub.traefik.io/aiservice_v1alpha1.json"
+    },
+    {
+      "$ref": "hub.traefik.io/aiservicelist_v1alpha1.json"
+    },
+    {
+      "$ref": "hub.traefik.io/api_v1alpha1.json"
+    },
+    {
+      "$ref": "hub.traefik.io/apiaccess_v1alpha1.json"
+    },
+    {
+      "$ref": "hub.traefik.io/apiaccesslist_v1alpha1.json"
+    },
+    {
+      "$ref": "hub.traefik.io/apibundle_v1alpha1.json"
+    },
+    {
+      "$ref": "hub.traefik.io/apibundlelist_v1alpha1.json"
+    },
+    {
+      "$ref": "hub.traefik.io/apicatalogitem_v1alpha1.json"
+    },
+    {
+      "$ref": "hub.traefik.io/apicatalogitemlist_v1alpha1.json"
+    },
+    {
+      "$ref": "hub.traefik.io/apilist_v1alpha1.json"
+    },
+    {
+      "$ref": "hub.traefik.io/apiplan_v1alpha1.json"
+    },
+    {
+      "$ref": "hub.traefik.io/apiplanlist_v1alpha1.json"
+    },
+    {
+      "$ref": "hub.traefik.io/apiportal_v1alpha1.json"
+    },
+    {
+      "$ref": "hub.traefik.io/apiportallist_v1alpha1.json"
+    },
+    {
+      "$ref": "hub.traefik.io/apiratelimit_v1alpha1.json"
+    },
+    {
+      "$ref": "hub.traefik.io/apiratelimitlist_v1alpha1.json"
+    },
+    {
+      "$ref": "hub.traefik.io/apiversion_v1alpha1.json"
+    },
+    {
+      "$ref": "hub.traefik.io/apiversionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "hub.traefik.io/managedsubscription_v1alpha1.json"
+    },
+    {
+      "$ref": "hub.traefik.io/managedsubscriptionlist_v1alpha1.json"
+    },
+    {
       "$ref": "install.istio.io/istiooperator_v1alpha1.json"
     },
     {
@@ -3311,6 +3377,66 @@
     },
     {
       "$ref": "traefik.containo.us/traefikservicelist_v1alpha1.json"
+    },
+    {
+      "$ref": "traefik.io/ingressroute_v1alpha1.json"
+    },
+    {
+      "$ref": "traefik.io/ingressroutelist_v1alpha1.json"
+    },
+    {
+      "$ref": "traefik.io/ingressroutetcp_v1alpha1.json"
+    },
+    {
+      "$ref": "traefik.io/ingressroutetcplist_v1alpha1.json"
+    },
+    {
+      "$ref": "traefik.io/ingressrouteudp_v1alpha1.json"
+    },
+    {
+      "$ref": "traefik.io/ingressrouteudplist_v1alpha1.json"
+    },
+    {
+      "$ref": "traefik.io/middleware_v1alpha1.json"
+    },
+    {
+      "$ref": "traefik.io/middlewarelist_v1alpha1.json"
+    },
+    {
+      "$ref": "traefik.io/middlewaretcp_v1alpha1.json"
+    },
+    {
+      "$ref": "traefik.io/middlewaretcplist_v1alpha1.json"
+    },
+    {
+      "$ref": "traefik.io/serverstransport_v1alpha1.json"
+    },
+    {
+      "$ref": "traefik.io/serverstransportlist_v1alpha1.json"
+    },
+    {
+      "$ref": "traefik.io/serverstransporttcp_v1alpha1.json"
+    },
+    {
+      "$ref": "traefik.io/serverstransporttcplist_v1alpha1.json"
+    },
+    {
+      "$ref": "traefik.io/tlsoption_v1alpha1.json"
+    },
+    {
+      "$ref": "traefik.io/tlsoptionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "traefik.io/tlsstore_v1alpha1.json"
+    },
+    {
+      "$ref": "traefik.io/tlsstorelist_v1alpha1.json"
+    },
+    {
+      "$ref": "traefik.io/traefikservice_v1alpha1.json"
+    },
+    {
+      "$ref": "traefik.io/traefikservicelist_v1alpha1.json"
     },
     {
       "$ref": "triggers.tekton.dev/clusterinterceptor_v1alpha1.json"
