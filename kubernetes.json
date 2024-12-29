@@ -220,6 +220,12 @@
       "$ref": "apps.clusternet.io/subscriptionlist_v1alpha1.json"
     },
     {
+      "$ref": "apps.karmada.io/workloadrebalancer_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.karmada.io/workloadrebalancerlist_v1alpha1.json"
+    },
+    {
       "$ref": "apps.kruise.io/advancedcronjob_v1alpha1.json"
     },
     {
@@ -2843,6 +2849,12 @@
     },
     {
       "$ref": "rbac.cce.io/permissionlist_v1beta1.json"
+    },
+    {
+      "$ref": "remedy.karmada.io/remedy_v1alpha1.json"
+    },
+    {
+      "$ref": "remedy.karmada.io/remedylist_v1alpha1.json"
     },
     {
       "$ref": "resolution.tekton.dev/resolutionrequest_v1alpha1.json"
