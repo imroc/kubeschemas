@@ -1804,6 +1804,18 @@
       "$ref": "kueue.x-k8s.io/workloadpriorityclasslist_v1beta1.json"
     },
     {
+      "$ref": "linkerd.io/serviceprofile_v1alpha1.json"
+    },
+    {
+      "$ref": "linkerd.io/serviceprofile_v1alpha2.json"
+    },
+    {
+      "$ref": "linkerd.io/serviceprofilelist_v1alpha1.json"
+    },
+    {
+      "$ref": "linkerd.io/serviceprofilelist_v1alpha2.json"
+    },
+    {
       "$ref": "localvolume.everest.io/nodelocalvolume_v1.json"
     },
     {
@@ -2807,6 +2819,60 @@
     },
     {
       "$ref": "policy.kruise.io/podunavailablebudgetlist_v1alpha1.json"
+    },
+    {
+      "$ref": "policy.linkerd.io/authorizationpolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "policy.linkerd.io/authorizationpolicylist_v1alpha1.json"
+    },
+    {
+      "$ref": "policy.linkerd.io/httproute_v1alpha1.json"
+    },
+    {
+      "$ref": "policy.linkerd.io/httproute_v1beta1.json"
+    },
+    {
+      "$ref": "policy.linkerd.io/httproutelist_v1alpha1.json"
+    },
+    {
+      "$ref": "policy.linkerd.io/httproutelist_v1beta1.json"
+    },
+    {
+      "$ref": "policy.linkerd.io/meshtlsauthentication_v1alpha1.json"
+    },
+    {
+      "$ref": "policy.linkerd.io/meshtlsauthenticationlist_v1alpha1.json"
+    },
+    {
+      "$ref": "policy.linkerd.io/networkauthentication_v1alpha1.json"
+    },
+    {
+      "$ref": "policy.linkerd.io/networkauthenticationlist_v1alpha1.json"
+    },
+    {
+      "$ref": "policy.linkerd.io/server_v1alpha1.json"
+    },
+    {
+      "$ref": "policy.linkerd.io/server_v1beta1.json"
+    },
+    {
+      "$ref": "policy.linkerd.io/serverauthorization_v1alpha1.json"
+    },
+    {
+      "$ref": "policy.linkerd.io/serverauthorization_v1beta1.json"
+    },
+    {
+      "$ref": "policy.linkerd.io/serverauthorizationlist_v1alpha1.json"
+    },
+    {
+      "$ref": "policy.linkerd.io/serverauthorizationlist_v1beta1.json"
+    },
+    {
+      "$ref": "policy.linkerd.io/serverlist_v1alpha1.json"
+    },
+    {
+      "$ref": "policy.linkerd.io/serverlist_v1beta1.json"
     },
     {
       "$ref": "prediction.crane.io/clusternodeprediction_v1alpha1.json"

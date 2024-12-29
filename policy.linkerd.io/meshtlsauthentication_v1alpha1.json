@@ -1,0 +1,99 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "policy.linkerd.io/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "MeshTLSAuthentication"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "MeshTLSAuthentication defines a list of authenticated client IDs to be referenced by an `AuthorizationPolicy`. If a client connection has the mutually-authenticated identity that matches ANY of the of the provided identities, the connection is considered authenticated.",
+      "oneOf": [
+        {
+          "required": [
+            "identities"
+          ]
+        },
+        {
+          "required": [
+            "identityRefs"
+          ]
+        }
+      ],
+      "properties": {
+        "identities": {
+          "description": "Authorizes clients with the provided proxy identity strings (as provided via MTLS)\nThe `*` prefix can be used to match all identities in a domain. An identity string of `*` indicates that all authentication clients are authorized.",
+          "items": {
+            "pattern": "^(\\*|[a-z0-9]([-a-z0-9]*[a-z0-9])?)(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "identityRefs": {
+          "items": {
+            "properties": {
+              "group": {
+                "description": "Group is the group of the referent. When empty, the Kubernetes core API group is inferred.\"",
+                "maxLength": 253,
+                "pattern": "^$|^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$",
+                "type": "string"
+              },
+              "kind": {
+                "description": "Kind is the kind of the referent.",
+                "maxLength": 63,
+                "minLength": 1,
+                "pattern": "^[a-zA-Z]([-a-zA-Z0-9]*[a-zA-Z0-9])?$",
+                "type": "string"
+              },
+              "name": {
+                "description": "Name is the name of the referent. When unspecified, this refers to all resources of the specified Group and Kind in the specified namespace.",
+                "maxLength": 253,
+                "minLength": 1,
+                "type": "string"
+              },
+              "namespace": {
+                "description": "Name is the name of the referent. When unspecified, this authentication refers to the local namespace.",
+                "maxLength": 253,
+                "type": "string"
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "policy.linkerd.io",
+      "kind": "MeshTLSAuthentication",
+      "version": "v1alpha1"
+    }
+  ]
+}

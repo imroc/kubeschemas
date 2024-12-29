@@ -1,0 +1,114 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "policy.linkerd.io/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "AuthorizationPolicy"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "Authorizes clients to communicate with Linkerd-proxied server resources.",
+      "properties": {
+        "requiredAuthenticationRefs": {
+          "description": "RequiredAuthenticationRefs enumerates a set of required authentications. ALL authentications must be satisfied for the authorization to apply. If any of the referred objects cannot be found, the authorization will be ignored.",
+          "items": {
+            "properties": {
+              "group": {
+                "description": "Group is the group of the referent. When empty, the Kubernetes core API group is inferred.\"",
+                "maxLength": 253,
+                "pattern": "^$|^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$",
+                "type": "string"
+              },
+              "kind": {
+                "description": "Kind is the kind of the referent.",
+                "maxLength": 63,
+                "minLength": 1,
+                "pattern": "^[a-zA-Z]([-a-zA-Z0-9]*[a-zA-Z0-9])?$",
+                "type": "string"
+              },
+              "name": {
+                "description": "Name is the name of the referent.",
+                "maxLength": 253,
+                "minLength": 1,
+                "type": "string"
+              },
+              "namespace": {
+                "description": "Name is the name of the referent. When unspecified, this authentication refers to the local namespace.",
+                "maxLength": 253,
+                "type": "string"
+              }
+            },
+            "required": [
+              "kind",
+              "name"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "targetRef": {
+          "description": "TargetRef references a resource to which the authorization policy applies.",
+          "properties": {
+            "group": {
+              "description": "Group is the group of the referent. When empty, the Kubernetes core API group is inferred.",
+              "maxLength": 253,
+              "pattern": "^$|^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$",
+              "type": "string"
+            },
+            "kind": {
+              "description": "Kind is the kind of the referent.",
+              "maxLength": 63,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z]([-a-zA-Z0-9]*[a-zA-Z0-9])?$",
+              "type": "string"
+            },
+            "name": {
+              "description": "Name is the name of the referent.",
+              "maxLength": 253,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "kind",
+            "name"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "targetRef",
+        "requiredAuthenticationRefs"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "policy.linkerd.io",
+      "kind": "AuthorizationPolicy",
+      "version": "v1alpha1"
+    }
+  ]
+}
