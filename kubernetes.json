@@ -340,15 +340,6 @@
       "$ref": "authentication.api.k8s.io/tokenreview_v1.json"
     },
     {
-      "$ref": "authentication.k8s.io/selfsubjectreview_v1.json"
-    },
-    {
-      "$ref": "authentication.k8s.io/tokenrequest_v1.json"
-    },
-    {
-      "$ref": "authentication.k8s.io/tokenreview_v1.json"
-    },
-    {
       "$ref": "authorization.api.k8s.io/localsubjectaccessreview_v1.json"
     },
     {
@@ -359,18 +350,6 @@
     },
     {
       "$ref": "authorization.api.k8s.io/subjectaccessreview_v1.json"
-    },
-    {
-      "$ref": "authorization.k8s.io/localsubjectaccessreview_v1.json"
-    },
-    {
-      "$ref": "authorization.k8s.io/selfsubjectaccessreview_v1.json"
-    },
-    {
-      "$ref": "authorization.k8s.io/selfsubjectrulesreview_v1.json"
-    },
-    {
-      "$ref": "authorization.k8s.io/subjectaccessreview_v1.json"
     },
     {
       "$ref": "auto.gke.io/allowlistedv2workload_v1.json"
@@ -395,21 +374,6 @@
     },
     {
       "$ref": "auto.gke.io/workloadallowlistlist_v1.json"
-    },
-    {
-      "$ref": "autoscaling/horizontalpodautoscaler_v1.json"
-    },
-    {
-      "$ref": "autoscaling/horizontalpodautoscaler_v2.json"
-    },
-    {
-      "$ref": "autoscaling/horizontalpodautoscalerlist_v1.json"
-    },
-    {
-      "$ref": "autoscaling/horizontalpodautoscalerlist_v2.json"
-    },
-    {
-      "$ref": "autoscaling/scale_v1.json"
     },
     {
       "$ref": "autoscaling.agones.dev/fleetautoscaler_v1.json"
