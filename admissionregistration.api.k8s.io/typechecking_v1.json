@@ -1,0 +1,19 @@
+{
+  "description": "TypeChecking contains results of type checking the expressions in the ValidatingAdmissionPolicy",
+  "properties": {
+    "expressionWarnings": {
+      "description": "The type checking warnings for each expression.",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "../admissionregistration.api.k8s.io/expressionwarning_v1.json"
+          }
+        ],
+        "default": {}
+      },
+      "type": "array",
+      "x-kubernetes-list-type": "atomic"
+    }
+  },
+  "type": "object"
+}

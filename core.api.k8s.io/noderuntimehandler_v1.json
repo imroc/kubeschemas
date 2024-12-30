@@ -1,0 +1,19 @@
+{
+  "description": "NodeRuntimeHandler is a set of runtime handler information.",
+  "properties": {
+    "features": {
+      "allOf": [
+        {
+          "$ref": "../core.api.k8s.io/noderuntimehandlerfeatures_v1.json"
+        }
+      ],
+      "description": "Supported features."
+    },
+    "name": {
+      "default": "",
+      "description": "Runtime handler name. Empty for the default runtime handler.",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

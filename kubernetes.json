@@ -70,6 +70,18 @@
       "$ref": "admissionregistration.api.k8s.io/mutatingwebhookconfigurationlist_v1.json"
     },
     {
+      "$ref": "admissionregistration.api.k8s.io/validatingadmissionpolicy_v1.json"
+    },
+    {
+      "$ref": "admissionregistration.api.k8s.io/validatingadmissionpolicybinding_v1.json"
+    },
+    {
+      "$ref": "admissionregistration.api.k8s.io/validatingadmissionpolicybindinglist_v1.json"
+    },
+    {
+      "$ref": "admissionregistration.api.k8s.io/validatingadmissionpolicylist_v1.json"
+    },
+    {
       "$ref": "admissionregistration.api.k8s.io/validatingwebhookconfiguration_v1.json"
     },
     {
@@ -1681,10 +1693,16 @@
       "$ref": "flow.volcano.sh/jobtemplatelist_v1alpha1.json"
     },
     {
+      "$ref": "flowcontrol.api.k8s.io/flowschema_v1.json"
+    },
+    {
       "$ref": "flowcontrol.api.k8s.io/flowschema_v1beta2.json"
     },
     {
       "$ref": "flowcontrol.api.k8s.io/flowschema_v1beta3.json"
+    },
+    {
+      "$ref": "flowcontrol.api.k8s.io/flowschemalist_v1.json"
     },
     {
       "$ref": "flowcontrol.api.k8s.io/flowschemalist_v1beta2.json"
@@ -1693,10 +1711,16 @@
       "$ref": "flowcontrol.api.k8s.io/flowschemalist_v1beta3.json"
     },
     {
+      "$ref": "flowcontrol.api.k8s.io/prioritylevelconfiguration_v1.json"
+    },
+    {
       "$ref": "flowcontrol.api.k8s.io/prioritylevelconfiguration_v1beta2.json"
     },
     {
       "$ref": "flowcontrol.api.k8s.io/prioritylevelconfiguration_v1beta3.json"
+    },
+    {
+      "$ref": "flowcontrol.api.k8s.io/prioritylevelconfigurationlist_v1.json"
     },
     {
       "$ref": "flowcontrol.api.k8s.io/prioritylevelconfigurationlist_v1beta2.json"
