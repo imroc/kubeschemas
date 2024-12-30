@@ -2266,6 +2266,36 @@
       "$ref": "metrics.k8s.io/podmetricslist_v1beta1.json"
     },
     {
+      "$ref": "mongodb.com/mongodb_v1.json"
+    },
+    {
+      "$ref": "mongodb.com/mongodblist_v1.json"
+    },
+    {
+      "$ref": "mongodb.com/mongodbmulti_v1.json"
+    },
+    {
+      "$ref": "mongodb.com/mongodbmulticluster_v1.json"
+    },
+    {
+      "$ref": "mongodb.com/mongodbmulticlusterlist_v1.json"
+    },
+    {
+      "$ref": "mongodb.com/mongodbmultilist_v1.json"
+    },
+    {
+      "$ref": "mongodb.com/mongodbopsmanager_v1.json"
+    },
+    {
+      "$ref": "mongodb.com/mongodbopsmanagerlist_v1.json"
+    },
+    {
+      "$ref": "mongodb.com/mongodbuser_v1.json"
+    },
+    {
+      "$ref": "mongodb.com/mongodbuserlist_v1.json"
+    },
+    {
       "$ref": "mongodbcommunity.mongodb.com/mongodbcommunity_v1.json"
     },
     {
