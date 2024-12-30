@@ -124,12 +124,6 @@
       "$ref": "apiregistration.apis.pkg.kube-aggregator.k8s.io/apiservicelist_v1.json"
     },
     {
-      "$ref": "apiregistration.k8s.io/apiservice_v1.json"
-    },
-    {
-      "$ref": "apiregistration.k8s.io/apiservicelist_v1.json"
-    },
-    {
       "$ref": "apisix.apache.org/apisixclusterconfig_v2.json"
     },
     {
@@ -895,6 +889,18 @@
       "$ref": "configuration.konghq.com/ingressclassparameterslist_v1alpha1.json"
     },
     {
+      "$ref": "configuration.konghq.com/kongcacertificate_v1alpha1.json"
+    },
+    {
+      "$ref": "configuration.konghq.com/kongcacertificatelist_v1alpha1.json"
+    },
+    {
+      "$ref": "configuration.konghq.com/kongcertificate_v1alpha1.json"
+    },
+    {
+      "$ref": "configuration.konghq.com/kongcertificatelist_v1alpha1.json"
+    },
+    {
       "$ref": "configuration.konghq.com/kongclusterplugin_v1.json"
     },
     {
@@ -913,10 +919,64 @@
       "$ref": "configuration.konghq.com/kongconsumerlist_v1.json"
     },
     {
+      "$ref": "configuration.konghq.com/kongcredentialacl_v1alpha1.json"
+    },
+    {
+      "$ref": "configuration.konghq.com/kongcredentialacllist_v1alpha1.json"
+    },
+    {
+      "$ref": "configuration.konghq.com/kongcredentialapikey_v1alpha1.json"
+    },
+    {
+      "$ref": "configuration.konghq.com/kongcredentialapikeylist_v1alpha1.json"
+    },
+    {
+      "$ref": "configuration.konghq.com/kongcredentialbasicauth_v1alpha1.json"
+    },
+    {
+      "$ref": "configuration.konghq.com/kongcredentialbasicauthlist_v1alpha1.json"
+    },
+    {
+      "$ref": "configuration.konghq.com/kongcredentialhmac_v1alpha1.json"
+    },
+    {
+      "$ref": "configuration.konghq.com/kongcredentialhmaclist_v1alpha1.json"
+    },
+    {
+      "$ref": "configuration.konghq.com/kongcredentialjwt_v1alpha1.json"
+    },
+    {
+      "$ref": "configuration.konghq.com/kongcredentialjwtlist_v1alpha1.json"
+    },
+    {
+      "$ref": "configuration.konghq.com/kongcustomentity_v1alpha1.json"
+    },
+    {
+      "$ref": "configuration.konghq.com/kongcustomentitylist_v1alpha1.json"
+    },
+    {
+      "$ref": "configuration.konghq.com/kongdataplaneclientcertificate_v1alpha1.json"
+    },
+    {
+      "$ref": "configuration.konghq.com/kongdataplaneclientcertificatelist_v1alpha1.json"
+    },
+    {
       "$ref": "configuration.konghq.com/kongingress_v1.json"
     },
     {
       "$ref": "configuration.konghq.com/kongingresslist_v1.json"
+    },
+    {
+      "$ref": "configuration.konghq.com/kongkey_v1alpha1.json"
+    },
+    {
+      "$ref": "configuration.konghq.com/kongkeylist_v1alpha1.json"
+    },
+    {
+      "$ref": "configuration.konghq.com/kongkeyset_v1alpha1.json"
+    },
+    {
+      "$ref": "configuration.konghq.com/kongkeysetlist_v1alpha1.json"
     },
     {
       "$ref": "configuration.konghq.com/konglicense_v1alpha1.json"
@@ -928,7 +988,43 @@
       "$ref": "configuration.konghq.com/kongplugin_v1.json"
     },
     {
+      "$ref": "configuration.konghq.com/kongpluginbinding_v1alpha1.json"
+    },
+    {
+      "$ref": "configuration.konghq.com/kongpluginbindinglist_v1alpha1.json"
+    },
+    {
       "$ref": "configuration.konghq.com/kongpluginlist_v1.json"
+    },
+    {
+      "$ref": "configuration.konghq.com/kongroute_v1alpha1.json"
+    },
+    {
+      "$ref": "configuration.konghq.com/kongroutelist_v1alpha1.json"
+    },
+    {
+      "$ref": "configuration.konghq.com/kongservice_v1alpha1.json"
+    },
+    {
+      "$ref": "configuration.konghq.com/kongservicelist_v1alpha1.json"
+    },
+    {
+      "$ref": "configuration.konghq.com/kongsni_v1alpha1.json"
+    },
+    {
+      "$ref": "configuration.konghq.com/kongsnilist_v1alpha1.json"
+    },
+    {
+      "$ref": "configuration.konghq.com/kongtarget_v1alpha1.json"
+    },
+    {
+      "$ref": "configuration.konghq.com/kongtargetlist_v1alpha1.json"
+    },
+    {
+      "$ref": "configuration.konghq.com/kongupstream_v1alpha1.json"
+    },
+    {
+      "$ref": "configuration.konghq.com/kongupstreamlist_v1alpha1.json"
     },
     {
       "$ref": "configuration.konghq.com/kongupstreampolicy_v1beta1.json"
@@ -1690,6 +1786,12 @@
       "$ref": "hub.traefik.io/managedsubscriptionlist_v1alpha1.json"
     },
     {
+      "$ref": "incubator.ingress-controller.konghq.com/kongservicefacade_v1alpha1.json"
+    },
+    {
+      "$ref": "incubator.ingress-controller.konghq.com/kongservicefacadelist_v1alpha1.json"
+    },
+    {
       "$ref": "install.istio.io/istiooperator_v1alpha1.json"
     },
     {
@@ -1760,6 +1862,18 @@
     },
     {
       "$ref": "kind.x-k8s.io/cluster_v1alpha4.json"
+    },
+    {
+      "$ref": "konnect.konghq.com/konnectapiauthconfiguration_v1alpha1.json"
+    },
+    {
+      "$ref": "konnect.konghq.com/konnectapiauthconfigurationlist_v1alpha1.json"
+    },
+    {
+      "$ref": "konnect.konghq.com/konnectgatewaycontrolplane_v1alpha1.json"
+    },
+    {
+      "$ref": "konnect.konghq.com/konnectgatewaycontrolplanelist_v1alpha1.json"
     },
     {
       "$ref": "kubeflow.org/mpijob_v1.json"
