@@ -1474,6 +1474,12 @@
       "$ref": "flink.apache.org/flinksessionjoblist_v1beta1.json"
     },
     {
+      "$ref": "flink.apache.org/flinkstatesnapshot_v1beta1.json"
+    },
+    {
+      "$ref": "flink.apache.org/flinkstatesnapshotlist_v1beta1.json"
+    },
+    {
       "$ref": "flowcontrol.api.k8s.io/flowschema_v1beta2.json"
     },
     {

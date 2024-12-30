@@ -1,0 +1,119 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "flink.apache.org/v1beta1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "FlinkStateSnapshot"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "backoffLimit": {
+          "type": "integer"
+        },
+        "checkpoint": {
+          "type": "object"
+        },
+        "jobReference": {
+          "properties": {
+            "kind": {
+              "enum": [
+                "FlinkDeployment",
+                "FlinkSessionJob"
+              ],
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "savepoint": {
+          "properties": {
+            "alreadyExists": {
+              "type": "boolean"
+            },
+            "disposeOnDelete": {
+              "type": "boolean"
+            },
+            "formatType": {
+              "enum": [
+                "CANONICAL",
+                "NATIVE",
+                "UNKNOWN"
+              ],
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "failures": {
+          "type": "integer"
+        },
+        "path": {
+          "type": "string"
+        },
+        "resultTimestamp": {
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "ABANDONED",
+            "COMPLETED",
+            "FAILED",
+            "IN_PROGRESS",
+            "TRIGGER_PENDING"
+          ],
+          "type": "string"
+        },
+        "triggerId": {
+          "type": "string"
+        },
+        "triggerTimestamp": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "flink.apache.org",
+      "kind": "FlinkStateSnapshot",
+      "version": "v1beta1"
+    }
+  ]
+}

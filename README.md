@@ -28,6 +28,8 @@ These schemas are used by [kubernetes.nvim](https://github.com/imroc/kubernetes.
 - [Huawei Cloud CCE](https://www.huaweicloud.com/product/cce.html)
 - [Google Cloud GKE](https://cloud.google.com/kubernetes-engine)
 - [AWS EKS](https://aws.amazon.com/eks/)
+- [spark-operator](https://github.com/kubeflow/spark-operator/tree/master/charts/spark-operator-chart/crds)
+- [flink-operator](https://github.com/apache/flink-kubernetes-operator/tree/main/helm/flink-kubernetes-operator/crds)
 
 ## Contributing
 
