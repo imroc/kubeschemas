@@ -463,6 +463,90 @@
       "$ref": "argoproj.io/workflowtemplatelist_v1alpha1.json"
     },
     {
+      "$ref": "atlas.mongodb.com/atlasbackupcompliancepolicy_v1.json"
+    },
+    {
+      "$ref": "atlas.mongodb.com/atlasbackupcompliancepolicylist_v1.json"
+    },
+    {
+      "$ref": "atlas.mongodb.com/atlasbackuppolicy_v1.json"
+    },
+    {
+      "$ref": "atlas.mongodb.com/atlasbackuppolicylist_v1.json"
+    },
+    {
+      "$ref": "atlas.mongodb.com/atlasbackupschedule_v1.json"
+    },
+    {
+      "$ref": "atlas.mongodb.com/atlasbackupschedulelist_v1.json"
+    },
+    {
+      "$ref": "atlas.mongodb.com/atlascustomrole_v1.json"
+    },
+    {
+      "$ref": "atlas.mongodb.com/atlascustomrolelist_v1.json"
+    },
+    {
+      "$ref": "atlas.mongodb.com/atlasdatabaseuser_v1.json"
+    },
+    {
+      "$ref": "atlas.mongodb.com/atlasdatabaseuserlist_v1.json"
+    },
+    {
+      "$ref": "atlas.mongodb.com/atlasdatafederation_v1.json"
+    },
+    {
+      "$ref": "atlas.mongodb.com/atlasdatafederationlist_v1.json"
+    },
+    {
+      "$ref": "atlas.mongodb.com/atlasdeployment_v1.json"
+    },
+    {
+      "$ref": "atlas.mongodb.com/atlasdeploymentlist_v1.json"
+    },
+    {
+      "$ref": "atlas.mongodb.com/atlasfederatedauth_v1.json"
+    },
+    {
+      "$ref": "atlas.mongodb.com/atlasfederatedauthlist_v1.json"
+    },
+    {
+      "$ref": "atlas.mongodb.com/atlasprivateendpoint_v1.json"
+    },
+    {
+      "$ref": "atlas.mongodb.com/atlasprivateendpointlist_v1.json"
+    },
+    {
+      "$ref": "atlas.mongodb.com/atlasproject_v1.json"
+    },
+    {
+      "$ref": "atlas.mongodb.com/atlasprojectlist_v1.json"
+    },
+    {
+      "$ref": "atlas.mongodb.com/atlassearchindexconfig_v1.json"
+    },
+    {
+      "$ref": "atlas.mongodb.com/atlassearchindexconfiglist_v1.json"
+    },
+    {
+      "$ref": "atlas.mongodb.com/atlasstreamconnection_v1.json"
+    },
+    {
+      "$ref": "atlas.mongodb.com/atlasstreamconnectionlist_v1.json"
+    },
+    {
+      "$ref": "atlas.mongodb.com/atlasstreaminstance_v1.json"
+    },
+    {
+      "$ref": "atlas.mongodb.com/atlasstreaminstancelist_v1.json"
+    },
+    {
+      "$ref": "atlas.mongodb.com/atlasteam_v1.json"
+    },
+    {
+      "$ref": "atlas.mongodb.com/atlasteamlist_v1.json"
+    },
+    {
       "$ref": "authentication.api.k8s.io/selfsubjectreview_v1.json"
     },
     {
