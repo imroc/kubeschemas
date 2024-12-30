@@ -400,7 +400,37 @@
       "$ref": "apps.kruise.io/workloadspreadlist_v1alpha1.json"
     },
     {
+      "$ref": "argoproj.io/analysisrun_v1alpha1.json"
+    },
+    {
+      "$ref": "argoproj.io/analysisrunlist_v1alpha1.json"
+    },
+    {
+      "$ref": "argoproj.io/analysistemplate_v1alpha1.json"
+    },
+    {
+      "$ref": "argoproj.io/analysistemplatelist_v1alpha1.json"
+    },
+    {
+      "$ref": "argoproj.io/clusteranalysistemplate_v1alpha1.json"
+    },
+    {
+      "$ref": "argoproj.io/clusteranalysistemplatelist_v1alpha1.json"
+    },
+    {
       "$ref": "argoproj.io/cronworkflowlist_v1alpha1.json"
+    },
+    {
+      "$ref": "argoproj.io/experiment_v1alpha1.json"
+    },
+    {
+      "$ref": "argoproj.io/experimentlist_v1alpha1.json"
+    },
+    {
+      "$ref": "argoproj.io/rollout_v1alpha1.json"
+    },
+    {
+      "$ref": "argoproj.io/rolloutlist_v1alpha1.json"
     },
     {
       "$ref": "argoproj.io/workflowlist_v1alpha1.json"
