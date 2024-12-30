@@ -919,6 +919,24 @@
       "$ref": "clusters.clusternet.io/managedclusterlist_v1beta1.json"
     },
     {
+      "$ref": "comcast.github.io/kuberhealthycheck_v1.json"
+    },
+    {
+      "$ref": "comcast.github.io/kuberhealthychecklist_v1.json"
+    },
+    {
+      "$ref": "comcast.github.io/kuberhealthyjob_v1.json"
+    },
+    {
+      "$ref": "comcast.github.io/kuberhealthyjoblist_v1.json"
+    },
+    {
+      "$ref": "comcast.github.io/kuberhealthystate_v1.json"
+    },
+    {
+      "$ref": "comcast.github.io/kuberhealthystatelist_v1.json"
+    },
+    {
       "$ref": "config.gatekeeper.sh/config_v1alpha1.json"
     },
     {
