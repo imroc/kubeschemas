@@ -1528,6 +1528,18 @@
       "$ref": "flink.apache.org/flinkstatesnapshotlist_v1beta1.json"
     },
     {
+      "$ref": "flow.volcano.sh/jobflow_v1alpha1.json"
+    },
+    {
+      "$ref": "flow.volcano.sh/jobflowlist_v1alpha1.json"
+    },
+    {
+      "$ref": "flow.volcano.sh/jobtemplate_v1alpha1.json"
+    },
+    {
+      "$ref": "flow.volcano.sh/jobtemplatelist_v1alpha1.json"
+    },
+    {
       "$ref": "flowcontrol.api.k8s.io/flowschema_v1beta2.json"
     },
     {

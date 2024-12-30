@@ -38,6 +38,7 @@ These schemas are used by [kubernetes.nvim](https://github.com/imroc/kubernetes.
 - [OPA gatekeeper](https://github.com/open-policy-agent/gatekeeper/tree/master/charts/gatekeeper/crds)
 - [velero](https://github.com/vmware-tanzu/velero/tree/main/config/crd)
 - [knative-operator](https://knative.dev/docs/install/operator/knative-with-operators/#install-the-knative-operator), [knative-serving](https://knative.dev/docs/install/yaml-install/serving/install-serving-with-yaml/#install-the-knative-serving-component) and [knative-eventing](https://knative.dev/docs/install/yaml-install/eventing/install-eventing-with-yaml/#install-knative-eventing)
+- [volcano](https://github.com/volcano-sh/volcano/tree/master/config/crd)
 
 And some kubernetes related configuration file schemas are also included:
 
