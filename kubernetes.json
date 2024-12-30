@@ -3133,6 +3133,30 @@
       "$ref": "policy.linkerd.io/serverlist_v1beta1.json"
     },
     {
+      "$ref": "postgres-operator.crunchydata.com/crunchybridgecluster_v1beta1.json"
+    },
+    {
+      "$ref": "postgres-operator.crunchydata.com/crunchybridgeclusterlist_v1beta1.json"
+    },
+    {
+      "$ref": "postgres-operator.crunchydata.com/pgadmin_v1beta1.json"
+    },
+    {
+      "$ref": "postgres-operator.crunchydata.com/pgadminlist_v1beta1.json"
+    },
+    {
+      "$ref": "postgres-operator.crunchydata.com/pgupgrade_v1beta1.json"
+    },
+    {
+      "$ref": "postgres-operator.crunchydata.com/pgupgradelist_v1beta1.json"
+    },
+    {
+      "$ref": "postgres-operator.crunchydata.com/postgrescluster_v1beta1.json"
+    },
+    {
+      "$ref": "postgres-operator.crunchydata.com/postgresclusterlist_v1beta1.json"
+    },
+    {
       "$ref": "prediction.crane.io/clusternodeprediction_v1alpha1.json"
     },
     {

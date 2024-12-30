@@ -34,6 +34,7 @@ These schemas are used by [kubernetes.nvim](https://github.com/imroc/kubernetes.
 - [kruise](https://openkruise.io/docs/installation/), [kruise-rollout](https://openkruise.io/rollouts/installation) and [kruise-game](https://openkruise.io/kruisegame/installation)
 - [argo-cd](https://github.com/argoproj/argo-cd/tree/master/manifests/crds), [argo-workflows](https://github.com/argoproj/argo-workflows/tree/main/manifests/base/crds), [argo-rollouts](https://github.com/argoproj/argo-rollouts/tree/master/manifests/crds) and [argo-events](https://github.com/argoproj/argo-events/tree/master/manifests/base/crds)
 - [tekton-operator](https://github.com/tektoncd/operator/blob/main/docs/install.md), [tekton-pipeline](https://github.com/tektoncd/pipeline/blob/main/docs/install.md), [tekton-triggers](https://github.com/tektoncd/triggers/blob/main/docs/install.md)
+- [zalando postgres-operator](https://github.com/zalando/postgres-operator/tree/master/charts/postgres-operator/crds) and [CrunchyData postgres-operator](https://github.com/CrunchyData/postgres-operator-examples/tree/main/helm/install/crds)
 - [OPA gatekeeper](https://github.com/open-policy-agent/gatekeeper/tree/master/charts/gatekeeper/crds)
 - [velero](https://github.com/vmware-tanzu/velero/tree/main/config/crd)
 
