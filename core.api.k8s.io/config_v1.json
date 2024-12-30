@@ -1,0 +1,344 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "Legacy field from pkg/api/types.go TypeMeta. TODO(jlowdermilk): remove this after eliminating downstream dependencies.",
+      "enum": [
+        "v1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Legacy field from pkg/api/types.go TypeMeta. TODO(jlowdermilk): remove this after eliminating downstream dependencies.",
+      "enum": [
+        "Config"
+      ],
+      "type": "string"
+    },
+    "preferences": {
+      "description": "Preferences holds general information to be use for cli interactions",
+      "$ref": "#/$defs/Preferences"
+    },
+    "clusters": {
+      "description": "Clusters is a map of referencable names to cluster configs",
+      "items": {
+        "$ref": "#/$defs/Cluster"
+      },
+      "type": "array"
+    },
+    "users": {
+      "description": "AuthInfos is a map of referencable names to user configs",
+      "items": {
+        "$ref": "#/$defs/AuthInfo"
+      },
+      "type": "array"
+    },
+    "contexts": {
+      "description": "Contexts is a map of referencable names to context configs",
+      "items": {
+        "$ref": "#/$defs/Context"
+      },
+      "type": "array"
+    },
+    "current-context": {
+      "description": "CurrentContext is the name of the context that you would like to use by default",
+      "type": "string"
+    },
+    "extensions": {
+      "description": "Extensions holds additional information. This is useful for extenders so that reads and writes don't clobber unknown fields",
+      "items": {
+        "$ref": "#/$defs/Extension"
+      },
+      "type": "array"
+    }
+  },
+  "additionalProperties": false,
+  "type": "object",
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "$defs": {
+    "AuthInfo": {
+      "description": "NamedAuthInfo relates nicknames to auth information",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name is the nickname for this AuthInfo"
+        },
+        "user": {
+          "description": "AuthInfo holds the auth information",
+          "type": "object",
+          "properties": {
+            "client-certificate": {
+              "description": "ClientCertificate is the path to a client cert file for TLS.",
+              "type": "string"
+            },
+            "client-certificate-data": {
+              "description": "ClientCertificateData contains PEM-encoded data from a client cert file for TLS. Overrides ClientCertificate",
+              "type": "string",
+              "contentEncoding": "base64"
+            },
+            "client-key": {
+              "description": "ClientKey is the path to a client key file for TLS.",
+              "type": "string"
+            },
+            "client-key-data": {
+              "description": "ClientKeyData contains PEM-encoded data from a client key file for TLS. Overrides ClientKey",
+              "type": "string",
+              "contentEncoding": "base64"
+            },
+            "token": {
+              "description": "Token is the bearer token for authentication to the kubernetes cluster.",
+              "type": "string"
+            },
+            "tokenFile": {
+              "description": "TokenFile is a pointer to a file that contains a bearer token (as described above). If both Token and TokenFile are present, Token takes precedence.",
+              "type": "string"
+            },
+            "as": {
+              "description": "Impersonate is the username to impersonate. The name matches the flag.",
+              "type": "string"
+            },
+            "as-uid": {
+              "description": "ImpersonateUID is the uid to impersonate.",
+              "type": "string"
+            },
+            "as-groups": {
+              "description": "ImpersonateGroups is the groups to impersonate.",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "as-user-extra": {
+              "description": "ImpersonateUserExtra contains additional information for impersonated user.",
+              "additionalProperties": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "type": "object"
+            },
+            "username": {
+              "description": "Username is the username for basic authentication to the kubernetes cluster.",
+              "type": "string"
+            },
+            "password": {
+              "description": "Password is the password for basic authentication to the kubernetes cluster.",
+              "type": "string"
+            },
+            "auth-provider": {
+              "$ref": "#/$defs/AuthProviderConfig"
+            },
+            "exec": {
+              "$ref": "#/$defs/ExecConfig"
+            },
+            "extensions": {
+              "description": "Extensions holds additional information. This is useful for extenders so that reads and writes don't clobber unknown fields",
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Extension"
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "AuthProviderConfig": {
+      "description": "AuthProvider specifies a custom authentication plugin for the kubernetes cluster.",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "config": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "Cluster": {
+      "properties": {
+        "name": {
+          "description": "Name is the nickname for this Cluster",
+          "type": "string"
+        },
+        "cluster": {
+          "description": "Cluster holds the cluster information",
+          "type": "object",
+          "properties": {
+            "server": {
+              "description": "Server is the address of the kubernetes cluster (https://hostname:port).",
+              "type": "string"
+            },
+            "tls-server-name": {
+              "description": "TLSServerName is used to check server certificate. If TLSServerName is empty, the hostname used to contact the server is used.",
+              "type": "string"
+            },
+            "insecure-skip-tls-verify": {
+              "description": "InsecureSkipTLSVerify skips the validity check for the server's certificate. This will make your HTTPS connections insecure.",
+              "type": "boolean"
+            },
+            "certificate-authority": {
+              "description": "CertificateAuthority is the path to a cert file for the certificate authority.",
+              "type": "string"
+            },
+            "certificate-authority-data": {
+              "description": "CertificateAuthorityData contains PEM-encoded certificate authority certificates. Overrides CertificateAuthority",
+              "type": "string",
+              "contentEncoding": "base64"
+            },
+            "proxy-url": {
+              "description": "ProxyURL is the URL to the proxy to be used for all requests made by this client. URLs with \"http\", \"https\", and \"socks5\" schemes are supported. If this configuration is not provided or the empty string, the client attempts to construct a proxy configuration from http_proxy and https_proxy environment variables.\nIf these environment variables are not set, the client does not attempt to proxy requests.\n\nsocks5 proxying does not currently support spdy streaming endpoints (exec, attach, port forward).",
+              "type": "string"
+            },
+            "disable-compression": {
+              "description": "DisableCompression allows client to opt-out of response compression for all requests to the server. This is useful to speed up requests (specifically lists) when client-server network bandwidth is ample, by saving time on compression (server-side) and decompression (client-side): https://github.com/kubernetes/kubernetes/issues/112296.",
+              "type": "boolean"
+            },
+            "extensions": {
+              "description": "Extensions holds additional information. This is useful for extenders so that reads and writes don't clobber unknown fields",
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Extension"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "Context": {
+      "properties": {
+        "name": {
+          "description": "Name is the nickname for this Context",
+          "type": "string"
+        },
+        "context": {
+          "description": "Context holds the context information",
+          "properties": {
+            "cluster": {
+              "description": "Cluster is the name of the cluster for this context",
+              "type": "string"
+            },
+            "user": {
+              "description": "AuthInfo is the name of the authInfo for this context",
+              "type": "string"
+            },
+            "namespace": {
+              "description": "Namespace is the default namespace to use on unspecified requests",
+              "type": "string"
+            },
+            "extensions": {
+              "description": "Extensions holds additional information. This is useful for extenders so that reads and writes don't clobber unknown fields",
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Extension"
+              }
+            }
+          },
+          "additionalProperties": false,
+          "type": "object"
+        }
+      }
+    },
+    "ExecConfig": {
+      "description": "Exec specifies a custom exec-based authentication plugin for the kubernetes cluster.",
+      "properties": {
+        "command": {
+          "description": "Command to execute.",
+          "type": "string"
+        },
+        "args": {
+          "description": "Arguments to pass to the command when executing it.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "env": {
+          "description": "Env defines additional environment variables to expose to the process. These are unioned with the host's environment, as well as variables client-go uses to pass argument to the plugin.",
+          "items": {
+            "$ref": "#/$defs/ExecEnvVar"
+          },
+          "type": "array"
+        },
+        "apiVersion": {
+          "description": "Preferred input version of the ExecInfo. The returned ExecCredentials MUST use the same encoding version as the input.",
+          "type": "string"
+        },
+        "installHint": {
+          "description": "This text is shown to the user when the executable doesn't seem to be present. For example, brew install foo-cli might be a good InstallHint for foo-cli on Mac OS systems.",
+          "type": "string"
+        },
+        "provideClusterInfo": {
+          "description": "ProvideClusterInfo determines whether or not to provide cluster information, which could potentially contain very large CA data, to this exec plugin as a part of the KUBERNETES_EXEC_INFO environment variable. By default, it is set to false. Package k8s.io/client-go/tools/auth/exec provides helper methods for reading this environment variable.",
+          "type": "boolean"
+        },
+        "interactiveMode": {
+          "description": "InteractiveMode determines this plugin's relationship with standard input. Valid values are \"Never\" (this exec plugin never uses standard input), \"IfAvailable\" (this exec plugin wants to use standard input if it is available), or \"Always\" (this exec plugin requires standard input to function). See ExecInteractiveMode values for more details.\n\nIf APIVersion is client.authentication.k8s.io/v1alpha1 or client.authentication.k8s.io/v1beta1, then this field is optional and defaults to \"IfAvailable\" when unset. Otherwise, this field is required.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "ExecEnvVar": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "Preferences": {
+      "description": "Preferences holds general information to be use for cli interactions",
+      "properties": {
+        "colors": {
+          "type": "boolean"
+        },
+        "extensions": {
+          "description": "Extensions holds additional information. This is useful for extenders so that reads and writes don't clobber unknown fields",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Extension"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "Extension": {
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name is the nickname for this Extension"
+        },
+        "extension": {
+          "type": "object",
+          "description": "Extension holds the extension information"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "",
+      "kind": "Config",
+      "version": "v1"
+    }
+  ]
+}

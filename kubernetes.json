@@ -1234,6 +1234,9 @@
       "$ref": "core.api.k8s.io/componentstatuslist_v1.json"
     },
     {
+      "$ref": "core.api.k8s.io/config_v1.json"
+    },
+    {
       "$ref": "core.api.k8s.io/configmap_v1.json"
     },
     {
