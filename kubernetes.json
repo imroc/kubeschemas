@@ -112,6 +112,12 @@
       "$ref": "analysis.crane.io/recommendationlist_v1alpha1.json"
     },
     {
+      "$ref": "analysis.crane.io/recommendationrule_v1alpha1.json"
+    },
+    {
+      "$ref": "analysis.crane.io/recommendationrulelist_v1alpha1.json"
+    },
+    {
       "$ref": "apiextensions.apis.pkg.apiextensions-apiserver.k8s.io/customresourcedefinition_v1.json"
     },
     {
@@ -1402,16 +1408,28 @@
       "$ref": "ensurance.crane.io/avoidanceactionlist_v1alpha1.json"
     },
     {
+      "$ref": "ensurance.crane.io/nodeqos_v1alpha1.json"
+    },
+    {
       "$ref": "ensurance.crane.io/nodeqosensurancepolicy_v1alpha1.json"
     },
     {
       "$ref": "ensurance.crane.io/nodeqosensurancepolicylist_v1alpha1.json"
     },
     {
+      "$ref": "ensurance.crane.io/nodeqoslist_v1alpha1.json"
+    },
+    {
+      "$ref": "ensurance.crane.io/podqos_v1alpha1.json"
+    },
+    {
       "$ref": "ensurance.crane.io/podqosensurancepolicy_v1alpha1.json"
     },
     {
       "$ref": "ensurance.crane.io/podqosensurancepolicylist_v1alpha1.json"
+    },
+    {
+      "$ref": "ensurance.crane.io/podqoslist_v1alpha1.json"
     },
     {
       "$ref": "eventing.keda.sh/cloudeventsource_v1alpha1.json"
@@ -3707,6 +3725,12 @@
     },
     {
       "$ref": "templates.gatekeeper.sh/constrainttemplatelist_v1beta1.json"
+    },
+    {
+      "$ref": "topology.crane.io/noderesourcetopology_v1alpha1.json"
+    },
+    {
+      "$ref": "topology.crane.io/noderesourcetopologylist_v1alpha1.json"
     },
     {
       "$ref": "topology.volcano.sh/hypercluster_v1alpha1.json"

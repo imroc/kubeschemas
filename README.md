@@ -39,6 +39,9 @@ These schemas are used by [kubernetes.nvim](https://github.com/imroc/kubernetes.
 - [velero](https://github.com/vmware-tanzu/velero/tree/main/config/crd)
 - [knative-operator](https://knative.dev/docs/install/operator/knative-with-operators/#install-the-knative-operator), [knative-serving](https://knative.dev/docs/install/yaml-install/serving/install-serving-with-yaml/#install-the-knative-serving-component) and [knative-eventing](https://knative.dev/docs/install/yaml-install/eventing/install-eventing-with-yaml/#install-knative-eventing)
 - [volcano](https://github.com/volcano-sh/volcano/tree/master/config/crd)
+- [linkerd](https://linkerd.io/2.17/getting-started/#step-3-install-linkerd-onto-your-cluster)
+- [agones](https://agones.dev/site/docs/installation/install-agones/yaml/)
+- [crane](https://github.com/gocrane/helm-charts/tree/main/charts/crane/crds)
 
 And some kubernetes related configuration file schemas are also included:
 
