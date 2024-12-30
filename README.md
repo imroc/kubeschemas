@@ -45,12 +45,19 @@ These schemas are used by [kubernetes.nvim](https://github.com/imroc/kubernetes.
 - [tidb-operator](https://github.com/pingcap/tidb-operator/tree/master/manifests/crd)
 - [prometheus-operator](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack/charts/crds/crds)
 - [kuberhealthy](https://github.com/kuberhealthy/kuberhealthy/tree/master/deploy/helm/kuberhealthy/crds)
+- [k3s](https://github.com/k3s-io/k3s)
+- Rancher(TODO)
+- KubeSphere(TODO)
+- OpenShift(TODO)
 
 And some kubernetes related configuration file schemas are also included:
 
 - kubeconfig
 - kind configuration
 - k3d configuration
+- kubelet configuration(TODO)
+- kubeadm configuration(TODO)
+- kube-apiserver configuration(TODO)
 
 ## Contributing
 
