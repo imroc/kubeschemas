@@ -3133,6 +3133,42 @@
       "$ref": "resolution.tekton.dev/resolutionrequestlist_v1beta1.json"
     },
     {
+      "$ref": "rollouts.kruise.io/batchrelease_v1alpha1.json"
+    },
+    {
+      "$ref": "rollouts.kruise.io/batchrelease_v1beta1.json"
+    },
+    {
+      "$ref": "rollouts.kruise.io/batchreleaselist_v1alpha1.json"
+    },
+    {
+      "$ref": "rollouts.kruise.io/batchreleaselist_v1beta1.json"
+    },
+    {
+      "$ref": "rollouts.kruise.io/rollout_v1alpha1.json"
+    },
+    {
+      "$ref": "rollouts.kruise.io/rollout_v1beta1.json"
+    },
+    {
+      "$ref": "rollouts.kruise.io/rollouthistory_v1alpha1.json"
+    },
+    {
+      "$ref": "rollouts.kruise.io/rollouthistorylist_v1alpha1.json"
+    },
+    {
+      "$ref": "rollouts.kruise.io/rolloutlist_v1alpha1.json"
+    },
+    {
+      "$ref": "rollouts.kruise.io/rolloutlist_v1beta1.json"
+    },
+    {
+      "$ref": "rollouts.kruise.io/trafficrouting_v1alpha1.json"
+    },
+    {
+      "$ref": "rollouts.kruise.io/trafficroutinglist_v1alpha1.json"
+    },
+    {
       "$ref": "scheduling.api.k8s.io/priorityclass_v1.json"
     },
     {
