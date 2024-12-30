@@ -42,6 +42,7 @@ These schemas are used by [kubernetes.nvim](https://github.com/imroc/kubernetes.
 - [linkerd](https://linkerd.io/2.17/getting-started/#step-3-install-linkerd-onto-your-cluster)
 - [agones](https://agones.dev/site/docs/installation/install-agones/yaml/)
 - [crane](https://github.com/gocrane/helm-charts/tree/main/charts/crane/crds)
+- [tidb-operator](https://github.com/pingcap/tidb-operator/tree/master/manifests/crd)
 
 And some kubernetes related configuration file schemas are also included:
 

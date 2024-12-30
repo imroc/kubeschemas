@@ -1528,6 +1528,24 @@
       "$ref": "externaldata.gatekeeper.sh/providerlist_v1beta1.json"
     },
     {
+      "$ref": "federation.pingcap.com/volumebackup_v1alpha1.json"
+    },
+    {
+      "$ref": "federation.pingcap.com/volumebackuplist_v1alpha1.json"
+    },
+    {
+      "$ref": "federation.pingcap.com/volumebackupschedule_v1alpha1.json"
+    },
+    {
+      "$ref": "federation.pingcap.com/volumebackupschedulelist_v1alpha1.json"
+    },
+    {
+      "$ref": "federation.pingcap.com/volumerestore_v1alpha1.json"
+    },
+    {
+      "$ref": "federation.pingcap.com/volumerestorelist_v1alpha1.json"
+    },
+    {
       "$ref": "flink.apache.org/flinkdeployment_v1beta1.json"
     },
     {
