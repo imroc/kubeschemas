@@ -1,0 +1,1 @@
+apiregistration.apis.pkg.kube-aggregator.k8s.io
