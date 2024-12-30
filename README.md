@@ -30,6 +30,9 @@ These schemas are used by [kubernetes.nvim](https://github.com/imroc/kubernetes.
 - [AWS EKS](https://aws.amazon.com/eks/)
 - [spark-operator](https://github.com/kubeflow/spark-operator/tree/master/charts/spark-operator-chart/crds)
 - [flink-operator](https://github.com/apache/flink-kubernetes-operator/tree/main/helm/flink-kubernetes-operator/crds)
+- [karpenter](https://github.com/kubernetes-sigs/karpenter/tree/main/pkg/apis/crds)
+- [kruise](https://openkruise.io/docs/installation/), [kruise-rollout](https://openkruise.io/rollouts/installation) and [kruise-game](https://openkruise.io/kruisegame/installation)
+- [argo-cd](https://github.com/argoproj/argo-cd/tree/master/manifests/crds), [argo-workflows](https://github.com/argoproj/argo-workflows/tree/main/manifests/base/crds), [argo-rollouts](https://github.com/argoproj/argo-rollouts/tree/master/manifests/crds) and [argo-events](https://github.com/argoproj/argo-events/tree/master/manifests/base/crds)
 
 ## Contributing
 
