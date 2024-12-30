@@ -37,6 +37,7 @@ These schemas are used by [kubernetes.nvim](https://github.com/imroc/kubernetes.
 - [zalando postgres-operator](https://github.com/zalando/postgres-operator/tree/master/charts/postgres-operator/crds) and [CrunchyData postgres-operator](https://github.com/CrunchyData/postgres-operator-examples/tree/main/helm/install/crds)
 - [OPA gatekeeper](https://github.com/open-policy-agent/gatekeeper/tree/master/charts/gatekeeper/crds)
 - [velero](https://github.com/vmware-tanzu/velero/tree/main/config/crd)
+- [knative-operator](https://knative.dev/docs/install/operator/knative-with-operators/#install-the-knative-operator), [knative-serving](https://knative.dev/docs/install/yaml-install/serving/install-serving-with-yaml/#install-the-knative-serving-component) and [knative-eventing](https://knative.dev/docs/install/yaml-install/eventing/install-eventing-with-yaml/#install-knative-eventing)
 
 ## Contributing
 
