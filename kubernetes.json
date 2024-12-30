@@ -3487,6 +3487,12 @@
       "$ref": "stable.example.com/crontablist_v1.json"
     },
     {
+      "$ref": "status.gatekeeper.sh/configpodstatus_v1beta1.json"
+    },
+    {
+      "$ref": "status.gatekeeper.sh/configpodstatuslist_v1beta1.json"
+    },
+    {
       "$ref": "status.gatekeeper.sh/constraintpodstatus_v1beta1.json"
     },
     {
