@@ -421,6 +421,18 @@
       "$ref": "argoproj.io/cronworkflowlist_v1alpha1.json"
     },
     {
+      "$ref": "argoproj.io/eventbus_v1alpha1.json"
+    },
+    {
+      "$ref": "argoproj.io/eventbuslist_v1alpha1.json"
+    },
+    {
+      "$ref": "argoproj.io/eventsource_v1alpha1.json"
+    },
+    {
+      "$ref": "argoproj.io/eventsourcelist_v1alpha1.json"
+    },
+    {
       "$ref": "argoproj.io/experiment_v1alpha1.json"
     },
     {
@@ -431,6 +443,12 @@
     },
     {
       "$ref": "argoproj.io/rolloutlist_v1alpha1.json"
+    },
+    {
+      "$ref": "argoproj.io/sensor_v1alpha1.json"
+    },
+    {
+      "$ref": "argoproj.io/sensorlist_v1alpha1.json"
     },
     {
       "$ref": "argoproj.io/workflowlist_v1alpha1.json"
