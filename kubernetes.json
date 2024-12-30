@@ -2782,6 +2782,12 @@
       "$ref": "operator.knative.dev/knativeservinglist_v1beta1.json"
     },
     {
+      "$ref": "operator.tekton.dev/manualapprovalgate_v1alpha1.json"
+    },
+    {
+      "$ref": "operator.tekton.dev/manualapprovalgatelist_v1alpha1.json"
+    },
+    {
       "$ref": "operator.tekton.dev/tektonchain_v1alpha1.json"
     },
     {
@@ -2792,6 +2798,12 @@
     },
     {
       "$ref": "operator.tekton.dev/tektonconfiglist_v1alpha1.json"
+    },
+    {
+      "$ref": "operator.tekton.dev/tektondashboard_v1alpha1.json"
+    },
+    {
+      "$ref": "operator.tekton.dev/tektondashboardlist_v1alpha1.json"
     },
     {
       "$ref": "operator.tekton.dev/tektonhub_v1alpha1.json"
