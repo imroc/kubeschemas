@@ -35,6 +35,7 @@ These schemas are used by [kubernetes.nvim](https://github.com/imroc/kubernetes.
 - [argo-cd](https://github.com/argoproj/argo-cd/tree/master/manifests/crds), [argo-workflows](https://github.com/argoproj/argo-workflows/tree/main/manifests/base/crds), [argo-rollouts](https://github.com/argoproj/argo-rollouts/tree/master/manifests/crds) and [argo-events](https://github.com/argoproj/argo-events/tree/master/manifests/base/crds)
 - [tekton-operator](https://github.com/tektoncd/operator/blob/main/docs/install.md), [tekton-pipeline](https://github.com/tektoncd/pipeline/blob/main/docs/install.md), [tekton-triggers](https://github.com/tektoncd/triggers/blob/main/docs/install.md)
 - [OPA gatekeeper](https://github.com/open-policy-agent/gatekeeper/tree/master/charts/gatekeeper/crds)
+- [velero](https://github.com/vmware-tanzu/velero/tree/main/config/crd)
 
 ## Contributing
 

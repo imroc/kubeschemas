@@ -3871,10 +3871,28 @@
       "$ref": "velero.io/backuplist_v1.json"
     },
     {
+      "$ref": "velero.io/backuprepository_v1.json"
+    },
+    {
+      "$ref": "velero.io/backuprepositorylist_v1.json"
+    },
+    {
       "$ref": "velero.io/backupstoragelocation_v1.json"
     },
     {
       "$ref": "velero.io/backupstoragelocationlist_v1.json"
+    },
+    {
+      "$ref": "velero.io/datadownload_v2alpha1.json"
+    },
+    {
+      "$ref": "velero.io/datadownloadlist_v2alpha1.json"
+    },
+    {
+      "$ref": "velero.io/dataupload_v2alpha1.json"
+    },
+    {
+      "$ref": "velero.io/datauploadlist_v2alpha1.json"
     },
     {
       "$ref": "velero.io/deletebackuprequest_v1.json"
