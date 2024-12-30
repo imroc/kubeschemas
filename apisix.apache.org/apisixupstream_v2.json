@@ -1,0 +1,635 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "apisix.apache.org/v2"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "ApisixUpstream"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "discovery": {
+          "description": "Discovery is used to configure service discovery for upstream",
+          "properties": {
+            "args": {
+              "type": "object",
+              "x-kubernetes-preserve-unknown-fields": true
+            },
+            "serviceName": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "externalNodes": {
+          "description": "ExternalNodes contains external nodes the Upstream should use If this field is set, the upstream will use these nodes directly without any further resolves",
+          "items": {
+            "description": "ApisixUpstreamExternalNode is the external node conf",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "port": {
+                "type": "integer"
+              },
+              "type": {
+                "type": "string"
+              },
+              "weight": {
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "healthCheck": {
+          "anyOf": [
+            {
+              "required": [
+                "active"
+              ]
+            },
+            {
+              "required": [
+                "active",
+                "passive"
+              ]
+            }
+          ],
+          "properties": {
+            "active": {
+              "properties": {
+                "concurrency": {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "healthy": {
+                  "properties": {
+                    "httpCodes": {
+                      "items": {
+                        "maximum": 599,
+                        "minimum": 200,
+                        "type": "integer"
+                      },
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "interval": {
+                      "type": "string"
+                    },
+                    "successes": {
+                      "maximum": 254,
+                      "minimum": 1,
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                },
+                "host": {
+                  "pattern": "^\\*?[0-9a-zA-Z-._]+$",
+                  "type": "string"
+                },
+                "httpPath": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "port": {
+                  "maximum": 65535,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "requestHeaders": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "strictTLS": {
+                  "type": "boolean"
+                },
+                "timeout": {
+                  "minimum": 0,
+                  "type": "number"
+                },
+                "type": {
+                  "enum": [
+                    "http",
+                    "https",
+                    "tcp"
+                  ],
+                  "type": "string"
+                },
+                "unhealthy": {
+                  "properties": {
+                    "httpCodes": {
+                      "items": {
+                        "maximum": 599,
+                        "minimum": 200,
+                        "type": "integer"
+                      },
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "httpFailures": {
+                      "maximum": 254,
+                      "minimum": 1,
+                      "type": "integer"
+                    },
+                    "interval": {
+                      "type": "string"
+                    },
+                    "tcpFailures": {
+                      "maximum": 254,
+                      "minimum": 1,
+                      "type": "integer"
+                    },
+                    "timeouts": {
+                      "minimum": 0,
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "passive": {
+              "properties": {
+                "healthy": {
+                  "properties": {
+                    "httpCodes": {
+                      "items": {
+                        "maximum": 599,
+                        "minimum": 200,
+                        "type": "integer"
+                      },
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "successes": {
+                      "maximum": 254,
+                      "minimum": 1,
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": {
+                  "enum": [
+                    "http",
+                    "https",
+                    "tcp"
+                  ],
+                  "type": "string"
+                },
+                "unhealthy": {
+                  "properties": {
+                    "httpCodes": {
+                      "items": {
+                        "maximum": 599,
+                        "minimum": 200,
+                        "type": "integer"
+                      },
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "httpFailures": {
+                      "maximum": 254,
+                      "minimum": 1,
+                      "type": "integer"
+                    },
+                    "tcpFailures": {
+                      "maximum": 254,
+                      "minimum": 1,
+                      "type": "integer"
+                    },
+                    "timeouts": {
+                      "minimum": 0,
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "ingressClassName": {
+          "type": "string"
+        },
+        "loadbalancer": {
+          "properties": {
+            "hashOn": {
+              "enum": [
+                "vars",
+                "vars_combinations",
+                "header",
+                "cookie",
+                "consumer"
+              ],
+              "type": "string"
+            },
+            "key": {
+              "type": "string"
+            },
+            "type": {
+              "enum": [
+                "roundrobin",
+                "chash",
+                "ewma",
+                "least_conn"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "type": "object"
+        },
+        "passHost": {
+          "enum": [
+            "pass",
+            "node",
+            "rewrite"
+          ],
+          "type": "string"
+        },
+        "portLevelSettings": {
+          "items": {
+            "properties": {
+              "healthCheck": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "active"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "active",
+                      "passive"
+                    ]
+                  }
+                ],
+                "properties": {
+                  "active": {
+                    "properties": {
+                      "concurrency": {
+                        "minimum": 1,
+                        "type": "integer"
+                      },
+                      "healthy": {
+                        "properties": {
+                          "httpCodes": {
+                            "items": {
+                              "maximum": 599,
+                              "minimum": 200,
+                              "type": "integer"
+                            },
+                            "minItems": 1,
+                            "type": "array"
+                          },
+                          "interval": {
+                            "type": "string"
+                          },
+                          "successes": {
+                            "maximum": 254,
+                            "minimum": 1,
+                            "type": "integer"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "host": {
+                        "pattern": "^\\*?[0-9a-zA-Z-._]+$",
+                        "type": "string"
+                      },
+                      "httpPath": {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "port": {
+                        "maximum": 65535,
+                        "minimum": 1,
+                        "type": "integer"
+                      },
+                      "requestHeaders": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "minItems": 1,
+                        "type": "array"
+                      },
+                      "strictTLS": {
+                        "type": "boolean"
+                      },
+                      "timeout": {
+                        "minimum": 0,
+                        "type": "number"
+                      },
+                      "type": {
+                        "enum": [
+                          "http",
+                          "https",
+                          "tcp"
+                        ],
+                        "type": "string"
+                      },
+                      "unhealthy": {
+                        "properties": {
+                          "httpCodes": {
+                            "items": {
+                              "maximum": 599,
+                              "minimum": 200,
+                              "type": "integer"
+                            },
+                            "minItems": 1,
+                            "type": "array"
+                          },
+                          "httpFailures": {
+                            "maximum": 254,
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          "interval": {
+                            "type": "string"
+                          },
+                          "tcpFailures": {
+                            "maximum": 254,
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          "timeout": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "passive": {
+                    "properties": {
+                      "healthy": {
+                        "properties": {
+                          "httpCodes": {
+                            "items": {
+                              "maximum": 599,
+                              "minimum": 200,
+                              "type": "integer"
+                            },
+                            "minItems": 1,
+                            "type": "array"
+                          },
+                          "successes": {
+                            "maximum": 254,
+                            "minimum": 1,
+                            "type": "integer"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": {
+                        "enum": [
+                          "http",
+                          "https",
+                          "tcp"
+                        ],
+                        "type": "string"
+                      },
+                      "unhealthy": {
+                        "properties": {
+                          "httpCodes": {
+                            "items": {
+                              "maximum": 599,
+                              "minimum": 200,
+                              "type": "integer"
+                            },
+                            "minItems": 1,
+                            "type": "array"
+                          },
+                          "httpFailures": {
+                            "maximum": 254,
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          "tcpFailures": {
+                            "maximum": 254,
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          "timeout": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "loadbalancer": {
+                "properties": {
+                  "hashOn": {
+                    "enum": [
+                      "vars",
+                      "vars_combinations",
+                      "header",
+                      "cookie",
+                      "consumer"
+                    ],
+                    "type": "string"
+                  },
+                  "key": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "enum": [
+                      "roundrobin",
+                      "chash",
+                      "ewma",
+                      "least_conn"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "type": "object"
+              },
+              "port": {
+                "maximum": 65535,
+                "minimum": 1,
+                "type": "integer"
+              },
+              "retries": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "scheme": {
+                "enum": [
+                  "http",
+                  "grpc"
+                ],
+                "type": "string"
+              },
+              "timeout": {
+                "properties": {
+                  "connect": {
+                    "type": "string"
+                  },
+                  "read": {
+                    "type": "string"
+                  },
+                  "send": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "retries": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "scheme": {
+          "enum": [
+            "http",
+            "grpc",
+            "https",
+            "grpcs"
+          ],
+          "type": "string"
+        },
+        "subsets": {
+          "items": {
+            "properties": {
+              "labels": {
+                "type": "object",
+                "x-kubernetes-preserve-unknown-fields": true
+              },
+              "name": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "labels"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "timeout": {
+          "properties": {
+            "connect": {
+              "type": "string"
+            },
+            "read": {
+              "type": "string"
+            },
+            "send": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "tlsSecret": {
+          "description": "ApisixSecret describes the Kubernetes Secret name and namespace.",
+          "properties": {
+            "name": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "namespace": {
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "namespace"
+          ],
+          "type": "object"
+        },
+        "upstreamHost": {
+          "pattern": "^\\*?[0-9a-zA-Z-._]+$",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "properties": {
+        "conditions": {
+          "items": {
+            "properties": {
+              "message": {
+                "type": "string"
+              },
+              "observedGeneration": {
+                "type": "integer"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "apisix.apache.org",
+      "kind": "ApisixUpstream",
+      "version": "v2"
+    }
+  ]
+}

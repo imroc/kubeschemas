@@ -130,6 +130,84 @@
       "$ref": "apiregistration.k8s.io/apiservicelist_v1.json"
     },
     {
+      "$ref": "apisix.apache.org/apisixclusterconfig_v2.json"
+    },
+    {
+      "$ref": "apisix.apache.org/apisixclusterconfig_v2beta3.json"
+    },
+    {
+      "$ref": "apisix.apache.org/apisixclusterconfiglist_v2.json"
+    },
+    {
+      "$ref": "apisix.apache.org/apisixclusterconfiglist_v2beta3.json"
+    },
+    {
+      "$ref": "apisix.apache.org/apisixconsumer_v2.json"
+    },
+    {
+      "$ref": "apisix.apache.org/apisixconsumer_v2beta3.json"
+    },
+    {
+      "$ref": "apisix.apache.org/apisixconsumerlist_v2.json"
+    },
+    {
+      "$ref": "apisix.apache.org/apisixconsumerlist_v2beta3.json"
+    },
+    {
+      "$ref": "apisix.apache.org/apisixglobalrule_v2.json"
+    },
+    {
+      "$ref": "apisix.apache.org/apisixglobalrulelist_v2.json"
+    },
+    {
+      "$ref": "apisix.apache.org/apisixpluginconfig_v2.json"
+    },
+    {
+      "$ref": "apisix.apache.org/apisixpluginconfig_v2beta3.json"
+    },
+    {
+      "$ref": "apisix.apache.org/apisixpluginconfiglist_v2.json"
+    },
+    {
+      "$ref": "apisix.apache.org/apisixpluginconfiglist_v2beta3.json"
+    },
+    {
+      "$ref": "apisix.apache.org/apisixroute_v2.json"
+    },
+    {
+      "$ref": "apisix.apache.org/apisixroute_v2beta3.json"
+    },
+    {
+      "$ref": "apisix.apache.org/apisixroutelist_v2.json"
+    },
+    {
+      "$ref": "apisix.apache.org/apisixroutelist_v2beta3.json"
+    },
+    {
+      "$ref": "apisix.apache.org/apisixtls_v2.json"
+    },
+    {
+      "$ref": "apisix.apache.org/apisixtls_v2beta3.json"
+    },
+    {
+      "$ref": "apisix.apache.org/apisixtlslist_v2.json"
+    },
+    {
+      "$ref": "apisix.apache.org/apisixtlslist_v2beta3.json"
+    },
+    {
+      "$ref": "apisix.apache.org/apisixupstream_v2.json"
+    },
+    {
+      "$ref": "apisix.apache.org/apisixupstream_v2beta3.json"
+    },
+    {
+      "$ref": "apisix.apache.org/apisixupstreamlist_v2.json"
+    },
+    {
+      "$ref": "apisix.apache.org/apisixupstreamlist_v2beta3.json"
+    },
+    {
       "$ref": "app.k8s.io/application_v1beta1.json"
     },
     {
