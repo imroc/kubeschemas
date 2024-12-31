@@ -1,0 +1,15 @@
+{
+  "description": "ValidatingAdmissionPolicyStatusControllerConfiguration contains elements describing ValidatingAdmissionPolicyStatusController.",
+  "properties": {
+    "ConcurrentPolicySyncs": {
+      "default": 0,
+      "description": "ConcurrentPolicySyncs is the number of policy objects that are allowed to sync concurrently. Larger number = quicker type checking, but more CPU (and network) load. The default value is 5.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "ConcurrentPolicySyncs"
+  ],
+  "type": "object"
+}

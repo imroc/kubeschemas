@@ -1,0 +1,55 @@
+{
+  "description": "PersistentVolumeRecyclerConfiguration contains elements describing persistent volume plugins.",
+  "properties": {
+    "IncrementTimeoutHostPath": {
+      "default": 0,
+      "description": "incrementTimeoutHostPath is the increment of time added per Gi to ActiveDeadlineSeconds for a HostPath scrubber pod.  This is for development and testing only and will not work in a multi-node cluster.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "IncrementTimeoutNFS": {
+      "default": 0,
+      "description": "incrementTimeoutNFS is the increment of time added per Gi to ActiveDeadlineSeconds for an NFS scrubber pod.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "MaximumRetry": {
+      "default": 0,
+      "description": "maximumRetry is number of retries the PV recycler will execute on failure to recycle PV.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "MinimumTimeoutHostPath": {
+      "default": 0,
+      "description": "minimumTimeoutHostPath is the minimum ActiveDeadlineSeconds to use for a HostPath Recycler pod.  This is for development and testing only and will not work in a multi-node cluster.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "MinimumTimeoutNFS": {
+      "default": 0,
+      "description": "minimumTimeoutNFS is the minimum ActiveDeadlineSeconds to use for an NFS Recycler pod.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "PodTemplateFilePathHostPath": {
+      "default": "",
+      "description": "podTemplateFilePathHostPath is the file path to a pod definition used as a template for HostPath persistent volume recycling. This is for development and testing only and will not work in a multi-node cluster.",
+      "type": "string"
+    },
+    "PodTemplateFilePathNFS": {
+      "default": "",
+      "description": "podTemplateFilePathNFS is the file path to a pod definition used as a template for NFS persistent volume recycling",
+      "type": "string"
+    }
+  },
+  "required": [
+    "MaximumRetry",
+    "MinimumTimeoutNFS",
+    "PodTemplateFilePathNFS",
+    "IncrementTimeoutNFS",
+    "PodTemplateFilePathHostPath",
+    "MinimumTimeoutHostPath",
+    "IncrementTimeoutHostPath"
+  ],
+  "type": "object"
+}

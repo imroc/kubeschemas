@@ -1033,6 +1033,15 @@
       "$ref": "comcast.github.io/kuberhealthystatelist_v1.json"
     },
     {
+      "$ref": "config.cloud-provider.k8s.io/cloudcontrollermanagerconfiguration_v1alpha1.json"
+    },
+    {
+      "$ref": "config.controller-manager.k8s.io/leadermigrationconfiguration_v1alpha1.json"
+    },
+    {
+      "$ref": "config.controller-manager.k8s.io/leadermigrationconfiguration_v1beta1.json"
+    },
+    {
       "$ref": "config.gatekeeper.sh/config_v1alpha1.json"
     },
     {
@@ -2107,6 +2116,9 @@
       "$ref": "konnect.konghq.com/konnectgatewaycontrolplanelist_v1alpha1.json"
     },
     {
+      "$ref": "kubecontrollermanager.config.k8s.io/kubecontrollermanagerconfiguration_v1alpha1.json"
+    },
+    {
       "$ref": "kubeflow.org/mpijob_v1.json"
     },
     {
@@ -2171,6 +2183,21 @@
     },
     {
       "$ref": "kubeflow.tkestack.io/jupyternotebooklist_v1alpha1.json"
+    },
+    {
+      "$ref": "kubelet.config.k8s.io/credentialproviderconfig_v1.json"
+    },
+    {
+      "$ref": "kubelet.config.k8s.io/credentialproviderconfig_v1alpha1.json"
+    },
+    {
+      "$ref": "kubelet.config.k8s.io/credentialproviderconfig_v1beta1.json"
+    },
+    {
+      "$ref": "kubelet.config.k8s.io/kubeletconfiguration_v1beta1.json"
+    },
+    {
+      "$ref": "kubelet.config.k8s.io/serializednodeconfigsource_v1beta1.json"
     },
     {
       "$ref": "kueue.x-k8s.io/admissioncheck_v1beta1.json"

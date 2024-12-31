@@ -1,0 +1,15 @@
+{
+  "description": "StatefulSetControllerConfiguration contains elements describing StatefulSetController.",
+  "properties": {
+    "ConcurrentStatefulSetSyncs": {
+      "default": 0,
+      "description": "concurrentStatefulSetSyncs is the number of statefulset objects that are allowed to sync concurrently. Larger number = more responsive statefulsets, but more CPU (and network) load.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "ConcurrentStatefulSetSyncs"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,16 @@
+{
+  "description": "FormatOptions contains options for the different logging formats.",
+  "properties": {
+    "json": {
+      "$ref": "../api.logs.component-base.k8s.io/jsonoptions_v1.json",
+      "default": {},
+      "description": "[Alpha] JSON contains options for logging format \"json\". Only available when the LoggingAlphaOptions feature gate is enabled."
+    },
+    "text": {
+      "$ref": "../api.logs.component-base.k8s.io/textoptions_v1.json",
+      "default": {},
+      "description": "[Alpha] Text contains options for logging format \"text\". Only available when the LoggingAlphaOptions feature gate is enabled."
+    }
+  },
+  "type": "object"
+}

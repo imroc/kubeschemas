@@ -1,0 +1,15 @@
+{
+  "description": "DaemonSetControllerConfiguration contains elements describing DaemonSetController.",
+  "properties": {
+    "ConcurrentDaemonSetSyncs": {
+      "default": 0,
+      "description": "concurrentDaemonSetSyncs is the number of daemonset objects that are allowed to sync concurrently. Larger number = more responsive daemonset, but more CPU (and network) load.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "ConcurrentDaemonSetSyncs"
+  ],
+  "type": "object"
+}

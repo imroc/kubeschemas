@@ -1,0 +1,15 @@
+{
+  "description": "ServiceControllerConfiguration contains elements describing ServiceController.",
+  "properties": {
+    "ConcurrentServiceSyncs": {
+      "default": 0,
+      "description": "concurrentServiceSyncs is the number of services that are allowed to sync concurrently. Larger number = more responsive service management, but more CPU (and network) load.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "ConcurrentServiceSyncs"
+  ],
+  "type": "object"
+}

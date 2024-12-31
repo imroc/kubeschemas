@@ -1,0 +1,20 @@
+{
+  "properties": {
+    "anonymous": {
+      "$ref": "../kubelet.config.k8s.io/kubeletanonymousauthentication_v1beta1.json",
+      "default": {},
+      "description": "anonymous contains settings related to anonymous authentication."
+    },
+    "webhook": {
+      "$ref": "../kubelet.config.k8s.io/kubeletwebhookauthentication_v1beta1.json",
+      "default": {},
+      "description": "webhook contains settings related to webhook bearer token authentication."
+    },
+    "x509": {
+      "$ref": "../kubelet.config.k8s.io/kubeletx509authentication_v1beta1.json",
+      "default": {},
+      "description": "x509 contains settings related to x509 client certificate authentication."
+    }
+  },
+  "type": "object"
+}

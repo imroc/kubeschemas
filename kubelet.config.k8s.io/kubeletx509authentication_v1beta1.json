@@ -1,0 +1,9 @@
+{
+  "properties": {
+    "clientCAFile": {
+      "description": "clientCAFile is the path to a PEM-encoded certificate bundle. If set, any request presenting a client certificate signed by one of the authorities in the bundle is authenticated with a username corresponding to the CommonName, and groups corresponding to the Organization in the client certificate.",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

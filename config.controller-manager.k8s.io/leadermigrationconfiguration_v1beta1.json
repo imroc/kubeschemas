@@ -1,0 +1,43 @@
+{
+  "description": "LeaderMigrationConfiguration provides versioned configuration for all migrating leader locks.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "config.controller-manager.k8s.io/v1beta1"
+      ],
+      "type": "string"
+    },
+    "controllerLeaders": {
+      "description": "ControllerLeaders contains a list of migrating leader lock configurations",
+      "items": {
+        "$ref": "../config.controller-manager.k8s.io/controllerleaderconfiguration_v1beta1.json",
+        "default": {}
+      },
+      "type": "array",
+      "x-kubernetes-list-type": "atomic"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "LeaderMigrationConfiguration"
+      ],
+      "type": "string"
+    },
+    "leaderName": {
+      "default": "",
+      "description": "LeaderName is the name of the leader election resource that protects the migration E.g. 1-20-KCM-to-1-21-CCM",
+      "type": "string"
+    },
+    "resourceLock": {
+      "default": "",
+      "description": "ResourceLock indicates the resource object type that will be used to lock Should be \"leases\" or \"endpoints\"",
+      "type": "string"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object"
+}

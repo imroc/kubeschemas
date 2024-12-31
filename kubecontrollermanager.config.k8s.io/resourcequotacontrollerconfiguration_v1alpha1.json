@@ -1,0 +1,20 @@
+{
+  "description": "ResourceQuotaControllerConfiguration contains elements describing ResourceQuotaController.",
+  "properties": {
+    "ConcurrentResourceQuotaSyncs": {
+      "default": 0,
+      "description": "concurrentResourceQuotaSyncs is the number of resource quotas that are allowed to sync concurrently. Larger number = more responsive quota management, but more CPU (and network) load.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "ResourceQuotaSyncPeriod": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "resourceQuotaSyncPeriod is the period for syncing quota usage status in the system."
+    }
+  },
+  "required": [
+    "ResourceQuotaSyncPeriod",
+    "ConcurrentResourceQuotaSyncs"
+  ],
+  "type": "object"
+}

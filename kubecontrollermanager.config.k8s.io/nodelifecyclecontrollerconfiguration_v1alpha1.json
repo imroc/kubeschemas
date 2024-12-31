@@ -1,0 +1,51 @@
+{
+  "description": "NodeLifecycleControllerConfiguration contains elements describing NodeLifecycleController.",
+  "properties": {
+    "LargeClusterSizeThreshold": {
+      "default": 0,
+      "description": "secondaryNodeEvictionRate is implicitly overridden to 0 for clusters smaller than or equal to largeClusterSizeThreshold",
+      "format": "int32",
+      "type": "integer"
+    },
+    "NodeEvictionRate": {
+      "default": 0,
+      "description": "nodeEvictionRate is the number of nodes per second on which pods are deleted in case of node failure when a zone is healthy",
+      "format": "float",
+      "type": "number"
+    },
+    "NodeMonitorGracePeriod": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "nodeMontiorGracePeriod is the amount of time which we allow a running node to be unresponsive before marking it unhealthy. Must be N times more than kubelet's nodeStatusUpdateFrequency, where N means number of retries allowed for kubelet to post node status. This value should also be greater than the sum of HTTP2_PING_TIMEOUT_SECONDS and HTTP2_READ_IDLE_TIMEOUT_SECONDS."
+    },
+    "NodeStartupGracePeriod": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "nodeStartupGracePeriod is the amount of time which we allow starting a node to be unresponsive before marking it unhealthy."
+    },
+    "PodEvictionTimeout": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "podEvictionTimeout is the grace period for deleting pods on failed nodes."
+    },
+    "SecondaryNodeEvictionRate": {
+      "default": 0,
+      "description": "secondaryNodeEvictionRate is the number of nodes per second on which pods are deleted in case of node failure when a zone is unhealthy",
+      "format": "float",
+      "type": "number"
+    },
+    "UnhealthyZoneThreshold": {
+      "default": 0,
+      "description": "Zone is treated as unhealthy in nodeEvictionRate and secondaryNodeEvictionRate when at least unhealthyZoneThreshold (no less than 3) of Nodes in the zone are NotReady",
+      "format": "float",
+      "type": "number"
+    }
+  },
+  "required": [
+    "NodeEvictionRate",
+    "SecondaryNodeEvictionRate",
+    "NodeStartupGracePeriod",
+    "NodeMonitorGracePeriod",
+    "PodEvictionTimeout",
+    "LargeClusterSizeThreshold",
+    "UnhealthyZoneThreshold"
+  ],
+  "type": "object"
+}

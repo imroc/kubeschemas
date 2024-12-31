@@ -1,0 +1,13 @@
+{
+  "description": "TimeOrMetaDuration is present only for backwards compatibility for the flushFrequency field, and new fields should use metav1.Duration.",
+  "properties": {
+    "Duration": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "Duration holds the duration"
+    }
+  },
+  "required": [
+    "Duration"
+  ],
+  "type": "object"
+}

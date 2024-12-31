@@ -1,0 +1,15 @@
+{
+  "description": "CronJobControllerConfiguration contains elements describing CrongJob2Controller.",
+  "properties": {
+    "ConcurrentCronJobSyncs": {
+      "default": 0,
+      "description": "concurrentCronJobSyncs is the number of job objects that are allowed to sync concurrently. Larger number = more responsive jobs, but more CPU (and network) load.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "ConcurrentCronJobSyncs"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,19 @@
+{
+  "description": "PersistentVolumeBinderControllerConfiguration contains elements describing PersistentVolumeBinderController.",
+  "properties": {
+    "PVClaimBinderSyncPeriod": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "pvClaimBinderSyncPeriod is the period for syncing persistent volumes and persistent volume claims."
+    },
+    "VolumeConfiguration": {
+      "$ref": "../kubecontrollermanager.config.k8s.io/volumeconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "volumeConfiguration holds configuration for volume related features."
+    }
+  },
+  "required": [
+    "PVClaimBinderSyncPeriod",
+    "VolumeConfiguration"
+  ],
+  "type": "object"
+}

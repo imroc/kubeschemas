@@ -1,0 +1,18 @@
+{
+  "description": "ExecEnvVar is used for setting environment variables when executing an exec-based credential plugin.",
+  "properties": {
+    "name": {
+      "default": "",
+      "type": "string"
+    },
+    "value": {
+      "default": "",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "value"
+  ],
+  "type": "object"
+}

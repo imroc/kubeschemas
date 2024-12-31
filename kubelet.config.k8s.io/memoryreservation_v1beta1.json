@@ -1,0 +1,21 @@
+{
+  "description": "MemoryReservation specifies the memory reservation of different types for each NUMA node",
+  "properties": {
+    "limits": {
+      "additionalProperties": {
+        "$ref": "../api.pkg.apimachinery.k8s.io/quantity_resource.json"
+      },
+      "type": "object"
+    },
+    "numaNode": {
+      "default": 0,
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "numaNode",
+    "limits"
+  ],
+  "type": "object"
+}

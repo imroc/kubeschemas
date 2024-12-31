@@ -1,0 +1,21 @@
+{
+  "description": "AuthProviderConfig holds the configuration for a specified auth provider.",
+  "properties": {
+    "config": {
+      "additionalProperties": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "name": {
+      "default": "",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "config"
+  ],
+  "type": "object"
+}

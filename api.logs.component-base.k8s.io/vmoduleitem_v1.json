@@ -1,0 +1,21 @@
+{
+  "description": "VModuleItem defines verbosity for one or more files which match a certain glob pattern.",
+  "properties": {
+    "filePattern": {
+      "default": "",
+      "description": "FilePattern is a base file name (i.e. minus the \".go\" suffix and directory) or a \"glob\" pattern for such a name. It must not contain comma and equal signs because those are separators for the corresponding klog command line argument.",
+      "type": "string"
+    },
+    "verbosity": {
+      "default": 0,
+      "description": "Verbosity is the threshold for log messages emitted inside files that match the pattern.",
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "filePattern",
+    "verbosity"
+  ],
+  "type": "object"
+}

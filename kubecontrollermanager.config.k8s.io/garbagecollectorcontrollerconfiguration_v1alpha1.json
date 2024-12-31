@@ -1,0 +1,29 @@
+{
+  "description": "GarbageCollectorControllerConfiguration contains elements describing GarbageCollectorController.",
+  "properties": {
+    "ConcurrentGCSyncs": {
+      "default": 0,
+      "description": "concurrentGCSyncs is the number of garbage collector workers that are allowed to sync concurrently.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "EnableGarbageCollector": {
+      "description": "enables the generic garbage collector. MUST be synced with the corresponding flag of the kube-apiserver. WARNING: the generic garbage collector is an alpha feature.",
+      "type": "boolean"
+    },
+    "GCIgnoredResources": {
+      "description": "gcIgnoredResources is the list of GroupResources that garbage collection should ignore.",
+      "items": {
+        "$ref": "../kubecontrollermanager.config.k8s.io/groupresource_v1alpha1.json",
+        "default": {}
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "EnableGarbageCollector",
+    "ConcurrentGCSyncs",
+    "GCIgnoredResources"
+  ],
+  "type": "object"
+}

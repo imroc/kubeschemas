@@ -1,0 +1,20 @@
+{
+  "description": "CSRSigningConfiguration holds information about a particular CSR signer",
+  "properties": {
+    "CertFile": {
+      "default": "",
+      "description": "certFile is the filename containing a PEM-encoded X509 CA certificate used to issue certificates",
+      "type": "string"
+    },
+    "KeyFile": {
+      "default": "",
+      "description": "keyFile is the filename containing a PEM-encoded RSA or ECDSA private key used to issue certificates",
+      "type": "string"
+    }
+  },
+  "required": [
+    "CertFile",
+    "KeyFile"
+  ],
+  "type": "object"
+}

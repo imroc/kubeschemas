@@ -1,0 +1,15 @@
+{
+  "description": "TTLAfterFinishedControllerConfiguration contains elements describing TTLAfterFinishedController.",
+  "properties": {
+    "ConcurrentTTLSyncs": {
+      "default": 0,
+      "description": "concurrentTTLSyncs is the number of TTL-after-finished collector workers that are allowed to sync concurrently.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "ConcurrentTTLSyncs"
+  ],
+  "type": "object"
+}

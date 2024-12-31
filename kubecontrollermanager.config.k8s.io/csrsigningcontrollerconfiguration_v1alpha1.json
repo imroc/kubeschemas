@@ -1,0 +1,49 @@
+{
+  "description": "CSRSigningControllerConfiguration contains elements describing CSRSigningController.",
+  "properties": {
+    "ClusterSigningCertFile": {
+      "default": "",
+      "description": "clusterSigningCertFile is the filename containing a PEM-encoded X509 CA certificate used to issue cluster-scoped certificates",
+      "type": "string"
+    },
+    "ClusterSigningDuration": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "clusterSigningDuration is the max length of duration signed certificates will be given. Individual CSRs may request shorter certs by setting spec.expirationSeconds."
+    },
+    "ClusterSigningKeyFile": {
+      "default": "",
+      "description": "clusterSigningCertFile is the filename containing a PEM-encoded RSA or ECDSA private key used to issue cluster-scoped certificates",
+      "type": "string"
+    },
+    "KubeAPIServerClientSignerConfiguration": {
+      "$ref": "../kubecontrollermanager.config.k8s.io/csrsigningconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "kubeAPIServerClientSignerConfiguration holds the certificate and key used to issue certificates for the kubernetes.io/kube-apiserver-client"
+    },
+    "KubeletClientSignerConfiguration": {
+      "$ref": "../kubecontrollermanager.config.k8s.io/csrsigningconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "kubeletClientSignerConfiguration holds the certificate and key used to issue certificates for the kubernetes.io/kube-apiserver-client-kubelet"
+    },
+    "KubeletServingSignerConfiguration": {
+      "$ref": "../kubecontrollermanager.config.k8s.io/csrsigningconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "kubeletServingSignerConfiguration holds the certificate and key used to issue certificates for the kubernetes.io/kubelet-serving signer"
+    },
+    "LegacyUnknownSignerConfiguration": {
+      "$ref": "../kubecontrollermanager.config.k8s.io/csrsigningconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "legacyUnknownSignerConfiguration holds the certificate and key used to issue certificates for the kubernetes.io/legacy-unknown"
+    }
+  },
+  "required": [
+    "ClusterSigningCertFile",
+    "ClusterSigningKeyFile",
+    "KubeletServingSignerConfiguration",
+    "KubeletClientSignerConfiguration",
+    "KubeAPIServerClientSignerConfiguration",
+    "LegacyUnknownSignerConfiguration",
+    "ClusterSigningDuration"
+  ],
+  "type": "object"
+}

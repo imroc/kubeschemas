@@ -1,0 +1,20 @@
+{
+  "description": "EndpointControllerConfiguration contains elements describing EndpointController.",
+  "properties": {
+    "ConcurrentEndpointSyncs": {
+      "default": 0,
+      "description": "concurrentEndpointSyncs is the number of endpoint syncing operations that will be done concurrently. Larger number = faster endpoint updating, but more CPU (and network) load.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "EndpointUpdatesBatchPeriod": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "EndpointUpdatesBatchPeriod describes the length of endpoint updates batching period. Processing of pod changes will be delayed by this duration to join them with potential upcoming updates and reduce the overall number of endpoints updates."
+    }
+  },
+  "required": [
+    "ConcurrentEndpointSyncs",
+    "EndpointUpdatesBatchPeriod"
+  ],
+  "type": "object"
+}

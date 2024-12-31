@@ -1,0 +1,27 @@
+{
+  "description": "EndpointSliceControllerConfiguration contains elements describing EndpointSliceController.",
+  "properties": {
+    "ConcurrentServiceEndpointSyncs": {
+      "default": 0,
+      "description": "concurrentServiceEndpointSyncs is the number of service endpoint syncing operations that will be done concurrently. Larger number = faster endpoint slice updating, but more CPU (and network) load.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "EndpointUpdatesBatchPeriod": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "EndpointUpdatesBatchPeriod describes the length of endpoint updates batching period. Processing of pod changes will be delayed by this duration to join them with potential upcoming updates and reduce the overall number of endpoints updates."
+    },
+    "MaxEndpointsPerSlice": {
+      "default": 0,
+      "description": "maxEndpointsPerSlice is the maximum number of endpoints that will be added to an EndpointSlice. More endpoints per slice will result in fewer and larger endpoint slices, but larger resources.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "ConcurrentServiceEndpointSyncs",
+    "MaxEndpointsPerSlice",
+    "EndpointUpdatesBatchPeriod"
+  ],
+  "type": "object"
+}

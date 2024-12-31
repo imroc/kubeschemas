@@ -1,0 +1,20 @@
+{
+  "description": "NamedContext relates nicknames to context information",
+  "properties": {
+    "context": {
+      "$ref": "../core.api.k8s.io/context_v1.json",
+      "default": {},
+      "description": "Context holds the context information"
+    },
+    "name": {
+      "default": "",
+      "description": "Name is the nickname for this Context",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "context"
+  ],
+  "type": "object"
+}

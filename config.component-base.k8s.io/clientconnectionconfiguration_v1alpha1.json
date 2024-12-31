@@ -1,0 +1,40 @@
+{
+  "description": "ClientConnectionConfiguration contains details for constructing a client.",
+  "properties": {
+    "acceptContentTypes": {
+      "default": "",
+      "description": "acceptContentTypes defines the Accept header sent by clients when connecting to a server, overriding the default value of 'application/json'. This field will control all connections to the server used by a particular client.",
+      "type": "string"
+    },
+    "burst": {
+      "default": 0,
+      "description": "burst allows extra queries to accumulate when a client is exceeding its rate.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "contentType": {
+      "default": "",
+      "description": "contentType is the content type used when sending data to the server from this client.",
+      "type": "string"
+    },
+    "kubeconfig": {
+      "default": "",
+      "description": "kubeconfig is the path to a KubeConfig file.",
+      "type": "string"
+    },
+    "qps": {
+      "default": 0,
+      "description": "qps controls the number of queries per second allowed for this connection.",
+      "format": "float",
+      "type": "number"
+    }
+  },
+  "required": [
+    "kubeconfig",
+    "acceptContentTypes",
+    "contentType",
+    "qps",
+    "burst"
+  ],
+  "type": "object"
+}

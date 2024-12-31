@@ -1,0 +1,15 @@
+{
+  "description": "JobControllerConfiguration contains elements describing JobController.",
+  "properties": {
+    "ConcurrentJobSyncs": {
+      "default": 0,
+      "description": "concurrentJobSyncs is the number of job objects that are allowed to sync concurrently. Larger number = more responsive jobs, but more CPU (and network) load.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "ConcurrentJobSyncs"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,13 @@
+{
+  "description": "LegacySATokenCleanerConfiguration contains elements describing LegacySATokenCleaner",
+  "properties": {
+    "CleanUpPeriod": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "CleanUpPeriod is the period of time since the last usage of an auto-generated service account token before it can be deleted."
+    }
+  },
+  "required": [
+    "CleanUpPeriod"
+  ],
+  "type": "object"
+}

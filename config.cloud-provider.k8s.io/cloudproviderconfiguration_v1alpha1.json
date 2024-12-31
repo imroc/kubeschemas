@@ -1,0 +1,20 @@
+{
+  "description": "CloudProviderConfiguration contains basically elements about cloud provider.",
+  "properties": {
+    "CloudConfigFile": {
+      "default": "",
+      "description": "cloudConfigFile is the path to the cloud provider configuration file.",
+      "type": "string"
+    },
+    "Name": {
+      "default": "",
+      "description": "Name is the provider for cloud services.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "Name",
+    "CloudConfigFile"
+  ],
+  "type": "object"
+}

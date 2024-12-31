@@ -1,0 +1,20 @@
+{
+  "description": "NamedAuthInfo relates nicknames to auth information",
+  "properties": {
+    "name": {
+      "default": "",
+      "description": "Name is the nickname for this AuthInfo",
+      "type": "string"
+    },
+    "user": {
+      "$ref": "../core.api.k8s.io/authinfo_v1.json",
+      "default": {},
+      "description": "AuthInfo holds the auth information"
+    }
+  },
+  "required": [
+    "name",
+    "user"
+  ],
+  "type": "object"
+}

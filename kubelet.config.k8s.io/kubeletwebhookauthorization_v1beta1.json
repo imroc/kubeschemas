@@ -1,0 +1,13 @@
+{
+  "properties": {
+    "cacheAuthorizedTTL": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "cacheAuthorizedTTL is the duration to cache 'authorized' responses from the webhook authorizer."
+    },
+    "cacheUnauthorizedTTL": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "cacheUnauthorizedTTL is the duration to cache 'unauthorized' responses from the webhook authorizer."
+    }
+  },
+  "type": "object"
+}

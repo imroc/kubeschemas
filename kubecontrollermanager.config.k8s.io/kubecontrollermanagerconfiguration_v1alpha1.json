@@ -1,0 +1,169 @@
+{
+  "description": "KubeControllerManagerConfiguration contains elements describing kube-controller manager.",
+  "properties": {
+    "AttachDetachController": {
+      "$ref": "../kubecontrollermanager.config.k8s.io/attachdetachcontrollerconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "AttachDetachControllerConfiguration holds configuration for AttachDetachController related features."
+    },
+    "CSRSigningController": {
+      "$ref": "../kubecontrollermanager.config.k8s.io/csrsigningcontrollerconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "CSRSigningControllerConfiguration holds configuration for CSRSigningController related features."
+    },
+    "CronJobController": {
+      "$ref": "../kubecontrollermanager.config.k8s.io/cronjobcontrollerconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "CronJobControllerConfiguration holds configuration for CronJobController related features."
+    },
+    "DaemonSetController": {
+      "$ref": "../kubecontrollermanager.config.k8s.io/daemonsetcontrollerconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "DaemonSetControllerConfiguration holds configuration for DaemonSetController related features."
+    },
+    "DeploymentController": {
+      "$ref": "../kubecontrollermanager.config.k8s.io/deploymentcontrollerconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "DeploymentControllerConfiguration holds configuration for DeploymentController related features."
+    },
+    "DeprecatedController": {
+      "$ref": "../kubecontrollermanager.config.k8s.io/deprecatedcontrollerconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "DeprecatedControllerConfiguration holds configuration for some deprecated features."
+    },
+    "EndpointController": {
+      "$ref": "../kubecontrollermanager.config.k8s.io/endpointcontrollerconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "EndpointControllerConfiguration holds configuration for EndpointController related features."
+    },
+    "EndpointSliceController": {
+      "$ref": "../kubecontrollermanager.config.k8s.io/endpointslicecontrollerconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "EndpointSliceControllerConfiguration holds configuration for EndpointSliceController related features."
+    },
+    "EndpointSliceMirroringController": {
+      "$ref": "../kubecontrollermanager.config.k8s.io/endpointslicemirroringcontrollerconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "EndpointSliceMirroringControllerConfiguration holds configuration for EndpointSliceMirroringController related features."
+    },
+    "EphemeralVolumeController": {
+      "$ref": "../kubecontrollermanager.config.k8s.io/ephemeralvolumecontrollerconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "EphemeralVolumeControllerConfiguration holds configuration for EphemeralVolumeController related features."
+    },
+    "GarbageCollectorController": {
+      "$ref": "../kubecontrollermanager.config.k8s.io/garbagecollectorcontrollerconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "GarbageCollectorControllerConfiguration holds configuration for GarbageCollectorController related features."
+    },
+    "Generic": {
+      "$ref": "../config.controller-manager.k8s.io/genericcontrollermanagerconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "Generic holds configuration for a generic controller-manager"
+    },
+    "HPAController": {
+      "$ref": "../kubecontrollermanager.config.k8s.io/hpacontrollerconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "HPAControllerConfiguration holds configuration for HPAController related features."
+    },
+    "JobController": {
+      "$ref": "../kubecontrollermanager.config.k8s.io/jobcontrollerconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "JobControllerConfiguration holds configuration for JobController related features."
+    },
+    "KubeCloudShared": {
+      "$ref": "../config.cloud-provider.k8s.io/kubecloudsharedconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "KubeCloudSharedConfiguration holds configuration for shared related features both in cloud controller manager and kube-controller manager."
+    },
+    "LegacySATokenCleaner": {
+      "$ref": "../kubecontrollermanager.config.k8s.io/legacysatokencleanerconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "LegacySATokenCleanerConfiguration holds configuration for LegacySATokenCleaner related features."
+    },
+    "NamespaceController": {
+      "$ref": "../kubecontrollermanager.config.k8s.io/namespacecontrollerconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "NamespaceControllerConfiguration holds configuration for NamespaceController related features."
+    },
+    "NodeIPAMController": {
+      "$ref": "../kubecontrollermanager.config.k8s.io/nodeipamcontrollerconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "NodeIPAMControllerConfiguration holds configuration for NodeIPAMController related features."
+    },
+    "NodeLifecycleController": {
+      "$ref": "../kubecontrollermanager.config.k8s.io/nodelifecyclecontrollerconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "NodeLifecycleControllerConfiguration holds configuration for NodeLifecycleController related features."
+    },
+    "PersistentVolumeBinderController": {
+      "$ref": "../kubecontrollermanager.config.k8s.io/persistentvolumebindercontrollerconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "PersistentVolumeBinderControllerConfiguration holds configuration for PersistentVolumeBinderController related features."
+    },
+    "PodGCController": {
+      "$ref": "../kubecontrollermanager.config.k8s.io/podgccontrollerconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "PodGCControllerConfiguration holds configuration for PodGCController related features."
+    },
+    "ReplicaSetController": {
+      "$ref": "../kubecontrollermanager.config.k8s.io/replicasetcontrollerconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "ReplicaSetControllerConfiguration holds configuration for ReplicaSet related features."
+    },
+    "ReplicationController": {
+      "$ref": "../kubecontrollermanager.config.k8s.io/replicationcontrollerconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "ReplicationControllerConfiguration holds configuration for ReplicationController related features."
+    },
+    "ResourceQuotaController": {
+      "$ref": "../kubecontrollermanager.config.k8s.io/resourcequotacontrollerconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "ResourceQuotaControllerConfiguration holds configuration for ResourceQuotaController related features."
+    },
+    "SAController": {
+      "$ref": "../kubecontrollermanager.config.k8s.io/sacontrollerconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "SAControllerConfiguration holds configuration for ServiceAccountController related features."
+    },
+    "ServiceController": {
+      "$ref": "../config.service.controllers.cloud-provider.k8s.io/servicecontrollerconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "ServiceControllerConfiguration holds configuration for ServiceController related features."
+    },
+    "StatefulSetController": {
+      "$ref": "../kubecontrollermanager.config.k8s.io/statefulsetcontrollerconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "StatefulSetControllerConfiguration holds configuration for StatefulSetController related features."
+    },
+    "TTLAfterFinishedController": {
+      "$ref": "../kubecontrollermanager.config.k8s.io/ttlafterfinishedcontrollerconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "TTLAfterFinishedControllerConfiguration holds configuration for TTLAfterFinishedController related features."
+    },
+    "ValidatingAdmissionPolicyStatusController": {
+      "$ref": "../kubecontrollermanager.config.k8s.io/validatingadmissionpolicystatuscontrollerconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "ValidatingAdmissionPolicyStatusControllerConfiguration holds configuration for ValidatingAdmissionPolicyStatusController related features."
+    },
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "kubecontrollermanager.config.k8s.io/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "KubeControllerManagerConfiguration"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object"
+}

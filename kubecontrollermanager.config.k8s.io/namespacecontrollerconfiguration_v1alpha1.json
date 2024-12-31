@@ -1,0 +1,20 @@
+{
+  "description": "NamespaceControllerConfiguration contains elements describing NamespaceController.",
+  "properties": {
+    "ConcurrentNamespaceSyncs": {
+      "default": 0,
+      "description": "concurrentNamespaceSyncs is the number of namespace objects that are allowed to sync concurrently.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "NamespaceSyncPeriod": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "namespaceSyncPeriod is the period for syncing namespace life-cycle updates."
+    }
+  },
+  "required": [
+    "NamespaceSyncPeriod",
+    "ConcurrentNamespaceSyncs"
+  ],
+  "type": "object"
+}

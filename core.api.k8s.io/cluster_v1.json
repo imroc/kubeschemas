@@ -1,0 +1,47 @@
+{
+  "description": "Cluster contains information about how to communicate with a kubernetes cluster",
+  "properties": {
+    "certificate-authority": {
+      "description": "CertificateAuthority is the path to a cert file for the certificate authority.",
+      "type": "string"
+    },
+    "certificate-authority-data": {
+      "description": "CertificateAuthorityData contains PEM-encoded certificate authority certificates. Overrides CertificateAuthority",
+      "format": "byte",
+      "type": "string"
+    },
+    "disable-compression": {
+      "description": "DisableCompression allows client to opt-out of response compression for all requests to the server. This is useful to speed up requests (specifically lists) when client-server network bandwidth is ample, by saving time on compression (server-side) and decompression (client-side): https://github.com/kubernetes/kubernetes/issues/112296.",
+      "type": "boolean"
+    },
+    "extensions": {
+      "description": "Extensions holds additional information. This is useful for extenders so that reads and writes don't clobber unknown fields",
+      "items": {
+        "$ref": "../core.api.k8s.io/namedextension_v1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "insecure-skip-tls-verify": {
+      "description": "InsecureSkipTLSVerify skips the validity check for the server's certificate. This will make your HTTPS connections insecure.",
+      "type": "boolean"
+    },
+    "proxy-url": {
+      "description": "ProxyURL is the URL to the proxy to be used for all requests made by this client. URLs with \"http\", \"https\", and \"socks5\" schemes are supported.  If this configuration is not provided or the empty string, the client attempts to construct a proxy configuration from http_proxy and https_proxy environment variables. If these environment variables are not set, the client does not attempt to proxy requests.\n\nsocks5 proxying does not currently support spdy streaming endpoints (exec, attach, port forward).",
+      "type": "string"
+    },
+    "server": {
+      "default": "",
+      "description": "Server is the address of the kubernetes cluster (https://hostname:port).",
+      "type": "string"
+    },
+    "tls-server-name": {
+      "description": "TLSServerName is used to check server certificate. If TLSServerName is empty, the hostname used to contact the server is used.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "server"
+  ],
+  "type": "object"
+}

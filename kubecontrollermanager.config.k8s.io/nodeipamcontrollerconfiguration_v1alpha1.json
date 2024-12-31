@@ -1,0 +1,41 @@
+{
+  "description": "NodeIPAMControllerConfiguration contains elements describing NodeIpamController.",
+  "properties": {
+    "NodeCIDRMaskSize": {
+      "default": 0,
+      "description": "NodeCIDRMaskSize is the mask size for node cidr in cluster.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "NodeCIDRMaskSizeIPv4": {
+      "default": 0,
+      "description": "NodeCIDRMaskSizeIPv4 is the mask size for node cidr in dual-stack cluster.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "NodeCIDRMaskSizeIPv6": {
+      "default": 0,
+      "description": "NodeCIDRMaskSizeIPv6 is the mask size for node cidr in dual-stack cluster.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "SecondaryServiceCIDR": {
+      "default": "",
+      "description": "secondaryServiceCIDR is CIDR Range for Services in cluster. This is used in dual stack clusters. SecondaryServiceCIDR must be of different IP family than ServiceCIDR",
+      "type": "string"
+    },
+    "ServiceCIDR": {
+      "default": "",
+      "description": "serviceCIDR is CIDR Range for Services in cluster.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "ServiceCIDR",
+    "SecondaryServiceCIDR",
+    "NodeCIDRMaskSize",
+    "NodeCIDRMaskSizeIPv4",
+    "NodeCIDRMaskSizeIPv6"
+  ],
+  "type": "object"
+}

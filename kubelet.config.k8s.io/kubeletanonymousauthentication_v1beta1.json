@@ -1,0 +1,9 @@
+{
+  "properties": {
+    "enabled": {
+      "description": "enabled allows anonymous requests to the kubelet server. Requests that are not rejected by another authentication method are treated as anonymous requests. Anonymous requests have a username of `system:anonymous`, and a group name of `system:unauthenticated`.",
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}

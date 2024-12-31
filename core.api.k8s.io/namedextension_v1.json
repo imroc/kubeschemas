@@ -1,0 +1,19 @@
+{
+  "description": "NamedExtension relates nicknames to extension information",
+  "properties": {
+    "extension": {
+      "$ref": "../pkg.apimachinery.k8s.io/rawextension_runtime.json",
+      "description": "Extension holds the extension information"
+    },
+    "name": {
+      "default": "",
+      "description": "Name is the nickname for this Extension",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "extension"
+  ],
+  "type": "object"
+}

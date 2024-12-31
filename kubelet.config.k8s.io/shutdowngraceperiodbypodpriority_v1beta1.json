@@ -1,0 +1,22 @@
+{
+  "description": "ShutdownGracePeriodByPodPriority specifies the shutdown grace period for Pods based on their associated priority class value",
+  "properties": {
+    "priority": {
+      "default": 0,
+      "description": "priority is the priority value associated with the shutdown grace period",
+      "format": "int32",
+      "type": "integer"
+    },
+    "shutdownGracePeriodSeconds": {
+      "default": 0,
+      "description": "shutdownGracePeriodSeconds is the shutdown grace period in seconds",
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "priority",
+    "shutdownGracePeriodSeconds"
+  ],
+  "type": "object"
+}

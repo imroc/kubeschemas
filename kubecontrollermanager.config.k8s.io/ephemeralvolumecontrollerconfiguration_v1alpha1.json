@@ -1,0 +1,15 @@
+{
+  "description": "EphemeralVolumeControllerConfiguration contains elements describing EphemeralVolumeController.",
+  "properties": {
+    "ConcurrentEphemeralVolumeSyncs": {
+      "default": 0,
+      "description": "ConcurrentEphemeralVolumeSyncseSyncs is the number of ephemeral volume syncing operations that will be done concurrently. Larger number = faster ephemeral volume updating, but more CPU (and network) load.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "ConcurrentEphemeralVolumeSyncs"
+  ],
+  "type": "object"
+}

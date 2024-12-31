@@ -1,0 +1,20 @@
+{
+  "description": "GroupResource describes an group resource.",
+  "properties": {
+    "Group": {
+      "default": "",
+      "description": "group is the group portion of the GroupResource.",
+      "type": "string"
+    },
+    "Resource": {
+      "default": "",
+      "description": "resource is the resource portion of the GroupResource.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "Group",
+    "Resource"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,27 @@
+{
+  "description": "SAControllerConfiguration contains elements describing ServiceAccountController.",
+  "properties": {
+    "ConcurrentSATokenSyncs": {
+      "default": 0,
+      "description": "concurrentSATokenSyncs is the number of service account token syncing operations that will be done concurrently.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "RootCAFile": {
+      "default": "",
+      "description": "rootCAFile is the root certificate authority will be included in service account's token secret. This must be a valid PEM-encoded CA bundle.",
+      "type": "string"
+    },
+    "ServiceAccountKeyFile": {
+      "default": "",
+      "description": "serviceAccountKeyFile is the filename containing a PEM-encoded private RSA key used to sign service account tokens.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "ServiceAccountKeyFile",
+    "ConcurrentSATokenSyncs",
+    "RootCAFile"
+  ],
+  "type": "object"
+}

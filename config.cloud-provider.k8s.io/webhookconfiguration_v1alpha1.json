@@ -1,0 +1,17 @@
+{
+  "description": "WebhookConfiguration contains configuration related to cloud-controller-manager hosted webhooks",
+  "properties": {
+    "Webhooks": {
+      "description": "Webhooks is the list of webhooks to enable or disable '*' means \"all enabled by default webhooks\" 'foo' means \"enable 'foo'\" '-foo' means \"disable 'foo'\" first item for a particular name wins",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "Webhooks"
+  ],
+  "type": "object"
+}

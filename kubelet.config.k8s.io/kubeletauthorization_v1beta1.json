@@ -1,0 +1,14 @@
+{
+  "properties": {
+    "mode": {
+      "description": "mode is the authorization mode to apply to requests to the kubelet server. Valid values are `AlwaysAllow` and `Webhook`. Webhook mode uses the SubjectAccessReview API to determine authorization.",
+      "type": "string"
+    },
+    "webhook": {
+      "$ref": "../kubelet.config.k8s.io/kubeletwebhookauthorization_v1beta1.json",
+      "default": {},
+      "description": "webhook contains settings related to Webhook authorization."
+    }
+  },
+  "type": "object"
+}

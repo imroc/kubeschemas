@@ -1,0 +1,15 @@
+{
+  "description": "PodGCControllerConfiguration contains elements describing PodGCController.",
+  "properties": {
+    "TerminatedPodGCThreshold": {
+      "default": 0,
+      "description": "terminatedPodGCThreshold is the number of terminated pods that can exist before the terminated pod garbage collector starts deleting terminated pods. If \u003c= 0, the terminated pod garbage collector is disabled.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "TerminatedPodGCThreshold"
+  ],
+  "type": "object"
+}

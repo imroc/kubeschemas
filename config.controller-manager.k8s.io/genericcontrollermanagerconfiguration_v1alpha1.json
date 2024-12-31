@@ -1,0 +1,70 @@
+{
+  "description": "GenericControllerManagerConfiguration holds configuration for a generic controller-manager.",
+  "properties": {
+    "Address": {
+      "default": "",
+      "description": "address is the IP address to serve on (set to 0.0.0.0 for all interfaces).",
+      "type": "string"
+    },
+    "ClientConnection": {
+      "$ref": "../config.component-base.k8s.io/clientconnectionconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "ClientConnection specifies the kubeconfig file and client connection settings for the proxy server to use when communicating with the apiserver."
+    },
+    "ControllerStartInterval": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "How long to wait between starting controller managers"
+    },
+    "Controllers": {
+      "description": "Controllers is the list of controllers to enable or disable '*' means \"all enabled by default controllers\" 'foo' means \"enable 'foo'\" '-foo' means \"disable 'foo'\" first item for a particular name wins",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "Debugging": {
+      "$ref": "../config.component-base.k8s.io/debuggingconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "DebuggingConfiguration holds configuration for Debugging related features."
+    },
+    "LeaderElection": {
+      "$ref": "../config.component-base.k8s.io/leaderelectionconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "leaderElection defines the configuration of leader election client."
+    },
+    "LeaderMigration": {
+      "$ref": "../config.controller-manager.k8s.io/leadermigrationconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "LeaderMigration holds the configuration for Leader Migration."
+    },
+    "LeaderMigrationEnabled": {
+      "default": false,
+      "description": "LeaderMigrationEnabled indicates whether Leader Migration should be enabled for the controller manager.",
+      "type": "boolean"
+    },
+    "MinResyncPeriod": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "minResyncPeriod is the resync period in reflectors; will be random between minResyncPeriod and 2*minResyncPeriod."
+    },
+    "Port": {
+      "default": 0,
+      "description": "port is the port that the controller-manager's http service runs on.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "Port",
+    "Address",
+    "MinResyncPeriod",
+    "ClientConnection",
+    "ControllerStartInterval",
+    "LeaderElection",
+    "Controllers",
+    "Debugging",
+    "LeaderMigrationEnabled",
+    "LeaderMigration"
+  ],
+  "type": "object"
+}

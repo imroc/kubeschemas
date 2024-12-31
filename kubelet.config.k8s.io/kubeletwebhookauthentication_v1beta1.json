@@ -1,0 +1,13 @@
+{
+  "properties": {
+    "cacheTTL": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "cacheTTL enables caching of authentication results"
+    },
+    "enabled": {
+      "description": "enabled allows bearer token authentication backed by the tokenreviews.authentication.k8s.io API.",
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,27 @@
+{
+  "description": "EndpointSliceMirroringControllerConfiguration contains elements describing EndpointSliceMirroringController.",
+  "properties": {
+    "MirroringConcurrentServiceEndpointSyncs": {
+      "default": 0,
+      "description": "mirroringConcurrentServiceEndpointSyncs is the number of service endpoint syncing operations that will be done concurrently. Larger number = faster endpoint slice updating, but more CPU (and network) load.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "MirroringEndpointUpdatesBatchPeriod": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "mirroringEndpointUpdatesBatchPeriod can be used to batch EndpointSlice updates. All updates triggered by EndpointSlice changes will be delayed by up to 'mirroringEndpointUpdatesBatchPeriod'. If other addresses in the same Endpoints resource change in that period, they will be batched to a single EndpointSlice update. Default 0 value means that each Endpoints update triggers an EndpointSlice update."
+    },
+    "MirroringMaxEndpointsPerSubset": {
+      "default": 0,
+      "description": "mirroringMaxEndpointsPerSubset is the maximum number of endpoints that will be mirrored to an EndpointSlice for an EndpointSubset.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "MirroringConcurrentServiceEndpointSyncs",
+    "MirroringMaxEndpointsPerSubset",
+    "MirroringEndpointUpdatesBatchPeriod"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,25 @@
+{
+  "description": "AttachDetachControllerConfiguration contains elements describing AttachDetachController.",
+  "properties": {
+    "DisableAttachDetachReconcilerSync": {
+      "default": false,
+      "description": "Reconciler runs a periodic loop to reconcile the desired state of the with the actual state of the world by triggering attach detach operations. This flag enables or disables reconcile.  Is false by default, and thus enabled.",
+      "type": "boolean"
+    },
+    "ReconcilerSyncLoopPeriod": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "ReconcilerSyncLoopPeriod is the amount of time the reconciler sync states loop wait between successive executions. Is set to 60 sec by default."
+    },
+    "disableForceDetachOnTimeout": {
+      "default": false,
+      "description": "DisableForceDetachOnTimeout disables force detach when the maximum unmount time is exceeded. Is false by default, and thus force detach on unmount is enabled.",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "DisableAttachDetachReconcilerSync",
+    "ReconcilerSyncLoopPeriod",
+    "disableForceDetachOnTimeout"
+  ],
+  "type": "object"
+}

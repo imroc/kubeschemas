@@ -1,0 +1,30 @@
+{
+  "description": "VolumeConfiguration contains *all* enumerated flags meant to configure all volume plugins. From this config, the controller-manager binary will create many instances of volume.VolumeConfig, each containing only the configuration needed for that plugin which are then passed to the appropriate plugin. The ControllerManager binary is the only part of the code which knows what plugins are supported and which flags correspond to each plugin.",
+  "properties": {
+    "EnableDynamicProvisioning": {
+      "description": "enableDynamicProvisioning enables the provisioning of volumes when running within an environment that supports dynamic provisioning. Defaults to true.",
+      "type": "boolean"
+    },
+    "EnableHostPathProvisioning": {
+      "description": "enableHostPathProvisioning enables HostPath PV provisioning when running without a cloud provider. This allows testing and development of provisioning features. HostPath provisioning is not supported in any way, won't work in a multi-node cluster, and should not be used for anything other than testing or development.",
+      "type": "boolean"
+    },
+    "FlexVolumePluginDir": {
+      "default": "",
+      "description": "volumePluginDir is the full path of the directory in which the flex volume plugin should search for additional third party volume plugins",
+      "type": "string"
+    },
+    "PersistentVolumeRecyclerConfiguration": {
+      "$ref": "../kubecontrollermanager.config.k8s.io/persistentvolumerecyclerconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "persistentVolumeRecyclerConfiguration holds configuration for persistent volume plugins."
+    }
+  },
+  "required": [
+    "EnableHostPathProvisioning",
+    "EnableDynamicProvisioning",
+    "PersistentVolumeRecyclerConfiguration",
+    "FlexVolumePluginDir"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,16 @@
+{
+  "properties": {
+    "colors": {
+      "type": "boolean"
+    },
+    "extensions": {
+      "description": "Extensions holds additional information. This is useful for extenders so that reads and writes don't clobber unknown fields",
+      "items": {
+        "$ref": "../core.api.k8s.io/namedextension_v1.json",
+        "default": {}
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

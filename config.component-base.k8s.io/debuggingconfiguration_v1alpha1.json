@@ -1,0 +1,14 @@
+{
+  "description": "DebuggingConfiguration holds configuration for Debugging related features.",
+  "properties": {
+    "enableContentionProfiling": {
+      "description": "enableContentionProfiling enables block profiling, if enableProfiling is true.",
+      "type": "boolean"
+    },
+    "enableProfiling": {
+      "description": "enableProfiling enables profiling via web interface host:port/debug/pprof/",
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}

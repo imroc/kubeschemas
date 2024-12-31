@@ -1,0 +1,20 @@
+{
+  "description": "ControllerLeaderConfiguration provides the configuration for a migrating leader lock.",
+  "properties": {
+    "component": {
+      "default": "",
+      "description": "Component is the name of the component in which the controller should be running. E.g. kube-controller-manager, cloud-controller-manager, etc Or '*' meaning the controller can be run under any component that participates in the migration",
+      "type": "string"
+    },
+    "name": {
+      "default": "",
+      "description": "Name is the name of the controller being migrated E.g. service-controller, route-controller, cloud-node-controller, etc",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "component"
+  ],
+  "type": "object"
+}

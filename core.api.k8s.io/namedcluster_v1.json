@@ -1,0 +1,20 @@
+{
+  "description": "NamedCluster relates nicknames to cluster information",
+  "properties": {
+    "cluster": {
+      "$ref": "../core.api.k8s.io/cluster_v1.json",
+      "default": {},
+      "description": "Cluster holds the cluster information"
+    },
+    "name": {
+      "default": "",
+      "description": "Name is the nickname for this Cluster",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "cluster"
+  ],
+  "type": "object"
+}

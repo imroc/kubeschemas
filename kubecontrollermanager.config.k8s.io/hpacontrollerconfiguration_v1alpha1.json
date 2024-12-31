@@ -1,0 +1,42 @@
+{
+  "description": "HPAControllerConfiguration contains elements describing HPAController.",
+  "properties": {
+    "ConcurrentHorizontalPodAutoscalerSyncs": {
+      "default": 0,
+      "description": "ConcurrentHorizontalPodAutoscalerSyncs is the number of HPA objects that are allowed to sync concurrently. Larger number = more responsive HPA processing, but more CPU (and network) load.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "HorizontalPodAutoscalerCPUInitializationPeriod": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "HorizontalPodAutoscalerCPUInitializationPeriod is the period after pod start when CPU samples might be skipped."
+    },
+    "HorizontalPodAutoscalerDownscaleStabilizationWindow": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "HorizontalPodAutoscalerDowncaleStabilizationWindow is a period for which autoscaler will look backwards and not scale down below any recommendation it made during that period."
+    },
+    "HorizontalPodAutoscalerInitialReadinessDelay": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "HorizontalPodAutoscalerInitialReadinessDelay is period after pod start during which readiness changes are treated as readiness being set for the first time. The only effect of this is that HPA will disregard CPU samples from unready pods that had last readiness change during that period."
+    },
+    "HorizontalPodAutoscalerSyncPeriod": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "HorizontalPodAutoscalerSyncPeriod is the period for syncing the number of pods in horizontal pod autoscaler."
+    },
+    "HorizontalPodAutoscalerTolerance": {
+      "default": 0,
+      "description": "HorizontalPodAutoscalerTolerance is the tolerance for when resource usage suggests upscaling/downscaling",
+      "format": "double",
+      "type": "number"
+    }
+  },
+  "required": [
+    "ConcurrentHorizontalPodAutoscalerSyncs",
+    "HorizontalPodAutoscalerSyncPeriod",
+    "HorizontalPodAutoscalerDownscaleStabilizationWindow",
+    "HorizontalPodAutoscalerTolerance",
+    "HorizontalPodAutoscalerCPUInitializationPeriod",
+    "HorizontalPodAutoscalerInitialReadinessDelay"
+  ],
+  "type": "object"
+}

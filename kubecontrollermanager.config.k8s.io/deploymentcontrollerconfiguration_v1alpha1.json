@@ -1,0 +1,15 @@
+{
+  "description": "DeploymentControllerConfiguration contains elements describing DeploymentController.",
+  "properties": {
+    "ConcurrentDeploymentSyncs": {
+      "default": 0,
+      "description": "concurrentDeploymentSyncs is the number of deployment objects that are allowed to sync concurrently. Larger number = more responsive deployments, but more CPU (and network) load.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "ConcurrentDeploymentSyncs"
+  ],
+  "type": "object"
+}

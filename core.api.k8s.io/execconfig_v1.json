@@ -1,0 +1,48 @@
+{
+  "description": "ExecConfig specifies a command to provide client credentials. The command is exec'd and outputs structured stdout holding credentials.\n\nSee the client.authentication.k8s.io API group for specifications of the exact input and output format",
+  "properties": {
+    "apiVersion": {
+      "description": "Preferred input version of the ExecInfo. The returned ExecCredentials MUST use the same encoding version as the input.",
+      "type": "string"
+    },
+    "args": {
+      "description": "Arguments to pass to the command when executing it.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "command": {
+      "default": "",
+      "description": "Command to execute.",
+      "type": "string"
+    },
+    "env": {
+      "description": "Env defines additional environment variables to expose to the process. These are unioned with the host's environment, as well as variables client-go uses to pass argument to the plugin.",
+      "items": {
+        "$ref": "../core.api.k8s.io/execenvvar_v1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "installHint": {
+      "description": "This text is shown to the user when the executable doesn't seem to be present. For example, `brew install foo-cli` might be a good InstallHint for foo-cli on Mac OS systems.",
+      "type": "string"
+    },
+    "interactiveMode": {
+      "description": "InteractiveMode determines this plugin's relationship with standard input. Valid values are \"Never\" (this exec plugin never uses standard input), \"IfAvailable\" (this exec plugin wants to use standard input if it is available), or \"Always\" (this exec plugin requires standard input to function). See ExecInteractiveMode values for more details.\n\nIf APIVersion is client.authentication.k8s.io/v1alpha1 or client.authentication.k8s.io/v1beta1, then this field is optional and defaults to \"IfAvailable\" when unset. Otherwise, this field is required.",
+      "type": "string"
+    },
+    "provideClusterInfo": {
+      "default": false,
+      "description": "ProvideClusterInfo determines whether or not to provide cluster information, which could potentially contain very large CA data, to this exec plugin as a part of the KUBERNETES_EXEC_INFO environment variable. By default, it is set to false. Package k8s.io/client-go/tools/auth/exec provides helper methods for reading this environment variable.",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "command",
+    "provideClusterInfo"
+  ],
+  "type": "object"
+}

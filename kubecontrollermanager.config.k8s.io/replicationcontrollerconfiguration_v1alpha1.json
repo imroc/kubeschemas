@@ -1,0 +1,15 @@
+{
+  "description": "ReplicationControllerConfiguration contains elements describing ReplicationController.",
+  "properties": {
+    "ConcurrentRCSyncs": {
+      "default": 0,
+      "description": "concurrentRCSyncs is the number of replication controllers that are allowed to sync concurrently. Larger number = more responsive replica management, but more CPU (and network) load.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "ConcurrentRCSyncs"
+  ],
+  "type": "object"
+}
