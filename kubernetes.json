@@ -64,6 +64,12 @@
       "$ref": "addon.open-cluster-management.io/managedclusteraddonlist_v1alpha1.json"
     },
     {
+      "$ref": "admission.k8s.io/admissionreview_v1.json"
+    },
+    {
+      "$ref": "admission.k8s.io/admissionreview_v1beta1.json"
+    },
+    {
       "$ref": "admissionregistration.api.k8s.io/mutatingwebhookconfiguration_v1.json"
     },
     {

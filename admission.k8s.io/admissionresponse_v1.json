@@ -1,0 +1,49 @@
+{
+  "description": "AdmissionResponse describes an admission response.",
+  "properties": {
+    "allowed": {
+      "default": false,
+      "description": "Allowed indicates whether or not the admission request was permitted.",
+      "type": "boolean"
+    },
+    "auditAnnotations": {
+      "additionalProperties": {
+        "default": "",
+        "type": "string"
+      },
+      "description": "AuditAnnotations is an unstructured key value map set by remote admission controller (e.g. error=image-blacklisted). MutatingAdmissionWebhook and ValidatingAdmissionWebhook admission controller will prefix the keys with admission webhook name (e.g. imagepolicy.example.com/error=image-blacklisted). AuditAnnotations will be provided by the admission webhook to add additional context to the audit log for this request.",
+      "type": "object"
+    },
+    "patch": {
+      "description": "The patch body. Currently we only support \"JSONPatch\" which implements RFC 6902.",
+      "format": "byte",
+      "type": "string"
+    },
+    "patchType": {
+      "description": "The type of Patch. Currently we only allow \"JSONPatch\".",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/status_v1.json",
+      "description": "Result contains extra details into why an admission request was denied. This field IS NOT consulted in any way if \"Allowed\" is \"true\"."
+    },
+    "uid": {
+      "default": "",
+      "description": "UID is an identifier for the individual request/response. This must be copied over from the corresponding AdmissionRequest.",
+      "type": "string"
+    },
+    "warnings": {
+      "description": "warnings is a list of warning messages to return to the requesting API client. Warning messages describe a problem the client making the API request should correct or be aware of. Limit warnings to 120 characters if possible. Warnings over 256 characters and large numbers of warnings may be truncated.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "uid",
+    "allowed"
+  ],
+  "type": "object"
+}

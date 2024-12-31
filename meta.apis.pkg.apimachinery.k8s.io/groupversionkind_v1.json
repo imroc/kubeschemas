@@ -1,0 +1,23 @@
+{
+  "description": "GroupVersionKind unambiguously identifies a kind.  It doesn't anonymously include GroupVersion to avoid automatic coercion.  It doesn't use a GroupVersion to avoid custom marshalling",
+  "properties": {
+    "group": {
+      "default": "",
+      "type": "string"
+    },
+    "kind": {
+      "default": "",
+      "type": "string"
+    },
+    "version": {
+      "default": "",
+      "type": "string"
+    }
+  },
+  "required": [
+    "group",
+    "version",
+    "kind"
+  ],
+  "type": "object"
+}

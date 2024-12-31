@@ -1,0 +1,18 @@
+{
+  "description": "RootPaths lists the paths available at root. For example: \"/healthz\", \"/apis\".",
+  "properties": {
+    "paths": {
+      "description": "paths are the paths available at root.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array",
+      "x-kubernetes-list-type": "atomic"
+    }
+  },
+  "required": [
+    "paths"
+  ],
+  "type": "object"
+}

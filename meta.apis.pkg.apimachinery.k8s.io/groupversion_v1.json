@@ -1,0 +1,18 @@
+{
+  "description": "GroupVersion contains the \"group\" and the \"version\", which uniquely identifies the API.",
+  "properties": {
+    "group": {
+      "default": "",
+      "type": "string"
+    },
+    "version": {
+      "default": "",
+      "type": "string"
+    }
+  },
+  "required": [
+    "group",
+    "version"
+  ],
+  "type": "object"
+}

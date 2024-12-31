@@ -1,0 +1,18 @@
+{
+  "description": "GroupKind specifies a Group and a Kind, but does not force a version.  This is useful for identifying concepts during lookup stages without having partially valid types",
+  "properties": {
+    "group": {
+      "default": "",
+      "type": "string"
+    },
+    "kind": {
+      "default": "",
+      "type": "string"
+    }
+  },
+  "required": [
+    "group",
+    "kind"
+  ],
+  "type": "object"
+}
