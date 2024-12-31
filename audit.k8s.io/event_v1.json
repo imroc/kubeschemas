@@ -1,0 +1,103 @@
+{
+  "description": "Event captures all the information that can be included in an API audit log.",
+  "properties": {
+    "annotations": {
+      "additionalProperties": {
+        "default": "",
+        "type": "string"
+      },
+      "description": "Annotations is an unstructured key value map stored with an audit event that may be set by plugins invoked in the request serving chain, including authentication, authorization and admission plugins. Note that these annotations are for the audit event, and do not correspond to the metadata.annotations of the submitted object. Keys should uniquely identify the informing component to avoid name collisions (e.g. podsecuritypolicy.admission.k8s.io/policy). Values should be short. Annotations are included in the Metadata level.",
+      "type": "object"
+    },
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "audit.k8s.io/v1"
+      ],
+      "type": "string"
+    },
+    "auditID": {
+      "default": "",
+      "description": "Unique audit ID, generated for each request.",
+      "type": "string"
+    },
+    "impersonatedUser": {
+      "$ref": "../authentication.api.k8s.io/userinfo_v1.json",
+      "description": "Impersonated user information."
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "Event"
+      ],
+      "type": "string"
+    },
+    "level": {
+      "default": "",
+      "description": "AuditLevel at which event was generated",
+      "type": "string"
+    },
+    "objectRef": {
+      "$ref": "../audit.k8s.io/objectreference_v1.json",
+      "description": "Object reference this request is targeted at. Does not apply for List-type requests, or non-resource requests."
+    },
+    "requestObject": {
+      "$ref": "../pkg.apimachinery.k8s.io/unknown_runtime.json",
+      "description": "API object from the request, in JSON format. The RequestObject is recorded as-is in the request (possibly re-encoded as JSON), prior to version conversion, defaulting, admission or merging. It is an external versioned object type, and may not be a valid object on its own. Omitted for non-resource requests.  Only logged at Request Level and higher."
+    },
+    "requestReceivedTimestamp": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/microtime_v1.json",
+      "description": "Time the request reached the apiserver."
+    },
+    "requestURI": {
+      "default": "",
+      "description": "RequestURI is the request URI as sent by the client to a server.",
+      "type": "string"
+    },
+    "responseObject": {
+      "$ref": "../pkg.apimachinery.k8s.io/unknown_runtime.json",
+      "description": "API object returned in the response, in JSON. The ResponseObject is recorded after conversion to the external type, and serialized as JSON.  Omitted for non-resource requests.  Only logged at Response Level."
+    },
+    "responseStatus": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/status_v1.json",
+      "description": "The response status, populated even when the ResponseObject is not a Status type. For successful responses, this will only include the Code and StatusSuccess. For non-status type error responses, this will be auto-populated with the error Message."
+    },
+    "sourceIPs": {
+      "description": "Source IPs, from where the request originated and intermediate proxies. The source IPs are listed from (in order): 1. X-Forwarded-For request header IPs 2. X-Real-Ip header, if not present in the X-Forwarded-For list 3. The remote address for the connection, if it doesn't match the last\n   IP in the list up to here (X-Forwarded-For or X-Real-Ip).\nNote: All but the last IP can be arbitrarily set by the client.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array",
+      "x-kubernetes-list-type": "atomic"
+    },
+    "stage": {
+      "default": "",
+      "description": "Stage of the request handling when this event instance was generated.",
+      "type": "string"
+    },
+    "stageTimestamp": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/microtime_v1.json",
+      "description": "Time the request reached current audit stage."
+    },
+    "user": {
+      "$ref": "../authentication.api.k8s.io/userinfo_v1.json",
+      "default": {},
+      "description": "Authenticated user information."
+    },
+    "userAgent": {
+      "description": "UserAgent records the user agent string reported by the client. Note that the UserAgent is provided by the client, and must not be trusted.",
+      "type": "string"
+    },
+    "verb": {
+      "default": "",
+      "description": "Verb is the kubernetes verb associated with the request. For non-resource requests, this is the lower-cased HTTP method.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object"
+}

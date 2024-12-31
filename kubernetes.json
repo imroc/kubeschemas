@@ -565,6 +565,18 @@
       "$ref": "atlas.mongodb.com/atlasteamlist_v1.json"
     },
     {
+      "$ref": "audit.k8s.io/event_v1.json"
+    },
+    {
+      "$ref": "audit.k8s.io/eventlist_v1.json"
+    },
+    {
+      "$ref": "audit.k8s.io/policy_v1.json"
+    },
+    {
+      "$ref": "audit.k8s.io/policylist_v1.json"
+    },
+    {
       "$ref": "authentication.api.k8s.io/selfsubjectreview_v1.json"
     },
     {

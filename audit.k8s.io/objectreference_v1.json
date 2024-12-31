@@ -1,0 +1,32 @@
+{
+  "description": "ObjectReference contains enough information to let you inspect or modify the referred object.",
+  "properties": {
+    "apiGroup": {
+      "description": "APIGroup is the name of the API group that contains the referred object. The empty string represents the core API group.",
+      "type": "string"
+    },
+    "apiVersion": {
+      "description": "APIVersion is the version of the API group that contains the referred object.",
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "namespace": {
+      "type": "string"
+    },
+    "resource": {
+      "type": "string"
+    },
+    "resourceVersion": {
+      "type": "string"
+    },
+    "subresource": {
+      "type": "string"
+    },
+    "uid": {
+      "type": "string"
+    }
+  },
+  "type": "object"
+}
