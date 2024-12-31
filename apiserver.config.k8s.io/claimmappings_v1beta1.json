@@ -1,0 +1,32 @@
+{
+  "description": "ClaimMappings provides the configuration for claim mapping",
+  "properties": {
+    "extra": {
+      "description": "extra represents an option for the extra attribute. expression must produce a string or string array value. If the value is empty, the extra mapping will not be present.\n\nhard-coded extra key/value - key: \"foo\"\n  valueExpression: \"'bar'\"\nThis will result in an extra attribute - foo: [\"bar\"]\n\nhard-coded key, value copying claim value - key: \"foo\"\n  valueExpression: \"claims.some_claim\"\nThis will result in an extra attribute - foo: [value of some_claim]\n\nhard-coded key, value derived from claim value - key: \"admin\"\n  valueExpression: '(has(claims.is_admin) \u0026\u0026 claims.is_admin) ? \"true\":\"\"'\nThis will result in:\n - if is_admin claim is present and true, extra attribute - admin: [\"true\"]\n - if is_admin claim is present and false or is_admin claim is not present, no extra attribute will be added",
+      "items": {
+        "$ref": "../apiserver.config.k8s.io/extramapping_v1beta1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "groups": {
+      "$ref": "../apiserver.config.k8s.io/prefixedclaimorexpression_v1beta1.json",
+      "default": {},
+      "description": "groups represents an option for the groups attribute. The claim's value must be a string or string array claim. If groups.claim is set, the prefix must be specified (and can be the empty string). If groups.expression is set, the expression must produce a string or string array value.\n \"\", [], and null values are treated as the group mapping not being present."
+    },
+    "uid": {
+      "$ref": "../apiserver.config.k8s.io/claimorexpression_v1beta1.json",
+      "default": {},
+      "description": "uid represents an option for the uid attribute. Claim must be a singular string claim. If uid.expression is set, the expression must produce a string value."
+    },
+    "username": {
+      "$ref": "../apiserver.config.k8s.io/prefixedclaimorexpression_v1beta1.json",
+      "default": {},
+      "description": "username represents an option for the username attribute. The claim's value must be a singular string. Same as the --oidc-username-claim and --oidc-username-prefix flags. If username.expression is set, the expression must produce a string value. If username.expression uses 'claims.email', then 'claims.email_verified' must be used in username.expression or extra[*].valueExpression or claimValidationRules[*].expression. An example claim validation rule expression that matches the validation automatically applied when username.claim is set to 'email' is 'claims.?email_verified.orValue(true)'.\n\nIn the flag based approach, the --oidc-username-claim and --oidc-username-prefix are optional. If --oidc-username-claim is not set, the default value is \"sub\". For the authentication config, there is no defaulting for claim or prefix. The claim and prefix must be set explicitly. For claim, if --oidc-username-claim was not set with legacy flag approach, configure username.claim=\"sub\" in the authentication config. For prefix:\n    (1) --oidc-username-prefix=\"-\", no prefix was added to the username. For the same behavior using authentication config,\n        set username.prefix=\"\"\n    (2) --oidc-username-prefix=\"\" and  --oidc-username-claim != \"email\", prefix was \"\u003cvalue of --oidc-issuer-url\u003e#\". For the same\n        behavior using authentication config, set username.prefix=\"\u003cvalue of issuer.url\u003e#\"\n    (3) --oidc-username-prefix=\"\u003cvalue\u003e\". For the same behavior using authentication config, set username.prefix=\"\u003cvalue\u003e\""
+    }
+  },
+  "required": [
+    "username"
+  ],
+  "type": "object"
+}

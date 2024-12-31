@@ -1,0 +1,22 @@
+{
+  "description": "ClaimValidationRule provides the configuration for a single claim validation rule.",
+  "properties": {
+    "claim": {
+      "description": "claim is the name of a required claim. Same as --oidc-required-claim flag. Only string claim keys are supported. Mutually exclusive with expression and message.",
+      "type": "string"
+    },
+    "expression": {
+      "description": "expression represents the expression which will be evaluated by CEL. Must produce a boolean.\n\nCEL expressions have access to the contents of the token claims, organized into CEL variable: - 'claims' is a map of claim names to claim values.\n  For example, a variable named 'sub' can be accessed as 'claims.sub'.\n  Nested claims can be accessed using dot notation, e.g. 'claims.foo.bar'.\nMust return true for the validation to pass.\n\nDocumentation on CEL: https://kubernetes.io/docs/reference/using-api/cel/\n\nMutually exclusive with claim and requiredValue.",
+      "type": "string"
+    },
+    "message": {
+      "description": "message customizes the returned error message when expression returns false. message is a literal string. Mutually exclusive with claim and requiredValue.",
+      "type": "string"
+    },
+    "requiredValue": {
+      "description": "requiredValue is the value of a required claim. Same as --oidc-required-claim flag. Only string claim values are supported. If claim is set and requiredValue is not set, the claim must be present with a value set to the empty string. Mutually exclusive with expression and message.",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,23 @@
+{
+  "properties": {
+    "name": {
+      "default": "",
+      "description": "Name used to describe the webhook This is explicitly used in monitoring machinery for metrics Note: Names must be DNS1123 labels like `myauthorizername` or\n\t\t subdomains like `myauthorizer.example.domain`\nRequired, with no default",
+      "type": "string"
+    },
+    "type": {
+      "default": "",
+      "description": "Type refers to the type of the authorizer \"Webhook\" is supported in the generic API server Other API servers may support additional authorizer types like Node, RBAC, ABAC, etc.",
+      "type": "string"
+    },
+    "webhook": {
+      "$ref": "../apiserver.config.k8s.io/webhookconfiguration_v1.json",
+      "description": "Webhook defines the configuration for a Webhook authorizer Must be defined when Type=Webhook Must not be defined when Type!=Webhook"
+    }
+  },
+  "required": [
+    "type",
+    "name"
+  ],
+  "type": "object"
+}

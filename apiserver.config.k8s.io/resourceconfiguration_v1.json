@@ -1,0 +1,26 @@
+{
+  "description": "ResourceConfiguration stores per resource configuration.",
+  "properties": {
+    "providers": {
+      "description": "providers is a list of transformers to be used for reading and writing the resources to disk. eg: aesgcm, aescbc, secretbox, identity, kms.",
+      "items": {
+        "$ref": "../apiserver.config.k8s.io/providerconfiguration_v1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "resources": {
+      "description": "resources is a list of kubernetes resources which have to be encrypted. The resource names are derived from `resource` or `resource.group` of the group/version/resource. eg: pandas.awesome.bears.example is a custom resource with 'group': awesome.bears.example, 'resource': pandas. Use '*.*' to encrypt all resources and '*.\u003cgroup\u003e' to encrypt all resources in a specific group. eg: '*.awesome.bears.example' will encrypt all resources in the group 'awesome.bears.example'. eg: '*.' will encrypt all resources in the core group (such as pods, configmaps, etc).",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "resources",
+    "providers"
+  ],
+  "type": "object"
+}

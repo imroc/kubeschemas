@@ -1,0 +1,10 @@
+{
+  "description": "UDSTransport provides the information to connect to konnectivity server via UDS",
+  "properties": {
+    "udsName": {
+      "description": "UDSName is the name of the unix domain socket to connect to konnectivity server This does not use a unix:// prefix. (Eg: /etc/srv/kubernetes/konnectivity-server/konnectivity-server.socket)",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

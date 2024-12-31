@@ -1,0 +1,26 @@
+{
+  "description": "ProviderConfiguration stores the provided configuration for an encryption provider.",
+  "properties": {
+    "aescbc": {
+      "$ref": "../apiserver.config.k8s.io/aesconfiguration_v1.json",
+      "description": "aescbc is the configuration for the AES-CBC transformer."
+    },
+    "aesgcm": {
+      "$ref": "../apiserver.config.k8s.io/aesconfiguration_v1.json",
+      "description": "aesgcm is the configuration for the AES-GCM transformer."
+    },
+    "identity": {
+      "$ref": "../apiserver.config.k8s.io/identityconfiguration_v1.json",
+      "description": "identity is the (empty) configuration for the identity transformer."
+    },
+    "kms": {
+      "$ref": "../apiserver.config.k8s.io/kmsconfiguration_v1.json",
+      "description": "kms contains the name, cache size and path to configuration file for a KMS based envelope transformer."
+    },
+    "secretbox": {
+      "$ref": "../apiserver.config.k8s.io/secretboxconfiguration_v1.json",
+      "description": "secretbox is the configuration for the Secretbox based transformer."
+    }
+  },
+  "type": "object"
+}

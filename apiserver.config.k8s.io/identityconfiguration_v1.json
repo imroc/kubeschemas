@@ -1,0 +1,4 @@
+{
+  "description": "IdentityConfiguration is an empty struct to allow identity transformer in provider configuration.",
+  "type": "object"
+}

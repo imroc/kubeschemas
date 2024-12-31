@@ -1,0 +1,18 @@
+{
+  "description": "TLSConfig provides the authentication information to connect to konnectivity server Only used with TCPTransport",
+  "properties": {
+    "caBundle": {
+      "description": "caBundle is the file location of the CA to be used to determine trust with the konnectivity server. Must be absent/empty if TCPTransport.URL is prefixed with http:// If absent while TCPTransport.URL is prefixed with https://, default to system trust roots.",
+      "type": "string"
+    },
+    "clientCert": {
+      "description": "clientCert is the file location of the client certificate to be used in mtls handshakes with the konnectivity server. Must be absent/empty if TCPTransport.URL is prefixed with http:// Must be configured if TCPTransport.URL is prefixed with https://",
+      "type": "string"
+    },
+    "clientKey": {
+      "description": "clientKey is the file location of the client key to be used in mtls handshakes with the konnectivity server. Must be absent/empty if TCPTransport.URL is prefixed with http:// Must be configured if TCPTransport.URL is prefixed with https://",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

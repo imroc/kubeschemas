@@ -1,0 +1,14 @@
+{
+  "description": "Connection provides the configuration for a single egress selection client.",
+  "properties": {
+    "proxyProtocol": {
+      "description": "Protocol is the protocol used to connect from client to the konnectivity server.",
+      "type": "string"
+    },
+    "transport": {
+      "$ref": "../apiserver.config.k8s.io/transport_v1beta1.json",
+      "description": "Transport defines the transport configurations we use to dial to the konnectivity server. This is required if ProxyProtocol is HTTPConnect or GRPC."
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,14 @@
+{
+  "description": "ClaimOrExpression provides the configuration for a single claim or expression.",
+  "properties": {
+    "claim": {
+      "description": "claim is the JWT claim to use. Either claim or expression must be set. Mutually exclusive with expression.",
+      "type": "string"
+    },
+    "expression": {
+      "description": "expression represents the expression which will be evaluated by CEL.\n\nCEL expressions have access to the contents of the token claims, organized into CEL variable: - 'claims' is a map of claim names to claim values.\n  For example, a variable named 'sub' can be accessed as 'claims.sub'.\n  Nested claims can be accessed using dot notation, e.g. 'claims.foo.bar'.\n\nDocumentation on CEL: https://kubernetes.io/docs/reference/using-api/cel/\n\nMutually exclusive with claim.",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

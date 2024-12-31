@@ -1,0 +1,36 @@
+{
+  "description": "JWTAuthenticator provides the configuration for a single JWT authenticator.",
+  "properties": {
+    "claimMappings": {
+      "$ref": "../apiserver.config.k8s.io/claimmappings_v1alpha1.json",
+      "default": {},
+      "description": "claimMappings points claims of a token to be treated as user attributes."
+    },
+    "claimValidationRules": {
+      "description": "claimValidationRules are rules that are applied to validate token claims to authenticate users.",
+      "items": {
+        "$ref": "../apiserver.config.k8s.io/claimvalidationrule_v1alpha1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "issuer": {
+      "$ref": "../apiserver.config.k8s.io/issuer_v1alpha1.json",
+      "default": {},
+      "description": "issuer contains the basic OIDC provider connection options."
+    },
+    "userValidationRules": {
+      "description": "userValidationRules are rules that are applied to final user before completing authentication. These allow invariants to be applied to incoming identities such as preventing the use of the system: prefix that is commonly used by Kubernetes components. The validation rules are logically ANDed together and must all return true for the validation to pass.",
+      "items": {
+        "$ref": "../apiserver.config.k8s.io/uservalidationrule_v1alpha1.json",
+        "default": {}
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "issuer",
+    "claimMappings"
+  ],
+  "type": "object"
+}

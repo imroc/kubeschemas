@@ -1,0 +1,20 @@
+{
+  "description": "ExtraMapping provides the configuration for a single extra mapping.",
+  "properties": {
+    "key": {
+      "default": "",
+      "description": "key is a string to use as the extra attribute key. key must be a domain-prefix path (e.g. example.org/foo). All characters before the first \"/\" must be a valid subdomain as defined by RFC 1123. All characters trailing the first \"/\" must be valid HTTP Path characters as defined by RFC 3986. key must be lowercase. Required to be unique.",
+      "type": "string"
+    },
+    "valueExpression": {
+      "default": "",
+      "description": "valueExpression is a CEL expression to extract extra attribute value. valueExpression must produce a string or string array value. \"\", [], and null values are treated as the extra mapping not being present. Empty string values contained within a string array are filtered out.\n\nCEL expressions have access to the contents of the token claims, organized into CEL variable: - 'claims' is a map of claim names to claim values.\n  For example, a variable named 'sub' can be accessed as 'claims.sub'.\n  Nested claims can be accessed using dot notation, e.g. 'claims.foo.bar'.\n\nDocumentation on CEL: https://kubernetes.io/docs/reference/using-api/cel/",
+      "type": "string"
+    }
+  },
+  "required": [
+    "key",
+    "valueExpression"
+  ],
+  "type": "object"
+}

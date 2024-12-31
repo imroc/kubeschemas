@@ -1,0 +1,34 @@
+{
+  "description": "KMSConfiguration contains the name, cache size and path to configuration file for a KMS based envelope transformer.",
+  "properties": {
+    "apiVersion": {
+      "default": "",
+      "description": "apiVersion of KeyManagementService",
+      "type": "string"
+    },
+    "cachesize": {
+      "description": "cachesize is the maximum number of secrets which are cached in memory. The default value is 1000. Set to a negative value to disable caching. This field is only allowed for KMS v1 providers.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "endpoint": {
+      "default": "",
+      "description": "endpoint is the gRPC server listening address, for example \"unix:///var/run/kms-provider.sock\".",
+      "type": "string"
+    },
+    "name": {
+      "default": "",
+      "description": "name is the name of the KMS plugin to be used.",
+      "type": "string"
+    },
+    "timeout": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "timeout for gRPC calls to kms-plugin (ex. 5s). The default is 3 seconds."
+    }
+  },
+  "required": [
+    "name",
+    "endpoint"
+  ],
+  "type": "object"
+}

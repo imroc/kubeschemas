@@ -1,0 +1,14 @@
+{
+  "description": "AnonymousAuthCondition describes the condition under which anonymous auth should be enabled.",
+  "properties": {
+    "path": {
+      "default": "",
+      "description": "Path for which anonymous auth is enabled.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "path"
+  ],
+  "type": "object"
+}
