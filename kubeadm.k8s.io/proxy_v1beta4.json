@@ -1,0 +1,10 @@
+{
+  "description": "Proxy defines the proxy addon that should be used in the cluster",
+  "properties": {
+    "disabled": {
+      "description": "Disabled specifies whether to disable this addon in the cluster",
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}

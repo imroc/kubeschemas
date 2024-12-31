@@ -1,0 +1,54 @@
+{
+  "description": "LocalEtcd describes that kubeadm should run an etcd cluster locally",
+  "properties": {
+    "dataDir": {
+      "default": "",
+      "description": "DataDir is the directory etcd will place its data. Defaults to \"/var/lib/etcd\".",
+      "type": "string"
+    },
+    "extraArgs": {
+      "description": "ExtraArgs are extra arguments provided to the etcd binary when run inside a static pod. An argument name in this list is the flag name as it appears on the command line except without leading dash(es). Extra arguments will override existing default arguments. Duplicate extra arguments are allowed.",
+      "items": {
+        "$ref": "../kubeadm.k8s.io/arg_v1beta4.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "extraEnvs": {
+      "description": "ExtraEnvs is an extra set of environment variables to pass to the control plane component. Environment variables passed using ExtraEnvs will override any existing environment variables, or *_proxy environment variables that kubeadm adds by default.",
+      "items": {
+        "$ref": "../kubeadm.k8s.io/envvar_v1beta4.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "imageRepository": {
+      "description": "ImageRepository sets the container registry to pull images from. if not set, the ImageRepository defined in ClusterConfiguration will be used instead.",
+      "type": "string"
+    },
+    "imageTag": {
+      "description": "ImageTag allows to specify a tag for the image. In case this value is set, kubeadm does not change automatically the version of the above components during upgrades.",
+      "type": "string"
+    },
+    "peerCertSANs": {
+      "description": "PeerCertSANs sets extra Subject Alternative Names for the etcd peer signing cert.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "serverCertSANs": {
+      "description": "ServerCertSANs sets extra Subject Alternative Names for the etcd server signing cert.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "dataDir"
+  ],
+  "type": "object"
+}

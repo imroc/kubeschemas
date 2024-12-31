@@ -1,0 +1,18 @@
+{
+  "description": "Networking contains elements describing cluster's networking configuration",
+  "properties": {
+    "dnsDomain": {
+      "description": "DNSDomain is the dns domain used by k8s services. Defaults to \"cluster.local\".",
+      "type": "string"
+    },
+    "podSubnet": {
+      "description": "PodSubnet is the subnet used by pods.",
+      "type": "string"
+    },
+    "serviceSubnet": {
+      "description": "ServiceSubnet is the subnet used by k8s services. Defaults to \"10.96.0.0/12\".",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

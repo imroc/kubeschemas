@@ -1,0 +1,18 @@
+{
+  "description": "Arg represents an argument with a name and a value.",
+  "properties": {
+    "name": {
+      "default": "",
+      "type": "string"
+    },
+    "value": {
+      "default": "",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "value"
+  ],
+  "type": "object"
+}

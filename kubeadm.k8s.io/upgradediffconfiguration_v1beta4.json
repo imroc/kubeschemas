@@ -1,0 +1,15 @@
+{
+  "description": "UpgradeDiffConfiguration contains a list of configurable options which are specific to the \"kubeadm upgrade diff\" command.",
+  "properties": {
+    "contextLines": {
+      "description": "DiffContextLines is the number of lines of context in the diff.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "kubernetesVersion": {
+      "description": "KubernetesVersion is the target version of the control plane.",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

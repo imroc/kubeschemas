@@ -1,0 +1,14 @@
+{
+  "description": "Etcd contains elements describing Etcd configuration.",
+  "properties": {
+    "external": {
+      "$ref": "../kubeadm.k8s.io/externaletcd_v1beta3.json",
+      "description": "External describes how to connect to an external etcd cluster Local and External are mutually exclusive"
+    },
+    "local": {
+      "$ref": "../kubeadm.k8s.io/localetcd_v1beta3.json",
+      "description": "Local provides configuration knobs for configuring the local etcd instance Local and External are mutually exclusive"
+    }
+  },
+  "type": "object"
+}

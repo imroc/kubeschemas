@@ -1,0 +1,54 @@
+{
+  "description": "JoinConfiguration contains elements describing a particular node.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "kubeadm.k8s.io/v1beta3"
+      ],
+      "type": "string"
+    },
+    "caCertPath": {
+      "description": "CACertPath is the path to the SSL certificate authority used to secure communications between node and control-plane. Defaults to \"/etc/kubernetes/pki/ca.crt\".",
+      "type": "string"
+    },
+    "controlPlane": {
+      "$ref": "../kubeadm.k8s.io/joincontrolplane_v1beta3.json",
+      "description": "ControlPlane defines the additional control plane instance to be deployed on the joining node. If nil, no additional control plane instance will be deployed."
+    },
+    "discovery": {
+      "$ref": "../kubeadm.k8s.io/discovery_v1beta3.json",
+      "default": {},
+      "description": "Discovery specifies the options for the kubelet to use during the TLS Bootstrap process"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "JoinConfiguration"
+      ],
+      "type": "string"
+    },
+    "nodeRegistration": {
+      "$ref": "../kubeadm.k8s.io/noderegistrationoptions_v1beta3.json",
+      "default": {},
+      "description": "NodeRegistration holds fields that relate to registering the new control-plane node to the cluster"
+    },
+    "patches": {
+      "$ref": "../kubeadm.k8s.io/patches_v1beta3.json",
+      "description": "Patches contains options related to applying patches to components deployed by kubeadm during \"kubeadm join\"."
+    },
+    "skipPhases": {
+      "description": "SkipPhases is a list of phases to skip during command execution. The list of phases can be obtained with the \"kubeadm join --help\" command. The flag \"--skip-phases\" takes precedence over this field.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object"
+}

@@ -2116,6 +2116,30 @@
       "$ref": "konnect.konghq.com/konnectgatewaycontrolplanelist_v1alpha1.json"
     },
     {
+      "$ref": "kubeadm.k8s.io/clusterconfiguration_v1beta3.json"
+    },
+    {
+      "$ref": "kubeadm.k8s.io/clusterconfiguration_v1beta4.json"
+    },
+    {
+      "$ref": "kubeadm.k8s.io/initconfiguration_v1beta3.json"
+    },
+    {
+      "$ref": "kubeadm.k8s.io/initconfiguration_v1beta4.json"
+    },
+    {
+      "$ref": "kubeadm.k8s.io/joinconfiguration_v1beta3.json"
+    },
+    {
+      "$ref": "kubeadm.k8s.io/joinconfiguration_v1beta4.json"
+    },
+    {
+      "$ref": "kubeadm.k8s.io/resetconfiguration_v1beta4.json"
+    },
+    {
+      "$ref": "kubeadm.k8s.io/upgradeconfiguration_v1beta4.json"
+    },
+    {
       "$ref": "kubecontrollermanager.config.k8s.io/kubecontrollermanagerconfiguration_v1alpha1.json"
     },
     {

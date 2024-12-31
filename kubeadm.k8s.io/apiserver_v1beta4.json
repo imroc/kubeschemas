@@ -1,0 +1,38 @@
+{
+  "description": "APIServer holds settings necessary for API server deployments in the cluster",
+  "properties": {
+    "certSANs": {
+      "description": "CertSANs sets extra Subject Alternative Names for the API Server signing cert.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "extraArgs": {
+      "description": "ExtraArgs is an extra set of flags to pass to the control plane component. An argument name in this list is the flag name as it appears on the command line except without leading dash(es). Extra arguments will override existing default arguments. Duplicate extra arguments are allowed.",
+      "items": {
+        "$ref": "../kubeadm.k8s.io/arg_v1beta4.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "extraEnvs": {
+      "description": "ExtraEnvs is an extra set of environment variables to pass to the control plane component. Environment variables passed using ExtraEnvs will override any existing environment variables, or *_proxy environment variables that kubeadm adds by default.",
+      "items": {
+        "$ref": "../kubeadm.k8s.io/envvar_v1beta4.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "extraVolumes": {
+      "description": "ExtraVolumes is an extra set of host volumes, mounted to the control plane component.",
+      "items": {
+        "$ref": "../kubeadm.k8s.io/hostpathmount_v1beta4.json",
+        "default": {}
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

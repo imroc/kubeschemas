@@ -1,0 +1,72 @@
+{
+  "description": "ResetConfiguration contains a list of fields that are specifically \"kubeadm reset\"-only runtime information.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "kubeadm.k8s.io/v1beta4"
+      ],
+      "type": "string"
+    },
+    "certificatesDir": {
+      "description": "CertificatesDir specifies the directory where the certificates are stored. If specified, it will be cleaned during the reset process.",
+      "type": "string"
+    },
+    "cleanupTmpDir": {
+      "description": "CleanupTmpDir specifies whether the \"/etc/kubernetes/tmp\" directory should be cleaned during the reset process.",
+      "type": "boolean"
+    },
+    "criSocket": {
+      "description": "CRISocket is used to retrieve container runtime info and used for the removal of the containers. If CRISocket is not specified by flag or config file, kubeadm will try to detect one valid CRISocket instead.",
+      "type": "string"
+    },
+    "dryRun": {
+      "description": "DryRun tells if the dry run mode is enabled, don't apply any change if it is and just output what would be done.",
+      "type": "boolean"
+    },
+    "force": {
+      "description": "Force flag instructs kubeadm to reset the node without prompting for confirmation.",
+      "type": "boolean"
+    },
+    "ignorePreflightErrors": {
+      "description": "IgnorePreflightErrors provides a slice of pre-flight errors to be ignored during the reset process, e.g. 'IsPrivilegedUser,Swap'. Value 'all' ignores errors from all checks.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "ResetConfiguration"
+      ],
+      "type": "string"
+    },
+    "skipPhases": {
+      "description": "SkipPhases is a list of phases to skip during command execution. The list of phases can be obtained with the \"kubeadm reset phase --help\" command.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "timeouts": {
+      "$ref": "../kubeadm.k8s.io/timeouts_v1beta4.json",
+      "description": "Timeouts holds various timeouts that apply to kubeadm commands."
+    },
+    "unmountFlags": {
+      "description": "UnmountFlags is a list of unmount2() syscall flags that kubeadm can use when unmounting directories during \"reset\". A flag can be one of: MNT_FORCE, MNT_DETACH, MNT_EXPIRE, UMOUNT_NOFOLLOW. By default this list is empty.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object"
+}

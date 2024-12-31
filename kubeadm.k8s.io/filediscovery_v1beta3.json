@@ -1,0 +1,14 @@
+{
+  "description": "FileDiscovery is used to specify a file or URL to a kubeconfig file from which to load cluster information",
+  "properties": {
+    "kubeConfigPath": {
+      "default": "",
+      "description": "KubeConfigPath is used to specify the actual file path or URL to the kubeconfig file from which to load cluster information",
+      "type": "string"
+    }
+  },
+  "required": [
+    "kubeConfigPath"
+  ],
+  "type": "object"
+}

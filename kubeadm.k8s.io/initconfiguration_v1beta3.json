@@ -1,0 +1,58 @@
+{
+  "description": "InitConfiguration contains a list of elements that is specific \"kubeadm init\"-only runtime information.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "kubeadm.k8s.io/v1beta3"
+      ],
+      "type": "string"
+    },
+    "bootstrapTokens": {
+      "description": "BootstrapTokens is respected at `kubeadm init` time and describes a set of Bootstrap Tokens to create. This information IS NOT uploaded to the kubeadm cluster configmap, partly because of its sensitive nature",
+      "items": {
+        "$ref": "../bootstraptoken.apis.app.kubeadm.cmd.kubernetes.k8s.io/bootstraptoken_v1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "certificateKey": {
+      "description": "CertificateKey sets the key with which certificates and keys are encrypted prior to being uploaded in a secret in the cluster during the uploadcerts init phase. The certificate key is a hex encoded string that is an AES key of size 32 bytes.",
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "InitConfiguration"
+      ],
+      "type": "string"
+    },
+    "localAPIEndpoint": {
+      "$ref": "../kubeadm.k8s.io/apiendpoint_v1beta3.json",
+      "default": {},
+      "description": "LocalAPIEndpoint represents the endpoint of the API server instance that's deployed on this control plane node In HA setups, this differs from ClusterConfiguration.ControlPlaneEndpoint in the sense that ControlPlaneEndpoint is the global endpoint for the cluster, which then loadbalances the requests to each individual API server. This configuration object lets you customize what IP/DNS name and port the local API server advertises it's accessible on. By default, kubeadm tries to auto-detect the IP of the default interface and use that, but in case that process fails you may set the desired value here."
+    },
+    "nodeRegistration": {
+      "$ref": "../kubeadm.k8s.io/noderegistrationoptions_v1beta3.json",
+      "default": {},
+      "description": "NodeRegistration holds fields that relate to registering the new control-plane node to the cluster"
+    },
+    "patches": {
+      "$ref": "../kubeadm.k8s.io/patches_v1beta3.json",
+      "description": "Patches contains options related to applying patches to components deployed by kubeadm during \"kubeadm init\"."
+    },
+    "skipPhases": {
+      "description": "SkipPhases is a list of phases to skip during command execution. The list of phases can be obtained with the \"kubeadm init --help\" command. The flag \"--skip-phases\" takes precedence over this field.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object"
+}

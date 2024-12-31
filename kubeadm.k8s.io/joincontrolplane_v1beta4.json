@@ -1,0 +1,15 @@
+{
+  "description": "JoinControlPlane contains elements describing an additional control plane instance to be deployed on the joining node.",
+  "properties": {
+    "certificateKey": {
+      "description": "CertificateKey is the key that is used for decryption of certificates after they are downloaded from the secret upon joining a new control plane node. The corresponding encryption key is in the InitConfiguration. The certificate key is a hex encoded string that is an AES key of size 32 bytes.",
+      "type": "string"
+    },
+    "localAPIEndpoint": {
+      "$ref": "../kubeadm.k8s.io/apiendpoint_v1beta4.json",
+      "default": {},
+      "description": "LocalAPIEndpoint represents the endpoint of the API server instance to be deployed on this node."
+    }
+  },
+  "type": "object"
+}

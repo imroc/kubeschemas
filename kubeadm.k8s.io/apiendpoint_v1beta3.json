@@ -1,0 +1,15 @@
+{
+  "description": "APIEndpoint struct contains elements of API server instance deployed on a node.",
+  "properties": {
+    "advertiseAddress": {
+      "description": "AdvertiseAddress sets the IP address for the API server to advertise.",
+      "type": "string"
+    },
+    "bindPort": {
+      "description": "BindPort sets the secure port for the API Server to bind to. Defaults to 6443.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "type": "object"
+}

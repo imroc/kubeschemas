@@ -1,0 +1,54 @@
+{
+  "description": "NodeRegistrationOptions holds fields that relate to registering a new control-plane or node to the cluster, either via \"kubeadm init\" or \"kubeadm join\"",
+  "properties": {
+    "criSocket": {
+      "description": "CRISocket is used to retrieve container runtime info. This information will be annotated to the Node API object, for later re-use",
+      "type": "string"
+    },
+    "ignorePreflightErrors": {
+      "description": "IgnorePreflightErrors provides a slice of pre-flight errors to be ignored when the current node is registered, e.g. 'IsPrivilegedUser,Swap'. Value 'all' ignores errors from all checks.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "imagePullPolicy": {
+      "description": "ImagePullPolicy specifies the policy for image pulling during kubeadm \"init\" and \"join\" operations. The value of this field must be one of \"Always\", \"IfNotPresent\" or \"Never\". If this field is unset kubeadm will default it to \"IfNotPresent\", or pull the required images if not present on the host.\n\nPossible enum values:\n - `\"Always\"` means that kubelet always attempts to pull the latest image. Container will fail If the pull fails.\n - `\"IfNotPresent\"` means that kubelet pulls if the image isn't present on disk. Container will fail if the image isn't present and the pull fails.\n - `\"Never\"` means that kubelet never pulls an image, but only uses a local image. Container will fail if the image isn't present",
+      "enum": [
+        "Always",
+        "IfNotPresent",
+        "Never"
+      ],
+      "type": "string"
+    },
+    "imagePullSerial": {
+      "description": "ImagePullSerial specifies if image pulling performed by kubeadm must be done serially or in parallel. Default: true",
+      "type": "boolean"
+    },
+    "kubeletExtraArgs": {
+      "description": "KubeletExtraArgs passes through extra arguments to the kubelet. The arguments here are passed to the kubelet command line via the environment file kubeadm writes at runtime for the kubelet to source. This overrides the generic base-level configuration in the kubelet-config ConfigMap Flags have higher priority when parsing. These values are local and specific to the node kubeadm is executing on. An argument name in this list is the flag name as it appears on the command line except without leading dash(es). Extra arguments will override existing default arguments. Duplicate extra arguments are allowed.",
+      "items": {
+        "$ref": "../kubeadm.k8s.io/arg_v1beta4.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "name": {
+      "description": "Name is the `.Metadata.Name` field of the Node API object that will be created in this `kubeadm init` or `kubeadm join` operation. This field is also used in the CommonName field of the kubelet's client certificate to the API server. Defaults to the hostname of the node if not provided.",
+      "type": "string"
+    },
+    "taints": {
+      "description": "Taints specifies the taints the Node API object should be registered with. If this field is unset, i.e. nil, it will be defaulted with a control-plane taint for control-plane nodes. If you don't want to taint your control-plane node, set this field to an empty slice, i.e. `taints: []` in the YAML file. This field is solely used for Node registration.",
+      "items": {
+        "$ref": "../core.api.k8s.io/taint_v1.json",
+        "default": {}
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "taints"
+  ],
+  "type": "object"
+}

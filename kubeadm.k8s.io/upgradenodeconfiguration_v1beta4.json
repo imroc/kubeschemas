@@ -1,0 +1,51 @@
+{
+  "description": "UpgradeNodeConfiguration contains a list of configurable options which are specific to the \"kubeadm upgrade node\" command.",
+  "properties": {
+    "certificateRenewal": {
+      "description": "CertificateRenewal instructs kubeadm to execute certificate renewal during upgrades. Defaults to true.",
+      "type": "boolean"
+    },
+    "dryRun": {
+      "description": "DryRun tells if the dry run mode is enabled, don't apply any change if it is and just output what would be done.",
+      "type": "boolean"
+    },
+    "etcdUpgrade": {
+      "description": "EtcdUpgrade instructs kubeadm to execute etcd upgrade during upgrades. Defaults to true.",
+      "type": "boolean"
+    },
+    "ignorePreflightErrors": {
+      "description": "IgnorePreflightErrors provides a slice of pre-flight errors to be ignored during the upgrade process, e.g. 'IsPrivilegedUser,Swap'. Value 'all' ignores errors from all checks.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "imagePullPolicy": {
+      "description": "ImagePullPolicy specifies the policy for image pulling during kubeadm \"upgrade node\" operations. The value of this field must be one of \"Always\", \"IfNotPresent\" or \"Never\". If this field is unset kubeadm will default it to \"IfNotPresent\", or pull the required images if not present on the host.\n\nPossible enum values:\n - `\"Always\"` means that kubelet always attempts to pull the latest image. Container will fail If the pull fails.\n - `\"IfNotPresent\"` means that kubelet pulls if the image isn't present on disk. Container will fail if the image isn't present and the pull fails.\n - `\"Never\"` means that kubelet never pulls an image, but only uses a local image. Container will fail if the image isn't present",
+      "enum": [
+        "Always",
+        "IfNotPresent",
+        "Never"
+      ],
+      "type": "string"
+    },
+    "imagePullSerial": {
+      "description": "ImagePullSerial specifies if image pulling performed by kubeadm must be done serially or in parallel. Default: true",
+      "type": "boolean"
+    },
+    "patches": {
+      "$ref": "../kubeadm.k8s.io/patches_v1beta4.json",
+      "description": "Patches contains options related to applying patches to components deployed by kubeadm during \"kubeadm upgrade\"."
+    },
+    "skipPhases": {
+      "description": "SkipPhases is a list of phases to skip during command execution. The list of phases can be obtained with the \"kubeadm upgrade node phase --help\" command.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

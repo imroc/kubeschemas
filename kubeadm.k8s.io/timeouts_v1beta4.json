@@ -1,0 +1,34 @@
+{
+  "description": "Timeouts holds various timeouts that apply to kubeadm commands.",
+  "properties": {
+    "controlPlaneComponentHealthCheck": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "ControlPlaneComponentHealthCheck is the amount of time to wait for a control plane component, such as the API server, to be healthy during \"kubeadm init\" and \"kubeadm join\". Default: 4m"
+    },
+    "discovery": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "Discovery is the amount of time to wait for kubeadm to validate the API server identity for a joining node. Default: 5m"
+    },
+    "etcdAPICall": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "EtcdAPICall is the amount of time to wait for the kubeadm etcd client to complete a request to the etcd cluster. Default: 2m"
+    },
+    "kubeletHealthCheck": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "KubeletHealthCheck is the amount of time to wait for the kubelet to be healthy during \"kubeadm init\" and \"kubeadm join\". Default: 4m"
+    },
+    "kubernetesAPICall": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "KubernetesAPICall is the amount of time to wait for the kubeadm client to complete a request to the API server. This applies to all types of methods (GET, POST, etc). Default: 1m"
+    },
+    "tlsBootstrap": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "TLSBootstrap is the amount of time to wait for the kubelet to complete TLS bootstrap for a joining node. Default: 5m"
+    },
+    "upgradeManifests": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "UpgradeManifests is the timeout for upgrading static Pod manifests. Default: 5m"
+    }
+  },
+  "type": "object"
+}

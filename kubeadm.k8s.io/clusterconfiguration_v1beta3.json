@@ -1,0 +1,82 @@
+{
+  "description": "ClusterConfiguration contains cluster-wide configuration for a kubeadm cluster",
+  "properties": {
+    "apiServer": {
+      "$ref": "../kubeadm.k8s.io/apiserver_v1beta3.json",
+      "default": {},
+      "description": "APIServer contains extra settings for the API server control plane component"
+    },
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "kubeadm.k8s.io/v1beta3"
+      ],
+      "type": "string"
+    },
+    "certificatesDir": {
+      "description": "CertificatesDir specifies where to store or look for all required certificates.",
+      "type": "string"
+    },
+    "clusterName": {
+      "description": "The cluster name",
+      "type": "string"
+    },
+    "controlPlaneEndpoint": {
+      "description": "ControlPlaneEndpoint sets a stable IP address or DNS name for the control plane; it can be a valid IP address or a RFC-1123 DNS subdomain, both with optional TCP port. In case the ControlPlaneEndpoint is not specified, the AdvertiseAddress + BindPort are used; in case the ControlPlaneEndpoint is specified but without a TCP port, the BindPort is used. Possible usages are: e.g. In a cluster with more than one control plane instances, this field should be assigned the address of the external load balancer in front of the control plane instances. e.g.  in environments with enforced node recycling, the ControlPlaneEndpoint could be used for assigning a stable DNS to the control plane.",
+      "type": "string"
+    },
+    "controllerManager": {
+      "$ref": "../kubeadm.k8s.io/controlplanecomponent_v1beta3.json",
+      "default": {},
+      "description": "ControllerManager contains extra settings for the controller manager control plane component"
+    },
+    "dns": {
+      "$ref": "../kubeadm.k8s.io/dns_v1beta3.json",
+      "default": {},
+      "description": "DNS defines the options for the DNS add-on installed in the cluster."
+    },
+    "etcd": {
+      "$ref": "../kubeadm.k8s.io/etcd_v1beta3.json",
+      "default": {},
+      "description": "Etcd holds configuration for etcd."
+    },
+    "featureGates": {
+      "additionalProperties": {
+        "default": false,
+        "type": "boolean"
+      },
+      "description": "FeatureGates enabled by the user.",
+      "type": "object"
+    },
+    "imageRepository": {
+      "description": "ImageRepository sets the container registry to pull images from. If empty, `registry.k8s.io` will be used by default; in case of kubernetes version is a CI build (kubernetes version starts with `ci/`) `gcr.io/k8s-staging-ci-images` will be used as a default for control plane components and for kube-proxy, while `registry.k8s.io` will be used for all the other images.",
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "ClusterConfiguration"
+      ],
+      "type": "string"
+    },
+    "kubernetesVersion": {
+      "description": "KubernetesVersion is the target version of the control plane.",
+      "type": "string"
+    },
+    "networking": {
+      "$ref": "../kubeadm.k8s.io/networking_v1beta3.json",
+      "default": {},
+      "description": "Networking holds configuration for the networking topology of the cluster."
+    },
+    "scheduler": {
+      "$ref": "../kubeadm.k8s.io/controlplanecomponent_v1beta3.json",
+      "default": {},
+      "description": "Scheduler contains extra settings for the scheduler control plane component"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object"
+}

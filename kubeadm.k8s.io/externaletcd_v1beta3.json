@@ -1,0 +1,35 @@
+{
+  "description": "ExternalEtcd describes an external etcd cluster. Kubeadm has no knowledge of where certificate files live and they must be supplied.",
+  "properties": {
+    "caFile": {
+      "default": "",
+      "description": "CAFile is an SSL Certificate Authority file used to secure etcd communication. Required if using a TLS connection.",
+      "type": "string"
+    },
+    "certFile": {
+      "default": "",
+      "description": "CertFile is an SSL certification file used to secure etcd communication. Required if using a TLS connection.",
+      "type": "string"
+    },
+    "endpoints": {
+      "description": "Endpoints of etcd members. Required for ExternalEtcd.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "keyFile": {
+      "default": "",
+      "description": "KeyFile is an SSL key file used to secure etcd communication. Required if using a TLS connection.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "endpoints",
+    "caFile",
+    "certFile",
+    "keyFile"
+  ],
+  "type": "object"
+}

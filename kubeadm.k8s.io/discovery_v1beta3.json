@@ -1,0 +1,22 @@
+{
+  "description": "Discovery specifies the options for the kubelet to use during the TLS Bootstrap process",
+  "properties": {
+    "bootstrapToken": {
+      "$ref": "../kubeadm.k8s.io/bootstraptokendiscovery_v1beta3.json",
+      "description": "BootstrapToken is used to set the options for bootstrap token based discovery BootstrapToken and File are mutually exclusive"
+    },
+    "file": {
+      "$ref": "../kubeadm.k8s.io/filediscovery_v1beta3.json",
+      "description": "File is used to specify a file or URL to a kubeconfig file from which to load cluster information BootstrapToken and File are mutually exclusive"
+    },
+    "timeout": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "Timeout modifies the discovery timeout"
+    },
+    "tlsBootstrapToken": {
+      "description": "TLSBootstrapToken is a token used for TLS bootstrapping. If .BootstrapToken is set, this field is defaulted to .BootstrapToken.Token, but can be overridden. If .File is set, this field **must be set** in case the KubeConfigFile does not contain any other authentication information",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

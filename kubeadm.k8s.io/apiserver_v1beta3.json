@@ -1,0 +1,34 @@
+{
+  "description": "APIServer holds settings necessary for API server deployments in the cluster",
+  "properties": {
+    "certSANs": {
+      "description": "CertSANs sets extra Subject Alternative Names for the API Server signing cert.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "extraArgs": {
+      "additionalProperties": {
+        "default": "",
+        "type": "string"
+      },
+      "description": "ExtraArgs is an extra set of flags to pass to the control plane component. A key in this map is the flag name as it appears on the command line except without leading dash(es). use ComponentConfig + ConfigMaps.",
+      "type": "object"
+    },
+    "extraVolumes": {
+      "description": "ExtraVolumes is an extra set of host volumes, mounted to the control plane component.",
+      "items": {
+        "$ref": "../kubeadm.k8s.io/hostpathmount_v1beta3.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "timeoutForControlPlane": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "TimeoutForControlPlane controls the timeout that we use for API server to appear"
+    }
+  },
+  "type": "object"
+}

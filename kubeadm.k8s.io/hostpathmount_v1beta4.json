@@ -1,0 +1,44 @@
+{
+  "description": "HostPathMount contains elements describing volumes that are mounted from the host.",
+  "properties": {
+    "hostPath": {
+      "default": "",
+      "description": "HostPath is the path in the host that will be mounted inside the pod.",
+      "type": "string"
+    },
+    "mountPath": {
+      "default": "",
+      "description": "MountPath is the path inside the pod where hostPath will be mounted.",
+      "type": "string"
+    },
+    "name": {
+      "default": "",
+      "description": "Name of the volume inside the pod template.",
+      "type": "string"
+    },
+    "pathType": {
+      "description": "PathType is the type of the HostPath.\n\nPossible enum values:\n - `\"\"` For backwards compatible, leave it empty if unset\n - `\"BlockDevice\"` A block device must exist at the given path\n - `\"CharDevice\"` A character device must exist at the given path\n - `\"Directory\"` A directory must exist at the given path\n - `\"DirectoryOrCreate\"` If nothing exists at the given path, an empty directory will be created there as needed with file mode 0755, having the same group and ownership with Kubelet.\n - `\"File\"` A file must exist at the given path\n - `\"FileOrCreate\"` If nothing exists at the given path, an empty file will be created there as needed with file mode 0644, having the same group and ownership with Kubelet.\n - `\"Socket\"` A UNIX socket must exist at the given path",
+      "enum": [
+        "",
+        "BlockDevice",
+        "CharDevice",
+        "Directory",
+        "DirectoryOrCreate",
+        "File",
+        "FileOrCreate",
+        "Socket"
+      ],
+      "type": "string"
+    },
+    "readOnly": {
+      "description": "ReadOnly controls write access to the volume",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "name",
+    "hostPath",
+    "mountPath"
+  ],
+  "type": "object"
+}

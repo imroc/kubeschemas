@@ -1,0 +1,48 @@
+{
+  "description": "UpgradeConfiguration contains a list of options that are specific to \"kubeadm upgrade\" subcommands.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "kubeadm.k8s.io/v1beta4"
+      ],
+      "type": "string"
+    },
+    "apply": {
+      "$ref": "../kubeadm.k8s.io/upgradeapplyconfiguration_v1beta4.json",
+      "default": {},
+      "description": "Apply holds a list of options that are specific to the \"kubeadm upgrade apply\" command."
+    },
+    "diff": {
+      "$ref": "../kubeadm.k8s.io/upgradediffconfiguration_v1beta4.json",
+      "default": {},
+      "description": "Diff holds a list of options that are specific to the \"kubeadm upgrade diff\" command."
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "UpgradeConfiguration"
+      ],
+      "type": "string"
+    },
+    "node": {
+      "$ref": "../kubeadm.k8s.io/upgradenodeconfiguration_v1beta4.json",
+      "default": {},
+      "description": "Node holds a list of options that are specific to the \"kubeadm upgrade node\" command."
+    },
+    "plan": {
+      "$ref": "../kubeadm.k8s.io/upgradeplanconfiguration_v1beta4.json",
+      "default": {},
+      "description": "Plan holds a list of options that are specific to the \"kubeadm upgrade plan\" command."
+    },
+    "timeouts": {
+      "$ref": "../kubeadm.k8s.io/timeouts_v1beta4.json",
+      "description": "Timeouts holds various timeouts that apply to kubeadm commands."
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object"
+}

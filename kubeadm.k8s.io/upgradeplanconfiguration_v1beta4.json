@@ -1,0 +1,34 @@
+{
+  "description": "UpgradePlanConfiguration contains a list of configurable options which are specific to the \"kubeadm upgrade plan\" command.",
+  "properties": {
+    "allowExperimentalUpgrades": {
+      "description": "AllowExperimentalUpgrades instructs kubeadm to show unstable versions of Kubernetes as an upgrade alternative and allows upgrading to an alpha/beta/release candidate version of Kubernetes. Default: false",
+      "type": "boolean"
+    },
+    "allowRCUpgrades": {
+      "description": "Enable AllowRCUpgrades will show release candidate versions of Kubernetes as an upgrade alternative and allows upgrading to a release candidate version of Kubernetes.",
+      "type": "boolean"
+    },
+    "dryRun": {
+      "description": "DryRun tells if the dry run mode is enabled, don't apply any change if it is and just output what would be done.",
+      "type": "boolean"
+    },
+    "ignorePreflightErrors": {
+      "description": "IgnorePreflightErrors provides a slice of pre-flight errors to be ignored during the upgrade process, e.g. 'IsPrivilegedUser,Swap'. Value 'all' ignores errors from all checks.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "kubernetesVersion": {
+      "description": "KubernetesVersion is the target version of the control plane.",
+      "type": "string"
+    },
+    "printConfig": {
+      "description": "PrintConfig specifies whether the configuration file that will be used in the upgrade should be printed or not.",
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}
