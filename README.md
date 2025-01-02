@@ -57,6 +57,7 @@ CRDs from open source project:
 - [k3s](https://github.com/k3s-io/k3s)
 - [mongodb atlas-operator](https://github.com/mongodb/helm-charts/tree/main/charts/atlas-operator-crds), [mongodb community-operator](https://github.com/mongodb/helm-charts/tree/main/charts/community-operator-crds) and [mongodb enterprise-operator](https://github.com/mongodb/helm-charts/tree/main/charts/enterprise-operator/crds)
 - [dragonfly-operator](https://raw.githubusercontent.com/dragonflydb/dragonfly-operator/refs/heads/main/manifests/crd.yaml)
+- [fluxcd](https://github.com/fluxcd/flux2/blob/main/manifests/crds/kustomization.yaml)
 - Rancher(TODO)
 - KubeSphere(TODO)
 - OpenShift(TODO)

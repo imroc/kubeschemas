@@ -2077,6 +2077,24 @@
       "$ref": "helm.cattle.io/helmchartlist_v1.json"
     },
     {
+      "$ref": "helm.toolkit.fluxcd.io/helmrelease_v2.json"
+    },
+    {
+      "$ref": "helm.toolkit.fluxcd.io/helmrelease_v2beta1.json"
+    },
+    {
+      "$ref": "helm.toolkit.fluxcd.io/helmrelease_v2beta2.json"
+    },
+    {
+      "$ref": "helm.toolkit.fluxcd.io/helmreleaselist_v2.json"
+    },
+    {
+      "$ref": "helm.toolkit.fluxcd.io/helmreleaselist_v2beta1.json"
+    },
+    {
+      "$ref": "helm.toolkit.fluxcd.io/helmreleaselist_v2beta2.json"
+    },
+    {
       "$ref": "hub.gke.io/membership_v1.json"
     },
     {
@@ -2147,6 +2165,42 @@
     },
     {
       "$ref": "hub.traefik.io/managedsubscriptionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "image.toolkit.fluxcd.io/imagepolicy_v1beta1.json"
+    },
+    {
+      "$ref": "image.toolkit.fluxcd.io/imagepolicy_v1beta2.json"
+    },
+    {
+      "$ref": "image.toolkit.fluxcd.io/imagepolicylist_v1beta1.json"
+    },
+    {
+      "$ref": "image.toolkit.fluxcd.io/imagepolicylist_v1beta2.json"
+    },
+    {
+      "$ref": "image.toolkit.fluxcd.io/imagerepository_v1beta1.json"
+    },
+    {
+      "$ref": "image.toolkit.fluxcd.io/imagerepository_v1beta2.json"
+    },
+    {
+      "$ref": "image.toolkit.fluxcd.io/imagerepositorylist_v1beta1.json"
+    },
+    {
+      "$ref": "image.toolkit.fluxcd.io/imagerepositorylist_v1beta2.json"
+    },
+    {
+      "$ref": "image.toolkit.fluxcd.io/imageupdateautomation_v1beta1.json"
+    },
+    {
+      "$ref": "image.toolkit.fluxcd.io/imageupdateautomation_v1beta2.json"
+    },
+    {
+      "$ref": "image.toolkit.fluxcd.io/imageupdateautomationlist_v1beta1.json"
+    },
+    {
+      "$ref": "image.toolkit.fluxcd.io/imageupdateautomationlist_v1beta2.json"
     },
     {
       "$ref": "imagepolicy.k8s.io/imagereview_v1alpha1.json"
@@ -2429,6 +2483,24 @@
     },
     {
       "$ref": "kueue.x-k8s.io/workloadpriorityclasslist_v1beta1.json"
+    },
+    {
+      "$ref": "kustomize.toolkit.fluxcd.io/kustomization_v1.json"
+    },
+    {
+      "$ref": "kustomize.toolkit.fluxcd.io/kustomization_v1beta1.json"
+    },
+    {
+      "$ref": "kustomize.toolkit.fluxcd.io/kustomization_v1beta2.json"
+    },
+    {
+      "$ref": "kustomize.toolkit.fluxcd.io/kustomizationlist_v1.json"
+    },
+    {
+      "$ref": "kustomize.toolkit.fluxcd.io/kustomizationlist_v1beta1.json"
+    },
+    {
+      "$ref": "kustomize.toolkit.fluxcd.io/kustomizationlist_v1beta2.json"
     },
     {
       "$ref": "linkerd.io/serviceprofile_v1alpha1.json"
@@ -3137,6 +3209,60 @@
     },
     {
       "$ref": "nodemanagement.gke.io/updateinfolist_v1alpha1.json"
+    },
+    {
+      "$ref": "notification.toolkit.fluxcd.io/alert_v1beta1.json"
+    },
+    {
+      "$ref": "notification.toolkit.fluxcd.io/alert_v1beta2.json"
+    },
+    {
+      "$ref": "notification.toolkit.fluxcd.io/alert_v1beta3.json"
+    },
+    {
+      "$ref": "notification.toolkit.fluxcd.io/alertlist_v1beta1.json"
+    },
+    {
+      "$ref": "notification.toolkit.fluxcd.io/alertlist_v1beta2.json"
+    },
+    {
+      "$ref": "notification.toolkit.fluxcd.io/alertlist_v1beta3.json"
+    },
+    {
+      "$ref": "notification.toolkit.fluxcd.io/provider_v1beta1.json"
+    },
+    {
+      "$ref": "notification.toolkit.fluxcd.io/provider_v1beta2.json"
+    },
+    {
+      "$ref": "notification.toolkit.fluxcd.io/provider_v1beta3.json"
+    },
+    {
+      "$ref": "notification.toolkit.fluxcd.io/providerlist_v1beta1.json"
+    },
+    {
+      "$ref": "notification.toolkit.fluxcd.io/providerlist_v1beta2.json"
+    },
+    {
+      "$ref": "notification.toolkit.fluxcd.io/providerlist_v1beta3.json"
+    },
+    {
+      "$ref": "notification.toolkit.fluxcd.io/receiver_v1.json"
+    },
+    {
+      "$ref": "notification.toolkit.fluxcd.io/receiver_v1beta1.json"
+    },
+    {
+      "$ref": "notification.toolkit.fluxcd.io/receiver_v1beta2.json"
+    },
+    {
+      "$ref": "notification.toolkit.fluxcd.io/receiverlist_v1.json"
+    },
+    {
+      "$ref": "notification.toolkit.fluxcd.io/receiverlist_v1beta1.json"
+    },
+    {
+      "$ref": "notification.toolkit.fluxcd.io/receiverlist_v1beta2.json"
     },
     {
       "$ref": "opentelemetry.io/instrumentation_v1alpha1.json"
@@ -3866,6 +3992,84 @@
     },
     {
       "$ref": "snapshot.storage.k8s.io/volumesnapshotlist_v1beta1.json"
+    },
+    {
+      "$ref": "source.toolkit.fluxcd.io/bucket_v1.json"
+    },
+    {
+      "$ref": "source.toolkit.fluxcd.io/bucket_v1beta1.json"
+    },
+    {
+      "$ref": "source.toolkit.fluxcd.io/bucket_v1beta2.json"
+    },
+    {
+      "$ref": "source.toolkit.fluxcd.io/bucketlist_v1.json"
+    },
+    {
+      "$ref": "source.toolkit.fluxcd.io/bucketlist_v1beta1.json"
+    },
+    {
+      "$ref": "source.toolkit.fluxcd.io/bucketlist_v1beta2.json"
+    },
+    {
+      "$ref": "source.toolkit.fluxcd.io/gitrepository_v1.json"
+    },
+    {
+      "$ref": "source.toolkit.fluxcd.io/gitrepository_v1beta1.json"
+    },
+    {
+      "$ref": "source.toolkit.fluxcd.io/gitrepository_v1beta2.json"
+    },
+    {
+      "$ref": "source.toolkit.fluxcd.io/gitrepositorylist_v1.json"
+    },
+    {
+      "$ref": "source.toolkit.fluxcd.io/gitrepositorylist_v1beta1.json"
+    },
+    {
+      "$ref": "source.toolkit.fluxcd.io/gitrepositorylist_v1beta2.json"
+    },
+    {
+      "$ref": "source.toolkit.fluxcd.io/helmchart_v1.json"
+    },
+    {
+      "$ref": "source.toolkit.fluxcd.io/helmchart_v1beta1.json"
+    },
+    {
+      "$ref": "source.toolkit.fluxcd.io/helmchart_v1beta2.json"
+    },
+    {
+      "$ref": "source.toolkit.fluxcd.io/helmchartlist_v1.json"
+    },
+    {
+      "$ref": "source.toolkit.fluxcd.io/helmchartlist_v1beta1.json"
+    },
+    {
+      "$ref": "source.toolkit.fluxcd.io/helmchartlist_v1beta2.json"
+    },
+    {
+      "$ref": "source.toolkit.fluxcd.io/helmrepository_v1.json"
+    },
+    {
+      "$ref": "source.toolkit.fluxcd.io/helmrepository_v1beta1.json"
+    },
+    {
+      "$ref": "source.toolkit.fluxcd.io/helmrepository_v1beta2.json"
+    },
+    {
+      "$ref": "source.toolkit.fluxcd.io/helmrepositorylist_v1.json"
+    },
+    {
+      "$ref": "source.toolkit.fluxcd.io/helmrepositorylist_v1beta1.json"
+    },
+    {
+      "$ref": "source.toolkit.fluxcd.io/helmrepositorylist_v1beta2.json"
+    },
+    {
+      "$ref": "source.toolkit.fluxcd.io/ocirepository_v1beta2.json"
+    },
+    {
+      "$ref": "source.toolkit.fluxcd.io/ocirepositorylist_v1beta2.json"
     },
     {
       "$ref": "sources.knative.dev/apiserversource_v1.json"
