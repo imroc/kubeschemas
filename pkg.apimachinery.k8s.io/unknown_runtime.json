@@ -1,0 +1,32 @@
+{
+  "description": "Unknown allows api objects with unknown types to be passed-through. This can be used to deal with the API objects from a plug-in. Unknown objects still have functioning TypeMeta features-- kind, version, etc. metadata and field mutatation.",
+  "properties": {
+    "ContentEncoding": {
+      "default": "",
+      "description": "ContentEncoding is encoding used to encode 'Raw' data. Unspecified means no encoding.",
+      "type": "string"
+    },
+    "ContentType": {
+      "default": "",
+      "description": "ContentType  is serialization method used to serialize 'Raw'. Unspecified means ContentTypeJSON.",
+      "type": "string"
+    },
+    "apiVersion": {
+      "enum": [
+        "pkg.apimachinery.k8s.io/runtime"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "Unknown"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object"
+}
