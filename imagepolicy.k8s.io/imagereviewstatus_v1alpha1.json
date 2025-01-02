@@ -1,0 +1,26 @@
+{
+  "description": "ImageReviewStatus is the result of the review for the pod creation request.",
+  "properties": {
+    "allowed": {
+      "default": false,
+      "description": "Allowed indicates that all images were allowed to be run.",
+      "type": "boolean"
+    },
+    "auditAnnotations": {
+      "additionalProperties": {
+        "default": "",
+        "type": "string"
+      },
+      "description": "AuditAnnotations will be added to the attributes object of the admission controller request using 'AddAnnotation'.  The keys should be prefix-less (i.e., the admission controller will add an appropriate prefix).",
+      "type": "object"
+    },
+    "reason": {
+      "description": "Reason should be empty unless Allowed is false in which case it may contain a short description of what is wrong.  Kubernetes may truncate excessively long errors when displaying to the user.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "allowed"
+  ],
+  "type": "object"
+}

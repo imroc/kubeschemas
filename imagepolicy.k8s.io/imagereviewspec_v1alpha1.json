@@ -1,0 +1,27 @@
+{
+  "description": "ImageReviewSpec is a description of the pod creation request.",
+  "properties": {
+    "annotations": {
+      "additionalProperties": {
+        "default": "",
+        "type": "string"
+      },
+      "description": "Annotations is a list of key-value pairs extracted from the Pod's annotations. It only includes keys which match the pattern `*.image-policy.k8s.io/*`. It is up to each webhook backend to determine how to interpret these annotations, if at all.",
+      "type": "object"
+    },
+    "containers": {
+      "description": "Containers is a list of a subset of the information in each container of the Pod being created.",
+      "items": {
+        "$ref": "../imagepolicy.k8s.io/imagereviewcontainerspec_v1alpha1.json",
+        "default": {}
+      },
+      "type": "array",
+      "x-kubernetes-list-type": "atomic"
+    },
+    "namespace": {
+      "description": "Namespace is the namespace the pod is being created in.",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}
