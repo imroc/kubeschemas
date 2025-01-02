@@ -1,0 +1,33 @@
+{
+  "description": "Limit is the configuration for a particular limit type",
+  "properties": {
+    "burst": {
+      "default": 0,
+      "description": "burst is the burst number of event queries that are allowed for this type of limit. The qps and burst fields are used together to determine if a particular event query is accepted. The burst determines the maximum size of the allowance granted for a particular bucket. For example, if the burst is 10 and the qps is 3, then the admission control will accept 10 queries before blocking any queries. Every second, 3 more queries will be allowed. If some of that allowance is not used, then it will roll over to the next second, until the maximum allowance of 10 is reached.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "cacheSize": {
+      "description": "cacheSize is the size of the LRU cache for this type of limit. If a bucket is evicted from the cache, then the allowance for that bucket is reset. If more queries are later received for an evicted bucket, then that bucket will re-enter the cache with a clean slate, giving that bucket a full allowance of burst queries.\n\nThe default cache size is 4096.\n\nIf limitType is 'server', then cacheSize is ignored.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "qps": {
+      "default": 0,
+      "description": "qps is the number of event queries per second that are allowed for this type of limit. The qps and burst fields are used together to determine if a particular event query is accepted. The qps determines how many queries are accepted once the burst amount of queries has been exhausted.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "type": {
+      "default": "",
+      "description": "type is the type of limit to which this configuration applies",
+      "type": "string"
+    }
+  },
+  "required": [
+    "type",
+    "qps",
+    "burst"
+  ],
+  "type": "object"
+}

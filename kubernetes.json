@@ -1726,6 +1726,9 @@
       "$ref": "eventing.knative.dev/triggerlist_v1.json"
     },
     {
+      "$ref": "eventratelimit.admission.k8s.io/configuration_v1alpha1.json"
+    },
+    {
       "$ref": "events.api.k8s.io/event_v1.json"
     },
     {
