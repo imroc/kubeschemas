@@ -1795,6 +1795,24 @@
       "$ref": "federation.pingcap.com/volumerestorelist_v1alpha1.json"
     },
     {
+      "$ref": "flagger.app/alertprovider_v1beta1.json"
+    },
+    {
+      "$ref": "flagger.app/alertproviderlist_v1beta1.json"
+    },
+    {
+      "$ref": "flagger.app/canary_v1beta1.json"
+    },
+    {
+      "$ref": "flagger.app/canarylist_v1beta1.json"
+    },
+    {
+      "$ref": "flagger.app/metrictemplate_v1beta1.json"
+    },
+    {
+      "$ref": "flagger.app/metrictemplatelist_v1beta1.json"
+    },
+    {
       "$ref": "flink.apache.org/flinkdeployment_v1beta1.json"
     },
     {

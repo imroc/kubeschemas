@@ -1,0 +1,99 @@
+{
+  "description": "AlertProvider is the Schema for the AlertProvider API.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "flagger.app/v1beta1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "AlertProvider"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "AlertProviderSpec defines the desired state of a AlertProvider.",
+      "oneOf": [
+        {
+          "required": [
+            "type",
+            "address"
+          ]
+        },
+        {
+          "required": [
+            "type",
+            "secretRef"
+          ]
+        }
+      ],
+      "properties": {
+        "address": {
+          "description": "Hook URL address of this provider",
+          "type": "string"
+        },
+        "channel": {
+          "description": "Alert channel for this provider",
+          "type": "string"
+        },
+        "proxy": {
+          "description": "Http/s proxy of this provider",
+          "type": "string"
+        },
+        "secretRef": {
+          "description": "Kubernetes secret reference containing the provider address",
+          "properties": {
+            "name": {
+              "description": "Name of the Kubernetes secret",
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "description": "Type of this provider",
+          "enum": [
+            "slack",
+            "msteams",
+            "discord",
+            "rocket",
+            "gchat"
+          ],
+          "type": "string"
+        },
+        "username": {
+          "description": "Bot username for this provider",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "flagger.app",
+      "kind": "AlertProvider",
+      "version": "v1beta1"
+    }
+  ]
+}
