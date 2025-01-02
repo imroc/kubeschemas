@@ -1,0 +1,14 @@
+{
+  "description": "TCPTransport provides the information to connect to konnectivity server via TCP",
+  "properties": {
+    "tlsConfig": {
+      "$ref": "../apiserver.k8s.io/tlsconfig_v1alpha1.json",
+      "description": "TLSConfig is the config needed to use TLS when connecting to konnectivity server"
+    },
+    "url": {
+      "description": "URL is the location of the konnectivity server to connect to. As an example it might be \"https://127.0.0.1:8131\"",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,14 @@
+{
+  "description": "Transport defines the transport configurations we use to dial to the konnectivity server",
+  "properties": {
+    "tcp": {
+      "$ref": "../apiserver.k8s.io/tcptransport_v1beta1.json",
+      "description": "TCP is the TCP configuration for communicating with the konnectivity server via TCP ProxyProtocol of GRPC is not supported with TCP transport at the moment Requires at least one of TCP or UDS to be set"
+    },
+    "uds": {
+      "$ref": "../apiserver.k8s.io/udstransport_v1beta1.json",
+      "description": "UDS is the UDS configuration for communicating with the konnectivity server via UDS Requires at least one of TCP or UDS to be set"
+    }
+  },
+  "type": "object"
+}

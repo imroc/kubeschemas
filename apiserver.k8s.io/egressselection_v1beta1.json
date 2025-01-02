@@ -1,0 +1,20 @@
+{
+  "description": "EgressSelection provides the configuration for a single egress selection client.",
+  "properties": {
+    "connection": {
+      "$ref": "../apiserver.k8s.io/connection_v1beta1.json",
+      "default": {},
+      "description": "connection is the exact information used to configure the egress selection"
+    },
+    "name": {
+      "default": "",
+      "description": "name is the name of the egress selection. Currently supported values are \"controlplane\", \"master\", \"etcd\" and \"cluster\" The \"master\" egress selector is deprecated in favor of \"controlplane\"",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "connection"
+  ],
+  "type": "object"
+}

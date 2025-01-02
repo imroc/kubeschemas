@@ -1,0 +1,20 @@
+{
+  "description": "Key contains name and secret of the provided key for a transformer.",
+  "properties": {
+    "name": {
+      "default": "",
+      "description": "name is the name of the key to be used while storing data to disk.",
+      "type": "string"
+    },
+    "secret": {
+      "default": "",
+      "description": "secret is the actual key, encoded in base64.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "secret"
+  ],
+  "type": "object"
+}

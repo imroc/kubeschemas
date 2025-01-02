@@ -1,0 +1,18 @@
+{
+  "description": "UserValidationRule provides the configuration for a single user info validation rule.",
+  "properties": {
+    "expression": {
+      "default": "",
+      "description": "expression represents the expression which will be evaluated by CEL. Must return true for the validation to pass.\n\nCEL expressions have access to the contents of UserInfo, organized into CEL variable: - 'user' - authentication.k8s.io/v1, Kind=UserInfo object\n   Refer to https://github.com/kubernetes/api/blob/release-1.28/authentication/v1/types.go#L105-L122 for the definition.\n   API documentation: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.28/#userinfo-v1-authentication-k8s-io\n\nDocumentation on CEL: https://kubernetes.io/docs/reference/using-api/cel/",
+      "type": "string"
+    },
+    "message": {
+      "description": "message customizes the returned error message when rule returns false. message is a literal string.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "expression"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,36 @@
+{
+  "description": "AuthenticationConfiguration provides versioned configuration for authentication.",
+  "properties": {
+    "anonymous": {
+      "$ref": "../apiserver.k8s.io/anonymousauthconfig_v1alpha1.json",
+      "description": "If present --anonymous-auth must not be set"
+    },
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "apiserver.k8s.io/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "jwt": {
+      "description": "jwt is a list of authenticator to authenticate Kubernetes users using JWT compliant tokens. The authenticator will attempt to parse a raw ID token, verify it's been signed by the configured issuer. The public key to verify the signature is discovered from the issuer's public endpoint using OIDC discovery. For an incoming token, each JWT authenticator will be attempted in the order in which it is specified in this list.  Note however that other authenticators may run before or after the JWT authenticators. The specific position of JWT authenticators in relation to other authenticators is neither defined nor stable across releases.  Since each JWT authenticator must have a unique issuer URL, at most one JWT authenticator will attempt to cryptographically validate the token.\n\nThe minimum valid JWT payload must contain the following claims: {\n\t\t\"iss\": \"https://issuer.example.com\",\n\t\t\"aud\": [\"audience\"],\n\t\t\"exp\": 1234567890,\n\t\t\"\u003cusername claim\u003e\": \"username\"\n}",
+      "items": {
+        "$ref": "../apiserver.k8s.io/jwtauthenticator_v1alpha1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "AuthenticationConfiguration"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object"
+}

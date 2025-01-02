@@ -1,0 +1,21 @@
+{
+  "description": "AnonymousAuthConfig provides the configuration for the anonymous authenticator.",
+  "properties": {
+    "conditions": {
+      "description": "If set, anonymous auth is only allowed if the request meets one of the conditions.",
+      "items": {
+        "$ref": "../apiserver.k8s.io/anonymousauthcondition_v1alpha1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "enabled": {
+      "default": false,
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "enabled"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,55 @@
+{
+  "properties": {
+    "authorizedTTL": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "The duration to cache 'authorized' responses from the webhook authorizer. Same as setting `--authorization-webhook-cache-authorized-ttl` flag Default: 5m0s"
+    },
+    "connectionInfo": {
+      "$ref": "../apiserver.k8s.io/webhookconnectioninfo_v1alpha1.json",
+      "default": {},
+      "description": "ConnectionInfo defines how we talk to the webhook"
+    },
+    "failurePolicy": {
+      "default": "",
+      "description": "Controls the authorization decision when a webhook request fails to complete or returns a malformed response or errors evaluating matchConditions. Valid values:\n  - NoOpinion: continue to subsequent authorizers to see if one of\n    them allows the request\n  - Deny: reject the request without consulting subsequent authorizers\nRequired, with no default.",
+      "type": "string"
+    },
+    "matchConditionSubjectAccessReviewVersion": {
+      "default": "",
+      "description": "MatchConditionSubjectAccessReviewVersion specifies the SubjectAccessReview version the CEL expressions are evaluated against Valid values: v1 Required, no default value",
+      "type": "string"
+    },
+    "matchConditions": {
+      "description": "matchConditions is a list of conditions that must be met for a request to be sent to this webhook. An empty list of matchConditions matches all requests. There are a maximum of 64 match conditions allowed.\n\nThe exact matching logic is (in order):\n  1. If at least one matchCondition evaluates to FALSE, then the webhook is skipped.\n  2. If ALL matchConditions evaluate to TRUE, then the webhook is called.\n  3. If at least one matchCondition evaluates to an error (but none are FALSE):\n     - If failurePolicy=Deny, then the webhook rejects the request\n     - If failurePolicy=NoOpinion, then the error is ignored and the webhook is skipped",
+      "items": {
+        "$ref": "../apiserver.k8s.io/webhookmatchcondition_v1alpha1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "subjectAccessReviewVersion": {
+      "default": "",
+      "description": "The API version of the authorization.k8s.io SubjectAccessReview to send to and expect from the webhook. Same as setting `--authorization-webhook-version` flag Valid values: v1beta1, v1 Required, no default value",
+      "type": "string"
+    },
+    "timeout": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "Timeout for the webhook request Maximum allowed value is 30s. Required, no default value."
+    },
+    "unauthorizedTTL": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "The duration to cache 'unauthorized' responses from the webhook authorizer. Same as setting `--authorization-webhook-cache-unauthorized-ttl` flag Default: 30s"
+    }
+  },
+  "required": [
+    "authorizedTTL",
+    "unauthorizedTTL",
+    "timeout",
+    "subjectAccessReviewVersion",
+    "matchConditionSubjectAccessReviewVersion",
+    "failurePolicy",
+    "connectionInfo",
+    "matchConditions"
+  ],
+  "type": "object"
+}

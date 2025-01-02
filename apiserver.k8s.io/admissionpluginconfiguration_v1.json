@@ -1,0 +1,23 @@
+{
+  "description": "AdmissionPluginConfiguration provides the configuration for a single plug-in.",
+  "properties": {
+    "configuration": {
+      "$ref": "../pkg.apimachinery.k8s.io/unknown_runtime.json",
+      "description": "Configuration is an embedded configuration object to be used as the plugin's configuration. If present, it will be used instead of the path to the configuration file."
+    },
+    "name": {
+      "default": "",
+      "description": "Name is the name of the admission controller. It must match the registered admission plugin name.",
+      "type": "string"
+    },
+    "path": {
+      "default": "",
+      "description": "Path is the path to a configuration file that contains the plugin's configuration",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "type": "object"
+}
