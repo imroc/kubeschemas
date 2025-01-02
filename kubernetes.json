@@ -184,6 +184,12 @@
       "$ref": "apiserver.config.k8s.io/tracingconfiguration_v1beta1.json"
     },
     {
+      "$ref": "apiserver.config.k8s.io/webhookadmission_v1.json"
+    },
+    {
+      "$ref": "apiserver.config.k8s.io/webhookadmission_v1alpha1.json"
+    },
+    {
       "$ref": "apiserver.k8s.io/admissionconfiguration_v1.json"
     },
     {
