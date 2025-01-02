@@ -1,0 +1,54 @@
+{
+  "description": "KubeProxyIPVSConfiguration contains ipvs-related configuration details for the Kubernetes proxy server.",
+  "properties": {
+    "excludeCIDRs": {
+      "description": "excludeCIDRs is a list of CIDRs which the ipvs proxier should not touch when cleaning up ipvs services.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "minSyncPeriod": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "minSyncPeriod is the minimum period between IPVS rule resyncs (e.g. '5s', '1m', '2h22m'). A value of 0 means every Service or EndpointSlice change will result in an immediate IPVS resync."
+    },
+    "scheduler": {
+      "default": "",
+      "description": "scheduler is the IPVS scheduler to use",
+      "type": "string"
+    },
+    "strictARP": {
+      "default": false,
+      "description": "strictARP configures arp_ignore and arp_announce to avoid answering ARP queries from kube-ipvs0 interface",
+      "type": "boolean"
+    },
+    "syncPeriod": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "syncPeriod is an interval (e.g. '5s', '1m', '2h22m') indicating how frequently various re-synchronizing and cleanup operations are performed. Must be greater than 0."
+    },
+    "tcpFinTimeout": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "tcpFinTimeout is the timeout value used for IPVS TCP sessions after receiving a FIN. The default value is 0, which preserves the current timeout value on the system."
+    },
+    "tcpTimeout": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "tcpTimeout is the timeout value used for idle IPVS TCP sessions. The default value is 0, which preserves the current timeout value on the system."
+    },
+    "udpTimeout": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "udpTimeout is the timeout value used for IPVS UDP packets. The default value is 0, which preserves the current timeout value on the system."
+    }
+  },
+  "required": [
+    "syncPeriod",
+    "minSyncPeriod",
+    "scheduler",
+    "excludeCIDRs",
+    "strictARP",
+    "tcpTimeout",
+    "tcpFinTimeout",
+    "udpTimeout"
+  ],
+  "type": "object"
+}

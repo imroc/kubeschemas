@@ -1,0 +1,35 @@
+{
+  "description": "KubeProxyIPTablesConfiguration contains iptables-related configuration details for the Kubernetes proxy server.",
+  "properties": {
+    "localhostNodePorts": {
+      "description": "localhostNodePorts, if false, tells kube-proxy to disable the legacy behavior of allowing NodePort services to be accessed via localhost. (Applies only to iptables mode and IPv4; localhost NodePorts are never allowed with other proxy modes or with IPv6.)",
+      "type": "boolean"
+    },
+    "masqueradeAll": {
+      "default": false,
+      "description": "masqueradeAll tells kube-proxy to SNAT all traffic sent to Service cluster IPs, when using the iptables or ipvs proxy mode. This may be required with some CNI plugins.",
+      "type": "boolean"
+    },
+    "masqueradeBit": {
+      "description": "masqueradeBit is the bit of the iptables fwmark space to use for SNAT if using the iptables or ipvs proxy mode. Values must be within the range [0, 31].",
+      "format": "int32",
+      "type": "integer"
+    },
+    "minSyncPeriod": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "minSyncPeriod is the minimum period between iptables rule resyncs (e.g. '5s', '1m', '2h22m'). A value of 0 means every Service or EndpointSlice change will result in an immediate iptables resync."
+    },
+    "syncPeriod": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "syncPeriod is an interval (e.g. '5s', '1m', '2h22m') indicating how frequently various re-synchronizing and cleanup operations are performed. Must be greater than 0."
+    }
+  },
+  "required": [
+    "masqueradeBit",
+    "masqueradeAll",
+    "localhostNodePorts",
+    "syncPeriod",
+    "minSyncPeriod"
+  ],
+  "type": "object"
+}

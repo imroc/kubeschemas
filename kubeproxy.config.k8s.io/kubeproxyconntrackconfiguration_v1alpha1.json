@@ -1,0 +1,46 @@
+{
+  "description": "KubeProxyConntrackConfiguration contains conntrack settings for the Kubernetes proxy server.",
+  "properties": {
+    "maxPerCore": {
+      "description": "maxPerCore is the maximum number of NAT connections to track per CPU core (0 to leave the limit as-is and ignore min).",
+      "format": "int32",
+      "type": "integer"
+    },
+    "min": {
+      "description": "min is the minimum value of connect-tracking records to allocate, regardless of maxPerCore (set maxPerCore=0 to leave the limit as-is).",
+      "format": "int32",
+      "type": "integer"
+    },
+    "tcpBeLiberal": {
+      "default": false,
+      "description": "tcpBeLiberal, if true, kube-proxy will configure conntrack to run in liberal mode for TCP connections and packets with out-of-window sequence numbers won't be marked INVALID.",
+      "type": "boolean"
+    },
+    "tcpCloseWaitTimeout": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "tcpCloseWaitTimeout is how long an idle conntrack entry in CLOSE_WAIT state will remain in the conntrack table. (e.g. '60s'). Must be greater than 0 to set."
+    },
+    "tcpEstablishedTimeout": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "tcpEstablishedTimeout is how long an idle TCP connection will be kept open (e.g. '2s').  Must be greater than 0 to set."
+    },
+    "udpStreamTimeout": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "udpStreamTimeout is how long an idle UDP conntrack entry in ASSURED state will remain in the conntrack table (e.g. '300s'). Must be greater than 0 to set."
+    },
+    "udpTimeout": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "udpTimeout is how long an idle UDP conntrack entry in UNREPLIED state will remain in the conntrack table (e.g. '30s'). Must be greater than 0 to set."
+    }
+  },
+  "required": [
+    "maxPerCore",
+    "min",
+    "tcpEstablishedTimeout",
+    "tcpCloseWaitTimeout",
+    "tcpBeLiberal",
+    "udpTimeout",
+    "udpStreamTimeout"
+  ],
+  "type": "object"
+}

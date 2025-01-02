@@ -1,0 +1,38 @@
+{
+  "description": "KubeProxyWinkernelConfiguration contains Windows/HNS settings for the Kubernetes proxy server.",
+  "properties": {
+    "enableDSR": {
+      "default": false,
+      "description": "enableDSR tells kube-proxy whether HNS policies should be created with DSR",
+      "type": "boolean"
+    },
+    "forwardHealthCheckVip": {
+      "default": false,
+      "description": "forwardHealthCheckVip forwards service VIP for health check port on Windows",
+      "type": "boolean"
+    },
+    "networkName": {
+      "default": "",
+      "description": "networkName is the name of the network kube-proxy will use to create endpoints and policies",
+      "type": "string"
+    },
+    "rootHnsEndpointName": {
+      "default": "",
+      "description": "rootHnsEndpointName is the name of hnsendpoint that is attached to l2bridge for root network namespace",
+      "type": "string"
+    },
+    "sourceVip": {
+      "default": "",
+      "description": "sourceVip is the IP address of the source VIP endpoint used for NAT when loadbalancing",
+      "type": "string"
+    }
+  },
+  "required": [
+    "networkName",
+    "sourceVip",
+    "enableDSR",
+    "rootHnsEndpointName",
+    "forwardHealthCheckVip"
+  ],
+  "type": "object"
+}

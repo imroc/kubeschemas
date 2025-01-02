@@ -1,0 +1,20 @@
+{
+  "description": "DetectLocalConfiguration contains optional settings related to DetectLocalMode option",
+  "properties": {
+    "bridgeInterface": {
+      "default": "",
+      "description": "bridgeInterface is a bridge interface name. When DetectLocalMode is set to LocalModeBridgeInterface, kube-proxy will consider traffic to be local if it originates from this bridge.",
+      "type": "string"
+    },
+    "interfaceNamePrefix": {
+      "default": "",
+      "description": "interfaceNamePrefix is an interface name prefix. When DetectLocalMode is set to LocalModeInterfaceNamePrefix, kube-proxy will consider traffic to be local if it originates from any interface whose name begins with this prefix.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "bridgeInterface",
+    "interfaceNamePrefix"
+  ],
+  "type": "object"
+}

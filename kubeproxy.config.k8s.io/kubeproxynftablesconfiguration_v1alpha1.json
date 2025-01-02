@@ -1,0 +1,30 @@
+{
+  "description": "KubeProxyNFTablesConfiguration contains nftables-related configuration details for the Kubernetes proxy server.",
+  "properties": {
+    "masqueradeAll": {
+      "default": false,
+      "description": "masqueradeAll tells kube-proxy to SNAT all traffic sent to Service cluster IPs, when using the nftables mode. This may be required with some CNI plugins.",
+      "type": "boolean"
+    },
+    "masqueradeBit": {
+      "description": "masqueradeBit is the bit of the iptables fwmark space to use for SNAT if using the nftables proxy mode. Values must be within the range [0, 31].",
+      "format": "int32",
+      "type": "integer"
+    },
+    "minSyncPeriod": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "minSyncPeriod is the minimum period between iptables rule resyncs (e.g. '5s', '1m', '2h22m'). A value of 0 means every Service or EndpointSlice change will result in an immediate iptables resync."
+    },
+    "syncPeriod": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "syncPeriod is an interval (e.g. '5s', '1m', '2h22m') indicating how frequently various re-synchronizing and cleanup operations are performed. Must be greater than 0."
+    }
+  },
+  "required": [
+    "masqueradeBit",
+    "masqueradeAll",
+    "syncPeriod",
+    "minSyncPeriod"
+  ],
+  "type": "object"
+}

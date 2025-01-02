@@ -1,0 +1,148 @@
+{
+  "description": "KubeProxyConfiguration contains everything necessary to configure the Kubernetes proxy server.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "kubeproxy.config.k8s.io/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "bindAddress": {
+      "default": "",
+      "description": "bindAddress can be used to override kube-proxy's idea of what its node's primary IP is. Note that the name is a historical artifact, and kube-proxy does not actually bind any sockets to this IP.",
+      "type": "string"
+    },
+    "bindAddressHardFail": {
+      "default": false,
+      "description": "bindAddressHardFail, if true, tells kube-proxy to treat failure to bind to a port as fatal and exit",
+      "type": "boolean"
+    },
+    "clientConnection": {
+      "$ref": "../config.component-base.k8s.io/clientconnectionconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "clientConnection specifies the kubeconfig file and client connection settings for the proxy server to use when communicating with the apiserver."
+    },
+    "clusterCIDR": {
+      "default": "",
+      "description": "clusterCIDR is the CIDR range of the pods in the cluster. (For dual-stack clusters, this can be a comma-separated dual-stack pair of CIDR ranges.). When DetectLocalMode is set to ClusterCIDR, kube-proxy will consider traffic to be local if its source IP is in this range. (Otherwise it is not used.)",
+      "type": "string"
+    },
+    "configSyncPeriod": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "configSyncPeriod is how often configuration from the apiserver is refreshed. Must be greater than 0."
+    },
+    "conntrack": {
+      "$ref": "../kubeproxy.config.k8s.io/kubeproxyconntrackconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "conntrack contains conntrack-related configuration options."
+    },
+    "detectLocal": {
+      "$ref": "../kubeproxy.config.k8s.io/detectlocalconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "detectLocal contains optional configuration settings related to DetectLocalMode."
+    },
+    "detectLocalMode": {
+      "default": "",
+      "description": "detectLocalMode determines mode to use for detecting local traffic, defaults to ClusterCIDR",
+      "type": "string"
+    },
+    "enableProfiling": {
+      "default": false,
+      "description": "enableProfiling enables profiling via web interface on /debug/pprof handler. Profiling handlers will be handled by metrics server.",
+      "type": "boolean"
+    },
+    "featureGates": {
+      "additionalProperties": {
+        "default": false,
+        "type": "boolean"
+      },
+      "description": "featureGates is a map of feature names to bools that enable or disable alpha/experimental features.",
+      "type": "object"
+    },
+    "healthzBindAddress": {
+      "default": "",
+      "description": "healthzBindAddress is the IP address and port for the health check server to serve on, defaulting to \"0.0.0.0:10256\" (if bindAddress is unset or IPv4), or \"[::]:10256\" (if bindAddress is IPv6).",
+      "type": "string"
+    },
+    "hostnameOverride": {
+      "default": "",
+      "description": "hostnameOverride, if non-empty, will be used as the name of the Node that kube-proxy is running on. If unset, the node name is assumed to be the same as the node's hostname.",
+      "type": "string"
+    },
+    "iptables": {
+      "$ref": "../kubeproxy.config.k8s.io/kubeproxyiptablesconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "iptables contains iptables-related configuration options."
+    },
+    "ipvs": {
+      "$ref": "../kubeproxy.config.k8s.io/kubeproxyipvsconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "ipvs contains ipvs-related configuration options."
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "KubeProxyConfiguration"
+      ],
+      "type": "string"
+    },
+    "logging": {
+      "$ref": "../api.logs.component-base.k8s.io/loggingconfiguration_v1.json",
+      "default": {},
+      "description": "logging specifies the options of logging. Refer to [Logs Options](https://github.com/kubernetes/component-base/blob/master/logs/options.go) for more information."
+    },
+    "metricsBindAddress": {
+      "default": "",
+      "description": "metricsBindAddress is the IP address and port for the metrics server to serve on, defaulting to \"127.0.0.1:10249\" (if bindAddress is unset or IPv4), or \"[::1]:10249\" (if bindAddress is IPv6). (Set to \"0.0.0.0:10249\" / \"[::]:10249\" to bind on all interfaces.)",
+      "type": "string"
+    },
+    "mode": {
+      "default": "",
+      "description": "mode specifies which proxy mode to use.",
+      "type": "string"
+    },
+    "nftables": {
+      "$ref": "../kubeproxy.config.k8s.io/kubeproxynftablesconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "nftables contains nftables-related configuration options."
+    },
+    "nodePortAddresses": {
+      "description": "nodePortAddresses is a list of CIDR ranges that contain valid node IPs, or alternatively, the single string 'primary'. If set to a list of CIDRs, connections to NodePort services will only be accepted on node IPs in one of the indicated ranges. If set to 'primary', NodePort services will only be accepted on the node's primary IPv4 and/or IPv6 address according to the Node object. If unset, NodePort connections will be accepted on all local IPs.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "oomScoreAdj": {
+      "description": "oomScoreAdj is the oom-score-adj value for kube-proxy process. Values must be within the range [-1000, 1000]",
+      "format": "int32",
+      "type": "integer"
+    },
+    "portRange": {
+      "default": "",
+      "description": "portRange was previously used to configure the userspace proxy, but is now unused.",
+      "type": "string"
+    },
+    "showHiddenMetricsForVersion": {
+      "default": "",
+      "description": "showHiddenMetricsForVersion is the version for which you want to show hidden metrics.",
+      "type": "string"
+    },
+    "windowsRunAsService": {
+      "description": "windowsRunAsService, if true, enables Windows service control manager API integration.",
+      "type": "boolean"
+    },
+    "winkernel": {
+      "$ref": "../kubeproxy.config.k8s.io/kubeproxywinkernelconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "winkernel contains winkernel-related configuration options."
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object"
+}
