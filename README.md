@@ -1,6 +1,6 @@
 # kubeschemas
 
-`kubeschemas` contains massive public maintained kubernetes json schema (about 1500 types), including all kubernetes buitin resource types, well known CRDs and kubernetes related configuration file.
+`kubeschemas` contains massive public maintained kubernetes json schema (1500+ types), including all kubernetes buitin resource types, well known CRDs and kubernetes related configuration file.
 
 ## kubernetes.nvim
 
