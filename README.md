@@ -53,12 +53,9 @@ These schemas are used by [kubernetes.nvim](https://github.com/imroc/kubernetes.
 
 And some kubernetes related configuration file schemas are also included:
 
-- kubeconfig
+- [Kubernetes Configuration APIs](https://kubernetes.io/docs/reference/config-api/) (e.g. kubeconfig, kubeadm/kubelet/kube-proxy/kube-apiserver/controller-manager/kube-scheduler configurations)
 - kind configuration
 - k3d configuration
-- kubelet configuration(TODO)
-- kubeadm configuration(TODO)
-- kube-apiserver configuration(TODO)
 
 ## Contributing
 
