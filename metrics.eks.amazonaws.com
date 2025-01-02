@@ -1,0 +1,1 @@
+metrics.apis.pkg.eks-extension-metrics-apiserver.aws.gitlab.com
