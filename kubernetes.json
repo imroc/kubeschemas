@@ -1552,6 +1552,24 @@
       "$ref": "crd.yangtse.cni/yangtseconfigurationlist_v1.json"
     },
     {
+      "$ref": "credentialprovider.kubelet.k8s.io/credentialproviderrequest_v1.json"
+    },
+    {
+      "$ref": "credentialprovider.kubelet.k8s.io/credentialproviderrequest_v1alpha1.json"
+    },
+    {
+      "$ref": "credentialprovider.kubelet.k8s.io/credentialproviderrequest_v1beta1.json"
+    },
+    {
+      "$ref": "credentialprovider.kubelet.k8s.io/credentialproviderresponse_v1.json"
+    },
+    {
+      "$ref": "credentialprovider.kubelet.k8s.io/credentialproviderresponse_v1alpha1.json"
+    },
+    {
+      "$ref": "credentialprovider.kubelet.k8s.io/credentialproviderresponse_v1beta1.json"
+    },
+    {
       "$ref": "custom_metrics.apis.pkg.metrics.k8s.io/metricvalue_v1beta1.json"
     },
     {

@@ -1,0 +1,20 @@
+{
+  "description": "AuthConfig contains authentication information for a container registry. Only username/password based authentication is supported today, but more authentication mechanisms may be added in the future.",
+  "properties": {
+    "password": {
+      "default": "",
+      "description": "password is the password used for authenticating to the container registry An empty password is valid.",
+      "type": "string"
+    },
+    "username": {
+      "default": "",
+      "description": "username is the username used for authenticating to the container registry An empty username is valid.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "username",
+    "password"
+  ],
+  "type": "object"
+}
