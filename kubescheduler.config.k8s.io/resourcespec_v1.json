@@ -1,0 +1,19 @@
+{
+  "description": "ResourceSpec represents a single resource.",
+  "properties": {
+    "name": {
+      "default": "",
+      "description": "Name of the resource.",
+      "type": "string"
+    },
+    "weight": {
+      "description": "Weight of the resource.",
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "type": "object"
+}

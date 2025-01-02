@@ -1,0 +1,18 @@
+{
+  "description": "ExtenderManagedResource describes the arguments of extended resources managed by an extender.",
+  "properties": {
+    "ignoredByScheduler": {
+      "description": "IgnoredByScheduler indicates whether kube-scheduler should ignore this resource when applying predicates.",
+      "type": "boolean"
+    },
+    "name": {
+      "default": "",
+      "description": "Name is the extended resource name.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "type": "object"
+}

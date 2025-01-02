@@ -1,0 +1,19 @@
+{
+  "description": "Plugin specifies a plugin name and its weight when applicable. Weight is used only for Score plugins.",
+  "properties": {
+    "name": {
+      "default": "",
+      "description": "Name defines the name of plugin",
+      "type": "string"
+    },
+    "weight": {
+      "description": "Weight defines the weight of plugin, only used for Score plugins.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "type": "object"
+}

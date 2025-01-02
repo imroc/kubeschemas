@@ -1,0 +1,87 @@
+{
+  "description": "KubeSchedulerConfiguration configures a scheduler",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "kubescheduler.config.k8s.io/v1"
+      ],
+      "type": "string"
+    },
+    "clientConnection": {
+      "$ref": "../config.component-base.k8s.io/clientconnectionconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "ClientConnection specifies the kubeconfig file and client connection settings for the proxy server to use when communicating with the apiserver."
+    },
+    "delayCacheUntilActive": {
+      "description": "DelayCacheUntilActive specifies when to start caching. If this is true and leader election is enabled, the scheduler will wait to fill informer caches until it is the leader. Doing so will have slower failover with the benefit of lower memory overhead while waiting to become leader. Defaults to false.",
+      "type": "boolean"
+    },
+    "enableContentionProfiling": {
+      "description": "enableContentionProfiling enables block profiling, if enableProfiling is true.",
+      "type": "boolean"
+    },
+    "enableProfiling": {
+      "description": "enableProfiling enables profiling via web interface host:port/debug/pprof/",
+      "type": "boolean"
+    },
+    "extenders": {
+      "description": "Extenders are the list of scheduler extenders, each holding the values of how to communicate with the extender. These extenders are shared by all scheduler profiles.",
+      "items": {
+        "$ref": "../kubescheduler.config.k8s.io/extender_v1.json",
+        "default": {}
+      },
+      "type": "array",
+      "x-kubernetes-list-type": "set"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "KubeSchedulerConfiguration"
+      ],
+      "type": "string"
+    },
+    "leaderElection": {
+      "$ref": "../config.component-base.k8s.io/leaderelectionconfiguration_v1alpha1.json",
+      "default": {},
+      "description": "LeaderElection defines the configuration of leader election client."
+    },
+    "parallelism": {
+      "description": "Parallelism defines the amount of parallelism in algorithms for scheduling a Pods. Must be greater than 0. Defaults to 16",
+      "format": "int32",
+      "type": "integer"
+    },
+    "percentageOfNodesToScore": {
+      "description": "PercentageOfNodesToScore is the percentage of all nodes that once found feasible for running a pod, the scheduler stops its search for more feasible nodes in the cluster. This helps improve scheduler's performance. Scheduler always tries to find at least \"minFeasibleNodesToFind\" feasible nodes no matter what the value of this flag is. Example: if the cluster size is 500 nodes and the value of this flag is 30, then scheduler stops finding further feasible nodes once it finds 150 feasible ones. When the value is 0, default percentage (5%--50% based on the size of the cluster) of the nodes will be scored. It is overridden by profile level PercentageOfNodesToScore.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "podInitialBackoffSeconds": {
+      "description": "PodInitialBackoffSeconds is the initial backoff for unschedulable pods. If specified, it must be greater than 0. If this value is null, the default value (1s) will be used.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "podMaxBackoffSeconds": {
+      "description": "PodMaxBackoffSeconds is the max backoff for unschedulable pods. If specified, it must be greater than podInitialBackoffSeconds. If this value is null, the default value (10s) will be used.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "profiles": {
+      "description": "Profiles are scheduling profiles that kube-scheduler supports. Pods can choose to be scheduled under a particular profile by setting its associated scheduler name. Pods that don't specify any scheduler name are scheduled with the \"default-scheduler\" profile, if present here.",
+      "items": {
+        "$ref": "../kubescheduler.config.k8s.io/kubeschedulerprofile_v1.json",
+        "default": {}
+      },
+      "type": "array",
+      "x-kubernetes-list-map-keys": [
+        "schedulerName"
+      ],
+      "x-kubernetes-list-type": "map"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object"
+}

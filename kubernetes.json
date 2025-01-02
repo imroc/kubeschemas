@@ -2281,6 +2281,30 @@
       "$ref": "kubeproxy.config.k8s.io/kubeproxyconfiguration_v1alpha1.json"
     },
     {
+      "$ref": "kubescheduler.config.k8s.io/defaultpreemptionargs_v1.json"
+    },
+    {
+      "$ref": "kubescheduler.config.k8s.io/interpodaffinityargs_v1.json"
+    },
+    {
+      "$ref": "kubescheduler.config.k8s.io/kubeschedulerconfiguration_v1.json"
+    },
+    {
+      "$ref": "kubescheduler.config.k8s.io/nodeaffinityargs_v1.json"
+    },
+    {
+      "$ref": "kubescheduler.config.k8s.io/noderesourcesbalancedallocationargs_v1.json"
+    },
+    {
+      "$ref": "kubescheduler.config.k8s.io/noderesourcesfitargs_v1.json"
+    },
+    {
+      "$ref": "kubescheduler.config.k8s.io/podtopologyspreadargs_v1.json"
+    },
+    {
+      "$ref": "kubescheduler.config.k8s.io/volumebindingargs_v1.json"
+    },
+    {
       "$ref": "kueue.x-k8s.io/admissioncheck_v1beta1.json"
     },
     {

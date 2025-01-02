@@ -1,0 +1,15 @@
+{
+  "description": "RequestedToCapacityRatioParam define RequestedToCapacityRatio parameters",
+  "properties": {
+    "shape": {
+      "description": "Shape is a list of points defining the scoring function shape.",
+      "items": {
+        "$ref": "../kubescheduler.config.k8s.io/utilizationshapepoint_v1.json",
+        "default": {}
+      },
+      "type": "array",
+      "x-kubernetes-list-type": "atomic"
+    }
+  },
+  "type": "object"
+}

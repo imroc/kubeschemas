@@ -1,0 +1,26 @@
+{
+  "description": "ScoringStrategy define ScoringStrategyType for node resource plugin",
+  "properties": {
+    "requestedToCapacityRatio": {
+      "$ref": "../kubescheduler.config.k8s.io/requestedtocapacityratioparam_v1.json",
+      "description": "Arguments specific to RequestedToCapacityRatio strategy."
+    },
+    "resources": {
+      "description": "Resources to consider when scoring. The default resource set includes \"cpu\" and \"memory\" with an equal weight. Allowed weights go from 1 to 100. Weight defaults to 1 if not specified or explicitly set to 0.",
+      "items": {
+        "$ref": "../kubescheduler.config.k8s.io/resourcespec_v1.json",
+        "default": {}
+      },
+      "type": "array",
+      "x-kubernetes-list-map-keys": [
+        "topologyKey"
+      ],
+      "x-kubernetes-list-type": "map"
+    },
+    "type": {
+      "description": "Type selects which strategy to run.",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

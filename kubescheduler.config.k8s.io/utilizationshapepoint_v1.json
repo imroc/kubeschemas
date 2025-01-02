@@ -1,0 +1,22 @@
+{
+  "description": "UtilizationShapePoint represents single point of priority function shape.",
+  "properties": {
+    "score": {
+      "default": 0,
+      "description": "Score assigned to given utilization (y axis). Valid values are 0 to 10.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "utilization": {
+      "default": 0,
+      "description": "Utilization (x axis). Valid values are 0 to 100. Fully utilized node maps to 100.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "utilization",
+    "score"
+  ],
+  "type": "object"
+}

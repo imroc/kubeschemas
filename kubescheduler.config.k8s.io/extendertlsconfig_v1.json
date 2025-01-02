@@ -1,0 +1,44 @@
+{
+  "description": "ExtenderTLSConfig contains settings to enable TLS with extender",
+  "properties": {
+    "caData": {
+      "description": "CAData holds PEM-encoded bytes (typically read from a root certificates bundle). CAData takes precedence over CAFile",
+      "format": "byte",
+      "type": "string",
+      "x-kubernetes-list-type": "atomic"
+    },
+    "caFile": {
+      "description": "Trusted root certificates for server",
+      "type": "string"
+    },
+    "certData": {
+      "description": "CertData holds PEM-encoded bytes (typically read from a client certificate file). CertData takes precedence over CertFile",
+      "format": "byte",
+      "type": "string",
+      "x-kubernetes-list-type": "atomic"
+    },
+    "certFile": {
+      "description": "Server requires TLS client certificate authentication",
+      "type": "string"
+    },
+    "insecure": {
+      "description": "Server should be accessed without verifying the TLS certificate. For testing only.",
+      "type": "boolean"
+    },
+    "keyData": {
+      "description": "KeyData holds PEM-encoded bytes (typically read from a client certificate key file). KeyData takes precedence over KeyFile",
+      "format": "byte",
+      "type": "string",
+      "x-kubernetes-list-type": "atomic"
+    },
+    "keyFile": {
+      "description": "Server requires TLS client certificate authentication",
+      "type": "string"
+    },
+    "serverName": {
+      "description": "ServerName is passed to the server for SNI and is used in the client to check server certificates against. If ServerName is empty, the hostname used to contact the server is used.",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

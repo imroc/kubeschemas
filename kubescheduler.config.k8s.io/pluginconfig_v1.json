@@ -1,0 +1,18 @@
+{
+  "description": "PluginConfig specifies arguments that should be passed to a plugin at the time of initialization. A plugin that is invoked at multiple extension points is initialized once. Args can have arbitrary structure. It is up to the plugin to process these Args.",
+  "properties": {
+    "args": {
+      "$ref": "../pkg.apimachinery.k8s.io/rawextension_runtime.json",
+      "description": "Args defines the arguments passed to the plugins at the time of initialization. Args can have arbitrary structure."
+    },
+    "name": {
+      "default": "",
+      "description": "Name defines the name of plugin being configured",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "type": "object"
+}
