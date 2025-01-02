@@ -1759,12 +1759,6 @@
       "$ref": "extensions.istio.io/wasmpluginlist_v1alpha1.json"
     },
     {
-      "$ref": "external.metrics.k8s.io/externalmetricvalue_v1beta1.json"
-    },
-    {
-      "$ref": "external.metrics.k8s.io/externalmetricvaluelist_v1beta1.json"
-    },
-    {
       "$ref": "external_metrics.apis.pkg.metrics.k8s.io/externalmetricvalue_v1beta1.json"
     },
     {
@@ -2489,18 +2483,6 @@
     },
     {
       "$ref": "metrics.apis.pkg.metrics.k8s.io/podmetricslist_v1beta1.json"
-    },
-    {
-      "$ref": "metrics.k8s.io/nodemetrics_v1beta1.json"
-    },
-    {
-      "$ref": "metrics.k8s.io/nodemetricslist_v1beta1.json"
-    },
-    {
-      "$ref": "metrics.k8s.io/podmetrics_v1beta1.json"
-    },
-    {
-      "$ref": "metrics.k8s.io/podmetricslist_v1beta1.json"
     },
     {
       "$ref": "mongodb.com/mongodb_v1.json"
@@ -4424,9 +4406,6 @@
     },
     {
       "$ref": "warden.gke.io/auditlist_v1.json"
-    },
-    {
-      "$ref": "webhook.acme.cert-manager.io/challengepayload_v1alpha1.json"
     },
     {
       "$ref": "work.karmada.io/clusterresourcebinding_v1alpha1.json"
