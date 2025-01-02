@@ -34,7 +34,7 @@
       "description": "leaderElection defines the configuration of leader election client."
     },
     "LeaderMigration": {
-      "$ref": "../config.controller-manager.k8s.io/leadermigrationconfiguration_v1alpha1.json",
+      "$ref": "../controllermanager.config.k8s.io/leadermigrationconfiguration_v1alpha1.json",
       "default": {},
       "description": "LeaderMigration holds the configuration for Leader Migration."
     },

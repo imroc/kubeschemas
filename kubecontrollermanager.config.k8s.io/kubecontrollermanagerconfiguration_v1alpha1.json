@@ -57,7 +57,7 @@
       "description": "GarbageCollectorControllerConfiguration holds configuration for GarbageCollectorController related features."
     },
     "Generic": {
-      "$ref": "../config.controller-manager.k8s.io/genericcontrollermanagerconfiguration_v1alpha1.json",
+      "$ref": "../controllermanager.config.k8s.io/genericcontrollermanagerconfiguration_v1alpha1.json",
       "default": {},
       "description": "Generic holds configuration for a generic controller-manager"
     },
@@ -72,7 +72,7 @@
       "description": "JobControllerConfiguration holds configuration for JobController related features."
     },
     "KubeCloudShared": {
-      "$ref": "../config.cloud-provider.k8s.io/kubecloudsharedconfiguration_v1alpha1.json",
+      "$ref": "../cloudcontrollermanager.config.k8s.io/kubecloudsharedconfiguration_v1alpha1.json",
       "default": {},
       "description": "KubeCloudSharedConfiguration holds configuration for shared related features both in cloud controller manager and kube-controller manager."
     },

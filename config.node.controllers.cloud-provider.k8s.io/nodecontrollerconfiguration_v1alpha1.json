@@ -1,0 +1,15 @@
+{
+  "description": "NodeControllerConfiguration contains elements describing NodeController.",
+  "properties": {
+    "ConcurrentNodeSyncs": {
+      "default": 0,
+      "description": "ConcurrentNodeSyncs is the number of workers concurrently synchronizing nodes",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "ConcurrentNodeSyncs"
+  ],
+  "type": "object"
+}

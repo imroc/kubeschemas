@@ -17,7 +17,7 @@
       "type": "string"
     },
     "CloudProvider": {
-      "$ref": "../config.cloud-provider.k8s.io/cloudproviderconfiguration_v1alpha1.json",
+      "$ref": "../cloudcontrollermanager.config.k8s.io/cloudproviderconfiguration_v1alpha1.json",
       "default": {},
       "description": "CloudProviderConfiguration holds configuration for CloudProvider related features."
     },

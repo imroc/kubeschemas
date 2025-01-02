@@ -2,12 +2,12 @@
   "description": "CloudControllerManagerConfiguration contains elements describing cloud-controller manager.",
   "properties": {
     "Generic": {
-      "$ref": "../config.controller-manager.k8s.io/genericcontrollermanagerconfiguration_v1alpha1.json",
+      "$ref": "../controllermanager.config.k8s.io/genericcontrollermanagerconfiguration_v1alpha1.json",
       "default": {},
       "description": "Generic holds configuration for a generic controller-manager"
     },
     "KubeCloudShared": {
-      "$ref": "../config.cloud-provider.k8s.io/kubecloudsharedconfiguration_v1alpha1.json",
+      "$ref": "../cloudcontrollermanager.config.k8s.io/kubecloudsharedconfiguration_v1alpha1.json",
       "default": {},
       "description": "KubeCloudSharedConfiguration holds configuration for shared related features both in cloud controller manager and kube-controller manager."
     },
@@ -26,14 +26,14 @@
       "description": "ServiceControllerConfiguration holds configuration for ServiceController related features."
     },
     "Webhook": {
-      "$ref": "../config.cloud-provider.k8s.io/webhookconfiguration_v1alpha1.json",
+      "$ref": "../cloudcontrollermanager.config.k8s.io/webhookconfiguration_v1alpha1.json",
       "default": {},
       "description": "Webhook is the configuration for cloud-controller-manager hosted webhooks"
     },
     "apiVersion": {
       "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
       "enum": [
-        "config.cloud-provider.k8s.io/v1alpha1"
+        "cloudcontrollermanager.config.k8s.io/v1alpha1"
       ],
       "type": "string"
     },
