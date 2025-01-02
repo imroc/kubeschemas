@@ -1606,6 +1606,12 @@
       "$ref": "discovery.api.k8s.io/endpointslicelist_v1.json"
     },
     {
+      "$ref": "dragonflydb.io/dragonfly_v1alpha1.json"
+    },
+    {
+      "$ref": "dragonflydb.io/dragonflylist_v1alpha1.json"
+    },
+    {
       "$ref": "eks.amazonaws.com/cninode_v1alpha1.json"
     },
     {

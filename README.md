@@ -47,6 +47,7 @@ These schemas are used by [kubernetes.nvim](https://github.com/imroc/kubernetes.
 - [kuberhealthy](https://github.com/kuberhealthy/kuberhealthy/tree/master/deploy/helm/kuberhealthy/crds)
 - [k3s](https://github.com/k3s-io/k3s)
 - [mongodb atlas-operator](https://github.com/mongodb/helm-charts/tree/main/charts/atlas-operator-crds), [mongodb community-operator](https://github.com/mongodb/helm-charts/tree/main/charts/community-operator-crds) and [mongodb enterprise-operator](https://github.com/mongodb/helm-charts/tree/main/charts/enterprise-operator/crds)
+- [dragonfly-operator](https://raw.githubusercontent.com/dragonflydb/dragonfly-operator/refs/heads/main/manifests/crd.yaml)
 - Rancher(TODO)
 - KubeSphere(TODO)
 - OpenShift(TODO)
