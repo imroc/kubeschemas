@@ -1003,6 +1003,12 @@
       "$ref": "clickhouse.altinity.com/clickhouseoperatorconfigurationlist_v1.json"
     },
     {
+      "$ref": "client.authentication.k8s.io/execcredential_v1.json"
+    },
+    {
+      "$ref": "client.authentication.k8s.io/execcredential_v1beta1.json"
+    },
+    {
       "$ref": "cloud.google.com/backendconfig_v1.json"
     },
     {
