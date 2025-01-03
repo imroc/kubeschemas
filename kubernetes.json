@@ -2689,6 +2689,18 @@
       "$ref": "hub.traefik.io/managedsubscriptionlist_v1alpha1.json"
     },
     {
+      "$ref": "hypershift.openshift.io/controlplanecomponent_v1beta1.json"
+    },
+    {
+      "$ref": "hypershift.openshift.io/controlplanecomponentlist_v1beta1.json"
+    },
+    {
+      "$ref": "hypershift.openshift.io/nodepool_v1beta1.json"
+    },
+    {
+      "$ref": "hypershift.openshift.io/nodepoollist_v1beta1.json"
+    },
+    {
       "$ref": "image.toolkit.fluxcd.io/imagepolicy_v1beta1.json"
     },
     {
