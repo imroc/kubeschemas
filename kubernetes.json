@@ -1015,6 +1015,18 @@
       "$ref": "certificates.api.k8s.io/certificatesigningrequestlist_v1.json"
     },
     {
+      "$ref": "certificates.hypershift.openshift.io/certificaterevocationrequest_v1alpha1.json"
+    },
+    {
+      "$ref": "certificates.hypershift.openshift.io/certificaterevocationrequestlist_v1alpha1.json"
+    },
+    {
+      "$ref": "certificates.hypershift.openshift.io/certificatesigningrequestapproval_v1alpha1.json"
+    },
+    {
+      "$ref": "certificates.hypershift.openshift.io/certificatesigningrequestapprovallist_v1alpha1.json"
+    },
+    {
       "$ref": "cilium.io/ciliumclusterwidenetworkpolicy_v2.json"
     },
     {
@@ -2687,6 +2699,18 @@
     },
     {
       "$ref": "hub.traefik.io/managedsubscriptionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "hypershift.openshift.io/awsendpointservice_v1beta1.json"
+    },
+    {
+      "$ref": "hypershift.openshift.io/awsendpointservicelist_v1beta1.json"
+    },
+    {
+      "$ref": "hypershift.openshift.io/certificatesigningrequestapproval_v1beta1.json"
+    },
+    {
+      "$ref": "hypershift.openshift.io/certificatesigningrequestapprovallist_v1beta1.json"
     },
     {
       "$ref": "hypershift.openshift.io/controlplanecomponent_v1beta1.json"
@@ -4580,6 +4604,12 @@
     },
     {
       "$ref": "scheduling.crane.io/noderesourcepolicylist_v1alpha1.json"
+    },
+    {
+      "$ref": "scheduling.hypershift.openshift.io/clustersizingconfiguration_v1alpha1.json"
+    },
+    {
+      "$ref": "scheduling.hypershift.openshift.io/clustersizingconfigurationlist_v1alpha1.json"
     },
     {
       "$ref": "scheduling.koordinator.sh/clusternetworktopology_v1alpha1.json"
