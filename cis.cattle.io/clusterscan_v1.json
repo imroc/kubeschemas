@@ -1,0 +1,181 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "cis.cattle.io/v1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "ClusterScan"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "scanProfileName": {
+          "nullable": true,
+          "type": "string"
+        },
+        "scheduledScanConfig": {
+          "nullable": true,
+          "properties": {
+            "cronSchedule": {
+              "nullable": true,
+              "type": "string"
+            },
+            "retentionCount": {
+              "type": "integer"
+            },
+            "scanAlertRule": {
+              "nullable": true,
+              "properties": {
+                "alertOnComplete": {
+                  "type": "boolean"
+                },
+                "alertOnFailure": {
+                  "type": "boolean"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "scoreWarning": {
+          "enum": [
+            "pass",
+            "fail"
+          ],
+          "nullable": true,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "properties": {
+        "NextScanAt": {
+          "nullable": true,
+          "type": "string"
+        },
+        "ScanAlertingRuleName": {
+          "nullable": true,
+          "type": "string"
+        },
+        "conditions": {
+          "items": {
+            "properties": {
+              "lastTransitionTime": {
+                "nullable": true,
+                "type": "string"
+              },
+              "lastUpdateTime": {
+                "nullable": true,
+                "type": "string"
+              },
+              "message": {
+                "nullable": true,
+                "type": "string"
+              },
+              "reason": {
+                "nullable": true,
+                "type": "string"
+              },
+              "status": {
+                "nullable": true,
+                "type": "string"
+              },
+              "type": {
+                "nullable": true,
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "nullable": true,
+          "type": "array"
+        },
+        "display": {
+          "nullable": true,
+          "properties": {
+            "error": {
+              "type": "boolean"
+            },
+            "message": {
+              "nullable": true,
+              "type": "string"
+            },
+            "state": {
+              "nullable": true,
+              "type": "string"
+            },
+            "transitioning": {
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        },
+        "lastRunScanProfileName": {
+          "nullable": true,
+          "type": "string"
+        },
+        "lastRunTimestamp": {
+          "nullable": true,
+          "type": "string"
+        },
+        "observedGeneration": {
+          "type": "integer"
+        },
+        "summary": {
+          "nullable": true,
+          "properties": {
+            "fail": {
+              "type": "integer"
+            },
+            "notApplicable": {
+              "type": "integer"
+            },
+            "pass": {
+              "type": "integer"
+            },
+            "skip": {
+              "type": "integer"
+            },
+            "total": {
+              "type": "integer"
+            },
+            "warn": {
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "cis.cattle.io",
+      "kind": "ClusterScan",
+      "version": "v1"
+    }
+  ]
+}

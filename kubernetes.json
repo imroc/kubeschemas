@@ -1183,6 +1183,30 @@
       "$ref": "cilium.io/ciliumnodelist_v2.json"
     },
     {
+      "$ref": "cis.cattle.io/clusterscan_v1.json"
+    },
+    {
+      "$ref": "cis.cattle.io/clusterscanbenchmark_v1.json"
+    },
+    {
+      "$ref": "cis.cattle.io/clusterscanbenchmarklist_v1.json"
+    },
+    {
+      "$ref": "cis.cattle.io/clusterscanlist_v1.json"
+    },
+    {
+      "$ref": "cis.cattle.io/clusterscanprofile_v1.json"
+    },
+    {
+      "$ref": "cis.cattle.io/clusterscanprofilelist_v1.json"
+    },
+    {
+      "$ref": "cis.cattle.io/clusterscanreport_v1.json"
+    },
+    {
+      "$ref": "cis.cattle.io/clusterscanreportlist_v1.json"
+    },
+    {
       "$ref": "clickhouse-keeper.altinity.com/clickhousekeeperinstallation_v1.json"
     },
     {
