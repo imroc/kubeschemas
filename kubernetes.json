@@ -7180,6 +7180,24 @@
       "$ref": "templates.gatekeeper.sh/constrainttemplatelist_v1beta1.json"
     },
     {
+      "$ref": "terraform.core.oam.dev/configuration_v1beta1.json"
+    },
+    {
+      "$ref": "terraform.core.oam.dev/configuration_v1beta2.json"
+    },
+    {
+      "$ref": "terraform.core.oam.dev/configurationlist_v1beta1.json"
+    },
+    {
+      "$ref": "terraform.core.oam.dev/configurationlist_v1beta2.json"
+    },
+    {
+      "$ref": "terraform.core.oam.dev/provider_v1beta1.json"
+    },
+    {
+      "$ref": "terraform.core.oam.dev/providerlist_v1beta1.json"
+    },
+    {
       "$ref": "topology.crane.io/noderesourcetopology_v1alpha1.json"
     },
     {
