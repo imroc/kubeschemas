@@ -1408,6 +1408,282 @@
       "$ref": "configuration.konghq.com/udpingresslist_v1beta1.json"
     },
     {
+      "$ref": "constraints.gatekeeper.sh/k8saffinity_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8saffinity_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8saffinitylist_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8saffinitylist_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8sblockdaemonset_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8sblockdaemonset_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8sblockdaemonsetlist_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8sblockdaemonsetlist_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8sblocknodeport_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8sblocknodeport_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8sblocknodeportlist_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8sblocknodeportlist_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8sclusterrolebindings_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8sclusterrolebindings_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8sclusterrolebindingslist_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8sclusterrolebindingslist_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8scustomresource_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8scustomresource_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8scustomresourcedefinition_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8scustomresourcedefinition_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8scustomresourcedefinitionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8scustomresourcedefinitionlist_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8scustomresourcelist_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8scustomresourcelist_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8sdenyinsystemnamespace_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8sdenyinsystemnamespace_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8sdenyinsystemnamespacelist_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8sdenyinsystemnamespacelist_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8semptydirmedium_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8semptydirmedium_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8semptydirmediumlist_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8semptydirmediumlist_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8snode_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8snode_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8snodelist_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8snodelist_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spermission_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spermission_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spermissionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spermissionlist_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spersistentvolume_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spersistentvolume_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spersistentvolumelist_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spersistentvolumelist_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spodfinalizer_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spodfinalizer_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spodfinalizerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spodfinalizerlist_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spodmetadata_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spodmetadata_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spodmetadatalist_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spodmetadatalist_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spodnodename_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spodnodename_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spodnodenamelist_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spodnodenamelist_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spspallowprivilegeescalationcontainer_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spspallowprivilegeescalationcontainer_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spspallowprivilegeescalationcontainerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spspallowprivilegeescalationcontainerlist_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spspcapabilities_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spspcapabilities_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spspcapabilitieslist_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spspcapabilitieslist_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spsphostnamespace_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spsphostnamespace_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spsphostnamespacelist_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spsphostnamespacelist_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spsphostnetworkingports_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spsphostnetworkingports_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spsphostnetworkingportslist_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spsphostnetworkingportslist_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spspprivilegedcontainer_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spspprivilegedcontainer_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spspprivilegedcontainerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spspprivilegedcontainerlist_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spspseccomp_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spspseccomp_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spspseccomplist_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spspseccomplist_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spspvolumetypes_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spspvolumetypes_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spspvolumetypeslist_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8spspvolumetypeslist_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8sstorageclass_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8sstorageclass_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8sstorageclasslist_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8sstorageclasslist_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8stokenreview_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8stokenreview_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8stokenreviewlist_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/k8stokenreviewlist_v1beta1.json"
+    },
+    {
       "$ref": "constraints.gatekeeper.sh/limitpublicingress_v1alpha1.json"
     },
     {
@@ -1418,6 +1694,18 @@
     },
     {
       "$ref": "constraints.gatekeeper.sh/limitpublicingresslist_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/noupdateserviceaccount_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/noupdateserviceaccount_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/noupdateserviceaccountlist_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/noupdateserviceaccountlist_v1beta1.json"
     },
     {
       "$ref": "controllermanager.config.k8s.io/leadermigrationconfiguration_v1alpha1.json"
@@ -2849,6 +3137,12 @@
     },
     {
       "$ref": "log.alibabacloud.com/aliyunlogconfiglist_v1alpha1.json"
+    },
+    {
+      "$ref": "logging.openvessel.io/logconfig_v1.json"
+    },
+    {
+      "$ref": "logging.openvessel.io/logconfiglist_v1.json"
     },
     {
       "$ref": "messaging.knative.dev/channel_v1.json"

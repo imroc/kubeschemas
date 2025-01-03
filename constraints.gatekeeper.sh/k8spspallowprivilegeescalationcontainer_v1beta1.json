@@ -1,0 +1,254 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "constraints.gatekeeper.sh/v1beta1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "K8sPSPAllowPrivilegeEscalationContainer"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "enforcementAction": {
+          "default": "deny",
+          "type": "string"
+        },
+        "match": {
+          "description": "Match selects which objects are in scope.",
+          "properties": {
+            "excludedNamespaces": {
+              "description": "ExcludedNamespaces is a list of namespace names. If defined, a\nconstraint only applies to resources not in a listed namespace.\nExcludedNamespaces also supports a prefix or suffix based glob.  For example,\n`excludedNamespaces: [kube-*]` matches both `kube-system` and\n`kube-public`, and `excludedNamespaces: [*-system]` matches both `kube-system` and\n`gatekeeper-system`.",
+              "items": {
+                "description": "A string that supports globbing at its front and end. Ex: \"kube-*\" will match \"kube-system\" or\n\"kube-public\", \"*-system\" will match \"kube-system\" or \"gatekeeper-system\", \"*system*\" will\nmatch \"system-kube\" or \"kube-system\".  The asterisk is required for wildcard matching.",
+                "pattern": "^\\*?[-:a-z0-9]*\\*?$",
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "kinds": {
+              "items": {
+                "description": "Kinds accepts a list of objects with apiGroups and kinds fields\nthat list the groups/kinds of objects to which the mutation will apply.\nIf multiple groups/kinds objects are specified,\nonly one match is needed for the resource to be in scope.",
+                "properties": {
+                  "apiGroups": {
+                    "description": "APIGroups is the API groups the resources belong to. '*' is all groups.\nIf '*' is present, the length of the slice must be one.\nRequired.",
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "kinds": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "labelSelector": {
+              "description": "LabelSelector is the combination of two optional fields: `matchLabels`\nand `matchExpressions`.  These two fields provide different methods of\nselecting or excluding k8s objects based on the label keys and values\nincluded in object metadata.  All selection expressions from both\nsections are ANDed to determine if an object meets the cumulative\nrequirements of the selector.",
+              "properties": {
+                "matchExpressions": {
+                  "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
+                  "items": {
+                    "description": "A label selector requirement is a selector that contains values, a key, and an operator that\nrelates the key and values.",
+                    "properties": {
+                      "key": {
+                        "description": "key is the label key that the selector applies to.",
+                        "type": "string"
+                      },
+                      "operator": {
+                        "description": "operator represents a key's relationship to a set of values.\nValid operators are In, NotIn, Exists and DoesNotExist.",
+                        "type": "string"
+                      },
+                      "values": {
+                        "description": "values is an array of string values. If the operator is In or NotIn,\nthe values array must be non-empty. If the operator is Exists or DoesNotExist,\nthe values array must be empty. This array is replaced during a strategic\nmerge patch.",
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array",
+                        "x-kubernetes-list-type": "atomic"
+                      }
+                    },
+                    "required": [
+                      "key",
+                      "operator"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array",
+                  "x-kubernetes-list-type": "atomic"
+                },
+                "matchLabels": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "description": "matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels\nmap is equivalent to an element of matchExpressions, whose key field is \"key\", the\noperator is \"In\", and the values array contains only \"value\". The requirements are ANDed.",
+                  "type": "object"
+                }
+              },
+              "type": "object",
+              "x-kubernetes-map-type": "atomic"
+            },
+            "name": {
+              "description": "Name is the name of an object.  If defined, it will match against objects with the specified\nname.  Name also supports a prefix or suffix glob.  For example, `name: pod-*` would match\nboth `pod-a` and `pod-b`, and `name: *-pod` would match both `a-pod` and `b-pod`.",
+              "pattern": "^\\*?[-:a-z0-9]*\\*?$",
+              "type": "string"
+            },
+            "namespaceSelector": {
+              "description": "NamespaceSelector is a label selector against an object's containing\nnamespace or the object itself, if the object is a namespace.",
+              "properties": {
+                "matchExpressions": {
+                  "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
+                  "items": {
+                    "description": "A label selector requirement is a selector that contains values, a key, and an operator that\nrelates the key and values.",
+                    "properties": {
+                      "key": {
+                        "description": "key is the label key that the selector applies to.",
+                        "type": "string"
+                      },
+                      "operator": {
+                        "description": "operator represents a key's relationship to a set of values.\nValid operators are In, NotIn, Exists and DoesNotExist.",
+                        "type": "string"
+                      },
+                      "values": {
+                        "description": "values is an array of string values. If the operator is In or NotIn,\nthe values array must be non-empty. If the operator is Exists or DoesNotExist,\nthe values array must be empty. This array is replaced during a strategic\nmerge patch.",
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array",
+                        "x-kubernetes-list-type": "atomic"
+                      }
+                    },
+                    "required": [
+                      "key",
+                      "operator"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array",
+                  "x-kubernetes-list-type": "atomic"
+                },
+                "matchLabels": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "description": "matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels\nmap is equivalent to an element of matchExpressions, whose key field is \"key\", the\noperator is \"In\", and the values array contains only \"value\". The requirements are ANDed.",
+                  "type": "object"
+                }
+              },
+              "type": "object",
+              "x-kubernetes-map-type": "atomic"
+            },
+            "namespaces": {
+              "description": "Namespaces is a list of namespace names. If defined, a constraint only\napplies to resources in a listed namespace.  Namespaces also supports a\nprefix or suffix based glob.  For example, `namespaces: [kube-*]` matches both\n`kube-system` and `kube-public`, and `namespaces: [*-system]` matches both\n`kube-system` and `gatekeeper-system`.",
+              "items": {
+                "description": "A string that supports globbing at its front and end. Ex: \"kube-*\" will match \"kube-system\" or\n\"kube-public\", \"*-system\" will match \"kube-system\" or \"gatekeeper-system\", \"*system*\" will\nmatch \"system-kube\" or \"kube-system\".  The asterisk is required for wildcard matching.",
+                "pattern": "^\\*?[-:a-z0-9]*\\*?$",
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "scope": {
+              "description": "Scope determines if cluster-scoped and/or namespaced-scoped resources\nare matched.  Accepts `*`, `Cluster`, or `Namespaced`. (defaults to `*`)",
+              "type": "string"
+            },
+            "source": {
+              "description": "Source determines whether generated or original resources are matched.\nAccepts `Generated`|`Original`|`All` (defaults to `All`). A value of\n`Generated` will only match generated resources, while `Original` will only\nmatch regular resources.",
+              "enum": [
+                "All",
+                "Generated",
+                "Original"
+              ],
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "parameters": {
+          "description": "Controls restricting escalation to root privileges. Corresponds to the `allowPrivilegeEscalation` field in a PodSecurityPolicy. For more information, see https://kubernetes.io/docs/concepts/policy/pod-security-policy/#privilege-escalation",
+          "properties": {
+            "excludeGroups": {
+              "description": "The list of groups",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "excludeUsers": {
+              "description": "The list of users",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "exemptImages": {
+              "description": "Any container that uses an image that matches an entry in this list will be excluded from enforcement. Prefix-matching can be signified with `*`. For example: `my-image-*`.\nIt is recommended that users use the fully-qualified Docker image name (e.g. start with a domain name) in order to avoid unexpectedly exempting images from an untrusted repository.",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        },
+        "scopedEnforcementActions": {
+          "items": {
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "enforcementPoints": {
+                "items": {
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "x-kubernetes-preserve-unknown-fields": true
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "constraints.gatekeeper.sh",
+      "kind": "K8sPSPAllowPrivilegeEscalationContainer",
+      "version": "v1beta1"
+    }
+  ],
+  "x-kubernetes-selectable-fields": []
+}

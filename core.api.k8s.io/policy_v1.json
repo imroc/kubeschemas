@@ -1,0 +1,14 @@
+{
+  "description": "Policy describes a mounting of log Volume and its rotate strategy.",
+  "properties": {
+    "logs": {
+      "allOf": [
+        {
+          "$ref": "../core.api.k8s.io/logs_v1.json"
+        }
+      ],
+      "description": "Logs describes log Volume and its rotate strategy."
+    }
+  },
+  "type": "object"
+}

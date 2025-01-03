@@ -1,0 +1,615 @@
+{
+  "description": "LogConfig is the Schema for the logconfigs API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "logging.openvessel.io/v1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "LogConfig"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "LogConfigSpec defines the desired state of LogConfig",
+      "properties": {
+        "inputDetail": {
+          "description": "InputDetailSpec defines the desired state of InputDetail",
+          "properties": {
+            "containerFile": {
+              "description": "ContainerFileSpec defines the desired state of ContainerFile",
+              "properties": {
+                "annotations": {
+                  "items": {
+                    "description": "ContainerFileAnnotationSpec defines the desired state of ContainerFileAnnotation",
+                    "properties": {
+                      "annotationName": {
+                        "type": "string"
+                      },
+                      "logPathSeparator": {
+                        "type": "string"
+                      },
+                      "separator": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "discoveredForwardSize": {
+                  "default": "1MB",
+                  "pattern": "^(([0-9]|[1-9]\\d{1,2}|10[0-1]\\d|102[0-4])KB|([0-9]|1[0-6])MB|)$",
+                  "type": "string"
+                },
+                "podLabels": {
+                  "items": {
+                    "description": "ContainerFilePodLabelSpec defines the desired state of ContainerFilePodLabel",
+                    "properties": {
+                      "containers": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "files": {
+                        "items": {
+                          "description": "FileSpec defines the desired state of File",
+                          "properties": {
+                            "filePattern": {
+                              "type": "string"
+                            },
+                            "logPath": {
+                              "pattern": "^(\\/[a-zA-Z0-9\\-\\_\\/\\*\\?]*)$",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "filePattern",
+                            "logPath"
+                          ],
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "includeLabels": {
+                        "additionalProperties": {
+                          "type": "string"
+                        },
+                        "type": "object"
+                      },
+                      "namespaces": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "includeLabels",
+                      "files"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "workloads": {
+                  "items": {
+                    "description": "ContainerFileWorkloadSpec defines the desired state of ContainerFileWorkload",
+                    "properties": {
+                      "container": {
+                        "type": "string"
+                      },
+                      "files": {
+                        "items": {
+                          "description": "FileSpec defines the desired state of File",
+                          "properties": {
+                            "filePattern": {
+                              "type": "string"
+                            },
+                            "logPath": {
+                              "pattern": "^(\\/[a-zA-Z0-9\\-\\_\\/\\*\\?]*)$",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "filePattern",
+                            "logPath"
+                          ],
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "kind": {
+                        "enum": [
+                          "Deployment",
+                          "DaemonSet",
+                          "StatefulSet",
+                          "Job",
+                          "CronJob"
+                        ],
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "namespace": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "namespace",
+                      "name",
+                      "kind",
+                      "container",
+                      "files"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "containerStdout": {
+              "description": "ContainerStdoutSpec defines the desired state of ContainerStdout",
+              "properties": {
+                "allContainers": {
+                  "type": "boolean"
+                },
+                "namespaces": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "podLabels": {
+                  "items": {
+                    "description": "ContainerStdoutPodLabelSpec defines the desired state of ContainerStdoutPodLabel",
+                    "properties": {
+                      "containers": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "includeLabels": {
+                        "additionalProperties": {
+                          "type": "string"
+                        },
+                        "type": "object"
+                      },
+                      "namespaces": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "includeLabels"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "workloads": {
+                  "items": {
+                    "description": "ContainerStdoutWorkloadSpec defines the desired state of ContainerStdoutWorkload",
+                    "properties": {
+                      "containers": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "kind": {
+                        "enum": [
+                          "Deployment",
+                          "DaemonSet",
+                          "StatefulSet",
+                          "Job",
+                          "CronJob"
+                        ],
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "namespace": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "name",
+                      "namespace"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "event": {
+              "description": "EventSpec defines the desired state of Event",
+              "properties": {
+                "namespaces": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "normalEvents": {
+                  "description": "EventFilterSpec defines the desired state of EventFilter",
+                  "properties": {
+                    "enable": {
+                      "type": "boolean"
+                    },
+                    "excludeNames": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "includeNames": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                },
+                "warningEvents": {
+                  "description": "EventFilterSpec defines the desired state of EventFilter",
+                  "properties": {
+                    "enable": {
+                      "type": "boolean"
+                    },
+                    "excludeNames": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "includeNames": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "hostFile": {
+              "description": "HostFileSpec defines the desired state of HostFile",
+              "properties": {
+                "file": {
+                  "description": "FileSpec defines the desired state of File",
+                  "properties": {
+                    "filePattern": {
+                      "type": "string"
+                    },
+                    "logPath": {
+                      "pattern": "^(\\/[a-zA-Z0-9\\-\\_\\/\\*\\?]*)$",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "processors": {
+              "description": "ProcessorsSpec defines the desired state of Processors",
+              "properties": {
+                "fluentBitConfig": {
+                  "description": "FluentBitConfigSpec defines the desired state of FluentBitConfig",
+                  "properties": {
+                    "filters": {
+                      "items": {
+                        "items": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "type": "array"
+                      },
+                      "type": "array"
+                    },
+                    "input": {
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "type": "object"
+                    },
+                    "parsers": {
+                      "items": {
+                        "items": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "type": "array"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                },
+                "multilineRegulation": {
+                  "type": "string"
+                },
+                "type": {
+                  "enum": [
+                    "singleline",
+                    "multiline"
+                  ],
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": {
+              "enum": [
+                "container_stdout",
+                "container_file",
+                "host_file",
+                "event",
+                "envoyals"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "type": "object"
+        },
+        "logConfigStatus": {
+          "description": "status of logconfig.",
+          "properties": {
+            "LTS": {
+              "description": "status of LTS output.",
+              "properties": {
+                "groupID": {
+                  "description": "LTS group ID",
+                  "maxLength": 128,
+                  "type": "string"
+                },
+                "groupName": {
+                  "description": "LTS group name",
+                  "maxLength": 64,
+                  "type": "string"
+                },
+                "streamID": {
+                  "description": "LTS stream ID",
+                  "maxLength": 128,
+                  "type": "string"
+                },
+                "streamName": {
+                  "description": "LTS stream name",
+                  "maxLength": 64,
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "conditions": {
+              "description": "The current state of the log config.",
+              "items": {
+                "description": "condition of log config.",
+                "properties": {
+                  "lastTransitionTime": {
+                    "description": "lastTransitionTime is the time of the last update to the current status property.",
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "message": {
+                    "description": "Human-readable message indicating details for the condition's last transition.",
+                    "maxLength": 4096,
+                    "type": "string"
+                  },
+                  "reason": {
+                    "description": "Reason for the condition's last transition.",
+                    "maxLength": 256,
+                    "type": "string"
+                  },
+                  "status": {
+                    "description": "Status of the condition.",
+                    "type": "string"
+                  },
+                  "type": {
+                    "description": "Type of the condition being reported.",
+                    "maxLength": 64,
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "type",
+                  "status",
+                  "lastTransitionTime"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        },
+        "outputDetail": {
+          "description": "OutputDetailSpec defines the desired state of OutputDetail",
+          "properties": {
+            "AOM": {
+              "description": "AOMParametersSpec defines the desired state of AOMParameters",
+              "properties": {
+                "events": {
+                  "items": {
+                    "description": "AOMEventSpec defines the desired state of AOMEvent",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "nameCn": {
+                        "type": "string"
+                      },
+                      "resourceType": {
+                        "type": "string"
+                      },
+                      "severity": {
+                        "enum": [
+                          "Critical",
+                          "Major",
+                          "Minor",
+                          "Info"
+                        ],
+                        "type": "string"
+                      },
+                      "timeout": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "LTS": {
+              "description": "LTSParametersSpec defines the desired state of LTSParameters",
+              "properties": {
+                "isCustomised": {
+                  "type": "boolean"
+                },
+                "ltsGroupCreateParam": {
+                  "description": "LTS Group create params",
+                  "properties": {
+                    "enterpriseProjectID": {
+                      "description": "EPS ID of LTS Group",
+                      "type": "string"
+                    },
+                    "tags": {
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "description": "Tags of LTS Group",
+                      "type": "object"
+                    },
+                    "ttlDays": {
+                      "description": "TTL of logs",
+                      "maximum": 365,
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                },
+                "ltsGroupID": {
+                  "type": "string"
+                },
+                "ltsGroupName": {
+                  "description": "LTS Group name, will create if not exists",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "ltsStreamCreateParam": {
+                  "description": "LTS Stream create params",
+                  "properties": {
+                    "enterpriseProjectID": {
+                      "description": "EPS ID of LTS Stream",
+                      "type": "string"
+                    },
+                    "tags": {
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "description": "Tags of LTS Stream",
+                      "type": "object"
+                    },
+                    "ttlDays": {
+                      "description": "TTL of logs, lots of regions not supported yet",
+                      "maximum": 365,
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                },
+                "ltsStreamID": {
+                  "type": "string"
+                },
+                "ltsStreamName": {
+                  "description": "LTS Stream name, will create if not exists",
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "customConfigs": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "type": {
+              "enum": [
+                "LTS",
+                "AOM",
+                "custom"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "inputDetail",
+        "outputDetail"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "logging.openvessel.io",
+      "kind": "LogConfig",
+      "version": "v1"
+    }
+  ],
+  "x-kubernetes-selectable-fields": []
+}

@@ -1,0 +1,22 @@
+{
+  "description": "Logs describes log Volume and its rotate strategy.",
+  "properties": {
+    "annotations": {
+      "additionalProperties": {
+        "default": "",
+        "type": "string"
+      },
+      "description": "Annotations for log.",
+      "type": "object"
+    },
+    "rotate": {
+      "default": "",
+      "description": "Rotate strategy, including 'Daily' 'Hourly' 'Weekly'.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "rotate"
+  ],
+  "type": "object"
+}
