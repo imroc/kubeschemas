@@ -1111,6 +1111,12 @@
       "$ref": "batch.volcano.sh/joblist_v1alpha1.json"
     },
     {
+      "$ref": "bitnami.com/sealedsecret_v1alpha1.json"
+    },
+    {
+      "$ref": "bitnami.com/sealedsecretlist_v1alpha1.json"
+    },
+    {
       "$ref": "bpfman.io/bpfapplication_v1alpha1.json"
     },
     {
@@ -3826,6 +3832,18 @@
       "$ref": "internal.kafka.eventing.knative.dev/consumerlist_v1alpha1.json"
     },
     {
+      "$ref": "internal.packaging.carvel.dev/internalpackage_v1alpha1.json"
+    },
+    {
+      "$ref": "internal.packaging.carvel.dev/internalpackagelist_v1alpha1.json"
+    },
+    {
+      "$ref": "internal.packaging.carvel.dev/internalpackagemetadata_v1alpha1.json"
+    },
+    {
+      "$ref": "internal.packaging.carvel.dev/internalpackagemetadatalist_v1alpha1.json"
+    },
+    {
       "$ref": "iomesh.com/iomeshcluster_v1alpha1.json"
     },
     {
@@ -3923,6 +3941,12 @@
     },
     {
       "$ref": "kai.alibabacloud.com/trainingjoblist_v1alpha1.json"
+    },
+    {
+      "$ref": "kappctrl.k14s.io/app_v1alpha1.json"
+    },
+    {
+      "$ref": "kappctrl.k14s.io/applist_v1alpha1.json"
     },
     {
       "$ref": "karpenter.k8s.aws/ec2nodeclass_v1.json"
@@ -5981,6 +6005,18 @@
     },
     {
       "$ref": "operators.coreos.com/subscriptionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "packaging.carvel.dev/packageinstall_v1alpha1.json"
+    },
+    {
+      "$ref": "packaging.carvel.dev/packageinstalllist_v1alpha1.json"
+    },
+    {
+      "$ref": "packaging.carvel.dev/packagerepository_v1alpha1.json"
+    },
+    {
+      "$ref": "packaging.carvel.dev/packagerepositorylist_v1alpha1.json"
     },
     {
       "$ref": "pingcap.com/backup_v1alpha1.json"

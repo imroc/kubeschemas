@@ -1,0 +1,191 @@
+{
+  "description": "A Package Install is an actual installation of a package and its underlying resources on a Kubernetes cluster. It is represented in kapp-controller by a PackageInstall CR. A PackageInstall CR must reference a Package CR.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "packaging.carvel.dev/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "PackageInstall"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "canceled": {
+          "description": "Canceled when set to true will stop all active changes",
+          "type": "boolean"
+        },
+        "cluster": {
+          "description": "Specifies that Package should be deployed to destination cluster; by default, cluster is same as where this resource resides (optional)",
+          "properties": {
+            "kubeconfigSecretRef": {
+              "description": "Specifies secret containing kubeconfig (required)",
+              "properties": {
+                "key": {
+                  "description": "Specifies key that contains kubeconfig (optional)",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "Specifies secret name within app's namespace (required)",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "namespace": {
+              "description": "Specifies namespace in destination cluster (optional)",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "defaultNamespace": {
+          "description": "Specifies the default namespace to install the Package resources, by default this is same as the PackageInstall namespace (optional; v0.48.0+)",
+          "type": "string"
+        },
+        "noopDelete": {
+          "description": "When NoopDelete set to true, PackageInstall deletion should delete PackageInstall/App CR but preserve App's associated resources.",
+          "type": "boolean"
+        },
+        "packageRef": {
+          "description": "Specifies the name of the package to install (required)",
+          "properties": {
+            "refName": {
+              "type": "string"
+            },
+            "versionSelection": {
+              "properties": {
+                "constraints": {
+                  "type": "string"
+                },
+                "prereleases": {
+                  "properties": {
+                    "identifiers": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "paused": {
+          "description": "Paused when set to true will ignore all pending changes, once it set back to false, pending changes will be applied",
+          "type": "boolean"
+        },
+        "serviceAccountName": {
+          "description": "Specifies service account that will be used to install underlying package contents",
+          "type": "string"
+        },
+        "syncPeriod": {
+          "description": "Controls frequency of App reconciliation in time + unit format. Always \u003e= 30s. If value below 30s is specified, 30s will be used.",
+          "type": "string"
+        },
+        "values": {
+          "description": "Values to be included in package's templating step (currently only included in the first templating step) (optional)",
+          "items": {
+            "properties": {
+              "secretRef": {
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "properties": {
+        "conditions": {
+          "items": {
+            "properties": {
+              "message": {
+                "description": "Human-readable message indicating details about last transition.",
+                "type": "string"
+              },
+              "reason": {
+                "description": "Unique, this should be a short, machine understandable string that gives the reason for condition's last transition. If it reports \"ResizeStarted\" that means the underlying persistent volume is being resized.",
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "type": {
+                "description": "ConditionType represents reconciler state",
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "type"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "friendlyDescription": {
+          "type": "string"
+        },
+        "lastAttemptedVersion": {
+          "description": "LastAttemptedVersion specifies what version was last attempted to be installed. It does _not_ indicate it was successfully installed.",
+          "type": "string"
+        },
+        "observedGeneration": {
+          "description": "Populated based on metadata.generation when controller observes a change to the resource; if this value is out of data, other status fields do not reflect latest state",
+          "format": "int64",
+          "type": "integer"
+        },
+        "usefulErrorMessage": {
+          "type": "string"
+        },
+        "version": {
+          "description": "TODO this is desired resolved version (not actually deployed)",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "packaging.carvel.dev",
+      "kind": "PackageInstall",
+      "version": "v1alpha1"
+    }
+  ]
+}
