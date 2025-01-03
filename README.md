@@ -1,6 +1,6 @@
 # kubeschemas
 
-`kubeschemas` contains massive public maintained kubernetes json schema (1500+ types), including all kubernetes buitin resource types, well known CRDs and kubernetes related configuration file.
+`kubeschemas` contains massive public maintained kubernetes json schema (1700+ types), including all kubernetes buitin resource types, well known CRDs and kubernetes related configuration file.
 
 ## kubernetes.nvim
 
@@ -19,6 +19,7 @@ CRDs from cloud vendor:
 - [Tencent Cloud TKE](https://cloud.tencent.com/product/tke)
 - [Huawei Cloud CCE](https://www.huaweicloud.com/product/cce.html)
 - [Google Cloud GKE](https://cloud.google.com/kubernetes-engine)
+- [Alibaba Cloud ACK](https://www.aliyun.com/product/kubernetes)
 - [AWS EKS](https://aws.amazon.com/eks/)
 
 CRDs from open source project:
