@@ -1,0 +1,288 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "aks.cattle.io/v1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "AKSClusterConfig"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "authBaseUrl": {
+          "nullable": true,
+          "type": "string"
+        },
+        "authorizedIpRanges": {
+          "items": {
+            "nullable": true,
+            "type": "string"
+          },
+          "nullable": true,
+          "type": "array"
+        },
+        "azureCredentialSecret": {
+          "nullable": true,
+          "type": "string"
+        },
+        "baseUrl": {
+          "nullable": true,
+          "type": "string"
+        },
+        "clusterName": {
+          "nullable": true,
+          "type": "string"
+        },
+        "dnsPrefix": {
+          "nullable": true,
+          "type": "string"
+        },
+        "dnsServiceIp": {
+          "nullable": true,
+          "type": "string"
+        },
+        "dockerBridgeCidr": {
+          "nullable": true,
+          "type": "string"
+        },
+        "httpApplicationRouting": {
+          "nullable": true,
+          "type": "boolean"
+        },
+        "imported": {
+          "type": "boolean"
+        },
+        "kubernetesVersion": {
+          "nullable": true,
+          "type": "string"
+        },
+        "linuxAdminUsername": {
+          "nullable": true,
+          "type": "string"
+        },
+        "loadBalancerSku": {
+          "nullable": true,
+          "type": "string"
+        },
+        "logAnalyticsWorkspaceGroup": {
+          "nullable": true,
+          "type": "string"
+        },
+        "logAnalyticsWorkspaceName": {
+          "nullable": true,
+          "type": "string"
+        },
+        "managedIdentity": {
+          "nullable": true,
+          "type": "boolean"
+        },
+        "monitoring": {
+          "nullable": true,
+          "type": "boolean"
+        },
+        "networkPlugin": {
+          "nullable": true,
+          "type": "string"
+        },
+        "networkPolicy": {
+          "nullable": true,
+          "type": "string"
+        },
+        "nodePools": {
+          "items": {
+            "properties": {
+              "availabilityZones": {
+                "items": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "nullable": true,
+                "type": "array"
+              },
+              "count": {
+                "nullable": true,
+                "type": "integer"
+              },
+              "enableAutoScaling": {
+                "nullable": true,
+                "type": "boolean"
+              },
+              "maxCount": {
+                "nullable": true,
+                "type": "integer"
+              },
+              "maxPods": {
+                "nullable": true,
+                "type": "integer"
+              },
+              "maxSurge": {
+                "nullable": true,
+                "type": "string"
+              },
+              "minCount": {
+                "nullable": true,
+                "type": "integer"
+              },
+              "mode": {
+                "nullable": true,
+                "type": "string"
+              },
+              "name": {
+                "nullable": true,
+                "type": "string"
+              },
+              "nodeLabels": {
+                "additionalProperties": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "nullable": true,
+                "type": "object"
+              },
+              "nodeTaints": {
+                "items": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "nullable": true,
+                "type": "array"
+              },
+              "orchestratorVersion": {
+                "nullable": true,
+                "type": "string"
+              },
+              "osDiskSizeGB": {
+                "nullable": true,
+                "type": "integer"
+              },
+              "osDiskType": {
+                "nullable": true,
+                "type": "string"
+              },
+              "osType": {
+                "nullable": true,
+                "type": "string"
+              },
+              "vmSize": {
+                "nullable": true,
+                "type": "string"
+              },
+              "vnetSubnetID": {
+                "nullable": true,
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "nullable": true,
+          "type": "array"
+        },
+        "nodeResourceGroup": {
+          "nullable": true,
+          "type": "string"
+        },
+        "outboundType": {
+          "nullable": true,
+          "type": "string"
+        },
+        "podCidr": {
+          "nullable": true,
+          "type": "string"
+        },
+        "privateCluster": {
+          "nullable": true,
+          "type": "boolean"
+        },
+        "privateDnsZone": {
+          "nullable": true,
+          "type": "string"
+        },
+        "resourceGroup": {
+          "nullable": true,
+          "type": "string"
+        },
+        "resourceLocation": {
+          "nullable": true,
+          "type": "string"
+        },
+        "serviceCidr": {
+          "nullable": true,
+          "type": "string"
+        },
+        "sshPublicKey": {
+          "nullable": true,
+          "type": "string"
+        },
+        "subnet": {
+          "nullable": true,
+          "type": "string"
+        },
+        "tags": {
+          "additionalProperties": {
+            "nullable": true,
+            "type": "string"
+          },
+          "nullable": true,
+          "type": "object"
+        },
+        "userAssignedIdentity": {
+          "nullable": true,
+          "type": "string"
+        },
+        "virtualNetwork": {
+          "nullable": true,
+          "type": "string"
+        },
+        "virtualNetworkResourceGroup": {
+          "nullable": true,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "properties": {
+        "failureMessage": {
+          "nullable": true,
+          "type": "string"
+        },
+        "phase": {
+          "nullable": true,
+          "type": "string"
+        },
+        "rbacEnabled": {
+          "nullable": true,
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "aks.cattle.io",
+      "kind": "AKSClusterConfig",
+      "version": "v1"
+    }
+  ]
+}

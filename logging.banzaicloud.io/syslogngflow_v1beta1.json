@@ -1,0 +1,533 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "logging.banzaicloud.io/v1beta1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "SyslogNGFlow"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "filters": {
+          "items": {
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "match": {
+                "properties": {
+                  "and": {
+                    "x-kubernetes-preserve-unknown-fields": true
+                  },
+                  "not": {
+                    "x-kubernetes-preserve-unknown-fields": true
+                  },
+                  "or": {
+                    "x-kubernetes-preserve-unknown-fields": true
+                  },
+                  "regexp": {
+                    "properties": {
+                      "flags": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "pattern": {
+                        "type": "string"
+                      },
+                      "template": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "pattern"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "parser": {
+                "properties": {
+                  "metrics-probe": {
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "labels": {
+                        "additionalProperties": {
+                          "type": "string"
+                        },
+                        "type": "object"
+                      },
+                      "level": {
+                        "type": "integer"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "regexp": {
+                    "properties": {
+                      "flags": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "patterns": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "prefix": {
+                        "type": "string"
+                      },
+                      "template": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "patterns"
+                    ],
+                    "type": "object"
+                  },
+                  "syslog-parser": {
+                    "properties": {
+                      "flags": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "rewrite": {
+                "items": {
+                  "properties": {
+                    "group_unset": {
+                      "properties": {
+                        "condition": {
+                          "properties": {
+                            "and": {
+                              "x-kubernetes-preserve-unknown-fields": true
+                            },
+                            "not": {
+                              "x-kubernetes-preserve-unknown-fields": true
+                            },
+                            "or": {
+                              "x-kubernetes-preserve-unknown-fields": true
+                            },
+                            "regexp": {
+                              "properties": {
+                                "flags": {
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "type": "array"
+                                },
+                                "pattern": {
+                                  "type": "string"
+                                },
+                                "template": {
+                                  "type": "string"
+                                },
+                                "type": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "pattern"
+                              ],
+                              "type": "object"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "pattern": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "pattern"
+                      ],
+                      "type": "object"
+                    },
+                    "rename": {
+                      "properties": {
+                        "condition": {
+                          "properties": {
+                            "and": {
+                              "x-kubernetes-preserve-unknown-fields": true
+                            },
+                            "not": {
+                              "x-kubernetes-preserve-unknown-fields": true
+                            },
+                            "or": {
+                              "x-kubernetes-preserve-unknown-fields": true
+                            },
+                            "regexp": {
+                              "properties": {
+                                "flags": {
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "type": "array"
+                                },
+                                "pattern": {
+                                  "type": "string"
+                                },
+                                "template": {
+                                  "type": "string"
+                                },
+                                "type": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "pattern"
+                              ],
+                              "type": "object"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "newName": {
+                          "type": "string"
+                        },
+                        "oldName": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "newName",
+                        "oldName"
+                      ],
+                      "type": "object"
+                    },
+                    "set": {
+                      "properties": {
+                        "condition": {
+                          "properties": {
+                            "and": {
+                              "x-kubernetes-preserve-unknown-fields": true
+                            },
+                            "not": {
+                              "x-kubernetes-preserve-unknown-fields": true
+                            },
+                            "or": {
+                              "x-kubernetes-preserve-unknown-fields": true
+                            },
+                            "regexp": {
+                              "properties": {
+                                "flags": {
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "type": "array"
+                                },
+                                "pattern": {
+                                  "type": "string"
+                                },
+                                "template": {
+                                  "type": "string"
+                                },
+                                "type": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "pattern"
+                              ],
+                              "type": "object"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "field": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "field",
+                        "value"
+                      ],
+                      "type": "object"
+                    },
+                    "subst": {
+                      "properties": {
+                        "condition": {
+                          "properties": {
+                            "and": {
+                              "x-kubernetes-preserve-unknown-fields": true
+                            },
+                            "not": {
+                              "x-kubernetes-preserve-unknown-fields": true
+                            },
+                            "or": {
+                              "x-kubernetes-preserve-unknown-fields": true
+                            },
+                            "regexp": {
+                              "properties": {
+                                "flags": {
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "type": "array"
+                                },
+                                "pattern": {
+                                  "type": "string"
+                                },
+                                "template": {
+                                  "type": "string"
+                                },
+                                "type": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "pattern"
+                              ],
+                              "type": "object"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "field": {
+                          "type": "string"
+                        },
+                        "flags": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "pattern": {
+                          "type": "string"
+                        },
+                        "replace": {
+                          "type": "string"
+                        },
+                        "type": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "field",
+                        "pattern",
+                        "replace"
+                      ],
+                      "type": "object"
+                    },
+                    "unset": {
+                      "properties": {
+                        "condition": {
+                          "properties": {
+                            "and": {
+                              "x-kubernetes-preserve-unknown-fields": true
+                            },
+                            "not": {
+                              "x-kubernetes-preserve-unknown-fields": true
+                            },
+                            "or": {
+                              "x-kubernetes-preserve-unknown-fields": true
+                            },
+                            "regexp": {
+                              "properties": {
+                                "flags": {
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "type": "array"
+                                },
+                                "pattern": {
+                                  "type": "string"
+                                },
+                                "template": {
+                                  "type": "string"
+                                },
+                                "type": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "pattern"
+                              ],
+                              "type": "object"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "field": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "field"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "globalOutputRefs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "localOutputRefs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "loggingRef": {
+          "type": "string"
+        },
+        "match": {
+          "properties": {
+            "and": {
+              "x-kubernetes-preserve-unknown-fields": true
+            },
+            "not": {
+              "x-kubernetes-preserve-unknown-fields": true
+            },
+            "or": {
+              "x-kubernetes-preserve-unknown-fields": true
+            },
+            "regexp": {
+              "properties": {
+                "flags": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "pattern": {
+                  "type": "string"
+                },
+                "template": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "pattern"
+              ],
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "outputMetrics": {
+          "items": {
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "labels": {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "type": "object"
+              },
+              "level": {
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "properties": {
+        "active": {
+          "type": "boolean"
+        },
+        "problems": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "problemsCount": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "logging.banzaicloud.io",
+      "kind": "SyslogNGFlow",
+      "version": "v1beta1"
+    }
+  ]
+}

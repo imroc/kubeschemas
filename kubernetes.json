@@ -130,6 +130,12 @@
       "$ref": "agones.dev/gameserversetlist_v1.json"
     },
     {
+      "$ref": "aks.cattle.io/aksclusterconfig_v1.json"
+    },
+    {
+      "$ref": "aks.cattle.io/aksclusterconfiglist_v1.json"
+    },
+    {
       "$ref": "alert.alibabacloud.com/ackalertrule_v1beta1.json"
     },
     {
@@ -344,6 +350,24 @@
     },
     {
       "$ref": "app.k8s.io/applicationlist_v1beta1.json"
+    },
+    {
+      "$ref": "application.epinio.io/app_v1.json"
+    },
+    {
+      "$ref": "application.epinio.io/appchart_v1.json"
+    },
+    {
+      "$ref": "application.epinio.io/appchartlist_v1.json"
+    },
+    {
+      "$ref": "application.epinio.io/applist_v1.json"
+    },
+    {
+      "$ref": "application.epinio.io/service_v1.json"
+    },
+    {
+      "$ref": "application.epinio.io/servicelist_v1.json"
     },
     {
       "$ref": "applications.alibabacloud.com/appmanagement_v1.json"
@@ -1091,6 +1115,12 @@
     },
     {
       "$ref": "capi-provider.agent-install.openshift.io/agentmachinetemplatelist_v1beta1.json"
+    },
+    {
+      "$ref": "catalog.cattle.io/uiplugin_v1.json"
+    },
+    {
+      "$ref": "catalog.cattle.io/uipluginlist_v1.json"
     },
     {
       "$ref": "cert-manager.io/certificate_v1.json"
@@ -2332,6 +2362,12 @@
       "$ref": "eks.amazonaws.com/targetgroupbindinglist_v1.json"
     },
     {
+      "$ref": "eks.cattle.io/eksclusterconfig_v1.json"
+    },
+    {
+      "$ref": "eks.cattle.io/eksclusterconfiglist_v1.json"
+    },
+    {
       "$ref": "eks.tke.cloud.tencent.com/injectpod_v1.json"
     },
     {
@@ -2342,6 +2378,60 @@
     },
     {
       "$ref": "elasticgpu.io/gpulist_v1alpha1.json"
+    },
+    {
+      "$ref": "elemental.cattle.io/machineinventory_v1beta1.json"
+    },
+    {
+      "$ref": "elemental.cattle.io/machineinventorylist_v1beta1.json"
+    },
+    {
+      "$ref": "elemental.cattle.io/machineinventoryselector_v1beta1.json"
+    },
+    {
+      "$ref": "elemental.cattle.io/machineinventoryselectorlist_v1beta1.json"
+    },
+    {
+      "$ref": "elemental.cattle.io/machineinventoryselectortemplate_v1beta1.json"
+    },
+    {
+      "$ref": "elemental.cattle.io/machineinventoryselectortemplatelist_v1beta1.json"
+    },
+    {
+      "$ref": "elemental.cattle.io/machineregistration_v1beta1.json"
+    },
+    {
+      "$ref": "elemental.cattle.io/machineregistrationlist_v1beta1.json"
+    },
+    {
+      "$ref": "elemental.cattle.io/managedosimage_v1beta1.json"
+    },
+    {
+      "$ref": "elemental.cattle.io/managedosimagelist_v1beta1.json"
+    },
+    {
+      "$ref": "elemental.cattle.io/managedosversion_v1beta1.json"
+    },
+    {
+      "$ref": "elemental.cattle.io/managedosversionchannel_v1beta1.json"
+    },
+    {
+      "$ref": "elemental.cattle.io/managedosversionchannellist_v1beta1.json"
+    },
+    {
+      "$ref": "elemental.cattle.io/managedosversionlist_v1beta1.json"
+    },
+    {
+      "$ref": "elemental.cattle.io/metadata_v1beta1.json"
+    },
+    {
+      "$ref": "elemental.cattle.io/metadatalist_v1beta1.json"
+    },
+    {
+      "$ref": "elemental.cattle.io/seedimage_v1beta1.json"
+    },
+    {
+      "$ref": "elemental.cattle.io/seedimagelist_v1beta1.json"
     },
     {
       "$ref": "ensurance.crane.io/avoidanceaction_v1alpha1.json"
@@ -2825,6 +2915,12 @@
     },
     {
       "$ref": "geip.cce.io/geiplist_v1alpha1.json"
+    },
+    {
+      "$ref": "gke.cattle.io/gkeclusterconfig_v1.json"
+    },
+    {
+      "$ref": "gke.cattle.io/gkeclusterconfiglist_v1.json"
     },
     {
       "$ref": "groupsnapshot.storage.k8s.io/volumegroupsnapshot_v1alpha1.json"
@@ -3733,10 +3829,346 @@
       "$ref": "log.alibabacloud.com/aliyunlogconfiglist_v1alpha1.json"
     },
     {
+      "$ref": "logging-extensions.banzaicloud.io/eventtailer_v1alpha1.json"
+    },
+    {
+      "$ref": "logging-extensions.banzaicloud.io/eventtailerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "logging-extensions.banzaicloud.io/hosttailer_v1alpha1.json"
+    },
+    {
+      "$ref": "logging-extensions.banzaicloud.io/hosttailerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/clusterflow_v1alpha1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/clusterflow_v1beta1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/clusterflowlist_v1alpha1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/clusterflowlist_v1beta1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/clusteroutput_v1alpha1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/clusteroutput_v1beta1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/clusteroutputlist_v1alpha1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/clusteroutputlist_v1beta1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/flow_v1alpha1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/flow_v1beta1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/flowlist_v1alpha1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/flowlist_v1beta1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/fluentbitagent_v1beta1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/fluentbitagentlist_v1beta1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/fluentdconfig_v1beta1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/fluentdconfiglist_v1beta1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/loggingroute_v1beta1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/loggingroutelist_v1beta1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/nodeagent_v1beta1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/nodeagentlist_v1beta1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/output_v1alpha1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/output_v1beta1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/outputlist_v1alpha1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/outputlist_v1beta1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/syslogngclusterflow_v1beta1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/syslogngclusterflowlist_v1beta1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/syslogngclusteroutput_v1beta1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/syslogngclusteroutputlist_v1beta1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/syslogngconfig_v1beta1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/syslogngconfiglist_v1beta1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/syslogngflow_v1beta1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/syslogngflowlist_v1beta1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/syslogngoutput_v1beta1.json"
+    },
+    {
+      "$ref": "logging.banzaicloud.io/syslogngoutputlist_v1beta1.json"
+    },
+    {
       "$ref": "logging.openvessel.io/logconfig_v1.json"
     },
     {
       "$ref": "logging.openvessel.io/logconfiglist_v1.json"
+    },
+    {
+      "$ref": "longhorn.io/backingimage_v1beta1.json"
+    },
+    {
+      "$ref": "longhorn.io/backingimage_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/backingimagedatasource_v1beta1.json"
+    },
+    {
+      "$ref": "longhorn.io/backingimagedatasource_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/backingimagedatasourcelist_v1beta1.json"
+    },
+    {
+      "$ref": "longhorn.io/backingimagedatasourcelist_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/backingimagelist_v1beta1.json"
+    },
+    {
+      "$ref": "longhorn.io/backingimagelist_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/backingimagemanager_v1beta1.json"
+    },
+    {
+      "$ref": "longhorn.io/backingimagemanager_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/backingimagemanagerlist_v1beta1.json"
+    },
+    {
+      "$ref": "longhorn.io/backingimagemanagerlist_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/backup_v1beta1.json"
+    },
+    {
+      "$ref": "longhorn.io/backup_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/backupbackingimage_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/backupbackingimagelist_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/backuplist_v1beta1.json"
+    },
+    {
+      "$ref": "longhorn.io/backuplist_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/backuptarget_v1beta1.json"
+    },
+    {
+      "$ref": "longhorn.io/backuptarget_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/backuptargetlist_v1beta1.json"
+    },
+    {
+      "$ref": "longhorn.io/backuptargetlist_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/backupvolume_v1beta1.json"
+    },
+    {
+      "$ref": "longhorn.io/backupvolume_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/backupvolumelist_v1beta1.json"
+    },
+    {
+      "$ref": "longhorn.io/backupvolumelist_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/engine_v1beta1.json"
+    },
+    {
+      "$ref": "longhorn.io/engine_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/engineimage_v1beta1.json"
+    },
+    {
+      "$ref": "longhorn.io/engineimage_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/engineimagelist_v1beta1.json"
+    },
+    {
+      "$ref": "longhorn.io/engineimagelist_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/enginelist_v1beta1.json"
+    },
+    {
+      "$ref": "longhorn.io/enginelist_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/instancemanager_v1beta1.json"
+    },
+    {
+      "$ref": "longhorn.io/instancemanager_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/instancemanagerlist_v1beta1.json"
+    },
+    {
+      "$ref": "longhorn.io/instancemanagerlist_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/node_v1beta1.json"
+    },
+    {
+      "$ref": "longhorn.io/node_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/nodelist_v1beta1.json"
+    },
+    {
+      "$ref": "longhorn.io/nodelist_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/orphan_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/orphanlist_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/recurringjob_v1beta1.json"
+    },
+    {
+      "$ref": "longhorn.io/recurringjob_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/recurringjoblist_v1beta1.json"
+    },
+    {
+      "$ref": "longhorn.io/recurringjoblist_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/replica_v1beta1.json"
+    },
+    {
+      "$ref": "longhorn.io/replica_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/replicalist_v1beta1.json"
+    },
+    {
+      "$ref": "longhorn.io/replicalist_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/setting_v1beta1.json"
+    },
+    {
+      "$ref": "longhorn.io/setting_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/settinglist_v1beta1.json"
+    },
+    {
+      "$ref": "longhorn.io/settinglist_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/sharemanager_v1beta1.json"
+    },
+    {
+      "$ref": "longhorn.io/sharemanager_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/sharemanagerlist_v1beta1.json"
+    },
+    {
+      "$ref": "longhorn.io/sharemanagerlist_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/snapshot_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/snapshotlist_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/supportbundle_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/supportbundlelist_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/systembackup_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/systembackuplist_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/systemrestore_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/systemrestorelist_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/volume_v1beta1.json"
+    },
+    {
+      "$ref": "longhorn.io/volume_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/volumeattachment_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/volumeattachmentlist_v1beta2.json"
+    },
+    {
+      "$ref": "longhorn.io/volumelist_v1beta1.json"
+    },
+    {
+      "$ref": "longhorn.io/volumelist_v1beta2.json"
     },
     {
       "$ref": "lvm.topolvm.io/lvmcluster_v1alpha1.json"
@@ -5212,6 +5644,24 @@
       "$ref": "resolution.tekton.dev/resolutionrequestlist_v1beta1.json"
     },
     {
+      "$ref": "resources.cattle.io/backup_v1.json"
+    },
+    {
+      "$ref": "resources.cattle.io/backuplist_v1.json"
+    },
+    {
+      "$ref": "resources.cattle.io/resourceset_v1.json"
+    },
+    {
+      "$ref": "resources.cattle.io/resourcesetlist_v1.json"
+    },
+    {
+      "$ref": "resources.cattle.io/restore_v1.json"
+    },
+    {
+      "$ref": "resources.cattle.io/restorelist_v1.json"
+    },
+    {
       "$ref": "rollouts.kruise.io/batchrelease_v1alpha1.json"
     },
     {
@@ -6332,6 +6782,18 @@
     },
     {
       "$ref": "warden.gke.io/auditlist_v1.json"
+    },
+    {
+      "$ref": "windows.k8s.io/gmsacredentialspec_v1.json"
+    },
+    {
+      "$ref": "windows.k8s.io/gmsacredentialspec_v1alpha1.json"
+    },
+    {
+      "$ref": "windows.k8s.io/gmsacredentialspeclist_v1.json"
+    },
+    {
+      "$ref": "windows.k8s.io/gmsacredentialspeclist_v1alpha1.json"
     },
     {
       "$ref": "work.karmada.io/clusterresourcebinding_v1alpha1.json"

@@ -1,0 +1,138 @@
+{
+  "description": "BackupBackingImage is where Longhorn stores backing image backup object.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "longhorn.io/v1beta2"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "BackupBackingImage"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "BackupBackingImageSpec defines the desired state of the Longhorn backing image backup",
+      "properties": {
+        "labels": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "The labels of backing image backup.",
+          "type": "object"
+        },
+        "syncRequestedAt": {
+          "description": "The time to request run sync the remote backing image backup.",
+          "format": "date-time",
+          "nullable": true,
+          "type": "string"
+        },
+        "userCreated": {
+          "description": "Is this CR created by user through API or UI.\nRequired",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "userCreated"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "description": "BackupBackingImageStatus defines the observed state of the Longhorn backing image backup",
+      "properties": {
+        "backingImage": {
+          "description": "The backing image name.",
+          "type": "string"
+        },
+        "backupCreatedAt": {
+          "description": "The backing image backup upload finished time.",
+          "type": "string"
+        },
+        "checksum": {
+          "description": "The checksum of the backing image.",
+          "type": "string"
+        },
+        "compressionMethod": {
+          "description": "Compression method",
+          "type": "string"
+        },
+        "error": {
+          "description": "The error message when taking the backing image backup.",
+          "type": "string"
+        },
+        "labels": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "The labels of backing image backup.",
+          "nullable": true,
+          "type": "object"
+        },
+        "lastSyncedAt": {
+          "description": "The last time that the backing image backup was synced with the remote backup target.",
+          "format": "date-time",
+          "nullable": true,
+          "type": "string"
+        },
+        "managerAddress": {
+          "description": "The address of the backing image manager that runs backing image backup.",
+          "type": "string"
+        },
+        "messages": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "The error messages when listing or inspecting backing image backup.",
+          "nullable": true,
+          "type": "object"
+        },
+        "ownerID": {
+          "description": "The node ID on which the controller is responsible to reconcile this CR.",
+          "type": "string"
+        },
+        "progress": {
+          "description": "The backing image backup progress.",
+          "type": "integer"
+        },
+        "size": {
+          "description": "The backing image size.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "state": {
+          "description": "The backing image backup creation state.\nCan be \"\", \"InProgress\", \"Completed\", \"Error\", \"Unknown\".",
+          "type": "string"
+        },
+        "url": {
+          "description": "The backing image backup URL.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "longhorn.io",
+      "kind": "BackupBackingImage",
+      "version": "v1beta2"
+    }
+  ]
+}

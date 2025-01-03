@@ -1,0 +1,109 @@
+{
+  "description": "RecurringJob is where Longhorn stores recurring job object.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "longhorn.io/v1beta2"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "RecurringJob"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "RecurringJobSpec defines the desired state of the Longhorn recurring job",
+      "properties": {
+        "concurrency": {
+          "description": "The concurrency of taking the snapshot/backup.",
+          "type": "integer"
+        },
+        "cron": {
+          "description": "The cron setting.",
+          "type": "string"
+        },
+        "groups": {
+          "description": "The recurring job group.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "labels": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "The label of the snapshot/backup.",
+          "type": "object"
+        },
+        "name": {
+          "description": "The recurring job name.",
+          "type": "string"
+        },
+        "parameters": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "The parameters of the snapshot/backup.\nSupport parameters: \"full-backup-interval\".",
+          "type": "object"
+        },
+        "retain": {
+          "description": "The retain count of the snapshot/backup.",
+          "type": "integer"
+        },
+        "task": {
+          "description": "The recurring job task.\nCan be \"snapshot\", \"snapshot-force-create\", \"snapshot-cleanup\", \"snapshot-delete\", \"backup\", \"backup-force-create\" or \"filesystem-trim\"",
+          "enum": [
+            "snapshot",
+            "snapshot-force-create",
+            "snapshot-cleanup",
+            "snapshot-delete",
+            "backup",
+            "backup-force-create",
+            "filesystem-trim"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "description": "RecurringJobStatus defines the observed state of the Longhorn recurring job",
+      "properties": {
+        "executionCount": {
+          "description": "The number of jobs that have been triggered.",
+          "type": "integer"
+        },
+        "ownerID": {
+          "description": "The owner ID which is responsible to reconcile this recurring job CR.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "longhorn.io",
+      "kind": "RecurringJob",
+      "version": "v1beta2"
+    }
+  ]
+}
