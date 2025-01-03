@@ -6,9 +6,9 @@
 
 These schemas are used by [kubernetes.nvim](https://github.com/imroc/kubernetes.nvim).
 
-## kubernetes buitin resource types
+## kubernetes builtin resource types
 
-All Kubernetes buitin resource types are supported (e.g. `Deployment`, `ConfigMap`, `StatefulSet` and etc).
+All Kubernetes builtin resource types are supported (e.g. `Deployment`, `ConfigMap`, `StatefulSet` and etc).
 
 ## CRDs
 
