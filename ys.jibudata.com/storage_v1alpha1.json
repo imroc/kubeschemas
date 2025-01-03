@@ -1,0 +1,210 @@
+{
+  "description": "Storage is the Schema for the storages API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "ys.jibudata.com/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "Storage"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "StorageSpec defines the desired state of Storage",
+      "properties": {
+        "desc": {
+          "description": "Desc provides detailed description",
+          "type": "string"
+        },
+        "displayName": {
+          "description": "DisplayName is human-readable name",
+          "type": "string"
+        },
+        "isDefaultStorage": {
+          "description": "IsDefaultStorage indicates it is default storage for use",
+          "type": "boolean"
+        },
+        "s3Config": {
+          "description": "S3Config includes S3 access configuration",
+          "properties": {
+            "accessKeyId": {
+              "description": "AccessKeyId is S3 aws-access-key-id",
+              "type": "string"
+            },
+            "bucket": {
+              "description": "Bucket is S3 bucket name",
+              "type": "string"
+            },
+            "credsSecretName": {
+              "description": "CredsSecretName links to a secret to access S3 object",
+              "type": "string"
+            },
+            "insecure": {
+              "description": "Insecure indicates not to verify https of s3url",
+              "type": "boolean"
+            },
+            "region": {
+              "description": "Region is S3 region",
+              "type": "string"
+            },
+            "s3url": {
+              "description": "S3URL is s3 URL",
+              "type": "string"
+            },
+            "secretAccessKey": {
+              "description": "SecretAccessKey is S3 aws-secret-access-key",
+              "type": "string"
+            }
+          },
+          "required": [
+            "accessKeyId",
+            "bucket",
+            "s3url",
+            "secretAccessKey"
+          ],
+          "type": "object"
+        },
+        "s3Provider": {
+          "description": "S3Provider is cloud provider for S3 service",
+          "type": "string"
+        },
+        "tenant": {
+          "description": "Tenant is global unique tenant id of a user",
+          "type": "string"
+        },
+        "volumeSnapshotConfig": {
+          "description": "VolumeSnapshotConfig includes configuration for volume snapshot",
+          "properties": {
+            "credsSecretName": {
+              "description": "CredsSecretName links to a secret which includes EBS volume snapshot credential",
+              "type": "string"
+            },
+            "region": {
+              "description": "Region is region of EBS volume in public cloud environment",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "volumeSnapshotProvider": {
+          "description": "VolumeSnapshotProvider is cloud provider for volume snapshot service",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tenant"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "description": "StorageStatus defines the observed state of Storage",
+      "properties": {
+        "conditions": {
+          "description": "Conditions describes the detailed state of Tenant",
+          "items": {
+            "description": "Condition represents the state of the operator's reconciliation functionality.",
+            "properties": {
+              "lastHeartbeatTime": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "lastTransitionTime": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "type": {
+                "description": "ConditionType is the state of the operator's reconciliation functionality.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "type"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "errors": {
+          "items": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "params": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "severity": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "phase": {
+          "description": "Phase describes the overall status of Tenant",
+          "type": "string"
+        },
+        "testResults": {
+          "additionalProperties": {
+            "description": "TestResult defines test result in a managed cluster",
+            "properties": {
+              "reason": {
+                "type": "string"
+              },
+              "result": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "description": "TestResults describe the test result in each cluster",
+          "type": "object"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "ys.jibudata.com",
+      "kind": "Storage",
+      "version": "v1alpha1"
+    }
+  ]
+}

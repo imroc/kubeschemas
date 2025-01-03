@@ -1,0 +1,119 @@
+{
+  "description": "RemoteCluster defines a remote cluster",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "chaos-mesh.org/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "RemoteCluster"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "RemoteClusterSpec defines the specification of a remote cluster",
+      "properties": {
+        "configOverride": {
+          "description": "RawMessage is a raw encoded JSON value. It implements Marshaler and Unmarshaler and can be used to delay JSON decoding or precompute a JSON encoding.",
+          "format": "byte",
+          "type": "string"
+        },
+        "kubeConfig": {
+          "description": "RemoteClusterKubeConfig refers to a secret by which we'll use to connect remote cluster",
+          "properties": {
+            "secretRef": {
+              "description": "RemoteClusterSecretRef refers to a secret in any namespaces",
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "namespace": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "key",
+                "name",
+                "namespace"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "secretRef"
+          ],
+          "type": "object"
+        },
+        "namespace": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "kubeConfig",
+        "namespace"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "properties": {
+        "conditions": {
+          "description": "Conditions represents the current condition of the remote cluster",
+          "items": {
+            "properties": {
+              "reason": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "type"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "currentVersion": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "currentVersion"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "chaos-mesh.org",
+      "kind": "RemoteCluster",
+      "version": "v1alpha1"
+    }
+  ]
+}

@@ -1165,6 +1165,144 @@
       "$ref": "certificates.hypershift.openshift.io/certificatesigningrequestapprovallist_v1alpha1.json"
     },
     {
+      "$ref": "chaos-mesh.org/awschaos_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/awschaoslist_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/azurechaos_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/azurechaoslist_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/blockchaos_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/blockchaoslist_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/dnschaos_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/dnschaoslist_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/gcpchaos_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/gcpchaoslist_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/httpchaos_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/httpchaoslist_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/iochaos_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/iochaoslist_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/jvmchaos_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/jvmchaoslist_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/kernelchaos_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/kernelchaoslist_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/networkchaos_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/networkchaoslist_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/physicalmachine_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/physicalmachinechaos_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/physicalmachinechaoslist_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/physicalmachinelist_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/podchaos_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/podchaoslist_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/podhttpchaos_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/podhttpchaoslist_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/podiochaos_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/podiochaoslist_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/podnetworkchaos_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/podnetworkchaoslist_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/remotecluster_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/remoteclusterlist_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/schedule_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/schedulelist_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/statuscheck_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/statuschecklist_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/stresschaos_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/stresschaoslist_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/timechaos_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/timechaoslist_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/workflow_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/workflowlist_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/workflownode_v1alpha1.json"
+    },
+    {
+      "$ref": "chaos-mesh.org/workflownodelist_v1alpha1.json"
+    },
+    {
       "$ref": "cilium.io/ciliumclusterwidenetworkpolicy_v2.json"
     },
     {
@@ -2116,6 +2254,96 @@
       "$ref": "core.oam.dev/workloaddefinitionlist_v1beta1.json"
     },
     {
+      "$ref": "crd.antrea.io/antreaagentinfo_v1beta1.json"
+    },
+    {
+      "$ref": "crd.antrea.io/antreaagentinfolist_v1beta1.json"
+    },
+    {
+      "$ref": "crd.antrea.io/antreacontrollerinfo_v1beta1.json"
+    },
+    {
+      "$ref": "crd.antrea.io/antreacontrollerinfolist_v1beta1.json"
+    },
+    {
+      "$ref": "crd.antrea.io/clustergroup_v1alpha2.json"
+    },
+    {
+      "$ref": "crd.antrea.io/clustergroup_v1alpha3.json"
+    },
+    {
+      "$ref": "crd.antrea.io/clustergrouplist_v1alpha2.json"
+    },
+    {
+      "$ref": "crd.antrea.io/clustergrouplist_v1alpha3.json"
+    },
+    {
+      "$ref": "crd.antrea.io/clusternetworkpolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "crd.antrea.io/clusternetworkpolicylist_v1alpha1.json"
+    },
+    {
+      "$ref": "crd.antrea.io/egress_v1alpha2.json"
+    },
+    {
+      "$ref": "crd.antrea.io/egresslist_v1alpha2.json"
+    },
+    {
+      "$ref": "crd.antrea.io/externalentity_v1alpha2.json"
+    },
+    {
+      "$ref": "crd.antrea.io/externalentitylist_v1alpha2.json"
+    },
+    {
+      "$ref": "crd.antrea.io/externalippool_v1alpha2.json"
+    },
+    {
+      "$ref": "crd.antrea.io/externalippoollist_v1alpha2.json"
+    },
+    {
+      "$ref": "crd.antrea.io/externalnode_v1alpha1.json"
+    },
+    {
+      "$ref": "crd.antrea.io/externalnodelist_v1alpha1.json"
+    },
+    {
+      "$ref": "crd.antrea.io/ippool_v1alpha2.json"
+    },
+    {
+      "$ref": "crd.antrea.io/ippoollist_v1alpha2.json"
+    },
+    {
+      "$ref": "crd.antrea.io/networkpolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "crd.antrea.io/networkpolicylist_v1alpha1.json"
+    },
+    {
+      "$ref": "crd.antrea.io/supportbundlecollection_v1alpha1.json"
+    },
+    {
+      "$ref": "crd.antrea.io/supportbundlecollectionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "crd.antrea.io/tier_v1alpha1.json"
+    },
+    {
+      "$ref": "crd.antrea.io/tierlist_v1alpha1.json"
+    },
+    {
+      "$ref": "crd.antrea.io/traceflow_v1alpha1.json"
+    },
+    {
+      "$ref": "crd.antrea.io/traceflowlist_v1alpha1.json"
+    },
+    {
+      "$ref": "crd.antrea.io/trafficcontrol_v1alpha2.json"
+    },
+    {
+      "$ref": "crd.antrea.io/trafficcontrollist_v1alpha2.json"
+    },
+    {
       "$ref": "crd.k8s.amazonaws.com/eniconfig_v1alpha1.json"
     },
     {
@@ -2168,6 +2396,18 @@
     },
     {
       "$ref": "crd.projectcalico.org/networkpolicylist_v1.json"
+    },
+    {
+      "$ref": "crd.theia.antrea.io/networkpolicyrecommendation_v1alpha1.json"
+    },
+    {
+      "$ref": "crd.theia.antrea.io/networkpolicyrecommendationlist_v1alpha1.json"
+    },
+    {
+      "$ref": "crd.theia.antrea.io/recommendednetworkpolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "crd.theia.antrea.io/recommendednetworkpolicylist_v1alpha1.json"
     },
     {
       "$ref": "crd.yangtse.cni/eip_v1.json"
@@ -3424,6 +3664,12 @@
       "$ref": "internal.kafka.eventing.knative.dev/consumerlist_v1alpha1.json"
     },
     {
+      "$ref": "iomesh.com/iomeshcluster_v1alpha1.json"
+    },
+    {
+      "$ref": "iomesh.com/iomeshclusterlist_v1alpha1.json"
+    },
+    {
       "$ref": "ipam.cluster.x-k8s.io/ipaddress_v1beta1.json"
     },
     {
@@ -4189,6 +4435,18 @@
       "$ref": "lvm.topolvm.io/lvmvolumegroupnodestatuslist_v1alpha1.json"
     },
     {
+      "$ref": "meshery.layer5.io/broker_v1alpha1.json"
+    },
+    {
+      "$ref": "meshery.layer5.io/brokerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "meshery.layer5.io/meshsync_v1alpha1.json"
+    },
+    {
+      "$ref": "meshery.layer5.io/meshsynclist_v1alpha1.json"
+    },
+    {
       "$ref": "messaging.knative.dev/channel_v1.json"
     },
     {
@@ -4247,6 +4505,90 @@
     },
     {
       "$ref": "migration.k8s.io/storageversionmigrationlist_v1alpha1.json"
+    },
+    {
+      "$ref": "migration.yinhestor.com/backup_v1alpha1.json"
+    },
+    {
+      "$ref": "migration.yinhestor.com/backupjob_v1alpha1.json"
+    },
+    {
+      "$ref": "migration.yinhestor.com/backupjoblist_v1alpha1.json"
+    },
+    {
+      "$ref": "migration.yinhestor.com/backuplist_v1alpha1.json"
+    },
+    {
+      "$ref": "migration.yinhestor.com/dataexport_v1alpha1.json"
+    },
+    {
+      "$ref": "migration.yinhestor.com/dataexportlist_v1alpha1.json"
+    },
+    {
+      "$ref": "migration.yinhestor.com/dataimport_v1alpha1.json"
+    },
+    {
+      "$ref": "migration.yinhestor.com/dataimportlist_v1alpha1.json"
+    },
+    {
+      "$ref": "migration.yinhestor.com/miganalytic_v1alpha1.json"
+    },
+    {
+      "$ref": "migration.yinhestor.com/miganalyticlist_v1alpha1.json"
+    },
+    {
+      "$ref": "migration.yinhestor.com/migcluster_v1alpha1.json"
+    },
+    {
+      "$ref": "migration.yinhestor.com/migclusterlist_v1alpha1.json"
+    },
+    {
+      "$ref": "migration.yinhestor.com/migconfig_v1alpha1.json"
+    },
+    {
+      "$ref": "migration.yinhestor.com/migconfiglist_v1alpha1.json"
+    },
+    {
+      "$ref": "migration.yinhestor.com/mighook_v1alpha1.json"
+    },
+    {
+      "$ref": "migration.yinhestor.com/mighooklist_v1alpha1.json"
+    },
+    {
+      "$ref": "migration.yinhestor.com/migmigration_v1alpha1.json"
+    },
+    {
+      "$ref": "migration.yinhestor.com/migmigrationlist_v1alpha1.json"
+    },
+    {
+      "$ref": "migration.yinhestor.com/migplan_v1alpha1.json"
+    },
+    {
+      "$ref": "migration.yinhestor.com/migplanlist_v1alpha1.json"
+    },
+    {
+      "$ref": "migration.yinhestor.com/migstorage_v1alpha1.json"
+    },
+    {
+      "$ref": "migration.yinhestor.com/migstoragelist_v1alpha1.json"
+    },
+    {
+      "$ref": "migration.yinhestor.com/restore_v1alpha1.json"
+    },
+    {
+      "$ref": "migration.yinhestor.com/restorejob_v1alpha1.json"
+    },
+    {
+      "$ref": "migration.yinhestor.com/restorejoblist_v1alpha1.json"
+    },
+    {
+      "$ref": "migration.yinhestor.com/restorelist_v1alpha1.json"
+    },
+    {
+      "$ref": "migration.yinhestor.com/systemsetting_v1alpha1.json"
+    },
+    {
+      "$ref": "migration.yinhestor.com/systemsettinglist_v1alpha1.json"
     },
     {
       "$ref": "mongodb.com/mongodb_v1.json"
@@ -4547,6 +4889,66 @@
     },
     {
       "$ref": "network.alibabacloud.com/podnetworkinglist_v1beta1.json"
+    },
+    {
+      "$ref": "network.kubesphere.io/bgpconf_v1alpha1.json"
+    },
+    {
+      "$ref": "network.kubesphere.io/bgpconf_v1alpha2.json"
+    },
+    {
+      "$ref": "network.kubesphere.io/bgpconflist_v1alpha1.json"
+    },
+    {
+      "$ref": "network.kubesphere.io/bgpconflist_v1alpha2.json"
+    },
+    {
+      "$ref": "network.kubesphere.io/bgppeer_v1alpha1.json"
+    },
+    {
+      "$ref": "network.kubesphere.io/bgppeer_v1alpha2.json"
+    },
+    {
+      "$ref": "network.kubesphere.io/bgppeerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "network.kubesphere.io/bgppeerlist_v1alpha2.json"
+    },
+    {
+      "$ref": "network.kubesphere.io/eip_v1alpha1.json"
+    },
+    {
+      "$ref": "network.kubesphere.io/eip_v1alpha2.json"
+    },
+    {
+      "$ref": "network.kubesphere.io/eiplist_v1alpha1.json"
+    },
+    {
+      "$ref": "network.kubesphere.io/eiplist_v1alpha2.json"
+    },
+    {
+      "$ref": "network.qingcloud.com/ipamblock_v1alpha1.json"
+    },
+    {
+      "$ref": "network.qingcloud.com/ipamblocklist_v1alpha1.json"
+    },
+    {
+      "$ref": "network.qingcloud.com/ipamhandle_v1alpha1.json"
+    },
+    {
+      "$ref": "network.qingcloud.com/ipamhandlelist_v1alpha1.json"
+    },
+    {
+      "$ref": "network.qingcloud.com/ippool_v1alpha1.json"
+    },
+    {
+      "$ref": "network.qingcloud.com/ippoollist_v1alpha1.json"
+    },
+    {
+      "$ref": "network.qingcloud.com/vxnetpool_v1alpha1.json"
+    },
+    {
+      "$ref": "network.qingcloud.com/vxnetpoollist_v1alpha1.json"
     },
     {
       "$ref": "networking.api.k8s.io/ingress_v1.json"
@@ -6836,6 +7238,78 @@
     },
     {
       "$ref": "work.open-cluster-management.io/manifestworkreplicasetlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ys.jibudata.com/backupjob_v1alpha1.json"
+    },
+    {
+      "$ref": "ys.jibudata.com/backupjoblist_v1alpha1.json"
+    },
+    {
+      "$ref": "ys.jibudata.com/backupplan_v1alpha1.json"
+    },
+    {
+      "$ref": "ys.jibudata.com/backupplanlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ys.jibudata.com/backuppolicy_v1beta1.json"
+    },
+    {
+      "$ref": "ys.jibudata.com/backuppolicylist_v1beta1.json"
+    },
+    {
+      "$ref": "ys.jibudata.com/backuptemplate_v1beta1.json"
+    },
+    {
+      "$ref": "ys.jibudata.com/backuptemplatelist_v1beta1.json"
+    },
+    {
+      "$ref": "ys.jibudata.com/cluster_v1alpha1.json"
+    },
+    {
+      "$ref": "ys.jibudata.com/clusterlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ys.jibudata.com/restorejob_v1alpha1.json"
+    },
+    {
+      "$ref": "ys.jibudata.com/restorejoblist_v1alpha1.json"
+    },
+    {
+      "$ref": "ys.jibudata.com/restoreplan_v1alpha1.json"
+    },
+    {
+      "$ref": "ys.jibudata.com/restoreplanlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ys.jibudata.com/storage_v1alpha1.json"
+    },
+    {
+      "$ref": "ys.jibudata.com/storagelist_v1alpha1.json"
+    },
+    {
+      "$ref": "ys.jibudata.com/systemreport_v1beta1.json"
+    },
+    {
+      "$ref": "ys.jibudata.com/systemreportlist_v1beta1.json"
+    },
+    {
+      "$ref": "ys.jibudata.com/tenant_v1alpha1.json"
+    },
+    {
+      "$ref": "ys.jibudata.com/tenantlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ys.jibudata.com/tenantmanager_v1alpha1.json"
+    },
+    {
+      "$ref": "ys.jibudata.com/tenantmanagerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ys.jibudata.com/tenantworker_v1alpha1.json"
+    },
+    {
+      "$ref": "ys.jibudata.com/tenantworkerlist_v1alpha1.json"
     },
     {
       "$ref": "zalando.org/fabriceventstream_v1.json"

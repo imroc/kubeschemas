@@ -1,0 +1,222 @@
+{
+  "description": "Cluster is the Schema for the clusters API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "ys.jibudata.com/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "Cluster"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "ClusterSpec defines the desired state of Cluster",
+      "properties": {
+        "apiEndpoint": {
+          "description": "APIEndpoint is API endpoint",
+          "type": "string"
+        },
+        "desc": {
+          "description": "Desc is description for a cluster.",
+          "type": "string"
+        },
+        "displayName": {
+          "description": "DisplayName is human-readable name",
+          "type": "string"
+        },
+        "excludedNamespaces": {
+          "description": "ExcludedNamespaces indicates the namespaces is excluded for backup management",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "extraParams": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "ExtraParams store cluster's extra parameters",
+          "type": "object"
+        },
+        "kubeconfig": {
+          "description": "KubeConfig provides the access information of the cluster",
+          "type": "string"
+        },
+        "provider": {
+          "description": "Provider",
+          "type": "string"
+        },
+        "region": {
+          "description": "Region reflects cloud region of running cluster",
+          "type": "string"
+        },
+        "role": {
+          "description": "Role indicates the cluster type for multi-cluster environment",
+          "type": "string"
+        },
+        "secretName": {
+          "description": "SecretName is Secret name",
+          "type": "string"
+        },
+        "snapshotClasses": {
+          "description": "SnapshotClasses contain the available volumeSnapshotClass of the cluster if not empty",
+          "items": {
+            "properties": {
+              "deletionPolicy": {
+                "type": "string"
+              },
+              "driver": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "deletionPolicy",
+              "driver",
+              "name"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "storageClasses": {
+          "description": "StorageClasses contain the available storageclasses of the cluster if not empty",
+          "items": {
+            "properties": {
+              "accessModes": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "default": {
+                "type": "boolean"
+              },
+              "name": {
+                "type": "string"
+              },
+              "provisioner": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "tenant": {
+          "description": "Tenant is global unique tenant id of a user",
+          "type": "string"
+        },
+        "zone": {
+          "description": "Zone reflects available zone of running cluster",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kubeconfig",
+        "tenant"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "description": "ClusterStatus defines the observed state of Cluster",
+      "properties": {
+        "conditions": {
+          "description": "Conditions describes the detailed state of cluster",
+          "items": {
+            "description": "Condition represents the state of the operator's reconciliation functionality.",
+            "properties": {
+              "lastHeartbeatTime": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "lastTransitionTime": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "type": {
+                "description": "ConditionType is the state of the operator's reconciliation functionality.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "type"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "errors": {
+          "items": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "params": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "severity": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "phase": {
+          "description": "Phase describes the overall status of Cluster",
+          "type": "string"
+        },
+        "version": {
+          "description": "Version reflects the k8s version of cluster",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "ys.jibudata.com",
+      "kind": "Cluster",
+      "version": "v1alpha1"
+    }
+  ]
+}

@@ -1,0 +1,444 @@
+{
+  "description": "BackupPlan is the Schema for the backupplans API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "ys.jibudata.com/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "BackupPlan"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "BackupPlanSpec defines the desired state of BackupPlan",
+      "properties": {
+        "clusterName": {
+          "description": "Name of the cluster CR",
+          "type": "string"
+        },
+        "copyMethod": {
+          "description": "Copy method, in {\"filesystem\", \"snapshot\"}, default is \"filesystem\"",
+          "type": "string"
+        },
+        "desc": {
+          "description": "Desc is description for a backup plan.",
+          "type": "string"
+        },
+        "displayName": {
+          "description": "DisplayName is human-readable name",
+          "type": "string"
+        },
+        "excludePV": {
+          "description": "Exclude PV as backup resource, default is false",
+          "type": "boolean"
+        },
+        "filters": {
+          "properties": {
+            "excludeClusterResources": {
+              "items": {
+                "properties": {
+                  "group": {
+                    "type": "string"
+                  },
+                  "names": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "resource": {
+                    "type": "string"
+                  },
+                  "version": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "excludeResources": {
+              "items": {
+                "properties": {
+                  "group": {
+                    "type": "string"
+                  },
+                  "names": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "resource": {
+                    "type": "string"
+                  },
+                  "version": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "includeClusterResources": {
+              "items": {
+                "properties": {
+                  "group": {
+                    "type": "string"
+                  },
+                  "names": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "resource": {
+                    "type": "string"
+                  },
+                  "version": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "includeResources": {
+              "items": {
+                "properties": {
+                  "group": {
+                    "type": "string"
+                  },
+                  "names": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "resource": {
+                    "type": "string"
+                  },
+                  "version": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "selector": {
+              "description": "A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.",
+              "properties": {
+                "matchExpressions": {
+                  "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
+                  "items": {
+                    "description": "A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.",
+                    "properties": {
+                      "key": {
+                        "description": "key is the label key that the selector applies to.",
+                        "type": "string"
+                      },
+                      "operator": {
+                        "description": "operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.",
+                        "type": "string"
+                      },
+                      "values": {
+                        "description": "values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.",
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "key",
+                      "operator"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "matchLabels": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "description": "matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is \"key\", the operator is \"In\", and the values array contains only \"value\". The requirements are ANDed.",
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "namespaces": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "policy": {
+          "description": "Policy of the backup plan. Default is on demand backup, retention is default to 7 days",
+          "properties": {
+            "desc": {
+              "description": "Desc provides detailed description",
+              "type": "string"
+            },
+            "displayName": {
+              "description": "DisplayName is human-readable name",
+              "type": "string"
+            },
+            "exportData": {
+              "description": "ExportData is true when you want to export data of a backup, only work for CopyMethod=snapshot.",
+              "type": "boolean"
+            },
+            "frequency": {
+              "description": "Frequency of the backup, follow cron job string format",
+              "type": "string"
+            },
+            "name": {
+              "description": "Name of the policy",
+              "type": "string"
+            },
+            "pause": {
+              "description": "Pause true means scheduled backup is paused",
+              "type": "boolean"
+            },
+            "repeat": {
+              "description": "Repeat true means scheduled backup, false means on demand backup",
+              "type": "boolean"
+            },
+            "retention": {
+              "description": "Retention of the backup, unit is hour",
+              "type": "integer"
+            },
+            "snapshotLimit": {
+              "description": "SnapshotLimit is the maximum number of snapshots that will be retained.",
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
+        "storageName": {
+          "description": "Name of the storage CR",
+          "type": "string"
+        },
+        "storageRef": {
+          "description": "Storage spec structure is embeded as a pointer here. Created at plan creation, and only changed when StorageName is changed.",
+          "properties": {
+            "desc": {
+              "description": "Desc provides detailed description",
+              "type": "string"
+            },
+            "displayName": {
+              "description": "DisplayName is human-readable name",
+              "type": "string"
+            },
+            "isDefaultStorage": {
+              "description": "IsDefaultStorage indicates it is default storage for use",
+              "type": "boolean"
+            },
+            "s3Config": {
+              "description": "S3Config includes S3 access configuration",
+              "properties": {
+                "accessKeyId": {
+                  "description": "AccessKeyId is S3 aws-access-key-id",
+                  "type": "string"
+                },
+                "bucket": {
+                  "description": "Bucket is S3 bucket name",
+                  "type": "string"
+                },
+                "credsSecretName": {
+                  "description": "CredsSecretName links to a secret to access S3 object",
+                  "type": "string"
+                },
+                "insecure": {
+                  "description": "Insecure indicates not to verify https of s3url",
+                  "type": "boolean"
+                },
+                "region": {
+                  "description": "Region is S3 region",
+                  "type": "string"
+                },
+                "s3url": {
+                  "description": "S3URL is s3 URL",
+                  "type": "string"
+                },
+                "secretAccessKey": {
+                  "description": "SecretAccessKey is S3 aws-secret-access-key",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "accessKeyId",
+                "bucket",
+                "s3url",
+                "secretAccessKey"
+              ],
+              "type": "object"
+            },
+            "s3Provider": {
+              "description": "S3Provider is cloud provider for S3 service",
+              "type": "string"
+            },
+            "tenant": {
+              "description": "Tenant is global unique tenant id of a user",
+              "type": "string"
+            },
+            "volumeSnapshotConfig": {
+              "description": "VolumeSnapshotConfig includes configuration for volume snapshot",
+              "properties": {
+                "credsSecretName": {
+                  "description": "CredsSecretName links to a secret which includes EBS volume snapshot credential",
+                  "type": "string"
+                },
+                "region": {
+                  "description": "Region is region of EBS volume in public cloud environment",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "volumeSnapshotProvider": {
+              "description": "VolumeSnapshotProvider is cloud provider for volume snapshot service",
+              "type": "string"
+            }
+          },
+          "required": [
+            "tenant"
+          ],
+          "type": "object"
+        },
+        "templates": {
+          "items": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "type": "array"
+        },
+        "tenant": {
+          "description": "Tenant is global unique tenant id of a user",
+          "type": "string"
+        }
+      },
+      "required": [
+        "clusterName",
+        "storageName",
+        "tenant"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "description": "BackupPlanStatus defines the observed state of BackupPlan",
+      "properties": {
+        "conditions": {
+          "description": "Conditions describes the detailed state of backup plan",
+          "items": {
+            "description": "Condition represents the state of the operator's reconciliation functionality.",
+            "properties": {
+              "lastHeartbeatTime": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "lastTransitionTime": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "type": {
+                "description": "ConditionType is the state of the operator's reconciliation functionality.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "type"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "currentJobName": {
+          "description": "CurrentJobName is the backup job is latest backup job",
+          "type": "string"
+        },
+        "currentJobPhase": {
+          "description": "CurrentJobPhase is the phase of latest backup job",
+          "type": "string"
+        },
+        "errors": {
+          "items": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "params": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "severity": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "jobDetail": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "JobDetail is some detail info of jobs that referring this plan",
+          "type": "object"
+        },
+        "phase": {
+          "description": "Phase describes the overall status of backup plan",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "ys.jibudata.com",
+      "kind": "BackupPlan",
+      "version": "v1alpha1"
+    }
+  ]
+}

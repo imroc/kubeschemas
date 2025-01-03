@@ -1,0 +1,1201 @@
+{
+  "description": "RestoreJob is the Schema for the restorejobs API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "ys.jibudata.com/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "RestoreJob"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "RestoreJobSpec defines the desired state of RestoreJob",
+      "properties": {
+        "action": {
+          "description": "Action of restore job, { start, cancel }",
+          "type": "string"
+        },
+        "backupJobName": {
+          "description": "BackupJobName is Name of backupjob",
+          "type": "string"
+        },
+        "backupJobRef": {
+          "description": "BackupJobRef is Backup Job reference",
+          "properties": {
+            "action": {
+              "description": "Action for this job, { start, cancel }",
+              "type": "string"
+            },
+            "backupName": {
+              "description": "BackupName is Backup plan name",
+              "type": "string"
+            },
+            "backupPlanRef": {
+              "description": "BackupPlanRef is Backup Plan spec pointer. Created at plan creation, and readonly",
+              "properties": {
+                "clusterName": {
+                  "description": "Name of the cluster CR",
+                  "type": "string"
+                },
+                "copyMethod": {
+                  "description": "Copy method, in {\"filesystem\", \"snapshot\"}, default is \"filesystem\"",
+                  "type": "string"
+                },
+                "desc": {
+                  "description": "Desc is description for a backup plan.",
+                  "type": "string"
+                },
+                "displayName": {
+                  "description": "DisplayName is human-readable name",
+                  "type": "string"
+                },
+                "excludePV": {
+                  "description": "Exclude PV as backup resource, default is false",
+                  "type": "boolean"
+                },
+                "filters": {
+                  "properties": {
+                    "excludeClusterResources": {
+                      "items": {
+                        "properties": {
+                          "group": {
+                            "type": "string"
+                          },
+                          "names": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "resource": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "excludeResources": {
+                      "items": {
+                        "properties": {
+                          "group": {
+                            "type": "string"
+                          },
+                          "names": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "resource": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "includeClusterResources": {
+                      "items": {
+                        "properties": {
+                          "group": {
+                            "type": "string"
+                          },
+                          "names": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "resource": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "includeResources": {
+                      "items": {
+                        "properties": {
+                          "group": {
+                            "type": "string"
+                          },
+                          "names": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "resource": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "selector": {
+                      "description": "A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.",
+                      "properties": {
+                        "matchExpressions": {
+                          "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
+                          "items": {
+                            "description": "A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.",
+                            "properties": {
+                              "key": {
+                                "description": "key is the label key that the selector applies to.",
+                                "type": "string"
+                              },
+                              "operator": {
+                                "description": "operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.",
+                                "type": "string"
+                              },
+                              "values": {
+                                "description": "values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "type": "array"
+                              }
+                            },
+                            "required": [
+                              "key",
+                              "operator"
+                            ],
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "matchLabels": {
+                          "additionalProperties": {
+                            "type": "string"
+                          },
+                          "description": "matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is \"key\", the operator is \"In\", and the values array contains only \"value\". The requirements are ANDed.",
+                          "type": "object"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                },
+                "namespaces": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "policy": {
+                  "description": "Policy of the backup plan. Default is on demand backup, retention is default to 7 days",
+                  "properties": {
+                    "desc": {
+                      "description": "Desc provides detailed description",
+                      "type": "string"
+                    },
+                    "displayName": {
+                      "description": "DisplayName is human-readable name",
+                      "type": "string"
+                    },
+                    "exportData": {
+                      "description": "ExportData is true when you want to export data of a backup, only work for CopyMethod=snapshot.",
+                      "type": "boolean"
+                    },
+                    "frequency": {
+                      "description": "Frequency of the backup, follow cron job string format",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Name of the policy",
+                      "type": "string"
+                    },
+                    "pause": {
+                      "description": "Pause true means scheduled backup is paused",
+                      "type": "boolean"
+                    },
+                    "repeat": {
+                      "description": "Repeat true means scheduled backup, false means on demand backup",
+                      "type": "boolean"
+                    },
+                    "retention": {
+                      "description": "Retention of the backup, unit is hour",
+                      "type": "integer"
+                    },
+                    "snapshotLimit": {
+                      "description": "SnapshotLimit is the maximum number of snapshots that will be retained.",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                },
+                "storageName": {
+                  "description": "Name of the storage CR",
+                  "type": "string"
+                },
+                "storageRef": {
+                  "description": "Storage spec structure is embeded as a pointer here. Created at plan creation, and only changed when StorageName is changed.",
+                  "properties": {
+                    "desc": {
+                      "description": "Desc provides detailed description",
+                      "type": "string"
+                    },
+                    "displayName": {
+                      "description": "DisplayName is human-readable name",
+                      "type": "string"
+                    },
+                    "isDefaultStorage": {
+                      "description": "IsDefaultStorage indicates it is default storage for use",
+                      "type": "boolean"
+                    },
+                    "s3Config": {
+                      "description": "S3Config includes S3 access configuration",
+                      "properties": {
+                        "accessKeyId": {
+                          "description": "AccessKeyId is S3 aws-access-key-id",
+                          "type": "string"
+                        },
+                        "bucket": {
+                          "description": "Bucket is S3 bucket name",
+                          "type": "string"
+                        },
+                        "credsSecretName": {
+                          "description": "CredsSecretName links to a secret to access S3 object",
+                          "type": "string"
+                        },
+                        "insecure": {
+                          "description": "Insecure indicates not to verify https of s3url",
+                          "type": "boolean"
+                        },
+                        "region": {
+                          "description": "Region is S3 region",
+                          "type": "string"
+                        },
+                        "s3url": {
+                          "description": "S3URL is s3 URL",
+                          "type": "string"
+                        },
+                        "secretAccessKey": {
+                          "description": "SecretAccessKey is S3 aws-secret-access-key",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "accessKeyId",
+                        "bucket",
+                        "s3url",
+                        "secretAccessKey"
+                      ],
+                      "type": "object"
+                    },
+                    "s3Provider": {
+                      "description": "S3Provider is cloud provider for S3 service",
+                      "type": "string"
+                    },
+                    "tenant": {
+                      "description": "Tenant is global unique tenant id of a user",
+                      "type": "string"
+                    },
+                    "volumeSnapshotConfig": {
+                      "description": "VolumeSnapshotConfig includes configuration for volume snapshot",
+                      "properties": {
+                        "credsSecretName": {
+                          "description": "CredsSecretName links to a secret which includes EBS volume snapshot credential",
+                          "type": "string"
+                        },
+                        "region": {
+                          "description": "Region is region of EBS volume in public cloud environment",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "volumeSnapshotProvider": {
+                      "description": "VolumeSnapshotProvider is cloud provider for volume snapshot service",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "tenant"
+                  ],
+                  "type": "object"
+                },
+                "templates": {
+                  "items": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "type": "array"
+                },
+                "tenant": {
+                  "description": "Tenant is global unique tenant id of a user",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "clusterName",
+                "storageName",
+                "tenant"
+              ],
+              "type": "object"
+            },
+            "desc": {
+              "description": "Desc provides detailed description",
+              "type": "string"
+            },
+            "displayName": {
+              "description": "DisplayName is human-readable name",
+              "type": "string"
+            },
+            "exportData": {
+              "type": "boolean"
+            },
+            "tenant": {
+              "description": "Tenant is Unique name of tenant",
+              "type": "string"
+            }
+          },
+          "required": [
+            "backupName",
+            "tenant"
+          ],
+          "type": "object"
+        },
+        "desc": {
+          "description": "Desc provides detailed description",
+          "type": "string"
+        },
+        "displayName": {
+          "description": "DisplayName is human-readable name",
+          "type": "string"
+        },
+        "restoreName": {
+          "description": "RestoreName is RestorePlan Name",
+          "type": "string"
+        },
+        "restorePlanRef": {
+          "description": "RestorePlanRef is Restore Plan reference",
+          "properties": {
+            "actions": {
+              "description": "Actions is for ys plugin of velero",
+              "properties": {
+                "storageClassMappings": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "backupName": {
+              "description": "BackupName is Backup Plan Name",
+              "type": "string"
+            },
+            "backupPlanRef": {
+              "description": "BackupPlanRef is Backup plan reference",
+              "properties": {
+                "clusterName": {
+                  "description": "Name of the cluster CR",
+                  "type": "string"
+                },
+                "copyMethod": {
+                  "description": "Copy method, in {\"filesystem\", \"snapshot\"}, default is \"filesystem\"",
+                  "type": "string"
+                },
+                "desc": {
+                  "description": "Desc is description for a backup plan.",
+                  "type": "string"
+                },
+                "displayName": {
+                  "description": "DisplayName is human-readable name",
+                  "type": "string"
+                },
+                "excludePV": {
+                  "description": "Exclude PV as backup resource, default is false",
+                  "type": "boolean"
+                },
+                "filters": {
+                  "properties": {
+                    "excludeClusterResources": {
+                      "items": {
+                        "properties": {
+                          "group": {
+                            "type": "string"
+                          },
+                          "names": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "resource": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "excludeResources": {
+                      "items": {
+                        "properties": {
+                          "group": {
+                            "type": "string"
+                          },
+                          "names": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "resource": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "includeClusterResources": {
+                      "items": {
+                        "properties": {
+                          "group": {
+                            "type": "string"
+                          },
+                          "names": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "resource": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "includeResources": {
+                      "items": {
+                        "properties": {
+                          "group": {
+                            "type": "string"
+                          },
+                          "names": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "resource": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "selector": {
+                      "description": "A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.",
+                      "properties": {
+                        "matchExpressions": {
+                          "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
+                          "items": {
+                            "description": "A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.",
+                            "properties": {
+                              "key": {
+                                "description": "key is the label key that the selector applies to.",
+                                "type": "string"
+                              },
+                              "operator": {
+                                "description": "operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.",
+                                "type": "string"
+                              },
+                              "values": {
+                                "description": "values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "type": "array"
+                              }
+                            },
+                            "required": [
+                              "key",
+                              "operator"
+                            ],
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "matchLabels": {
+                          "additionalProperties": {
+                            "type": "string"
+                          },
+                          "description": "matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is \"key\", the operator is \"In\", and the values array contains only \"value\". The requirements are ANDed.",
+                          "type": "object"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                },
+                "namespaces": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "policy": {
+                  "description": "Policy of the backup plan. Default is on demand backup, retention is default to 7 days",
+                  "properties": {
+                    "desc": {
+                      "description": "Desc provides detailed description",
+                      "type": "string"
+                    },
+                    "displayName": {
+                      "description": "DisplayName is human-readable name",
+                      "type": "string"
+                    },
+                    "exportData": {
+                      "description": "ExportData is true when you want to export data of a backup, only work for CopyMethod=snapshot.",
+                      "type": "boolean"
+                    },
+                    "frequency": {
+                      "description": "Frequency of the backup, follow cron job string format",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Name of the policy",
+                      "type": "string"
+                    },
+                    "pause": {
+                      "description": "Pause true means scheduled backup is paused",
+                      "type": "boolean"
+                    },
+                    "repeat": {
+                      "description": "Repeat true means scheduled backup, false means on demand backup",
+                      "type": "boolean"
+                    },
+                    "retention": {
+                      "description": "Retention of the backup, unit is hour",
+                      "type": "integer"
+                    },
+                    "snapshotLimit": {
+                      "description": "SnapshotLimit is the maximum number of snapshots that will be retained.",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                },
+                "storageName": {
+                  "description": "Name of the storage CR",
+                  "type": "string"
+                },
+                "storageRef": {
+                  "description": "Storage spec structure is embeded as a pointer here. Created at plan creation, and only changed when StorageName is changed.",
+                  "properties": {
+                    "desc": {
+                      "description": "Desc provides detailed description",
+                      "type": "string"
+                    },
+                    "displayName": {
+                      "description": "DisplayName is human-readable name",
+                      "type": "string"
+                    },
+                    "isDefaultStorage": {
+                      "description": "IsDefaultStorage indicates it is default storage for use",
+                      "type": "boolean"
+                    },
+                    "s3Config": {
+                      "description": "S3Config includes S3 access configuration",
+                      "properties": {
+                        "accessKeyId": {
+                          "description": "AccessKeyId is S3 aws-access-key-id",
+                          "type": "string"
+                        },
+                        "bucket": {
+                          "description": "Bucket is S3 bucket name",
+                          "type": "string"
+                        },
+                        "credsSecretName": {
+                          "description": "CredsSecretName links to a secret to access S3 object",
+                          "type": "string"
+                        },
+                        "insecure": {
+                          "description": "Insecure indicates not to verify https of s3url",
+                          "type": "boolean"
+                        },
+                        "region": {
+                          "description": "Region is S3 region",
+                          "type": "string"
+                        },
+                        "s3url": {
+                          "description": "S3URL is s3 URL",
+                          "type": "string"
+                        },
+                        "secretAccessKey": {
+                          "description": "SecretAccessKey is S3 aws-secret-access-key",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "accessKeyId",
+                        "bucket",
+                        "s3url",
+                        "secretAccessKey"
+                      ],
+                      "type": "object"
+                    },
+                    "s3Provider": {
+                      "description": "S3Provider is cloud provider for S3 service",
+                      "type": "string"
+                    },
+                    "tenant": {
+                      "description": "Tenant is global unique tenant id of a user",
+                      "type": "string"
+                    },
+                    "volumeSnapshotConfig": {
+                      "description": "VolumeSnapshotConfig includes configuration for volume snapshot",
+                      "properties": {
+                        "credsSecretName": {
+                          "description": "CredsSecretName links to a secret which includes EBS volume snapshot credential",
+                          "type": "string"
+                        },
+                        "region": {
+                          "description": "Region is region of EBS volume in public cloud environment",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "volumeSnapshotProvider": {
+                      "description": "VolumeSnapshotProvider is cloud provider for volume snapshot service",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "tenant"
+                  ],
+                  "type": "object"
+                },
+                "templates": {
+                  "items": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "type": "array"
+                },
+                "tenant": {
+                  "description": "Tenant is global unique tenant id of a user",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "clusterName",
+                "storageName",
+                "tenant"
+              ],
+              "type": "object"
+            },
+            "dataOnly": {
+              "description": "DataOnly does only PVC data restore from snapshot or exported backupjob",
+              "type": "boolean"
+            },
+            "desc": {
+              "description": "Desc provides detailed description",
+              "type": "string"
+            },
+            "destClusterName": {
+              "description": "DestClusterName is Destination cluster name",
+              "type": "string"
+            },
+            "displayName": {
+              "description": "DisplayName is human-readable name",
+              "type": "string"
+            },
+            "filters": {
+              "properties": {
+                "excludeClusterResources": {
+                  "items": {
+                    "properties": {
+                      "group": {
+                        "type": "string"
+                      },
+                      "names": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "resource": {
+                        "type": "string"
+                      },
+                      "version": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "excludeResources": {
+                  "items": {
+                    "properties": {
+                      "group": {
+                        "type": "string"
+                      },
+                      "names": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "resource": {
+                        "type": "string"
+                      },
+                      "version": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "includeClusterResources": {
+                  "items": {
+                    "properties": {
+                      "group": {
+                        "type": "string"
+                      },
+                      "names": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "resource": {
+                        "type": "string"
+                      },
+                      "version": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "includeResources": {
+                  "items": {
+                    "properties": {
+                      "group": {
+                        "type": "string"
+                      },
+                      "names": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "resource": {
+                        "type": "string"
+                      },
+                      "version": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "selector": {
+                  "description": "A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.",
+                  "properties": {
+                    "matchExpressions": {
+                      "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
+                      "items": {
+                        "description": "A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.",
+                        "properties": {
+                          "key": {
+                            "description": "key is the label key that the selector applies to.",
+                            "type": "string"
+                          },
+                          "operator": {
+                            "description": "operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.",
+                            "type": "string"
+                          },
+                          "values": {
+                            "description": "values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.",
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          }
+                        },
+                        "required": [
+                          "key",
+                          "operator"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "matchLabels": {
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "description": "matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is \"key\", the operator is \"In\", and the values array contains only \"value\". The requirements are ANDed.",
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "namespaceMapping": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            "namespaceMappings": {
+              "description": "NamespaceMappings is namespace mappings, in k:v pairs, e.g., \"A: B\" means original backup namepsace is A, restore to namespace B",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "namespaces": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "resourceSelector": {
+              "description": "ResourceSelector is for partial resource selection",
+              "properties": {
+                "excludedNamespaces": {
+                  "description": "ExcludedNamespaces is a slice of namespace names to exclude. All namespaces in IncludedNamespaces, *except* those in this slice, will be matched.",
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "excludedResources": {
+                  "description": "ExcludedResources is a slice of resources to exclude. Resources may be specified as full names (e.g. \"services\"), abbreviations (e.g. \"svc\"), or with the groups they are in (e.g. \"ingresses.extensions\"). All resources in IncludedResources, *except* those in this slice, will be matched.",
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "includedNamespaces": {
+                  "description": "IncludedNamespaces is a slice of namespace names to match. All namespaces in this slice, except those in ExcludedNamespaces, will be matched. A nil/empty slice matches all namespaces.",
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "includedResources": {
+                  "description": "IncludedResources is a slice of resources to match. Resources may be specified as full names (e.g. \"services\"), abbreviations (e.g. \"svc\"), or with the groups they are in (e.g. \"ingresses.extensions\"). All resources in this slice, except those in ExcludedResources, will be matched. A nil/empty slice matches all resources.",
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "labelSelector": {
+                  "description": "LabelSelector is a string representation of a selector to apply when matching resources. See \"k8s.io/apimachinery/pkg/labels\".Parse() for details on syntax.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "templates": {
+              "items": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "type": "array"
+            },
+            "tenant": {
+              "description": "Tenant is unique name of tenant",
+              "type": "string"
+            }
+          },
+          "required": [
+            "backupName",
+            "destClusterName",
+            "tenant"
+          ],
+          "type": "object"
+        },
+        "tenant": {
+          "description": "Tenant is unique name of tenant",
+          "type": "string"
+        }
+      },
+      "required": [
+        "backupJobName",
+        "restoreName",
+        "tenant"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "description": "RestoreJobStatus defines the observed state of RestoreJob",
+      "properties": {
+        "conditions": {
+          "description": "Conditions describes the detailed state of RestoreJob",
+          "items": {
+            "description": "Condition represents the state of the operator's reconciliation functionality.",
+            "properties": {
+              "lastHeartbeatTime": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "lastTransitionTime": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "type": {
+                "description": "ConditionType is the state of the operator's reconciliation functionality.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "type"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "errors": {
+          "items": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "params": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "severity": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "importResult": {
+          "properties": {
+            "dataImportRef": {
+              "description": "ObjectReference contains enough information to let you inspect or modify the referred object. --- New uses of this type are discouraged because of difficulty describing its usage when embedded in APIs. 1. Ignored fields.  It includes many fields which are not generally honored.  For instance, ResourceVersion and FieldPath are both very rarely valid in actual usage. 2. Invalid usage help.  It is impossible to add specific help for individual usage.  In most embedded usages, there are particular restrictions like, \"must refer only to types A and B\" or \"UID not honored\" or \"name must be restricted\". Those cannot be well described when embedded. 3. Inconsistent validation.  Because the usages are different, the validation rules are different by usage, which makes it hard for users to predict what will happen. 4. The fields are both imprecise and overly precise.  Kind is not a precise mapping to a URL. This can produce ambiguity during interpretation and require a REST mapping.  In most cases, the dependency is on the group,resource tuple and the version of the actual struct is irrelevant. 5. We cannot easily change it.  Because this type is embedded in many locations, updates to this type will affect numerous schemas.  Don't make new APIs embed an underspecified API type they do not control. Instead of using this type, create a locally provided and used type that is well-focused on your reference. For example, ServiceReferences for admission registration: https://github.com/kubernetes/api/blob/release-1.17/admissionregistration/v1/types.go#L533 .",
+              "properties": {
+                "apiVersion": {
+                  "description": "API version of the referent.",
+                  "type": "string"
+                },
+                "fieldPath": {
+                  "description": "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object. TODO: this design is not final and this field is subject to change in the future.",
+                  "type": "string"
+                },
+                "kind": {
+                  "description": "Kind of the referent. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                  "type": "string"
+                },
+                "namespace": {
+                  "description": "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/",
+                  "type": "string"
+                },
+                "resourceVersion": {
+                  "description": "Specific resourceVersion to which this reference is made, if any. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency",
+                  "type": "string"
+                },
+                "uid": {
+                  "description": "UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "importStatus": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "phase": {
+          "description": "Phase describes the overall status of RestoreJob",
+          "type": "string"
+        },
+        "progress": {
+          "description": "Progress describes the overall progress of RestoreJob",
+          "properties": {
+            "stepsCompleted": {
+              "type": "integer"
+            },
+            "totalSteps": {
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
+        "report": {
+          "description": "Report provides a summary status of restore job execution",
+          "properties": {
+            "backedUpItems": {
+              "description": "Backedup items",
+              "type": "integer"
+            },
+            "details": {
+              "additionalProperties": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "description": "Resource details",
+              "type": "object"
+            },
+            "endTime": {
+              "description": "EndTime is the time restore job is completed",
+              "format": "date-time",
+              "type": "string"
+            },
+            "restoredItems": {
+              "description": "Restored items",
+              "type": "integer"
+            },
+            "results": {
+              "additionalProperties": {
+                "description": "Velero result",
+                "properties": {
+                  "cluster": {
+                    "description": "Cluster is a slice of messages related to restoring cluster- scoped resources.",
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "namespaces": {
+                    "additionalProperties": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "description": "Namespaces is a map of namespace name to slice of messages related to restoring namespace-scoped resources.",
+                    "type": "object"
+                  },
+                  "velero": {
+                    "description": "Velero messages",
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  }
+                },
+                "type": "object"
+              },
+              "description": "Results",
+              "type": "object"
+            },
+            "startTime": {
+              "description": "StartTime is the time restore job is executed",
+              "format": "date-time",
+              "type": "string"
+            },
+            "totalItems": {
+              "description": "Total items for restore",
+              "type": "integer"
+            },
+            "totalPVC": {
+              "description": "TotalPVC is number of PVC restored in the restore job",
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "ys.jibudata.com",
+      "kind": "RestoreJob",
+      "version": "v1alpha1"
+    }
+  ]
+}

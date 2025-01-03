@@ -1,0 +1,107 @@
+{
+  "description": "VxNetPool is a specification for a VxNetPool resource",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "network.qingcloud.com/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "VxNetPool"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "VxNetPoolSpec is the spec for a VxNetPool resource",
+      "properties": {
+        "blockSize": {
+          "description": "The block size to use for IP address assignments from this pool. Defaults to 26 for IPv4 and 112 for IPv6.",
+          "type": "integer"
+        },
+        "vxnets": {
+          "description": "vxnets in VxNetPool",
+          "items": {
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "blockSize",
+        "vxnets"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "description": "VxNetPoolStatus is the status for a VxNetPool resource",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "pools": {
+          "items": {
+            "properties": {
+              "ippool": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "subnets": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "ippool",
+              "name"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "process": {
+          "type": "string"
+        },
+        "ready": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "network.qingcloud.com",
+      "kind": "VxNetPool",
+      "version": "v1alpha1"
+    }
+  ]
+}

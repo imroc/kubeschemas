@@ -1,0 +1,171 @@
+{
+  "description": "SystemSetting is the Schema for the systemsettings API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "migration.yinhestor.com/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "SystemSetting"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "SystemSettingSpec defines the desired state of SystemSetting",
+      "properties": {
+        "report": {
+          "description": "Sends report to specified addresses including backupjobs, migrations, restorejobs status every day at notifyTime",
+          "properties": {
+            "notifyTime": {
+              "type": "string"
+            },
+            "toMailAddress": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "weChatReport": {
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        },
+        "smtpSetting": {
+          "properties": {
+            "senderMailAddress": {
+              "type": "string"
+            },
+            "smtpHost": {
+              "type": "string"
+            },
+            "smtpPort": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "systemReportEnabled": {
+          "description": "INSERT ADDITIONAL SPEC FIELDS - desired state of cluster Important: Run \"make\" to regenerate code after modifying this file Reports includes backupjobs, migrations, restorejobs status",
+          "type": "boolean"
+        },
+        "systemReportSecret": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "description": "SystemSettingStatus defines the observed state of SystemSetting",
+      "properties": {
+        "conditions": {
+          "items": {
+            "description": "Condition Type - The condition type. Status - The condition status. Reason - The reason for the condition. Message - The human readable description of the condition. Durable - The condition is not un-Staged. Items - A list of `items` associated with the condition used to replace [] in `Message`. staging - A condition has been explicitly set/updated.",
+            "properties": {
+              "category": {
+                "type": "string"
+              },
+              "durable": {
+                "type": "boolean"
+              },
+              "lastTransitionTime": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "type"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "criticalErrors": {
+          "items": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "params": {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "type": "object"
+              },
+              "reason": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "warnings": {
+          "items": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "params": {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "type": "object"
+              },
+              "reason": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "migration.yinhestor.com",
+      "kind": "SystemSetting",
+      "version": "v1alpha1"
+    }
+  ]
+}

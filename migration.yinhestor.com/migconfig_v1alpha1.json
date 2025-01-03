@@ -1,0 +1,202 @@
+{
+  "description": "Migconfig is the Schema for the migconfigs API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "migration.yinhestor.com/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "Migconfig"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "MigconfigSpec defines the desired state of Migconfig",
+      "properties": {
+        "agentNamespace": {
+          "description": "AgentNamespace is the namespace in which the agent (velero, ...) is installed. Default is \"qiming-backend\"",
+          "type": "string"
+        },
+        "clientName": {
+          "description": "ClientName is the unique name or id of this instace",
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
+        },
+        "deployResticOnAllNodes": {
+          "type": "boolean"
+        },
+        "deploymentMode": {
+          "description": "DeploymentMode indicates if the installation can support multi-clusters or not",
+          "type": "string"
+        },
+        "featureParameters": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "FeatureParameters indicates the optional feature parameters passed to all components",
+          "type": "object"
+        },
+        "isAdminCluster": {
+          "description": "IsAdminCluster indicates if the cluster is only for backup management or not",
+          "type": "boolean"
+        },
+        "isUINodePortEnabled": {
+          "description": "IsUINodePortEnabled makes UI service to nodeport if true, otherwise to clustertype by default",
+          "type": "boolean"
+        },
+        "keys": {
+          "description": "Keys includes an encrypted identifier of the instance",
+          "type": "string"
+        },
+        "serviceAccountName": {
+          "description": "ServiceAccountName is the service account with all required accesses to do backup and restore",
+          "type": "string"
+        },
+        "version": {
+          "description": "Version specifies the installed version",
+          "type": "string"
+        },
+        "watchedNamespaces": {
+          "description": "WatchedNamespaces indicates multiple namespaces backend controllers need to watch and reconcile",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "clientName",
+        "serviceAccountName",
+        "version"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "description": "MigconfigStatus defines the observed state of Migconfig",
+      "properties": {
+        "conditions": {
+          "items": {
+            "description": "Condition Type - The condition type. Status - The condition status. Reason - The reason for the condition. Message - The human readable description of the condition. Durable - The condition is not un-Staged. Items - A list of `items` associated with the condition used to replace [] in `Message`. staging - A condition has been explicitly set/updated.",
+            "properties": {
+              "category": {
+                "type": "string"
+              },
+              "durable": {
+                "type": "boolean"
+              },
+              "lastTransitionTime": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "type"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "images": {
+          "properties": {
+            "controller": {
+              "properties": {
+                "actualImage": {
+                  "description": "ActualImage can be updated by each component later",
+                  "type": "string"
+                },
+                "desiredImage": {
+                  "description": "DesiredImage is set by the operator",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "discovery": {
+              "properties": {
+                "actualImage": {
+                  "description": "ActualImage can be updated by each component later",
+                  "type": "string"
+                },
+                "desiredImage": {
+                  "description": "DesiredImage is set by the operator",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "minio": {
+              "properties": {
+                "actualImage": {
+                  "description": "ActualImage can be updated by each component later",
+                  "type": "string"
+                },
+                "desiredImage": {
+                  "description": "DesiredImage is set by the operator",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "ui": {
+              "properties": {
+                "actualImage": {
+                  "description": "ActualImage can be updated by each component later",
+                  "type": "string"
+                },
+                "desiredImage": {
+                  "description": "DesiredImage is set by the operator",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "phase": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "migration.yinhestor.com",
+      "kind": "Migconfig",
+      "version": "v1alpha1"
+    }
+  ]
+}

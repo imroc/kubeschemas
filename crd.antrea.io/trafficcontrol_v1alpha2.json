@@ -1,0 +1,461 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "crd.antrea.io/v1alpha2"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "TrafficControl"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "action": {
+          "enum": [
+            "Mirror",
+            "Redirect"
+          ],
+          "type": "string"
+        },
+        "appliedTo": {
+          "properties": {
+            "namespaceSelector": {
+              "properties": {
+                "matchExpressions": {
+                  "items": {
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "operator": {
+                        "enum": [
+                          "In",
+                          "NotIn",
+                          "Exists",
+                          "DoesNotExist"
+                        ],
+                        "type": "string"
+                      },
+                      "values": {
+                        "items": {
+                          "pattern": "^(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?$",
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "matchLabels": {
+                  "x-kubernetes-preserve-unknown-fields": true
+                }
+              },
+              "type": "object"
+            },
+            "podSelector": {
+              "properties": {
+                "matchExpressions": {
+                  "items": {
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "operator": {
+                        "enum": [
+                          "In",
+                          "NotIn",
+                          "Exists",
+                          "DoesNotExist"
+                        ],
+                        "type": "string"
+                      },
+                      "values": {
+                        "items": {
+                          "pattern": "^(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?$",
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "matchLabels": {
+                  "x-kubernetes-preserve-unknown-fields": true
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "direction": {
+          "enum": [
+            "Ingress",
+            "Egress",
+            "Both"
+          ],
+          "type": "string"
+        },
+        "returnPort": {
+          "oneOf": [
+            {
+              "required": [
+                "ovsInternal"
+              ]
+            },
+            {
+              "required": [
+                "device"
+              ]
+            },
+            {
+              "required": [
+                "geneve"
+              ]
+            },
+            {
+              "required": [
+                "vxlan"
+              ]
+            },
+            {
+              "required": [
+                "gre"
+              ]
+            }
+          ],
+          "properties": {
+            "device": {
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "type": "object"
+            },
+            "geneve": {
+              "properties": {
+                "destinationPort": {
+                  "maximum": 65535,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "remoteIP": {
+                  "oneOf": [
+                    {
+                      "format": "ipv4"
+                    },
+                    {
+                      "format": "ipv6"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "vni": {
+                  "maximum": 16777215,
+                  "minimum": 0,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "remoteIP"
+              ],
+              "type": "object"
+            },
+            "gre": {
+              "properties": {
+                "key": {
+                  "maximum": 4294967295,
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "remoteIP": {
+                  "oneOf": [
+                    {
+                      "format": "ipv4"
+                    },
+                    {
+                      "format": "ipv6"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "remoteIP"
+              ],
+              "type": "object"
+            },
+            "ovsInternal": {
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "type": "object"
+            },
+            "vxlan": {
+              "properties": {
+                "destinationPort": {
+                  "maximum": 65535,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "remoteIP": {
+                  "oneOf": [
+                    {
+                      "format": "ipv4"
+                    },
+                    {
+                      "format": "ipv6"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "vni": {
+                  "maximum": 16777215,
+                  "minimum": 0,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "remoteIP"
+              ],
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "targetPort": {
+          "oneOf": [
+            {
+              "required": [
+                "ovsInternal"
+              ]
+            },
+            {
+              "required": [
+                "device"
+              ]
+            },
+            {
+              "required": [
+                "geneve"
+              ]
+            },
+            {
+              "required": [
+                "vxlan"
+              ]
+            },
+            {
+              "required": [
+                "gre"
+              ]
+            },
+            {
+              "required": [
+                "erspan"
+              ]
+            }
+          ],
+          "properties": {
+            "device": {
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "type": "object"
+            },
+            "erspan": {
+              "properties": {
+                "dir": {
+                  "enum": [
+                    0,
+                    1
+                  ],
+                  "type": "integer"
+                },
+                "hardwareID": {
+                  "type": "integer"
+                },
+                "index": {
+                  "type": "integer"
+                },
+                "remoteIP": {
+                  "oneOf": [
+                    {
+                      "format": "ipv4"
+                    },
+                    {
+                      "format": "ipv6"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "sessionID": {
+                  "maximum": 1023,
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "version": {
+                  "enum": [
+                    1,
+                    2
+                  ],
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "remoteIP",
+                "version"
+              ],
+              "type": "object"
+            },
+            "geneve": {
+              "properties": {
+                "destinationPort": {
+                  "maximum": 65535,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "remoteIP": {
+                  "oneOf": [
+                    {
+                      "format": "ipv4"
+                    },
+                    {
+                      "format": "ipv6"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "vni": {
+                  "maximum": 16777215,
+                  "minimum": 0,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "remoteIP"
+              ],
+              "type": "object"
+            },
+            "gre": {
+              "properties": {
+                "key": {
+                  "maximum": 4294967295,
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "remoteIP": {
+                  "oneOf": [
+                    {
+                      "format": "ipv4"
+                    },
+                    {
+                      "format": "ipv6"
+                    }
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "remoteIP"
+              ],
+              "type": "object"
+            },
+            "ovsInternal": {
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "type": "object"
+            },
+            "vxlan": {
+              "properties": {
+                "destinationPort": {
+                  "maximum": 65535,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "remoteIP": {
+                  "oneOf": [
+                    {
+                      "format": "ipv4"
+                    },
+                    {
+                      "format": "ipv6"
+                    }
+                  ],
+                  "type": "string"
+                },
+                "vni": {
+                  "maximum": 16777215,
+                  "minimum": 0,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "remoteIP"
+              ],
+              "type": "object"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "appliedTo",
+        "direction",
+        "action",
+        "targetPort"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "crd.antrea.io",
+      "kind": "TrafficControl",
+      "version": "v1alpha2"
+    }
+  ]
+}

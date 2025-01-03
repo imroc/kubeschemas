@@ -1,0 +1,1390 @@
+{
+  "description": "SystemReport is the Schema for the systemreport API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "ys.jibudata.com/v1beta1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "SystemReport"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "SystemSettingSpec defines the desired state of SystemSetting",
+      "properties": {
+        "reportTimestamp": {
+          "description": "INSERT ADDITIONAL SPEC FIELDS - desired state of cluster Important: Run \"make\" to regenerate code after modifying this file",
+          "format": "date-time",
+          "type": "string"
+        },
+        "statsIntervalEndTimestamp": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "statsIntervalStartTimestamp": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "properties": {
+        "applications": {
+          "properties": {
+            "managed": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "unmanaged": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        },
+        "backupPolicy": {
+          "properties": {
+            "total": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "used": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        },
+        "clusters": {
+          "properties": {
+            "managedClusters": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "unmanagedClusters": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        },
+        "conditions": {
+          "items": {
+            "description": "Condition Type - The condition type. Status - The condition status. Reason - The reason for the condition. Message - The human readable description of the condition. Durable - The condition is not un-Staged. Items - A list of `items` associated with the condition used to replace [] in `Message`. staging - A condition has been explicitly set/updated.",
+            "properties": {
+              "category": {
+                "type": "string"
+              },
+              "durable": {
+                "type": "boolean"
+              },
+              "lastTransitionTime": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "type"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "criticalErrors": {
+          "items": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "params": {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "type": "object"
+              },
+              "reason": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "errorMessage": {
+          "type": "string"
+        },
+        "jobs": {
+          "properties": {
+            "backups": {
+              "properties": {
+                "completedJobs": {
+                  "items": {
+                    "properties": {
+                      "cluster": {
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "target": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "endTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "namespaces": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "startTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "systemReferenceCode": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "failedJobs": {
+                  "items": {
+                    "properties": {
+                      "cluster": {
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "target": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "endTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "namespaces": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "startTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "systemReferenceCode": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "jobsInProgress": {
+                  "items": {
+                    "properties": {
+                      "cluster": {
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "target": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "endTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "namespaces": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "startTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "systemReferenceCode": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "longRuns": {
+                  "items": {
+                    "properties": {
+                      "cluster": {
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "target": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "endTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "namespaces": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "startTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "systemReferenceCode": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "queued": {
+                  "items": {
+                    "properties": {
+                      "cluster": {
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "target": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "endTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "namespaces": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "startTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "systemReferenceCode": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "exports": {
+              "properties": {
+                "completedJobs": {
+                  "items": {
+                    "properties": {
+                      "cluster": {
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "target": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "endTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "namespaces": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "startTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "systemReferenceCode": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "failedJobs": {
+                  "items": {
+                    "properties": {
+                      "cluster": {
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "target": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "endTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "namespaces": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "startTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "systemReferenceCode": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "jobsInProgress": {
+                  "items": {
+                    "properties": {
+                      "cluster": {
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "target": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "endTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "namespaces": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "startTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "systemReferenceCode": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "longRuns": {
+                  "items": {
+                    "properties": {
+                      "cluster": {
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "target": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "endTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "namespaces": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "startTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "systemReferenceCode": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "queued": {
+                  "items": {
+                    "properties": {
+                      "cluster": {
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "target": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "endTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "namespaces": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "startTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "systemReferenceCode": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "imports": {
+              "properties": {
+                "completedJobs": {
+                  "items": {
+                    "properties": {
+                      "cluster": {
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "target": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "endTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "namespaces": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "startTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "systemReferenceCode": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "failedJobs": {
+                  "items": {
+                    "properties": {
+                      "cluster": {
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "target": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "endTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "namespaces": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "startTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "systemReferenceCode": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "jobsInProgress": {
+                  "items": {
+                    "properties": {
+                      "cluster": {
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "target": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "endTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "namespaces": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "startTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "systemReferenceCode": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "longRuns": {
+                  "items": {
+                    "properties": {
+                      "cluster": {
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "target": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "endTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "namespaces": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "startTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "systemReferenceCode": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "queued": {
+                  "items": {
+                    "properties": {
+                      "cluster": {
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "target": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "endTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "namespaces": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "startTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "systemReferenceCode": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "migrations": {
+              "properties": {
+                "completedJobs": {
+                  "items": {
+                    "properties": {
+                      "cluster": {
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "target": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "endTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "namespaces": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "startTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "systemReferenceCode": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "failedJobs": {
+                  "items": {
+                    "properties": {
+                      "cluster": {
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "target": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "endTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "namespaces": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "startTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "systemReferenceCode": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "jobsInProgress": {
+                  "items": {
+                    "properties": {
+                      "cluster": {
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "target": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "endTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "namespaces": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "startTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "systemReferenceCode": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "longRuns": {
+                  "items": {
+                    "properties": {
+                      "cluster": {
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "target": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "endTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "namespaces": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "startTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "systemReferenceCode": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "queued": {
+                  "items": {
+                    "properties": {
+                      "cluster": {
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "target": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "endTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "namespaces": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "startTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "systemReferenceCode": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "restores": {
+              "properties": {
+                "completedJobs": {
+                  "items": {
+                    "properties": {
+                      "cluster": {
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "target": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "endTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "namespaces": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "startTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "systemReferenceCode": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "failedJobs": {
+                  "items": {
+                    "properties": {
+                      "cluster": {
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "target": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "endTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "namespaces": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "startTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "systemReferenceCode": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "jobsInProgress": {
+                  "items": {
+                    "properties": {
+                      "cluster": {
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "target": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "endTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "namespaces": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "startTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "systemReferenceCode": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "longRuns": {
+                  "items": {
+                    "properties": {
+                      "cluster": {
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "target": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "endTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "namespaces": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "startTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "systemReferenceCode": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "queued": {
+                  "items": {
+                    "properties": {
+                      "cluster": {
+                        "properties": {
+                          "source": {
+                            "type": "string"
+                          },
+                          "target": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "endTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "namespaces": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "startTime": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "systemReferenceCode": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "notifications": {
+          "properties": {
+            "mailResult": {
+              "type": "string"
+            },
+            "weChatResult": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "selfBackupStatus": {
+          "properties": {
+            "selfBackupEnabled": {
+              "type": "boolean"
+            },
+            "selfBackupErrorMsg": {
+              "type": "string"
+            },
+            "selfBackupState": {
+              "type": "string"
+            },
+            "selfBackupTime": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "storages": {
+          "properties": {
+            "StorageUsage": {
+              "additionalProperties": {
+                "properties": {
+                  "total": {
+                    "format": "int64",
+                    "type": "integer"
+                  },
+                  "used": {
+                    "format": "int64",
+                    "type": "integer"
+                  },
+                  "usedPerCluster": {
+                    "additionalProperties": {
+                      "format": "int64",
+                      "type": "integer"
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "object"
+            },
+            "connected": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "count": {
+              "type": "integer"
+            },
+            "snapshot": {
+              "items": {
+                "properties": {
+                  "cluster": {
+                    "type": "string"
+                  },
+                  "namespace": {
+                    "type": "string"
+                  },
+                  "planNames": {
+                    "additionalProperties": {
+                      "properties": {
+                        "snapshotCount": {
+                          "type": "integer"
+                        },
+                        "snapshotLimit": {
+                          "type": "integer"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "object"
+                  },
+                  "pvcName": {
+                    "type": "string"
+                  },
+                  "snapshotLimit": {
+                    "type": "integer"
+                  },
+                  "totalSnapshots": {
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "unconnected": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        },
+        "warnings": {
+          "items": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "params": {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "type": "object"
+              },
+              "reason": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "ys.jibudata.com",
+      "kind": "SystemReport",
+      "version": "v1beta1"
+    }
+  ]
+}

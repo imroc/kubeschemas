@@ -1,0 +1,131 @@
+{
+  "description": "BackupPolicy is the Schema for the backuppolicies API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "ys.jibudata.com/v1beta1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "BackupPolicy"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "BackupPolicySpec defines the desired state of BackupPolicy",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "frequency": {
+          "type": "string"
+        },
+        "profile": {
+          "properties": {
+            "copyMethod": {
+              "enum": [
+                "filesystem",
+                "snapshot"
+              ],
+              "type": "string"
+            },
+            "filesystem": {
+              "type": "object"
+            },
+            "snapshot": {
+              "properties": {
+                "export": {
+                  "properties": {
+                    "dataRepo": {
+                      "properties": {
+                        "provider": {
+                          "type": "string"
+                        },
+                        "storage": {
+                          "type": "string"
+                        },
+                        "transportType": {
+                          "type": "string"
+                        },
+                        "type": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "executeSchedule": {
+                      "type": "string"
+                    },
+                    "exportSchedule": {
+                      "type": "string"
+                    },
+                    "frequency": {
+                      "type": "integer"
+                    },
+                    "retention": {
+                      "type": "integer"
+                    },
+                    "times": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "snapshotLimit": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "resourceType": {
+          "enum": [
+            "default",
+            "dataOnly",
+            "resourceOnly"
+          ],
+          "type": "string"
+        },
+        "retention": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "ys.jibudata.com",
+      "kind": "BackupPolicy",
+      "version": "v1beta1"
+    }
+  ]
+}

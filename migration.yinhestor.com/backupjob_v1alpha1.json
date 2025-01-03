@@ -1,0 +1,728 @@
+{
+  "description": "BackupJob is the Schema for the backupjobs API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "migration.yinhestor.com/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "BackupJob"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "BackupJobSpec defines the desired state of BackupJob",
+      "properties": {
+        "backupContext": {
+          "properties": {
+            "copyMethod": {
+              "type": "string"
+            },
+            "namespaces": {
+              "description": "Deprecated",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "persistentVolumes": {
+              "items": {
+                "description": "Name - The PV name. Capacity - The PV storage capacity. StorageClass - The PV storage class name. Supported - Lists of what is supported. Selection - Choices made from supported. PVC - Associated PVC. NFS - NFS properties. staged - A PV has been explicitly added/updated.",
+                "properties": {
+                  "capacity": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ],
+                    "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                    "x-kubernetes-int-or-string": true
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "pvc": {
+                    "description": "PVC",
+                    "properties": {
+                      "accessModes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "hasReference": {
+                        "type": "boolean"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "namespace": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "selection": {
+                    "description": "Selection Action - The PV migration action (move|copy|skip) StorageClass - The PV storage class name to use in the destination cluster. AccessMode   - The PV access mode to use in the destination cluster, if different from src PVC AccessMode CopyMethod   - The PV copy method to use ('filesystem' for restic copy, or 'snapshot' for velero snapshot plugin) Verify       - Whether or not to verify copied volume data if CopyMethod is 'filesystem'",
+                    "properties": {
+                      "accessMode": {
+                        "type": "string"
+                      },
+                      "action": {
+                        "type": "string"
+                      },
+                      "copyMethod": {
+                        "type": "string"
+                      },
+                      "storageClass": {
+                        "type": "string"
+                      },
+                      "verify": {
+                        "type": "boolean"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "storageClass": {
+                    "type": "string"
+                  },
+                  "supported": {
+                    "description": "Supported Actions     - The list of supported actions CopyMethods - The list of supported copy methods",
+                    "properties": {
+                      "actions": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "copyMethods": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "actions",
+                      "copyMethods"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "selection",
+                  "supported"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "policy": {
+              "properties": {
+                "copyMethod": {
+                  "type": "string"
+                },
+                "export": {
+                  "properties": {
+                    "executeSchedule": {
+                      "type": "string"
+                    },
+                    "exportSchedule": {
+                      "type": "string"
+                    },
+                    "frequency": {
+                      "type": "integer"
+                    },
+                    "times": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "frequency": {
+                  "type": "string"
+                },
+                "resourceType": {
+                  "enum": [
+                    "default",
+                    "dataOnly",
+                    "resourceOnly"
+                  ],
+                  "type": "string"
+                },
+                "retention": {
+                  "type": "integer"
+                },
+                "snapshotLimit": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "resourceFilterRules": {
+              "properties": {
+                "namespaces": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "templates": {
+                  "items": {
+                    "items": {
+                      "properties": {
+                        "excludeClusterResources": {
+                          "items": {
+                            "properties": {
+                              "group": {
+                                "type": "string"
+                              },
+                              "names": {
+                                "items": {
+                                  "type": "string"
+                                },
+                                "type": "array"
+                              },
+                              "resource": {
+                                "type": "string"
+                              },
+                              "version": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "excludeResources": {
+                          "items": {
+                            "properties": {
+                              "group": {
+                                "type": "string"
+                              },
+                              "names": {
+                                "items": {
+                                  "type": "string"
+                                },
+                                "type": "array"
+                              },
+                              "resource": {
+                                "type": "string"
+                              },
+                              "version": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "includeClusterResources": {
+                          "items": {
+                            "properties": {
+                              "group": {
+                                "type": "string"
+                              },
+                              "names": {
+                                "items": {
+                                  "type": "string"
+                                },
+                                "type": "array"
+                              },
+                              "resource": {
+                                "type": "string"
+                              },
+                              "version": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "includeResources": {
+                          "items": {
+                            "properties": {
+                              "group": {
+                                "type": "string"
+                              },
+                              "names": {
+                                "items": {
+                                  "type": "string"
+                                },
+                                "type": "array"
+                              },
+                              "resource": {
+                                "type": "string"
+                              },
+                              "version": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "namespaces": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "selector": {
+                          "description": "A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.",
+                          "properties": {
+                            "matchExpressions": {
+                              "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
+                              "items": {
+                                "description": "A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.",
+                                "properties": {
+                                  "key": {
+                                    "description": "key is the label key that the selector applies to.",
+                                    "type": "string"
+                                  },
+                                  "operator": {
+                                    "description": "operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.",
+                                    "type": "string"
+                                  },
+                                  "values": {
+                                    "description": "values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.",
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "type": "array"
+                                  }
+                                },
+                                "required": [
+                                  "key",
+                                  "operator"
+                                ],
+                                "type": "object"
+                              },
+                              "type": "array"
+                            },
+                            "matchLabels": {
+                              "additionalProperties": {
+                                "type": "string"
+                              },
+                              "description": "matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is \"key\", the operator is \"In\", and the values array contains only \"value\". The requirements are ANDed.",
+                              "type": "object"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "templateName": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "resourceType": {
+              "enum": [
+                "default",
+                "dataOnly",
+                "resourceOnly"
+              ],
+              "type": "string"
+            },
+            "sourceClusterName": {
+              "type": "string"
+            },
+            "storageName": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "backupRef": {
+          "description": "ObjectReference contains enough information to let you inspect or modify the referred object. --- New uses of this type are discouraged because of difficulty describing its usage when embedded in APIs. 1. Ignored fields.  It includes many fields which are not generally honored.  For instance, ResourceVersion and FieldPath are both very rarely valid in actual usage. 2. Invalid usage help.  It is impossible to add specific help for individual usage.  In most embedded usages, there are particular restrictions like, \"must refer only to types A and B\" or \"UID not honored\" or \"name must be restricted\". Those cannot be well described when embedded. 3. Inconsistent validation.  Because the usages are different, the validation rules are different by usage, which makes it hard for users to predict what will happen. 4. The fields are both imprecise and overly precise.  Kind is not a precise mapping to a URL. This can produce ambiguity during interpretation and require a REST mapping.  In most cases, the dependency is on the group,resource tuple and the version of the actual struct is irrelevant. 5. We cannot easily change it.  Because this type is embedded in many locations, updates to this type will affect numerous schemas.  Don't make new APIs embed an underspecified API type they do not control. Instead of using this type, create a locally provided and used type that is well-focused on your reference. For example, ServiceReferences for admission registration: https://github.com/kubernetes/api/blob/release-1.17/admissionregistration/v1/types.go#L533 .",
+          "properties": {
+            "apiVersion": {
+              "description": "API version of the referent.",
+              "type": "string"
+            },
+            "fieldPath": {
+              "description": "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object. TODO: this design is not final and this field is subject to change in the future.",
+              "type": "string"
+            },
+            "kind": {
+              "description": "Kind of the referent. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+              "type": "string"
+            },
+            "name": {
+              "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+              "type": "string"
+            },
+            "namespace": {
+              "description": "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/",
+              "type": "string"
+            },
+            "resourceVersion": {
+              "description": "Specific resourceVersion to which this reference is made, if any. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency",
+              "type": "string"
+            },
+            "uid": {
+              "description": "UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "canceled": {
+          "type": "boolean"
+        },
+        "exportData": {
+          "type": "boolean"
+        },
+        "inactivated": {
+          "type": "boolean"
+        },
+        "keepAnnotations": {
+          "type": "boolean"
+        },
+        "quiescePods": {
+          "type": "boolean"
+        },
+        "repeat": {
+          "type": "boolean"
+        },
+        "verify": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "description": "BackupJobStatus defines the observed state of BackupJob",
+      "properties": {
+        "backedUpItems": {
+          "type": "integer"
+        },
+        "completionTimestamp": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "conditions": {
+          "items": {
+            "description": "Condition Type - The condition type. Status - The condition status. Reason - The reason for the condition. Message - The human readable description of the condition. Durable - The condition is not un-Staged. Items - A list of `items` associated with the condition used to replace [] in `Message`. staging - A condition has been explicitly set/updated.",
+            "properties": {
+              "category": {
+                "type": "string"
+              },
+              "durable": {
+                "type": "boolean"
+              },
+              "lastTransitionTime": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "type"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "criticalErrors": {
+          "items": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "params": {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "type": "object"
+              },
+              "reason": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "details": {
+          "additionalProperties": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "type": "object"
+        },
+        "errors": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "exportResult": {
+          "properties": {
+            "DataExportRef": {
+              "description": "ObjectReference contains enough information to let you inspect or modify the referred object. --- New uses of this type are discouraged because of difficulty describing its usage when embedded in APIs. 1. Ignored fields.  It includes many fields which are not generally honored.  For instance, ResourceVersion and FieldPath are both very rarely valid in actual usage. 2. Invalid usage help.  It is impossible to add specific help for individual usage.  In most embedded usages, there are particular restrictions like, \"must refer only to types A and B\" or \"UID not honored\" or \"name must be restricted\". Those cannot be well described when embedded. 3. Inconsistent validation.  Because the usages are different, the validation rules are different by usage, which makes it hard for users to predict what will happen. 4. The fields are both imprecise and overly precise.  Kind is not a precise mapping to a URL. This can produce ambiguity during interpretation and require a REST mapping.  In most cases, the dependency is on the group,resource tuple and the version of the actual struct is irrelevant. 5. We cannot easily change it.  Because this type is embedded in many locations, updates to this type will affect numerous schemas.  Don't make new APIs embed an underspecified API type they do not control. Instead of using this type, create a locally provided and used type that is well-focused on your reference. For example, ServiceReferences for admission registration: https://github.com/kubernetes/api/blob/release-1.17/admissionregistration/v1/types.go#L533 .",
+              "properties": {
+                "apiVersion": {
+                  "description": "API version of the referent.",
+                  "type": "string"
+                },
+                "fieldPath": {
+                  "description": "If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object. TODO: this design is not final and this field is subject to change in the future.",
+                  "type": "string"
+                },
+                "kind": {
+                  "description": "Kind of the referent. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                  "type": "string"
+                },
+                "namespace": {
+                  "description": "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/",
+                  "type": "string"
+                },
+                "resourceVersion": {
+                  "description": "Specific resourceVersion to which this reference is made, if any. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency",
+                  "type": "string"
+                },
+                "uid": {
+                  "description": "UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "ExportStatus": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "exportScheduledAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "itinerary": {
+          "type": "string"
+        },
+        "namespaces": {
+          "items": {
+            "description": "UnhealthyNamespace is a store for unhealthy resources in a namespace",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "workloads": {
+                "items": {
+                  "description": "Workload is a store for unhealthy resource and it's dependents",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "resources": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "name",
+              "workloads"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "startTimestamp": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "steps": {
+          "description": "StepProgress records history of a group steps' execution",
+          "properties": {
+            "errorStep": {
+              "description": "StepInfo includes details of a step's execution",
+              "properties": {
+                "completionTimestamp": {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "errorCount": {
+                  "additionalProperties": {
+                    "type": "integer"
+                  },
+                  "type": "object"
+                },
+                "firstFailureTimeStamp": {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "retryTimes": {
+                  "type": "integer"
+                },
+                "startTimestamp": {
+                  "format": "date-time",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "history": {
+              "items": {
+                "description": "StepInfo includes details of a step's execution",
+                "properties": {
+                  "completionTimestamp": {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "errorCount": {
+                    "additionalProperties": {
+                      "type": "integer"
+                    },
+                    "type": "object"
+                  },
+                  "firstFailureTimeStamp": {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "retryTimes": {
+                    "type": "integer"
+                  },
+                  "startTimestamp": {
+                    "format": "date-time",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "maxRetryCount": {
+              "type": "integer"
+            },
+            "stepFailureTimeoutSeconds": {
+              "type": "integer"
+            },
+            "totalRetryCount": {
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
+        "stopTimestamp": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "submitTimestamp": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "totalItems": {
+          "type": "integer"
+        },
+        "warnings": {
+          "items": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "params": {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "type": "object"
+              },
+              "reason": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "migration.yinhestor.com",
+      "kind": "BackupJob",
+      "version": "v1alpha1"
+    }
+  ]
+}

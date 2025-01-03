@@ -1,0 +1,101 @@
+{
+  "description": "Eip is the Schema for the eips API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "network.kubesphere.io/v1alpha2"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "Eip"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "EipSpec defines the desired state of EIP",
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "disable": {
+          "type": "boolean"
+        },
+        "interface": {
+          "type": "string"
+        },
+        "protocol": {
+          "enum": [
+            "bgp",
+            "layer2",
+            "vip"
+          ],
+          "type": "string"
+        },
+        "usingKnownIPs": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "address"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "description": "EipStatus defines the observed state of EIP",
+      "properties": {
+        "firstIP": {
+          "type": "string"
+        },
+        "lastIP": {
+          "type": "string"
+        },
+        "occupied": {
+          "type": "boolean"
+        },
+        "poolSize": {
+          "type": "integer"
+        },
+        "ready": {
+          "type": "boolean"
+        },
+        "usage": {
+          "type": "integer"
+        },
+        "used": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "v4": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "network.kubesphere.io",
+      "kind": "Eip",
+      "version": "v1alpha2"
+    }
+  ]
+}
