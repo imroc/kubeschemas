@@ -53,6 +53,7 @@ CRDs from open source project:
 - [agones](https://agones.dev/site/docs/installation/install-agones/yaml/)
 - [crane](https://github.com/gocrane/helm-charts/tree/main/charts/crane/crds)
 - [KubeEdge](https://github.com/kubeedge/kubeedge/tree/master/manifests/charts/cloudcore/crds)
+- [OpenYurt](https://github.com/openyurtio/openyurt)
 - [tidb-operator](https://github.com/pingcap/tidb-operator/tree/master/manifests/crd)
 - [prometheus-operator](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack/charts/crds/crds)
 - [kuberhealthy](https://github.com/kuberhealthy/kuberhealthy/tree/master/deploy/helm/kuberhealthy/crds)

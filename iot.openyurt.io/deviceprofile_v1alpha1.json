@@ -1,0 +1,201 @@
+{
+  "description": "DeviceProfile represents the attributes and operational capabilities of a device. It is a template for which there can be multiple matching devices within a given system. NOTE This struct is derived from edgex/go-mod-core-contracts/models/deviceprofile.go",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "iot.openyurt.io/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "DeviceProfile"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "DeviceProfileSpec defines the desired state of DeviceProfile",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "deviceCommands": {
+          "items": {
+            "properties": {
+              "isHidden": {
+                "type": "boolean"
+              },
+              "name": {
+                "type": "string"
+              },
+              "readWrite": {
+                "type": "string"
+              },
+              "resourceOperations": {
+                "items": {
+                  "properties": {
+                    "defaultValue": {
+                      "type": "string"
+                    },
+                    "deviceResource": {
+                      "type": "string"
+                    },
+                    "mappings": {
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "defaultValue"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "isHidden",
+              "name",
+              "readWrite",
+              "resourceOperations"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "deviceResources": {
+          "items": {
+            "properties": {
+              "attributes": {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "type": "object"
+              },
+              "description": {
+                "type": "string"
+              },
+              "isHidden": {
+                "type": "boolean"
+              },
+              "name": {
+                "type": "string"
+              },
+              "properties": {
+                "properties": {
+                  "assertion": {
+                    "type": "string"
+                  },
+                  "base": {
+                    "type": "string"
+                  },
+                  "defaultValue": {
+                    "type": "string"
+                  },
+                  "mask": {
+                    "type": "string"
+                  },
+                  "maximum": {
+                    "type": "string"
+                  },
+                  "mediaType": {
+                    "type": "string"
+                  },
+                  "minimum": {
+                    "type": "string"
+                  },
+                  "offset": {
+                    "type": "string"
+                  },
+                  "readWrite": {
+                    "type": "string"
+                  },
+                  "scale": {
+                    "type": "string"
+                  },
+                  "shift": {
+                    "type": "string"
+                  },
+                  "units": {
+                    "type": "string"
+                  },
+                  "valueType": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "tag": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "description",
+              "isHidden",
+              "name",
+              "properties"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "labels": {
+          "description": "Labels used to search for groups of profiles on EdgeX Foundry",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "manufacturer": {
+          "description": "Manufacturer of the device",
+          "type": "string"
+        },
+        "model": {
+          "description": "Model of the device",
+          "type": "string"
+        },
+        "nodePool": {
+          "description": "NodePool specifies which nodePool the deviceProfile belongs to",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "description": "DeviceProfileStatus defines the observed state of DeviceProfile",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "synced": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "iot.openyurt.io",
+      "kind": "DeviceProfile",
+      "version": "v1alpha1"
+    }
+  ]
+}

@@ -586,6 +586,54 @@
       "$ref": "apps.kubeedge.io/nodegrouplist_v1alpha1.json"
     },
     {
+      "$ref": "apps.openyurt.io/nodebucket_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.openyurt.io/nodebucketlist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.openyurt.io/nodepool_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.openyurt.io/nodepool_v1beta1.json"
+    },
+    {
+      "$ref": "apps.openyurt.io/nodepoollist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.openyurt.io/nodepoollist_v1beta1.json"
+    },
+    {
+      "$ref": "apps.openyurt.io/yurtappdaemon_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.openyurt.io/yurtappdaemonlist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.openyurt.io/yurtappoverrider_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.openyurt.io/yurtappoverriderlist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.openyurt.io/yurtappset_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.openyurt.io/yurtappset_v1beta1.json"
+    },
+    {
+      "$ref": "apps.openyurt.io/yurtappsetlist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.openyurt.io/yurtappsetlist_v1beta1.json"
+    },
+    {
+      "$ref": "apps.openyurt.io/yurtstaticset_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.openyurt.io/yurtstaticsetlist_v1alpha1.json"
+    },
+    {
       "$ref": "argoproj.io/analysisrun_v1alpha1.json"
     },
     {
@@ -3706,6 +3754,30 @@
       "$ref": "iomesh.com/iomeshclusterlist_v1alpha1.json"
     },
     {
+      "$ref": "iot.openyurt.io/device_v1alpha1.json"
+    },
+    {
+      "$ref": "iot.openyurt.io/devicelist_v1alpha1.json"
+    },
+    {
+      "$ref": "iot.openyurt.io/deviceprofile_v1alpha1.json"
+    },
+    {
+      "$ref": "iot.openyurt.io/deviceprofilelist_v1alpha1.json"
+    },
+    {
+      "$ref": "iot.openyurt.io/deviceservice_v1alpha1.json"
+    },
+    {
+      "$ref": "iot.openyurt.io/deviceservicelist_v1alpha1.json"
+    },
+    {
+      "$ref": "iot.openyurt.io/platformadmin_v1beta1.json"
+    },
+    {
+      "$ref": "iot.openyurt.io/platformadminlist_v1beta1.json"
+    },
+    {
       "$ref": "ipam.cluster.x-k8s.io/ipaddress_v1beta1.json"
     },
     {
@@ -4963,6 +5035,12 @@
       "$ref": "network.kubesphere.io/eiplist_v1alpha2.json"
     },
     {
+      "$ref": "network.openyurt.io/poolservice_v1alpha1.json"
+    },
+    {
+      "$ref": "network.openyurt.io/poolservicelist_v1alpha1.json"
+    },
+    {
       "$ref": "network.qingcloud.com/ipamblock_v1alpha1.json"
     },
     {
@@ -6050,6 +6128,18 @@
     },
     {
       "$ref": "prediction.crane.io/timeseriespredictionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "raven.openyurt.io/gateway_v1alpha1.json"
+    },
+    {
+      "$ref": "raven.openyurt.io/gateway_v1beta1.json"
+    },
+    {
+      "$ref": "raven.openyurt.io/gatewaylist_v1alpha1.json"
+    },
+    {
+      "$ref": "raven.openyurt.io/gatewaylist_v1beta1.json"
     },
     {
       "$ref": "rbac.api.k8s.io/clusterrole_v1.json"

@@ -1,0 +1,133 @@
+{
+  "description": "DeviceService is the Schema for the deviceservices API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "iot.openyurt.io/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "DeviceService"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "DeviceServiceSpec defines the desired state of DeviceService",
+      "properties": {
+        "adminState": {
+          "description": "Device Service Admin State",
+          "type": "string"
+        },
+        "baseAddress": {
+          "type": "string"
+        },
+        "description": {
+          "description": "Information describing the device",
+          "type": "string"
+        },
+        "labels": {
+          "description": "tags or other labels applied to the device service for search or other identification needs on the EdgeX Foundry",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "managed": {
+          "description": "True means deviceService is managed by cloud, cloud can update the related fields False means cloud can't update the fields",
+          "type": "boolean"
+        },
+        "nodePool": {
+          "description": "NodePool indicates which nodePool the deviceService comes from",
+          "type": "string"
+        }
+      },
+      "required": [
+        "baseAddress"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "description": "DeviceServiceStatus defines the observed state of DeviceService",
+      "properties": {
+        "adminState": {
+          "description": "Device Service Admin State",
+          "type": "string"
+        },
+        "conditions": {
+          "description": "current deviceService state",
+          "items": {
+            "description": "DeviceServiceCondition describes current state of a Device.",
+            "properties": {
+              "lastTransitionTime": {
+                "description": "Last time the condition transitioned from one status to another.",
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "description": "A human readable message indicating details about the transition.",
+                "type": "string"
+              },
+              "reason": {
+                "description": "The reason for the condition's last transition.",
+                "type": "string"
+              },
+              "status": {
+                "description": "Status of the condition, one of True, False, Unknown.",
+                "type": "string"
+              },
+              "type": {
+                "description": "Type of in place set condition.",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "edgeId": {
+          "description": "the Id assigned by the edge platform",
+          "type": "string"
+        },
+        "lastConnected": {
+          "description": "time in milliseconds that the device last reported data to the core",
+          "format": "int64",
+          "type": "integer"
+        },
+        "lastReported": {
+          "description": "time in milliseconds that the device last reported data to the core",
+          "format": "int64",
+          "type": "integer"
+        },
+        "synced": {
+          "description": "Synced indicates whether the device already exists on both OpenYurt and edge platform",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "iot.openyurt.io",
+      "kind": "DeviceService",
+      "version": "v1alpha1"
+    }
+  ]
+}
