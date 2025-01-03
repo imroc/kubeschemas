@@ -6208,6 +6208,36 @@
       "$ref": "prediction.crane.io/timeseriespredictionlist_v1alpha1.json"
     },
     {
+      "$ref": "projectcontour.io/contourconfiguration_v1alpha1.json"
+    },
+    {
+      "$ref": "projectcontour.io/contourconfigurationlist_v1alpha1.json"
+    },
+    {
+      "$ref": "projectcontour.io/contourdeployment_v1alpha1.json"
+    },
+    {
+      "$ref": "projectcontour.io/contourdeploymentlist_v1alpha1.json"
+    },
+    {
+      "$ref": "projectcontour.io/extensionservice_v1alpha1.json"
+    },
+    {
+      "$ref": "projectcontour.io/extensionservicelist_v1alpha1.json"
+    },
+    {
+      "$ref": "projectcontour.io/httpproxy_v1.json"
+    },
+    {
+      "$ref": "projectcontour.io/httpproxylist_v1.json"
+    },
+    {
+      "$ref": "projectcontour.io/tlscertificatedelegation_v1.json"
+    },
+    {
+      "$ref": "projectcontour.io/tlscertificatedelegationlist_v1.json"
+    },
+    {
       "$ref": "raven.openyurt.io/gateway_v1alpha1.json"
     },
     {

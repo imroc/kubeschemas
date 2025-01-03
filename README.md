@@ -33,6 +33,7 @@ CRDs from open source project:
 - [Higress](https://github.com/alibaba/higress/tree/main/helm/core/crds)
 - [Traefik](https://github.com/traefik/traefik-helm-chart/tree/master/traefik/crds)
 - [Kong](https://github.com/Kong/kubernetes-configuration/tree/main/config/crd)
+- [Contour](https://github.com/projectcontour/contour/blob/main/examples/contour/01-crds.yaml)
 - [cert-manager](https://github.com/cert-manager/cert-manager/tree/master/deploy/crds)
 - [opentelemetry-operator](https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-operator/conf/crds)
 - [Ambassador Edge Stack](https://www.getambassador.io/docs/edge-stack/latest/tutorials/getting-started)
