@@ -1,0 +1,67 @@
+{
+  "description": "ClusterObjectSync stores the state of the cluster level, nonNamespaced object that was successfully persisted to the edge node.\nClusterObjectSync name is a concatenation of the node name which receiving the object and the object UUID.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "reliablesyncs.kubeedge.io/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "ClusterObjectSync"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "ObjectSyncSpec stores the details of objects that persist to the edge.",
+      "properties": {
+        "objectAPIVersion": {
+          "description": "ObjectAPIVersion is the APIVersion of the object\nthat was successfully persist to the edge node.",
+          "type": "string"
+        },
+        "objectKind": {
+          "description": "ObjectType is the kind of the object\nthat was successfully persist to the edge node.",
+          "type": "string"
+        },
+        "objectName": {
+          "description": "ObjectName is the name of the object\nthat was successfully persist to the edge node.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "description": "ObjectSyncStatus stores the resourceversion of objects that persist to the edge.",
+      "properties": {
+        "objectResourceVersion": {
+          "description": "ObjectResourceVersion is the resourceversion of the object\nthat was successfully persist to the edge node.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "reliablesyncs.kubeedge.io",
+      "kind": "ClusterObjectSync",
+      "version": "v1alpha1"
+    }
+  ]
+}

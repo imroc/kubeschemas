@@ -574,6 +574,18 @@
       "$ref": "apps.kubedl.io/cronlist_v1alpha1.json"
     },
     {
+      "$ref": "apps.kubeedge.io/edgeapplication_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kubeedge.io/edgeapplicationlist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kubeedge.io/nodegroup_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kubeedge.io/nodegrouplist_v1alpha1.json"
+    },
+    {
       "$ref": "argoproj.io/analysisrun_v1alpha1.json"
     },
     {
@@ -2558,6 +2570,30 @@
     },
     {
       "$ref": "data.fluid.io/vineyardruntimelist_v1alpha1.json"
+    },
+    {
+      "$ref": "devices.kubeedge.io/device_v1alpha2.json"
+    },
+    {
+      "$ref": "devices.kubeedge.io/device_v1beta1.json"
+    },
+    {
+      "$ref": "devices.kubeedge.io/devicelist_v1alpha2.json"
+    },
+    {
+      "$ref": "devices.kubeedge.io/devicelist_v1beta1.json"
+    },
+    {
+      "$ref": "devices.kubeedge.io/devicemodel_v1alpha2.json"
+    },
+    {
+      "$ref": "devices.kubeedge.io/devicemodel_v1beta1.json"
+    },
+    {
+      "$ref": "devices.kubeedge.io/devicemodellist_v1alpha2.json"
+    },
+    {
+      "$ref": "devices.kubeedge.io/devicemodellist_v1beta1.json"
     },
     {
       "$ref": "discovery.api.k8s.io/endpointslice_v1.json"
@@ -5437,6 +5473,18 @@
       "$ref": "opentelemetry.io/opentelemetrycollectorlist_v1beta1.json"
     },
     {
+      "$ref": "operations.kubeedge.io/imageprepulljob_v1alpha1.json"
+    },
+    {
+      "$ref": "operations.kubeedge.io/imageprepulljoblist_v1alpha1.json"
+    },
+    {
+      "$ref": "operations.kubeedge.io/nodeupgradejob_v1alpha1.json"
+    },
+    {
+      "$ref": "operations.kubeedge.io/nodeupgradejoblist_v1alpha1.json"
+    },
+    {
       "$ref": "operator.karmada.io/karmada_v1alpha1.json"
     },
     {
@@ -5908,6 +5956,12 @@
       "$ref": "policy.kruise.io/podunavailablebudgetlist_v1alpha1.json"
     },
     {
+      "$ref": "policy.kubeedge.io/serviceaccountaccess_v1alpha1.json"
+    },
+    {
+      "$ref": "policy.kubeedge.io/serviceaccountaccesslist_v1alpha1.json"
+    },
+    {
       "$ref": "policy.linkerd.io/authorizationpolicy_v1alpha1.json"
     },
     {
@@ -6028,6 +6082,18 @@
       "$ref": "rbac.cce.io/permissionlist_v1beta1.json"
     },
     {
+      "$ref": "reliablesyncs.kubeedge.io/clusterobjectsync_v1alpha1.json"
+    },
+    {
+      "$ref": "reliablesyncs.kubeedge.io/clusterobjectsynclist_v1alpha1.json"
+    },
+    {
+      "$ref": "reliablesyncs.kubeedge.io/objectsync_v1alpha1.json"
+    },
+    {
+      "$ref": "reliablesyncs.kubeedge.io/objectsynclist_v1alpha1.json"
+    },
+    {
       "$ref": "remedy.karmada.io/remedy_v1alpha1.json"
     },
     {
@@ -6104,6 +6170,18 @@
     },
     {
       "$ref": "route.openshift.io/routelist_v1.json"
+    },
+    {
+      "$ref": "rules.kubeedge.io/rule_v1.json"
+    },
+    {
+      "$ref": "rules.kubeedge.io/ruleendpoint_v1.json"
+    },
+    {
+      "$ref": "rules.kubeedge.io/ruleendpointlist_v1.json"
+    },
+    {
+      "$ref": "rules.kubeedge.io/rulelist_v1.json"
     },
     {
       "$ref": "scheduling.alibabacloud.com/resourcepolicy_v1alpha1.json"
