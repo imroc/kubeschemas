@@ -2821,6 +2821,12 @@
       "$ref": "kai.alibabacloud.com/trainingjoblist_v1alpha1.json"
     },
     {
+      "$ref": "karpenter.k8s.aws/ec2nodeclass_v1.json"
+    },
+    {
+      "$ref": "karpenter.k8s.aws/ec2nodeclasslist_v1.json"
+    },
+    {
       "$ref": "karpenter.sh/nodeclaim_v1.json"
     },
     {
