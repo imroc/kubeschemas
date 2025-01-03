@@ -60,6 +60,7 @@ CRDs from open source project:
 - [dragonfly-operator](https://raw.githubusercontent.com/dragonflydb/dragonfly-operator/refs/heads/main/manifests/crd.yaml)
 - [fluxcd](https://github.com/fluxcd/flux2/blob/main/manifests/crds/kustomization.yaml)
 - [flagger](https://raw.githubusercontent.com/fluxcd/flagger/refs/heads/main/charts/flagger/crds/crd.yaml)
+- OpenShift [operator-framework-olm](https://github.com/openshift/operator-framework-olm/tree/master)
 - Rancher(TODO)
 - KubeSphere(TODO)
 - OpenShift(TODO)

@@ -4165,7 +4165,25 @@
       "$ref": "operators.coreos.com/installplanlist_v1alpha1.json"
     },
     {
+      "$ref": "operators.coreos.com/olmconfig_v1.json"
+    },
+    {
+      "$ref": "operators.coreos.com/olmconfiglist_v1.json"
+    },
+    {
       "$ref": "operators.coreos.com/operator_v1.json"
+    },
+    {
+      "$ref": "operators.coreos.com/operatorcondition_v1.json"
+    },
+    {
+      "$ref": "operators.coreos.com/operatorcondition_v2.json"
+    },
+    {
+      "$ref": "operators.coreos.com/operatorconditionlist_v1.json"
+    },
+    {
+      "$ref": "operators.coreos.com/operatorconditionlist_v2.json"
     },
     {
       "$ref": "operators.coreos.com/operatorgroup_v1.json"
