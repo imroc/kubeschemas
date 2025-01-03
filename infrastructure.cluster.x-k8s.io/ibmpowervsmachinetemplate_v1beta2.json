@@ -1,0 +1,193 @@
+{
+  "description": "IBMPowerVSMachineTemplate is the Schema for the ibmpowervsmachinetemplates API.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "infrastructure.cluster.x-k8s.io/v1beta2"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "IBMPowerVSMachineTemplate"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "IBMPowerVSMachineTemplateSpec defines the desired state of IBMPowerVSMachineTemplate.",
+      "properties": {
+        "template": {
+          "description": "IBMPowerVSMachineTemplateResource holds the IBMPowerVSMachine spec.",
+          "properties": {
+            "spec": {
+              "description": "IBMPowerVSMachineSpec defines the desired state of IBMPowerVSMachine.",
+              "properties": {
+                "image": {
+                  "description": "Image the reference to the image which is used to create the instance.\nsupported image identifier in IBMPowerVSResourceReference are Name and ID and that can be obtained from IBM Cloud UI or IBM Cloud cli.",
+                  "properties": {
+                    "id": {
+                      "description": "ID of resource",
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Name of resource",
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "regex": {
+                      "description": "Regular expression to match resource,\nIn case of multiple resources matches the provided regular expression the first matched resource will be selected",
+                      "minLength": 1,
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "imageRef": {
+                  "description": "ImageRef is an optional reference to a provider-specific resource that holds\nthe details for provisioning the Image for a Cluster.",
+                  "properties": {
+                    "name": {
+                      "default": "",
+                      "description": "Name of the referent.\nThis field is effectively required, but due to backwards compatibility is\nallowed to be empty. Instances of this type with an empty value here are\nalmost certainly wrong.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object",
+                  "x-kubernetes-map-type": "atomic"
+                },
+                "memoryGiB": {
+                  "description": "memoryGiB is the size of a virtual machine's memory, in GiB.\nmaximum value for the MemoryGiB depends on the selected SystemType.\nwhen SystemType is set to e880 maximum MemoryGiB value is 7463 GiB.\nwhen SystemType is set to e980 maximum MemoryGiB value is 15307 GiB.\nwhen SystemType is set to s922 maximum MemoryGiB value is 942 GiB.\nThe minimum memory is 2 GiB.\nWhen omitted, this means the user has no opinion and the platform is left to choose a reasonable\ndefault, which is subject to change over time. The current default is 2.",
+                  "format": "int32",
+                  "type": "integer"
+                },
+                "network": {
+                  "description": "Network is the reference to the Network to use for this instance.\nsupported network identifier in IBMPowerVSResourceReference are Name, ID and RegEx and that can be obtained from IBM Cloud UI or IBM Cloud cli.",
+                  "properties": {
+                    "id": {
+                      "description": "ID of resource",
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Name of resource",
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "regex": {
+                      "description": "Regular expression to match resource,\nIn case of multiple resources matches the provided regular expression the first matched resource will be selected",
+                      "minLength": 1,
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "processorType": {
+                  "description": "processorType is the VM instance processor type.\nIt must be set to one of the following values: Dedicated, Capped or Shared.\nDedicated: resources are allocated for a specific client, The hypervisor makes a 1:1 binding of a partition’s processor to a physical processor core.\nShared: Shared among other clients.\nCapped: Shared, but resources do not expand beyond those that are requested, the amount of CPU time is Capped to the value specified for the entitlement.\nif the processorType is selected as Dedicated, then processors value cannot be fractional.\nWhen omitted, this means that the user has no opinion and the platform is left to choose a\nreasonable default, which is subject to change over time. The current default is Shared.",
+                  "enum": [
+                    "Dedicated",
+                    "Shared",
+                    "Capped",
+                    ""
+                  ],
+                  "type": "string"
+                },
+                "processors": {
+                  "anyOf": [
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ],
+                  "description": "processors is the number of virtual processors in a virtual machine.\nwhen the processorType is selected as Dedicated the processors value cannot be fractional.\nmaximum value for the Processors depends on the selected SystemType.\nwhen SystemType is set to e880 or e980 maximum Processors value is 143.\nwhen SystemType is set to s922 maximum Processors value is 15.\nminimum value for Processors depends on the selected ProcessorType.\nwhen ProcessorType is set as Shared or Capped, The minimum processors is 0.25.\nwhen ProcessorType is set as Dedicated, The minimum processors is 1.\nWhen omitted, this means that the user has no opinion and the platform is left to choose a\nreasonable default, which is subject to change over time. The default is set based on the selected ProcessorType.\nwhen ProcessorType selected as Dedicated, the default is set to 1.\nwhen ProcessorType selected as Shared or Capped, the default is set to 0.25.",
+                  "x-kubernetes-int-or-string": true
+                },
+                "providerID": {
+                  "description": "ProviderID is the unique identifier as specified by the cloud provider.",
+                  "type": "string"
+                },
+                "serviceInstanceID": {
+                  "description": "ServiceInstanceID is the id of the power cloud instance where the vsi instance will get deployed.",
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "sshKey": {
+                  "description": "SSHKey is the name of the SSH key pair provided to the vsi for authenticating users.",
+                  "type": "string"
+                },
+                "systemType": {
+                  "description": "systemType is the System type used to host the instance.\nsystemType determines the number of cores and memory that is available.\nFew of the supported SystemTypes are s922,e880,e980.\ne880 systemType available only in Dallas Datacenters.\ne980 systemType available in Datacenters except Dallas and Washington.\nWhen omitted, this means that the user has no opinion and the platform is left to choose a\nreasonable default, which is subject to change over time. The current default is s922 which is generally available.",
+                  "enum": [
+                    "s922",
+                    "e880",
+                    "e980",
+                    ""
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "network",
+                "serviceInstanceID"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "spec"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "template"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "description": "IBMPowerVSMachineTemplateStatus defines the observed state of IBMPowerVSMachineTemplate.",
+      "properties": {
+        "capacity": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+            "x-kubernetes-int-or-string": true
+          },
+          "description": "Capacity defines the resource capacity for this machine.\nThis value is used for autoscaling from zero operations as defined in:\nhttps://github.com/kubernetes-sigs/cluster-api/blob/main/docs/proposals/20210310-opt-in-autoscaling-from-zero.md",
+          "type": "object"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "infrastructure.cluster.x-k8s.io",
+      "kind": "IBMPowerVSMachineTemplate",
+      "version": "v1beta2"
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "description": "IBMPowerVSCluster is the Schema for the ibmpowervsclusters API.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "infrastructure.cluster.x-k8s.io/v1beta2"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "IBMPowerVSCluster"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "IBMPowerVSClusterSpec defines the desired state of IBMPowerVSCluster.",
+      "properties": {
+        "controlPlaneEndpoint": {
+          "description": "ControlPlaneEndpoint represents the endpoint used to communicate with the control plane.",
+          "properties": {
+            "host": {
+              "description": "The hostname on which the API server is serving.",
+              "type": "string"
+            },
+            "port": {
+              "description": "The port on which the API server is serving.",
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "host",
+            "port"
+          ],
+          "type": "object"
+        },
+        "network": {
+          "description": "Network is the reference to the Network to use for this cluster.",
+          "properties": {
+            "id": {
+              "description": "ID of resource",
+              "minLength": 1,
+              "type": "string"
+            },
+            "name": {
+              "description": "Name of resource",
+              "minLength": 1,
+              "type": "string"
+            },
+            "regex": {
+              "description": "Regular expression to match resource,\nIn case of multiple resources matches the provided regular expression the first matched resource will be selected",
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "serviceInstanceID": {
+          "description": "ServiceInstanceID is the id of the power cloud instance where the vsi instance will get deployed.",
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "network",
+        "serviceInstanceID"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "description": "IBMPowerVSClusterStatus defines the observed state of IBMPowerVSCluster.",
+      "properties": {
+        "ready": {
+          "description": "INSERT ADDITIONAL STATUS FIELD - define observed state of cluster\nImportant: Run \"make\" to regenerate code after modifying this file",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ready"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "infrastructure.cluster.x-k8s.io",
+      "kind": "IBMPowerVSCluster",
+      "version": "v1beta2"
+    }
+  ]
+}

@@ -64,6 +64,18 @@
       "$ref": "addon.open-cluster-management.io/managedclusteraddonlist_v1alpha1.json"
     },
     {
+      "$ref": "addons.cluster.x-k8s.io/clusterresourceset_v1beta1.json"
+    },
+    {
+      "$ref": "addons.cluster.x-k8s.io/clusterresourcesetbinding_v1beta1.json"
+    },
+    {
+      "$ref": "addons.cluster.x-k8s.io/clusterresourcesetbindinglist_v1beta1.json"
+    },
+    {
+      "$ref": "addons.cluster.x-k8s.io/clusterresourcesetlist_v1beta1.json"
+    },
+    {
       "$ref": "admission.k8s.io/admissionreview_v1.json"
     },
     {
@@ -985,6 +997,42 @@
       "$ref": "caching.internal.knative.dev/imagelist_v1alpha1.json"
     },
     {
+      "$ref": "capi-provider.agent-install.openshift.io/agentcluster_v1alpha1.json"
+    },
+    {
+      "$ref": "capi-provider.agent-install.openshift.io/agentcluster_v1beta1.json"
+    },
+    {
+      "$ref": "capi-provider.agent-install.openshift.io/agentclusterlist_v1alpha1.json"
+    },
+    {
+      "$ref": "capi-provider.agent-install.openshift.io/agentclusterlist_v1beta1.json"
+    },
+    {
+      "$ref": "capi-provider.agent-install.openshift.io/agentmachine_v1alpha1.json"
+    },
+    {
+      "$ref": "capi-provider.agent-install.openshift.io/agentmachine_v1beta1.json"
+    },
+    {
+      "$ref": "capi-provider.agent-install.openshift.io/agentmachinelist_v1alpha1.json"
+    },
+    {
+      "$ref": "capi-provider.agent-install.openshift.io/agentmachinelist_v1beta1.json"
+    },
+    {
+      "$ref": "capi-provider.agent-install.openshift.io/agentmachinetemplate_v1alpha1.json"
+    },
+    {
+      "$ref": "capi-provider.agent-install.openshift.io/agentmachinetemplate_v1beta1.json"
+    },
+    {
+      "$ref": "capi-provider.agent-install.openshift.io/agentmachinetemplatelist_v1alpha1.json"
+    },
+    {
+      "$ref": "capi-provider.agent-install.openshift.io/agentmachinetemplatelist_v1beta1.json"
+    },
+    {
       "$ref": "cert-manager.io/certificate_v1.json"
     },
     {
@@ -1202,6 +1250,48 @@
     },
     {
       "$ref": "cluster.open-cluster-management.io/placementlist_v1beta1.json"
+    },
+    {
+      "$ref": "cluster.x-k8s.io/cluster_v1beta1.json"
+    },
+    {
+      "$ref": "cluster.x-k8s.io/clusterclass_v1beta1.json"
+    },
+    {
+      "$ref": "cluster.x-k8s.io/clusterclasslist_v1beta1.json"
+    },
+    {
+      "$ref": "cluster.x-k8s.io/clusterlist_v1beta1.json"
+    },
+    {
+      "$ref": "cluster.x-k8s.io/machine_v1beta1.json"
+    },
+    {
+      "$ref": "cluster.x-k8s.io/machinedeployment_v1beta1.json"
+    },
+    {
+      "$ref": "cluster.x-k8s.io/machinedeploymentlist_v1beta1.json"
+    },
+    {
+      "$ref": "cluster.x-k8s.io/machinehealthcheck_v1beta1.json"
+    },
+    {
+      "$ref": "cluster.x-k8s.io/machinehealthchecklist_v1beta1.json"
+    },
+    {
+      "$ref": "cluster.x-k8s.io/machinelist_v1beta1.json"
+    },
+    {
+      "$ref": "cluster.x-k8s.io/machinepool_v1beta1.json"
+    },
+    {
+      "$ref": "cluster.x-k8s.io/machinepoollist_v1beta1.json"
+    },
+    {
+      "$ref": "cluster.x-k8s.io/machineset_v1beta1.json"
+    },
+    {
+      "$ref": "cluster.x-k8s.io/machinesetlist_v1beta1.json"
     },
     {
       "$ref": "clusters.clusternet.io/clusterregistrationrequest_v1beta1.json"
@@ -2776,6 +2866,282 @@
       "$ref": "incubator.ingress-controller.konghq.com/kongservicefacadelist_v1alpha1.json"
     },
     {
+      "$ref": "infrastructure.cluster.x-k8s.io/awscluster_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/awsclustercontrolleridentity_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/awsclustercontrolleridentitylist_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/awsclusterlist_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/awsclusterroleidentity_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/awsclusterroleidentitylist_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/awsclusterstaticidentity_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/awsclusterstaticidentitylist_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/awsclustertemplate_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/awsclustertemplatelist_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/awsmachine_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/awsmachinelist_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/awsmachinepool_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/awsmachinepoollist_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/awsmachinetemplate_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/awsmachinetemplatelist_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/azurecluster_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/azureclusteridentity_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/azureclusteridentitylist_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/azureclusterlist_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/azureclustertemplate_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/azureclustertemplatelist_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/azuremachine_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/azuremachinelist_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/azuremachinetemplate_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/azuremachinetemplatelist_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/azuremanagedcluster_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/azuremanagedclusterlist_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/azuremanagedclustertemplate_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/azuremanagedclustertemplatelist_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/azuremanagedcontrolplane_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/azuremanagedcontrolplanelist_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/azuremanagedcontrolplanetemplate_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/azuremanagedcontrolplanetemplatelist_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/azuremanagedmachinepool_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/azuremanagedmachinepoollist_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/azuremanagedmachinepooltemplate_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/azuremanagedmachinepooltemplatelist_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmpowervscluster_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmpowervscluster_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmpowervsclusterlist_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmpowervsclusterlist_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmpowervsclustertemplate_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmpowervsclustertemplate_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmpowervsclustertemplatelist_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmpowervsclustertemplatelist_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmpowervsimage_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmpowervsimage_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmpowervsimagelist_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmpowervsimagelist_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmpowervsmachine_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmpowervsmachine_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmpowervsmachinelist_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmpowervsmachinelist_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmpowervsmachinetemplate_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmpowervsmachinetemplate_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmpowervsmachinetemplatelist_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmpowervsmachinetemplatelist_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmvpccluster_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmvpccluster_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmvpcclusterlist_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmvpcclusterlist_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmvpcclustertemplate_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmvpcclustertemplatelist_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmvpcmachine_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmvpcmachine_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmvpcmachinelist_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmvpcmachinelist_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmvpcmachinetemplate_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmvpcmachinetemplate_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmvpcmachinetemplatelist_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/ibmvpcmachinetemplatelist_v1beta2.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/kubevirtcluster_v1alpha1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/kubevirtclusterlist_v1alpha1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/kubevirtclustertemplate_v1alpha1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/kubevirtclustertemplatelist_v1alpha1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/kubevirtmachine_v1alpha1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/kubevirtmachinelist_v1alpha1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/kubevirtmachinetemplate_v1alpha1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/kubevirtmachinetemplatelist_v1alpha1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/openstackcluster_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/openstackclusterlist_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/openstackclustertemplate_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/openstackclustertemplatelist_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/openstackfloatingippool_v1alpha1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/openstackfloatingippoollist_v1alpha1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/openstackmachine_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/openstackmachinelist_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/openstackmachinetemplate_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/openstackmachinetemplatelist_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/openstackserver_v1alpha1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/openstackserverlist_v1alpha1.json"
+    },
+    {
       "$ref": "install.istio.io/istiooperator_v1alpha1.json"
     },
     {
@@ -2798,6 +3164,18 @@
     },
     {
       "$ref": "internal.kafka.eventing.knative.dev/consumerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ipam.cluster.x-k8s.io/ipaddress_v1beta1.json"
+    },
+    {
+      "$ref": "ipam.cluster.x-k8s.io/ipaddressclaim_v1beta1.json"
+    },
+    {
+      "$ref": "ipam.cluster.x-k8s.io/ipaddressclaimlist_v1beta1.json"
+    },
+    {
+      "$ref": "ipam.cluster.x-k8s.io/ipaddresslist_v1beta1.json"
     },
     {
       "$ref": "k3d.io/simple_v1alpha5.json"
@@ -4001,6 +4379,12 @@
     },
     {
       "$ref": "o11y.aliyun.dev/observabilityaddonlist_v1alpha1.json"
+    },
+    {
+      "$ref": "openstack.k-orc.cloud/image_v1alpha1.json"
+    },
+    {
+      "$ref": "openstack.k-orc.cloud/imagelist_v1alpha1.json"
     },
     {
       "$ref": "opentelemetry.io/instrumentation_v1alpha1.json"
