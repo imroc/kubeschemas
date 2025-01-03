@@ -1,0 +1,81 @@
+{
+  "description": "SriovIBNetwork is the Schema for the sriovibnetworks API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "sriovnetwork.openshift.io/v1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "SriovIBNetwork"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "SriovIBNetworkSpec defines the desired state of SriovIBNetwork",
+      "properties": {
+        "capabilities": {
+          "description": "Capabilities to be configured for this network.\nCapabilities supported: (infinibandGUID), e.g. '{\"infinibandGUID\": true}'",
+          "type": "string"
+        },
+        "ipam": {
+          "description": "IPAM configuration to be used for this network.",
+          "type": "string"
+        },
+        "linkState": {
+          "description": "VF link state (enable|disable|auto)",
+          "enum": [
+            "auto",
+            "enable",
+            "disable"
+          ],
+          "type": "string"
+        },
+        "metaPlugins": {
+          "description": "MetaPluginsConfig configuration to be used in order to chain metaplugins to the sriov interface returned\nby the operator.",
+          "type": "string"
+        },
+        "networkNamespace": {
+          "description": "Namespace of the NetworkAttachmentDefinition custom resource",
+          "type": "string"
+        },
+        "resourceName": {
+          "description": "SRIOV Network device plugin endpoint resource name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "resourceName"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "description": "SriovIBNetworkStatus defines the observed state of SriovIBNetwork",
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "sriovnetwork.openshift.io",
+      "kind": "SriovIBNetwork",
+      "version": "v1"
+    }
+  ]
+}

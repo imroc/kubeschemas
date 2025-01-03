@@ -5470,6 +5470,48 @@
       "$ref": "sparkoperator.k8s.io/sparkapplicationlist_v1beta2.json"
     },
     {
+      "$ref": "sriovnetwork.openshift.io/ovsnetwork_v1.json"
+    },
+    {
+      "$ref": "sriovnetwork.openshift.io/ovsnetworklist_v1.json"
+    },
+    {
+      "$ref": "sriovnetwork.openshift.io/sriovibnetwork_v1.json"
+    },
+    {
+      "$ref": "sriovnetwork.openshift.io/sriovibnetworklist_v1.json"
+    },
+    {
+      "$ref": "sriovnetwork.openshift.io/sriovnetwork_v1.json"
+    },
+    {
+      "$ref": "sriovnetwork.openshift.io/sriovnetworklist_v1.json"
+    },
+    {
+      "$ref": "sriovnetwork.openshift.io/sriovnetworknodepolicy_v1.json"
+    },
+    {
+      "$ref": "sriovnetwork.openshift.io/sriovnetworknodepolicylist_v1.json"
+    },
+    {
+      "$ref": "sriovnetwork.openshift.io/sriovnetworknodestate_v1.json"
+    },
+    {
+      "$ref": "sriovnetwork.openshift.io/sriovnetworknodestatelist_v1.json"
+    },
+    {
+      "$ref": "sriovnetwork.openshift.io/sriovnetworkpoolconfig_v1.json"
+    },
+    {
+      "$ref": "sriovnetwork.openshift.io/sriovnetworkpoolconfiglist_v1.json"
+    },
+    {
+      "$ref": "sriovnetwork.openshift.io/sriovoperatorconfig_v1.json"
+    },
+    {
+      "$ref": "sriovnetwork.openshift.io/sriovoperatorconfiglist_v1.json"
+    },
+    {
       "$ref": "stable.example.com/crontab_v1.json"
     },
     {
