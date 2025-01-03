@@ -973,6 +973,66 @@
       "$ref": "batch.volcano.sh/joblist_v1alpha1.json"
     },
     {
+      "$ref": "bpfman.io/bpfapplication_v1alpha1.json"
+    },
+    {
+      "$ref": "bpfman.io/bpfapplicationlist_v1alpha1.json"
+    },
+    {
+      "$ref": "bpfman.io/bpfprogram_v1alpha1.json"
+    },
+    {
+      "$ref": "bpfman.io/bpfprogramlist_v1alpha1.json"
+    },
+    {
+      "$ref": "bpfman.io/fentryprogram_v1alpha1.json"
+    },
+    {
+      "$ref": "bpfman.io/fentryprogramlist_v1alpha1.json"
+    },
+    {
+      "$ref": "bpfman.io/fexitprogram_v1alpha1.json"
+    },
+    {
+      "$ref": "bpfman.io/fexitprogramlist_v1alpha1.json"
+    },
+    {
+      "$ref": "bpfman.io/kprobeprogram_v1alpha1.json"
+    },
+    {
+      "$ref": "bpfman.io/kprobeprogramlist_v1alpha1.json"
+    },
+    {
+      "$ref": "bpfman.io/tcprogram_v1alpha1.json"
+    },
+    {
+      "$ref": "bpfman.io/tcprogramlist_v1alpha1.json"
+    },
+    {
+      "$ref": "bpfman.io/tcxprogram_v1alpha1.json"
+    },
+    {
+      "$ref": "bpfman.io/tcxprogramlist_v1alpha1.json"
+    },
+    {
+      "$ref": "bpfman.io/tracepointprogram_v1alpha1.json"
+    },
+    {
+      "$ref": "bpfman.io/tracepointprogramlist_v1alpha1.json"
+    },
+    {
+      "$ref": "bpfman.io/uprobeprogram_v1alpha1.json"
+    },
+    {
+      "$ref": "bpfman.io/uprobeprogramlist_v1alpha1.json"
+    },
+    {
+      "$ref": "bpfman.io/xdpprogram_v1alpha1.json"
+    },
+    {
+      "$ref": "bpfman.io/xdpprogramlist_v1alpha1.json"
+    },
+    {
       "$ref": "bursting.cci.io/clusterextensionprofile_v1.json"
     },
     {
