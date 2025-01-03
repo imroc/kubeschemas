@@ -2485,6 +2485,78 @@
       "$ref": "flagger.app/metrictemplatelist_v1beta1.json"
     },
     {
+      "$ref": "fleet.cattle.io/bundle_v1alpha1.json"
+    },
+    {
+      "$ref": "fleet.cattle.io/bundledeployment_v1alpha1.json"
+    },
+    {
+      "$ref": "fleet.cattle.io/bundledeploymentlist_v1alpha1.json"
+    },
+    {
+      "$ref": "fleet.cattle.io/bundlelist_v1alpha1.json"
+    },
+    {
+      "$ref": "fleet.cattle.io/bundlenamespacemapping_v1alpha1.json"
+    },
+    {
+      "$ref": "fleet.cattle.io/bundlenamespacemappinglist_v1alpha1.json"
+    },
+    {
+      "$ref": "fleet.cattle.io/cluster_v1alpha1.json"
+    },
+    {
+      "$ref": "fleet.cattle.io/clustergroup_v1alpha1.json"
+    },
+    {
+      "$ref": "fleet.cattle.io/clustergrouplist_v1alpha1.json"
+    },
+    {
+      "$ref": "fleet.cattle.io/clusterlist_v1alpha1.json"
+    },
+    {
+      "$ref": "fleet.cattle.io/clusterregistration_v1alpha1.json"
+    },
+    {
+      "$ref": "fleet.cattle.io/clusterregistrationlist_v1alpha1.json"
+    },
+    {
+      "$ref": "fleet.cattle.io/clusterregistrationtoken_v1alpha1.json"
+    },
+    {
+      "$ref": "fleet.cattle.io/clusterregistrationtokenlist_v1alpha1.json"
+    },
+    {
+      "$ref": "fleet.cattle.io/content_v1alpha1.json"
+    },
+    {
+      "$ref": "fleet.cattle.io/contentlist_v1alpha1.json"
+    },
+    {
+      "$ref": "fleet.cattle.io/gitrepo_v1alpha1.json"
+    },
+    {
+      "$ref": "fleet.cattle.io/gitrepolist_v1alpha1.json"
+    },
+    {
+      "$ref": "fleet.cattle.io/gitreporestriction_v1alpha1.json"
+    },
+    {
+      "$ref": "fleet.cattle.io/gitreporestrictionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "fleet.cattle.io/helmapp_v1alpha1.json"
+    },
+    {
+      "$ref": "fleet.cattle.io/helmapplist_v1alpha1.json"
+    },
+    {
+      "$ref": "fleet.cattle.io/imagescan_v1alpha1.json"
+    },
+    {
+      "$ref": "fleet.cattle.io/imagescanlist_v1alpha1.json"
+    },
+    {
       "$ref": "flink.apache.org/flinkdeployment_v1beta1.json"
     },
     {

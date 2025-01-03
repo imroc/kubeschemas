@@ -1,0 +1,81 @@
+{
+  "description": "GitRepoRestriction is a resource that can optionally be used to restrict\nthe options of GitRepos in the same namespace.",
+  "properties": {
+    "allowedClientSecretNames": {
+      "description": "AllowedClientSecretNames is a list of client secret names that GitRepos are allowed to use.",
+      "items": {
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    },
+    "allowedRepoPatterns": {
+      "description": "AllowedRepoPatterns is a list of regex patterns that restrict the\nvalid values of the Repo field of a GitRepo.",
+      "items": {
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    },
+    "allowedServiceAccounts": {
+      "description": "AllowedServiceAccounts is a list of service accounts that GitRepos are allowed to use.",
+      "items": {
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    },
+    "allowedTargetNamespaces": {
+      "description": "AllowedTargetNamespaces restricts TargetNamespace to the given\nnamespaces. If AllowedTargetNamespaces is set, TargetNamespace must\nbe set.",
+      "items": {
+        "type": "string"
+      },
+      "nullable": true,
+      "type": "array"
+    },
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "fleet.cattle.io/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "defaultClientSecretName": {
+      "description": "DefaultClientSecretName overrides the GitRepo's default client secret.",
+      "nullable": true,
+      "type": "string"
+    },
+    "defaultServiceAccount": {
+      "description": "DefaultServiceAccount overrides the GitRepo's default service account.",
+      "nullable": true,
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "GitRepoRestriction"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "fleet.cattle.io",
+      "kind": "GitRepoRestriction",
+      "version": "v1alpha1"
+    }
+  ]
+}

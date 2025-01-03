@@ -1,0 +1,76 @@
+{
+  "description": "ClusterRegistration is used internally by Fleet and should not be used directly.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "fleet.cattle.io/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "ClusterRegistration"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "clientID": {
+          "description": "ClientID is a unique string that will identify the cluster. The\nagent either uses the configured ID or the kubeSystem.UID.",
+          "nullable": true,
+          "type": "string"
+        },
+        "clientRandom": {
+          "description": "ClientRandom is a random string that the agent generates. When\nfleet-controller grants a registration, it creates a registration\nsecret with this string in the name.",
+          "nullable": true,
+          "type": "string"
+        },
+        "clusterLabels": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "ClusterLabels are copied to the cluster resource during the registration.",
+          "nullable": true,
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "properties": {
+        "clusterName": {
+          "description": "ClusterName is only set after the registration is being processed by\nfleet-controller.",
+          "nullable": true,
+          "type": "string"
+        },
+        "granted": {
+          "description": "Granted is set to true, if the request service account is present\nand its token secret exists. This happens directly before creating\nthe registration secret, roles and rolebindings.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "fleet.cattle.io",
+      "kind": "ClusterRegistration",
+      "version": "v1alpha1"
+    }
+  ]
+}
