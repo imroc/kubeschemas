@@ -1,6 +1,6 @@
 # kubeschemas
 
-`kubeschemas` contains massive public maintained kubernetes json schema (2400+ types), including all kubernetes buitin resource types, well known CRDs and kubernetes related configuration file.
+`kubeschemas` contains massive public maintained kubernetes json schema (2500+ types), including all kubernetes buitin resource types, well known CRDs and kubernetes related configuration file.
 
 ## kubernetes.nvim
 
@@ -62,6 +62,7 @@ CRDs from open source project:
 - [dragonfly-operator](https://raw.githubusercontent.com/dragonflydb/dragonfly-operator/refs/heads/main/manifests/crd.yaml)
 - [fluxcd](https://github.com/fluxcd/flux2/blob/main/manifests/crds/kustomization.yaml)
 - [flagger](https://raw.githubusercontent.com/fluxcd/flagger/refs/heads/main/charts/flagger/crds/crd.yaml)
+- [actions-runner-controller](https://github.com/actions/actions-runner-controller/tree/master/config/crd)
 - OpenShift [operator-framework-olm](https://github.com/openshift/operator-framework-olm/tree/master), [microshift](https://github.com/openshift/microshift/tree/main/assets/crd), [hypershift](https://github.com/openshift/hypershift), [lvm-operator](https://github.com/openshift/lvm-operator/tree/main/config/crd/bases), [sriov-network-operator](https://github.com/openshift/sriov-network-operator/tree/master/config/crd), [cloud-credential-operator](https://github.com/openshift/cloud-credential-operator) and etc.
 - Rancher [fleet](https://github.com/rancher/fleet/blob/main/charts/fleet-crd/templates/crds.yaml), [cis-operator](https://github.com/rancher/cis-operator/tree/main/crds), [k3k](https://github.com/rancher/k3k/tree/main/charts/k3k/crds) and etc.
 - KubeSphere

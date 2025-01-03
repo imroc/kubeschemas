@@ -40,6 +40,60 @@
       "$ref": "acme.cert-manager.io/orderlist_v1.json"
     },
     {
+      "$ref": "actions.github.com/autoscalinglistener_v1alpha1.json"
+    },
+    {
+      "$ref": "actions.github.com/autoscalinglistenerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "actions.github.com/autoscalingrunnerset_v1alpha1.json"
+    },
+    {
+      "$ref": "actions.github.com/autoscalingrunnersetlist_v1alpha1.json"
+    },
+    {
+      "$ref": "actions.github.com/ephemeralrunner_v1alpha1.json"
+    },
+    {
+      "$ref": "actions.github.com/ephemeralrunnerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "actions.github.com/ephemeralrunnerset_v1alpha1.json"
+    },
+    {
+      "$ref": "actions.github.com/ephemeralrunnersetlist_v1alpha1.json"
+    },
+    {
+      "$ref": "actions.summerwind.dev/horizontalrunnerautoscaler_v1alpha1.json"
+    },
+    {
+      "$ref": "actions.summerwind.dev/horizontalrunnerautoscalerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "actions.summerwind.dev/runner_v1alpha1.json"
+    },
+    {
+      "$ref": "actions.summerwind.dev/runnerdeployment_v1alpha1.json"
+    },
+    {
+      "$ref": "actions.summerwind.dev/runnerdeploymentlist_v1alpha1.json"
+    },
+    {
+      "$ref": "actions.summerwind.dev/runnerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "actions.summerwind.dev/runnerreplicaset_v1alpha1.json"
+    },
+    {
+      "$ref": "actions.summerwind.dev/runnerreplicasetlist_v1alpha1.json"
+    },
+    {
+      "$ref": "actions.summerwind.dev/runnerset_v1alpha1.json"
+    },
+    {
+      "$ref": "actions.summerwind.dev/runnersetlist_v1alpha1.json"
+    },
+    {
       "$ref": "addon.open-cluster-management.io/addondeploymentconfig_v1alpha1.json"
     },
     {
@@ -2620,6 +2674,12 @@
       "$ref": "data.fluid.io/vineyardruntimelist_v1alpha1.json"
     },
     {
+      "$ref": "databases.spotahome.com/redisfailover_v1.json"
+    },
+    {
+      "$ref": "databases.spotahome.com/redisfailoverlist_v1.json"
+    },
+    {
       "$ref": "devices.kubeedge.io/device_v1alpha2.json"
     },
     {
@@ -2702,6 +2762,24 @@
     },
     {
       "$ref": "elasticgpu.io/gpulist_v1alpha1.json"
+    },
+    {
+      "$ref": "elbv2.k8s.aws/ingressclassparams_v1beta1.json"
+    },
+    {
+      "$ref": "elbv2.k8s.aws/ingressclassparamslist_v1beta1.json"
+    },
+    {
+      "$ref": "elbv2.k8s.aws/targetgroupbinding_v1alpha1.json"
+    },
+    {
+      "$ref": "elbv2.k8s.aws/targetgroupbinding_v1beta1.json"
+    },
+    {
+      "$ref": "elbv2.k8s.aws/targetgroupbindinglist_v1alpha1.json"
+    },
+    {
+      "$ref": "elbv2.k8s.aws/targetgroupbindinglist_v1beta1.json"
     },
     {
       "$ref": "elemental.cattle.io/machineinventory_v1beta1.json"
