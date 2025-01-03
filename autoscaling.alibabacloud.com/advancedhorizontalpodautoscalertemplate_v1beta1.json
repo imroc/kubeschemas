@@ -1,0 +1,164 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "autoscaling.alibabacloud.com/v1beta1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "AdvancedHorizontalPodAutoscalerTemplate"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "instanceBounds": {
+          "items": {
+            "properties": {
+              "bounds": {
+                "items": {
+                  "properties": {
+                    "cron": {
+                      "type": "string"
+                    },
+                    "maxReplicas": {
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "minReplicas": {
+                      "format": "int32",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                },
+                "required": [
+                  "cron",
+                  "maxReplicas",
+                  "minReplicas"
+                ],
+                "type": "array"
+              },
+              "endTime": {
+                "type": "string"
+              },
+              "startTime": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "bounds",
+              "endTime",
+              "startTime"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "maxReplicas": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "metrics": {
+          "items": {
+            "properties": {
+              "resource": {
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "target": {
+                    "properties": {
+                      "averageUtilization": {
+                        "format": "int32",
+                        "type": "integer"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "minReplicas": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "prediction": {
+          "properties": {
+            "quantile": {
+              "format": "int32",
+              "type": "integer"
+            },
+            "scaleUpForward": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
+        "proactiveDS": {
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "reactiveDS": {
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "scaleStrategy": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "autoscaling.alibabacloud.com",
+      "kind": "AdvancedHorizontalPodAutoscalerTemplate",
+      "version": "v1beta1"
+    }
+  ],
+  "x-kubernetes-selectable-fields": []
+}

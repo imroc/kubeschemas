@@ -1,0 +1,119 @@
+{
+  "description": "StorageAutoExpander is the Schema for the StorageAutoExpander API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "storage.alibabacloud.com/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "StorageAutoScalerPolicy"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "spec include conditions and actions and pvcSelector and namespaces",
+      "properties": {
+        "actions": {
+          "items": {
+            "properties": {
+              "name": {
+                "description": "actions name",
+                "type": "string"
+              },
+              "params": {
+                "properties": {
+                  "limits": {
+                    "description": "actions params limits",
+                    "type": "string"
+                  },
+                  "scale": {
+                    "description": "actions params scale",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": {
+                "description": "actions type",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "conditions": {
+          "items": {
+            "properties": {
+              "key": {
+                "description": "conditions key",
+                "type": "string"
+              },
+              "name": {
+                "description": "conditions name",
+                "type": "string"
+              },
+              "operator": {
+                "description": "conditions operator",
+                "type": "string"
+              },
+              "values": {
+                "description": "conditions values",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "namespaces": {
+          "description": "Which namespace is used for namespaces.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "pvcSelector": {
+          "description": "pvcSelector is pvc selector",
+          "properties": {
+            "matchLabels": {
+              "type": "object",
+              "x-kubernetes-preserve-unknown-fields": true
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "storage.alibabacloud.com",
+      "kind": "StorageAutoScalerPolicy",
+      "version": "v1alpha1"
+    }
+  ],
+  "x-kubernetes-selectable-fields": []
+}

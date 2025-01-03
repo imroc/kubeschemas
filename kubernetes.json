@@ -94,6 +94,12 @@
       "$ref": "admissionregistration.api.k8s.io/validatingwebhookconfigurationlist_v1.json"
     },
     {
+      "$ref": "advancedaudit.alibabacloud.com/auditlog_v1alpha1.json"
+    },
+    {
+      "$ref": "advancedaudit.alibabacloud.com/auditloglist_v1alpha1.json"
+    },
+    {
       "$ref": "agones.dev/fleet_v1.json"
     },
     {
@@ -328,6 +334,12 @@
       "$ref": "app.k8s.io/applicationlist_v1beta1.json"
     },
     {
+      "$ref": "applications.alibabacloud.com/appmanagement_v1.json"
+    },
+    {
+      "$ref": "applications.alibabacloud.com/appmanagementlist_v1.json"
+    },
+    {
       "$ref": "apps.api.k8s.io/controllerrevision_v1.json"
     },
     {
@@ -520,6 +532,12 @@
       "$ref": "apps.kruise.io/workloadspreadlist_v1alpha1.json"
     },
     {
+      "$ref": "apps.kubedl.io/cron_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kubedl.io/cronlist_v1alpha1.json"
+    },
+    {
       "$ref": "argoproj.io/analysisrun_v1alpha1.json"
     },
     {
@@ -536,6 +554,12 @@
     },
     {
       "$ref": "argoproj.io/clusteranalysistemplatelist_v1alpha1.json"
+    },
+    {
+      "$ref": "argoproj.io/clusterworkflowtemplate_v1alpha1.json"
+    },
+    {
+      "$ref": "argoproj.io/clusterworkflowtemplatelist_v1alpha1.json"
     },
     {
       "$ref": "argoproj.io/cronworkflowlist_v1alpha1.json"
@@ -571,7 +595,19 @@
       "$ref": "argoproj.io/sensorlist_v1alpha1.json"
     },
     {
+      "$ref": "argoproj.io/workfloweventbinding_v1alpha1.json"
+    },
+    {
+      "$ref": "argoproj.io/workfloweventbindinglist_v1alpha1.json"
+    },
+    {
       "$ref": "argoproj.io/workflowlist_v1alpha1.json"
+    },
+    {
+      "$ref": "argoproj.io/workflowtaskset_v1alpha1.json"
+    },
+    {
+      "$ref": "argoproj.io/workflowtasksetlist_v1alpha1.json"
     },
     {
       "$ref": "argoproj.io/workflowtemplatelist_v1alpha1.json"
@@ -722,6 +758,24 @@
     },
     {
       "$ref": "autoscaling.agones.dev/fleetautoscalerlist_v1.json"
+    },
+    {
+      "$ref": "autoscaling.alibabacloud.com/advancedhorizontalpodautoscaler_v1beta1.json"
+    },
+    {
+      "$ref": "autoscaling.alibabacloud.com/advancedhorizontalpodautoscalerlist_v1beta1.json"
+    },
+    {
+      "$ref": "autoscaling.alibabacloud.com/advancedhorizontalpodautoscalertemplate_v1beta1.json"
+    },
+    {
+      "$ref": "autoscaling.alibabacloud.com/advancedhorizontalpodautoscalertemplatelist_v1beta1.json"
+    },
+    {
+      "$ref": "autoscaling.alibabacloud.com/cronhorizontalpodautoscaler_v1beta1.json"
+    },
+    {
+      "$ref": "autoscaling.alibabacloud.com/cronhorizontalpodautoscalerlist_v1beta1.json"
     },
     {
       "$ref": "autoscaling.api.k8s.io/horizontalpodautoscaler_v1.json"
@@ -1678,6 +1732,84 @@
       "$ref": "custommetrics.apis.pkg.hpa-metrics-server.qc_container_cluster.cloud.tencent.com/custommetricslist_v1alpha1.json"
     },
     {
+      "$ref": "data.fluid.io/alluxioruntime_v1alpha1.json"
+    },
+    {
+      "$ref": "data.fluid.io/alluxioruntimelist_v1alpha1.json"
+    },
+    {
+      "$ref": "data.fluid.io/databackup_v1alpha1.json"
+    },
+    {
+      "$ref": "data.fluid.io/databackuplist_v1alpha1.json"
+    },
+    {
+      "$ref": "data.fluid.io/dataload_v1alpha1.json"
+    },
+    {
+      "$ref": "data.fluid.io/dataloadlist_v1alpha1.json"
+    },
+    {
+      "$ref": "data.fluid.io/datamigrate_v1alpha1.json"
+    },
+    {
+      "$ref": "data.fluid.io/datamigratelist_v1alpha1.json"
+    },
+    {
+      "$ref": "data.fluid.io/dataprocess_v1alpha1.json"
+    },
+    {
+      "$ref": "data.fluid.io/dataprocesslist_v1alpha1.json"
+    },
+    {
+      "$ref": "data.fluid.io/dataset_v1alpha1.json"
+    },
+    {
+      "$ref": "data.fluid.io/datasetlist_v1alpha1.json"
+    },
+    {
+      "$ref": "data.fluid.io/efcruntime_v1alpha1.json"
+    },
+    {
+      "$ref": "data.fluid.io/efcruntimelist_v1alpha1.json"
+    },
+    {
+      "$ref": "data.fluid.io/goosefsruntime_v1alpha1.json"
+    },
+    {
+      "$ref": "data.fluid.io/goosefsruntimelist_v1alpha1.json"
+    },
+    {
+      "$ref": "data.fluid.io/jindoruntime_v1alpha1.json"
+    },
+    {
+      "$ref": "data.fluid.io/jindoruntimelist_v1alpha1.json"
+    },
+    {
+      "$ref": "data.fluid.io/juicefsruntime_v1alpha1.json"
+    },
+    {
+      "$ref": "data.fluid.io/juicefsruntimelist_v1alpha1.json"
+    },
+    {
+      "$ref": "data.fluid.io/thinruntime_v1alpha1.json"
+    },
+    {
+      "$ref": "data.fluid.io/thinruntimelist_v1alpha1.json"
+    },
+    {
+      "$ref": "data.fluid.io/thinruntimeprofile_v1alpha1.json"
+    },
+    {
+      "$ref": "data.fluid.io/thinruntimeprofilelist_v1alpha1.json"
+    },
+    {
+      "$ref": "data.fluid.io/vineyardruntime_v1alpha1.json"
+    },
+    {
+      "$ref": "data.fluid.io/vineyardruntimelist_v1alpha1.json"
+    },
+    {
       "$ref": "discovery.api.k8s.io/endpointslice_v1.json"
     },
     {
@@ -1796,6 +1928,12 @@
     },
     {
       "$ref": "eventing.knative.dev/eventtypelist_v1beta3.json"
+    },
+    {
+      "$ref": "eventing.knative.dev/kafkasink_v1alpha1.json"
+    },
+    {
+      "$ref": "eventing.knative.dev/kafkasinklist_v1alpha1.json"
     },
     {
       "$ref": "eventing.knative.dev/trigger_v1.json"
@@ -2302,6 +2440,12 @@
       "$ref": "imagepolicy.k8s.io/imagereview_v1alpha1.json"
     },
     {
+      "$ref": "images.alibabacloud.com/imagepullsecret_v1alpha1.json"
+    },
+    {
+      "$ref": "images.alibabacloud.com/imagepullsecretlist_v1alpha1.json"
+    },
+    {
       "$ref": "incubator.ingress-controller.konghq.com/kongservicefacade_v1alpha1.json"
     },
     {
@@ -2318,6 +2462,18 @@
     },
     {
       "$ref": "internal.autoscaling.gke.io/capacityrequestlist_v1.json"
+    },
+    {
+      "$ref": "internal.kafka.eventing.knative.dev/consumer_v1alpha1.json"
+    },
+    {
+      "$ref": "internal.kafka.eventing.knative.dev/consumergroup_v1alpha1.json"
+    },
+    {
+      "$ref": "internal.kafka.eventing.knative.dev/consumergrouplist_v1alpha1.json"
+    },
+    {
+      "$ref": "internal.kafka.eventing.knative.dev/consumerlist_v1alpha1.json"
     },
     {
       "$ref": "k3d.io/simple_v1alpha5.json"
@@ -2345,6 +2501,24 @@
     },
     {
       "$ref": "kai.alibabacloud.com/genericnodelist_v1alpha1.json"
+    },
+    {
+      "$ref": "kai.alibabacloud.com/scalein_v1alpha1.json"
+    },
+    {
+      "$ref": "kai.alibabacloud.com/scaleinlist_v1alpha1.json"
+    },
+    {
+      "$ref": "kai.alibabacloud.com/scaleout_v1alpha1.json"
+    },
+    {
+      "$ref": "kai.alibabacloud.com/scaleoutlist_v1alpha1.json"
+    },
+    {
+      "$ref": "kai.alibabacloud.com/trainingjob_v1alpha1.json"
+    },
+    {
+      "$ref": "kai.alibabacloud.com/trainingjoblist_v1alpha1.json"
     },
     {
       "$ref": "karpenter.sh/nodeclaim_v1.json"
@@ -2398,6 +2572,42 @@
       "$ref": "konnect.konghq.com/konnectgatewaycontrolplanelist_v1alpha1.json"
     },
     {
+      "$ref": "kritis.grafeas.io/admissionallowlist_v1beta1.json"
+    },
+    {
+      "$ref": "kritis.grafeas.io/admissionallowlistlist_v1beta1.json"
+    },
+    {
+      "$ref": "kritis.grafeas.io/attestationauthority_v1beta1.json"
+    },
+    {
+      "$ref": "kritis.grafeas.io/attestationauthoritylist_v1beta1.json"
+    },
+    {
+      "$ref": "kritis.grafeas.io/buildpolicy_v1beta1.json"
+    },
+    {
+      "$ref": "kritis.grafeas.io/buildpolicylist_v1beta1.json"
+    },
+    {
+      "$ref": "kritis.grafeas.io/genericattestationpolicy_v1beta1.json"
+    },
+    {
+      "$ref": "kritis.grafeas.io/genericattestationpolicylist_v1beta1.json"
+    },
+    {
+      "$ref": "kritis.grafeas.io/imagesecuritypolicy_v1beta1.json"
+    },
+    {
+      "$ref": "kritis.grafeas.io/imagesecuritypolicylist_v1beta1.json"
+    },
+    {
+      "$ref": "kritis.grafeas.io/kritisconfig_v1beta1.json"
+    },
+    {
+      "$ref": "kritis.grafeas.io/kritisconfiglist_v1beta1.json"
+    },
+    {
       "$ref": "kubeadm.k8s.io/clusterconfiguration_v1beta3.json"
     },
     {
@@ -2428,7 +2638,13 @@
       "$ref": "kubeflow.org/mpijob_v1.json"
     },
     {
+      "$ref": "kubeflow.org/mpijob_v1alpha1.json"
+    },
+    {
       "$ref": "kubeflow.org/mpijoblist_v1.json"
+    },
+    {
+      "$ref": "kubeflow.org/mpijoblist_v1alpha1.json"
     },
     {
       "$ref": "kubeflow.org/mxjob_v1.json"
@@ -2447,6 +2663,12 @@
     },
     {
       "$ref": "kubeflow.org/pytorchjoblist_v1.json"
+    },
+    {
+      "$ref": "kubeflow.org/scheduledworkflow_v1beta1.json"
+    },
+    {
+      "$ref": "kubeflow.org/scheduledworkflowlist_v1beta1.json"
     },
     {
       "$ref": "kubeflow.org/tfjob_v1.json"
@@ -2635,10 +2857,28 @@
       "$ref": "messaging.knative.dev/channellist_v1.json"
     },
     {
+      "$ref": "messaging.knative.dev/kafkachannel_v1beta1.json"
+    },
+    {
+      "$ref": "messaging.knative.dev/kafkachannellist_v1beta1.json"
+    },
+    {
       "$ref": "messaging.knative.dev/subscription_v1.json"
     },
     {
       "$ref": "messaging.knative.dev/subscriptionlist_v1.json"
+    },
+    {
+      "$ref": "metrics.api.pkg.resource-intelligence-controller.cos.gitlab.alibaba-inc.com/predictions_v1beta1.json"
+    },
+    {
+      "$ref": "metrics.api.pkg.resource-intelligence-controller.cos.gitlab.alibaba-inc.com/predictionslist_v1beta1.json"
+    },
+    {
+      "$ref": "metrics.api.pkg.resource-intelligence-controller.cos.gitlab.alibaba-inc.com/predictionsobserver_v1beta1.json"
+    },
+    {
+      "$ref": "metrics.api.pkg.resource-intelligence-controller.cos.gitlab.alibaba-inc.com/predictionsobserverlist_v1beta1.json"
     },
     {
       "$ref": "metrics.apis.pkg.eks-extension-metrics-apiserver.aws.gitlab.com/kcm_v1.json"
@@ -2921,6 +3161,24 @@
     },
     {
       "$ref": "mutations.gatekeeper.sh/modifysetlist_v1beta1.json"
+    },
+    {
+      "$ref": "network.alibabacloud.com/erdmadevice_v1.json"
+    },
+    {
+      "$ref": "network.alibabacloud.com/erdmadevicelist_v1.json"
+    },
+    {
+      "$ref": "network.alibabacloud.com/globalnetworkpolicy_v1beta2.json"
+    },
+    {
+      "$ref": "network.alibabacloud.com/globalnetworkpolicylist_v1beta2.json"
+    },
+    {
+      "$ref": "network.alibabacloud.com/networkpolicy_v1beta2.json"
+    },
+    {
+      "$ref": "network.alibabacloud.com/networkpolicylist_v1beta2.json"
     },
     {
       "$ref": "network.alibabacloud.com/node_v1beta1.json"
@@ -3397,6 +3655,12 @@
       "$ref": "notification.toolkit.fluxcd.io/receiverlist_v1beta2.json"
     },
     {
+      "$ref": "o11y.aliyun.dev/observabilityaddon_v1alpha1.json"
+    },
+    {
+      "$ref": "o11y.aliyun.dev/observabilityaddonlist_v1alpha1.json"
+    },
+    {
       "$ref": "opentelemetry.io/instrumentation_v1alpha1.json"
     },
     {
@@ -3695,6 +3959,24 @@
     },
     {
       "$ref": "pkg.apimachinery.k8s.io/unknown_runtime.json"
+    },
+    {
+      "$ref": "policy.alibabacloud.com/policy_v1alpha1.json"
+    },
+    {
+      "$ref": "policy.alibabacloud.com/policylist_v1alpha1.json"
+    },
+    {
+      "$ref": "policy.alibabacloud.com/templatereference_v1alpha1.json"
+    },
+    {
+      "$ref": "policy.alibabacloud.com/templatereferencelist_v1alpha1.json"
+    },
+    {
+      "$ref": "policy.alibabacloud.com/violation_v1alpha1.json"
+    },
+    {
+      "$ref": "policy.alibabacloud.com/violationlist_v1alpha1.json"
     },
     {
       "$ref": "policy.api.k8s.io/eviction_v1.json"
@@ -4016,6 +4298,18 @@
     },
     {
       "$ref": "scheduling.x-k8s.io/podgrouplist_v1alpha1.json"
+    },
+    {
+      "$ref": "scheduling.x-k8s.io/queue_v1alpha1.json"
+    },
+    {
+      "$ref": "scheduling.x-k8s.io/queuelist_v1alpha1.json"
+    },
+    {
+      "$ref": "scheduling.x-k8s.io/queueunit_v1alpha1.json"
+    },
+    {
+      "$ref": "scheduling.x-k8s.io/queueunitlist_v1alpha1.json"
     },
     {
       "$ref": "secrets-store.csi.x-k8s.io/secretproviderclass_v1.json"
@@ -4348,6 +4642,18 @@
       "$ref": "sources.knative.dev/containersourcelist_v1.json"
     },
     {
+      "$ref": "sources.knative.dev/githubsource_v1alpha1.json"
+    },
+    {
+      "$ref": "sources.knative.dev/githubsourcelist_v1alpha1.json"
+    },
+    {
+      "$ref": "sources.knative.dev/kafkasource_v1beta1.json"
+    },
+    {
+      "$ref": "sources.knative.dev/kafkasourcelist_v1beta1.json"
+    },
+    {
       "$ref": "sources.knative.dev/pingsource_v1.json"
     },
     {
@@ -4412,6 +4718,24 @@
     },
     {
       "$ref": "status.gatekeeper.sh/mutatorpodstatuslist_v1beta1.json"
+    },
+    {
+      "$ref": "storage.alibabacloud.com/containernetworkfilesystem_v1beta1.json"
+    },
+    {
+      "$ref": "storage.alibabacloud.com/containernetworkfilesystemlist_v1beta1.json"
+    },
+    {
+      "$ref": "storage.alibabacloud.com/containerstorageoperator_v1beta1.json"
+    },
+    {
+      "$ref": "storage.alibabacloud.com/containerstorageoperatorlist_v1beta1.json"
+    },
+    {
+      "$ref": "storage.alibabacloud.com/storageautoscalerpolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "storage.alibabacloud.com/storageautoscalerpolicylist_v1alpha1.json"
     },
     {
       "$ref": "storage.api.k8s.io/csidriver_v1.json"

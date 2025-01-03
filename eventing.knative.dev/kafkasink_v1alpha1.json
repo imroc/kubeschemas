@@ -1,0 +1,198 @@
+{
+  "description": "Kafka Sink is Addressable, it receives events and send them to a Kafka topic.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "eventing.knative.dev/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "KafkaSink"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "Spec defines the desired state of the Kafka Sink.",
+      "properties": {
+        "auth": {
+          "description": "Auth configurations",
+          "properties": {
+            "secret": {
+              "description": "Auth secret",
+              "properties": {
+                "ref": {
+                  "description": "Secret reference.\n",
+                  "properties": {
+                    "name": {
+                      "description": "Secret name",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ],
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "bootstrapServers": {
+          "description": "A list of host/port pairs to use for establishing the initial connection to the Kafka cluster.",
+          "items": {
+            "type": "string"
+          },
+          "minLength": 1,
+          "type": "array"
+        },
+        "contentMode": {
+          "default": "binary",
+          "description": "CloudEvent content mode of Kafka messages sent to the topic.\nPossible values: [binary, structured] (default: binary)\n- https://github.com/cloudevents/spec/blob/v1.0/spec.md#message\n  - https://github.com/cloudevents/spec/blob/v1.0/kafka-protocol-binding.md#32-binary-content-mode\n  - https://github.com/cloudevents/spec/blob/v1.0/kafka-protocol-binding.md#33-structured-content-mode\n",
+          "enum": [
+            "binary",
+            "structured"
+          ],
+          "type": "string"
+        },
+        "numPartitions": {
+          "description": "Number of topic partitions. If not specified the topic isn't automatically created, and the system supposes that the topic is already present.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "replicationFactor": {
+          "description": "Topic replication factor. If not specified the topic isn't automatically created, and the system supposes that the topic is already present.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "topic": {
+          "description": "Topic name to send events.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "topic",
+        "bootstrapServers"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "description": "Status represents the current state of the KafkaSink. This data may be out of date.",
+      "properties": {
+        "address": {
+          "description": "Kafka Sink is Addressable. It exposes the endpoint as an URI to get events delivered into the Kafka topic.",
+          "properties": {
+            "CACerts": {
+              "type": "string"
+            },
+            "audience": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "addresses": {
+          "description": "Kafka Sink is Addressable. It exposes the endpoints as URIs to get events delivered into the Kafka topic.",
+          "items": {
+            "properties": {
+              "CACerts": {
+                "type": "string"
+              },
+              "audience": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "annotations": {
+          "description": "Annotations is additional Status fields for the Resource to save some additional State as well as convey more information to the user. This is roughly akin to Annotations on any k8s resource, just the reconciler conveying richer information outwards.",
+          "type": "object",
+          "x-kubernetes-preserve-unknown-fields": true
+        },
+        "conditions": {
+          "description": "Conditions the latest available observations of a resource's current state.",
+          "items": {
+            "properties": {
+              "lastTransitionTime": {
+                "description": "LastTransitionTime is the last time the condition transitioned from one status to another. We use VolatileTime in place of metav1.Time to exclude this from creating equality.Semantic differences (all other things held constant).",
+                "type": "string"
+              },
+              "message": {
+                "description": "A human readable message indicating details about the transition.",
+                "type": "string"
+              },
+              "reason": {
+                "description": "The reason for the condition's last transition.",
+                "type": "string"
+              },
+              "severity": {
+                "description": "Severity with which to treat failures of this type of condition. When this is not specified, it defaults to Error.",
+                "type": "string"
+              },
+              "status": {
+                "description": "Status of the condition, one of True, False, Unknown.",
+                "type": "string"
+              },
+              "type": {
+                "description": "Type of condition.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "status"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "observedGeneration": {
+          "description": "ObservedGeneration is the 'Generation' of the Service that was last processed by the controller.",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "eventing.knative.dev",
+      "kind": "KafkaSink",
+      "version": "v1alpha1"
+    }
+  ],
+  "x-kubernetes-selectable-fields": []
+}

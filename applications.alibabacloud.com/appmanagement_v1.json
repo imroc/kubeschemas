@@ -1,0 +1,131 @@
+{
+  "description": "AppManagement is the Schema for the appmanagements API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "applications.alibabacloud.com/v1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "AppManagement"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "AppManagementSpec defines the desired state of AppManagement",
+      "properties": {
+        "action": {
+          "description": "INSERT ADDITIONAL SPEC FIELDS - desired state of cluster Important: Run \"make\" to regenerate code after modifying this file Action of the app.",
+          "type": "string"
+        },
+        "charturl": {
+          "description": "Chart URL",
+          "type": "string"
+        },
+        "chartvalues": {
+          "description": "Values holds the values for this Helm release.",
+          "x-kubernetes-preserve-unknown-fields": true
+        },
+        "disablehooks": {
+          "description": "Disable hooks or not",
+          "type": "boolean"
+        },
+        "dryrun": {
+          "description": "Simulate install or not",
+          "type": "boolean"
+        },
+        "force": {
+          "description": "Force resource update through delete/recreate if needed.",
+          "type": "boolean"
+        },
+        "namespace": {
+          "description": "Kubernetes namespace to install release into",
+          "type": "string"
+        },
+        "ociimageurl": {
+          "type": "string"
+        },
+        "password": {
+          "description": "password for acr EE",
+          "type": "string"
+        },
+        "recreate": {
+          "description": "Performs pods restart for resources if applicable",
+          "type": "boolean"
+        },
+        "releasename": {
+          "description": "Release name",
+          "type": "string"
+        },
+        "resetvalues": {
+          "description": "ResetValues will cause Tiller to ignore stored values, resetting to default values.",
+          "type": "boolean"
+        },
+        "reusename": {
+          "description": "Install can reuse existing release name or not",
+          "type": "boolean"
+        },
+        "reusevalues": {
+          "description": "ReuseValues will cause Tiller to reuse the values from the last release. This is ignored if reset_values is set.",
+          "type": "boolean"
+        },
+        "secretref": {
+          "type": "string"
+        },
+        "timeout": {
+          "type": "integer"
+        },
+        "username": {
+          "description": "User name for acr EE",
+          "type": "string"
+        },
+        "values": {
+          "description": "Values for overriding during install release",
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "description": "AppManagementStatus defines the observed state of AppManagement",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "state": {
+          "description": "INSERT ADDITIONAL STATUS FIELD - define observed state of cluster Important: Run \"make\" to regenerate code after modifying this file",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "applications.alibabacloud.com",
+      "kind": "AppManagement",
+      "version": "v1"
+    }
+  ],
+  "x-kubernetes-selectable-fields": []
+}

@@ -1,0 +1,104 @@
+{
+  "description": "ContainerNetworkFileSystem is the Schema for the ContainerNetworkFileSystem API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "storage.alibabacloud.com/v1beta1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "ContainerNetworkFileSystem"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "spec include type and parameters and reclaimPolicy and attributes.Read-only.",
+      "properties": {
+        "createStorageClass": {
+          "description": "create storageclass for cnfs",
+          "type": "boolean"
+        },
+        "description": {
+          "description": "description is a description of the file system",
+          "type": "string"
+        },
+        "parameters": {
+          "type": "object",
+          "x-kubernetes-preserve-unknown-fields": true
+        },
+        "reclaimPolicy": {
+          "description": "reclaimPolicy indicates how the file system is deleted",
+          "type": "string"
+        },
+        "type": {
+          "description": "type is the type of file system",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "description": "ContainerNetworkFileSystem define status",
+      "properties": {
+        "conditions": {
+          "description": "ContainerNetworkFileSystem define conditions",
+          "items": {
+            "properties": {
+              "lastProbeTime": {
+                "description": "lastProbeTime represents the last probe time",
+                "type": "string"
+              },
+              "lastTransitionTime": {
+                "type": "string"
+              },
+              "reason": {
+                "description": "Indicates the reason for the current state reached by the current file system",
+                "type": "string"
+              },
+              "status": {
+                "description": "The current state of the filesystem, support Ready and NotReady status",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "fsAttributes": {
+          "type": "object",
+          "x-kubernetes-preserve-unknown-fields": true
+        },
+        "status": {
+          "description": "The current state of the crd, support Pending,Creating,Initialization,Available,Unavailable,Fatal,Terminating status",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "storage.alibabacloud.com",
+      "kind": "ContainerNetworkFileSystem",
+      "version": "v1beta1"
+    }
+  ],
+  "x-kubernetes-selectable-fields": []
+}

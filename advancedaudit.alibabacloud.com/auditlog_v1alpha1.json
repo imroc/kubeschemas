@@ -1,0 +1,268 @@
+{
+  "description": "AuditLog is the Schema for the auditlogs API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "advancedaudit.alibabacloud.com/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "AuditLog"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "AuditLogSpec defines the desired state of AuditLog",
+      "properties": {
+        "requestId": {
+          "description": "UID is a type that holds unique ID values, including UUIDs.  Because we don't ONLY use UUIDs, this is an alias to string.  Being a type captures intent and helps make sure that UIDs and names do not get conflated.",
+          "type": "string"
+        },
+        "requestInfo": {
+          "properties": {
+            "object": {
+              "properties": {
+                "group": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "namespace": {
+                  "type": "string"
+                },
+                "resource": {
+                  "type": "string"
+                },
+                "version": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "group",
+                "name",
+                "namespace",
+                "resource",
+                "version"
+              ],
+              "type": "object"
+            },
+            "operation": {
+              "properties": {
+                "kind": {
+                  "description": "OperationKind",
+                  "enum": [
+                    "PodExec",
+                    "PodAttach",
+                    "ContainerExec"
+                  ],
+                  "type": "string"
+                },
+                "podAttachOptions": {
+                  "properties": {
+                    "container": {
+                      "description": "Container in which to execute the command. Defaults to only container if there is only one container in the pod.",
+                      "type": "string"
+                    },
+                    "stderr": {
+                      "description": "Redirect the standard error stream of the pod for this call. Defaults to true.",
+                      "type": "boolean"
+                    },
+                    "stdin": {
+                      "description": "Redirect the standard input stream of the pod for this call. Defaults to false.",
+                      "type": "boolean"
+                    },
+                    "stdout": {
+                      "description": "Redirect the standard output stream of the pod for this call. Defaults to true.",
+                      "type": "boolean"
+                    },
+                    "tty": {
+                      "description": "TTY if true indicates that a tty will be allocated for the exec call. Defaults to false.",
+                      "type": "boolean"
+                    }
+                  },
+                  "type": "object"
+                },
+                "podExecOptions": {
+                  "properties": {
+                    "command": {
+                      "description": "Command is the remote command to execute. argv array. Not executed within a shell.",
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "commandStr": {
+                      "type": "string"
+                    },
+                    "container": {
+                      "description": "Container in which to execute the command. Defaults to only container if there is only one container in the pod.",
+                      "type": "string"
+                    },
+                    "stderr": {
+                      "description": "Redirect the standard error stream of the pod for this call. Defaults to true.",
+                      "type": "boolean"
+                    },
+                    "stdin": {
+                      "description": "Redirect the standard input stream of the pod for this call. Defaults to false.",
+                      "type": "boolean"
+                    },
+                    "stdout": {
+                      "description": "Redirect the standard output stream of the pod for this call. Defaults to true.",
+                      "type": "boolean"
+                    },
+                    "tty": {
+                      "description": "TTY if true indicates that a tty will be allocated for the exec call. Defaults to false.",
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "command"
+                  ],
+                  "type": "object"
+                }
+              },
+              "required": [
+                "kind"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "object",
+            "operation"
+          ],
+          "type": "object"
+        },
+        "requestTime": {
+          "x-kubernetes-preserve-unknown-fields": true
+        },
+        "userInfo": {
+          "properties": {
+            "aliUid": {
+              "format": "int64",
+              "type": "integer"
+            },
+            "extra": {
+              "additionalProperties": {
+                "description": "ExtraValue masks the value so protobuf can generate",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "description": "Any additional information provided by the authenticator.",
+              "type": "object"
+            },
+            "groups": {
+              "description": "The names of groups this user is a part of.",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "uid": {
+              "description": "A unique value that identifies this user across time. If this user is deleted and another user by the same name is added, they will have different UIDs.",
+              "type": "string"
+            },
+            "username": {
+              "description": "The name that uniquely identifies this user among all active users.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "requestId",
+        "requestInfo",
+        "requestTime",
+        "userInfo"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "description": "AuditLogStatus defines the observed state of AuditLog",
+      "properties": {
+        "conditions": {
+          "items": {
+            "properties": {
+              "lastProbeTime": {
+                "description": "Last time we probed the condition.",
+                "format": "date-time",
+                "type": "string"
+              },
+              "lastTransitionTime": {
+                "description": "Last time the condition transitioned from one status to another.",
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "description": "Human-readable message indicating details about last transition.",
+                "type": "string"
+              },
+              "reason": {
+                "description": "Unique, one-word, CamelCase reason for the condition's last transition.",
+                "type": "string"
+              },
+              "status": {
+                "description": "Status is the status of the condition. Can be True, False, Unknown.",
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "type"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "forefatherPid": {
+          "type": "string"
+        },
+        "loginShellId": {
+          "type": "string"
+        },
+        "nodeName": {
+          "type": "string"
+        },
+        "sessionId": {
+          "type": "string"
+        },
+        "ttyId": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "advancedaudit.alibabacloud.com",
+      "kind": "AuditLog",
+      "version": "v1alpha1"
+    }
+  ],
+  "x-kubernetes-selectable-fields": []
+}

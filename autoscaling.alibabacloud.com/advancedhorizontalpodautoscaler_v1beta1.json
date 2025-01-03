@@ -1,0 +1,340 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "autoscaling.alibabacloud.com/v1beta1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "AdvancedHorizontalPodAutoscaler"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "instanceBounds": {
+          "items": {
+            "properties": {
+              "bounds": {
+                "items": {
+                  "properties": {
+                    "cron": {
+                      "type": "string"
+                    },
+                    "maxReplicas": {
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "minReplicas": {
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "scaleDown": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "required": [
+                  "cron",
+                  "maxReplicas",
+                  "minReplicas"
+                ],
+                "type": "array"
+              },
+              "endTime": {
+                "type": "string"
+              },
+              "startTime": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "bounds",
+              "endTime",
+              "startTime"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "maxReplicas": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "metrics": {
+          "items": {
+            "properties": {
+              "external": {
+                "properties": {
+                  "metric": {
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "selector": {
+                        "properties": {
+                          "matchExpressions": {
+                            "items": {
+                              "properties": {
+                                "key": {
+                                  "type": "string"
+                                },
+                                "operator": {
+                                  "type": "string"
+                                },
+                                "values": {
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "type": "array"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "matchLabels": {
+                            "additionalProperties": {
+                              "type": "string"
+                            },
+                            "type": "object"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "metricsQuery": {
+                    "type": "string"
+                  },
+                  "target": {
+                    "properties": {
+                      "averageValue": {
+                        "format": "int32",
+                        "type": "integer"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "resource": {
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "target": {
+                    "properties": {
+                      "averageUtilization": {
+                        "format": "int32",
+                        "type": "integer"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "minReplicas": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "prediction": {
+          "properties": {
+            "quantile": {
+              "format": "int32",
+              "type": "integer"
+            },
+            "scaleUpForward": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
+        "proactiveDS": {
+          "properties": {
+            "query": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "reactiveDS": {
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "scaleStrategy": {
+          "type": "string"
+        },
+        "scaleTargetRef": {
+          "properties": {
+            "apiVersion": {
+              "type": "string"
+            },
+            "appName": {
+              "type": "string"
+            },
+            "kind": {
+              "type": "string"
+            },
+            "label": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "stabilizationWindowSeconds": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "properties": {
+        "conditions": {
+          "items": {
+            "properties": {
+              "message": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "currentMetrics": {
+          "items": {
+            "properties": {
+              "resource": {
+                "properties": {
+                  "current": {
+                    "properties": {
+                      "averageUtilization": {
+                        "format": "int32",
+                        "type": "integer"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "currentReplicas": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "desiredReplicas": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "maxReplicas": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "minReplicas": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "periodicity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "targetMetric": {
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "targets": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "targetRef": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "autoscaling.alibabacloud.com",
+      "kind": "AdvancedHorizontalPodAutoscaler",
+      "version": "v1beta1"
+    }
+  ],
+  "x-kubernetes-selectable-fields": []
+}

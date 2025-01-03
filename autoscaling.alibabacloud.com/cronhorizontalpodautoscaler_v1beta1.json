@@ -1,0 +1,172 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "autoscaling.alibabacloud.com/v1beta1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "CronHorizontalPodAutoscaler"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "excludeDates": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "jobs": {
+          "items": {
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "runOnce": {
+                "type": "boolean"
+              },
+              "schedule": {
+                "type": "string"
+              },
+              "targetSize": {
+                "format": "int32",
+                "type": "integer"
+              }
+            },
+            "required": [
+              "name",
+              "schedule",
+              "targetSize"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "scaleTargetRef": {
+          "properties": {
+            "apiVersion": {
+              "type": "string"
+            },
+            "kind": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "apiVersion",
+            "kind",
+            "name"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "jobs",
+        "scaleTargetRef"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "properties": {
+        "conditions": {
+          "items": {
+            "properties": {
+              "jobId": {
+                "type": "string"
+              },
+              "lastProbeTime": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "runOnce": {
+                "type": "boolean"
+              },
+              "schedule": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "targetSize": {
+                "format": "int32",
+                "type": "integer"
+              }
+            },
+            "required": [
+              "jobId",
+              "lastProbeTime",
+              "name",
+              "runOnce",
+              "schedule",
+              "state",
+              "targetSize"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "excludeDates": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "scaleTargetRef": {
+          "properties": {
+            "apiVersion": {
+              "type": "string"
+            },
+            "kind": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "apiVersion",
+            "kind",
+            "name"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "autoscaling.alibabacloud.com",
+      "kind": "CronHorizontalPodAutoscaler",
+      "version": "v1beta1"
+    }
+  ],
+  "x-kubernetes-selectable-fields": []
+}
