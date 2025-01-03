@@ -1,0 +1,447 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "telemetry.alibabacloud.com/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "ClusterAliyunPipelineConfig"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "appliedTime": {
+          "type": "string"
+        },
+        "config": {
+          "properties": {
+            "aggregators": {
+              "items": {
+                "type": "object",
+                "x-kubernetes-preserve-unknown-fields": true
+              },
+              "nullable": true,
+              "type": "array"
+            },
+            "configTags": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "nullable": true,
+              "type": "object"
+            },
+            "flushers": {
+              "items": {
+                "type": "object",
+                "x-kubernetes-preserve-unknown-fields": true
+              },
+              "nullable": true,
+              "type": "array"
+            },
+            "global": {
+              "nullable": true,
+              "type": "object",
+              "x-kubernetes-preserve-unknown-fields": true
+            },
+            "inputs": {
+              "items": {
+                "type": "object",
+                "x-kubernetes-preserve-unknown-fields": true
+              },
+              "nullable": true,
+              "type": "array"
+            },
+            "name": {
+              "type": "string"
+            },
+            "processors": {
+              "items": {
+                "type": "object",
+                "x-kubernetes-preserve-unknown-fields": true
+              },
+              "nullable": true,
+              "type": "array"
+            },
+            "sample": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "flushers",
+            "inputs"
+          ],
+          "type": "object",
+          "x-kubernetes-preserve-unknown-fields": true
+        },
+        "enableUpgradeOverride": {
+          "type": "boolean"
+        },
+        "logstores": {
+          "items": {
+            "properties": {
+              "appendMeta": {
+                "type": "boolean"
+              },
+              "autoSplit": {
+                "type": "boolean"
+              },
+              "enableTracking": {
+                "type": "boolean"
+              },
+              "encryptConf": {
+                "properties": {
+                  "enable": {
+                    "type": "boolean"
+                  },
+                  "encryptType": {
+                    "type": "string"
+                  },
+                  "userCmkInfo": {
+                    "properties": {
+                      "arn": {
+                        "type": "string"
+                      },
+                      "cmkKeyID": {
+                        "type": "string"
+                      },
+                      "regionID": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "arn",
+                      "cmkKeyID",
+                      "regionID"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "hotTtl": {
+                "format": "int32",
+                "type": "integer"
+              },
+              "maxSplitShard": {
+                "format": "int32",
+                "type": "integer"
+              },
+              "meteringMode": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "productCode": {
+                "type": "string"
+              },
+              "productLanguage": {
+                "type": "string"
+              },
+              "queryMode": {
+                "type": "string"
+              },
+              "shardCount": {
+                "format": "int32",
+                "type": "integer"
+              },
+              "telemetryType": {
+                "type": "string"
+              },
+              "ttl": {
+                "format": "int32",
+                "type": "integer"
+              }
+            },
+            "required": [
+              "name"
+            ],
+            "type": "object"
+          },
+          "type": "array",
+          "x-kubernetes-preserve-unknown-fields": true
+        },
+        "machineGroups": {
+          "items": {
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name"
+            ],
+            "type": "object"
+          },
+          "type": "array",
+          "x-kubernetes-preserve-unknown-fields": true
+        },
+        "project": {
+          "properties": {
+            "description": {
+              "type": "string"
+            },
+            "endpoint": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "uid": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "type": "object",
+          "x-kubernetes-preserve-unknown-fields": true
+        }
+      },
+      "required": [
+        "config",
+        "project"
+      ],
+      "type": "object",
+      "x-kubernetes-preserve-unknown-fields": true
+    },
+    "status": {
+      "properties": {
+        "lastAppliedConfig": {
+          "properties": {
+            "appliedTime": {
+              "type": "string"
+            },
+            "config": {
+              "properties": {
+                "aggregators": {
+                  "items": {
+                    "type": "object",
+                    "x-kubernetes-preserve-unknown-fields": true
+                  },
+                  "nullable": true,
+                  "type": "array"
+                },
+                "configTags": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "nullable": true,
+                  "type": "object"
+                },
+                "flushers": {
+                  "items": {
+                    "type": "object",
+                    "x-kubernetes-preserve-unknown-fields": true
+                  },
+                  "nullable": true,
+                  "type": "array"
+                },
+                "global": {
+                  "nullable": true,
+                  "type": "object",
+                  "x-kubernetes-preserve-unknown-fields": true
+                },
+                "inputs": {
+                  "items": {
+                    "type": "object",
+                    "x-kubernetes-preserve-unknown-fields": true
+                  },
+                  "nullable": true,
+                  "type": "array"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "processors": {
+                  "items": {
+                    "type": "object",
+                    "x-kubernetes-preserve-unknown-fields": true
+                  },
+                  "nullable": true,
+                  "type": "array"
+                },
+                "sample": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "flushers",
+                "inputs"
+              ],
+              "type": "object",
+              "x-kubernetes-preserve-unknown-fields": true
+            },
+            "enableUpgradeOverride": {
+              "type": "boolean"
+            },
+            "logstores": {
+              "items": {
+                "properties": {
+                  "appendMeta": {
+                    "type": "boolean"
+                  },
+                  "autoSplit": {
+                    "type": "boolean"
+                  },
+                  "enableTracking": {
+                    "type": "boolean"
+                  },
+                  "encryptConf": {
+                    "properties": {
+                      "enable": {
+                        "type": "boolean"
+                      },
+                      "encryptType": {
+                        "type": "string"
+                      },
+                      "userCmkInfo": {
+                        "properties": {
+                          "arn": {
+                            "type": "string"
+                          },
+                          "cmkKeyID": {
+                            "type": "string"
+                          },
+                          "regionID": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "arn",
+                          "cmkKeyID",
+                          "regionID"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "hotTtl": {
+                    "format": "int32",
+                    "type": "integer"
+                  },
+                  "maxSplitShard": {
+                    "format": "int32",
+                    "type": "integer"
+                  },
+                  "meteringMode": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "productCode": {
+                    "type": "string"
+                  },
+                  "productLanguage": {
+                    "type": "string"
+                  },
+                  "queryMode": {
+                    "type": "string"
+                  },
+                  "shardCount": {
+                    "format": "int32",
+                    "type": "integer"
+                  },
+                  "telemetryType": {
+                    "type": "string"
+                  },
+                  "ttl": {
+                    "format": "int32",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "name"
+                ],
+                "type": "object"
+              },
+              "type": "array",
+              "x-kubernetes-preserve-unknown-fields": true
+            },
+            "machineGroups": {
+              "items": {
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ],
+                "type": "object"
+              },
+              "type": "array",
+              "x-kubernetes-preserve-unknown-fields": true
+            },
+            "project": {
+              "properties": {
+                "description": {
+                  "type": "string"
+                },
+                "endpoint": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "uid": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "type": "object",
+              "x-kubernetes-preserve-unknown-fields": true
+            }
+          },
+          "required": [
+            "config",
+            "project"
+          ],
+          "type": "object"
+        },
+        "lastUpdateTime": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "x-kubernetes-preserve-unknown-fields": true
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "telemetry.alibabacloud.com",
+      "kind": "ClusterAliyunPipelineConfig",
+      "version": "v1alpha1"
+    }
+  ],
+  "x-kubernetes-selectable-fields": []
+}

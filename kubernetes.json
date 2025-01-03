@@ -112,10 +112,28 @@
       "$ref": "agones.dev/gameserversetlist_v1.json"
     },
     {
+      "$ref": "alert.alibabacloud.com/ackalertrule_v1beta1.json"
+    },
+    {
+      "$ref": "alert.alibabacloud.com/ackalertrulelist_v1beta1.json"
+    },
+    {
+      "$ref": "alibabacloud.com/albconfig_v1.json"
+    },
+    {
+      "$ref": "alibabacloud.com/albconfiglist_v1.json"
+    },
+    {
       "$ref": "alibabacloud.com/poddnat_v1beta1.json"
     },
     {
       "$ref": "alibabacloud.com/poddnatlist_v1beta1.json"
+    },
+    {
+      "$ref": "alibabacloud.com/resourceflavor_v1beta2.json"
+    },
+    {
+      "$ref": "alibabacloud.com/resourceflavorlist_v1beta2.json"
     },
     {
       "$ref": "analysis.crane.io/analytics_v1alpha1.json"
@@ -943,6 +961,12 @@
       "$ref": "certificates.api.k8s.io/certificatesigningrequestlist_v1.json"
     },
     {
+      "$ref": "cilium.io/ciliumclusterwidenetworkpolicy_v2.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumclusterwidenetworkpolicylist_v2.json"
+    },
+    {
       "$ref": "cilium.io/ciliumendpoint_v2.json"
     },
     {
@@ -971,6 +995,12 @@
     },
     {
       "$ref": "cilium.io/ciliumlocalredirectpolicylist_v2.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumnetworkpolicy_v2.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumnetworkpolicylist_v2.json"
     },
     {
       "$ref": "cilium.io/ciliumnode_v2.json"
@@ -1526,6 +1556,54 @@
     },
     {
       "$ref": "crd.k8s.amazonaws.com/eniconfiglist_v1alpha1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/bgpconfiguration_v1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/bgpconfigurationlist_v1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/clusterinformation_v1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/clusterinformationlist_v1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/felixconfiguration_v1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/felixconfigurationlist_v1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/globalnetworkpolicy_v1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/globalnetworkpolicylist_v1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/globalnetworkset_v1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/globalnetworksetlist_v1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/hostendpoint_v1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/hostendpointlist_v1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/ippool_v1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/ippoollist_v1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/networkpolicy_v1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/networkpolicylist_v1.json"
     },
     {
       "$ref": "crd.yangtse.cni/eip_v1.json"
@@ -2263,6 +2341,12 @@
       "$ref": "k8s.cni.cncf.io/networkattachmentdefinitionlist_v1.json"
     },
     {
+      "$ref": "kai.alibabacloud.com/genericnode_v1alpha1.json"
+    },
+    {
+      "$ref": "kai.alibabacloud.com/genericnodelist_v1alpha1.json"
+    },
+    {
       "$ref": "karpenter.sh/nodeclaim_v1.json"
     },
     {
@@ -2537,6 +2621,12 @@
     },
     {
       "$ref": "localvolume.everest.io/nodelocalvolumelist_v1.json"
+    },
+    {
+      "$ref": "log.alibabacloud.com/aliyunlogconfig_v1alpha1.json"
+    },
+    {
+      "$ref": "log.alibabacloud.com/aliyunlogconfiglist_v1alpha1.json"
     },
     {
       "$ref": "messaging.knative.dev/channel_v1.json"
@@ -2831,6 +2921,30 @@
     },
     {
       "$ref": "mutations.gatekeeper.sh/modifysetlist_v1beta1.json"
+    },
+    {
+      "$ref": "network.alibabacloud.com/node_v1beta1.json"
+    },
+    {
+      "$ref": "network.alibabacloud.com/nodelist_v1beta1.json"
+    },
+    {
+      "$ref": "network.alibabacloud.com/noderuntime_v1beta1.json"
+    },
+    {
+      "$ref": "network.alibabacloud.com/noderuntimelist_v1beta1.json"
+    },
+    {
+      "$ref": "network.alibabacloud.com/podeni_v1beta1.json"
+    },
+    {
+      "$ref": "network.alibabacloud.com/podenilist_v1beta1.json"
+    },
+    {
+      "$ref": "network.alibabacloud.com/podnetworking_v1beta1.json"
+    },
+    {
+      "$ref": "network.alibabacloud.com/podnetworkinglist_v1beta1.json"
     },
     {
       "$ref": "networking.api.k8s.io/ingress_v1.json"
@@ -3802,6 +3916,12 @@
       "$ref": "rollouts.kruise.io/trafficroutinglist_v1alpha1.json"
     },
     {
+      "$ref": "scheduling.alibabacloud.com/resourcepolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "scheduling.alibabacloud.com/resourcepolicylist_v1alpha1.json"
+    },
+    {
       "$ref": "scheduling.api.k8s.io/priorityclass_v1.json"
     },
     {
@@ -3838,6 +3958,48 @@
       "$ref": "scheduling.crane.io/noderesourcepolicylist_v1alpha1.json"
     },
     {
+      "$ref": "scheduling.koordinator.sh/clusternetworktopology_v1alpha1.json"
+    },
+    {
+      "$ref": "scheduling.koordinator.sh/clusternetworktopologylist_v1alpha1.json"
+    },
+    {
+      "$ref": "scheduling.koordinator.sh/device_v1alpha1.json"
+    },
+    {
+      "$ref": "scheduling.koordinator.sh/devicelist_v1alpha1.json"
+    },
+    {
+      "$ref": "scheduling.koordinator.sh/jobnetworktopology_v1alpha1.json"
+    },
+    {
+      "$ref": "scheduling.koordinator.sh/jobnetworktopologylist_v1alpha1.json"
+    },
+    {
+      "$ref": "scheduling.koordinator.sh/reservation_v1alpha1.json"
+    },
+    {
+      "$ref": "scheduling.koordinator.sh/reservationlist_v1alpha1.json"
+    },
+    {
+      "$ref": "scheduling.sigs.k8s.io/elasticquota_v1alpha1.json"
+    },
+    {
+      "$ref": "scheduling.sigs.k8s.io/elasticquotalist_v1alpha1.json"
+    },
+    {
+      "$ref": "scheduling.sigs.k8s.io/elasticquotatree_v1beta1.json"
+    },
+    {
+      "$ref": "scheduling.sigs.k8s.io/elasticquotatreelist_v1beta1.json"
+    },
+    {
+      "$ref": "scheduling.sigs.k8s.io/podgroup_v1alpha1.json"
+    },
+    {
+      "$ref": "scheduling.sigs.k8s.io/podgrouplist_v1alpha1.json"
+    },
+    {
       "$ref": "scheduling.volcano.sh/podgroup_v1beta1.json"
     },
     {
@@ -3848,6 +4010,12 @@
     },
     {
       "$ref": "scheduling.volcano.sh/queuelist_v1beta1.json"
+    },
+    {
+      "$ref": "scheduling.x-k8s.io/podgroup_v1alpha1.json"
+    },
+    {
+      "$ref": "scheduling.x-k8s.io/podgrouplist_v1alpha1.json"
     },
     {
       "$ref": "secrets-store.csi.x-k8s.io/secretproviderclass_v1.json"
@@ -3934,6 +4102,78 @@
       "$ref": "security.istio.io/requestauthenticationlist_v1beta1.json"
     },
     {
+      "$ref": "securityinspector.alibabacloud.com/benchmarkcsvresult_v1alpha1.json"
+    },
+    {
+      "$ref": "securityinspector.alibabacloud.com/benchmarkcsvresultlist_v1alpha1.json"
+    },
+    {
+      "$ref": "securityinspector.alibabacloud.com/benchmarkjob_v1alpha1.json"
+    },
+    {
+      "$ref": "securityinspector.alibabacloud.com/benchmarkjoblist_v1alpha1.json"
+    },
+    {
+      "$ref": "securityinspector.alibabacloud.com/benchmarkrawresult_v1alpha1.json"
+    },
+    {
+      "$ref": "securityinspector.alibabacloud.com/benchmarkrawresultlist_v1alpha1.json"
+    },
+    {
+      "$ref": "securityinspector.alibabacloud.com/benchmarkreport_v1alpha1.json"
+    },
+    {
+      "$ref": "securityinspector.alibabacloud.com/benchmarkreportlist_v1alpha1.json"
+    },
+    {
+      "$ref": "securityinspector.alibabacloud.com/benchmarksummary_v1alpha1.json"
+    },
+    {
+      "$ref": "securityinspector.alibabacloud.com/benchmarksummarylist_v1alpha1.json"
+    },
+    {
+      "$ref": "securityinspector.alibabacloud.com/benchmarktask_v1alpha1.json"
+    },
+    {
+      "$ref": "securityinspector.alibabacloud.com/benchmarktasklist_v1alpha1.json"
+    },
+    {
+      "$ref": "securityinspector.alibabacloud.com/benchmarkwhitelist_v1alpha1.json"
+    },
+    {
+      "$ref": "securityinspector.alibabacloud.com/benchmarkwhitelistlist_v1alpha1.json"
+    },
+    {
+      "$ref": "securityinspector.alibabacloud.com/clustercvefixjob_v1alpha1.json"
+    },
+    {
+      "$ref": "securityinspector.alibabacloud.com/clustercvefixjoblist_v1alpha1.json"
+    },
+    {
+      "$ref": "securityinspector.alibabacloud.com/clustercvereport_v1alpha1.json"
+    },
+    {
+      "$ref": "securityinspector.alibabacloud.com/clustercvereportlist_v1alpha1.json"
+    },
+    {
+      "$ref": "securityinspector.alibabacloud.com/configauditclustersummary_v1alpha1.json"
+    },
+    {
+      "$ref": "securityinspector.alibabacloud.com/configauditclustersummarylist_v1alpha1.json"
+    },
+    {
+      "$ref": "securityinspector.alibabacloud.com/configauditreport_v1alpha1.json"
+    },
+    {
+      "$ref": "securityinspector.alibabacloud.com/configauditreportlist_v1alpha1.json"
+    },
+    {
+      "$ref": "securityinspector.alibabacloud.com/configauditwhitelist_v1alpha1.json"
+    },
+    {
+      "$ref": "securityinspector.alibabacloud.com/configauditwhitelistlist_v1alpha1.json"
+    },
+    {
       "$ref": "serving.knative.dev/configuration_v1.json"
     },
     {
@@ -3974,6 +4214,12 @@
     },
     {
       "$ref": "sinks.knative.dev/jobsinklist_v1alpha1.json"
+    },
+    {
+      "$ref": "slo.koordinator.sh/nodemetric_v1alpha1.json"
+    },
+    {
+      "$ref": "slo.koordinator.sh/nodemetriclist_v1alpha1.json"
     },
     {
       "$ref": "snapshot.storage.k8s.io/volumesnapshot_v1.json"
@@ -4294,6 +4540,12 @@
       "$ref": "tekton.dev/verificationpolicylist_v1alpha1.json"
     },
     {
+      "$ref": "telemetry.alibabacloud.com/clusteraliyunpipelineconfig_v1alpha1.json"
+    },
+    {
+      "$ref": "telemetry.alibabacloud.com/clusteraliyunpipelineconfiglist_v1alpha1.json"
+    },
+    {
       "$ref": "telemetry.istio.io/telemetry_v1.json"
     },
     {
@@ -4328,6 +4580,12 @@
     },
     {
       "$ref": "topology.crane.io/noderesourcetopologylist_v1alpha1.json"
+    },
+    {
+      "$ref": "topology.node.k8s.io/noderesourcetopology_v1alpha1.json"
+    },
+    {
+      "$ref": "topology.node.k8s.io/noderesourcetopologylist_v1alpha1.json"
     },
     {
       "$ref": "topology.volcano.sh/hypercluster_v1alpha1.json"

@@ -1,0 +1,338 @@
+{
+  "description": "AckAlertRule is the Schema for the ackalertrules API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "alert.alibabacloud.com/v1beta1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "AckAlertRule"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "AckAlertRuleSpec defines the desired state of AckAlertRule",
+      "properties": {
+        "groups": {
+          "items": {
+            "description": "AlertRuleGroup defines alert rules in a ruleset of AlertRule",
+            "properties": {
+              "name": {
+                "description": "Name is the rule set name of batch of alert rules.",
+                "maxLength": 20,
+                "type": "string"
+              },
+              "rules": {
+                "description": "Rules defines alert rules in a ruleset of AlertRule",
+                "items": {
+                  "properties": {
+                    "contactGroups": {
+                      "description": "ContactGroups is the contact binding info of this alert rule.",
+                      "items": {
+                        "additionalProperties": {
+                          "type": "string"
+                        },
+                        "type": "object"
+                      },
+                      "maxItems": 50,
+                      "type": "array"
+                    },
+                    "enable": {
+                      "description": "AlertRuleEnable is the switch of the alert rule. enum of enable/disable",
+                      "enum": [
+                        "enable",
+                        "disable"
+                      ],
+                      "type": "string"
+                    },
+                    "expression": {
+                      "description": "Expression is the expression of the alert rule. when type is metric, this will be recognized as a promQL, when type is event, this will be recognized as a SLS (sls.console.aliyun.com) expression.",
+                      "maxLength": 300,
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Alert is the name of the alert rule.",
+                      "maxLength": 30,
+                      "type": "string"
+                    },
+                    "notification": {
+                      "description": "Notification is some configurations of annotations for this alert rule.",
+                      "properties": {
+                        "message": {
+                          "description": "Message is the notification format of this alert rule.",
+                          "maxLength": 300,
+                          "type": "string"
+                        },
+                        "sourceUrl": {
+                          "description": "SourceUrl is the runbook url when the alert rule firing.",
+                          "maxLength": 200,
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "thresholds": {
+                      "description": "Thresholds is kv list of thresholds of the rule config.",
+                      "items": {
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "unit": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "type": {
+                      "description": "Type is the alert type of the alert rule. enum of event/metric",
+                      "enum": [
+                        "event",
+                        "metric-cms",
+                        "metric-prometheus"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "enable",
+                    "expression",
+                    "name",
+                    "type"
+                  ],
+                  "type": "object"
+                },
+                "maxItems": 500,
+                "type": "array"
+              }
+            },
+            "required": [
+              "name",
+              "rules"
+            ],
+            "type": "object"
+          },
+          "maxItems": 50,
+          "type": "array"
+        },
+        "ruleVersion": {
+          "description": "!!! Warning !!! this RuleVersion need yaml marshal. RuleVersion is the release version of default rule template.",
+          "maxLength": 20,
+          "type": "string"
+        }
+      },
+      "required": [
+        "groups"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "description": "AckAlertRuleStatus defines the observed state of AckAlertRule",
+      "properties": {
+        "commonStatusSet": {
+          "items": {
+            "properties": {
+              "errorCode": {
+                "description": "Error code",
+                "type": "integer"
+              },
+              "lastProbeTime": {
+                "description": "LastProbeTime is the last modified timestamp of this rule.",
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "description": "Human readable message indicating details about last transition.",
+                "type": "string"
+              },
+              "reason": {
+                "description": "Reason of job StatusReason.",
+                "type": "string"
+              },
+              "state": {
+                "description": "Type of job AlertRuleState, completed or failed.",
+                "enum": [
+                  "completed",
+                  "failed"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "lastProbeTime",
+              "reason",
+              "state"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "ruleStatusSet": {
+          "items": {
+            "properties": {
+              "errorCode": {
+                "description": "Error code",
+                "type": "integer"
+              },
+              "externalProperties": {
+                "description": "External Properties of status",
+                "items": {
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "lastProbeTime": {
+                "description": "LastProbeTime is the last modified timestamp of this rule.",
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "description": "Human readable message indicating details about last transition.",
+                "type": "string"
+              },
+              "rule": {
+                "description": "Original config of the role.",
+                "properties": {
+                  "contactGroups": {
+                    "description": "ContactGroups is the contact binding info of this alert rule.",
+                    "items": {
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "type": "object"
+                    },
+                    "maxItems": 50,
+                    "type": "array"
+                  },
+                  "enable": {
+                    "description": "AlertRuleEnable is the switch of the alert rule. enum of enable/disable",
+                    "enum": [
+                      "enable",
+                      "disable"
+                    ],
+                    "type": "string"
+                  },
+                  "expression": {
+                    "description": "Expression is the expression of the alert rule. when type is metric, this will be recognized as a promQL, when type is event, this will be recognized as a SLS (sls.console.aliyun.com) expression.",
+                    "maxLength": 300,
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "Alert is the name of the alert rule.",
+                    "maxLength": 30,
+                    "type": "string"
+                  },
+                  "notification": {
+                    "description": "Notification is some configurations of annotations for this alert rule.",
+                    "properties": {
+                      "message": {
+                        "description": "Message is the notification format of this alert rule.",
+                        "maxLength": 300,
+                        "type": "string"
+                      },
+                      "sourceUrl": {
+                        "description": "SourceUrl is the runbook url when the alert rule firing.",
+                        "maxLength": 200,
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "thresholds": {
+                    "description": "Thresholds is kv list of thresholds of the rule config.",
+                    "items": {
+                      "properties": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "unit": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "type": {
+                    "description": "Type is the alert type of the alert rule. enum of event/metric",
+                    "enum": [
+                      "event",
+                      "metric-cms",
+                      "metric-prometheus"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "enable",
+                  "expression",
+                  "name",
+                  "type"
+                ],
+                "type": "object"
+              },
+              "state": {
+                "description": "Type of job State, completed or failed.",
+                "enum": [
+                  "completed",
+                  "failed"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "lastProbeTime",
+              "rule",
+              "state"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "alert.alibabacloud.com",
+      "kind": "AckAlertRule",
+      "version": "v1beta1"
+    }
+  ],
+  "x-kubernetes-selectable-fields": []
+}

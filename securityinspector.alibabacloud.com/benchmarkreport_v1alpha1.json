@@ -1,0 +1,134 @@
+{
+  "description": "BenchmarkReport is a specification for the BenchmarkReport resource.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "securityinspector.alibabacloud.com/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "BenchmarkReport"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "report": {
+      "properties": {
+        "benchmarkVersion": {
+          "type": "string"
+        },
+        "benchmarkVersionTitle": {
+          "type": "string"
+        },
+        "exemption": {
+          "type": "integer"
+        },
+        "fail": {
+          "type": "integer"
+        },
+        "nodeName": {
+          "type": "string"
+        },
+        "pass": {
+          "type": "integer"
+        },
+        "result": {
+          "items": {
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "pass": {
+                "type": "boolean"
+              },
+              "remediation": {
+                "type": "string"
+              },
+              "scored": {
+                "type": "boolean"
+              },
+              "status": {
+                "description": "pass fail warn info exemption",
+                "type": "string"
+              },
+              "subSectionID": {
+                "type": "string"
+              },
+              "subSectionTitle": {
+                "type": "string"
+              },
+              "subSectionType": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "whitelistType": {
+                "type": "string"
+              },
+              "whitelisted": {
+                "type": "boolean"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "scanDate": {
+          "format": "date-time",
+          "nullable": true,
+          "type": "string"
+        },
+        "scanID": {
+          "type": "string"
+        },
+        "sectionID": {
+          "type": "string"
+        },
+        "sectionTitle": {
+          "type": "string"
+        },
+        "sectionType": {
+          "type": "string"
+        },
+        "taskName": {
+          "type": "string"
+        },
+        "total": {
+          "type": "integer"
+        },
+        "warn": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "securityinspector.alibabacloud.com",
+      "kind": "BenchmarkReport",
+      "version": "v1alpha1"
+    }
+  ],
+  "x-kubernetes-selectable-fields": []
+}
