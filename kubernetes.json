@@ -1186,6 +1186,12 @@
       "$ref": "cloudcontrollermanager.config.k8s.io/cloudcontrollermanagerconfiguration_v1alpha1.json"
     },
     {
+      "$ref": "cloudcredential.openshift.io/credentialsrequest_v1.json"
+    },
+    {
+      "$ref": "cloudcredential.openshift.io/credentialsrequestlist_v1.json"
+    },
+    {
       "$ref": "cloudwatch.aws.amazon.com/amazoncloudwatchagent_v1alpha1.json"
     },
     {
@@ -4445,6 +4451,120 @@
     },
     {
       "$ref": "operator.knative.dev/knativeservinglist_v1beta1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/authentication_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/authenticationlist_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/cloudcredential_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/cloudcredentiallist_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/clustercsidriver_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/clustercsidriverlist_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/config_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/configlist_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/console_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/consolelist_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/csisnapshotcontroller_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/csisnapshotcontrollerlist_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/dns_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/dnslist_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/etcd_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/etcdlist_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/ingresscontroller_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/ingresscontrollerlist_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/insightsoperator_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/insightsoperatorlist_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/kubeapiserver_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/kubeapiserverlist_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/kubecontrollermanager_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/kubecontrollermanagerlist_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/kubescheduler_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/kubeschedulerlist_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/kubestorageversionmigrator_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/kubestorageversionmigratorlist_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/machineconfiguration_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/machineconfigurationlist_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/openshiftapiserver_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/openshiftapiserverlist_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/openshiftcontrollermanager_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/openshiftcontrollermanagerlist_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/serviceca_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/servicecalist_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/storage_v1.json"
+    },
+    {
+      "$ref": "operator.openshift.io/storagelist_v1.json"
     },
     {
       "$ref": "operator.tekton.dev/manualapprovalgate_v1alpha1.json"
