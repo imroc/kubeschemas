@@ -3199,6 +3199,12 @@
       "$ref": "metrics.apis.pkg.metrics.k8s.io/podmetricslist_v1beta1.json"
     },
     {
+      "$ref": "migration.k8s.io/storageversionmigration_v1alpha1.json"
+    },
+    {
+      "$ref": "migration.k8s.io/storageversionmigrationlist_v1alpha1.json"
+    },
+    {
       "$ref": "mongodb.com/mongodb_v1.json"
     },
     {
@@ -4510,6 +4516,12 @@
       "$ref": "rollouts.kruise.io/trafficroutinglist_v1alpha1.json"
     },
     {
+      "$ref": "route.openshift.io/route_v1.json"
+    },
+    {
+      "$ref": "route.openshift.io/routelist_v1.json"
+    },
+    {
       "$ref": "scheduling.alibabacloud.com/resourcepolicy_v1alpha1.json"
     },
     {
@@ -4672,6 +4684,12 @@
       "$ref": "security.cloud.google.com/workloadcertificateconfiglist_v1alpha1.json"
     },
     {
+      "$ref": "security.internal.openshift.io/rangeallocation_v1.json"
+    },
+    {
+      "$ref": "security.internal.openshift.io/rangeallocationlist_v1.json"
+    },
+    {
       "$ref": "security.istio.io/authorizationpolicy_v1.json"
     },
     {
@@ -4706,6 +4724,12 @@
     },
     {
       "$ref": "security.istio.io/requestauthenticationlist_v1beta1.json"
+    },
+    {
+      "$ref": "security.openshift.io/securitycontextconstraints_v1.json"
+    },
+    {
+      "$ref": "security.openshift.io/securitycontextconstraintslist_v1.json"
     },
     {
       "$ref": "securityinspector.alibabacloud.com/benchmarkcsvresult_v1alpha1.json"
