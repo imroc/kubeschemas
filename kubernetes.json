@@ -3565,6 +3565,24 @@
       "$ref": "logging.openvessel.io/logconfiglist_v1.json"
     },
     {
+      "$ref": "lvm.topolvm.io/lvmcluster_v1alpha1.json"
+    },
+    {
+      "$ref": "lvm.topolvm.io/lvmclusterlist_v1alpha1.json"
+    },
+    {
+      "$ref": "lvm.topolvm.io/lvmvolumegroup_v1alpha1.json"
+    },
+    {
+      "$ref": "lvm.topolvm.io/lvmvolumegrouplist_v1alpha1.json"
+    },
+    {
+      "$ref": "lvm.topolvm.io/lvmvolumegroupnodestatus_v1alpha1.json"
+    },
+    {
+      "$ref": "lvm.topolvm.io/lvmvolumegroupnodestatuslist_v1alpha1.json"
+    },
+    {
       "$ref": "messaging.knative.dev/channel_v1.json"
     },
     {
@@ -5684,6 +5702,12 @@
     },
     {
       "$ref": "topology.volcano.sh/hyperclusterlist_v1alpha1.json"
+    },
+    {
+      "$ref": "topolvm.io/logicalvolume_v1.json"
+    },
+    {
+      "$ref": "topolvm.io/logicalvolumelist_v1.json"
     },
     {
       "$ref": "traefik.containo.us/ingressroute_v1alpha1.json"

@@ -1,6 +1,6 @@
 # kubeschemas
 
-`kubeschemas` contains massive public maintained kubernetes json schema (1800+ types), including all kubernetes buitin resource types, well known CRDs and kubernetes related configuration file.
+`kubeschemas` contains massive public maintained kubernetes json schema (2000+ types), including all kubernetes buitin resource types, well known CRDs and kubernetes related configuration file.
 
 ## kubernetes.nvim
 
@@ -60,7 +60,7 @@ CRDs from open source project:
 - [dragonfly-operator](https://raw.githubusercontent.com/dragonflydb/dragonfly-operator/refs/heads/main/manifests/crd.yaml)
 - [fluxcd](https://github.com/fluxcd/flux2/blob/main/manifests/crds/kustomization.yaml)
 - [flagger](https://raw.githubusercontent.com/fluxcd/flagger/refs/heads/main/charts/flagger/crds/crd.yaml)
-- OpenShift [operator-framework-olm](https://github.com/openshift/operator-framework-olm/tree/master), [microshift](https://github.com/openshift/microshift/tree/main/assets/crd), [hypershift](https://github.com/openshift/hypershift)
+- OpenShift [operator-framework-olm](https://github.com/openshift/operator-framework-olm/tree/master), [microshift](https://github.com/openshift/microshift/tree/main/assets/crd), [hypershift](https://github.com/openshift/hypershift), [lvm-operator](https://github.com/openshift/lvm-operator/tree/main/config/crd/bases)
 - Rancher(TODO)
 - KubeSphere(TODO)
 
