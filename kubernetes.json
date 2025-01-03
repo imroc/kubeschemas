@@ -3343,6 +3343,18 @@
       "$ref": "k3d.io/simple_v1alpha5.json"
     },
     {
+      "$ref": "k3k.io/cluster_v1alpha1.json"
+    },
+    {
+      "$ref": "k3k.io/clusterlist_v1alpha1.json"
+    },
+    {
+      "$ref": "k3k.io/clusterset_v1alpha1.json"
+    },
+    {
+      "$ref": "k3k.io/clustersetlist_v1alpha1.json"
+    },
+    {
       "$ref": "k3s.cattle.io/addon_v1.json"
     },
     {
