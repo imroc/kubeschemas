@@ -1,0 +1,96 @@
+{
+  "description": "CiliumPodIPPool defines an IP pool that can be used for pooled IPAM (i.e. the multi-pool IPAM\nmode).",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "cilium.io/v2alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "CiliumPodIPPool"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "ipv4": {
+          "description": "IPv4 specifies the IPv4 CIDRs and mask sizes of the pool",
+          "properties": {
+            "cidrs": {
+              "description": "CIDRs is a list of IPv4 CIDRs that are part of the pool.",
+              "items": {
+                "description": "PoolCIDR is an IP pool CIDR.",
+                "format": "cidr",
+                "type": "string"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            "maskSize": {
+              "description": "MaskSize is the mask size of the pool.",
+              "maximum": 32,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "cidrs",
+            "maskSize"
+          ],
+          "type": "object"
+        },
+        "ipv6": {
+          "description": "IPv6 specifies the IPv6 CIDRs and mask sizes of the pool",
+          "properties": {
+            "cidrs": {
+              "description": "CIDRs is a list of IPv6 CIDRs that are part of the pool.",
+              "items": {
+                "description": "PoolCIDR is an IP pool CIDR.",
+                "format": "cidr",
+                "type": "string"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            "maskSize": {
+              "description": "MaskSize is the mask size of the pool.",
+              "maximum": 128,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "cidrs",
+            "maskSize"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "cilium.io",
+      "kind": "CiliumPodIPPool",
+      "version": "v2alpha1"
+    }
+  ]
+}

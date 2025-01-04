@@ -1423,10 +1423,64 @@
       "$ref": "chaos-mesh.org/workflownodelist_v1alpha1.json"
     },
     {
+      "$ref": "cilium.io/ciliumbgpadvertisement_v2alpha1.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumbgpadvertisementlist_v2alpha1.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumbgpclusterconfig_v2alpha1.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumbgpclusterconfiglist_v2alpha1.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumbgpnodeconfig_v2alpha1.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumbgpnodeconfiglist_v2alpha1.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumbgpnodeconfigoverride_v2alpha1.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumbgpnodeconfigoverridelist_v2alpha1.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumbgppeerconfig_v2alpha1.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumbgppeerconfiglist_v2alpha1.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumbgppeeringpolicy_v2alpha1.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumbgppeeringpolicylist_v2alpha1.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumcidrgroup_v2alpha1.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumcidrgrouplist_v2alpha1.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumclusterwideenvoyconfig_v2.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumclusterwideenvoyconfiglist_v2.json"
+    },
+    {
       "$ref": "cilium.io/ciliumclusterwidenetworkpolicy_v2.json"
     },
     {
       "$ref": "cilium.io/ciliumclusterwidenetworkpolicylist_v2.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumegressgatewaypolicy_v2.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumegressgatewaypolicylist_v2.json"
     },
     {
       "$ref": "cilium.io/ciliumendpoint_v2.json"
@@ -1441,6 +1495,12 @@
       "$ref": "cilium.io/ciliumendpointslicelist_v2alpha1.json"
     },
     {
+      "$ref": "cilium.io/ciliumenvoyconfig_v2.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumenvoyconfiglist_v2.json"
+    },
+    {
       "$ref": "cilium.io/ciliumexternalworkload_v2.json"
     },
     {
@@ -1451,6 +1511,18 @@
     },
     {
       "$ref": "cilium.io/ciliumidentitylist_v2.json"
+    },
+    {
+      "$ref": "cilium.io/ciliuml2announcementpolicy_v2alpha1.json"
+    },
+    {
+      "$ref": "cilium.io/ciliuml2announcementpolicylist_v2alpha1.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumloadbalancerippool_v2alpha1.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumloadbalancerippoollist_v2alpha1.json"
     },
     {
       "$ref": "cilium.io/ciliumlocalredirectpolicy_v2.json"
@@ -1468,7 +1540,25 @@
       "$ref": "cilium.io/ciliumnode_v2.json"
     },
     {
+      "$ref": "cilium.io/ciliumnodeconfig_v2.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumnodeconfig_v2alpha1.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumnodeconfiglist_v2.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumnodeconfiglist_v2alpha1.json"
+    },
+    {
       "$ref": "cilium.io/ciliumnodelist_v2.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumpodippool_v2alpha1.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumpodippoollist_v2alpha1.json"
     },
     {
       "$ref": "cis.cattle.io/clusterscan_v1.json"
