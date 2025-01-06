@@ -1,0 +1,66 @@
+{
+  "description": "ControlNode is a node which behaves as a controller, able to receive autopilot\nsignaling updates.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "autopilot.k0sproject.io/v1beta2"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "ControlNode"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "status": {
+      "description": "ControlNodeStatus has the runtime status info of the controller such as address etc.",
+      "properties": {
+        "addresses": {
+          "items": {
+            "description": "NodeAddress contains information for the node's address.",
+            "properties": {
+              "address": {
+                "description": "The node address.",
+                "type": "string"
+              },
+              "type": {
+                "description": "Node address type, one of Hostname, ExternalIP or InternalIP.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "address",
+              "type"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "autopilot.k0sproject.io",
+      "kind": "ControlNode",
+      "version": "v1beta2"
+    }
+  ]
+}

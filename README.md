@@ -59,6 +59,7 @@ CRDs from open source project:
 - [prometheus-operator](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack/charts/crds/crds)
 - [kuberhealthy](https://github.com/kuberhealthy/kuberhealthy/tree/master/deploy/helm/kuberhealthy/crds)
 - [k3s](https://github.com/k3s-io/k3s)
+- [k0s](https://github.com/k0sproject/k0s/tree/main/static/_crds)
 - [mongodb atlas-operator](https://github.com/mongodb/helm-charts/tree/main/charts/atlas-operator-crds), [mongodb community-operator](https://github.com/mongodb/helm-charts/tree/main/charts/community-operator-crds) and [mongodb enterprise-operator](https://github.com/mongodb/helm-charts/tree/main/charts/enterprise-operator/crds)
 - [dragonfly-operator](https://raw.githubusercontent.com/dragonflydb/dragonfly-operator/refs/heads/main/manifests/crd.yaml)
 - [fluxcd](https://github.com/fluxcd/flux2/blob/main/manifests/crds/kustomization.yaml)

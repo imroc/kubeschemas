@@ -904,6 +904,24 @@
       "$ref": "auto.gke.io/workloadallowlistlist_v1.json"
     },
     {
+      "$ref": "autopilot.k0sproject.io/controlnode_v1beta2.json"
+    },
+    {
+      "$ref": "autopilot.k0sproject.io/controlnodelist_v1beta2.json"
+    },
+    {
+      "$ref": "autopilot.k0sproject.io/plan_v1beta2.json"
+    },
+    {
+      "$ref": "autopilot.k0sproject.io/planlist_v1beta2.json"
+    },
+    {
+      "$ref": "autopilot.k0sproject.io/updateconfig_v1beta2.json"
+    },
+    {
+      "$ref": "autopilot.k0sproject.io/updateconfiglist_v1beta2.json"
+    },
+    {
       "$ref": "autoscaling.agones.dev/fleetautoscaler_v1.json"
     },
     {
@@ -2566,6 +2584,30 @@
       "$ref": "crd.projectcalico.org/bgpconfigurationlist_v1.json"
     },
     {
+      "$ref": "crd.projectcalico.org/bgpfilter_v1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/bgpfilterlist_v1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/bgppeer_v1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/bgppeerlist_v1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/blockaffinity_v1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/blockaffinitylist_v1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/caliconodestatus_v1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/caliconodestatuslist_v1.json"
+    },
+    {
       "$ref": "crd.projectcalico.org/clusterinformation_v1.json"
     },
     {
@@ -2596,16 +2638,52 @@
       "$ref": "crd.projectcalico.org/hostendpointlist_v1.json"
     },
     {
+      "$ref": "crd.projectcalico.org/ipamblock_v1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/ipamblocklist_v1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/ipamconfig_v1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/ipamconfiglist_v1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/ipamhandle_v1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/ipamhandlelist_v1.json"
+    },
+    {
       "$ref": "crd.projectcalico.org/ippool_v1.json"
     },
     {
       "$ref": "crd.projectcalico.org/ippoollist_v1.json"
     },
     {
+      "$ref": "crd.projectcalico.org/ipreservation_v1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/ipreservationlist_v1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/kubecontrollersconfiguration_v1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/kubecontrollersconfigurationlist_v1.json"
+    },
+    {
       "$ref": "crd.projectcalico.org/networkpolicy_v1.json"
     },
     {
       "$ref": "crd.projectcalico.org/networkpolicylist_v1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/networkset_v1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/networksetlist_v1.json"
     },
     {
       "$ref": "crd.theia.antrea.io/networkpolicyrecommendation_v1alpha1.json"
@@ -2960,6 +3038,12 @@
     },
     {
       "$ref": "ensurance.crane.io/podqoslist_v1alpha1.json"
+    },
+    {
+      "$ref": "etcd.k0sproject.io/etcdmember_v1beta1.json"
+    },
+    {
+      "$ref": "etcd.k0sproject.io/etcdmemberlist_v1beta1.json"
     },
     {
       "$ref": "eventing.keda.sh/cloudeventsource_v1alpha1.json"
@@ -3455,6 +3539,12 @@
     },
     {
       "$ref": "helm.cattle.io/helmchartlist_v1.json"
+    },
+    {
+      "$ref": "helm.k0sproject.io/chart_v1beta1.json"
+    },
+    {
+      "$ref": "helm.k0sproject.io/chartlist_v1beta1.json"
     },
     {
       "$ref": "helm.toolkit.fluxcd.io/helmrelease_v2.json"
@@ -3974,6 +4064,21 @@
     },
     {
       "$ref": "ipam.cluster.x-k8s.io/ipaddresslist_v1beta1.json"
+    },
+    {
+      "$ref": "k0s.k0sproject.io/clusterconfig_v1beta1.json"
+    },
+    {
+      "$ref": "k0s.k0sproject.io/clusterconfiglist_v1beta1.json"
+    },
+    {
+      "$ref": "k3d.io/simple_v1alpha2.json"
+    },
+    {
+      "$ref": "k3d.io/simple_v1alpha3.json"
+    },
+    {
+      "$ref": "k3d.io/simple_v1alpha4.json"
     },
     {
       "$ref": "k3d.io/simple_v1alpha5.json"

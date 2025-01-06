@@ -1,0 +1,104 @@
+{
+  "description": "Chart is the Schema for the charts API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "helm.k0sproject.io/v1beta1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "Chart"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "ChartSpec defines the desired state of Chart",
+      "properties": {
+        "chartName": {
+          "type": "string"
+        },
+        "forceUpgrade": {
+          "description": "ForceUpgrade when set to false, disables the use of the \"--force\" flag when upgrading the chart (default: true).",
+          "type": "boolean"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "order": {
+          "type": "integer"
+        },
+        "releaseName": {
+          "type": "string"
+        },
+        "timeout": {
+          "type": "string"
+        },
+        "values": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "description": "ChartStatus defines the observed state of Chart",
+      "properties": {
+        "appVersion": {
+          "type": "string"
+        },
+        "error": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "releaseName": {
+          "type": "string"
+        },
+        "revision": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "status": {
+          "type": "string"
+        },
+        "updated": {
+          "type": "string"
+        },
+        "valuesHash": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "helm.k0sproject.io",
+      "kind": "Chart",
+      "version": "v1beta1"
+    }
+  ]
+}
