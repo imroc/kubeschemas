@@ -6838,6 +6838,60 @@
       "$ref": "serving.knative.dev/servicelist_v1.json"
     },
     {
+      "$ref": "serving.kserve.io/clusterservingruntime_v1alpha1.json"
+    },
+    {
+      "$ref": "serving.kserve.io/clusterservingruntimelist_v1alpha1.json"
+    },
+    {
+      "$ref": "serving.kserve.io/clusterstoragecontainer_v1alpha1.json"
+    },
+    {
+      "$ref": "serving.kserve.io/clusterstoragecontainerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "serving.kserve.io/inferencegraph_v1alpha1.json"
+    },
+    {
+      "$ref": "serving.kserve.io/inferencegraphlist_v1alpha1.json"
+    },
+    {
+      "$ref": "serving.kserve.io/inferenceservice_v1beta1.json"
+    },
+    {
+      "$ref": "serving.kserve.io/inferenceservicelist_v1beta1.json"
+    },
+    {
+      "$ref": "serving.kserve.io/localmodelcache_v1alpha1.json"
+    },
+    {
+      "$ref": "serving.kserve.io/localmodelcachelist_v1alpha1.json"
+    },
+    {
+      "$ref": "serving.kserve.io/localmodelnode_v1alpha1.json"
+    },
+    {
+      "$ref": "serving.kserve.io/localmodelnodegroup_v1alpha1.json"
+    },
+    {
+      "$ref": "serving.kserve.io/localmodelnodegrouplist_v1alpha1.json"
+    },
+    {
+      "$ref": "serving.kserve.io/localmodelnodelist_v1alpha1.json"
+    },
+    {
+      "$ref": "serving.kserve.io/servingruntime_v1alpha1.json"
+    },
+    {
+      "$ref": "serving.kserve.io/servingruntimelist_v1alpha1.json"
+    },
+    {
+      "$ref": "serving.kserve.io/trainedmodel_v1alpha1.json"
+    },
+    {
+      "$ref": "serving.kserve.io/trainedmodellist_v1alpha1.json"
+    },
+    {
       "$ref": "sinks.knative.dev/jobsink_v1alpha1.json"
     },
     {
