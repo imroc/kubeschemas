@@ -5188,6 +5188,12 @@
       "$ref": "monitoring.googleapis.com/ruleslist_v1alpha1.json"
     },
     {
+      "$ref": "mse.alibabacloud.com/mseingressconfig_v1alpha1.json"
+    },
+    {
+      "$ref": "mse.alibabacloud.com/mseingressconfiglist_v1alpha1.json"
+    },
+    {
       "$ref": "multicluster.agones.dev/gameserverallocationpolicy_v1.json"
     },
     {

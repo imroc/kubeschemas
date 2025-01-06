@@ -1,0 +1,277 @@
+{
+  "description": "MseIngressConfig is the Schema for the mseingressconfigs API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "mse.alibabacloud.com/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "MseIngressConfig"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "common": {
+          "properties": {
+            "gatewayType": {
+              "type": "string"
+            },
+            "instance": {
+              "properties": {
+                "replicas": {
+                  "format": "int32",
+                  "type": "integer"
+                },
+                "spec": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "network": {
+              "properties": {
+                "networkType": {
+                  "type": "string"
+                },
+                "privateSLBSpec": {
+                  "type": "string"
+                },
+                "publicSLBSpec": {
+                  "type": "string"
+                },
+                "vSwitches": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "vpcId": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "pay": {
+              "properties": {
+                "autoRenewal": {
+                  "type": "boolean"
+                },
+                "payType": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "regionId": {
+              "type": "string"
+            },
+            "securityGroupType": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "global": {
+          "properties": {
+            "deleteSLB": {
+              "type": "boolean"
+            },
+            "ipAccessControl": {
+              "properties": {
+                "blacklist": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "whitelist": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "tls": {
+              "properties": {
+                "enableHardwareAcceleration": {
+                  "type": "boolean"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "id": {
+          "type": "string"
+        },
+        "ingress": {
+          "properties": {
+            "local": {
+              "properties": {
+                "enableStatus": {
+                  "type": "boolean"
+                },
+                "ingressClass": {
+                  "type": "string"
+                },
+                "watchNamespace": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "monitor": {
+          "properties": {
+            "logging": {
+              "properties": {
+                "sls": {
+                  "properties": {
+                    "reuseProject": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "tracing": {
+              "properties": {
+                "openTelemetry": {
+                  "properties": {
+                    "sampleRate": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "xTrace": {
+                  "properties": {
+                    "sampleRate": {
+                      "type": "string"
+                    },
+                    "serviceName": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "name": {
+          "type": "string"
+        },
+        "override": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "description": "MseIngressConfigStatus defines the observed state of MseIngressConfig",
+      "properties": {
+        "conditions": {
+          "items": {
+            "properties": {
+              "LastTransitionTime": {
+                "description": "Last time we transit the condition.",
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "description": "Human-readable message indicating details about last transition.",
+                "type": "string"
+              },
+              "reason": {
+                "description": "Unique, one-word, CamelCase reason for the condition's last transition.",
+                "type": "string"
+              },
+              "status": {
+                "description": "Status is the status of the condition. Can be True, False, Unknown.",
+                "type": "string"
+              },
+              "type": {
+                "description": "Type is the type of the condition.",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "id": {
+          "type": "string"
+        },
+        "message": {
+          "description": "A human-readable message indicating details about why the mse Ingress config is in this condition.",
+          "type": "string"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "reason": {
+          "description": "A brief CamelCase message indicating details about why the mse Ingress config is in this state. e.g. 'Evicted'",
+          "type": "string"
+        },
+        "remoteClusters": {
+          "items": {
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "clusterId": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "mse.alibabacloud.com",
+      "kind": "MseIngressConfig",
+      "version": "v1alpha1"
+    }
+  ],
+  "x-kubernetes-selectable-fields": []
+}
