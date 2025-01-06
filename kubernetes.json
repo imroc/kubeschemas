@@ -2686,6 +2686,12 @@
       "$ref": "crd.projectcalico.org/networksetlist_v1.json"
     },
     {
+      "$ref": "crd.projectcalico.org/tier_v1.json"
+    },
+    {
+      "$ref": "crd.projectcalico.org/tierlist_v1.json"
+    },
+    {
       "$ref": "crd.theia.antrea.io/networkpolicyrecommendation_v1alpha1.json"
     },
     {
@@ -6052,6 +6058,30 @@
       "$ref": "operator.tekton.dev/tektontriggerlist_v1alpha1.json"
     },
     {
+      "$ref": "operator.tigera.io/apiserver_v1.json"
+    },
+    {
+      "$ref": "operator.tigera.io/apiserverlist_v1.json"
+    },
+    {
+      "$ref": "operator.tigera.io/imageset_v1.json"
+    },
+    {
+      "$ref": "operator.tigera.io/imagesetlist_v1.json"
+    },
+    {
+      "$ref": "operator.tigera.io/installation_v1.json"
+    },
+    {
+      "$ref": "operator.tigera.io/installationlist_v1.json"
+    },
+    {
+      "$ref": "operator.tigera.io/tigerastatus_v1.json"
+    },
+    {
+      "$ref": "operator.tigera.io/tigerastatuslist_v1.json"
+    },
+    {
       "$ref": "operator.victoriametrics.com/vlogs_v1beta1.json"
     },
     {
@@ -6407,6 +6437,18 @@
     },
     {
       "$ref": "policy.linkerd.io/serverlist_v1beta1.json"
+    },
+    {
+      "$ref": "policy.networking.k8s.io/adminnetworkpolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "policy.networking.k8s.io/adminnetworkpolicylist_v1alpha1.json"
+    },
+    {
+      "$ref": "policy.networking.k8s.io/baselineadminnetworkpolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "policy.networking.k8s.io/baselineadminnetworkpolicylist_v1alpha1.json"
     },
     {
       "$ref": "postgres-operator.crunchydata.com/crunchybridgecluster_v1beta1.json"

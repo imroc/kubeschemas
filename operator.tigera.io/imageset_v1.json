@@ -1,0 +1,66 @@
+{
+  "description": "ImageSet is used to specify image digests for the images that the operator deploys.\nThe name of the ImageSet is expected to be in the format `\u003cvariant\u003e-\u003crelease\u003e`.\nThe `variant` used is `enterprise` if the InstallationSpec Variant is\n`TigeraSecureEnterprise` otherwise it is `calico`.\nThe `release` must match the version of the variant that the operator is built to deploy,\nthis version can be obtained by passing the `--version` flag to the operator binary.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "operator.tigera.io/v1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "ImageSet"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "ImageSetSpec defines the desired state of ImageSet.",
+      "properties": {
+        "images": {
+          "description": "Images is the list of images to use digests. All images that the operator will deploy\nmust be specified.",
+          "items": {
+            "properties": {
+              "digest": {
+                "description": "Digest is the image identifier that will be used for the Image.\nThe field should not include a leading `@` and must be prefixed with `sha256:`.",
+                "type": "string"
+              },
+              "image": {
+                "description": "Image is an image that the operator deploys and instead of using the built in tag\nthe operator will use the Digest for the image identifier.\nThe value should be the image name without registry or tag or digest.\nFor the image `docker.io/calico/node:v3.17.1` it should be represented as `calico/node`",
+                "type": "string"
+              }
+            },
+            "required": [
+              "digest",
+              "image"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "operator.tigera.io",
+      "kind": "ImageSet",
+      "version": "v1"
+    }
+  ]
+}
