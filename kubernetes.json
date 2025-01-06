@@ -3337,6 +3337,18 @@
       "$ref": "flows.knative.dev/sequencelist_v1.json"
     },
     {
+      "$ref": "frrk8s.metallb.io/frrconfiguration_v1beta1.json"
+    },
+    {
+      "$ref": "frrk8s.metallb.io/frrconfigurationlist_v1beta1.json"
+    },
+    {
+      "$ref": "frrk8s.metallb.io/frrnodestate_v1beta1.json"
+    },
+    {
+      "$ref": "frrk8s.metallb.io/frrnodestatelist_v1beta1.json"
+    },
+    {
       "$ref": "game.cloud.tencent.com/room_v1alpha1.json"
     },
     {
@@ -4880,6 +4892,54 @@
     },
     {
       "$ref": "messaging.knative.dev/subscriptionlist_v1.json"
+    },
+    {
+      "$ref": "metallb.io/bfdprofile_v1beta1.json"
+    },
+    {
+      "$ref": "metallb.io/bfdprofilelist_v1beta1.json"
+    },
+    {
+      "$ref": "metallb.io/bgpadvertisement_v1beta1.json"
+    },
+    {
+      "$ref": "metallb.io/bgpadvertisementlist_v1beta1.json"
+    },
+    {
+      "$ref": "metallb.io/bgppeer_v1beta1.json"
+    },
+    {
+      "$ref": "metallb.io/bgppeer_v1beta2.json"
+    },
+    {
+      "$ref": "metallb.io/bgppeerlist_v1beta1.json"
+    },
+    {
+      "$ref": "metallb.io/bgppeerlist_v1beta2.json"
+    },
+    {
+      "$ref": "metallb.io/community_v1beta1.json"
+    },
+    {
+      "$ref": "metallb.io/communitylist_v1beta1.json"
+    },
+    {
+      "$ref": "metallb.io/ipaddresspool_v1beta1.json"
+    },
+    {
+      "$ref": "metallb.io/ipaddresspoollist_v1beta1.json"
+    },
+    {
+      "$ref": "metallb.io/l2advertisement_v1beta1.json"
+    },
+    {
+      "$ref": "metallb.io/l2advertisementlist_v1beta1.json"
+    },
+    {
+      "$ref": "metallb.io/servicel2status_v1beta1.json"
+    },
+    {
+      "$ref": "metallb.io/servicel2statuslist_v1beta1.json"
     },
     {
       "$ref": "metrics.api.pkg.resource-intelligence-controller.cos.gitlab.alibaba-inc.com/predictions_v1beta1.json"
