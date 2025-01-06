@@ -67,8 +67,9 @@ CRDs from open source project:
 - [Sealed Secrets](https://raw.githubusercontent.com/bitnami-labs/sealed-secrets/refs/heads/main/helm/sealed-secrets/crds/bitnami.com_sealedsecrets.yaml)
 - [kapp-controller](https://raw.githubusercontent.com/carvel-dev/kapp-controller/refs/heads/develop/config/config/crds.yml)
 - [terraform-controller](https://github.com/kubevela/terraform-controller/tree/master/chart/crds)
-- OpenShift [operator-framework-olm](https://github.com/openshift/operator-framework-olm/tree/master), [microshift](https://github.com/openshift/microshift/tree/main/assets/crd), [hypershift](https://github.com/openshift/hypershift), [lvm-operator](https://github.com/openshift/lvm-operator/tree/main/config/crd/bases), [sriov-network-operator](https://github.com/openshift/sriov-network-operator/tree/master/config/crd), [cloud-credential-operator](https://github.com/openshift/cloud-credential-operator) and etc.
-- Rancher [fleet](https://github.com/rancher/fleet/blob/main/charts/fleet-crd/templates/crds.yaml), [cis-operator](https://github.com/rancher/cis-operator/tree/main/crds), [k3k](https://github.com/rancher/k3k/tree/main/charts/k3k/crds) and etc.
+- [kaito](https://github.com/kaito-project/kaito/tree/main/config/crd)
+- OpenShift ([operator-framework-olm](https://github.com/openshift/operator-framework-olm/tree/master), [microshift](https://github.com/openshift/microshift/tree/main/assets/crd), [hypershift](https://github.com/openshift/hypershift), [lvm-operator](https://github.com/openshift/lvm-operator/tree/main/config/crd/bases), [sriov-network-operator](https://github.com/openshift/sriov-network-operator/tree/master/config/crd), [cloud-credential-operator](https://github.com/openshift/cloud-credential-operator) and etc).
+- Rancher ([fleet](https://github.com/rancher/fleet/blob/main/charts/fleet-crd/templates/crds.yaml), [cis-operator](https://github.com/rancher/cis-operator/tree/main/crds), [k3k](https://github.com/rancher/k3k/tree/main/charts/k3k/crds) and etc).
 - KubeSphere
 
 ## Configuration File

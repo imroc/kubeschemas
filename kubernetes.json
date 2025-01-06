@@ -4033,6 +4033,12 @@
       "$ref": "kai.alibabacloud.com/trainingjoblist_v1alpha1.json"
     },
     {
+      "$ref": "kaito.sh/workspace_v1alpha1.json"
+    },
+    {
+      "$ref": "kaito.sh/workspacelist_v1alpha1.json"
+    },
+    {
       "$ref": "kappctrl.k14s.io/app_v1alpha1.json"
     },
     {
