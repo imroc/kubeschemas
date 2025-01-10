@@ -1,0 +1,14 @@
+{
+  "description": "HTTPPathMatch describes how to select a HTTP route by matching the HTTP request path.",
+  "properties": {
+    "type": {
+      "description": "Type specifies how to match against the path Value.\n\nSupport: Core (Exact, PathPrefix)\n\nSupport: Implementation-specific (RegularExpression)",
+      "type": "string"
+    },
+    "value": {
+      "description": "Value of the HTTP path to match against.",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

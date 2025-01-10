@@ -1,0 +1,9 @@
+{
+  "properties": {
+    "connectTimeout": {
+      "description": "The timeout for network connection establishment, including TCP and TLS handshakes. Default: 10 seconds.",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

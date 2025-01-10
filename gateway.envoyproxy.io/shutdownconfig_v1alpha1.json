@@ -1,0 +1,14 @@
+{
+  "description": "ShutdownConfig defines configuration for graceful envoy shutdown process.",
+  "properties": {
+    "drainTimeout": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "DrainTimeout defines the graceful drain timeout. This should be less than the pod's terminationGracePeriodSeconds. If unspecified, defaults to 60 seconds."
+    },
+    "minDrainDuration": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "MinDrainDuration defines the minimum drain duration allowing time for endpoint deprogramming to complete. If unspecified, defaults to 10 seconds."
+    }
+  },
+  "type": "object"
+}

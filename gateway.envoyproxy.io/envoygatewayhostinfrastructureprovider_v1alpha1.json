@@ -1,0 +1,4 @@
+{
+  "description": "EnvoyGatewayHostInfrastructureProvider defines configuration for the Host Infrastructure provider.",
+  "type": "object"
+}

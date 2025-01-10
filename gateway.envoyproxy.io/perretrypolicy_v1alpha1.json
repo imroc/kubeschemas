@@ -1,0 +1,13 @@
+{
+  "properties": {
+    "backOff": {
+      "$ref": "../gateway.envoyproxy.io/backoffpolicy_v1alpha1.json",
+      "description": "Backoff is the backoff policy to be applied per retry attempt. gateway uses a fully jittered exponential back-off algorithm for retries. For additional details, see https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/router_filter#config-http-filters-router-x-envoy-max-retries"
+    },
+    "timeout": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "Timeout is the timeout per retry attempt."
+    }
+  },
+  "type": "object"
+}

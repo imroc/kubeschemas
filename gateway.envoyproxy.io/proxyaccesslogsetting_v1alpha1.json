@@ -1,0 +1,32 @@
+{
+  "properties": {
+    "format": {
+      "$ref": "../gateway.envoyproxy.io/proxyaccesslogformat_v1alpha1.json",
+      "description": "Format defines the format of accesslog. This will be ignored if sink type is ALS."
+    },
+    "matches": {
+      "description": "Matches defines the match conditions for accesslog in CEL expression. An accesslog will be emitted only when one or more match conditions are evaluated to true. Invalid [CEL](https://www.envoyproxy.io/docs/envoy/latest/xds/type/v3/cel.proto.html#common-expression-language-cel-proto) expressions will be ignored.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "sinks": {
+      "description": "Sinks defines the sinks of accesslog.",
+      "items": {
+        "$ref": "../gateway.envoyproxy.io/proxyaccesslogsink_v1alpha1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "type": {
+      "description": "Type defines the component emitting the accesslog, such as Listener and Route. If type not defined, the setting would apply to: (1) All Routes. (2) Listeners if and only if Envoy does not find a matching route for a request. If type is defined, the accesslog settings would apply to the relevant component (as-is).",
+      "type": "string"
+    }
+  },
+  "required": [
+    "sinks"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,22 @@
+{
+  "description": "KubernetesWatchMode holds the configuration for which input resources to watch and reconcile.",
+  "properties": {
+    "namespaceSelector": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/labelselector_v1.json",
+      "description": "NamespaceSelector holds the label selector used to dynamically select namespaces. Envoy Gateway will watch for namespaces matching the specified label selector. Precisely one of Namespaces and NamespaceSelector must be set."
+    },
+    "namespaces": {
+      "description": "Namespaces holds the list of namespaces that Envoy Gateway will watch for namespaced scoped resources such as Gateway, HTTPRoute and Service. Note that Envoy Gateway will continue to reconcile relevant cluster scoped resources such as GatewayClass that it is linked to. Precisely one of Namespaces and NamespaceSelector must be set.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "type": {
+      "description": "Type indicates what watch mode to use. KubernetesWatchModeTypeNamespaces and KubernetesWatchModeTypeNamespaceSelector are currently supported By default, when this field is unset or empty, Envoy Gateway will watch for input namespaced resources from all namespaces.",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

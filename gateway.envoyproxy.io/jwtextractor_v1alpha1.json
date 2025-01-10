@@ -1,0 +1,30 @@
+{
+  "description": "JWTExtractor defines a custom JWT token extraction from HTTP request. If specified, Envoy will extract the JWT token from the listed extractors (headers, cookies, or params) and validate each of them. If any value extracted is found to be an invalid JWT, a 401 error will be returned.",
+  "properties": {
+    "cookies": {
+      "description": "Cookies represents a list of cookie names to extract the JWT token from.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "headers": {
+      "description": "Headers represents a list of HTTP request headers to extract the JWT token from.",
+      "items": {
+        "$ref": "../gateway.envoyproxy.io/jwtheaderextractor_v1alpha1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "params": {
+      "description": "Params represents a list of query parameters to extract the JWT token from.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

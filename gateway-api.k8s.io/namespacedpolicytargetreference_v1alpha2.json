@@ -1,0 +1,30 @@
+{
+  "description": "NamespacedPolicyTargetReference identifies an API object to apply a direct or inherited policy to, potentially in a different namespace. This should only be used as part of Policy resources that need to be able to target resources in different namespaces. For more information on how this policy attachment model works, and a sample Policy resource, refer to the policy attachment documentation for Gateway API.",
+  "properties": {
+    "group": {
+      "default": "",
+      "description": "Group is the group of the target resource.",
+      "type": "string"
+    },
+    "kind": {
+      "default": "",
+      "description": "Kind is kind of the target resource.",
+      "type": "string"
+    },
+    "name": {
+      "default": "",
+      "description": "Name is the name of the target resource.",
+      "type": "string"
+    },
+    "namespace": {
+      "description": "Namespace is the namespace of the referent. When unspecified, the local namespace is inferred. Even when policy targets a resource in a different namespace, it MUST only apply to traffic originating from the same namespace as the policy.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "group",
+    "kind",
+    "name"
+  ],
+  "type": "object"
+}

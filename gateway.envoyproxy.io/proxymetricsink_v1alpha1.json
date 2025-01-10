@@ -1,0 +1,26 @@
+{
+  "description": "ProxyMetricSink defines the sink of metrics. Default metrics sink is OpenTelemetry.",
+  "properties": {
+    "openTelemetry": {
+      "$ref": "../gateway.envoyproxy.io/proxyopentelemetrysink_v1alpha1.json",
+      "description": "OpenTelemetry defines the configuration for OpenTelemetry sink. It's required if the sink type is OpenTelemetry."
+    },
+    "type": {
+      "default": "",
+      "description": "Type defines the metric sink type. EG currently only supports OpenTelemetry.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object",
+  "x-kubernetes-unions": [
+    {
+      "discriminator": "type",
+      "fields-to-discriminateBy": {
+        "openTelemetry": "OpenTelemetry"
+      }
+    }
+  ]
+}

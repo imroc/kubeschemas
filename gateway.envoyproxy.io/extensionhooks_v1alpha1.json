@@ -1,0 +1,10 @@
+{
+  "description": "ExtensionHooks defines extension hooks across all supported runners",
+  "properties": {
+    "xdsTranslator": {
+      "$ref": "../gateway.envoyproxy.io/xdstranslatorhooks_v1alpha1.json",
+      "description": "XDSTranslator defines all the supported extension hooks for the xds-translator runner"
+    }
+  },
+  "type": "object"
+}

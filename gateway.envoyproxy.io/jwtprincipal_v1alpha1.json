@@ -1,0 +1,30 @@
+{
+  "description": "JWTPrincipal specifies the client identity of a request based on the JWT claims and scopes. At least one of the claims or scopes must be specified. Claims and scopes are And-ed together if both are specified.",
+  "properties": {
+    "claims": {
+      "description": "Claims are the claims in a JWT token.\n\nIf multiple claims are specified, all claims must match for the rule to match. For example, if there are two claims: one for the audience and one for the issuer, the rule will match only if both the audience and the issuer match.",
+      "items": {
+        "$ref": "../gateway.envoyproxy.io/jwtclaim_v1alpha1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "provider": {
+      "default": "",
+      "description": "Provider is the name of the JWT provider that used to verify the JWT token. In order to use JWT claims for authorization, you must configure the JWT authentication with the same provider in the same `SecurityPolicy`.",
+      "type": "string"
+    },
+    "scopes": {
+      "description": "Scopes are a special type of claim in a JWT token that represents the permissions of the client.\n\nThe value of the scopes field should be a space delimited string that is expected in the scope parameter, as defined in RFC 6749: https://datatracker.ietf.org/doc/html/rfc6749#page-23.\n\nIf multiple scopes are specified, all scopes must match for the rule to match.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "provider"
+  ],
+  "type": "object"
+}

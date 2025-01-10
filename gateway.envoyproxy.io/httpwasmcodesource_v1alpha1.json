@@ -1,0 +1,18 @@
+{
+  "description": "HTTPWasmCodeSource defines the HTTP URL containing the Wasm code.",
+  "properties": {
+    "sha256": {
+      "description": "SHA256 checksum that will be used to verify the Wasm code.\n\nIf not specified, Envoy Gateway will not verify the downloaded Wasm code. kubebuilder:validation:Pattern=`^[a-f0-9]{64}$`",
+      "type": "string"
+    },
+    "url": {
+      "default": "",
+      "description": "URL is the URL containing the Wasm code.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "url"
+  ],
+  "type": "object"
+}

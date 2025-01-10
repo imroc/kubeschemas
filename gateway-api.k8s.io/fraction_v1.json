@@ -1,0 +1,17 @@
+{
+  "properties": {
+    "denominator": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "numerator": {
+      "default": 0,
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "numerator"
+  ],
+  "type": "object"
+}

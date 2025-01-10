@@ -1,0 +1,38 @@
+{
+  "description": "GatewayClass describes a class of Gateways available to the user for creating Gateway resources.\n\nIt is recommended that this resource be used as a template for Gateways. This means that a Gateway is based on the state of the GatewayClass at the time it was created and changes to the GatewayClass or associated parameters are not propagated down to existing Gateways. This recommendation is intended to limit the blast radius of changes to GatewayClass or associated parameters. If implementations choose to propagate GatewayClass changes to existing Gateways, that MUST be clearly documented by the implementation.\n\nWhenever one or more Gateways are using a GatewayClass, implementations SHOULD add the `gateway-exists-finalizer.gateway.networking.k8s.io` finalizer on the associated GatewayClass. This ensures that a GatewayClass associated with a Gateway is not deleted while in use.\n\nGatewayClass is a Cluster level resource.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "gateway-api.k8s.io/v1beta1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "GatewayClass"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json",
+      "default": {}
+    },
+    "spec": {
+      "$ref": "../gateway-api.k8s.io/gatewayclassspec_v1.json",
+      "default": {},
+      "description": "Spec defines the desired state of GatewayClass."
+    },
+    "status": {
+      "$ref": "../gateway-api.k8s.io/gatewayclassstatus_v1.json",
+      "default": {},
+      "description": "Status defines the current state of GatewayClass.\n\nImplementations MUST populate status on all GatewayClass resources which specify their controller name."
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object"
+}

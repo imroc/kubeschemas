@@ -1,0 +1,22 @@
+{
+  "description": "FaultInjection defines the fault injection policy to be applied. This configuration can be used to inject delays and abort requests to mimic failure scenarios such as service failures and overloads",
+  "properties": {
+    "abort": {
+      "$ref": "../gateway.envoyproxy.io/faultinjectionabort_v1alpha1.json",
+      "description": "If specified, the request will be aborted if it meets the configuration criteria."
+    },
+    "delay": {
+      "$ref": "../gateway.envoyproxy.io/faultinjectiondelay_v1alpha1.json",
+      "description": "If specified, a delay will be injected into the request."
+    }
+  },
+  "type": "object",
+  "x-kubernetes-unions": [
+    {
+      "fields-to-discriminateBy": {
+        "abort": "Abort",
+        "delay": "Delay"
+      }
+    }
+  ]
+}

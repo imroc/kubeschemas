@@ -1,0 +1,20 @@
+{
+  "description": "ExtensionAPISettings defines the settings specific to Gateway API Extensions.",
+  "properties": {
+    "enableBackend": {
+      "default": false,
+      "description": "EnableBackend enables Envoy Gateway to reconcile and implement the Backend resources.",
+      "type": "boolean"
+    },
+    "enableEnvoyPatchPolicy": {
+      "default": false,
+      "description": "EnableEnvoyPatchPolicy enables Envoy Gateway to reconcile and implement the EnvoyPatchPolicy resources.",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "enableEnvoyPatchPolicy",
+    "enableBackend"
+  ],
+  "type": "object"
+}

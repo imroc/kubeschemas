@@ -1,0 +1,46 @@
+{
+  "description": "ClusterSettings provides the various knobs that can be set to control how traffic to a given backend will be configured.",
+  "properties": {
+    "circuitBreaker": {
+      "$ref": "../gateway.envoyproxy.io/circuitbreaker_v1alpha1.json",
+      "description": "Circuit Breaker settings for the upstream connections and requests. If not set, circuit breakers will be enabled with the default thresholds"
+    },
+    "connection": {
+      "$ref": "../gateway.envoyproxy.io/backendconnection_v1alpha1.json",
+      "description": "Connection includes backend connection settings."
+    },
+    "dns": {
+      "$ref": "../gateway.envoyproxy.io/dns_v1alpha1.json",
+      "description": "DNS includes dns resolution settings."
+    },
+    "healthCheck": {
+      "$ref": "../gateway.envoyproxy.io/healthcheck_v1alpha1.json",
+      "description": "HealthCheck allows gateway to perform active health checking on backends."
+    },
+    "http2": {
+      "$ref": "../gateway.envoyproxy.io/http2settings_v1alpha1.json",
+      "description": "HTTP2 provides HTTP/2 configuration for backend connections."
+    },
+    "loadBalancer": {
+      "$ref": "../gateway.envoyproxy.io/loadbalancer_v1alpha1.json",
+      "description": "LoadBalancer policy to apply when routing traffic from the gateway to the backend endpoints. Defaults to `LeastRequest`."
+    },
+    "proxyProtocol": {
+      "$ref": "../gateway.envoyproxy.io/proxyprotocol_v1alpha1.json",
+      "description": "ProxyProtocol enables the Proxy Protocol when communicating with the backend."
+    },
+    "retry": {
+      "$ref": "../gateway.envoyproxy.io/retry_v1alpha1.json",
+      "description": "Retry provides more advanced usage, allowing users to customize the number of retries, retry fallback strategy, and retry triggering conditions. If not set, retry will be disabled."
+    },
+    "tcpKeepalive": {
+      "$ref": "../gateway.envoyproxy.io/tcpkeepalive_v1alpha1.json",
+      "description": "TcpKeepalive settings associated with the upstream client connection. Disabled by default."
+    },
+    "timeout": {
+      "$ref": "../gateway.envoyproxy.io/timeout_v1alpha1.json",
+      "description": "Timeout settings for the backend connections."
+    }
+  },
+  "type": "object"
+}

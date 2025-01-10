@@ -1,0 +1,18 @@
+{
+  "description": "EnvoyGatewayMetricSink defines control plane metric sinks where metrics are sent to.",
+  "properties": {
+    "openTelemetry": {
+      "$ref": "../gateway.envoyproxy.io/envoygatewayopentelemetrysink_v1alpha1.json",
+      "description": "OpenTelemetry defines the configuration for OpenTelemetry sink. It's required if the sink type is OpenTelemetry."
+    },
+    "type": {
+      "default": "",
+      "description": "Type defines the metric sink type. EG control plane currently supports OpenTelemetry.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object"
+}

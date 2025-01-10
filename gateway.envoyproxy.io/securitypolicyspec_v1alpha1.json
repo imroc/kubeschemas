@@ -1,0 +1,50 @@
+{
+  "description": "SecurityPolicySpec defines the desired state of SecurityPolicy.",
+  "properties": {
+    "authorization": {
+      "$ref": "../gateway.envoyproxy.io/authorization_v1alpha1.json",
+      "description": "Authorization defines the authorization configuration."
+    },
+    "basicAuth": {
+      "$ref": "../gateway.envoyproxy.io/basicauth_v1alpha1.json",
+      "description": "BasicAuth defines the configuration for the HTTP Basic Authentication."
+    },
+    "cors": {
+      "$ref": "../gateway.envoyproxy.io/cors_v1alpha1.json",
+      "description": "CORS defines the configuration for Cross-Origin Resource Sharing (CORS)."
+    },
+    "extAuth": {
+      "$ref": "../gateway.envoyproxy.io/extauth_v1alpha1.json",
+      "description": "ExtAuth defines the configuration for External Authorization."
+    },
+    "jwt": {
+      "$ref": "../gateway.envoyproxy.io/jwt_v1alpha1.json",
+      "description": "JWT defines the configuration for JSON Web Token (JWT) authentication."
+    },
+    "oidc": {
+      "$ref": "../gateway.envoyproxy.io/oidc_v1alpha1.json",
+      "description": "OIDC defines the configuration for the OpenID Connect (OIDC) authentication."
+    },
+    "targetRef": {
+      "$ref": "../gateway-api.k8s.io/localpolicytargetreferencewithsectionname_v1alpha2.json",
+      "description": "TargetRef is the name of the resource this policy is being attached to. This policy and the TargetRef MUST be in the same namespace for this Policy to have effect\n\nDeprecated: use targetRefs/targetSelectors instead"
+    },
+    "targetRefs": {
+      "description": "TargetRefs are the names of the Gateway resources this policy is being attached to.",
+      "items": {
+        "$ref": "../gateway-api.k8s.io/localpolicytargetreferencewithsectionname_v1alpha2.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "targetSelectors": {
+      "description": "TargetSelectors allow targeting resources for this policy based on labels",
+      "items": {
+        "$ref": "../gateway.envoyproxy.io/targetselector_v1alpha1.json",
+        "default": {}
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

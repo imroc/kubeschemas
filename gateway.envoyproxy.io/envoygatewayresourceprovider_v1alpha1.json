@@ -1,0 +1,18 @@
+{
+  "description": "EnvoyGatewayResourceProvider defines configuration for the Custom Resource provider.",
+  "properties": {
+    "file": {
+      "$ref": "../gateway.envoyproxy.io/envoygatewayfileresourceprovider_v1alpha1.json",
+      "description": "File defines the configuration of the File provider. File provides runtime configuration defined by one or more files."
+    },
+    "type": {
+      "default": "",
+      "description": "Type is the type of resource provider to use. Supported types are \"File\".",
+      "type": "string"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object"
+}

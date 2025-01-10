@@ -1,0 +1,18 @@
+{
+  "description": "RateLimitTracingProvider defines the tracing provider configuration of RateLimit",
+  "properties": {
+    "type": {
+      "description": "Type defines the tracing provider type. Since to RateLimit Exporter currently using OpenTelemetry, only OpenTelemetry is supported",
+      "type": "string"
+    },
+    "url": {
+      "default": "",
+      "description": "URL is the endpoint of the trace collector that supports the OTLP protocol",
+      "type": "string"
+    }
+  },
+  "required": [
+    "url"
+  ],
+  "type": "object"
+}

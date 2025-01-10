@@ -1,0 +1,26 @@
+{
+  "description": "BackendSpec describes the desired state of BackendSpec.",
+  "properties": {
+    "appProtocols": {
+      "description": "AppProtocols defines the application protocols to be supported when connecting to the backend.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "endpoints": {
+      "description": "Endpoints defines the endpoints to be used when connecting to the backend.",
+      "items": {
+        "$ref": "../gateway.envoyproxy.io/backendendpoint_v1alpha1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "fallback": {
+      "description": "Fallback indicates whether the backend is designated as a fallback. It is highly recommended to configure active or passive health checks to ensure that failover can be detected when the active backends become unhealthy and to automatically readjust once the primary backends are healthy again. The overprovisioning factor is set to 1.4, meaning the fallback backends will only start receiving traffic when the health of the active backends falls below 72%.",
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}

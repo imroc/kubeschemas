@@ -1,0 +1,18 @@
+{
+  "description": "Authorization defines the authorization configuration.\n\nNote: if neither `Rules` nor `DefaultAction` is specified, the default action is to deny all requests.",
+  "properties": {
+    "defaultAction": {
+      "description": "DefaultAction defines the default action to be taken if no rules match. If not specified, the default action is Deny.",
+      "type": "string"
+    },
+    "rules": {
+      "description": "Rules defines a list of authorization rules. These rules are evaluated in order, the first matching rule will be applied, and the rest will be skipped.\n\nFor example, if there are two rules: the first rule allows the request and the second rule denies it, when a request matches both rules, it will be allowed.",
+      "items": {
+        "$ref": "../gateway.envoyproxy.io/authorizationrule_v1alpha1.json",
+        "default": {}
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

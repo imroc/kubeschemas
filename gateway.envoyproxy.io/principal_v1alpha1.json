@@ -1,0 +1,18 @@
+{
+  "description": "If there are multiple principal types, all principals must match for the rule to match.",
+  "properties": {
+    "clientCIDRs": {
+      "description": "ClientCIDRs are the IP CIDR ranges of the client. Valid examples are \"192.168.1.0/24\" or \"2001:db8::/64\"\n\nIf multiple CIDR ranges are specified, one of the CIDR ranges must match the client IP for the rule to match.\n\nThe client IP is inferred from the X-Forwarded-For header, a custom header, or the proxy protocol. You can use the `ClientIPDetection` or the `EnableProxyProtocol` field in the `ClientTrafficPolicy` to configure how the client IP is detected.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "jwt": {
+      "$ref": "../gateway.envoyproxy.io/jwtprincipal_v1alpha1.json",
+      "description": "JWT authorize the request based on the JWT claims and scopes. Note: in order to use JWT claims for authorization, you must configure the JWT authentication in the same `SecurityPolicy`."
+    }
+  },
+  "type": "object"
+}

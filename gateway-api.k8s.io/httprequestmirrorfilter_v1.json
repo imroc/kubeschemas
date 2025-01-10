@@ -1,0 +1,23 @@
+{
+  "description": "HTTPRequestMirrorFilter defines configuration for the RequestMirror filter.",
+  "properties": {
+    "backendRef": {
+      "$ref": "../gateway-api.k8s.io/backendobjectreference_v1.json",
+      "default": {},
+      "description": "BackendRef references a resource where mirrored requests are sent.\n\nMirrored requests must be sent only to a single destination endpoint within this BackendRef, irrespective of how many endpoints are present within this BackendRef.\n\nIf the referent cannot be found, this BackendRef is invalid and must be dropped from the Gateway. The controller must ensure the \"ResolvedRefs\" condition on the Route status is set to `status: False` and not configure this backend in the underlying implementation.\n\nIf there is a cross-namespace reference to an *existing* object that is not allowed by a ReferenceGrant, the controller must ensure the \"ResolvedRefs\"  condition on the Route is set to `status: False`, with the \"RefNotPermitted\" reason and not configure this backend in the underlying implementation.\n\nIn either error case, the Message of the `ResolvedRefs` Condition should be used to provide more detail about the problem.\n\nSupport: Extended for Kubernetes Service\n\nSupport: Implementation-specific for any other resource"
+    },
+    "fraction": {
+      "$ref": "../gateway-api.k8s.io/fraction_v1.json",
+      "description": "Fraction represents the fraction of requests that should be mirrored to BackendRef.\n\nOnly one of Fraction or Percent may be specified. If neither field is specified, 100% of requests will be mirrored.\n\n\u003cgateway:experimental\u003e"
+    },
+    "percent": {
+      "description": "Percent represents the percentage of requests that should be mirrored to BackendRef. Its minimum value is 0 (indicating 0% of requests) and its maximum value is 100 (indicating 100% of requests).\n\nOnly one of Fraction or Percent may be specified. If neither field is specified, 100% of requests will be mirrored.\n\n\u003cgateway:experimental\u003e",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "backendRef"
+  ],
+  "type": "object"
+}

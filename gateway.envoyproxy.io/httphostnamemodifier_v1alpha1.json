@@ -1,0 +1,16 @@
+{
+  "properties": {
+    "header": {
+      "description": "Header is the name of the header whose value would be used to rewrite the Host header",
+      "type": "string"
+    },
+    "type": {
+      "default": "",
+      "type": "string"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object"
+}

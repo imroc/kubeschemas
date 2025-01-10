@@ -1,0 +1,17 @@
+{
+  "properties": {
+    "accessLog": {
+      "$ref": "../gateway.envoyproxy.io/proxyaccesslog_v1alpha1.json",
+      "description": "AccessLogs defines accesslog parameters for managed proxies. If unspecified, will send default format to stdout."
+    },
+    "metrics": {
+      "$ref": "../gateway.envoyproxy.io/proxymetrics_v1alpha1.json",
+      "description": "Metrics defines metrics configuration for managed proxies."
+    },
+    "tracing": {
+      "$ref": "../gateway.envoyproxy.io/proxytracing_v1alpha1.json",
+      "description": "Tracing defines tracing configuration for managed proxies. If unspecified, will not send tracing data."
+    }
+  },
+  "type": "object"
+}

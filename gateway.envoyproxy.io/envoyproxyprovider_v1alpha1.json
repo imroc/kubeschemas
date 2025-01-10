@@ -1,0 +1,26 @@
+{
+  "description": "EnvoyProxyProvider defines the desired state of a resource provider.",
+  "properties": {
+    "kubernetes": {
+      "$ref": "../gateway.envoyproxy.io/envoyproxykubernetesprovider_v1alpha1.json",
+      "description": "Kubernetes defines the desired state of the Kubernetes resource provider. Kubernetes provides infrastructure resources for running the data plane, e.g. Envoy proxy. If unspecified and type is \"Kubernetes\", default settings for managed Kubernetes resources are applied."
+    },
+    "type": {
+      "default": "",
+      "description": "Type is the type of resource provider to use. A resource provider provides infrastructure resources for running the data plane, e.g. Envoy proxy, and optional auxiliary control planes. Supported types are \"Kubernetes\".",
+      "type": "string"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object",
+  "x-kubernetes-unions": [
+    {
+      "discriminator": "type",
+      "fields-to-discriminateBy": {
+        "kubernetes": "Kubernetes"
+      }
+    }
+  ]
+}

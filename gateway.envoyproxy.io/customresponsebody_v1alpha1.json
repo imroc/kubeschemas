@@ -1,0 +1,21 @@
+{
+  "description": "CustomResponseBody",
+  "properties": {
+    "inline": {
+      "description": "Inline contains the value as an inline string.",
+      "type": "string"
+    },
+    "type": {
+      "description": "Type is the type of method to use to read the body value. Valid values are Inline and ValueRef, default is Inline.",
+      "type": "string"
+    },
+    "valueRef": {
+      "$ref": "../gateway-api.k8s.io/localobjectreference_v1.json",
+      "description": "ValueRef contains the contents of the body specified as a local object reference. Only a reference to ConfigMap is supported.\n\nThe value of key `response.body` in the ConfigMap will be used as the response body. If the key is not found, the first value in the ConfigMap will be used."
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object"
+}

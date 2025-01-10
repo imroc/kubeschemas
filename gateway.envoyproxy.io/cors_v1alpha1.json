@@ -1,0 +1,46 @@
+{
+  "description": "CORS defines the configuration for Cross-Origin Resource Sharing (CORS).",
+  "properties": {
+    "allowCredentials": {
+      "description": "AllowCredentials indicates whether a request can include user credentials like cookies, authentication headers, or TLS client certificates. It specifies the value in the Access-Control-Allow-Credentials CORS response header.",
+      "type": "boolean"
+    },
+    "allowHeaders": {
+      "description": "AllowHeaders defines the headers that are allowed to be sent with requests. It specifies the allowed headers in the Access-Control-Allow-Headers CORS response header.. The value \"*\" allows any header to be sent.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "allowMethods": {
+      "description": "AllowMethods defines the methods that are allowed to make requests. It specifies the allowed methods in the Access-Control-Allow-Methods CORS response header.. The value \"*\" allows any method to be used.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "allowOrigins": {
+      "description": "AllowOrigins defines the origins that are allowed to make requests. It specifies the allowed origins in the Access-Control-Allow-Origin CORS response header. The value \"*\" allows any origin to make requests.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "exposeHeaders": {
+      "description": "ExposeHeaders defines which response headers should be made accessible to scripts running in the browser. It specifies the headers in the Access-Control-Expose-Headers CORS response header.. The value \"*\" allows any header to be exposed.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "maxAge": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "MaxAge defines how long the results of a preflight request can be cached. It specifies the value in the Access-Control-Max-Age CORS response header.."
+    }
+  },
+  "type": "object"
+}

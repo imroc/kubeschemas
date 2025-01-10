@@ -1,0 +1,22 @@
+{
+  "description": "Lua defines a Lua extension Only one of Inline or ValueRef must be set",
+  "properties": {
+    "inline": {
+      "description": "Inline contains the source code as an inline string.",
+      "type": "string"
+    },
+    "type": {
+      "default": "",
+      "description": "Type is the type of method to use to read the Lua value. Valid values are Inline and ValueRef, default is Inline.",
+      "type": "string"
+    },
+    "valueRef": {
+      "$ref": "../gateway-api.k8s.io/localobjectreference_v1.json",
+      "description": "ValueRef has the source code specified as a local object reference. Only a reference to ConfigMap is supported. The value of key `lua` in the ConfigMap will be used. If the key is not found, the first value in the ConfigMap will be used."
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object"
+}

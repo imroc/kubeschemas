@@ -1,0 +1,14 @@
+{
+  "description": "OIDCCookieNames defines the names of cookies to use in the Envoy OIDC filter.",
+  "properties": {
+    "accessToken": {
+      "description": "The name of the cookie used to store the AccessToken in the [Authentication Request](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest). If not specified, defaults to \"AccessToken-(randomly generated uid)\"",
+      "type": "string"
+    },
+    "idToken": {
+      "description": "The name of the cookie used to store the IdToken in the [Authentication Request](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest). If not specified, defaults to \"IdToken-(randomly generated uid)\"",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

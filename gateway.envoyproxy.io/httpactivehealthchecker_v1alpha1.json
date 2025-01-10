@@ -1,0 +1,31 @@
+{
+  "description": "HTTPActiveHealthChecker defines the settings of http health check.",
+  "properties": {
+    "expectedResponse": {
+      "$ref": "../gateway.envoyproxy.io/activehealthcheckpayload_v1alpha1.json",
+      "description": "ExpectedResponse defines a list of HTTP expected responses to match."
+    },
+    "expectedStatuses": {
+      "description": "ExpectedStatuses defines a list of HTTP response statuses considered healthy. Defaults to 200 only",
+      "items": {
+        "default": 0,
+        "format": "int32",
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "method": {
+      "description": "Method defines the HTTP method used for health checking. Defaults to GET",
+      "type": "string"
+    },
+    "path": {
+      "default": "",
+      "description": "Path defines the HTTP path that will be requested during health checking.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "path"
+  ],
+  "type": "object"
+}

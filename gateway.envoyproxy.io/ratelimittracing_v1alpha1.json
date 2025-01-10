@@ -1,0 +1,14 @@
+{
+  "properties": {
+    "provider": {
+      "$ref": "../gateway.envoyproxy.io/ratelimittracingprovider_v1alpha1.json",
+      "description": "Provider defines the rateLimit tracing provider. Only OpenTelemetry is supported currently."
+    },
+    "samplingRate": {
+      "description": "SamplingRate controls the rate at which traffic will be selected for tracing if no prior sampling decision has been made. Defaults to 100, valid values [0-100]. 100 indicates 100% sampling.",
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "type": "object"
+}

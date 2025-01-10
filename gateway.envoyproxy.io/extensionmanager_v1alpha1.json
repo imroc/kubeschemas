@@ -1,0 +1,34 @@
+{
+  "description": "ExtensionManager defines the configuration for registering an extension manager to the Envoy Gateway control plane.",
+  "properties": {
+    "failOpen": {
+      "description": "FailOpen defines if Envoy Gateway should ignore errors returned from the Extension Service hooks. The default is false, which means Envoy Gateway will fail closed if the Extension Service returns an error.\n\nFail-close means that if the Extension Service hooks return an error, the relevant route/listener/resource will be replaced with a default configuration returning Internal Server Error (HTTP 500).\n\nFail-open means that if the Extension Service hooks return an error, no changes will be applied to the source of the configuration which was sent to the extension server.",
+      "type": "boolean"
+    },
+    "hooks": {
+      "$ref": "../gateway.envoyproxy.io/extensionhooks_v1alpha1.json",
+      "description": "Hooks defines the set of hooks the extension supports"
+    },
+    "policyResources": {
+      "description": "PolicyResources defines the set of K8S resources the extension server will handle as directly attached GatewayAPI policies",
+      "items": {
+        "$ref": "../gateway.envoyproxy.io/groupversionkind_v1alpha1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "resources": {
+      "description": "Resources defines the set of K8s resources the extension will handle as route filter resources",
+      "items": {
+        "$ref": "../gateway.envoyproxy.io/groupversionkind_v1alpha1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "service": {
+      "$ref": "../gateway.envoyproxy.io/extensionservice_v1alpha1.json",
+      "description": "Service defines the configuration of the extension service that the Envoy Gateway Control Plane will call through extension hooks."
+    }
+  },
+  "type": "object"
+}

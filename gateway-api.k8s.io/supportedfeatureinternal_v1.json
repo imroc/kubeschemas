@@ -1,0 +1,13 @@
+{
+  "description": "This is solely for the purpose of ensuring backward compatibility and SHOULD NOT be used elsewhere.",
+  "properties": {
+    "name": {
+      "default": "",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,43 @@
+{
+  "description": "EnvoyPatchPolicySpec defines the desired state of EnvoyPatchPolicy.",
+  "properties": {
+    "jsonPatches": {
+      "description": "JSONPatch defines the JSONPatch configuration.",
+      "items": {
+        "$ref": "../gateway.envoyproxy.io/envoyjsonpatchconfig_v1alpha1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "priority": {
+      "description": "Priority of the EnvoyPatchPolicy. If multiple EnvoyPatchPolicies are applied to the same TargetRef, they will be applied in the ascending order of the priority i.e. int32.min has the highest priority and int32.max has the lowest priority. Defaults to 0.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "targetRef": {
+      "$ref": "../gateway-api.k8s.io/localpolicytargetreference_v1alpha2.json",
+      "default": {},
+      "description": "TargetRef is the name of the Gateway API resource this policy is being attached to. By default, attaching to Gateway is supported and when mergeGateways is enabled it should attach to GatewayClass. This Policy and the TargetRef MUST be in the same namespace for this Policy to have effect and be applied to the Gateway TargetRef"
+    },
+    "type": {
+      "default": "",
+      "description": "Type decides the type of patch. Valid EnvoyPatchType values are \"JSONPatch\".",
+      "type": "string"
+    }
+  },
+  "required": [
+    "type",
+    "targetRef"
+  ],
+  "type": "object",
+  "x-kubernetes-unions": [
+    {
+      "discriminator": "type",
+      "fields-to-discriminateBy": {
+        "jsonPatches": "JSONPatches",
+        "priority": "Priority",
+        "targetRef": "TargetRef"
+      }
+    }
+  ]
+}

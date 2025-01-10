@@ -1,0 +1,38 @@
+{
+  "description": "The TLSRoute resource is similar to TCPRoute, but can be configured to match against TLS-specific metadata. This allows more flexibility in matching streams for a given TLS listener.\n\nIf you need to forward traffic to a single target for a TLS listener, you could choose to use a TCPRoute with a TLS listener.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "gateway-api.k8s.io/v1alpha2"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "TLSRoute"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json",
+      "default": {}
+    },
+    "spec": {
+      "$ref": "../gateway-api.k8s.io/tlsroutespec_v1alpha2.json",
+      "default": {},
+      "description": "Spec defines the desired state of TLSRoute."
+    },
+    "status": {
+      "$ref": "../gateway-api.k8s.io/tlsroutestatus_v1alpha2.json",
+      "default": {},
+      "description": "Status defines the current state of TLSRoute."
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object"
+}

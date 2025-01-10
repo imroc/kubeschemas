@@ -1,0 +1,14 @@
+{
+  "description": "SessionResumption defines supported tls session resumption methods and their associated configuration.",
+  "properties": {
+    "stateful": {
+      "$ref": "../gateway.envoyproxy.io/statefultlssessionresumption_v1alpha1.json",
+      "description": "Stateful defines setting for stateful (session-id based) session resumption"
+    },
+    "stateless": {
+      "$ref": "../gateway.envoyproxy.io/statelesstlssessionresumption_v1alpha1.json",
+      "description": "Stateless defines setting for stateless (session-ticket based) session resumption"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,74 @@
+{
+  "description": "OIDC defines the configuration for the OpenID Connect (OIDC) authentication.",
+  "properties": {
+    "clientID": {
+      "default": "",
+      "description": "The client ID to be used in the OIDC [Authentication Request](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest).",
+      "type": "string"
+    },
+    "clientSecret": {
+      "$ref": "../gateway-api.k8s.io/secretobjectreference_v1.json",
+      "default": {},
+      "description": "The Kubernetes secret which contains the OIDC client secret to be used in the [Authentication Request](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest).\n\nThis is an Opaque secret. The client secret should be stored in the key \"client-secret\"."
+    },
+    "cookieDomain": {
+      "description": "The optional domain to set the access and ID token cookies on. If not set, the cookies will default to the host of the request, not including the subdomains. If set, the cookies will be set on the specified domain and all subdomains. This means that requests to any subdomain will not require reauthentication after users log in to the parent domain.",
+      "type": "string"
+    },
+    "cookieNames": {
+      "$ref": "../gateway.envoyproxy.io/oidccookienames_v1alpha1.json",
+      "description": "The optional cookie name overrides to be used for Bearer and IdToken cookies in the [Authentication Request](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest). If not specified, uses a randomly generated suffix"
+    },
+    "defaultRefreshTokenTTL": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "DefaultRefreshTokenTTL is the default lifetime of the refresh token. This field is only used when the exp (expiration time) claim is omitted in the refresh token or the refresh token is not JWT.\n\nIf not specified, defaults to 604800s (one week). Note: this field is only applicable when the \"refreshToken\" field is set to true."
+    },
+    "defaultTokenTTL": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "DefaultTokenTTL is the default lifetime of the id token and access token. Please note that Envoy will always use the expiry time from the response of the authorization server if it is provided. This field is only used when the expiry time is not provided by the authorization.\n\nIf not specified, defaults to 0. In this case, the \"expires_in\" field in the authorization response must be set by the authorization server, or the OAuth flow will fail."
+    },
+    "forwardAccessToken": {
+      "description": "ForwardAccessToken indicates whether the Envoy should forward the access token via the Authorization header Bearer scheme to the upstream. If not specified, defaults to false.",
+      "type": "boolean"
+    },
+    "logoutPath": {
+      "description": "The path to log a user out, clearing their credential cookies.\n\nIf not specified, uses a default logout path \"/logout\"",
+      "type": "string"
+    },
+    "provider": {
+      "$ref": "../gateway.envoyproxy.io/oidcprovider_v1alpha1.json",
+      "default": {},
+      "description": "The OIDC Provider configuration."
+    },
+    "redirectURL": {
+      "description": "The redirect URL to be used in the OIDC [Authentication Request](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest). If not specified, uses the default redirect URI \"%REQ(x-forwarded-proto)%://%REQ(:authority)%/oauth2/callback\"",
+      "type": "string"
+    },
+    "refreshToken": {
+      "description": "RefreshToken indicates whether the Envoy should automatically refresh the id token and access token when they expire. When set to true, the Envoy will use the refresh token to get a new id token and access token when they expire.\n\nIf not specified, defaults to false.",
+      "type": "boolean"
+    },
+    "resources": {
+      "description": "The OIDC resources to be used in the [Authentication Request](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest).",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "scopes": {
+      "description": "The OIDC scopes to be used in the [Authentication Request](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest). The \"openid\" scope is always added to the list of scopes if not already specified.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "provider",
+    "clientID",
+    "clientSecret"
+  ],
+  "type": "object"
+}

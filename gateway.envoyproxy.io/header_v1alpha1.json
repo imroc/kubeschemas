@@ -1,0 +1,14 @@
+{
+  "description": "Header defines the header hashing configuration for consistent hash based load balancing.",
+  "properties": {
+    "name": {
+      "default": "",
+      "description": "Name of the header to hash.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "type": "object"
+}

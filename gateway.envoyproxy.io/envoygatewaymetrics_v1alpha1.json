@@ -1,0 +1,18 @@
+{
+  "description": "EnvoyGatewayMetrics defines control plane push/pull metrics configurations.",
+  "properties": {
+    "prometheus": {
+      "$ref": "../gateway.envoyproxy.io/envoygatewayprometheusprovider_v1alpha1.json",
+      "description": "Prometheus defines the configuration for prometheus endpoint."
+    },
+    "sinks": {
+      "description": "Sinks defines the metric sinks where metrics are sent to.",
+      "items": {
+        "$ref": "../gateway.envoyproxy.io/envoygatewaymetricsink_v1alpha1.json",
+        "default": {}
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,14 @@
+{
+  "description": "FrontendTLSValidation holds configuration information that can be used to validate the frontend initiating the TLS connection",
+  "properties": {
+    "caCertificateRefs": {
+      "description": "CACertificateRefs contains one or more references to Kubernetes objects that contain TLS certificates of the Certificate Authorities that can be used as a trust anchor to validate the certificates presented by the client.\n\nA single CA certificate reference to a Kubernetes ConfigMap has \"Core\" support. Implementations MAY choose to support attaching multiple CA certificates to a Listener, but this behavior is implementation-specific.\n\nSupport: Core - A single reference to a Kubernetes ConfigMap with the CA certificate in a key named `ca.crt`.\n\nSupport: Implementation-specific (More than one reference, or other kinds of resources).\n\nReferences to a resource in a different namespace are invalid UNLESS there is a ReferenceGrant in the target namespace that allows the certificate to be attached. If a ReferenceGrant does not allow this reference, the \"ResolvedRefs\" condition MUST be set to False for this listener with the \"RefNotPermitted\" reason.",
+      "items": {
+        "$ref": "../gateway-api.k8s.io/objectreference_v1.json",
+        "default": {}
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

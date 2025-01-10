@@ -1,0 +1,30 @@
+{
+  "description": "HeaderSettings provides configuration options for headers on the listener.",
+  "properties": {
+    "disableRateLimitHeaders": {
+      "description": "DisableRateLimitHeaders configures Envoy Proxy to omit the \"X-RateLimit-\" response headers when rate limiting is enabled.",
+      "type": "boolean"
+    },
+    "earlyRequestHeaders": {
+      "$ref": "../gateway-api.k8s.io/httpheaderfilter_v1.json",
+      "description": "EarlyRequestHeaders defines settings for early request header modification, before envoy performs routing, tracing and built-in header manipulation."
+    },
+    "enableEnvoyHeaders": {
+      "description": "EnableEnvoyHeaders configures Envoy Proxy to add the \"X-Envoy-\" headers to requests and responses.",
+      "type": "boolean"
+    },
+    "preserveXRequestID": {
+      "description": "PreserveXRequestID configures Envoy to keep the X-Request-ID header if passed for a request that is edge (Edge request is the request from external clients to front Envoy) and not reset it, which is the current Envoy behaviour. It defaults to false.",
+      "type": "boolean"
+    },
+    "withUnderscoresAction": {
+      "description": "WithUnderscoresAction configures the action to take when an HTTP header with underscores is encountered. The default action is to reject the request.",
+      "type": "string"
+    },
+    "xForwardedClientCert": {
+      "$ref": "../gateway.envoyproxy.io/xforwardedclientcert_v1alpha1.json",
+      "description": "XForwardedClientCert configures how Envoy Proxy handle the x-forwarded-client-cert (XFCC) HTTP header.\n\nx-forwarded-client-cert (XFCC) is an HTTP header used to forward the certificate information of part or all of the clients or proxies that a request has flowed through, on its way from the client to the server.\n\nEnvoy proxy may choose to sanitize/append/forward the XFCC header before proxying the request.\n\nIf not set, the default behavior is sanitizing the XFCC header."
+    }
+  },
+  "type": "object"
+}

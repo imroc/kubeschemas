@@ -1,0 +1,27 @@
+{
+  "description": "JWTClaim specifies a claim in a JWT token.",
+  "properties": {
+    "name": {
+      "default": "",
+      "description": "Name is the name of the claim. If it is a nested claim, use a dot (.) separated string as the name to represent the full path to the claim. For example, if the claim is in the \"department\" field in the \"organization\" field, the name should be \"organization.department\".",
+      "type": "string"
+    },
+    "valueType": {
+      "description": "ValueType is the type of the claim value. Only String and StringArray types are supported for now.",
+      "type": "string"
+    },
+    "values": {
+      "description": "Values are the values that the claim must match. If the claim is a string type, the specified value must match exactly. If the claim is a string array type, the specified value must match one of the values in the array. If multiple values are specified, one of the values must match for the rule to match.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "name",
+    "values"
+  ],
+  "type": "object"
+}

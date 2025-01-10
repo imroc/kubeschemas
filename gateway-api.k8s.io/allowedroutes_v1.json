@@ -1,0 +1,18 @@
+{
+  "description": "AllowedRoutes defines which Routes may be attached to this Listener.",
+  "properties": {
+    "kinds": {
+      "description": "Kinds specifies the groups and kinds of Routes that are allowed to bind to this Gateway Listener. When unspecified or empty, the kinds of Routes selected are determined using the Listener protocol.\n\nA RouteGroupKind MUST correspond to kinds of Routes that are compatible with the application protocol specified in the Listener's Protocol field. If an implementation does not support or recognize this resource type, it MUST set the \"ResolvedRefs\" condition to False for this Listener with the \"InvalidRouteKinds\" reason.\n\nSupport: Core",
+      "items": {
+        "$ref": "../gateway-api.k8s.io/routegroupkind_v1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "namespaces": {
+      "$ref": "../gateway-api.k8s.io/routenamespaces_v1.json",
+      "description": "Namespaces indicates namespaces from which Routes may be attached to this Listener. This is restricted to the namespace of this Gateway by default.\n\nSupport: Core"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,56 @@
+{
+  "description": "EnvoyGateway is the schema for the envoygateways API.",
+  "properties": {
+    "admin": {
+      "$ref": "../gateway.envoyproxy.io/envoygatewayadmin_v1alpha1.json",
+      "description": "Admin defines the desired admin related abilities. If unspecified, the Admin is used with default configuration parameters."
+    },
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "gateway.envoyproxy.io/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "extensionApis": {
+      "$ref": "../gateway.envoyproxy.io/extensionapisettings_v1alpha1.json",
+      "description": "ExtensionAPIs defines the settings related to specific Gateway API Extensions implemented by Envoy Gateway"
+    },
+    "extensionManager": {
+      "$ref": "../gateway.envoyproxy.io/extensionmanager_v1alpha1.json",
+      "description": "ExtensionManager defines an extension manager to register for the Envoy Gateway Control Plane."
+    },
+    "gateway": {
+      "$ref": "../gateway.envoyproxy.io/gateway_v1alpha1.json",
+      "description": "Gateway defines desired Gateway API specific configuration. If unset, default configuration parameters will apply."
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "EnvoyGateway"
+      ],
+      "type": "string"
+    },
+    "logging": {
+      "$ref": "../gateway.envoyproxy.io/envoygatewaylogging_v1alpha1.json",
+      "description": "Logging defines logging parameters for Envoy Gateway."
+    },
+    "provider": {
+      "$ref": "../gateway.envoyproxy.io/envoygatewayprovider_v1alpha1.json",
+      "description": "Provider defines the desired provider and provider-specific configuration. If unspecified, the Kubernetes provider is used with default configuration parameters."
+    },
+    "rateLimit": {
+      "$ref": "../gateway.envoyproxy.io/ratelimit_v1alpha1.json",
+      "description": "RateLimit defines the configuration associated with the Rate Limit service deployed by Envoy Gateway required to implement the Global Rate limiting functionality. The specific rate limit service used here is the reference implementation in Envoy. For more details visit https://github.com/envoyproxy/ratelimit. This configuration is unneeded for \"Local\" rate limiting."
+    },
+    "telemetry": {
+      "$ref": "../gateway.envoyproxy.io/envoygatewaytelemetry_v1alpha1.json",
+      "description": "Telemetry defines the desired control plane telemetry related abilities. If unspecified, the telemetry is used with default configuration."
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object"
+}

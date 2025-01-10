@@ -1,0 +1,10 @@
+{
+  "description": "Gateway defines the desired Gateway API configuration of Envoy Gateway.",
+  "properties": {
+    "controllerName": {
+      "description": "ControllerName defines the name of the Gateway API controller. If unspecified, defaults to \"gateway.envoyproxy.io/gatewayclass-controller\". See the following for additional details:\n  https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.GatewayClass",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,9 @@
+{
+  "properties": {
+    "path": {
+      "description": "Path defines the file path used to expose envoy access log(e.g. /dev/stdout).",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

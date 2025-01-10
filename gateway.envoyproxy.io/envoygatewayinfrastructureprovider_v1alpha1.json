@@ -1,0 +1,18 @@
+{
+  "description": "EnvoyGatewayInfrastructureProvider defines configuration for the Custom Infrastructure provider.",
+  "properties": {
+    "host": {
+      "$ref": "../gateway.envoyproxy.io/envoygatewayhostinfrastructureprovider_v1alpha1.json",
+      "description": "Host defines the configuration of the Host provider. Host provides runtime deployment of the data plane as a child process on the host environment."
+    },
+    "type": {
+      "default": "",
+      "description": "Type is the type of infrastructure providers to use. Supported types are \"Host\".",
+      "type": "string"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object"
+}

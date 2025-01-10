@@ -1,0 +1,13 @@
+{
+  "properties": {
+    "baseInterval": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "BaseInterval is the base interval between retries."
+    },
+    "maxInterval": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "MaxInterval is the maximum interval between retries. This parameter is optional, but must be greater than or equal to the base_interval if set. The default is 10 times the base_interval"
+    }
+  },
+  "type": "object"
+}

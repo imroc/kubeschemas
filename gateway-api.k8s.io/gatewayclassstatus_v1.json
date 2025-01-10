@@ -1,0 +1,29 @@
+{
+  "description": "GatewayClassStatus is the current status for the GatewayClass.",
+  "properties": {
+    "conditions": {
+      "description": "Conditions is the current status from the controller for this GatewayClass.\n\nControllers should prefer to publish conditions using values of GatewayClassConditionType for the type of each Condition.",
+      "items": {
+        "$ref": "../meta.apis.pkg.apimachinery.k8s.io/condition_v1.json",
+        "default": {}
+      },
+      "type": "array",
+      "x-kubernetes-list-map-keys": [
+        "type"
+      ],
+      "x-kubernetes-list-type": "map"
+    },
+    "supportedFeatures": {
+      "description": "SupportedFeatures is the set of features the GatewayClass support. It MUST be sorted in ascending alphabetical order by the Name key. \u003cgateway:experimental\u003e",
+      "items": {
+        "$ref": "../gateway-api.k8s.io/supportedfeature_v1.json"
+      },
+      "type": "array",
+      "x-kubernetes-list-map-keys": [
+        "name"
+      ],
+      "x-kubernetes-list-type": "map"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,14 @@
+{
+  "description": "ProxyProtocol defines the configuration related to the proxy protocol when communicating with the backend.",
+  "properties": {
+    "version": {
+      "default": "",
+      "description": "Version of ProxyProtol Valid ProxyProtocolVersion values are \"V1\" \"V2\"",
+      "type": "string"
+    }
+  },
+  "required": [
+    "version"
+  ],
+  "type": "object"
+}

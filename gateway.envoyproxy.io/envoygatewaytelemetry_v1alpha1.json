@@ -1,0 +1,10 @@
+{
+  "description": "EnvoyGatewayTelemetry defines telemetry configurations for envoy gateway control plane. Control plane will focus on metrics observability telemetry and tracing telemetry later.",
+  "properties": {
+    "metrics": {
+      "$ref": "../gateway.envoyproxy.io/envoygatewaymetrics_v1alpha1.json",
+      "description": "Metrics defines metrics configuration for envoy gateway."
+    }
+  },
+  "type": "object"
+}

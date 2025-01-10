@@ -1,0 +1,34 @@
+{
+  "description": "KubernetesContainerSpec defines the desired state of the Kubernetes container resource.",
+  "properties": {
+    "env": {
+      "description": "List of environment variables to set in the container.",
+      "items": {
+        "$ref": "../core.api.k8s.io/envvar_v1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "image": {
+      "description": "Image specifies the EnvoyProxy container image to be used, instead of the default image.",
+      "type": "string"
+    },
+    "resources": {
+      "$ref": "../core.api.k8s.io/resourcerequirements_v1.json",
+      "description": "Resources required by this container. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/"
+    },
+    "securityContext": {
+      "$ref": "../core.api.k8s.io/securitycontext_v1.json",
+      "description": "SecurityContext defines the security options the container should be run with. If set, the fields of SecurityContext override the equivalent fields of PodSecurityContext. More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/"
+    },
+    "volumeMounts": {
+      "description": "VolumeMounts are volumes to mount into the container's filesystem. Cannot be updated.",
+      "items": {
+        "$ref": "../core.api.k8s.io/volumemount_v1.json",
+        "default": {}
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

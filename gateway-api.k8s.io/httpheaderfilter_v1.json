@@ -1,0 +1,39 @@
+{
+  "description": "HTTPHeaderFilter defines a filter that modifies the headers of an HTTP request or response.",
+  "properties": {
+    "add": {
+      "description": "Add adds the given header(s) (name, value) to the request before the action. It appends to any existing values associated with the header name.\n\nInput:\n  GET /foo HTTP/1.1\n  my-header: foo\n\nConfig:\n  add:\n  - name: \"my-header\"\n    value: \"bar,baz\"\n\nOutput:\n  GET /foo HTTP/1.1\n  my-header: foo,bar,baz",
+      "items": {
+        "$ref": "../gateway-api.k8s.io/httpheader_v1.json",
+        "default": {}
+      },
+      "type": "array",
+      "x-kubernetes-list-map-keys": [
+        "name"
+      ],
+      "x-kubernetes-list-type": "map"
+    },
+    "remove": {
+      "description": "Remove the given header(s) from the HTTP request before the action. The value of Remove is a list of HTTP header names. Note that the header names are case-insensitive (see https://datatracker.ietf.org/doc/html/rfc2616#section-4.2).\n\nInput:\n  GET /foo HTTP/1.1\n  my-header1: foo\n  my-header2: bar\n  my-header3: baz\n\nConfig:\n  remove: [\"my-header1\", \"my-header3\"]\n\nOutput:\n  GET /foo HTTP/1.1\n  my-header2: bar",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array",
+      "x-kubernetes-list-type": "set"
+    },
+    "set": {
+      "description": "Set overwrites the request with the given header (name, value) before the action.\n\nInput:\n  GET /foo HTTP/1.1\n  my-header: foo\n\nConfig:\n  set:\n  - name: \"my-header\"\n    value: \"bar\"\n\nOutput:\n  GET /foo HTTP/1.1\n  my-header: bar",
+      "items": {
+        "$ref": "../gateway-api.k8s.io/httpheader_v1.json",
+        "default": {}
+      },
+      "type": "array",
+      "x-kubernetes-list-map-keys": [
+        "name"
+      ],
+      "x-kubernetes-list-type": "map"
+    }
+  },
+  "type": "object"
+}

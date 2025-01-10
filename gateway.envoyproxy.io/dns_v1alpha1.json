@@ -1,0 +1,13 @@
+{
+  "properties": {
+    "dnsRefreshRate": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "DNSRefreshRate specifies the rate at which DNS records should be refreshed. Defaults to 30 seconds."
+    },
+    "respectDnsTtl": {
+      "description": "RespectDNSTTL indicates whether the DNS Time-To-Live (TTL) should be respected. If the value is set to true, the DNS refresh rate will be set to the resource record’s TTL. Defaults to true.",
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}

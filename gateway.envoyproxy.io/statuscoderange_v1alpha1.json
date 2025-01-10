@@ -1,0 +1,22 @@
+{
+  "description": "StatusCodeRange defines the configuration for define a range of status codes.",
+  "properties": {
+    "end": {
+      "default": 0,
+      "description": "End of the range, including the end value.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "start": {
+      "default": 0,
+      "description": "Start of the range, including the start value.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "start",
+    "end"
+  ],
+  "type": "object"
+}

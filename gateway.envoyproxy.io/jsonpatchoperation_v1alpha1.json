@@ -1,0 +1,30 @@
+{
+  "description": "JSONPatchOperation defines the JSON Patch Operation as defined in https://datatracker.ietf.org/doc/html/rfc6902",
+  "properties": {
+    "from": {
+      "description": "From is the source location of the value to be copied or moved. Only valid for move or copy operations Refer to https://datatracker.ietf.org/doc/html/rfc6901 for more details.",
+      "type": "string"
+    },
+    "jsonPath": {
+      "description": "JSONPath is a JSONPath expression. Refer to https://datatracker.ietf.org/doc/rfc9535/ for more details. It produces one or more JSONPointer expressions based on the given JSON document. If no JSONPointer is found, it will result in an error. If the 'Path' property is also set, it will be appended to the resulting JSONPointer expressions from the JSONPath evaluation. This is useful when creating a property that does not yet exist in the JSON document. The final JSONPointer expressions specifies the locations in the target document/field where the operation will be applied.",
+      "type": "string"
+    },
+    "op": {
+      "default": "",
+      "description": "Op is the type of operation to perform",
+      "type": "string"
+    },
+    "path": {
+      "description": "Path is a JSONPointer expression. Refer to https://datatracker.ietf.org/doc/html/rfc6901 for more details. It specifies the location of the target document/field where the operation will be performed",
+      "type": "string"
+    },
+    "value": {
+      "$ref": "../apiextensions.apis.pkg.apiextensions-apiserver.k8s.io/json_v1.json",
+      "description": "Value is the new value of the path location. The value is only used by the `add` and `replace` operations."
+    }
+  },
+  "required": [
+    "op"
+  ],
+  "type": "object"
+}

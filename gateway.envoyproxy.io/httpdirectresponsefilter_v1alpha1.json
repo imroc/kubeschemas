@@ -1,0 +1,19 @@
+{
+  "description": "HTTPDirectResponseFilter defines the configuration to return a fixed response.",
+  "properties": {
+    "body": {
+      "$ref": "../gateway.envoyproxy.io/customresponsebody_v1alpha1.json",
+      "description": "Body of the Response"
+    },
+    "contentType": {
+      "description": "Content Type of the response. This will be set in the Content-Type header.",
+      "type": "string"
+    },
+    "statusCode": {
+      "description": "Status Code of the HTTP response If unset, defaults to 200.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,10 @@
+{
+  "description": "Session defines settings related to TLS session management.",
+  "properties": {
+    "resumption": {
+      "$ref": "../gateway.envoyproxy.io/sessionresumption_v1alpha1.json",
+      "description": "Resumption determines the proxy's supported TLS session resumption option. By default, Envoy Gateway does not enable session resumption. Use sessionResumption to enable stateful and stateless session resumption. Users should consider security impacts of different resumption methods. Performance gains from resumption are diminished when Envoy proxy is deployed with more than one replica."
+    }
+  },
+  "type": "object"
+}

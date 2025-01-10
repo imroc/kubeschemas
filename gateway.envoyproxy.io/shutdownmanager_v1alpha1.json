@@ -1,0 +1,10 @@
+{
+  "description": "ShutdownManager defines the configuration for the shutdown manager.",
+  "properties": {
+    "image": {
+      "description": "Image specifies the ShutdownManager container image to be used, instead of the default image.",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

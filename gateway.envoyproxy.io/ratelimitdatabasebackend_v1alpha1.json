@@ -1,0 +1,26 @@
+{
+  "description": "RateLimitDatabaseBackend defines the configuration associated with the database backend used by the rate limit service.",
+  "properties": {
+    "redis": {
+      "$ref": "../gateway.envoyproxy.io/ratelimitredissettings_v1alpha1.json",
+      "description": "Redis defines the settings needed to connect to a Redis database."
+    },
+    "type": {
+      "default": "",
+      "description": "Type is the type of database backend to use. Supported types are:\n\t* Redis: Connects to a Redis database.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object",
+  "x-kubernetes-unions": [
+    {
+      "discriminator": "type",
+      "fields-to-discriminateBy": {
+        "redis": "Redis"
+      }
+    }
+  ]
+}

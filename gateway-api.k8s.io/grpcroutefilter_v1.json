@@ -1,0 +1,30 @@
+{
+  "description": "GRPCRouteFilter defines processing steps that must be completed during the request or response lifecycle. GRPCRouteFilters are meant as an extension point to express processing that may be done in Gateway implementations. Some examples include request or response modification, implementing authentication strategies, rate-limiting, and traffic shaping. API guarantee/conformance is defined based on the type of the filter.",
+  "properties": {
+    "extensionRef": {
+      "$ref": "../gateway-api.k8s.io/localobjectreference_v1.json",
+      "description": "ExtensionRef is an optional, implementation-specific extension to the \"filter\" behavior.  For example, resource \"myroutefilter\" in group \"networking.example.net\"). ExtensionRef MUST NOT be used for core and extended filters.\n\nSupport: Implementation-specific\n\nThis filter can be used multiple times within the same rule."
+    },
+    "requestHeaderModifier": {
+      "$ref": "../gateway-api.k8s.io/httpheaderfilter_v1.json",
+      "description": "RequestHeaderModifier defines a schema for a filter that modifies request headers.\n\nSupport: Core"
+    },
+    "requestMirror": {
+      "$ref": "../gateway-api.k8s.io/httprequestmirrorfilter_v1.json",
+      "description": "RequestMirror defines a schema for a filter that mirrors requests. Requests are sent to the specified destination, but responses from that destination are ignored.\n\nThis filter can be used multiple times within the same rule. Note that not all implementations will be able to support mirroring to multiple backends.\n\nSupport: Extended\n\n\n\u003cgateway:experimental:validation:XValidation:message=\"Only one of percent or fraction may be specified in HTTPRequestMirrorFilter\",rule=\"!(has(self.percent) \u0026\u0026 has(self.fraction))\"\u003e"
+    },
+    "responseHeaderModifier": {
+      "$ref": "../gateway-api.k8s.io/httpheaderfilter_v1.json",
+      "description": "ResponseHeaderModifier defines a schema for a filter that modifies response headers.\n\nSupport: Extended"
+    },
+    "type": {
+      "default": "",
+      "description": "Type identifies the type of filter to apply. As with other API fields, types are classified into three conformance levels:\n\n- Core: Filter types and their corresponding configuration defined by\n  \"Support: Core\" in this package, e.g. \"RequestHeaderModifier\". All\n  implementations supporting GRPCRoute MUST support core filters.\n\n- Extended: Filter types and their corresponding configuration defined by\n  \"Support: Extended\" in this package, e.g. \"RequestMirror\". Implementers\n  are encouraged to support extended filters.\n\n- Implementation-specific: Filters that are defined and supported by specific vendors.\n  In the future, filters showing convergence in behavior across multiple\n  implementations will be considered for inclusion in extended or core\n  conformance levels. Filter-specific configuration for such filters\n  is specified using the ExtensionRef field. `Type` MUST be set to\n  \"ExtensionRef\" for custom filters.\n\nImplementers are encouraged to define custom implementation types to extend the core API with implementation-specific behavior.\n\nIf a reference to a custom filter type cannot be resolved, the filter MUST NOT be skipped. Instead, requests that would have been processed by that filter MUST receive a HTTP error response.\n\n\u003cgateway:experimental:validation:Enum=ResponseHeaderModifier;RequestHeaderModifier;RequestMirror;ExtensionRef\u003e",
+      "type": "string"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object"
+}

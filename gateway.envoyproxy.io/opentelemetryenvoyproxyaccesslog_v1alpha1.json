@@ -1,0 +1,39 @@
+{
+  "description": "OpenTelemetryEnvoyProxyAccessLog defines the OpenTelemetry access log sink.",
+  "properties": {
+    "backendRef": {
+      "$ref": "../gateway-api.k8s.io/backendobjectreference_v1.json",
+      "description": "BackendRef references a Kubernetes object that represents the backend server to which the authorization request will be sent.\n\nDeprecated: Use BackendRefs instead."
+    },
+    "backendRefs": {
+      "description": "BackendRefs references a Kubernetes object that represents the backend server to which the authorization request will be sent.",
+      "items": {
+        "$ref": "../gateway.envoyproxy.io/backendref_v1alpha1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "backendSettings": {
+      "$ref": "../gateway.envoyproxy.io/clustersettings_v1alpha1.json",
+      "description": "BackendSettings holds configuration for managing the connection to the backend."
+    },
+    "host": {
+      "description": "Host define the extension service hostname. Deprecated: Use BackendRefs instead.",
+      "type": "string"
+    },
+    "port": {
+      "description": "Port defines the port the extension service is exposed on. Deprecated: Use BackendRefs instead.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "resources": {
+      "additionalProperties": {
+        "default": "",
+        "type": "string"
+      },
+      "description": "Resources is a set of labels that describe the source of a log entry, including envoy node info. It's recommended to follow [semantic conventions](https://opentelemetry.io/docs/reference/specification/resource/semantic_conventions/).",
+      "type": "object"
+    }
+  },
+  "type": "object"
+}

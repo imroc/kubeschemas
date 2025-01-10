@@ -1,0 +1,14 @@
+{
+  "description": "WasmEnv defines the environment variables for the VM of a Wasm extension",
+  "properties": {
+    "hostKeys": {
+      "description": "HostKeys is a list of keys for environment variables from the host envoy process that should be passed into the Wasm VM. This is useful for passing secrets to to Wasm extensions.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

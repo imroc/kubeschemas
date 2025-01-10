@@ -1,0 +1,24 @@
+{
+  "description": "GRPCHeaderMatch describes how to select a gRPC route by matching gRPC request headers.",
+  "properties": {
+    "name": {
+      "default": "",
+      "description": "Name is the name of the gRPC Header to be matched.\n\nIf multiple entries specify equivalent header names, only the first entry with an equivalent name MUST be considered for a match. Subsequent entries with an equivalent header name MUST be ignored. Due to the case-insensitivity of header names, \"foo\" and \"Foo\" are considered equivalent.",
+      "type": "string"
+    },
+    "type": {
+      "description": "Type specifies how to match against the value of the header.",
+      "type": "string"
+    },
+    "value": {
+      "default": "",
+      "description": "Value is the value of the gRPC Header to be matched.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "value"
+  ],
+  "type": "object"
+}

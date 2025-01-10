@@ -1,0 +1,32 @@
+{
+  "properties": {
+    "exportInterval": {
+      "description": "ExportInterval configures the intervening time between exports for a Sink. This option overrides any value set for the OTEL_METRIC_EXPORT_INTERVAL environment variable. If ExportInterval is less than or equal to zero, 60 seconds is used as the default.",
+      "type": "string"
+    },
+    "exportTimeout": {
+      "description": "ExportTimeout configures the time a Sink waits for an export to complete before canceling it. This option overrides any value set for the OTEL_METRIC_EXPORT_TIMEOUT environment variable. If ExportTimeout is less than or equal to zero, 30 seconds is used as the default.",
+      "type": "string"
+    },
+    "host": {
+      "default": "",
+      "description": "Host define the sink service hostname.",
+      "type": "string"
+    },
+    "port": {
+      "description": "Port defines the port the sink service is exposed on.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "protocol": {
+      "default": "",
+      "description": "Protocol define the sink service protocol.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "host",
+    "protocol"
+  ],
+  "type": "object"
+}

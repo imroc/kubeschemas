@@ -1,0 +1,22 @@
+{
+  "description": "StatusCodeMatch defines the configuration for matching a status code.",
+  "properties": {
+    "range": {
+      "$ref": "../gateway.envoyproxy.io/statuscoderange_v1alpha1.json",
+      "description": "Range contains the range of status codes."
+    },
+    "type": {
+      "description": "Type is the type of value. Valid values are Value and Range, default is Value.",
+      "type": "string"
+    },
+    "value": {
+      "description": "Value contains the value of the status code.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object"
+}

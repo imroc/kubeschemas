@@ -1,0 +1,74 @@
+{
+  "description": "ClientTrafficPolicySpec defines the desired state of ClientTrafficPolicy.",
+  "properties": {
+    "clientIPDetection": {
+      "$ref": "../gateway.envoyproxy.io/clientipdetectionsettings_v1alpha1.json",
+      "description": "ClientIPDetectionSettings provides configuration for determining the original client IP address for requests."
+    },
+    "connection": {
+      "$ref": "../gateway.envoyproxy.io/clientconnection_v1alpha1.json",
+      "description": "Connection includes client connection settings."
+    },
+    "enableProxyProtocol": {
+      "description": "EnableProxyProtocol interprets the ProxyProtocol header and adds the Client Address into the X-Forwarded-For header. Note Proxy Protocol must be present when this field is set, else the connection is closed.",
+      "type": "boolean"
+    },
+    "headers": {
+      "$ref": "../gateway.envoyproxy.io/headersettings_v1alpha1.json",
+      "description": "HeaderSettings provides configuration for header management."
+    },
+    "healthCheck": {
+      "$ref": "../gateway.envoyproxy.io/healthchecksettings_v1alpha1.json",
+      "description": "HealthCheck provides configuration for determining whether the HTTP/HTTPS listener is healthy."
+    },
+    "http1": {
+      "$ref": "../gateway.envoyproxy.io/http1settings_v1alpha1.json",
+      "description": "HTTP1 provides HTTP/1 configuration on the listener."
+    },
+    "http2": {
+      "$ref": "../gateway.envoyproxy.io/http2settings_v1alpha1.json",
+      "description": "HTTP2 provides HTTP/2 configuration on the listener."
+    },
+    "http3": {
+      "$ref": "../gateway.envoyproxy.io/http3settings_v1alpha1.json",
+      "description": "HTTP3 provides HTTP/3 configuration on the listener."
+    },
+    "path": {
+      "$ref": "../gateway.envoyproxy.io/pathsettings_v1alpha1.json",
+      "description": "Path enables managing how the incoming path set by clients can be normalized."
+    },
+    "targetRef": {
+      "$ref": "../gateway-api.k8s.io/localpolicytargetreferencewithsectionname_v1alpha2.json",
+      "description": "TargetRef is the name of the resource this policy is being attached to. This policy and the TargetRef MUST be in the same namespace for this Policy to have effect\n\nDeprecated: use targetRefs/targetSelectors instead"
+    },
+    "targetRefs": {
+      "description": "TargetRefs are the names of the Gateway resources this policy is being attached to.",
+      "items": {
+        "$ref": "../gateway-api.k8s.io/localpolicytargetreferencewithsectionname_v1alpha2.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "targetSelectors": {
+      "description": "TargetSelectors allow targeting resources for this policy based on labels",
+      "items": {
+        "$ref": "../gateway.envoyproxy.io/targetselector_v1alpha1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "tcpKeepalive": {
+      "$ref": "../gateway.envoyproxy.io/tcpkeepalive_v1alpha1.json",
+      "description": "TcpKeepalive settings associated with the downstream client connection. If defined, sets SO_KEEPALIVE on the listener socket to enable TCP Keepalives. Disabled by default."
+    },
+    "timeout": {
+      "$ref": "../gateway.envoyproxy.io/clienttimeout_v1alpha1.json",
+      "description": "Timeout settings for the client connections."
+    },
+    "tls": {
+      "$ref": "../gateway.envoyproxy.io/clienttlssettings_v1alpha1.json",
+      "description": "TLS settings configure TLS termination settings with the downstream client."
+    }
+  },
+  "type": "object"
+}

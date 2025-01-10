@@ -1,0 +1,18 @@
+{
+  "description": "HTTP1Settings provides HTTP/1 configuration on the listener.",
+  "properties": {
+    "enableTrailers": {
+      "description": "EnableTrailers defines if HTTP/1 trailers should be proxied by Envoy.",
+      "type": "boolean"
+    },
+    "http10": {
+      "$ref": "../gateway.envoyproxy.io/http10settings_v1alpha1.json",
+      "description": "HTTP10 turns on support for HTTP/1.0 and HTTP/0.9 requests."
+    },
+    "preserveHeaderCase": {
+      "description": "PreserveHeaderCase defines if Envoy should preserve the letter case of headers. By default, Envoy will lowercase all the headers.",
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}

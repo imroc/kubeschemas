@@ -1,0 +1,18 @@
+{
+  "description": "CustomResponse defines the configuration for returning a custom response.",
+  "properties": {
+    "body": {
+      "$ref": "../gateway.envoyproxy.io/customresponsebody_v1alpha1.json",
+      "default": {},
+      "description": "Body of the Custom Response"
+    },
+    "contentType": {
+      "description": "Content Type of the response. This will be set in the Content-Type header.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "body"
+  ],
+  "type": "object"
+}

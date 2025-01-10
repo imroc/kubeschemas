@@ -1,0 +1,13 @@
+{
+  "properties": {
+    "idleTimeout": {
+      "description": "IdleTimeout for an HTTP connection. Idle time is defined as a period in which there are no active requests in the connection. Default: 1 hour.",
+      "type": "string"
+    },
+    "requestReceivedTimeout": {
+      "description": "RequestReceivedTimeout is the duration envoy waits for the complete request reception. This timer starts upon request initiation and stops when either the last byte of the request is sent upstream or when the response begins.",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

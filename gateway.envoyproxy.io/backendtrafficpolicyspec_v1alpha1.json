@@ -1,0 +1,92 @@
+{
+  "description": "BackendTrafficPolicySpec defines the desired state of BackendTrafficPolicy.",
+  "properties": {
+    "circuitBreaker": {
+      "$ref": "../gateway.envoyproxy.io/circuitbreaker_v1alpha1.json",
+      "description": "Circuit Breaker settings for the upstream connections and requests. If not set, circuit breakers will be enabled with the default thresholds"
+    },
+    "compression": {
+      "description": "The compression config for the http streams.",
+      "items": {
+        "$ref": "../gateway.envoyproxy.io/compression_v1alpha1.json"
+      },
+      "type": "array"
+    },
+    "connection": {
+      "$ref": "../gateway.envoyproxy.io/backendconnection_v1alpha1.json",
+      "description": "Connection includes backend connection settings."
+    },
+    "dns": {
+      "$ref": "../gateway.envoyproxy.io/dns_v1alpha1.json",
+      "description": "DNS includes dns resolution settings."
+    },
+    "faultInjection": {
+      "$ref": "../gateway.envoyproxy.io/faultinjection_v1alpha1.json",
+      "description": "FaultInjection defines the fault injection policy to be applied. This configuration can be used to inject delays and abort requests to mimic failure scenarios such as service failures and overloads"
+    },
+    "healthCheck": {
+      "$ref": "../gateway.envoyproxy.io/healthcheck_v1alpha1.json",
+      "description": "HealthCheck allows gateway to perform active health checking on backends."
+    },
+    "http2": {
+      "$ref": "../gateway.envoyproxy.io/http2settings_v1alpha1.json",
+      "description": "HTTP2 provides HTTP/2 configuration for backend connections."
+    },
+    "loadBalancer": {
+      "$ref": "../gateway.envoyproxy.io/loadbalancer_v1alpha1.json",
+      "description": "LoadBalancer policy to apply when routing traffic from the gateway to the backend endpoints. Defaults to `LeastRequest`."
+    },
+    "proxyProtocol": {
+      "$ref": "../gateway.envoyproxy.io/proxyprotocol_v1alpha1.json",
+      "description": "ProxyProtocol enables the Proxy Protocol when communicating with the backend."
+    },
+    "rateLimit": {
+      "$ref": "../gateway.envoyproxy.io/ratelimitspec_v1alpha1.json",
+      "description": "RateLimit allows the user to limit the number of incoming requests to a predefined value based on attributes within the traffic flow."
+    },
+    "responseOverride": {
+      "description": "ResponseOverride defines the configuration to override specific responses with a custom one. If multiple configurations are specified, the first one to match wins.",
+      "items": {
+        "$ref": "../gateway.envoyproxy.io/responseoverride_v1alpha1.json"
+      },
+      "type": "array"
+    },
+    "retry": {
+      "$ref": "../gateway.envoyproxy.io/retry_v1alpha1.json",
+      "description": "Retry provides more advanced usage, allowing users to customize the number of retries, retry fallback strategy, and retry triggering conditions. If not set, retry will be disabled."
+    },
+    "targetRef": {
+      "$ref": "../gateway-api.k8s.io/localpolicytargetreferencewithsectionname_v1alpha2.json",
+      "description": "TargetRef is the name of the resource this policy is being attached to. This policy and the TargetRef MUST be in the same namespace for this Policy to have effect\n\nDeprecated: use targetRefs/targetSelectors instead"
+    },
+    "targetRefs": {
+      "description": "TargetRefs are the names of the Gateway resources this policy is being attached to.",
+      "items": {
+        "$ref": "../gateway-api.k8s.io/localpolicytargetreferencewithsectionname_v1alpha2.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "targetSelectors": {
+      "description": "TargetSelectors allow targeting resources for this policy based on labels",
+      "items": {
+        "$ref": "../gateway.envoyproxy.io/targetselector_v1alpha1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "tcpKeepalive": {
+      "$ref": "../gateway.envoyproxy.io/tcpkeepalive_v1alpha1.json",
+      "description": "TcpKeepalive settings associated with the upstream client connection. Disabled by default."
+    },
+    "timeout": {
+      "$ref": "../gateway.envoyproxy.io/timeout_v1alpha1.json",
+      "description": "Timeout settings for the backend connections."
+    },
+    "useClientProtocol": {
+      "description": "UseClientProtocol configures Envoy to prefer sending requests to backends using the same HTTP protocol that the incoming request used. Defaults to false, which means that Envoy will use the protocol indicated by the attached BackendRef.",
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}

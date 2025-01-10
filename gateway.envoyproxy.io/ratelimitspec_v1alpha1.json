@@ -1,0 +1,31 @@
+{
+  "description": "RateLimitSpec defines the desired state of RateLimitSpec.",
+  "properties": {
+    "global": {
+      "$ref": "../gateway.envoyproxy.io/globalratelimit_v1alpha1.json",
+      "description": "Global defines global rate limit configuration."
+    },
+    "local": {
+      "$ref": "../gateway.envoyproxy.io/localratelimit_v1alpha1.json",
+      "description": "Local defines local rate limit configuration."
+    },
+    "type": {
+      "default": "",
+      "description": "Type decides the scope for the RateLimits. Valid RateLimitType values are \"Global\" or \"Local\".",
+      "type": "string"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object",
+  "x-kubernetes-unions": [
+    {
+      "discriminator": "type",
+      "fields-to-discriminateBy": {
+        "global": "Global",
+        "local": "Local"
+      }
+    }
+  ]
+}

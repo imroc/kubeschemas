@@ -1,0 +1,24 @@
+{
+  "description": "AuthorizationRule defines a single authorization rule.",
+  "properties": {
+    "action": {
+      "default": "",
+      "description": "Action defines the action to be taken if the rule matches.",
+      "type": "string"
+    },
+    "name": {
+      "description": "Name is a user-friendly name for the rule. If not specified, Envoy Gateway will generate a unique name for the rule.",
+      "type": "string"
+    },
+    "principal": {
+      "$ref": "../gateway.envoyproxy.io/principal_v1alpha1.json",
+      "default": {},
+      "description": "Principal specifies the client identity of a request. If there are multiple principal types, all principals must match for the rule to match. For example, if there are two principals: one for client IP and one for JWT claim, the rule will match only if both the client IP and the JWT claim match."
+    }
+  },
+  "required": [
+    "action",
+    "principal"
+  ],
+  "type": "object"
+}

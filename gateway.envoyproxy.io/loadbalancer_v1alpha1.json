@@ -1,0 +1,31 @@
+{
+  "description": "LoadBalancer defines the load balancer policy to be applied.",
+  "properties": {
+    "consistentHash": {
+      "$ref": "../gateway.envoyproxy.io/consistenthash_v1alpha1.json",
+      "description": "ConsistentHash defines the configuration when the load balancer type is set to ConsistentHash"
+    },
+    "slowStart": {
+      "$ref": "../gateway.envoyproxy.io/slowstart_v1alpha1.json",
+      "description": "SlowStart defines the configuration related to the slow start load balancer policy. If set, during slow start window, traffic sent to the newly added hosts will gradually increase. Currently this is only supported for RoundRobin and LeastRequest load balancers"
+    },
+    "type": {
+      "default": "",
+      "description": "Type decides the type of Load Balancer policy. Valid LoadBalancerType values are \"ConsistentHash\", \"LeastRequest\", \"Random\", \"RoundRobin\".",
+      "type": "string"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object",
+  "x-kubernetes-unions": [
+    {
+      "discriminator": "type",
+      "fields-to-discriminateBy": {
+        "consistentHash": "ConsistentHash",
+        "slowStart": "SlowStart"
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "description": "GRPCMethodMatch describes how to select a gRPC route by matching the gRPC request service and/or method.\n\nAt least one of Service and Method MUST be a non-empty string.",
+  "properties": {
+    "method": {
+      "description": "Value of the method to match against. If left empty or omitted, will match all services.\n\nAt least one of Service and Method MUST be a non-empty string.",
+      "type": "string"
+    },
+    "service": {
+      "description": "Value of the service to match against. If left empty or omitted, will match any service.\n\nAt least one of Service and Method MUST be a non-empty string.",
+      "type": "string"
+    },
+    "type": {
+      "description": "Type specifies how to match against the service and/or method. Support: Core (Exact with service and method specified)\n\nSupport: Implementation-specific (Exact with method specified but no service specified)\n\nSupport: Implementation-specific (RegularExpression)",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

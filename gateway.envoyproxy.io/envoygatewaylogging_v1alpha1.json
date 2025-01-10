@@ -1,0 +1,14 @@
+{
+  "description": "EnvoyGatewayLogging defines logging for Envoy Gateway.",
+  "properties": {
+    "level": {
+      "additionalProperties": {
+        "default": "",
+        "type": "string"
+      },
+      "description": "Level is the logging level. If unspecified, defaults to \"info\". EnvoyGatewayLogComponent options: default/provider/gateway-api/xds-translator/xds-server/infrastructure/global-ratelimit. LogLevel options: debug/info/error/warn.",
+      "type": "object"
+    }
+  },
+  "type": "object"
+}

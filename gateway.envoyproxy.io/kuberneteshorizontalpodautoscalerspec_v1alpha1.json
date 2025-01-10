@@ -1,0 +1,35 @@
+{
+  "description": "KubernetesHorizontalPodAutoscalerSpec defines Kubernetes Horizontal Pod Autoscaler settings of Envoy Proxy Deployment. When HPA is enabled, it is recommended that the value in `KubernetesDeploymentSpec.replicas` be removed, otherwise Envoy Gateway will revert back to this value every time reconciliation occurs. See k8s.io.autoscaling.v2.HorizontalPodAutoScalerSpec.",
+  "properties": {
+    "behavior": {
+      "$ref": "../autoscaling.api.k8s.io/horizontalpodautoscalerbehavior_v2.json",
+      "description": "behavior configures the scaling behavior of the target in both Up and Down directions (scaleUp and scaleDown fields respectively). If not set, the default HPAScalingRules for scale up and scale down are used. See k8s.io.autoscaling.v2.HorizontalPodAutoScalerBehavior."
+    },
+    "maxReplicas": {
+      "description": "maxReplicas is the upper limit for the number of replicas to which the autoscaler can scale up. It cannot be less that minReplicas.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "metrics": {
+      "description": "metrics contains the specifications for which to use to calculate the desired replica count (the maximum replica count across all metrics will be used). If left empty, it defaults to being based on CPU utilization with average on 80% usage.",
+      "items": {
+        "$ref": "../autoscaling.api.k8s.io/metricspec_v2.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "minReplicas": {
+      "description": "minReplicas is the lower limit for the number of replicas to which the autoscaler can scale down. It defaults to 1 replica.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "patch": {
+      "$ref": "../gateway.envoyproxy.io/kubernetespatchspec_v1alpha1.json",
+      "description": "Patch defines how to perform the patch operation to the HorizontalPodAutoscaler"
+    }
+  },
+  "required": [
+    "maxReplicas"
+  ],
+  "type": "object"
+}

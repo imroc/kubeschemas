@@ -1,0 +1,58 @@
+{
+  "description": "ActiveHealthCheck defines the active health check configuration. EG supports various types of active health checking including HTTP, TCP.",
+  "properties": {
+    "grpc": {
+      "$ref": "../gateway.envoyproxy.io/grpcactivehealthchecker_v1alpha1.json",
+      "description": "GRPC defines the configuration of the GRPC health checker. It's optional, and can only be used if the specified type is GRPC."
+    },
+    "healthyThreshold": {
+      "description": "HealthyThreshold defines the number of healthy health checks required before a backend host is marked healthy.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "http": {
+      "$ref": "../gateway.envoyproxy.io/httpactivehealthchecker_v1alpha1.json",
+      "description": "HTTP defines the configuration of http health checker. It's required while the health checker type is HTTP."
+    },
+    "interval": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "Interval defines the time between active health checks."
+    },
+    "tcp": {
+      "$ref": "../gateway.envoyproxy.io/tcpactivehealthchecker_v1alpha1.json",
+      "description": "TCP defines the configuration of tcp health checker. It's required while the health checker type is TCP."
+    },
+    "timeout": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "Timeout defines the time to wait for a health check response."
+    },
+    "type": {
+      "default": "",
+      "description": "Type defines the type of health checker.",
+      "type": "string"
+    },
+    "unhealthyThreshold": {
+      "description": "UnhealthyThreshold defines the number of unhealthy health checks required before a backend host is marked unhealthy.",
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object",
+  "x-kubernetes-unions": [
+    {
+      "discriminator": "type",
+      "fields-to-discriminateBy": {
+        "grpc": "GRPC",
+        "healthyThreshold": "HealthyThreshold",
+        "http": "HTTP",
+        "interval": "Interval",
+        "tcp": "TCP",
+        "timeout": "Timeout",
+        "unhealthyThreshold": "UnhealthyThreshold"
+      }
+    }
+  ]
+}

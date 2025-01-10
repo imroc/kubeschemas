@@ -1,0 +1,34 @@
+{
+  "description": "Wasm defines a Wasm extension.\n\nNote: at the moment, Envoy Gateway does not support configuring Wasm runtime. v8 is used as the VM runtime for the Wasm extensions.",
+  "properties": {
+    "code": {
+      "$ref": "../gateway.envoyproxy.io/wasmcodesource_v1alpha1.json",
+      "default": {},
+      "description": "Code is the Wasm code for the extension."
+    },
+    "config": {
+      "$ref": "../apiextensions.apis.pkg.apiextensions-apiserver.k8s.io/json_v1.json",
+      "description": "Config is the configuration for the Wasm extension. This configuration will be passed as a JSON string to the Wasm extension."
+    },
+    "env": {
+      "$ref": "../gateway.envoyproxy.io/wasmenv_v1alpha1.json",
+      "description": "Env configures the environment for the Wasm extension"
+    },
+    "failOpen": {
+      "description": "FailOpen is a switch used to control the behavior when a fatal error occurs during the initialization or the execution of the Wasm extension. If FailOpen is set to true, the system bypasses the Wasm extension and allows the traffic to pass through. Otherwise, if it is set to false or not set (defaulting to false), the system blocks the traffic and returns an HTTP 5xx error.",
+      "type": "boolean"
+    },
+    "name": {
+      "description": "Name is a unique name for this Wasm extension. It is used to identify the Wasm extension if multiple extensions are handled by the same vm_id and root_id. It's also used for logging/debugging. If not specified, EG will generate a unique name for the Wasm extension.",
+      "type": "string"
+    },
+    "rootID": {
+      "description": "RootID is a unique ID for a set of extensions in a VM which will share a RootContext and Contexts if applicable (e.g., an Wasm HttpFilter and an Wasm AccessLog). If left blank, all extensions with a blank root_id with the same vm_id will share Context(s).\n\nNote: RootID must match the root_id parameter used to register the Context in the Wasm code.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "code"
+  ],
+  "type": "object"
+}

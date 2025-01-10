@@ -1,0 +1,38 @@
+{
+  "description": "ALSEnvoyProxyAccessLog defines the gRPC Access Log Service (ALS) sink. The service must implement the Envoy gRPC Access Log Service streaming API: https://www.envoyproxy.io/docs/envoy/latest/api-v3/service/accesslog/v3/als.proto Access log format information is passed in the form of gRPC metadata when the stream is established.",
+  "properties": {
+    "backendRef": {
+      "$ref": "../gateway-api.k8s.io/backendobjectreference_v1.json",
+      "description": "BackendRef references a Kubernetes object that represents the backend server to which the authorization request will be sent.\n\nDeprecated: Use BackendRefs instead."
+    },
+    "backendRefs": {
+      "description": "BackendRefs references a Kubernetes object that represents the backend server to which the authorization request will be sent.",
+      "items": {
+        "$ref": "../gateway.envoyproxy.io/backendref_v1alpha1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "backendSettings": {
+      "$ref": "../gateway.envoyproxy.io/clustersettings_v1alpha1.json",
+      "description": "BackendSettings holds configuration for managing the connection to the backend."
+    },
+    "http": {
+      "$ref": "../gateway.envoyproxy.io/alsenvoyproxyhttpaccesslogconfig_v1alpha1.json",
+      "description": "HTTP defines additional configuration specific to HTTP access logs."
+    },
+    "logName": {
+      "description": "LogName defines the friendly name of the access log to be returned in StreamAccessLogsMessage.Identifier. This allows the access log server to differentiate between different access logs coming from the same Envoy.",
+      "type": "string"
+    },
+    "type": {
+      "default": "",
+      "description": "Type defines the type of accesslog. Supported types are \"HTTP\" and \"TCP\".",
+      "type": "string"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,4 @@
+{
+  "description": "StatelessTLSSessionResumption defines the stateless (session-ticket based) type of TLS session resumption. Note: When Envoy Proxy is deployed with more than one replica, session ticket encryption keys are not synchronized between instances, possibly leading to resumption failures. In-memory session ticket encryption keys are rotated every 48 hours. https://www.envoyproxy.io/docs/envoy/latest/api-v3/extensions/transport_sockets/tls/v3/common.proto#extensions-transport-sockets-tls-v3-tlssessionticketkeys https://commondatastorage.googleapis.com/chromium-boringssl-docs/ssl.h.html#Session-tickets",
+  "type": "object"
+}

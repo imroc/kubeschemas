@@ -1,0 +1,18 @@
+{
+  "description": "BackendEndpoint describes a backend endpoint, which can be either a fully-qualified domain name, IP address or unix domain socket corresponding to Envoy's Address: https://www.envoyproxy.io/docs/envoy/latest/api-v3/config/core/v3/address.proto#config-core-v3-address",
+  "properties": {
+    "fqdn": {
+      "$ref": "../gateway.envoyproxy.io/fqdnendpoint_v1alpha1.json",
+      "description": "FQDN defines a FQDN endpoint"
+    },
+    "ip": {
+      "$ref": "../gateway.envoyproxy.io/ipendpoint_v1alpha1.json",
+      "description": "IP defines an IP endpoint. Supports both IPv4 and IPv6 addresses."
+    },
+    "unix": {
+      "$ref": "../gateway.envoyproxy.io/unixsocket_v1alpha1.json",
+      "description": "Unix defines the unix domain socket endpoint"
+    }
+  },
+  "type": "object"
+}

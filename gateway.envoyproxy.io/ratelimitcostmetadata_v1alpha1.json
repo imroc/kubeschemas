@@ -1,0 +1,20 @@
+{
+  "description": "RateLimitCostMetadata specifies the filter metadata to retrieve the usage number from.",
+  "properties": {
+    "key": {
+      "default": "",
+      "description": "Key is the key to retrieve the usage number from the filter metadata.",
+      "type": "string"
+    },
+    "namespace": {
+      "default": "",
+      "description": "Namespace is the namespace of the dynamic metadata.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "namespace",
+    "key"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,14 @@
+{
+  "description": "ExtensionTLS defines the TLS configuration when connecting to an extension service",
+  "properties": {
+    "certificateRef": {
+      "$ref": "../gateway-api.k8s.io/secretobjectreference_v1.json",
+      "default": {},
+      "description": "CertificateRef contains a references to objects (Kubernetes objects or otherwise) that contains a TLS certificate and private keys. These certificates are used to establish a TLS handshake to the extension server.\n\nCertificateRef can only reference a Kubernetes Secret at this time."
+    }
+  },
+  "required": [
+    "certificateRef"
+  ],
+  "type": "object"
+}

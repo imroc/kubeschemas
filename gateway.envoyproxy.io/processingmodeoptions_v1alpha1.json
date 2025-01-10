@@ -1,0 +1,18 @@
+{
+  "description": "ProcessingModeOptions defines if headers or body should be processed by the external service and which attributes are sent to the processor",
+  "properties": {
+    "attributes": {
+      "description": "Defines which attributes are sent to the external processor. Envoy Gateway currently supports only the following attribute prefixes: connection, source, destination, request, response, upstream and xds.route. https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/advanced/attributes",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "body": {
+      "description": "Defines body processing mode",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

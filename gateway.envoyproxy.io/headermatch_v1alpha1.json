@@ -1,0 +1,26 @@
+{
+  "description": "HeaderMatch defines the match attributes within the HTTP Headers of the request.",
+  "properties": {
+    "invert": {
+      "description": "Invert specifies whether the value match result will be inverted. Do not set this field when Type=\"Distinct\", implying matching on any/all unique values within the header.",
+      "type": "boolean"
+    },
+    "name": {
+      "default": "",
+      "description": "Name of the HTTP header.",
+      "type": "string"
+    },
+    "type": {
+      "description": "Type specifies how to match against the value of the header.",
+      "type": "string"
+    },
+    "value": {
+      "description": "Value within the HTTP header. Due to the case-insensitivity of header names, \"foo\" and \"Foo\" are considered equivalent. Do not set this field when Type=\"Distinct\", implying matching on any/all unique values within the header.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "type": "object"
+}

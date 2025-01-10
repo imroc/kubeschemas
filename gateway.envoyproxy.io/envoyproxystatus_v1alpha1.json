@@ -1,0 +1,4 @@
+{
+  "description": "EnvoyProxyStatus defines the observed state of EnvoyProxy. This type is not implemented until https://github.com/envoyproxy/gateway/issues/1007 is fixed.",
+  "type": "object"
+}

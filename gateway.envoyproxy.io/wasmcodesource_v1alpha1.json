@@ -1,0 +1,36 @@
+{
+  "description": "WasmCodeSource defines the source of the Wasm code.",
+  "properties": {
+    "http": {
+      "$ref": "../gateway.envoyproxy.io/httpwasmcodesource_v1alpha1.json",
+      "description": "HTTP is the HTTP URL containing the Wasm code.\n\nNote that the HTTP server must be accessible from the Envoy proxy."
+    },
+    "image": {
+      "$ref": "../gateway.envoyproxy.io/imagewasmcodesource_v1alpha1.json",
+      "description": "Image is the OCI image containing the Wasm code.\n\nNote that the image must be accessible from the Envoy Gateway."
+    },
+    "pullPolicy": {
+      "description": "PullPolicy is the policy to use when pulling the Wasm module by either the HTTP or Image source. This field is only applicable when the SHA256 field is not set.\n\nIf not specified, the default policy is IfNotPresent except for OCI images whose tag is latest.\n\nNote: EG does not update the Wasm module every time an Envoy proxy requests the Wasm module even if the pull policy is set to Always. It only updates the Wasm module when the EnvoyExtension resource version changes.",
+      "type": "string"
+    },
+    "type": {
+      "default": "",
+      "description": "Type is the type of the source of the Wasm code. Valid WasmCodeSourceType values are \"HTTP\" or \"Image\".",
+      "type": "string"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object",
+  "x-kubernetes-unions": [
+    {
+      "discriminator": "type",
+      "fields-to-discriminateBy": {
+        "http": "HTTP",
+        "image": "Image",
+        "pullPolicy": "PullPolicy"
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "description": "RateLimitRedisSettings defines the configuration for connecting to redis database.",
+  "properties": {
+    "tls": {
+      "$ref": "../gateway.envoyproxy.io/redistlssettings_v1alpha1.json",
+      "description": "TLS defines TLS configuration for connecting to redis database."
+    },
+    "url": {
+      "default": "",
+      "description": "URL of the Redis Database.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "url"
+  ],
+  "type": "object"
+}

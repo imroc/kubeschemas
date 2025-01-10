@@ -1,0 +1,19 @@
+{
+  "properties": {
+    "pattern": {
+      "default": "",
+      "description": "Pattern matches a regular expression against the value of the HTTP Path.The regex string must adhere to the syntax documented in https://github.com/google/re2/wiki/Syntax.",
+      "type": "string"
+    },
+    "substitution": {
+      "default": "",
+      "description": "Substitution is an expression that replaces the matched portion.The expression may include numbered capture groups that adhere to syntax documented in https://github.com/google/re2/wiki/Syntax.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "pattern",
+    "substitution"
+  ],
+  "type": "object"
+}

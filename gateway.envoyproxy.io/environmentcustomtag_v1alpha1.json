@@ -1,0 +1,18 @@
+{
+  "description": "EnvironmentCustomTag adds value from environment variable to each span.",
+  "properties": {
+    "defaultValue": {
+      "description": "DefaultValue defines the default value to use if the environment variable is not set.",
+      "type": "string"
+    },
+    "name": {
+      "default": "",
+      "description": "Name defines the name of the environment variable which to extract the value from.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "type": "object"
+}

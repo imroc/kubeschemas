@@ -1,0 +1,17 @@
+{
+  "description": "CustomResponseMatch defines the configuration for matching a user response to return a custom one.",
+  "properties": {
+    "statusCodes": {
+      "description": "Status code to match on. The match evaluates to true if any of the matches are successful.",
+      "items": {
+        "$ref": "../gateway.envoyproxy.io/statuscodematch_v1alpha1.json",
+        "default": {}
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "statusCodes"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,13 @@
+{
+  "properties": {
+    "metrics": {
+      "$ref": "../gateway.envoyproxy.io/ratelimitmetrics_v1alpha1.json",
+      "description": "Metrics defines metrics configuration for RateLimit."
+    },
+    "tracing": {
+      "$ref": "../gateway.envoyproxy.io/ratelimittracing_v1alpha1.json",
+      "description": "Tracing defines traces configuration for RateLimit."
+    }
+  },
+  "type": "object"
+}

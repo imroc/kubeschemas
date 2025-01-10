@@ -1,0 +1,10 @@
+{
+  "description": "HTTP10Settings provides HTTP/1.0 configuration on the listener.",
+  "properties": {
+    "useDefaultHost": {
+      "description": "UseDefaultHost defines if the HTTP/1.0 request is missing the Host header, then the hostname associated with the listener should be injected into the request. If this is not set and an HTTP/1.0 request arrives without a host, then it will be rejected.",
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}

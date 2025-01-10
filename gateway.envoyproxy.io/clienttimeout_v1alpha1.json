@@ -1,0 +1,13 @@
+{
+  "properties": {
+    "http": {
+      "$ref": "../gateway.envoyproxy.io/httpclienttimeout_v1alpha1.json",
+      "description": "Timeout settings for HTTP."
+    },
+    "tcp": {
+      "$ref": "../gateway.envoyproxy.io/tcpclienttimeout_v1alpha1.json",
+      "description": "Timeout settings for TCP."
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,13 @@
+{
+  "description": "SlowStart defines the configuration related to the slow start load balancer policy.",
+  "properties": {
+    "window": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "Window defines the duration of the warm up period for newly added host. During slow start window, traffic sent to the newly added hosts will gradually increase. Currently only supports linear growth of traffic. For additional details, see https://www.envoyproxy.io/docs/envoy/latest/api-v3/config/cluster/v3/cluster.proto#config-cluster-v3-cluster-slowstartconfig"
+    }
+  },
+  "required": [
+    "window"
+  ],
+  "type": "object"
+}

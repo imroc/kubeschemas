@@ -1,0 +1,38 @@
+{
+  "description": "GatewayStatus defines the observed state of Gateway.",
+  "properties": {
+    "addresses": {
+      "description": "Addresses lists the network addresses that have been bound to the Gateway.\n\nThis list may differ from the addresses provided in the spec under some conditions:\n\n  * no addresses are specified, all addresses are dynamically assigned\n  * a combination of specified and dynamic addresses are assigned\n  * a specified address was unusable (e.g. already in use)\n\n\u003cgateway:validateIPAddress\u003e",
+      "items": {
+        "$ref": "../gateway-api.k8s.io/gatewaystatusaddress_v1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "conditions": {
+      "description": "Conditions describe the current conditions of the Gateway.\n\nImplementations should prefer to express Gateway conditions using the `GatewayConditionType` and `GatewayConditionReason` constants so that operators and tools can converge on a common vocabulary to describe Gateway state.\n\nKnown condition types are:\n\n* \"Accepted\" * \"Programmed\" * \"Ready\"",
+      "items": {
+        "$ref": "../meta.apis.pkg.apimachinery.k8s.io/condition_v1.json",
+        "default": {}
+      },
+      "type": "array",
+      "x-kubernetes-list-map-keys": [
+        "type"
+      ],
+      "x-kubernetes-list-type": "map"
+    },
+    "listeners": {
+      "description": "Listeners provide status for each unique listener port defined in the Spec.",
+      "items": {
+        "$ref": "../gateway-api.k8s.io/listenerstatus_v1.json",
+        "default": {}
+      },
+      "type": "array",
+      "x-kubernetes-list-map-keys": [
+        "name"
+      ],
+      "x-kubernetes-list-type": "map"
+    }
+  },
+  "type": "object"
+}

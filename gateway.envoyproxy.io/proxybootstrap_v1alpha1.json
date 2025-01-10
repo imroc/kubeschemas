@@ -1,0 +1,31 @@
+{
+  "description": "ProxyBootstrap defines Envoy Bootstrap configuration.",
+  "properties": {
+    "jsonPatches": {
+      "description": "JSONPatches is an array of JSONPatches to be applied to the default bootstrap. Patches are applied in the order in which they are defined.",
+      "items": {
+        "$ref": "../gateway.envoyproxy.io/jsonpatchoperation_v1alpha1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "type": {
+      "description": "Type is the type of the bootstrap configuration, it should be either Replace,  Merge, or JSONPatch. If unspecified, it defaults to Replace.",
+      "type": "string"
+    },
+    "value": {
+      "description": "Value is a YAML string of the bootstrap.",
+      "type": "string"
+    }
+  },
+  "type": "object",
+  "x-kubernetes-unions": [
+    {
+      "discriminator": "type",
+      "fields-to-discriminateBy": {
+        "jsonPatches": "JSONPatches",
+        "value": "Value"
+      }
+    }
+  ]
+}

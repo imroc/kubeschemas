@@ -3367,6 +3367,90 @@
       "$ref": "game.kruise.io/gameserversetlist_v1alpha1.json"
     },
     {
+      "$ref": "gateway-api.k8s.io/backendlbpolicy_v1alpha2.json"
+    },
+    {
+      "$ref": "gateway-api.k8s.io/backendlbpolicylist_v1alpha2.json"
+    },
+    {
+      "$ref": "gateway-api.k8s.io/gateway_v1.json"
+    },
+    {
+      "$ref": "gateway-api.k8s.io/gateway_v1beta1.json"
+    },
+    {
+      "$ref": "gateway-api.k8s.io/gatewayclass_v1.json"
+    },
+    {
+      "$ref": "gateway-api.k8s.io/gatewayclass_v1beta1.json"
+    },
+    {
+      "$ref": "gateway-api.k8s.io/gatewayclasslist_v1.json"
+    },
+    {
+      "$ref": "gateway-api.k8s.io/gatewayclasslist_v1beta1.json"
+    },
+    {
+      "$ref": "gateway-api.k8s.io/gatewaylist_v1.json"
+    },
+    {
+      "$ref": "gateway-api.k8s.io/gatewaylist_v1beta1.json"
+    },
+    {
+      "$ref": "gateway-api.k8s.io/grpcroute_v1.json"
+    },
+    {
+      "$ref": "gateway-api.k8s.io/grpcroute_v1alpha2.json"
+    },
+    {
+      "$ref": "gateway-api.k8s.io/grpcroutelist_v1.json"
+    },
+    {
+      "$ref": "gateway-api.k8s.io/grpcroutelist_v1alpha2.json"
+    },
+    {
+      "$ref": "gateway-api.k8s.io/httproute_v1.json"
+    },
+    {
+      "$ref": "gateway-api.k8s.io/httproute_v1beta1.json"
+    },
+    {
+      "$ref": "gateway-api.k8s.io/httproutelist_v1.json"
+    },
+    {
+      "$ref": "gateway-api.k8s.io/httproutelist_v1beta1.json"
+    },
+    {
+      "$ref": "gateway-api.k8s.io/referencegrant_v1alpha2.json"
+    },
+    {
+      "$ref": "gateway-api.k8s.io/referencegrant_v1beta1.json"
+    },
+    {
+      "$ref": "gateway-api.k8s.io/referencegrantlist_v1alpha2.json"
+    },
+    {
+      "$ref": "gateway-api.k8s.io/referencegrantlist_v1beta1.json"
+    },
+    {
+      "$ref": "gateway-api.k8s.io/tcproute_v1alpha2.json"
+    },
+    {
+      "$ref": "gateway-api.k8s.io/tcproutelist_v1alpha2.json"
+    },
+    {
+      "$ref": "gateway-api.k8s.io/tlsroute_v1alpha2.json"
+    },
+    {
+      "$ref": "gateway-api.k8s.io/tlsroutelist_v1alpha2.json"
+    },
+    {
+      "$ref": "gateway-api.k8s.io/udproute_v1alpha2.json"
+    },
+    {
+      "$ref": "gateway-api.k8s.io/udproutelist_v1alpha2.json"
+    },
+    {
       "$ref": "gateway.envoyproxy.io/backend_v1alpha1.json"
     },
     {
@@ -3389,6 +3473,9 @@
     },
     {
       "$ref": "gateway.envoyproxy.io/envoyextensionpolicylist_v1alpha1.json"
+    },
+    {
+      "$ref": "gateway.envoyproxy.io/envoygateway_v1alpha1.json"
     },
     {
       "$ref": "gateway.envoyproxy.io/envoypatchpolicy_v1alpha1.json"

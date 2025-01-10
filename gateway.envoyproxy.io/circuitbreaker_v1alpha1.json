@@ -1,0 +1,31 @@
+{
+  "description": "CircuitBreaker defines the Circuit Breaker configuration.",
+  "properties": {
+    "maxConnections": {
+      "description": "The maximum number of connections that Envoy will establish to the referenced backend defined within a xRoute rule.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "maxParallelRequests": {
+      "description": "The maximum number of parallel requests that Envoy will make to the referenced backend defined within a xRoute rule.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "maxParallelRetries": {
+      "description": "The maximum number of parallel retries that Envoy will make to the referenced backend defined within a xRoute rule.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "maxPendingRequests": {
+      "description": "The maximum number of pending requests that Envoy will queue to the referenced backend defined within a xRoute rule.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "maxRequestsPerConnection": {
+      "description": "The maximum number of requests that Envoy will make over a single connection to the referenced backend defined within a xRoute rule. Default: unlimited.",
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,70 @@
+{
+  "description": "KubernetesPodSpec defines the desired state of the Kubernetes pod resource.",
+  "properties": {
+    "affinity": {
+      "$ref": "../core.api.k8s.io/affinity_v1.json",
+      "description": "If specified, the pod's scheduling constraints."
+    },
+    "annotations": {
+      "additionalProperties": {
+        "default": "",
+        "type": "string"
+      },
+      "description": "Annotations are the annotations that should be appended to the pods. By default, no pod annotations are appended.",
+      "type": "object"
+    },
+    "imagePullSecrets": {
+      "description": "ImagePullSecrets is an optional list of references to secrets in the same namespace to use for pulling any of the images used by this PodSpec. If specified, these secrets will be passed to individual puller implementations for them to use. More info: https://kubernetes.io/docs/concepts/containers/images#specifying-imagepullsecrets-on-a-pod",
+      "items": {
+        "$ref": "../core.api.k8s.io/localobjectreference_v1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "labels": {
+      "additionalProperties": {
+        "default": "",
+        "type": "string"
+      },
+      "description": "Labels are the additional labels that should be tagged to the pods. By default, no additional pod labels are tagged.",
+      "type": "object"
+    },
+    "nodeSelector": {
+      "additionalProperties": {
+        "default": "",
+        "type": "string"
+      },
+      "description": "NodeSelector is a selector which must be true for the pod to fit on a node. Selector which must match a node's labels for the pod to be scheduled on that node. More info: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/",
+      "type": "object"
+    },
+    "securityContext": {
+      "$ref": "../core.api.k8s.io/podsecuritycontext_v1.json",
+      "description": "SecurityContext holds pod-level security attributes and common container settings. Optional: Defaults to empty.  See type description for default values of each field."
+    },
+    "tolerations": {
+      "description": "If specified, the pod's tolerations.",
+      "items": {
+        "$ref": "../core.api.k8s.io/toleration_v1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "topologySpreadConstraints": {
+      "description": "TopologySpreadConstraints describes how a group of pods ought to spread across topology domains. Scheduler will schedule pods in a way which abides by the constraints. All topologySpreadConstraints are ANDed.",
+      "items": {
+        "$ref": "../core.api.k8s.io/topologyspreadconstraint_v1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "volumes": {
+      "description": "Volumes that can be mounted by containers belonging to the pod. More info: https://kubernetes.io/docs/concepts/storage/volumes",
+      "items": {
+        "$ref": "../core.api.k8s.io/volume_v1.json",
+        "default": {}
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

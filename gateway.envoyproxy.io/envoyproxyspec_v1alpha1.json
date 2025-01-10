@@ -1,0 +1,68 @@
+{
+  "description": "EnvoyProxySpec defines the desired state of EnvoyProxy.",
+  "properties": {
+    "backendTLS": {
+      "$ref": "../gateway.envoyproxy.io/backendtlsconfig_v1alpha1.json",
+      "description": "BackendTLS is the TLS configuration for the Envoy proxy to use when connecting to backends. These settings are applied on backends for which TLS policies are specified."
+    },
+    "bootstrap": {
+      "$ref": "../gateway.envoyproxy.io/proxybootstrap_v1alpha1.json",
+      "description": "Bootstrap defines the Envoy Bootstrap as a YAML string. Visit https://www.envoyproxy.io/docs/envoy/latest/api-v3/config/bootstrap/v3/bootstrap.proto#envoy-v3-api-msg-config-bootstrap-v3-bootstrap to learn more about the syntax. If set, this is the Bootstrap configuration used for the managed Envoy Proxy fleet instead of the default Bootstrap configuration set by Envoy Gateway. Some fields within the Bootstrap that are required to communicate with the xDS Server (Envoy Gateway) and receive xDS resources from it are not configurable and will result in the `EnvoyProxy` resource being rejected. Backward compatibility across minor versions is not guaranteed. We strongly recommend using `egctl x translate` to generate a `EnvoyProxy` resource with the `Bootstrap` field set to the default Bootstrap configuration used. You can edit this configuration, and rerun `egctl x translate` to ensure there are no validation errors."
+    },
+    "concurrency": {
+      "description": "Concurrency defines the number of worker threads to run. If unset, it defaults to the number of cpuset threads on the platform.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "extraArgs": {
+      "description": "ExtraArgs defines additional command line options that are provided to Envoy. More info: https://www.envoyproxy.io/docs/envoy/latest/operations/cli#command-line-options Note: some command line options are used internally(e.g. --log-level) so they cannot be provided here.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "filterOrder": {
+      "description": "FilterOrder defines the order of filters in the Envoy proxy's HTTP filter chain. The FilterPosition in the list will be applied in the order they are defined. If unspecified, the default filter order is applied. Default filter order is:\n\n- envoy.filters.http.health_check\n\n- envoy.filters.http.fault\n\n- envoy.filters.http.cors\n\n- envoy.filters.http.ext_authz\n\n- envoy.filters.http.basic_auth\n\n- envoy.filters.http.oauth2\n\n- envoy.filters.http.jwt_authn\n\n- envoy.filters.http.stateful_session\n\n- envoy.filters.http.ext_proc\n\n- envoy.filters.http.wasm\n\n- envoy.filters.http.rbac\n\n- envoy.filters.http.local_ratelimit\n\n- envoy.filters.http.ratelimit\n\n- envoy.filters.http.custom_response\n\n- envoy.filters.http.router\n\nNote: \"envoy.filters.http.router\" cannot be reordered, it's always the last filter in the chain.",
+      "items": {
+        "$ref": "../gateway.envoyproxy.io/filterposition_v1alpha1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "ipFamily": {
+      "description": "IPFamily specifies the IP family for the EnvoyProxy fleet. This setting only affects the Gateway listener port and does not impact other aspects of the Envoy proxy configuration. If not specified, the system will operate as follows: - It defaults to IPv4 only. - IPv6 and dual-stack environments are not supported in this default configuration. Note: To enable IPv6 or dual-stack functionality, explicit configuration is required.",
+      "type": "string"
+    },
+    "logging": {
+      "$ref": "../gateway.envoyproxy.io/proxylogging_v1alpha1.json",
+      "default": {},
+      "description": "Logging defines logging parameters for managed proxies."
+    },
+    "mergeGateways": {
+      "description": "MergeGateways defines if Gateway resources should be merged onto the same Envoy Proxy Infrastructure. Setting this field to true would merge all Gateway Listeners under the parent Gateway Class. This means that the port, protocol and hostname tuple must be unique for every listener. If a duplicate listener is detected, the newer listener (based on timestamp) will be rejected and its status will be updated with a \"Accepted=False\" condition.",
+      "type": "boolean"
+    },
+    "preserveRouteOrder": {
+      "description": "PreserveRouteOrder determines if the order of matching for HTTPRoutes is determined by Gateway-API specification (https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.HTTPRouteRule) or preserves the order defined by users in the HTTPRoute's HTTPRouteRule list. Default: False",
+      "type": "boolean"
+    },
+    "provider": {
+      "$ref": "../gateway.envoyproxy.io/envoyproxyprovider_v1alpha1.json",
+      "description": "Provider defines the desired resource provider and provider-specific configuration. If unspecified, the \"Kubernetes\" resource provider is used with default configuration parameters."
+    },
+    "routingType": {
+      "description": "RoutingType can be set to \"Service\" to use the Service Cluster IP for routing to the backend, or it can be set to \"Endpoint\" to use Endpoint routing. The default is \"Endpoint\".",
+      "type": "string"
+    },
+    "shutdown": {
+      "$ref": "../gateway.envoyproxy.io/shutdownconfig_v1alpha1.json",
+      "description": "Shutdown defines configuration for graceful envoy shutdown process."
+    },
+    "telemetry": {
+      "$ref": "../gateway.envoyproxy.io/proxytelemetry_v1alpha1.json",
+      "description": "Telemetry defines telemetry parameters for managed proxies."
+    }
+  },
+  "type": "object"
+}

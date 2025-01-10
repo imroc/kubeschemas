@@ -1,0 +1,20 @@
+{
+  "description": "XDSTranslatorHooks contains all the pre and post hooks for the xds-translator runner.",
+  "properties": {
+    "post": {
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "pre": {
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

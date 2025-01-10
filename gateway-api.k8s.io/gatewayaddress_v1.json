@@ -1,0 +1,18 @@
+{
+  "description": "GatewayAddress describes an address that can be bound to a Gateway.",
+  "properties": {
+    "type": {
+      "description": "Type of the address.",
+      "type": "string"
+    },
+    "value": {
+      "default": "",
+      "description": "Value of the address. The validity of the values will depend on the type and support by the controller.\n\nExamples: `1.2.3.4`, `128::1`, `my-ip-address`.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "value"
+  ],
+  "type": "object"
+}

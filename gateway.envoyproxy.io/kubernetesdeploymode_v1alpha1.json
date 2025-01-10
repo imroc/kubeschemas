@@ -1,0 +1,10 @@
+{
+  "description": "KubernetesDeployMode holds configuration for how to deploy managed resources such as the Envoy Proxy data plane fleet.",
+  "properties": {
+    "type": {
+      "description": "Type indicates what deployment mode to use. \"ControllerNamespace\" and \"GatewayNamespace\" are currently supported. By default, when this field is unset or empty, Envoy Gateway will deploy Envoy Proxy fleet in the Controller namespace.",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,14 @@
+{
+  "description": "LocalRateLimit defines local rate limit configuration.",
+  "properties": {
+    "rules": {
+      "description": "Rules are a list of RateLimit selectors and limits. If a request matches multiple rules, the strictest limit is applied. For example, if a request matches two rules, one with 10rps and one with 20rps, the final limit will be based on the rule with 10rps.",
+      "items": {
+        "$ref": "../gateway.envoyproxy.io/ratelimitrule_v1alpha1.json",
+        "default": {}
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

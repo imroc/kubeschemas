@@ -1,0 +1,38 @@
+{
+  "description": "HTTPRouteMatch defines the predicate used to match requests to a given action. Multiple match types are ANDed together, i.e. the match will evaluate to true only if all conditions are satisfied.\n\nFor example, the match below will match a HTTP request only if its path starts with `/foo` AND it contains the `version: v1` header:\n\n``` match:\n\n\tpath:\n\t  value: \"/foo\"\n\theaders:\n\t- name: \"version\"\n\t  value \"v1\"\n\n```",
+  "properties": {
+    "headers": {
+      "description": "Headers specifies HTTP request header matchers. Multiple match values are ANDed together, meaning, a request must match all the specified headers to select the route.",
+      "items": {
+        "$ref": "../gateway-api.k8s.io/httpheadermatch_v1.json",
+        "default": {}
+      },
+      "type": "array",
+      "x-kubernetes-list-map-keys": [
+        "name"
+      ],
+      "x-kubernetes-list-type": "map"
+    },
+    "method": {
+      "description": "Method specifies HTTP method matcher. When specified, this route will be matched only if the request has the specified method.\n\nSupport: Extended",
+      "type": "string"
+    },
+    "path": {
+      "$ref": "../gateway-api.k8s.io/httppathmatch_v1.json",
+      "description": "Path specifies a HTTP request path matcher. If this field is not specified, a default prefix match on the \"/\" path is provided."
+    },
+    "queryParams": {
+      "description": "QueryParams specifies HTTP query parameter matchers. Multiple match values are ANDed together, meaning, a request must match all the specified query parameters to select the route.\n\nSupport: Extended",
+      "items": {
+        "$ref": "../gateway-api.k8s.io/httpqueryparammatch_v1.json",
+        "default": {}
+      },
+      "type": "array",
+      "x-kubernetes-list-map-keys": [
+        "name"
+      ],
+      "x-kubernetes-list-type": "map"
+    }
+  },
+  "type": "object"
+}

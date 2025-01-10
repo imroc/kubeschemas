@@ -1,0 +1,9 @@
+{
+  "properties": {
+    "disable": {
+      "description": "Disable the Prometheus endpoint.",
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,18 @@
+{
+  "description": "StringMatch defines how to match any strings. This is a general purpose match condition that can be used by other EG APIs that need to match against a string.",
+  "properties": {
+    "type": {
+      "description": "Type specifies how to match against a string.",
+      "type": "string"
+    },
+    "value": {
+      "default": "",
+      "description": "Value specifies the string value that the match must have.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "value"
+  ],
+  "type": "object"
+}

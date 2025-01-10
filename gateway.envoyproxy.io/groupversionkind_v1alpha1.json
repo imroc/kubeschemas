@@ -1,0 +1,23 @@
+{
+  "description": "GroupVersionKind unambiguously identifies a Kind. It can be converted to k8s.io/apimachinery/pkg/runtime/schema.GroupVersionKind",
+  "properties": {
+    "group": {
+      "default": "",
+      "type": "string"
+    },
+    "kind": {
+      "default": "",
+      "type": "string"
+    },
+    "version": {
+      "default": "",
+      "type": "string"
+    }
+  },
+  "required": [
+    "group",
+    "version",
+    "kind"
+  ],
+  "type": "object"
+}

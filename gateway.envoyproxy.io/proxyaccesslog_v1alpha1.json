@@ -1,0 +1,17 @@
+{
+  "properties": {
+    "disable": {
+      "description": "Disable disables access logging for managed proxies if set to true.",
+      "type": "boolean"
+    },
+    "settings": {
+      "description": "Settings defines accesslog settings for managed proxies. If unspecified, will send default format to stdout.",
+      "items": {
+        "$ref": "../gateway.envoyproxy.io/proxyaccesslogsetting_v1alpha1.json",
+        "default": {}
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

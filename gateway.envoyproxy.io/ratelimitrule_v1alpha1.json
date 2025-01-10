@@ -1,0 +1,26 @@
+{
+  "description": "RateLimitRule defines the semantics for matching attributes from the incoming requests, and setting limits for them.",
+  "properties": {
+    "clientSelectors": {
+      "description": "ClientSelectors holds the list of select conditions to select specific clients using attributes from the traffic flow. All individual select conditions must hold True for this rule and its limit to be applied.\n\nIf no client selectors are specified, the rule applies to all traffic of the targeted Route.\n\nIf the policy targets a Gateway, the rule applies to each Route of the Gateway. Please note that each Route has its own rate limit counters. For example, if a Gateway has two Routes, and the policy has a rule with limit 10rps, each Route will have its own 10rps limit.",
+      "items": {
+        "$ref": "../gateway.envoyproxy.io/ratelimitselectcondition_v1alpha1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "cost": {
+      "$ref": "../gateway.envoyproxy.io/ratelimitcost_v1alpha1.json",
+      "description": "Cost specifies the cost of requests and responses for the rule.\n\nThis is optional and if not specified, the default behavior is to reduce the rate limit counters by 1 on the request path and do not reduce the rate limit counters on the response path."
+    },
+    "limit": {
+      "$ref": "../gateway.envoyproxy.io/ratelimitvalue_v1alpha1.json",
+      "default": {},
+      "description": "Limit holds the rate limit values. This limit is applied for traffic flows when the selectors compute to True, causing the request to be counted towards the limit. The limit is enforced and the request is ratelimited, i.e. a response with 429 HTTP status code is sent back to the client when the selected requests have reached the limit."
+    }
+  },
+  "required": [
+    "limit"
+  ],
+  "type": "object"
+}

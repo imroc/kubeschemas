@@ -1,0 +1,15 @@
+{
+  "description": "EnvoyGatewayAdminAddress defines the Envoy Gateway Admin Address configuration.",
+  "properties": {
+    "host": {
+      "description": "Host defines the admin server hostname.",
+      "type": "string"
+    },
+    "port": {
+      "description": "Port defines the port the admin server is exposed on.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,28 @@
+{
+  "description": "RateLimit defines the configuration associated with the Rate Limit Service used for Global Rate Limiting.",
+  "properties": {
+    "backend": {
+      "$ref": "../gateway.envoyproxy.io/ratelimitdatabasebackend_v1alpha1.json",
+      "default": {},
+      "description": "Backend holds the configuration associated with the database backend used by the rate limit service to store state associated with global ratelimiting."
+    },
+    "failClosed": {
+      "default": false,
+      "description": "FailClosed is a switch used to control the flow of traffic when the response from the ratelimit server cannot be obtained. If FailClosed is false, let the traffic pass, otherwise, don't let the traffic pass and return 500. If not set, FailClosed is False.",
+      "type": "boolean"
+    },
+    "telemetry": {
+      "$ref": "../gateway.envoyproxy.io/ratelimittelemetry_v1alpha1.json",
+      "description": "Telemetry defines telemetry configuration for RateLimit."
+    },
+    "timeout": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
+      "description": "Timeout specifies the timeout period for the proxy to access the ratelimit server If not set, timeout is 20ms."
+    }
+  },
+  "required": [
+    "backend",
+    "failClosed"
+  ],
+  "type": "object"
+}

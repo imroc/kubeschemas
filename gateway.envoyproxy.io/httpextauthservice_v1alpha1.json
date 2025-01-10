@@ -1,0 +1,34 @@
+{
+  "description": "HTTPExtAuthService defines the HTTP External Authorization service",
+  "properties": {
+    "backendRef": {
+      "$ref": "../gateway-api.k8s.io/backendobjectreference_v1.json",
+      "description": "BackendRef references a Kubernetes object that represents the backend server to which the authorization request will be sent.\n\nDeprecated: Use BackendRefs instead."
+    },
+    "backendRefs": {
+      "description": "BackendRefs references a Kubernetes object that represents the backend server to which the authorization request will be sent.",
+      "items": {
+        "$ref": "../gateway.envoyproxy.io/backendref_v1alpha1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "backendSettings": {
+      "$ref": "../gateway.envoyproxy.io/clustersettings_v1alpha1.json",
+      "description": "BackendSettings holds configuration for managing the connection to the backend."
+    },
+    "headersToBackend": {
+      "description": "HeadersToBackend are the authorization response headers that will be added to the original client request before sending it to the backend server. Note that coexisting headers will be overridden. If not specified, no authorization response headers will be added to the original client request.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "path": {
+      "description": "Path is the path of the HTTP External Authorization service. If path is specified, the authorization request will be sent to that path, or else the authorization request will be sent to the root path.",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

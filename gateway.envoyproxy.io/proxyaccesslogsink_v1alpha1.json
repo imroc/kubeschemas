@@ -1,0 +1,32 @@
+{
+  "description": "ProxyAccessLogSink defines the sink of accesslog.",
+  "properties": {
+    "als": {
+      "$ref": "../gateway.envoyproxy.io/alsenvoyproxyaccesslog_v1alpha1.json",
+      "description": "ALS defines the gRPC Access Log Service (ALS) sink."
+    },
+    "file": {
+      "$ref": "../gateway.envoyproxy.io/fileenvoyproxyaccesslog_v1alpha1.json",
+      "description": "File defines the file accesslog sink."
+    },
+    "openTelemetry": {
+      "$ref": "../gateway.envoyproxy.io/opentelemetryenvoyproxyaccesslog_v1alpha1.json",
+      "description": "OpenTelemetry defines the OpenTelemetry accesslog sink."
+    },
+    "type": {
+      "description": "Type defines the type of accesslog sink.",
+      "type": "string"
+    }
+  },
+  "type": "object",
+  "x-kubernetes-unions": [
+    {
+      "discriminator": "type",
+      "fields-to-discriminateBy": {
+        "als": "ALS",
+        "file": "File",
+        "openTelemetry": "OpenTelemetry"
+      }
+    }
+  ]
+}

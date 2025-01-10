@@ -1,0 +1,30 @@
+{
+  "description": "FaultInjectionAbort defines the abort fault injection configuration",
+  "properties": {
+    "grpcStatus": {
+      "description": "GrpcStatus specifies the GRPC status code to be returned",
+      "format": "int32",
+      "type": "integer"
+    },
+    "httpStatus": {
+      "description": "StatusCode specifies the HTTP status code to be returned",
+      "format": "int32",
+      "type": "integer"
+    },
+    "percentage": {
+      "description": "Percentage specifies the percentage of requests to be aborted. Default 100%, if set 0, no requests will be aborted. Accuracy to 0.0001%.",
+      "format": "float",
+      "type": "number"
+    }
+  },
+  "type": "object",
+  "x-kubernetes-unions": [
+    {
+      "fields-to-discriminateBy": {
+        "grpcStatus": "GrpcStatus",
+        "httpStatus": "HTTPStatus",
+        "percentage": "Percentage"
+      }
+    }
+  ]
+}

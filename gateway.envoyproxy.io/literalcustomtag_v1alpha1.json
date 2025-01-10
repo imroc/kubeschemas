@@ -1,0 +1,14 @@
+{
+  "description": "LiteralCustomTag adds hard-coded value to each span.",
+  "properties": {
+    "value": {
+      "default": "",
+      "description": "Value defines the hard-coded value to add to each span.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "value"
+  ],
+  "type": "object"
+}

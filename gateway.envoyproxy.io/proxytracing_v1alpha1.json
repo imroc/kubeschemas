@@ -1,0 +1,26 @@
+{
+  "properties": {
+    "customTags": {
+      "additionalProperties": {
+        "$ref": "../gateway.envoyproxy.io/customtag_v1alpha1.json",
+        "default": {}
+      },
+      "description": "CustomTags defines the custom tags to add to each span. If provider is kubernetes, pod name and namespace are added by default.",
+      "type": "object"
+    },
+    "provider": {
+      "$ref": "../gateway.envoyproxy.io/tracingprovider_v1alpha1.json",
+      "default": {},
+      "description": "Provider defines the tracing provider."
+    },
+    "samplingRate": {
+      "description": "SamplingRate controls the rate at which traffic will be selected for tracing if no prior sampling decision has been made. Defaults to 100, valid values [0-100]. 100 indicates 100% sampling.",
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "provider"
+  ],
+  "type": "object"
+}

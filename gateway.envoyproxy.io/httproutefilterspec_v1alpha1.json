@@ -1,0 +1,20 @@
+{
+  "description": "HTTPRouteFilterSpec defines the desired state of HTTPRouteFilter.",
+  "properties": {
+    "directResponse": {
+      "$ref": "../gateway.envoyproxy.io/httpdirectresponsefilter_v1alpha1.json"
+    },
+    "urlRewrite": {
+      "$ref": "../gateway.envoyproxy.io/httpurlrewritefilter_v1alpha1.json"
+    }
+  },
+  "type": "object",
+  "x-kubernetes-unions": [
+    {
+      "fields-to-discriminateBy": {
+        "directResponse": "DirectResponse",
+        "urlRewrite": "URLRewrite"
+      }
+    }
+  ]
+}

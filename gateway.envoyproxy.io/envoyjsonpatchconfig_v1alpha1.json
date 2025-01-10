@@ -1,0 +1,26 @@
+{
+  "description": "EnvoyJSONPatchConfig defines the configuration for patching a Envoy xDS Resource using JSONPatch semantic",
+  "properties": {
+    "name": {
+      "default": "",
+      "description": "Name is the name of the resource",
+      "type": "string"
+    },
+    "operation": {
+      "$ref": "../gateway.envoyproxy.io/jsonpatchoperation_v1alpha1.json",
+      "default": {},
+      "description": "Patch defines the JSON Patch Operation"
+    },
+    "type": {
+      "default": "",
+      "description": "Type is the typed URL of the Envoy xDS Resource",
+      "type": "string"
+    }
+  },
+  "required": [
+    "type",
+    "name",
+    "operation"
+  ],
+  "type": "object"
+}

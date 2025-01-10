@@ -1,0 +1,21 @@
+{
+  "description": "FQDNEndpoint describes TCP/UDP socket address, corresponding to Envoy's Socket Address https://www.envoyproxy.io/docs/envoy/latest/api-v3/config/core/v3/address.proto#config-core-v3-socketaddress",
+  "properties": {
+    "hostname": {
+      "default": "",
+      "description": "Hostname defines the FQDN hostname of the backend endpoint.",
+      "type": "string"
+    },
+    "port": {
+      "default": 0,
+      "description": "Port defines the port of the backend endpoint.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "hostname",
+    "port"
+  ],
+  "type": "object"
+}

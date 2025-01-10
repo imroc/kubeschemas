@@ -1,0 +1,18 @@
+{
+  "description": "ClientValidationContext holds configuration that can be used to validate the client initiating the TLS connection to the Gateway. By default, no client specific configuration is validated.",
+  "properties": {
+    "caCertificateRefs": {
+      "description": "CACertificateRefs contains one or more references to Kubernetes objects that contain TLS certificates of the Certificate Authorities that can be used as a trust anchor to validate the certificates presented by the client.\n\nA single reference to a Kubernetes ConfigMap or a Kubernetes Secret, with the CA certificate in a key named `ca.crt` is currently supported.\n\nReferences to a resource in different namespace are invalid UNLESS there is a ReferenceGrant in the target namespace that allows the certificate to be attached.",
+      "items": {
+        "$ref": "../gateway-api.k8s.io/secretobjectreference_v1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "optional": {
+      "description": "Optional set to true accepts connections even when a client doesn't present a certificate. Defaults to false, which rejects connections without a valid client certificate.",
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}

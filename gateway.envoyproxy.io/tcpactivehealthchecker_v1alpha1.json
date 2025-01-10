@@ -1,0 +1,14 @@
+{
+  "description": "TCPActiveHealthChecker defines the settings of tcp health check.",
+  "properties": {
+    "receive": {
+      "$ref": "../gateway.envoyproxy.io/activehealthcheckpayload_v1alpha1.json",
+      "description": "Receive defines the expected response payload."
+    },
+    "send": {
+      "$ref": "../gateway.envoyproxy.io/activehealthcheckpayload_v1alpha1.json",
+      "description": "Send defines the request payload."
+    }
+  },
+  "type": "object"
+}

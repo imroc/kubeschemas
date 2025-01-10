@@ -1,0 +1,34 @@
+{
+  "description": "ExtAuth defines the configuration for External Authorization.",
+  "properties": {
+    "bodyToExtAuth": {
+      "$ref": "../gateway.envoyproxy.io/bodytoextauth_v1alpha1.json",
+      "description": "BodyToExtAuth defines the Body to Ext Auth configuration."
+    },
+    "failOpen": {
+      "description": "FailOpen is a switch used to control the behavior when a response from the External Authorization service cannot be obtained. If FailOpen is set to true, the system allows the traffic to pass through. Otherwise, if it is set to false or not set (defaulting to false), the system blocks the traffic and returns a HTTP 5xx error, reflecting a fail-closed approach. This setting determines whether to prioritize accessibility over strict security in case of authorization service failure.",
+      "type": "boolean"
+    },
+    "grpc": {
+      "$ref": "../gateway.envoyproxy.io/grpcextauthservice_v1alpha1.json",
+      "description": "GRPC defines the gRPC External Authorization service. Either GRPCService or HTTPService must be specified, and only one of them can be provided."
+    },
+    "headersToExtAuth": {
+      "description": "HeadersToExtAuth defines the client request headers that will be included in the request to the external authorization service. Note: If not specified, the default behavior for gRPC and HTTP external authorization services is different due to backward compatibility reasons. All headers will be included in the check request to a gRPC authorization server. Only the following headers will be included in the check request to an HTTP authorization server: Host, Method, Path, Content-Length, and Authorization. And these headers will always be included to the check request to an HTTP authorization server by default, no matter whether they are specified in HeadersToExtAuth or not.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "http": {
+      "$ref": "../gateway.envoyproxy.io/httpextauthservice_v1alpha1.json",
+      "description": "HTTP defines the HTTP External Authorization service. Either GRPCService or HTTPService must be specified, and only one of them can be provided."
+    },
+    "recomputeRoute": {
+      "description": "RecomputeRoute clears the route cache and recalculates the routing decision. This field must be enabled if the headers added or modified by the ExtAuth are used for route matching decisions. If the recomputation selects a new route, features targeting the new matched route will be applied.",
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}

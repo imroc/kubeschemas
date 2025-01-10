@@ -1,0 +1,10 @@
+{
+  "description": "EnvoyGatewayPrometheusProvider will expose prometheus endpoint in pull mode.",
+  "properties": {
+    "disable": {
+      "description": "Disable defines if disables the prometheus metrics in pull mode.",
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}

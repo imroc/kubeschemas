@@ -1,0 +1,29 @@
+{
+  "properties": {
+    "requestHeaders": {
+      "description": "RequestHeaders defines request headers to include in log entries sent to the access log service.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "responseHeaders": {
+      "description": "ResponseHeaders defines response headers to include in log entries sent to the access log service.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "responseTrailers": {
+      "description": "ResponseTrailers defines response trailers to include in log entries sent to the access log service.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

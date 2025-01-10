@@ -1,0 +1,37 @@
+{
+  "description": "ConsistentHash defines the configuration related to the consistent hash load balancer policy.",
+  "properties": {
+    "cookie": {
+      "$ref": "../gateway.envoyproxy.io/cookie_v1alpha1.json",
+      "description": "Cookie configures the cookie hash policy when the consistent hash type is set to Cookie."
+    },
+    "header": {
+      "$ref": "../gateway.envoyproxy.io/header_v1alpha1.json",
+      "description": "Header configures the header hash policy when the consistent hash type is set to Header."
+    },
+    "tableSize": {
+      "description": "The table size for consistent hashing, must be prime number limited to 5000011.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "type": {
+      "default": "",
+      "description": "ConsistentHashType defines the type of input to hash on. Valid Type values are \"SourceIP\", \"Header\", \"Cookie\".",
+      "type": "string"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object",
+  "x-kubernetes-unions": [
+    {
+      "discriminator": "type",
+      "fields-to-discriminateBy": {
+        "cookie": "Cookie",
+        "header": "Header",
+        "tableSize": "TableSize"
+      }
+    }
+  ]
+}

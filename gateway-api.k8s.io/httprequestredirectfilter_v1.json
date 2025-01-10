@@ -1,0 +1,28 @@
+{
+  "description": "HTTPRequestRedirect defines a filter that redirects a request. This filter MUST NOT be used on the same Route rule as a HTTPURLRewrite filter.",
+  "properties": {
+    "hostname": {
+      "description": "Hostname is the hostname to be used in the value of the `Location` header in the response. When empty, the hostname in the `Host` header of the request is used.\n\nSupport: Core",
+      "type": "string"
+    },
+    "path": {
+      "$ref": "../gateway-api.k8s.io/httppathmodifier_v1.json",
+      "description": "Path defines parameters used to modify the path of the incoming request. The modified path is then used to construct the `Location` header. When empty, the request path is used as-is.\n\nSupport: Extended"
+    },
+    "port": {
+      "description": "Port is the port to be used in the value of the `Location` header in the response.\n\nIf no port is specified, the redirect port MUST be derived using the following rules:\n\n* If redirect scheme is not-empty, the redirect port MUST be the well-known\n  port associated with the redirect scheme. Specifically \"http\" to port 80\n  and \"https\" to port 443. If the redirect scheme does not have a\n  well-known port, the listener port of the Gateway SHOULD be used.\n* If redirect scheme is empty, the redirect port MUST be the Gateway\n  Listener port.\n\nImplementations SHOULD NOT add the port number in the 'Location' header in the following cases:\n\n* A Location header that will use HTTP (whether that is determined via\n  the Listener protocol or the Scheme field) _and_ use port 80.\n* A Location header that will use HTTPS (whether that is determined via\n  the Listener protocol or the Scheme field) _and_ use port 443.\n\nSupport: Extended",
+      "format": "int32",
+      "type": "integer"
+    },
+    "scheme": {
+      "description": "Scheme is the scheme to be used in the value of the `Location` header in the response. When empty, the scheme of the request is used.\n\nScheme redirects can affect the port of the redirect, for more information, refer to the documentation for the port field of this filter.\n\nNote that values may be added to this enum, implementations must ensure that unknown values will not cause a crash.\n\nUnknown values here must result in the implementation setting the Accepted Condition for the Route to `status: False`, with a Reason of `UnsupportedValue`.\n\nSupport: Extended",
+      "type": "string"
+    },
+    "statusCode": {
+      "description": "StatusCode is the HTTP status code to be used in response.\n\nNote that values may be added to this enum, implementations must ensure that unknown values will not cause a crash.\n\nUnknown values here must result in the implementation setting the Accepted Condition for the Route to `status: False`, with a Reason of `UnsupportedValue`.\n\nSupport: Core",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "type": "object"
+}

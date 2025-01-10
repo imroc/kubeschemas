@@ -1,0 +1,22 @@
+{
+  "description": "ImageWasmCodeSource defines the OCI image containing the Wasm code.",
+  "properties": {
+    "pullSecretRef": {
+      "$ref": "../gateway-api.k8s.io/secretobjectreference_v1.json",
+      "description": "PullSecretRef is a reference to the secret containing the credentials to pull the image. Only support Kubernetes Secret resource from the same namespace."
+    },
+    "sha256": {
+      "description": "SHA256 checksum that will be used to verify the OCI image.\n\nIt must match the digest of the OCI image.\n\nIf not specified, Envoy Gateway will not verify the downloaded OCI image. kubebuilder:validation:Pattern=`^[a-f0-9]{64}$`",
+      "type": "string"
+    },
+    "url": {
+      "default": "",
+      "description": "URL is the URL of the OCI image. URL can be in the format of `registry/image:tag` or `registry/image@sha256:digest`.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "url"
+  ],
+  "type": "object"
+}

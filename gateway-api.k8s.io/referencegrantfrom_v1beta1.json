@@ -1,0 +1,26 @@
+{
+  "description": "ReferenceGrantFrom describes trusted namespaces and kinds.",
+  "properties": {
+    "group": {
+      "default": "",
+      "description": "Group is the group of the referent. When empty, the Kubernetes core API group is inferred.\n\nSupport: Core",
+      "type": "string"
+    },
+    "kind": {
+      "default": "",
+      "description": "Kind is the kind of the referent. Although implementations may support additional resources, the following types are part of the \"Core\" support level for this field.\n\nWhen used to permit a SecretObjectReference:\n\n* Gateway\n\nWhen used to permit a BackendObjectReference:\n\n* GRPCRoute * HTTPRoute * TCPRoute * TLSRoute * UDPRoute",
+      "type": "string"
+    },
+    "namespace": {
+      "default": "",
+      "description": "Namespace is the namespace of the referent.\n\nSupport: Core",
+      "type": "string"
+    }
+  },
+  "required": [
+    "group",
+    "kind",
+    "namespace"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,18 @@
+{
+  "description": "RateLimitSelectCondition specifies the attributes within the traffic flow that can be used to select a subset of clients to be ratelimited. All the individual conditions must hold True for the overall condition to hold True.",
+  "properties": {
+    "headers": {
+      "description": "Headers is a list of request headers to match. Multiple header values are ANDed together, meaning, a request MUST match all the specified headers. At least one of headers or sourceCIDR condition must be specified.",
+      "items": {
+        "$ref": "../gateway.envoyproxy.io/headermatch_v1alpha1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "sourceCIDR": {
+      "$ref": "../gateway.envoyproxy.io/sourcematch_v1alpha1.json",
+      "description": "SourceCIDR is the client IP Address range to match on. At least one of headers or sourceCIDR condition must be specified."
+    }
+  },
+  "type": "object"
+}

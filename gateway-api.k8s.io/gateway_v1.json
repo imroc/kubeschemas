@@ -1,0 +1,38 @@
+{
+  "description": "Gateway represents an instance of a service-traffic handling infrastructure by binding Listeners to a set of IP addresses.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "gateway-api.k8s.io/v1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "Gateway"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json",
+      "default": {}
+    },
+    "spec": {
+      "$ref": "../gateway-api.k8s.io/gatewayspec_v1.json",
+      "default": {},
+      "description": "Spec defines the desired state of Gateway."
+    },
+    "status": {
+      "$ref": "../gateway-api.k8s.io/gatewaystatus_v1.json",
+      "default": {},
+      "description": "Status defines the current state of Gateway."
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object"
+}

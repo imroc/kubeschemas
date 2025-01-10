@@ -1,0 +1,10 @@
+{
+  "description": "RedisTLSSettings defines the TLS configuration for connecting to redis database.",
+  "properties": {
+    "certificateRef": {
+      "$ref": "../gateway-api.k8s.io/secretobjectreference_v1.json",
+      "description": "CertificateRef defines the client certificate reference for TLS connections. Currently only a Kubernetes Secret of type TLS is supported."
+    }
+  },
+  "type": "object"
+}

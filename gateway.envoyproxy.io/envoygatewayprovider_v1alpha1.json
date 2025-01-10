@@ -1,0 +1,31 @@
+{
+  "description": "EnvoyGatewayProvider defines the desired configuration of a provider.",
+  "properties": {
+    "custom": {
+      "$ref": "../gateway.envoyproxy.io/envoygatewaycustomprovider_v1alpha1.json",
+      "description": "Custom defines the configuration for the Custom provider. This provider allows you to define a specific resource provider and an infrastructure provider."
+    },
+    "kubernetes": {
+      "$ref": "../gateway.envoyproxy.io/envoygatewaykubernetesprovider_v1alpha1.json",
+      "description": "Kubernetes defines the configuration of the Kubernetes provider. Kubernetes provides runtime configuration via the Kubernetes API."
+    },
+    "type": {
+      "default": "",
+      "description": "Type is the type of provider to use. Supported types are \"Kubernetes\", \"Custom\".",
+      "type": "string"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object",
+  "x-kubernetes-unions": [
+    {
+      "discriminator": "type",
+      "fields-to-discriminateBy": {
+        "custom": "Custom",
+        "kubernetes": "Kubernetes"
+      }
+    }
+  ]
+}

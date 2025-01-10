@@ -1,0 +1,25 @@
+{
+  "properties": {
+    "environment": {
+      "$ref": "../gateway.envoyproxy.io/environmentcustomtag_v1alpha1.json",
+      "description": "Environment adds value from environment variable to each span. It's required when the type is \"Environment\"."
+    },
+    "literal": {
+      "$ref": "../gateway.envoyproxy.io/literalcustomtag_v1alpha1.json",
+      "description": "Literal adds hard-coded value to each span. It's required when the type is \"Literal\"."
+    },
+    "requestHeader": {
+      "$ref": "../gateway.envoyproxy.io/requestheadercustomtag_v1alpha1.json",
+      "description": "RequestHeader adds value from request header to each span. It's required when the type is \"RequestHeader\"."
+    },
+    "type": {
+      "default": "",
+      "description": "Type defines the type of custom tag.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object"
+}

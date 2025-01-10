@@ -1,0 +1,15 @@
+{
+  "description": "BodyToExtAuth defines the Body to Ext Auth configuration",
+  "properties": {
+    "maxRequestBytes": {
+      "default": 0,
+      "description": "MaxRequestBytes is the maximum size of a message body that the filter will hold in memory. Envoy will return HTTP 413 and will not initiate the authorization process when buffer reaches the number set in this field. Note that this setting will have precedence over failOpen mode.",
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "maxRequestBytes"
+  ],
+  "type": "object"
+}

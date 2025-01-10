@@ -1,0 +1,9 @@
+{
+  "properties": {
+    "prometheus": {
+      "$ref": "../gateway.envoyproxy.io/ratelimitmetricsprometheusprovider_v1alpha1.json",
+      "description": "Prometheus defines the configuration for prometheus endpoint."
+    }
+  },
+  "type": "object"
+}

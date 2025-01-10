@@ -1,0 +1,16 @@
+{
+  "properties": {
+    "replaceRegexMatch": {
+      "$ref": "../gateway.envoyproxy.io/replaceregexmatch_v1alpha1.json",
+      "description": "ReplaceRegexMatch defines a path regex rewrite. The path portions matched by the regex pattern are replaced by the defined substitution. https://www.envoyproxy.io/docs/envoy/latest/api-v3/config/route/v3/route_components.proto#envoy-v3-api-field-config-route-v3-routeaction-regex-rewrite Some examples: (1) replaceRegexMatch:\n      pattern: ^/service/([^/]+)(/.*)$\n      substitution: \\2/instance/\\1\n    Would transform /service/foo/v1/api into /v1/api/instance/foo.\n(2) replaceRegexMatch:\n      pattern: one\n      substitution: two\n    Would transform /xxx/one/yyy/one/zzz into /xxx/two/yyy/two/zzz.\n(3) replaceRegexMatch:\n      pattern: ^(.*?)one(.*)$\n      substitution: \\1two\\2\n    Would transform /xxx/one/yyy/one/zzz into /xxx/two/yyy/one/zzz.\n(3) replaceRegexMatch:\n      pattern: (?i)/xxx/\n      substitution: /yyy/\n    Would transform path /aaa/XxX/bbb into /aaa/yyy/bbb (case-insensitive)."
+    },
+    "type": {
+      "default": "",
+      "type": "string"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object"
+}

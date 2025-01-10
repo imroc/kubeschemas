@@ -1,0 +1,19 @@
+{
+  "description": "RateLimitValue defines the limits for rate limiting.",
+  "properties": {
+    "requests": {
+      "default": 0,
+      "format": "int32",
+      "type": "integer"
+    },
+    "unit": {
+      "default": "",
+      "type": "string"
+    }
+  },
+  "required": [
+    "requests",
+    "unit"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,21 @@
+{
+  "description": "IPEndpoint describes TCP/UDP socket address, corresponding to Envoy's Socket Address https://www.envoyproxy.io/docs/envoy/latest/api-v3/config/core/v3/address.proto#config-core-v3-socketaddress",
+  "properties": {
+    "address": {
+      "default": "",
+      "description": "Address defines the IP address of the backend endpoint. Supports both IPv4 and IPv6 addresses.",
+      "type": "string"
+    },
+    "port": {
+      "default": 0,
+      "description": "Port defines the port of the backend endpoint.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "address",
+    "port"
+  ],
+  "type": "object"
+}

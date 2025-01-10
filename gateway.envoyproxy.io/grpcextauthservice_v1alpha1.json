@@ -1,0 +1,22 @@
+{
+  "description": "GRPCExtAuthService defines the gRPC External Authorization service The authorization request message is defined in https://www.envoyproxy.io/docs/envoy/latest/api-v3/service/auth/v3/external_auth.proto",
+  "properties": {
+    "backendRef": {
+      "$ref": "../gateway-api.k8s.io/backendobjectreference_v1.json",
+      "description": "BackendRef references a Kubernetes object that represents the backend server to which the authorization request will be sent.\n\nDeprecated: Use BackendRefs instead."
+    },
+    "backendRefs": {
+      "description": "BackendRefs references a Kubernetes object that represents the backend server to which the authorization request will be sent.",
+      "items": {
+        "$ref": "../gateway.envoyproxy.io/backendref_v1alpha1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "backendSettings": {
+      "$ref": "../gateway.envoyproxy.io/clustersettings_v1alpha1.json",
+      "description": "BackendSettings holds configuration for managing the connection to the backend."
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,18 @@
+{
+  "description": "JWTHeaderExtractor defines an HTTP header location to extract JWT token",
+  "properties": {
+    "name": {
+      "default": "",
+      "description": "Name is the HTTP header name to retrieve the token",
+      "type": "string"
+    },
+    "valuePrefix": {
+      "description": "ValuePrefix is the prefix that should be stripped before extracting the token. The format would be used by Envoy like \"{ValuePrefix}\u003cTOKEN\u003e\". For example, \"Authorization: Bearer \u003cTOKEN\u003e\", then the ValuePrefix=\"Bearer \" with a space at the end.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "type": "object"
+}

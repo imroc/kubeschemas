@@ -1,0 +1,31 @@
+{
+  "description": "ExtensionService defines the configuration for connecting to a registered extension service.",
+  "properties": {
+    "fqdn": {
+      "$ref": "../gateway.envoyproxy.io/fqdnendpoint_v1alpha1.json",
+      "description": "FQDN defines a FQDN endpoint"
+    },
+    "host": {
+      "description": "Host define the extension service hostname. Deprecated: use the appropriate transport attribute instead (FQDN,IP,Unix)",
+      "type": "string"
+    },
+    "ip": {
+      "$ref": "../gateway.envoyproxy.io/ipendpoint_v1alpha1.json",
+      "description": "IP defines an IP endpoint. Supports both IPv4 and IPv6 addresses."
+    },
+    "port": {
+      "description": "Port defines the port the extension service is exposed on. Deprecated: use the appropriate transport attribute instead (FQDN,IP,Unix)",
+      "format": "int32",
+      "type": "integer"
+    },
+    "tls": {
+      "$ref": "../gateway.envoyproxy.io/extensiontls_v1alpha1.json",
+      "description": "TLS defines TLS configuration for communication between Envoy Gateway and the extension service."
+    },
+    "unix": {
+      "$ref": "../gateway.envoyproxy.io/unixsocket_v1alpha1.json",
+      "description": "Unix defines the unix domain socket endpoint"
+    }
+  },
+  "type": "object"
+}

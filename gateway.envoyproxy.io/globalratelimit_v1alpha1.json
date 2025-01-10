@@ -1,0 +1,17 @@
+{
+  "description": "GlobalRateLimit defines global rate limit configuration.",
+  "properties": {
+    "rules": {
+      "description": "Rules are a list of RateLimit selectors and limits. Each rule and its associated limit is applied in a mutually exclusive way. If a request matches multiple rules, each of their associated limits get applied, so a single request might increase the rate limit counters for multiple rules if selected. The rate limit service will return a logical OR of the individual rate limit decisions of all matching rules. For example, if a request matches two rules, one rate limited and one not, the final decision will be to rate limit the request.",
+      "items": {
+        "$ref": "../gateway.envoyproxy.io/ratelimitrule_v1alpha1.json",
+        "default": {}
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "rules"
+  ],
+  "type": "object"
+}

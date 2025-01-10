@@ -1,0 +1,23 @@
+{
+  "description": "RateLimitCostSpecifier specifies where the Envoy retrieves the number to reduce the rate limit counters.",
+  "properties": {
+    "from": {
+      "default": "",
+      "description": "From specifies where to get the rate limit cost. Currently, only \"Number\" and \"Metadata\" are supported.",
+      "type": "string"
+    },
+    "metadata": {
+      "$ref": "../gateway.envoyproxy.io/ratelimitcostmetadata_v1alpha1.json",
+      "description": "Metadata specifies the per-request metadata to retrieve the usage number from."
+    },
+    "number": {
+      "description": "Number specifies the fixed usage number to reduce the rate limit counters. Using zero can be used to only check the rate limit counters without reducing them.",
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "from"
+  ],
+  "type": "object"
+}

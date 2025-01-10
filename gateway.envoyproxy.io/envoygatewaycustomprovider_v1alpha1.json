@@ -1,0 +1,18 @@
+{
+  "description": "EnvoyGatewayCustomProvider defines configuration for the Custom provider.",
+  "properties": {
+    "infrastructure": {
+      "$ref": "../gateway.envoyproxy.io/envoygatewayinfrastructureprovider_v1alpha1.json",
+      "description": "Infrastructure defines the desired infrastructure provider. This provider is used to specify the provider to be used to provide an environment to deploy the out resources like the Envoy Proxy data plane.\n\nInfrastructure is optional, if provider is not specified, No infrastructure provider is available."
+    },
+    "resource": {
+      "$ref": "../gateway.envoyproxy.io/envoygatewayresourceprovider_v1alpha1.json",
+      "default": {},
+      "description": "Resource defines the desired resource provider. This provider is used to specify the provider to be used to retrieve the resource configurations such as Gateway API resources"
+    }
+  },
+  "required": [
+    "resource"
+  ],
+  "type": "object"
+}

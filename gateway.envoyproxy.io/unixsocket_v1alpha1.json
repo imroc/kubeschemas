@@ -1,0 +1,14 @@
+{
+  "description": "UnixSocket describes TCP/UDP unix domain socket address, corresponding to Envoy's Pipe https://www.envoyproxy.io/docs/envoy/latest/api-v3/config/core/v3/address.proto#config-core-v3-pipe",
+  "properties": {
+    "path": {
+      "default": "",
+      "description": "Path defines the unix domain socket path of the backend endpoint.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "path"
+  ],
+  "type": "object"
+}

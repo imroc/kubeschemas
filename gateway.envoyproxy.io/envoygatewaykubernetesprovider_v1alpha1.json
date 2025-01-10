@@ -1,0 +1,34 @@
+{
+  "description": "EnvoyGatewayKubernetesProvider defines configuration for the Kubernetes provider.",
+  "properties": {
+    "deploy": {
+      "$ref": "../gateway.envoyproxy.io/kubernetesdeploymode_v1alpha1.json",
+      "description": "Deploy holds configuration of how output managed resources such as the Envoy Proxy data plane should be deployed"
+    },
+    "leaderElection": {
+      "$ref": "../gateway.envoyproxy.io/leaderelection_v1alpha1.json",
+      "description": "LeaderElection specifies the configuration for leader election. If it's not set up, leader election will be active by default, using Kubernetes' standard settings."
+    },
+    "overwriteControlPlaneCerts": {
+      "description": "OverwriteControlPlaneCerts updates the secrets containing the control plane certs, when set.",
+      "type": "boolean"
+    },
+    "rateLimitDeployment": {
+      "$ref": "../gateway.envoyproxy.io/kubernetesdeploymentspec_v1alpha1.json",
+      "description": "RateLimitDeployment defines the desired state of the Envoy ratelimit deployment resource. If unspecified, default settings for the managed Envoy ratelimit deployment resource are applied."
+    },
+    "rateLimitHpa": {
+      "$ref": "../gateway.envoyproxy.io/kuberneteshorizontalpodautoscalerspec_v1alpha1.json",
+      "description": "RateLimitHpa defines the Horizontal Pod Autoscaler settings for Envoy ratelimit Deployment. If the HPA is set, Replicas field from RateLimitDeployment will be ignored."
+    },
+    "shutdownManager": {
+      "$ref": "../gateway.envoyproxy.io/shutdownmanager_v1alpha1.json",
+      "description": "ShutdownManager defines the configuration for the shutdown manager."
+    },
+    "watch": {
+      "$ref": "../gateway.envoyproxy.io/kuberneteswatchmode_v1alpha1.json",
+      "description": "Watch holds configuration of which input resources should be watched and reconciled."
+    }
+  },
+  "type": "object"
+}

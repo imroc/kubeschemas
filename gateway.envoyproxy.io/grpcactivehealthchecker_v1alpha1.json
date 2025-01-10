@@ -1,0 +1,10 @@
+{
+  "description": "GRPCActiveHealthChecker defines the settings of the GRPC health check.",
+  "properties": {
+    "service": {
+      "description": "Service to send in the health check request. If this is not specified, then the health check request applies to the entire server and not to a specific service.",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

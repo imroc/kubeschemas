@@ -1,0 +1,18 @@
+{
+  "description": "RouteGroupKind indicates the group and kind of a Route resource.",
+  "properties": {
+    "group": {
+      "description": "Group is the group of the Route.",
+      "type": "string"
+    },
+    "kind": {
+      "default": "",
+      "description": "Kind is the kind of the Route.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "kind"
+  ],
+  "type": "object"
+}

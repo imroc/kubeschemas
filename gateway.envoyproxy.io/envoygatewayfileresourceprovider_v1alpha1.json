@@ -1,0 +1,17 @@
+{
+  "description": "EnvoyGatewayFileResourceProvider defines configuration for the File Resource provider.",
+  "properties": {
+    "paths": {
+      "description": "Paths are the paths to a directory or file containing the resource configuration. Recursive subdirectories are not currently supported.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "paths"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,4 @@
+{
+  "description": "StatefulTLSSessionResumption defines the stateful (session-id based) type of TLS session resumption. Note: When Envoy Proxy is deployed with more than one replica, session caches are not synchronized between instances, possibly leading to resumption failures. Envoy does not re-validate client certificates upon session resumption. https://www.envoyproxy.io/docs/envoy/latest/api-v3/config/route/v3/route_components.proto#config-route-v3-routematch-tlscontextmatchoptions",
+  "type": "object"
+}

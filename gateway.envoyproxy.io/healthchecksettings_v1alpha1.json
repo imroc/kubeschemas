@@ -1,0 +1,14 @@
+{
+  "description": "HealthCheckSettings provides HealthCheck configuration on the HTTP/HTTPS listener.",
+  "properties": {
+    "path": {
+      "default": "",
+      "description": "Path specifies the HTTP path to match on for health check requests.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "path"
+  ],
+  "type": "object"
+}

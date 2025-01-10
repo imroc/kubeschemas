@@ -1,0 +1,20 @@
+{
+  "description": "ResponseOverride defines the configuration to override specific responses with a custom one.",
+  "properties": {
+    "match": {
+      "$ref": "../gateway.envoyproxy.io/customresponsematch_v1alpha1.json",
+      "default": {},
+      "description": "Match configuration."
+    },
+    "response": {
+      "$ref": "../gateway.envoyproxy.io/customresponse_v1alpha1.json",
+      "default": {},
+      "description": "Response configuration."
+    }
+  },
+  "required": [
+    "match",
+    "response"
+  ],
+  "type": "object"
+}

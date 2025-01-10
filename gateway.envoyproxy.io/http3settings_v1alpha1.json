@@ -1,0 +1,4 @@
+{
+  "description": "HTTP3Settings provides HTTP/3 configuration on the listener.",
+  "type": "object"
+}

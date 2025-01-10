@@ -1,0 +1,14 @@
+{
+  "description": "ExtProcProcessingMode defines if and how headers and bodies are sent to the service. https://www.envoyproxy.io/docs/envoy/latest/api-v3/extensions/filters/http/ext_proc/v3/processing_mode.proto#envoy-v3-api-msg-extensions-filters-http-ext-proc-v3-processingmode",
+  "properties": {
+    "request": {
+      "$ref": "../gateway.envoyproxy.io/processingmodeoptions_v1alpha1.json",
+      "description": "Defines processing mode for requests. If present, request headers are sent. Request body is processed according to the specified mode."
+    },
+    "response": {
+      "$ref": "../gateway.envoyproxy.io/processingmodeoptions_v1alpha1.json",
+      "description": "Defines processing mode for responses. If present, response headers are sent. Response body is processed according to the specified mode."
+    }
+  },
+  "type": "object"
+}

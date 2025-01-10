@@ -1,0 +1,22 @@
+{
+  "description": "GatewayClassSpec reflects the configuration of a class of Gateways.",
+  "properties": {
+    "controllerName": {
+      "default": "",
+      "description": "ControllerName is the name of the controller that is managing Gateways of this class. The value of this field MUST be a domain prefixed path.\n\nExample: \"example.net/gateway-controller\".\n\nThis field is not mutable and cannot be empty.\n\nSupport: Core",
+      "type": "string"
+    },
+    "description": {
+      "description": "Description helps describe a GatewayClass with more details.",
+      "type": "string"
+    },
+    "parametersRef": {
+      "$ref": "../gateway-api.k8s.io/parametersreference_v1.json",
+      "description": "ParametersRef is a reference to a resource that contains the configuration parameters corresponding to the GatewayClass. This is optional if the controller does not require any additional configuration.\n\nParametersRef can reference a standard Kubernetes resource, i.e. ConfigMap, or an implementation-specific custom resource. The resource can be cluster-scoped or namespace-scoped.\n\nIf the referent cannot be found, refers to an unsupported kind, or when the data within that resource is malformed, the GatewayClass SHOULD be rejected with the \"Accepted\" status condition set to \"False\" and an \"InvalidParameters\" reason.\n\nA Gateway for this GatewayClass may provide its own `parametersRef`. When both are specified, the merging behavior is implementation specific. It is generally recommended that GatewayClass provides defaults that can be overridden by a Gateway.\n\nSupport: Implementation-specific"
+    }
+  },
+  "required": [
+    "controllerName"
+  ],
+  "type": "object"
+}

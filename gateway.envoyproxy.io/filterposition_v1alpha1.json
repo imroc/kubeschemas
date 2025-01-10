@@ -1,0 +1,22 @@
+{
+  "description": "FilterPosition defines the position of an Envoy HTTP filter in the filter chain.",
+  "properties": {
+    "after": {
+      "description": "After defines the filter that should come after the filter. Only one of Before or After must be set.",
+      "type": "string"
+    },
+    "before": {
+      "description": "Before defines the filter that should come before the filter. Only one of Before or After must be set.",
+      "type": "string"
+    },
+    "name": {
+      "default": "",
+      "description": "Name of the filter.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "type": "object"
+}

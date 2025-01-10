@@ -1,0 +1,32 @@
+{
+  "description": "ActiveHealthCheckPayload defines the encoding of the payload bytes in the payload.",
+  "properties": {
+    "binary": {
+      "description": "Binary payload base64 encoded.",
+      "format": "byte",
+      "type": "string"
+    },
+    "text": {
+      "description": "Text payload in plain text.",
+      "type": "string"
+    },
+    "type": {
+      "default": "",
+      "description": "Type defines the type of the payload.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object",
+  "x-kubernetes-unions": [
+    {
+      "discriminator": "type",
+      "fields-to-discriminateBy": {
+        "binary": "Binary",
+        "text": "Text"
+      }
+    }
+  ]
+}

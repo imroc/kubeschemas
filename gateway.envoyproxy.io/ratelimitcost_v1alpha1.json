@@ -1,0 +1,13 @@
+{
+  "properties": {
+    "request": {
+      "$ref": "../gateway.envoyproxy.io/ratelimitcostspecifier_v1alpha1.json",
+      "description": "Request specifies the number to reduce the rate limit counters on the request path. If this is not specified, the default behavior is to reduce the rate limit counters by 1.\n\nWhen Envoy receives a request that matches the rule, it tries to reduce the rate limit counters by the specified number. If the counter doesn't have enough capacity, the request is rate limited."
+    },
+    "response": {
+      "$ref": "../gateway.envoyproxy.io/ratelimitcostspecifier_v1alpha1.json",
+      "description": "Response specifies the number to reduce the rate limit counters after the response is sent back to the client or the request stream is closed.\n\nThe cost is used to reduce the rate limit counters for the matching requests. Since the reduction happens after the request stream is complete, the rate limit won't be enforced for the current request, but for the subsequent matching requests.\n\nThis is optional and if not specified, the rate limit counters are not reduced on the response path.\n\nCurrently, this is only supported for HTTP Global Rate Limits."
+    }
+  },
+  "type": "object"
+}

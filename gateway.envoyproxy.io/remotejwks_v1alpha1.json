@@ -1,0 +1,14 @@
+{
+  "description": "RemoteJWKS defines how to fetch and cache JSON Web Key Sets (JWKS) from a remote HTTP/HTTPS endpoint.",
+  "properties": {
+    "uri": {
+      "default": "",
+      "description": "URI is the HTTPS URI to fetch the JWKS. Envoy's system trust bundle is used to validate the server certificate.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "uri"
+  ],
+  "type": "object"
+}

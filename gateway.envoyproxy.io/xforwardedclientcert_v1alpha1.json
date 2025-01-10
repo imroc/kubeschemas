@@ -1,0 +1,18 @@
+{
+  "description": "XForwardedClientCert configures how Envoy Proxy handle the x-forwarded-client-cert (XFCC) HTTP header.",
+  "properties": {
+    "certDetailsToAdd": {
+      "description": "CertDetailsToAdd specifies the fields in the client certificate to be forwarded in the XFCC header.\n\nHash(the SHA 256 digest of the current client certificate) and By(the Subject Alternative Name) are always included if the client certificate is forwarded.\n\nThis field is only applicable when the mode is set to `AppendForward` or `SanitizeSet` and the client connection is mTLS.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "mode": {
+      "description": "Mode defines how XFCC header is handled by Envoy Proxy. If not set, the default mode is `Sanitize`.",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

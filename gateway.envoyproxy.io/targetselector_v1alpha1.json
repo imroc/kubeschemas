@@ -1,0 +1,26 @@
+{
+  "properties": {
+    "group": {
+      "description": "Group is the group that this selector targets. Defaults to gateway.networking.k8s.io",
+      "type": "string"
+    },
+    "kind": {
+      "default": "",
+      "description": "Kind is the resource kind that this selector targets.",
+      "type": "string"
+    },
+    "matchLabels": {
+      "additionalProperties": {
+        "default": "",
+        "type": "string"
+      },
+      "description": "MatchLabels are the set of label selectors for identifying the targeted resource",
+      "type": "object"
+    }
+  },
+  "required": [
+    "kind",
+    "matchLabels"
+  ],
+  "type": "object"
+}

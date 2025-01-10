@@ -1,0 +1,26 @@
+{
+  "description": "LocalPolicyTargetReference identifies an API object to apply a direct or inherited policy to. This should be used as part of Policy resources that can target Gateway API resources. For more information on how this policy attachment model works, and a sample Policy resource, refer to the policy attachment documentation for Gateway API.",
+  "properties": {
+    "group": {
+      "default": "",
+      "description": "Group is the group of the target resource.",
+      "type": "string"
+    },
+    "kind": {
+      "default": "",
+      "description": "Kind is kind of the target resource.",
+      "type": "string"
+    },
+    "name": {
+      "default": "",
+      "description": "Name is the name of the target resource.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "group",
+    "kind",
+    "name"
+  ],
+  "type": "object"
+}

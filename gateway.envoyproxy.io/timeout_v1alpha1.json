@@ -1,0 +1,14 @@
+{
+  "description": "Timeout defines configuration for timeouts related to connections.",
+  "properties": {
+    "http": {
+      "$ref": "../gateway.envoyproxy.io/httptimeout_v1alpha1.json",
+      "description": "Timeout settings for HTTP."
+    },
+    "tcp": {
+      "$ref": "../gateway.envoyproxy.io/tcptimeout_v1alpha1.json",
+      "description": "Timeout settings for TCP."
+    }
+  },
+  "type": "object"
+}

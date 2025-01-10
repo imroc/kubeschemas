@@ -1,0 +1,13 @@
+{
+  "properties": {
+    "compression": {
+      "$ref": "../gateway.envoyproxy.io/compression_v1alpha1.json",
+      "description": "Configure the compression on Prometheus endpoint. Compression is useful in situations when bandwidth is scarce and large payloads can be effectively compressed at the expense of higher CPU load."
+    },
+    "disable": {
+      "description": "Disable the Prometheus endpoint.",
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}
