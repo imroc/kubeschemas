@@ -730,6 +730,9 @@
       "$ref": "argoproj.io/clusterworkflowtemplatelist_v1alpha1.json"
     },
     {
+      "$ref": "argoproj.io/cronworkflow_v1alpha1.json"
+    },
+    {
       "$ref": "argoproj.io/cronworkflowlist_v1alpha1.json"
     },
     {
@@ -763,6 +766,9 @@
       "$ref": "argoproj.io/sensorlist_v1alpha1.json"
     },
     {
+      "$ref": "argoproj.io/workflow_v1alpha1.json"
+    },
+    {
       "$ref": "argoproj.io/workflowartifactgctask_v1alpha1.json"
     },
     {
@@ -788,6 +794,9 @@
     },
     {
       "$ref": "argoproj.io/workflowtasksetlist_v1alpha1.json"
+    },
+    {
+      "$ref": "argoproj.io/workflowtemplate_v1alpha1.json"
     },
     {
       "$ref": "argoproj.io/workflowtemplatelist_v1alpha1.json"
