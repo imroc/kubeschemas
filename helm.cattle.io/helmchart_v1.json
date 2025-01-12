@@ -23,10 +23,120 @@
       "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
     },
     "spec": {
-      "x-kubernetes-preserve-unknown-fields": true
+      "properties": {
+        "authPassCredentials": {
+          "type": "boolean"
+        },
+        "authSecret": {
+          "nullable": true,
+          "properties": {
+            "name": {
+              "nullable": true,
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "backOffLimit": {
+          "nullable": true,
+          "type": "integer"
+        },
+        "bootstrap": {
+          "type": "boolean"
+        },
+        "chart": {
+          "nullable": true,
+          "type": "string"
+        },
+        "chartContent": {
+          "nullable": true,
+          "type": "string"
+        },
+        "createNamespace": {
+          "type": "boolean"
+        },
+        "dockerRegistrySecret": {
+          "nullable": true,
+          "properties": {
+            "name": {
+              "nullable": true,
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "failurePolicy": {
+          "nullable": true,
+          "type": "string"
+        },
+        "helmVersion": {
+          "nullable": true,
+          "type": "string"
+        },
+        "jobImage": {
+          "nullable": true,
+          "type": "string"
+        },
+        "repo": {
+          "nullable": true,
+          "type": "string"
+        },
+        "repoCA": {
+          "nullable": true,
+          "type": "string"
+        },
+        "repoCAConfigMap": {
+          "nullable": true,
+          "properties": {
+            "name": {
+              "nullable": true,
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "set": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "x-kubernetes-int-or-string": true
+          },
+          "nullable": true,
+          "type": "object"
+        },
+        "targetNamespace": {
+          "nullable": true,
+          "type": "string"
+        },
+        "timeout": {
+          "nullable": true,
+          "type": "string"
+        },
+        "valuesContent": {
+          "nullable": true,
+          "type": "string"
+        },
+        "version": {
+          "nullable": true,
+          "type": "string"
+        }
+      },
+      "type": "object"
     },
     "status": {
-      "x-kubernetes-preserve-unknown-fields": true
+      "properties": {
+        "jobName": {
+          "nullable": true,
+          "type": "string"
+        }
+      },
+      "type": "object"
     }
   },
   "required": [
@@ -40,6 +150,5 @@
       "kind": "HelmChart",
       "version": "v1"
     }
-  ],
-  "x-kubernetes-selectable-fields": []
+  ]
 }

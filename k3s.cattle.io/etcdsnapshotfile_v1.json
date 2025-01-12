@@ -122,6 +122,5 @@
       "kind": "ETCDSnapshotFile",
       "version": "v1"
     }
-  ],
-  "x-kubernetes-selectable-fields": []
+  ]
 }

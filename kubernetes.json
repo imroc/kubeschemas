@@ -700,6 +700,24 @@
       "$ref": "argoproj.io/analysistemplatelist_v1alpha1.json"
     },
     {
+      "$ref": "argoproj.io/application_v1alpha1.json"
+    },
+    {
+      "$ref": "argoproj.io/applicationlist_v1alpha1.json"
+    },
+    {
+      "$ref": "argoproj.io/applicationset_v1alpha1.json"
+    },
+    {
+      "$ref": "argoproj.io/applicationsetlist_v1alpha1.json"
+    },
+    {
+      "$ref": "argoproj.io/appproject_v1alpha1.json"
+    },
+    {
+      "$ref": "argoproj.io/appprojectlist_v1alpha1.json"
+    },
+    {
       "$ref": "argoproj.io/clusteranalysistemplate_v1alpha1.json"
     },
     {
@@ -745,6 +763,12 @@
       "$ref": "argoproj.io/sensorlist_v1alpha1.json"
     },
     {
+      "$ref": "argoproj.io/workflowartifactgctask_v1alpha1.json"
+    },
+    {
+      "$ref": "argoproj.io/workflowartifactgctasklist_v1alpha1.json"
+    },
+    {
       "$ref": "argoproj.io/workfloweventbinding_v1alpha1.json"
     },
     {
@@ -752,6 +776,12 @@
     },
     {
       "$ref": "argoproj.io/workflowlist_v1alpha1.json"
+    },
+    {
+      "$ref": "argoproj.io/workflowtaskresult_v1alpha1.json"
+    },
+    {
+      "$ref": "argoproj.io/workflowtaskresultlist_v1alpha1.json"
     },
     {
       "$ref": "argoproj.io/workflowtaskset_v1alpha1.json"
@@ -7856,6 +7886,12 @@
     },
     {
       "$ref": "triggers.tekton.dev/triggertemplatelist_v1beta1.json"
+    },
+    {
+      "$ref": "upgrade.cattle.io/plan_v1.json"
+    },
+    {
+      "$ref": "upgrade.cattle.io/planlist_v1.json"
     },
     {
       "$ref": "velero.io/backup_v1.json"

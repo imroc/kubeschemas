@@ -23,10 +23,17 @@
       "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
     },
     "spec": {
-      "x-kubernetes-preserve-unknown-fields": true
-    },
-    "status": {
-      "x-kubernetes-preserve-unknown-fields": true
+      "properties": {
+        "failurePolicy": {
+          "nullable": true,
+          "type": "string"
+        },
+        "valuesContent": {
+          "nullable": true,
+          "type": "string"
+        }
+      },
+      "type": "object"
     }
   },
   "required": [
@@ -40,6 +47,5 @@
       "kind": "HelmChartConfig",
       "version": "v1"
     }
-  ],
-  "x-kubernetes-selectable-fields": []
+  ]
 }

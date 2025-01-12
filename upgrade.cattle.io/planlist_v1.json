@@ -1,39 +1,34 @@
 {
+  "description": "PlanList is a list of Plan",
   "properties": {
     "apiVersion": {
       "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
       "enum": [
-        "k3s.cattle.io/v1"
+        "upgrade.cattle.io/v1"
       ],
       "type": "string"
+    },
+    "items": {
+      "description": "List of plans. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md",
+      "items": {
+        "$ref": "../upgrade.cattle.io/plan_v1.json"
+      },
+      "type": "array"
     },
     "kind": {
       "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
       "enum": [
-        "Addon"
+        "PlanList"
       ],
       "type": "string"
     },
     "metadata": {
       "allOf": [
         {
-          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/listmeta_v1.json"
         }
       ],
-      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
-    },
-    "spec": {
-      "properties": {
-        "checksum": {
-          "nullable": true,
-          "type": "string"
-        },
-        "source": {
-          "nullable": true,
-          "type": "string"
-        }
-      },
-      "type": "object"
+      "description": "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
     }
   },
   "required": [
@@ -43,8 +38,8 @@
   "type": "object",
   "x-kubernetes-group-version-kind": [
     {
-      "group": "k3s.cattle.io",
-      "kind": "Addon",
+      "group": "upgrade.cattle.io",
+      "kind": "PlanList",
       "version": "v1"
     }
   ]

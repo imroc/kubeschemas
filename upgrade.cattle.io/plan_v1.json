@@ -1,0 +1,885 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "upgrade.cattle.io/v1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "Plan"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "channel": {
+          "nullable": true,
+          "type": "string"
+        },
+        "concurrency": {
+          "type": "integer"
+        },
+        "cordon": {
+          "type": "boolean"
+        },
+        "drain": {
+          "nullable": true,
+          "properties": {
+            "deleteEmptydirData": {
+              "nullable": true,
+              "type": "boolean"
+            },
+            "deleteLocalData": {
+              "nullable": true,
+              "type": "boolean"
+            },
+            "disableEviction": {
+              "type": "boolean"
+            },
+            "force": {
+              "type": "boolean"
+            },
+            "gracePeriod": {
+              "nullable": true,
+              "type": "integer"
+            },
+            "ignoreDaemonSets": {
+              "nullable": true,
+              "type": "boolean"
+            },
+            "podSelector": {
+              "nullable": true,
+              "properties": {
+                "matchExpressions": {
+                  "items": {
+                    "properties": {
+                      "key": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "operator": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "values": {
+                        "items": {
+                          "nullable": true,
+                          "type": "string"
+                        },
+                        "nullable": true,
+                        "type": "array"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "nullable": true,
+                  "type": "array"
+                },
+                "matchLabels": {
+                  "additionalProperties": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "nullable": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "skipWaitForDeleteTimeout": {
+              "type": "integer"
+            },
+            "timeout": {
+              "nullable": true,
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
+        "exclusive": {
+          "type": "boolean"
+        },
+        "imagePullSecrets": {
+          "items": {
+            "properties": {
+              "name": {
+                "nullable": true,
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "nullable": true,
+          "type": "array"
+        },
+        "jobActiveDeadlineSecs": {
+          "type": "integer"
+        },
+        "nodeSelector": {
+          "nullable": true,
+          "properties": {
+            "matchExpressions": {
+              "items": {
+                "properties": {
+                  "key": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "operator": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "values": {
+                    "items": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "nullable": true,
+                    "type": "array"
+                  }
+                },
+                "type": "object"
+              },
+              "nullable": true,
+              "type": "array"
+            },
+            "matchLabels": {
+              "additionalProperties": {
+                "nullable": true,
+                "type": "string"
+              },
+              "nullable": true,
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "prepare": {
+          "nullable": true,
+          "properties": {
+            "args": {
+              "items": {
+                "nullable": true,
+                "type": "string"
+              },
+              "nullable": true,
+              "type": "array"
+            },
+            "command": {
+              "items": {
+                "nullable": true,
+                "type": "string"
+              },
+              "nullable": true,
+              "type": "array"
+            },
+            "envFrom": {
+              "items": {
+                "properties": {
+                  "configMapRef": {
+                    "nullable": true,
+                    "properties": {
+                      "name": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "optional": {
+                        "nullable": true,
+                        "type": "boolean"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "prefix": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "secretRef": {
+                    "nullable": true,
+                    "properties": {
+                      "name": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "optional": {
+                        "nullable": true,
+                        "type": "boolean"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "nullable": true,
+              "type": "array"
+            },
+            "envs": {
+              "items": {
+                "properties": {
+                  "name": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "value": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "valueFrom": {
+                    "nullable": true,
+                    "properties": {
+                      "configMapKeyRef": {
+                        "nullable": true,
+                        "properties": {
+                          "key": {
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "name": {
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "optional": {
+                            "nullable": true,
+                            "type": "boolean"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "fieldRef": {
+                        "nullable": true,
+                        "properties": {
+                          "apiVersion": {
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "fieldPath": {
+                            "nullable": true,
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "resourceFieldRef": {
+                        "nullable": true,
+                        "properties": {
+                          "containerName": {
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "divisor": {
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "resource": {
+                            "nullable": true,
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "secretKeyRef": {
+                        "nullable": true,
+                        "properties": {
+                          "key": {
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "name": {
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "optional": {
+                            "nullable": true,
+                            "type": "boolean"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "nullable": true,
+              "type": "array"
+            },
+            "image": {
+              "nullable": true,
+              "type": "string"
+            },
+            "securityContext": {
+              "nullable": true,
+              "properties": {
+                "allowPrivilegeEscalation": {
+                  "nullable": true,
+                  "type": "boolean"
+                },
+                "capabilities": {
+                  "nullable": true,
+                  "properties": {
+                    "add": {
+                      "items": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "drop": {
+                      "items": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                },
+                "privileged": {
+                  "nullable": true,
+                  "type": "boolean"
+                },
+                "procMount": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "readOnlyRootFilesystem": {
+                  "nullable": true,
+                  "type": "boolean"
+                },
+                "runAsGroup": {
+                  "nullable": true,
+                  "type": "integer"
+                },
+                "runAsNonRoot": {
+                  "nullable": true,
+                  "type": "boolean"
+                },
+                "runAsUser": {
+                  "nullable": true,
+                  "type": "integer"
+                },
+                "seLinuxOptions": {
+                  "nullable": true,
+                  "properties": {
+                    "level": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "role": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "type": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "user": {
+                      "nullable": true,
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "seccompProfile": {
+                  "nullable": true,
+                  "properties": {
+                    "localhostProfile": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "type": {
+                      "nullable": true,
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "windowsOptions": {
+                  "nullable": true,
+                  "properties": {
+                    "gmsaCredentialSpec": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "gmsaCredentialSpecName": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "hostProcess": {
+                      "nullable": true,
+                      "type": "boolean"
+                    },
+                    "runAsUserName": {
+                      "nullable": true,
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "volumes": {
+              "items": {
+                "properties": {
+                  "destination": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "name": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "source": {
+                    "nullable": true,
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "nullable": true,
+              "type": "array"
+            }
+          },
+          "type": "object"
+        },
+        "secrets": {
+          "items": {
+            "properties": {
+              "ignoreUpdates": {
+                "type": "boolean"
+              },
+              "name": {
+                "nullable": true,
+                "type": "string"
+              },
+              "path": {
+                "nullable": true,
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "nullable": true,
+          "type": "array"
+        },
+        "serviceAccountName": {
+          "nullable": true,
+          "type": "string"
+        },
+        "tolerations": {
+          "items": {
+            "properties": {
+              "effect": {
+                "nullable": true,
+                "type": "string"
+              },
+              "key": {
+                "nullable": true,
+                "type": "string"
+              },
+              "operator": {
+                "nullable": true,
+                "type": "string"
+              },
+              "tolerationSeconds": {
+                "nullable": true,
+                "type": "integer"
+              },
+              "value": {
+                "nullable": true,
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "nullable": true,
+          "type": "array"
+        },
+        "upgrade": {
+          "nullable": true,
+          "properties": {
+            "args": {
+              "items": {
+                "nullable": true,
+                "type": "string"
+              },
+              "nullable": true,
+              "type": "array"
+            },
+            "command": {
+              "items": {
+                "nullable": true,
+                "type": "string"
+              },
+              "nullable": true,
+              "type": "array"
+            },
+            "envFrom": {
+              "items": {
+                "properties": {
+                  "configMapRef": {
+                    "nullable": true,
+                    "properties": {
+                      "name": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "optional": {
+                        "nullable": true,
+                        "type": "boolean"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "prefix": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "secretRef": {
+                    "nullable": true,
+                    "properties": {
+                      "name": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "optional": {
+                        "nullable": true,
+                        "type": "boolean"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "nullable": true,
+              "type": "array"
+            },
+            "envs": {
+              "items": {
+                "properties": {
+                  "name": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "value": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "valueFrom": {
+                    "nullable": true,
+                    "properties": {
+                      "configMapKeyRef": {
+                        "nullable": true,
+                        "properties": {
+                          "key": {
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "name": {
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "optional": {
+                            "nullable": true,
+                            "type": "boolean"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "fieldRef": {
+                        "nullable": true,
+                        "properties": {
+                          "apiVersion": {
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "fieldPath": {
+                            "nullable": true,
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "resourceFieldRef": {
+                        "nullable": true,
+                        "properties": {
+                          "containerName": {
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "divisor": {
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "resource": {
+                            "nullable": true,
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "secretKeyRef": {
+                        "nullable": true,
+                        "properties": {
+                          "key": {
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "name": {
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "optional": {
+                            "nullable": true,
+                            "type": "boolean"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "nullable": true,
+              "type": "array"
+            },
+            "image": {
+              "nullable": true,
+              "type": "string"
+            },
+            "securityContext": {
+              "nullable": true,
+              "properties": {
+                "allowPrivilegeEscalation": {
+                  "nullable": true,
+                  "type": "boolean"
+                },
+                "capabilities": {
+                  "nullable": true,
+                  "properties": {
+                    "add": {
+                      "items": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    },
+                    "drop": {
+                      "items": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                },
+                "privileged": {
+                  "nullable": true,
+                  "type": "boolean"
+                },
+                "procMount": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "readOnlyRootFilesystem": {
+                  "nullable": true,
+                  "type": "boolean"
+                },
+                "runAsGroup": {
+                  "nullable": true,
+                  "type": "integer"
+                },
+                "runAsNonRoot": {
+                  "nullable": true,
+                  "type": "boolean"
+                },
+                "runAsUser": {
+                  "nullable": true,
+                  "type": "integer"
+                },
+                "seLinuxOptions": {
+                  "nullable": true,
+                  "properties": {
+                    "level": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "role": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "type": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "user": {
+                      "nullable": true,
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "seccompProfile": {
+                  "nullable": true,
+                  "properties": {
+                    "localhostProfile": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "type": {
+                      "nullable": true,
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "windowsOptions": {
+                  "nullable": true,
+                  "properties": {
+                    "gmsaCredentialSpec": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "gmsaCredentialSpecName": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "hostProcess": {
+                      "nullable": true,
+                      "type": "boolean"
+                    },
+                    "runAsUserName": {
+                      "nullable": true,
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "volumes": {
+              "items": {
+                "properties": {
+                  "destination": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "name": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "source": {
+                    "nullable": true,
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "nullable": true,
+              "type": "array"
+            }
+          },
+          "type": "object"
+        },
+        "version": {
+          "nullable": true,
+          "type": "string"
+        }
+      },
+      "required": [
+        "upgrade"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "properties": {
+        "applying": {
+          "items": {
+            "nullable": true,
+            "type": "string"
+          },
+          "nullable": true,
+          "type": "array"
+        },
+        "conditions": {
+          "items": {
+            "properties": {
+              "lastTransitionTime": {
+                "nullable": true,
+                "type": "string"
+              },
+              "lastUpdateTime": {
+                "nullable": true,
+                "type": "string"
+              },
+              "message": {
+                "nullable": true,
+                "type": "string"
+              },
+              "reason": {
+                "nullable": true,
+                "type": "string"
+              },
+              "status": {
+                "nullable": true,
+                "type": "string"
+              },
+              "type": {
+                "nullable": true,
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "nullable": true,
+          "type": "array"
+        },
+        "latestHash": {
+          "nullable": true,
+          "type": "string"
+        },
+        "latestVersion": {
+          "nullable": true,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "upgrade.cattle.io",
+      "kind": "Plan",
+      "version": "v1"
+    }
+  ]
+}
