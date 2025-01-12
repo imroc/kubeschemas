@@ -10,7 +10,7 @@
     "kind": {
       "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
       "enum": [
-        "WorkflowTemplate"
+        "WorkflowArtifactGCTask"
       ],
       "type": "string"
     },
@@ -26,6 +26,11 @@
       "type": "object",
       "x-kubernetes-map-type": "atomic",
       "x-kubernetes-preserve-unknown-fields": true
+    },
+    "status": {
+      "type": "object",
+      "x-kubernetes-map-type": "atomic",
+      "x-kubernetes-preserve-unknown-fields": true
     }
   },
   "required": [
@@ -36,7 +41,7 @@
   "x-kubernetes-group-version-kind": [
     {
       "group": "argoproj.io",
-      "kind": "WorkflowTemplate",
+      "kind": "WorkflowArtifactGCTask",
       "version": "v1alpha1"
     }
   ]
