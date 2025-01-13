@@ -1,0 +1,16 @@
+{
+  "description": "List of commands that QEMU guest agent supports",
+  "properties": {
+    "enabled": {
+      "type": "boolean"
+    },
+    "name": {
+      "default": "",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "type": "object"
+}

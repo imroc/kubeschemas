@@ -1,0 +1,20 @@
+{
+  "description": "VirtualMachineGuestOSUser is the single user of the guest os",
+  "properties": {
+    "domain": {
+      "type": "string"
+    },
+    "loginTime": {
+      "format": "double",
+      "type": "number"
+    },
+    "userName": {
+      "default": "",
+      "type": "string"
+    }
+  },
+  "required": [
+    "userName"
+  ],
+  "type": "object"
+}

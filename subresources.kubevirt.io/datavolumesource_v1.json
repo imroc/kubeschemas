@@ -1,0 +1,17 @@
+{
+  "properties": {
+    "hotpluggable": {
+      "description": "Hotpluggable indicates whether the volume can be hotplugged and hotunplugged.",
+      "type": "boolean"
+    },
+    "name": {
+      "default": "",
+      "description": "Name of both the DataVolume and the PVC in the same namespace. After PVC population the DataVolume is garbage collected by default.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,46 @@
+{
+  "description": "VirtualMachineInstanceFileSystem represents guest os disk",
+  "properties": {
+    "disk": {
+      "items": {
+        "allOf": [
+          {
+            "$ref": "../subresources.kubevirt.io/virtualmachineinstancefilesystemdisk_v1.json"
+          }
+        ],
+        "default": {}
+      },
+      "type": "array"
+    },
+    "diskName": {
+      "default": "",
+      "type": "string"
+    },
+    "fileSystemType": {
+      "default": "",
+      "type": "string"
+    },
+    "mountPoint": {
+      "default": "",
+      "type": "string"
+    },
+    "totalBytes": {
+      "default": 0,
+      "format": "int32",
+      "type": "integer"
+    },
+    "usedBytes": {
+      "default": 0,
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "diskName",
+    "mountPoint",
+    "fileSystemType",
+    "usedBytes",
+    "totalBytes"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,16 @@
+{
+  "description": "VirtualMachineInstanceFileSystemDisk represents the guest os FS disks",
+  "properties": {
+    "busType": {
+      "default": "",
+      "type": "string"
+    },
+    "serial": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "busType"
+  ],
+  "type": "object"
+}

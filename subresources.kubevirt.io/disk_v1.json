@@ -1,0 +1,78 @@
+{
+  "properties": {
+    "blockSize": {
+      "allOf": [
+        {
+          "$ref": "../subresources.kubevirt.io/blocksize_v1.json"
+        }
+      ],
+      "description": "If specified, the virtual disk will be presented with the given block sizes."
+    },
+    "bootOrder": {
+      "description": "BootOrder is an integer value \u003e 0, used to determine ordering of boot devices. Lower values take precedence. Each disk or interface that has a boot order must have a unique value. Disks without a boot order are not tried if a disk with a boot order exists.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "cache": {
+      "description": "Cache specifies which kvm disk cache mode should be used. Supported values are: CacheNone, CacheWriteThrough.",
+      "type": "string"
+    },
+    "cdrom": {
+      "allOf": [
+        {
+          "$ref": "../subresources.kubevirt.io/cdromtarget_v1.json"
+        }
+      ],
+      "description": "Attach a volume as a cdrom to the vmi."
+    },
+    "dedicatedIOThread": {
+      "description": "dedicatedIOThread indicates this disk should have an exclusive IO Thread. Enabling this implies useIOThreads = true. Defaults to false.",
+      "type": "boolean"
+    },
+    "disk": {
+      "allOf": [
+        {
+          "$ref": "../subresources.kubevirt.io/disktarget_v1.json"
+        }
+      ],
+      "description": "Attach a volume as a disk to the vmi."
+    },
+    "errorPolicy": {
+      "description": "If specified, it can change the default error policy (stop) for the disk",
+      "type": "string"
+    },
+    "io": {
+      "description": "IO specifies which QEMU disk IO mode should be used. Supported values are: native, default, threads.",
+      "type": "string"
+    },
+    "lun": {
+      "allOf": [
+        {
+          "$ref": "../subresources.kubevirt.io/luntarget_v1.json"
+        }
+      ],
+      "description": "Attach a volume as a LUN to the vmi."
+    },
+    "name": {
+      "default": "",
+      "description": "Name is the device name",
+      "type": "string"
+    },
+    "serial": {
+      "description": "Serial provides the ability to specify a serial number for the disk device.",
+      "type": "string"
+    },
+    "shareable": {
+      "description": "If specified the disk is made sharable and multiple write from different VMs are permitted",
+      "type": "boolean"
+    },
+    "tag": {
+      "description": "If specified, disk address and its tag will be provided to the guest via config drive metadata",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "type": "object"
+}

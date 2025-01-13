@@ -1702,6 +1702,12 @@
       "$ref": "client.authentication.k8s.io/execcredential_v1beta1.json"
     },
     {
+      "$ref": "clone.kubevirt.io/virtualmachineclone_v1alpha1.json"
+    },
+    {
+      "$ref": "clone.kubevirt.io/virtualmachineclonelist_v1alpha1.json"
+    },
+    {
       "$ref": "cloud.google.com/backendconfig_v1.json"
     },
     {
@@ -3208,6 +3214,18 @@
       "$ref": "expansion.gatekeeper.sh/expansiontemplatelist_v1beta1.json"
     },
     {
+      "$ref": "export.kubevirt.io/virtualmachineexport_v1alpha1.json"
+    },
+    {
+      "$ref": "export.kubevirt.io/virtualmachineexport_v1beta1.json"
+    },
+    {
+      "$ref": "export.kubevirt.io/virtualmachineexportlist_v1alpha1.json"
+    },
+    {
+      "$ref": "export.kubevirt.io/virtualmachineexportlist_v1beta1.json"
+    },
+    {
       "$ref": "extensions.higress.io/wasmplugin_v1alpha1.json"
     },
     {
@@ -4186,6 +4204,78 @@
       "$ref": "install.istio.io/istiooperatorlist_v1alpha1.json"
     },
     {
+      "$ref": "instancetype.kubevirt.io/virtualmachineclusterinstancetype_v1alpha1.json"
+    },
+    {
+      "$ref": "instancetype.kubevirt.io/virtualmachineclusterinstancetype_v1alpha2.json"
+    },
+    {
+      "$ref": "instancetype.kubevirt.io/virtualmachineclusterinstancetype_v1beta1.json"
+    },
+    {
+      "$ref": "instancetype.kubevirt.io/virtualmachineclusterinstancetypelist_v1alpha1.json"
+    },
+    {
+      "$ref": "instancetype.kubevirt.io/virtualmachineclusterinstancetypelist_v1alpha2.json"
+    },
+    {
+      "$ref": "instancetype.kubevirt.io/virtualmachineclusterinstancetypelist_v1beta1.json"
+    },
+    {
+      "$ref": "instancetype.kubevirt.io/virtualmachineclusterpreference_v1alpha1.json"
+    },
+    {
+      "$ref": "instancetype.kubevirt.io/virtualmachineclusterpreference_v1alpha2.json"
+    },
+    {
+      "$ref": "instancetype.kubevirt.io/virtualmachineclusterpreference_v1beta1.json"
+    },
+    {
+      "$ref": "instancetype.kubevirt.io/virtualmachineclusterpreferencelist_v1alpha1.json"
+    },
+    {
+      "$ref": "instancetype.kubevirt.io/virtualmachineclusterpreferencelist_v1alpha2.json"
+    },
+    {
+      "$ref": "instancetype.kubevirt.io/virtualmachineclusterpreferencelist_v1beta1.json"
+    },
+    {
+      "$ref": "instancetype.kubevirt.io/virtualmachineinstancetype_v1alpha1.json"
+    },
+    {
+      "$ref": "instancetype.kubevirt.io/virtualmachineinstancetype_v1alpha2.json"
+    },
+    {
+      "$ref": "instancetype.kubevirt.io/virtualmachineinstancetype_v1beta1.json"
+    },
+    {
+      "$ref": "instancetype.kubevirt.io/virtualmachineinstancetypelist_v1alpha1.json"
+    },
+    {
+      "$ref": "instancetype.kubevirt.io/virtualmachineinstancetypelist_v1alpha2.json"
+    },
+    {
+      "$ref": "instancetype.kubevirt.io/virtualmachineinstancetypelist_v1beta1.json"
+    },
+    {
+      "$ref": "instancetype.kubevirt.io/virtualmachinepreference_v1alpha1.json"
+    },
+    {
+      "$ref": "instancetype.kubevirt.io/virtualmachinepreference_v1alpha2.json"
+    },
+    {
+      "$ref": "instancetype.kubevirt.io/virtualmachinepreference_v1beta1.json"
+    },
+    {
+      "$ref": "instancetype.kubevirt.io/virtualmachinepreferencelist_v1alpha1.json"
+    },
+    {
+      "$ref": "instancetype.kubevirt.io/virtualmachinepreferencelist_v1alpha2.json"
+    },
+    {
+      "$ref": "instancetype.kubevirt.io/virtualmachinepreferencelist_v1beta1.json"
+    },
+    {
       "$ref": "internal.autoscaling.gke.io/capacityrequest_v1.json"
     },
     {
@@ -4580,6 +4670,78 @@
     },
     {
       "$ref": "kubescheduler.config.k8s.io/volumebindingargs_v1.json"
+    },
+    {
+      "$ref": "kubevirt.io/kubevirt_v1.json"
+    },
+    {
+      "$ref": "kubevirt.io/kubevirt_v1alpha3.json"
+    },
+    {
+      "$ref": "kubevirt.io/kubevirtlist_v1.json"
+    },
+    {
+      "$ref": "kubevirt.io/kubevirtlist_v1alpha3.json"
+    },
+    {
+      "$ref": "kubevirt.io/virtualmachine_v1.json"
+    },
+    {
+      "$ref": "kubevirt.io/virtualmachine_v1alpha3.json"
+    },
+    {
+      "$ref": "kubevirt.io/virtualmachineinstance_v1.json"
+    },
+    {
+      "$ref": "kubevirt.io/virtualmachineinstance_v1alpha3.json"
+    },
+    {
+      "$ref": "kubevirt.io/virtualmachineinstancelist_v1.json"
+    },
+    {
+      "$ref": "kubevirt.io/virtualmachineinstancelist_v1alpha3.json"
+    },
+    {
+      "$ref": "kubevirt.io/virtualmachineinstancemigration_v1.json"
+    },
+    {
+      "$ref": "kubevirt.io/virtualmachineinstancemigration_v1alpha3.json"
+    },
+    {
+      "$ref": "kubevirt.io/virtualmachineinstancemigrationlist_v1.json"
+    },
+    {
+      "$ref": "kubevirt.io/virtualmachineinstancemigrationlist_v1alpha3.json"
+    },
+    {
+      "$ref": "kubevirt.io/virtualmachineinstancepreset_v1.json"
+    },
+    {
+      "$ref": "kubevirt.io/virtualmachineinstancepreset_v1alpha3.json"
+    },
+    {
+      "$ref": "kubevirt.io/virtualmachineinstancepresetlist_v1.json"
+    },
+    {
+      "$ref": "kubevirt.io/virtualmachineinstancepresetlist_v1alpha3.json"
+    },
+    {
+      "$ref": "kubevirt.io/virtualmachineinstancereplicaset_v1.json"
+    },
+    {
+      "$ref": "kubevirt.io/virtualmachineinstancereplicaset_v1alpha3.json"
+    },
+    {
+      "$ref": "kubevirt.io/virtualmachineinstancereplicasetlist_v1.json"
+    },
+    {
+      "$ref": "kubevirt.io/virtualmachineinstancereplicasetlist_v1alpha3.json"
+    },
+    {
+      "$ref": "kubevirt.io/virtualmachinelist_v1.json"
+    },
+    {
+      "$ref": "kubevirt.io/virtualmachinelist_v1alpha3.json"
     },
     {
       "$ref": "kueue.x-k8s.io/admissioncheck_v1beta1.json"
@@ -5240,6 +5402,12 @@
     },
     {
       "$ref": "migration.yinhestor.com/systemsettinglist_v1alpha1.json"
+    },
+    {
+      "$ref": "migrations.kubevirt.io/migrationpolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "migrations.kubevirt.io/migrationpolicylist_v1alpha1.json"
     },
     {
       "$ref": "mongodb.com/mongodb_v1.json"
@@ -6691,6 +6859,12 @@
       "$ref": "policy.networking.k8s.io/baselineadminnetworkpolicylist_v1alpha1.json"
     },
     {
+      "$ref": "pool.kubevirt.io/virtualmachinepool_v1alpha1.json"
+    },
+    {
+      "$ref": "pool.kubevirt.io/virtualmachinepoollist_v1alpha1.json"
+    },
+    {
       "$ref": "postgres-operator.crunchydata.com/crunchybridgecluster_v1beta1.json"
     },
     {
@@ -7319,6 +7493,42 @@
     },
     {
       "$ref": "slo.koordinator.sh/nodemetriclist_v1alpha1.json"
+    },
+    {
+      "$ref": "snapshot.kubevirt.io/virtualmachinerestore_v1alpha1.json"
+    },
+    {
+      "$ref": "snapshot.kubevirt.io/virtualmachinerestore_v1beta1.json"
+    },
+    {
+      "$ref": "snapshot.kubevirt.io/virtualmachinerestorelist_v1alpha1.json"
+    },
+    {
+      "$ref": "snapshot.kubevirt.io/virtualmachinerestorelist_v1beta1.json"
+    },
+    {
+      "$ref": "snapshot.kubevirt.io/virtualmachinesnapshot_v1alpha1.json"
+    },
+    {
+      "$ref": "snapshot.kubevirt.io/virtualmachinesnapshot_v1beta1.json"
+    },
+    {
+      "$ref": "snapshot.kubevirt.io/virtualmachinesnapshotcontent_v1alpha1.json"
+    },
+    {
+      "$ref": "snapshot.kubevirt.io/virtualmachinesnapshotcontent_v1beta1.json"
+    },
+    {
+      "$ref": "snapshot.kubevirt.io/virtualmachinesnapshotcontentlist_v1alpha1.json"
+    },
+    {
+      "$ref": "snapshot.kubevirt.io/virtualmachinesnapshotcontentlist_v1beta1.json"
+    },
+    {
+      "$ref": "snapshot.kubevirt.io/virtualmachinesnapshotlist_v1alpha1.json"
+    },
+    {
+      "$ref": "snapshot.kubevirt.io/virtualmachinesnapshotlist_v1beta1.json"
     },
     {
       "$ref": "snapshot.storage.k8s.io/volumesnapshot_v1.json"

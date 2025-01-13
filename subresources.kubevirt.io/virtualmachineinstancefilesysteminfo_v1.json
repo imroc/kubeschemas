@@ -1,0 +1,20 @@
+{
+  "description": "VirtualMachineInstanceFileSystemInfo represents information regarding single guest os filesystem",
+  "properties": {
+    "disks": {
+      "items": {
+        "allOf": [
+          {
+            "$ref": "../subresources.kubevirt.io/virtualmachineinstancefilesystem_v1.json"
+          }
+        ],
+        "default": {}
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "disks"
+  ],
+  "type": "object"
+}

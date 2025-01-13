@@ -1,0 +1,23 @@
+{
+  "description": "RemoveVolumeOptions is provided when dynamically hot unplugging volume and disk",
+  "properties": {
+    "dryRun": {
+      "description": "When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array",
+      "x-kubernetes-list-type": "atomic"
+    },
+    "name": {
+      "default": "",
+      "description": "Name represents the name that maps to both the disk and volume that should be removed",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "type": "object"
+}

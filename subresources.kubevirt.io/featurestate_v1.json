@@ -1,0 +1,10 @@
+{
+  "description": "Represents if a feature is enabled or disabled.",
+  "properties": {
+    "enabled": {
+      "description": "Enabled determines if the feature should be enabled or disabled on the guest. Defaults to true.",
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}

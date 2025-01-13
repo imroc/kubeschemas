@@ -1,0 +1,20 @@
+{
+  "description": "CustomBlockSize represents the desired logical and physical block size for a VM disk.",
+  "properties": {
+    "logical": {
+      "default": 0,
+      "format": "int32",
+      "type": "integer"
+    },
+    "physical": {
+      "default": 0,
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "logical",
+    "physical"
+  ],
+  "type": "object"
+}

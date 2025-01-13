@@ -1,0 +1,12 @@
+{
+  "description": "BlockSize provides the option to change the block size presented to the VM for a disk. Only one of its members may be specified.",
+  "properties": {
+    "custom": {
+      "$ref": "../subresources.kubevirt.io/customblocksize_v1.json"
+    },
+    "matchVolume": {
+      "$ref": "../subresources.kubevirt.io/featurestate_v1.json"
+    }
+  },
+  "type": "object"
+}
