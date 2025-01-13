@@ -2827,6 +2827,24 @@
       "$ref": "credentialprovider.kubelet.k8s.io/credentialproviderresponse_v1beta1.json"
     },
     {
+      "$ref": "ctrlmesh.kusionstack.io/circuitbreaker_v1alpha1.json"
+    },
+    {
+      "$ref": "ctrlmesh.kusionstack.io/circuitbreakerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ctrlmesh.kusionstack.io/managerstate_v1alpha1.json"
+    },
+    {
+      "$ref": "ctrlmesh.kusionstack.io/managerstatelist_v1alpha1.json"
+    },
+    {
+      "$ref": "ctrlmesh.kusionstack.io/shardingconfig_v1alpha1.json"
+    },
+    {
+      "$ref": "ctrlmesh.kusionstack.io/shardingconfiglist_v1alpha1.json"
+    },
+    {
       "$ref": "custom_metrics.apis.pkg.metrics.k8s.io/metricvalue_v1beta1.json"
     },
     {
