@@ -4645,6 +4645,132 @@
       "$ref": "kubelet.config.k8s.io/serializednodeconfigsource_v1beta1.json"
     },
     {
+      "$ref": "kubeovn.io/ip_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/iplist_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/ippool_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/ippoollist_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/iptablesdnatrule_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/iptablesdnatrulelist_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/iptableseip_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/iptableseiplist_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/iptablesfiprule_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/iptablesfiprulelist_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/iptablessnatrule_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/iptablessnatrulelist_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/ovndnatrule_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/ovndnatrulelist_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/ovneip_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/ovneiplist_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/ovnfip_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/ovnfiplist_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/ovnsnatrule_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/ovnsnatrulelist_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/providernetwork_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/providernetworklist_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/qospolicy_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/qospolicylist_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/securitygroup_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/securitygrouplist_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/subnet_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/subnetlist_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/switchlbrule_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/switchlbrulelist_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/vip_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/viplist_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/vlan_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/vlanlist_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/vpc_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/vpcdns_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/vpcdnslist_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/vpcegressgateway_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/vpcegressgatewaylist_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/vpclist_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/vpcnatgateway_v1.json"
+    },
+    {
+      "$ref": "kubeovn.io/vpcnatgatewaylist_v1.json"
+    },
+    {
       "$ref": "kubeproxy.config.k8s.io/kubeproxyconfiguration_v1alpha1.json"
     },
     {

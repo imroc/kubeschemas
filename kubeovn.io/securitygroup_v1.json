@@ -1,0 +1,139 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "kubeovn.io/v1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "SecurityGroup"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "allowSameGroupTraffic": {
+          "type": "boolean"
+        },
+        "egressRules": {
+          "items": {
+            "properties": {
+              "ipVersion": {
+                "type": "string"
+              },
+              "policy": {
+                "type": "string"
+              },
+              "portRangeMax": {
+                "type": "integer"
+              },
+              "portRangeMin": {
+                "type": "integer"
+              },
+              "priority": {
+                "type": "integer"
+              },
+              "protocol": {
+                "type": "string"
+              },
+              "remoteAddress": {
+                "type": "string"
+              },
+              "remoteSecurityGroup": {
+                "type": "string"
+              },
+              "remoteType": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "ingressRules": {
+          "items": {
+            "properties": {
+              "ipVersion": {
+                "type": "string"
+              },
+              "policy": {
+                "type": "string"
+              },
+              "portRangeMax": {
+                "type": "integer"
+              },
+              "portRangeMin": {
+                "type": "integer"
+              },
+              "priority": {
+                "type": "integer"
+              },
+              "protocol": {
+                "type": "string"
+              },
+              "remoteAddress": {
+                "type": "string"
+              },
+              "remoteSecurityGroup": {
+                "type": "string"
+              },
+              "remoteType": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "properties": {
+        "allowSameGroupTraffic": {
+          "type": "boolean"
+        },
+        "egressLastSyncSuccess": {
+          "type": "boolean"
+        },
+        "egressMd5": {
+          "type": "string"
+        },
+        "ingressLastSyncSuccess": {
+          "type": "boolean"
+        },
+        "ingressMd5": {
+          "type": "string"
+        },
+        "portGroup": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "kubeovn.io",
+      "kind": "SecurityGroup",
+      "version": "v1"
+    }
+  ]
+}

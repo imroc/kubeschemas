@@ -1,0 +1,377 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "kubeovn.io/v1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "Subnet"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "acls": {
+          "items": {
+            "properties": {
+              "action": {
+                "enum": [
+                  "allow-related",
+                  "allow-stateless",
+                  "allow",
+                  "drop",
+                  "reject"
+                ],
+                "type": "string"
+              },
+              "direction": {
+                "enum": [
+                  "from-lport",
+                  "to-lport"
+                ],
+                "type": "string"
+              },
+              "match": {
+                "type": "string"
+              },
+              "priority": {
+                "maximum": 32767,
+                "minimum": 0,
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "allowEWTraffic": {
+          "type": "boolean"
+        },
+        "allowSubnets": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "cidrBlock": {
+          "type": "string"
+        },
+        "default": {
+          "type": "boolean"
+        },
+        "dhcpV4Options": {
+          "type": "string"
+        },
+        "dhcpV6Options": {
+          "type": "string"
+        },
+        "disableGatewayCheck": {
+          "type": "boolean"
+        },
+        "disableInterConnection": {
+          "type": "boolean"
+        },
+        "enableDHCP": {
+          "type": "boolean"
+        },
+        "enableEcmp": {
+          "type": "boolean"
+        },
+        "enableIPv6RA": {
+          "type": "boolean"
+        },
+        "enableLb": {
+          "type": "boolean"
+        },
+        "enableMulticastSnoop": {
+          "type": "boolean"
+        },
+        "excludeIps": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "externalEgressGateway": {
+          "type": "string"
+        },
+        "gateway": {
+          "type": "string"
+        },
+        "gatewayNode": {
+          "type": "string"
+        },
+        "gatewayType": {
+          "type": "string"
+        },
+        "ipv6RAConfigs": {
+          "type": "string"
+        },
+        "logicalGateway": {
+          "type": "boolean"
+        },
+        "mtu": {
+          "maximum": 65535,
+          "minimum": 68,
+          "type": "integer"
+        },
+        "namespaceSelectors": {
+          "items": {
+            "properties": {
+              "matchExpressions": {
+                "items": {
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "operator": {
+                      "type": "string"
+                    },
+                    "values": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "matchLabels": {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "namespaces": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "natOutgoing": {
+          "type": "boolean"
+        },
+        "natOutgoingPolicyRules": {
+          "items": {
+            "properties": {
+              "action": {
+                "enum": [
+                  "nat",
+                  "forward"
+                ],
+                "type": "string"
+              },
+              "match": {
+                "properties": {
+                  "dstIPs": {
+                    "type": "string"
+                  },
+                  "srcIPs": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "policyRoutingPriority": {
+          "maximum": 32765,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "policyRoutingTableID": {
+          "maximum": 2147483647,
+          "minimum": 1,
+          "not": {
+            "enum": [
+              252,
+              253,
+              254,
+              255
+            ]
+          },
+          "type": "integer"
+        },
+        "private": {
+          "type": "boolean"
+        },
+        "protocol": {
+          "enum": [
+            "IPv4",
+            "IPv6",
+            "Dual"
+          ],
+          "type": "string"
+        },
+        "provider": {
+          "type": "string"
+        },
+        "routeTable": {
+          "type": "string"
+        },
+        "u2oInterconnection": {
+          "type": "boolean"
+        },
+        "u2oInterconnectionIP": {
+          "type": "string"
+        },
+        "vips": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "vlan": {
+          "type": "string"
+        },
+        "vpc": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "properties": {
+        "activateGateway": {
+          "type": "string"
+        },
+        "conditions": {
+          "items": {
+            "properties": {
+              "lastTransitionTime": {
+                "type": "string"
+              },
+              "lastUpdateTime": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "dhcpV4OptionsUUID": {
+          "type": "string"
+        },
+        "dhcpV6OptionsUUID": {
+          "type": "string"
+        },
+        "mcastQuerierIP": {
+          "type": "string"
+        },
+        "mcastQuerierMAC": {
+          "type": "string"
+        },
+        "natOutgoingPolicyRules": {
+          "items": {
+            "properties": {
+              "action": {
+                "enum": [
+                  "nat",
+                  "forward"
+                ],
+                "type": "string"
+              },
+              "match": {
+                "properties": {
+                  "dstIPs": {
+                    "type": "string"
+                  },
+                  "srcIPs": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "ruleID": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "u2oInterconnectionIP": {
+          "type": "string"
+        },
+        "u2oInterconnectionMAC": {
+          "type": "string"
+        },
+        "u2oInterconnectionVPC": {
+          "type": "string"
+        },
+        "v4availableIPrange": {
+          "type": "string"
+        },
+        "v4availableIPs": {
+          "type": "number"
+        },
+        "v4usingIPrange": {
+          "type": "string"
+        },
+        "v4usingIPs": {
+          "type": "number"
+        },
+        "v6availableIPrange": {
+          "type": "string"
+        },
+        "v6availableIPs": {
+          "type": "number"
+        },
+        "v6usingIPrange": {
+          "type": "string"
+        },
+        "v6usingIPs": {
+          "type": "number"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "kubeovn.io",
+      "kind": "Subnet",
+      "version": "v1"
+    }
+  ]
+}
