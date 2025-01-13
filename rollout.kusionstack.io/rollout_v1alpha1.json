@@ -1,0 +1,223 @@
+{
+  "description": "Rollout is the Schema for the rollouts API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "rollout.kusionstack.io/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "Rollout"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "RolloutSpec defines the desired state of Rollout",
+      "properties": {
+        "disabled": {
+          "description": "Disabled means that rollout will not response for new event.\nDefault value is false.",
+          "type": "boolean"
+        },
+        "historyLimit": {
+          "default": 10,
+          "description": "HistoryLimit defines the maximum number of completed rolloutRun\nhistory records to keep.\nThe HistoryLimit can start from 0 (no retained RolloutRun history).\nWhen not set or set to math.MaxInt32, the Rollout will keep all RolloutRun history records.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "strategyRef": {
+          "description": "StrategyRef is the reference to the rollout strategy",
+          "type": "string"
+        },
+        "trafficTopologyRefs": {
+          "description": "TrafficTopologyRefs defines the networking traffic relationships between\nworkloads, backend services, and routes.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "triggerPolicy": {
+          "default": "Auto",
+          "description": "TriggerPolicy defines when rollout will be triggered",
+          "type": "string"
+        },
+        "workloadRef": {
+          "description": "WorkloadRef is a reference to a kind of workloads",
+          "properties": {
+            "apiVersion": {
+              "description": "APIVersion is the group/version for the resource being referenced.\nIf APIVersion is not specified, the specified Kind must be in the core API group.\nFor any other third-party types, APIVersion is required.",
+              "type": "string"
+            },
+            "kind": {
+              "description": "Kind is the type of resource being referenced",
+              "type": "string"
+            },
+            "match": {
+              "description": "Match indicates how to match workloads. only one workload should be matches in one cluster",
+              "properties": {
+                "names": {
+                  "description": "Names is a list of workload name",
+                  "items": {
+                    "description": "CrossClusterObjectNameReference contains cluster and name reference to a k8s object",
+                    "properties": {
+                      "cluster": {
+                        "description": "Cluster indicates the name of cluster",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "Name is the resource name",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "selector": {
+                  "description": "Selector is a label query over a set of resources, in this case resource",
+                  "properties": {
+                    "matchExpressions": {
+                      "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
+                      "items": {
+                        "description": "A label selector requirement is a selector that contains values, a key, and an operator that\nrelates the key and values.",
+                        "properties": {
+                          "key": {
+                            "description": "key is the label key that the selector applies to.",
+                            "type": "string"
+                          },
+                          "operator": {
+                            "description": "operator represents a key's relationship to a set of values.\nValid operators are In, NotIn, Exists and DoesNotExist.",
+                            "type": "string"
+                          },
+                          "values": {
+                            "description": "values is an array of string values. If the operator is In or NotIn,\nthe values array must be non-empty. If the operator is Exists or DoesNotExist,\nthe values array must be empty. This array is replaced during a strategic\nmerge patch.",
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          }
+                        },
+                        "required": [
+                          "key",
+                          "operator"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "matchLabels": {
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "description": "matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels\nmap is equivalent to an element of matchExpressions, whose key field is \"key\", the\noperator is \"In\", and the values array contains only \"value\". The requirements are ANDed.",
+                      "type": "object"
+                    }
+                  },
+                  "type": "object",
+                  "x-kubernetes-map-type": "atomic"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "required": [
+            "kind",
+            "match"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "description": "RolloutStatus defines the observed state of Rollout",
+      "properties": {
+        "conditions": {
+          "description": "Conditions is the list of conditions",
+          "items": {
+            "description": "Condition defines the condition of a resource\nSee: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#typical-status-properties",
+            "properties": {
+              "lastTransitionTime": {
+                "description": "Last time the condition transitioned from one status to another.",
+                "format": "date-time",
+                "type": "string"
+              },
+              "lastUpdateTime": {
+                "description": "The last time this condition was updated.",
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "description": "A human-readable message indicating details about the transition.",
+                "type": "string"
+              },
+              "reason": {
+                "description": "The reason for the condition's last transition.",
+                "type": "string"
+              },
+              "status": {
+                "description": "Status of the condition, one of True, False, Unknown.",
+                "type": "string"
+              },
+              "type": {
+                "description": "Type of the condition.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "type"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "lastUpdateTime": {
+          "description": "The last time this status was updated.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "observedGeneration": {
+          "description": "ObservedGeneration is the most recent generation observed for this Rollout. It corresponds to the\nRollout's generation, which is updated on mutation by the API Server.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "phase": {
+          "description": "Phase indicates the current phase of rollout",
+          "type": "string"
+        },
+        "rolloutID": {
+          "description": "RolloutID is reference to rolloutRun name.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "rollout.kusionstack.io",
+      "kind": "Rollout",
+      "version": "v1alpha1"
+    }
+  ]
+}

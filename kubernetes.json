@@ -6829,6 +6829,36 @@
       "$ref": "resources.cattle.io/restorelist_v1.json"
     },
     {
+      "$ref": "rollout.kusionstack.io/backendrouting_v1alpha1.json"
+    },
+    {
+      "$ref": "rollout.kusionstack.io/backendroutinglist_v1alpha1.json"
+    },
+    {
+      "$ref": "rollout.kusionstack.io/rollout_v1alpha1.json"
+    },
+    {
+      "$ref": "rollout.kusionstack.io/rolloutlist_v1alpha1.json"
+    },
+    {
+      "$ref": "rollout.kusionstack.io/rolloutrun_v1alpha1.json"
+    },
+    {
+      "$ref": "rollout.kusionstack.io/rolloutrunlist_v1alpha1.json"
+    },
+    {
+      "$ref": "rollout.kusionstack.io/rolloutstrategy_v1alpha1.json"
+    },
+    {
+      "$ref": "rollout.kusionstack.io/rolloutstrategylist_v1alpha1.json"
+    },
+    {
+      "$ref": "rollout.kusionstack.io/traffictopology_v1alpha1.json"
+    },
+    {
+      "$ref": "rollout.kusionstack.io/traffictopologylist_v1alpha1.json"
+    },
+    {
       "$ref": "rollouts.kruise.io/batchrelease_v1alpha1.json"
     },
     {

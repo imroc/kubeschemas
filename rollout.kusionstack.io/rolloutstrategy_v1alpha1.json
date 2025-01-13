@@ -1,0 +1,763 @@
+{
+  "description": "RolloutStrategy is the Schema for the rolloutstrategies API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "rollout.kusionstack.io/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "batch": {
+      "description": "Batch is the batch strategy for upgrade and operation",
+      "properties": {
+        "batches": {
+          "description": "Batches define the order of phases to execute release in canary release",
+          "items": {
+            "description": "Custom release step",
+            "properties": {
+              "breakpoint": {
+                "description": "If set to true, the rollout will be paused before the step starts.",
+                "type": "boolean"
+              },
+              "matchTargets": {
+                "description": "Match defines condition used for matching resource cross clusterset",
+                "properties": {
+                  "names": {
+                    "description": "Names is a list of workload name",
+                    "items": {
+                      "description": "CrossClusterObjectNameReference contains cluster and name reference to a k8s object",
+                      "properties": {
+                        "cluster": {
+                          "description": "Cluster indicates the name of cluster",
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "Name is the resource name",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name"
+                      ],
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "selector": {
+                    "description": "Selector is a label query over a set of resources, in this case resource",
+                    "properties": {
+                      "matchExpressions": {
+                        "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
+                        "items": {
+                          "description": "A label selector requirement is a selector that contains values, a key, and an operator that\nrelates the key and values.",
+                          "properties": {
+                            "key": {
+                              "description": "key is the label key that the selector applies to.",
+                              "type": "string"
+                            },
+                            "operator": {
+                              "description": "operator represents a key's relationship to a set of values.\nValid operators are In, NotIn, Exists and DoesNotExist.",
+                              "type": "string"
+                            },
+                            "values": {
+                              "description": "values is an array of string values. If the operator is In or NotIn,\nthe values array must be non-empty. If the operator is Exists or DoesNotExist,\nthe values array must be empty. This array is replaced during a strategic\nmerge patch.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            }
+                          },
+                          "required": [
+                            "key",
+                            "operator"
+                          ],
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "matchLabels": {
+                        "additionalProperties": {
+                          "type": "string"
+                        },
+                        "description": "matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels\nmap is equivalent to an element of matchExpressions, whose key field is \"key\", the\noperator is \"In\", and the values array contains only \"value\". The requirements are ANDed.",
+                        "type": "object"
+                      }
+                    },
+                    "type": "object",
+                    "x-kubernetes-map-type": "atomic"
+                  }
+                },
+                "type": "object"
+              },
+              "properties": {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "description": "Properties contains additional information for step",
+                "type": "object"
+              },
+              "replicas": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "description": "Replicas is the replicas of the rollout task, which represents the number of pods to be upgraded",
+                "x-kubernetes-int-or-string": true
+              },
+              "traffic": {
+                "description": "traffic strategy",
+                "properties": {
+                  "http": {
+                    "properties": {
+                      "filter": {
+                        "description": "Filter defines a filter for the canary service.",
+                        "properties": {
+                          "requestHeaderModifier": {
+                            "description": "RequestHeaderModifier defines a schema for a filter that modifies request\nheaders.\n\n\nSupport: Core",
+                            "properties": {
+                              "add": {
+                                "description": "Add adds the given header(s) (name, value) to the request\nbefore the action. It appends to any existing values associated\nwith the header name.\n\n\nInput:\n  GET /foo HTTP/1.1\n  my-header: foo\n\n\nConfig:\n  add:\n  - name: \"my-header\"\n    value: \"bar,baz\"\n\n\nOutput:\n  GET /foo HTTP/1.1\n  my-header: foo,bar,baz",
+                                "items": {
+                                  "description": "HTTPHeader represents an HTTP Header name and value as defined by RFC 7230.",
+                                  "properties": {
+                                    "name": {
+                                      "description": "Name is the name of the HTTP Header to be matched. Name matching MUST be\ncase insensitive. (See https://tools.ietf.org/html/rfc7230#section-3.2).\n\n\nIf multiple entries specify equivalent header names, the first entry with\nan equivalent name MUST be considered for a match. Subsequent entries\nwith an equivalent header name MUST be ignored. Due to the\ncase-insensitivity of header names, \"foo\" and \"Foo\" are considered\nequivalent.",
+                                      "maxLength": 256,
+                                      "minLength": 1,
+                                      "pattern": "^[A-Za-z0-9!#$%\u0026'*+\\-.^_\\x60|~]+$",
+                                      "type": "string"
+                                    },
+                                    "value": {
+                                      "description": "Value is the value of HTTP Header to be matched.",
+                                      "maxLength": 4096,
+                                      "minLength": 1,
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "name",
+                                    "value"
+                                  ],
+                                  "type": "object"
+                                },
+                                "maxItems": 16,
+                                "type": "array",
+                                "x-kubernetes-list-map-keys": [
+                                  "name"
+                                ],
+                                "x-kubernetes-list-type": "map"
+                              },
+                              "remove": {
+                                "description": "Remove the given header(s) from the HTTP request before the action. The\nvalue of Remove is a list of HTTP header names. Note that the header\nnames are case-insensitive (see\nhttps://datatracker.ietf.org/doc/html/rfc2616#section-4.2).\n\n\nInput:\n  GET /foo HTTP/1.1\n  my-header1: foo\n  my-header2: bar\n  my-header3: baz\n\n\nConfig:\n  remove: [\"my-header1\", \"my-header3\"]\n\n\nOutput:\n  GET /foo HTTP/1.1\n  my-header2: bar",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "maxItems": 16,
+                                "type": "array",
+                                "x-kubernetes-list-type": "set"
+                              },
+                              "set": {
+                                "description": "Set overwrites the request with the given header (name, value)\nbefore the action.\n\n\nInput:\n  GET /foo HTTP/1.1\n  my-header: foo\n\n\nConfig:\n  set:\n  - name: \"my-header\"\n    value: \"bar\"\n\n\nOutput:\n  GET /foo HTTP/1.1\n  my-header: bar",
+                                "items": {
+                                  "description": "HTTPHeader represents an HTTP Header name and value as defined by RFC 7230.",
+                                  "properties": {
+                                    "name": {
+                                      "description": "Name is the name of the HTTP Header to be matched. Name matching MUST be\ncase insensitive. (See https://tools.ietf.org/html/rfc7230#section-3.2).\n\n\nIf multiple entries specify equivalent header names, the first entry with\nan equivalent name MUST be considered for a match. Subsequent entries\nwith an equivalent header name MUST be ignored. Due to the\ncase-insensitivity of header names, \"foo\" and \"Foo\" are considered\nequivalent.",
+                                      "maxLength": 256,
+                                      "minLength": 1,
+                                      "pattern": "^[A-Za-z0-9!#$%\u0026'*+\\-.^_\\x60|~]+$",
+                                      "type": "string"
+                                    },
+                                    "value": {
+                                      "description": "Value is the value of HTTP Header to be matched.",
+                                      "maxLength": 4096,
+                                      "minLength": 1,
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "name",
+                                    "value"
+                                  ],
+                                  "type": "object"
+                                },
+                                "maxItems": 16,
+                                "type": "array",
+                                "x-kubernetes-list-map-keys": [
+                                  "name"
+                                ],
+                                "x-kubernetes-list-type": "map"
+                              }
+                            },
+                            "type": "object"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "matches": {
+                        "description": "Matches define conditions used for matching the incoming HTTP requests to canary service.",
+                        "items": {
+                          "properties": {
+                            "headers": {
+                              "description": "Headers specifies HTTP request header matchers. Multiple match values are\nANDed together, meaning, a request must match all the specified headers\nto select the route.",
+                              "items": {
+                                "description": "HTTPHeaderMatch describes how to select a HTTP route by matching HTTP request\nheaders.",
+                                "properties": {
+                                  "name": {
+                                    "description": "Name is the name of the HTTP Header to be matched. Name matching MUST be\ncase insensitive. (See https://tools.ietf.org/html/rfc7230#section-3.2).\n\n\nIf multiple entries specify equivalent header names, only the first\nentry with an equivalent name MUST be considered for a match. Subsequent\nentries with an equivalent header name MUST be ignored. Due to the\ncase-insensitivity of header names, \"foo\" and \"Foo\" are considered\nequivalent.\n\n\nWhen a header is repeated in an HTTP request, it is\nimplementation-specific behavior as to how this is represented.\nGenerally, proxies should follow the guidance from the RFC:\nhttps://www.rfc-editor.org/rfc/rfc7230.html#section-3.2.2 regarding\nprocessing a repeated header, with special handling for \"Set-Cookie\".",
+                                    "maxLength": 256,
+                                    "minLength": 1,
+                                    "pattern": "^[A-Za-z0-9!#$%\u0026'*+\\-.^_\\x60|~]+$",
+                                    "type": "string"
+                                  },
+                                  "type": {
+                                    "default": "Exact",
+                                    "description": "Type specifies how to match against the value of the header.\n\n\nSupport: Core (Exact)\n\n\nSupport: Implementation-specific (RegularExpression)\n\n\nSince RegularExpression HeaderMatchType has implementation-specific\nconformance, implementations can support POSIX, PCRE or any other dialects\nof regular expressions. Please read the implementation's documentation to\ndetermine the supported dialect.",
+                                    "enum": [
+                                      "Exact",
+                                      "RegularExpression"
+                                    ],
+                                    "type": "string"
+                                  },
+                                  "value": {
+                                    "description": "Value is the value of HTTP Header to be matched.",
+                                    "maxLength": 4096,
+                                    "minLength": 1,
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "name",
+                                  "value"
+                                ],
+                                "type": "object"
+                              },
+                              "maxItems": 16,
+                              "type": "array",
+                              "x-kubernetes-list-map-keys": [
+                                "name"
+                              ],
+                              "x-kubernetes-list-type": "map"
+                            },
+                            "queryParams": {
+                              "description": "QueryParams specifies HTTP query parameter matchers. Multiple match\nvalues are ANDed together, meaning, a request must match all the\nspecified query parameters to select the route.\n\n\nSupport: Extended",
+                              "items": {
+                                "description": "HTTPQueryParamMatch describes how to select a HTTP route by matching HTTP\nquery parameters.",
+                                "properties": {
+                                  "name": {
+                                    "description": "Name is the name of the HTTP query param to be matched. This must be an\nexact string match. (See\nhttps://tools.ietf.org/html/rfc7230#section-2.7.3).\n\n\nIf multiple entries specify equivalent query param names, only the first\nentry with an equivalent name MUST be considered for a match. Subsequent\nentries with an equivalent query param name MUST be ignored.\n\n\nIf a query param is repeated in an HTTP request, the behavior is\npurposely left undefined, since different data planes have different\ncapabilities. However, it is *recommended* that implementations should\nmatch against the first value of the param if the data plane supports it,\nas this behavior is expected in other load balancing contexts outside of\nthe Gateway API.\n\n\nUsers SHOULD NOT route traffic based on repeated query params to guard\nthemselves against potential differences in the implementations.",
+                                    "maxLength": 256,
+                                    "minLength": 1,
+                                    "pattern": "^[A-Za-z0-9!#$%\u0026'*+\\-.^_\\x60|~]+$",
+                                    "type": "string"
+                                  },
+                                  "type": {
+                                    "default": "Exact",
+                                    "description": "Type specifies how to match against the value of the query parameter.\n\n\nSupport: Extended (Exact)\n\n\nSupport: Implementation-specific (RegularExpression)\n\n\nSince RegularExpression QueryParamMatchType has Implementation-specific\nconformance, implementations can support POSIX, PCRE or any other\ndialects of regular expressions. Please read the implementation's\ndocumentation to determine the supported dialect.",
+                                    "enum": [
+                                      "Exact",
+                                      "RegularExpression"
+                                    ],
+                                    "type": "string"
+                                  },
+                                  "value": {
+                                    "description": "Value is the value of HTTP query param to be matched.",
+                                    "maxLength": 1024,
+                                    "minLength": 1,
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "name",
+                                  "value"
+                                ],
+                                "type": "object"
+                              },
+                              "maxItems": 16,
+                              "type": "array",
+                              "x-kubernetes-list-map-keys": [
+                                "name"
+                              ],
+                              "x-kubernetes-list-type": "map"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "weight": {
+                    "description": "Weight indicate how many percentage of traffic the canary pods should receive",
+                    "format": "int32",
+                    "maximum": 100,
+                    "minimum": 0,
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "replicas"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "toleration": {
+          "description": "Toleration is the toleration policy of the canary strategy",
+          "properties": {
+            "initialDelaySeconds": {
+              "description": "Number of seconds after the toleration check has started before the task are initiated.",
+              "format": "int32",
+              "type": "integer"
+            },
+            "taskFailureThreshold": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
+              ],
+              "description": "FailureThreshold indicates how many failed pods can be tolerated before marking the rollout task as success\nIf not set, the default value is 0, which means no failed pods can be tolerated\nThis is a task level threshold.",
+              "x-kubernetes-int-or-string": true
+            },
+            "workloadTotalFailureThreshold": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
+              ],
+              "description": "WorkloadFailureThreshold indicates how many failed pods can be tolerated in all upgraded pods of one workload.\nThe default value is 0, which means no failed pods can be tolerated.\nThis is a workload level threshold.",
+              "x-kubernetes-int-or-string": true
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "canary": {
+      "description": "Canary defines the canary strategy for upgrade and operation",
+      "properties": {
+        "matchTargets": {
+          "description": "Match defines condition used for matching resource cross clusterset",
+          "properties": {
+            "names": {
+              "description": "Names is a list of workload name",
+              "items": {
+                "description": "CrossClusterObjectNameReference contains cluster and name reference to a k8s object",
+                "properties": {
+                  "cluster": {
+                    "description": "Cluster indicates the name of cluster",
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "Name is the resource name",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "selector": {
+              "description": "Selector is a label query over a set of resources, in this case resource",
+              "properties": {
+                "matchExpressions": {
+                  "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
+                  "items": {
+                    "description": "A label selector requirement is a selector that contains values, a key, and an operator that\nrelates the key and values.",
+                    "properties": {
+                      "key": {
+                        "description": "key is the label key that the selector applies to.",
+                        "type": "string"
+                      },
+                      "operator": {
+                        "description": "operator represents a key's relationship to a set of values.\nValid operators are In, NotIn, Exists and DoesNotExist.",
+                        "type": "string"
+                      },
+                      "values": {
+                        "description": "values is an array of string values. If the operator is In or NotIn,\nthe values array must be non-empty. If the operator is Exists or DoesNotExist,\nthe values array must be empty. This array is replaced during a strategic\nmerge patch.",
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "key",
+                      "operator"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "matchLabels": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "description": "matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels\nmap is equivalent to an element of matchExpressions, whose key field is \"key\", the\noperator is \"In\", and the values array contains only \"value\". The requirements are ANDed.",
+                  "type": "object"
+                }
+              },
+              "type": "object",
+              "x-kubernetes-map-type": "atomic"
+            }
+          },
+          "type": "object"
+        },
+        "podTemplateMetadataPatch": {
+          "description": "PodTemplateMetadataPatch defines a patch for workload podTemplate metadata.",
+          "properties": {
+            "annotations": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "description": "Annotations are additional metadata that can be included.",
+              "type": "object"
+            },
+            "labels": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "description": "Labels are additional metadata that can be included.",
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "properties": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Properties contains additional information for step",
+          "type": "object"
+        },
+        "replicas": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "description": "Replicas is the replicas of the rollout task, which represents the number of pods to be upgraded",
+          "x-kubernetes-int-or-string": true
+        },
+        "traffic": {
+          "description": "traffic strategy",
+          "properties": {
+            "http": {
+              "properties": {
+                "filter": {
+                  "description": "Filter defines a filter for the canary service.",
+                  "properties": {
+                    "requestHeaderModifier": {
+                      "description": "RequestHeaderModifier defines a schema for a filter that modifies request\nheaders.\n\n\nSupport: Core",
+                      "properties": {
+                        "add": {
+                          "description": "Add adds the given header(s) (name, value) to the request\nbefore the action. It appends to any existing values associated\nwith the header name.\n\n\nInput:\n  GET /foo HTTP/1.1\n  my-header: foo\n\n\nConfig:\n  add:\n  - name: \"my-header\"\n    value: \"bar,baz\"\n\n\nOutput:\n  GET /foo HTTP/1.1\n  my-header: foo,bar,baz",
+                          "items": {
+                            "description": "HTTPHeader represents an HTTP Header name and value as defined by RFC 7230.",
+                            "properties": {
+                              "name": {
+                                "description": "Name is the name of the HTTP Header to be matched. Name matching MUST be\ncase insensitive. (See https://tools.ietf.org/html/rfc7230#section-3.2).\n\n\nIf multiple entries specify equivalent header names, the first entry with\nan equivalent name MUST be considered for a match. Subsequent entries\nwith an equivalent header name MUST be ignored. Due to the\ncase-insensitivity of header names, \"foo\" and \"Foo\" are considered\nequivalent.",
+                                "maxLength": 256,
+                                "minLength": 1,
+                                "pattern": "^[A-Za-z0-9!#$%\u0026'*+\\-.^_\\x60|~]+$",
+                                "type": "string"
+                              },
+                              "value": {
+                                "description": "Value is the value of HTTP Header to be matched.",
+                                "maxLength": 4096,
+                                "minLength": 1,
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "name",
+                              "value"
+                            ],
+                            "type": "object"
+                          },
+                          "maxItems": 16,
+                          "type": "array",
+                          "x-kubernetes-list-map-keys": [
+                            "name"
+                          ],
+                          "x-kubernetes-list-type": "map"
+                        },
+                        "remove": {
+                          "description": "Remove the given header(s) from the HTTP request before the action. The\nvalue of Remove is a list of HTTP header names. Note that the header\nnames are case-insensitive (see\nhttps://datatracker.ietf.org/doc/html/rfc2616#section-4.2).\n\n\nInput:\n  GET /foo HTTP/1.1\n  my-header1: foo\n  my-header2: bar\n  my-header3: baz\n\n\nConfig:\n  remove: [\"my-header1\", \"my-header3\"]\n\n\nOutput:\n  GET /foo HTTP/1.1\n  my-header2: bar",
+                          "items": {
+                            "type": "string"
+                          },
+                          "maxItems": 16,
+                          "type": "array",
+                          "x-kubernetes-list-type": "set"
+                        },
+                        "set": {
+                          "description": "Set overwrites the request with the given header (name, value)\nbefore the action.\n\n\nInput:\n  GET /foo HTTP/1.1\n  my-header: foo\n\n\nConfig:\n  set:\n  - name: \"my-header\"\n    value: \"bar\"\n\n\nOutput:\n  GET /foo HTTP/1.1\n  my-header: bar",
+                          "items": {
+                            "description": "HTTPHeader represents an HTTP Header name and value as defined by RFC 7230.",
+                            "properties": {
+                              "name": {
+                                "description": "Name is the name of the HTTP Header to be matched. Name matching MUST be\ncase insensitive. (See https://tools.ietf.org/html/rfc7230#section-3.2).\n\n\nIf multiple entries specify equivalent header names, the first entry with\nan equivalent name MUST be considered for a match. Subsequent entries\nwith an equivalent header name MUST be ignored. Due to the\ncase-insensitivity of header names, \"foo\" and \"Foo\" are considered\nequivalent.",
+                                "maxLength": 256,
+                                "minLength": 1,
+                                "pattern": "^[A-Za-z0-9!#$%\u0026'*+\\-.^_\\x60|~]+$",
+                                "type": "string"
+                              },
+                              "value": {
+                                "description": "Value is the value of HTTP Header to be matched.",
+                                "maxLength": 4096,
+                                "minLength": 1,
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "name",
+                              "value"
+                            ],
+                            "type": "object"
+                          },
+                          "maxItems": 16,
+                          "type": "array",
+                          "x-kubernetes-list-map-keys": [
+                            "name"
+                          ],
+                          "x-kubernetes-list-type": "map"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                },
+                "matches": {
+                  "description": "Matches define conditions used for matching the incoming HTTP requests to canary service.",
+                  "items": {
+                    "properties": {
+                      "headers": {
+                        "description": "Headers specifies HTTP request header matchers. Multiple match values are\nANDed together, meaning, a request must match all the specified headers\nto select the route.",
+                        "items": {
+                          "description": "HTTPHeaderMatch describes how to select a HTTP route by matching HTTP request\nheaders.",
+                          "properties": {
+                            "name": {
+                              "description": "Name is the name of the HTTP Header to be matched. Name matching MUST be\ncase insensitive. (See https://tools.ietf.org/html/rfc7230#section-3.2).\n\n\nIf multiple entries specify equivalent header names, only the first\nentry with an equivalent name MUST be considered for a match. Subsequent\nentries with an equivalent header name MUST be ignored. Due to the\ncase-insensitivity of header names, \"foo\" and \"Foo\" are considered\nequivalent.\n\n\nWhen a header is repeated in an HTTP request, it is\nimplementation-specific behavior as to how this is represented.\nGenerally, proxies should follow the guidance from the RFC:\nhttps://www.rfc-editor.org/rfc/rfc7230.html#section-3.2.2 regarding\nprocessing a repeated header, with special handling for \"Set-Cookie\".",
+                              "maxLength": 256,
+                              "minLength": 1,
+                              "pattern": "^[A-Za-z0-9!#$%\u0026'*+\\-.^_\\x60|~]+$",
+                              "type": "string"
+                            },
+                            "type": {
+                              "default": "Exact",
+                              "description": "Type specifies how to match against the value of the header.\n\n\nSupport: Core (Exact)\n\n\nSupport: Implementation-specific (RegularExpression)\n\n\nSince RegularExpression HeaderMatchType has implementation-specific\nconformance, implementations can support POSIX, PCRE or any other dialects\nof regular expressions. Please read the implementation's documentation to\ndetermine the supported dialect.",
+                              "enum": [
+                                "Exact",
+                                "RegularExpression"
+                              ],
+                              "type": "string"
+                            },
+                            "value": {
+                              "description": "Value is the value of HTTP Header to be matched.",
+                              "maxLength": 4096,
+                              "minLength": 1,
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "name",
+                            "value"
+                          ],
+                          "type": "object"
+                        },
+                        "maxItems": 16,
+                        "type": "array",
+                        "x-kubernetes-list-map-keys": [
+                          "name"
+                        ],
+                        "x-kubernetes-list-type": "map"
+                      },
+                      "queryParams": {
+                        "description": "QueryParams specifies HTTP query parameter matchers. Multiple match\nvalues are ANDed together, meaning, a request must match all the\nspecified query parameters to select the route.\n\n\nSupport: Extended",
+                        "items": {
+                          "description": "HTTPQueryParamMatch describes how to select a HTTP route by matching HTTP\nquery parameters.",
+                          "properties": {
+                            "name": {
+                              "description": "Name is the name of the HTTP query param to be matched. This must be an\nexact string match. (See\nhttps://tools.ietf.org/html/rfc7230#section-2.7.3).\n\n\nIf multiple entries specify equivalent query param names, only the first\nentry with an equivalent name MUST be considered for a match. Subsequent\nentries with an equivalent query param name MUST be ignored.\n\n\nIf a query param is repeated in an HTTP request, the behavior is\npurposely left undefined, since different data planes have different\ncapabilities. However, it is *recommended* that implementations should\nmatch against the first value of the param if the data plane supports it,\nas this behavior is expected in other load balancing contexts outside of\nthe Gateway API.\n\n\nUsers SHOULD NOT route traffic based on repeated query params to guard\nthemselves against potential differences in the implementations.",
+                              "maxLength": 256,
+                              "minLength": 1,
+                              "pattern": "^[A-Za-z0-9!#$%\u0026'*+\\-.^_\\x60|~]+$",
+                              "type": "string"
+                            },
+                            "type": {
+                              "default": "Exact",
+                              "description": "Type specifies how to match against the value of the query parameter.\n\n\nSupport: Extended (Exact)\n\n\nSupport: Implementation-specific (RegularExpression)\n\n\nSince RegularExpression QueryParamMatchType has Implementation-specific\nconformance, implementations can support POSIX, PCRE or any other\ndialects of regular expressions. Please read the implementation's\ndocumentation to determine the supported dialect.",
+                              "enum": [
+                                "Exact",
+                                "RegularExpression"
+                              ],
+                              "type": "string"
+                            },
+                            "value": {
+                              "description": "Value is the value of HTTP query param to be matched.",
+                              "maxLength": 1024,
+                              "minLength": 1,
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "name",
+                            "value"
+                          ],
+                          "type": "object"
+                        },
+                        "maxItems": 16,
+                        "type": "array",
+                        "x-kubernetes-list-map-keys": [
+                          "name"
+                        ],
+                        "x-kubernetes-list-type": "map"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "weight": {
+              "description": "Weight indicate how many percentage of traffic the canary pods should receive",
+              "format": "int32",
+              "maximum": 100,
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "replicas"
+      ],
+      "type": "object"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "RolloutStrategy"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "webhooks": {
+      "description": "Webhooks defines",
+      "items": {
+        "properties": {
+          "clientConfig": {
+            "description": "ClientConfig defines how to communicate with the hook.\nRequired",
+            "properties": {
+              "caBundle": {
+                "description": "`caBundle` is a PEM encoded CA bundle which will be used to validate the webhook's server certificate.\nIf unspecified, system trust roots' CA on the node.",
+                "format": "byte",
+                "type": "string"
+              },
+              "periodSeconds": {
+                "default": 10,
+                "description": "How often (in seconds) to perform the probe.\nDefault to 10 seconds. Minimum value is 1.",
+                "format": "int32",
+                "minimum": 1,
+                "type": "integer"
+              },
+              "timeoutSeconds": {
+                "default": 10,
+                "description": "TimeoutSeconds specifies the timeout for this webhook. After the timeout passes,\nthe webhook call will be ignored or the API call will fail based on the\nfailure policy.",
+                "format": "int32",
+                "type": "integer"
+              },
+              "url": {
+                "description": "`url` gives the location of the webhook, in standard URL form\n(`scheme://host:port/path`). Exactly one of `url` or `service`\nmust be specified.\n\n\nThe `host` should not refer to a service running in the cluster; use\nthe `service` field instead. The host might be resolved via external\nDNS in some apiservers (e.g., `kube-apiserver` cannot resolve\nin-cluster DNS as that would be a layering violation). `host` may\nalso be an IP address.\n\n\nPlease note that using `localhost` or `127.0.0.1` as a `host` is\nrisky unless you take great care to run this webhook on all hosts\nwhich run an apiserver which might need to make calls to this\nwebhook. Such installs are likely to be non-portable, i.e., not easy\nto turn up in a new cluster.\n\n\nThe scheme must be \"https\"; the URL must begin with \"https://\".\n\n\nA path is optional, and if present may be any string permissible in\na URL. You may use the path to pass an arbitrary string to the\nwebhook, for example, a cluster identifier.\n\n\nAttempting to use a user or basic auth e.g. \"user:password@\" is not\nallowed. Fragments (\"#...\") and query parameters (\"?...\") are not\nallowed, either.",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "failurePolicy": {
+            "description": "FailurePolicy defines how unrecognized errors from the admission endpoint are handled -\nallowed values are Ignore or Fail. Defaults to Ignore.",
+            "type": "string"
+          },
+          "failureThreshold": {
+            "default": 3,
+            "description": "Minimum consecutive failures for the probe to be considered failed after having succeeded.\nDefaults to 3. Minimum value is 1.",
+            "format": "int32",
+            "minimum": 1,
+            "type": "integer"
+          },
+          "hookTypes": {
+            "description": "HookTypes defines when to communicate with the hook, specifies the types of events\nthat trigger the webhook.\nRequired",
+            "items": {
+              "description": "Webhook type",
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "name": {
+            "description": "Name is the identity of webhook",
+            "type": "string"
+          },
+          "properties": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "Properties provide additional data for webhook.",
+            "type": "object"
+          },
+          "provider": {
+            "description": "By default, rollout communicates with the webhook through the structure RolloutWebhookReview.\nIf provider is set, then the protocol of the interaction will be determined by the provider",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "rollout.kusionstack.io",
+      "kind": "RolloutStrategy",
+      "version": "v1alpha1"
+    }
+  ]
+}
