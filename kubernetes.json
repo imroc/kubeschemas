@@ -640,6 +640,36 @@
       "$ref": "apps.kubeedge.io/nodegrouplist_v1alpha1.json"
     },
     {
+      "$ref": "apps.kusionstack.io/collaset_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kusionstack.io/collasetlist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kusionstack.io/operationjob_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kusionstack.io/operationjoblist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kusionstack.io/poddecoration_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kusionstack.io/poddecorationlist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kusionstack.io/podtransitionrule_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kusionstack.io/podtransitionrulelist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kusionstack.io/resourcecontext_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kusionstack.io/resourcecontextlist_v1alpha1.json"
+    },
+    {
       "$ref": "apps.openyurt.io/nodebucket_v1alpha1.json"
     },
     {
