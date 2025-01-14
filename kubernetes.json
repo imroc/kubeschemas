@@ -4633,6 +4633,12 @@
       "$ref": "kind.x-k8s.io/cluster_v1alpha4.json"
     },
     {
+      "$ref": "kmesh.net/kmeshnodeinfo_v1alpha1.json"
+    },
+    {
+      "$ref": "kmesh.net/kmeshnodeinfolist_v1alpha1.json"
+    },
+    {
       "$ref": "konnect.konghq.com/konnectapiauthconfiguration_v1alpha1.json"
     },
     {

@@ -1,0 +1,75 @@
+{
+  "description": "KmeshNode is the Schema for the kmeshnodes API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "kmesh.net/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "KmeshNodeInfo"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "addresses": {
+          "description": "Addresses is used to store the internal ip address informatioon on the\nhost. The IP address information is used to generate the IPsec state\ninformatioon. IPsec uses this information to determine which network\nadapter is used to encrypt and send data.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "bootID": {
+          "description": "bootid is used to generate the ipsec key. After the node is restarted,\nthe key needs to be updated.",
+          "type": "string"
+        },
+        "podCIDRS": {
+          "description": "PodCIDRs used in IPsec checks the destination of the data to\ndetermine which IPsec state is used for encryption.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "spi": {
+          "description": "The SPI is used to identify the version number of the current key.\nThe communication can be normal only when both communication parties\nhave spis and the spi keys are the same.",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "addresses",
+        "bootID",
+        "podCIDRS",
+        "spi"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "kmesh.net",
+      "kind": "KmeshNodeInfo",
+      "version": "v1alpha1"
+    }
+  ]
+}
