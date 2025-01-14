@@ -7300,6 +7300,54 @@
       "$ref": "pkg.apimachinery.k8s.io/unknown_runtime.json"
     },
     {
+      "$ref": "policies.kubewarden.io/admissionpolicy_v1.json"
+    },
+    {
+      "$ref": "policies.kubewarden.io/admissionpolicy_v1alpha2.json"
+    },
+    {
+      "$ref": "policies.kubewarden.io/admissionpolicygroup_v1.json"
+    },
+    {
+      "$ref": "policies.kubewarden.io/admissionpolicygrouplist_v1.json"
+    },
+    {
+      "$ref": "policies.kubewarden.io/admissionpolicylist_v1.json"
+    },
+    {
+      "$ref": "policies.kubewarden.io/admissionpolicylist_v1alpha2.json"
+    },
+    {
+      "$ref": "policies.kubewarden.io/clusteradmissionpolicy_v1.json"
+    },
+    {
+      "$ref": "policies.kubewarden.io/clusteradmissionpolicy_v1alpha2.json"
+    },
+    {
+      "$ref": "policies.kubewarden.io/clusteradmissionpolicygroup_v1.json"
+    },
+    {
+      "$ref": "policies.kubewarden.io/clusteradmissionpolicygrouplist_v1.json"
+    },
+    {
+      "$ref": "policies.kubewarden.io/clusteradmissionpolicylist_v1.json"
+    },
+    {
+      "$ref": "policies.kubewarden.io/clusteradmissionpolicylist_v1alpha2.json"
+    },
+    {
+      "$ref": "policies.kubewarden.io/policyserver_v1.json"
+    },
+    {
+      "$ref": "policies.kubewarden.io/policyserver_v1alpha2.json"
+    },
+    {
+      "$ref": "policies.kubewarden.io/policyserverlist_v1.json"
+    },
+    {
+      "$ref": "policies.kubewarden.io/policyserverlist_v1alpha2.json"
+    },
+    {
       "$ref": "policy.alibabacloud.com/policy_v1alpha1.json"
     },
     {
