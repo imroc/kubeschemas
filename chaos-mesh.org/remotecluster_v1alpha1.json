@@ -27,9 +27,8 @@
       "description": "RemoteClusterSpec defines the specification of a remote cluster",
       "properties": {
         "configOverride": {
-          "description": "RawMessage is a raw encoded JSON value. It implements Marshaler and Unmarshaler and can be used to delay JSON decoding or precompute a JSON encoding.",
-          "format": "byte",
-          "type": "string"
+          "type": "object",
+          "x-kubernetes-preserve-unknown-fields": true
         },
         "kubeConfig": {
           "description": "RemoteClusterKubeConfig refers to a secret by which we'll use to connect remote cluster",
@@ -62,11 +61,15 @@
         },
         "namespace": {
           "type": "string"
+        },
+        "version": {
+          "type": "string"
         }
       },
       "required": [
         "kubeConfig",
-        "namespace"
+        "namespace",
+        "version"
       ],
       "type": "object"
     },
@@ -96,6 +99,10 @@
         },
         "currentVersion": {
           "type": "string"
+        },
+        "observedGeneration": {
+          "format": "int64",
+          "type": "integer"
         }
       },
       "required": [
