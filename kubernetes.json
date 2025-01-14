@@ -6748,6 +6748,18 @@
       "$ref": "networking.tke.cloud.tencent.com/vpciplist_v1.json"
     },
     {
+      "$ref": "networkservicemesh.io/networkservice_v1.json"
+    },
+    {
+      "$ref": "networkservicemesh.io/networkserviceendpoint_v1.json"
+    },
+    {
+      "$ref": "networkservicemesh.io/networkserviceendpointlist_v1.json"
+    },
+    {
+      "$ref": "networkservicemesh.io/networkservicelist_v1.json"
+    },
+    {
       "$ref": "nfd.k8s-sigs.io/nodefeaturerule_v1alpha1.json"
     },
     {
@@ -6836,6 +6848,12 @@
     },
     {
       "$ref": "notification.toolkit.fluxcd.io/receiverlist_v1beta2.json"
+    },
+    {
+      "$ref": "nsm.networkservicemesh.io/nsm_v1alpha1.json"
+    },
+    {
+      "$ref": "nsm.networkservicemesh.io/nsmlist_v1alpha1.json"
     },
     {
       "$ref": "o11y.aliyun.dev/observabilityaddon_v1alpha1.json"
