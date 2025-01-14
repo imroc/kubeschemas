@@ -5050,6 +5050,300 @@
       "$ref": "kueue.x-k8s.io/workloadpriorityclasslist_v1beta1.json"
     },
     {
+      "$ref": "kuma.io/circuitbreaker_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/circuitbreakerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/containerpatch_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/containerpatchlist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/dataplane_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/dataplaneinsight_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/dataplaneinsightlist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/dataplanelist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/externalservice_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/externalservicelist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/faultinjection_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/faultinjectionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/healthcheck_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/healthchecklist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/hostnamegenerator_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/hostnamegeneratorlist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/mesh_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshaccesslog_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshaccessloglist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshcircuitbreaker_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshcircuitbreakerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshexternalservice_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshexternalservicelist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshfaultinjection_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshfaultinjectionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshgateway_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshgatewayconfig_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshgatewayconfiglist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshgatewayinstance_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshgatewayinstancelist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshgatewaylist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshgatewayroute_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshgatewayroutelist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshhealthcheck_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshhealthchecklist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshhttproute_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshhttproutelist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshinsight_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshinsightlist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshlist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshloadbalancingstrategy_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshloadbalancingstrategylist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshmetric_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshmetriclist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshmultizoneservice_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshmultizoneservicelist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshpassthrough_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshpassthroughlist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshproxypatch_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshproxypatchlist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshratelimit_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshratelimitlist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshretry_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshretrylist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshservice_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshservicelist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshtcproute_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshtcproutelist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshtimeout_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshtimeoutlist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshtls_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshtlslist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshtrace_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshtracelist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshtrafficpermission_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/meshtrafficpermissionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/proxytemplate_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/proxytemplatelist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/ratelimit_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/ratelimitlist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/retry_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/retrylist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/serviceinsight_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/serviceinsightlist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/timeout_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/timeoutlist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/trafficlog_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/trafficloglist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/trafficpermission_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/trafficpermissionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/trafficroute_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/trafficroutelist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/traffictrace_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/traffictracelist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/virtualoutbound_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/virtualoutboundlist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/zone_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/zoneegress_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/zoneegressinsight_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/zoneegressinsightlist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/zoneegresslist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/zoneingress_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/zoneingressinsight_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/zoneingressinsightlist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/zoneingresslist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/zoneinsight_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/zoneinsightlist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuma.io/zonelist_v1alpha1.json"
+    },
+    {
       "$ref": "kustomize.toolkit.fluxcd.io/kustomization_v1.json"
     },
     {

@@ -1,0 +1,279 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "kuma.io/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "MeshTCPRoute"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "Spec is the specification of the Kuma MeshTCPRoute resource.",
+      "properties": {
+        "targetRef": {
+          "description": "TargetRef is a reference to the resource the policy takes an effect on.\nThe resource could be either a real store object or virtual resource\ndefined in-place.",
+          "properties": {
+            "kind": {
+              "description": "Kind of the referenced resource",
+              "enum": [
+                "Mesh",
+                "MeshSubset",
+                "MeshGateway",
+                "MeshService",
+                "MeshExternalService",
+                "MeshMultiZoneService",
+                "MeshServiceSubset",
+                "MeshHTTPRoute"
+              ],
+              "type": "string"
+            },
+            "labels": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "description": "Labels are used to select group of MeshServices that match labels. Either Labels or\nName and Namespace can be used.",
+              "type": "object"
+            },
+            "mesh": {
+              "description": "Mesh is reserved for future use to identify cross mesh resources.",
+              "type": "string"
+            },
+            "name": {
+              "description": "Name of the referenced resource. Can only be used with kinds: `MeshService`,\n`MeshServiceSubset` and `MeshGatewayRoute`",
+              "type": "string"
+            },
+            "namespace": {
+              "description": "Namespace specifies the namespace of target resource. If empty only resources in policy namespace\nwill be targeted.",
+              "type": "string"
+            },
+            "proxyTypes": {
+              "description": "ProxyTypes specifies the data plane types that are subject to the policy. When not specified,\nall data plane types are targeted by the policy.",
+              "items": {
+                "enum": [
+                  "Sidecar",
+                  "Gateway"
+                ],
+                "type": "string"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            "sectionName": {
+              "description": "SectionName is used to target specific section of resource.\nFor example, you can target port from MeshService.ports[] by its name. Only traffic to this port will be affected.",
+              "type": "string"
+            },
+            "tags": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "description": "Tags used to select a subset of proxies by tags. Can only be used with kinds\n`MeshSubset` and `MeshServiceSubset`",
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "to": {
+          "description": "To list makes a match between the consumed services and corresponding\nconfigurations",
+          "items": {
+            "properties": {
+              "rules": {
+                "description": "Rules contains the routing rules applies to a combination of top-level\ntargetRef and the targetRef in this entry.",
+                "items": {
+                  "properties": {
+                    "default": {
+                      "description": "Default holds routing rules that can be merged with rules from other\npolicies.",
+                      "properties": {
+                        "backendRefs": {
+                          "items": {
+                            "description": "BackendRef defines where to forward traffic.",
+                            "properties": {
+                              "kind": {
+                                "description": "Kind of the referenced resource",
+                                "enum": [
+                                  "Mesh",
+                                  "MeshSubset",
+                                  "MeshGateway",
+                                  "MeshService",
+                                  "MeshExternalService",
+                                  "MeshMultiZoneService",
+                                  "MeshServiceSubset",
+                                  "MeshHTTPRoute"
+                                ],
+                                "type": "string"
+                              },
+                              "labels": {
+                                "additionalProperties": {
+                                  "type": "string"
+                                },
+                                "description": "Labels are used to select group of MeshServices that match labels. Either Labels or\nName and Namespace can be used.",
+                                "type": "object"
+                              },
+                              "mesh": {
+                                "description": "Mesh is reserved for future use to identify cross mesh resources.",
+                                "type": "string"
+                              },
+                              "name": {
+                                "description": "Name of the referenced resource. Can only be used with kinds: `MeshService`,\n`MeshServiceSubset` and `MeshGatewayRoute`",
+                                "type": "string"
+                              },
+                              "namespace": {
+                                "description": "Namespace specifies the namespace of target resource. If empty only resources in policy namespace\nwill be targeted.",
+                                "type": "string"
+                              },
+                              "port": {
+                                "description": "Port is only supported when this ref refers to a real MeshService object",
+                                "format": "int32",
+                                "type": "integer"
+                              },
+                              "proxyTypes": {
+                                "description": "ProxyTypes specifies the data plane types that are subject to the policy. When not specified,\nall data plane types are targeted by the policy.",
+                                "items": {
+                                  "enum": [
+                                    "Sidecar",
+                                    "Gateway"
+                                  ],
+                                  "type": "string"
+                                },
+                                "minItems": 1,
+                                "type": "array"
+                              },
+                              "sectionName": {
+                                "description": "SectionName is used to target specific section of resource.\nFor example, you can target port from MeshService.ports[] by its name. Only traffic to this port will be affected.",
+                                "type": "string"
+                              },
+                              "tags": {
+                                "additionalProperties": {
+                                  "type": "string"
+                                },
+                                "description": "Tags used to select a subset of proxies by tags. Can only be used with kinds\n`MeshSubset` and `MeshServiceSubset`",
+                                "type": "object"
+                              },
+                              "weight": {
+                                "default": 1,
+                                "minimum": 0,
+                                "type": "integer"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "minItems": 1,
+                          "type": "array"
+                        }
+                      },
+                      "required": [
+                        "backendRefs"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "default"
+                  ],
+                  "type": "object"
+                },
+                "maxItems": 1,
+                "type": "array"
+              },
+              "targetRef": {
+                "description": "TargetRef is a reference to the resource that represents a group of\ndestinations.",
+                "properties": {
+                  "kind": {
+                    "description": "Kind of the referenced resource",
+                    "enum": [
+                      "Mesh",
+                      "MeshSubset",
+                      "MeshGateway",
+                      "MeshService",
+                      "MeshExternalService",
+                      "MeshMultiZoneService",
+                      "MeshServiceSubset",
+                      "MeshHTTPRoute"
+                    ],
+                    "type": "string"
+                  },
+                  "labels": {
+                    "additionalProperties": {
+                      "type": "string"
+                    },
+                    "description": "Labels are used to select group of MeshServices that match labels. Either Labels or\nName and Namespace can be used.",
+                    "type": "object"
+                  },
+                  "mesh": {
+                    "description": "Mesh is reserved for future use to identify cross mesh resources.",
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "Name of the referenced resource. Can only be used with kinds: `MeshService`,\n`MeshServiceSubset` and `MeshGatewayRoute`",
+                    "type": "string"
+                  },
+                  "namespace": {
+                    "description": "Namespace specifies the namespace of target resource. If empty only resources in policy namespace\nwill be targeted.",
+                    "type": "string"
+                  },
+                  "proxyTypes": {
+                    "description": "ProxyTypes specifies the data plane types that are subject to the policy. When not specified,\nall data plane types are targeted by the policy.",
+                    "items": {
+                      "enum": [
+                        "Sidecar",
+                        "Gateway"
+                      ],
+                      "type": "string"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                  },
+                  "sectionName": {
+                    "description": "SectionName is used to target specific section of resource.\nFor example, you can target port from MeshService.ports[] by its name. Only traffic to this port will be affected.",
+                    "type": "string"
+                  },
+                  "tags": {
+                    "additionalProperties": {
+                      "type": "string"
+                    },
+                    "description": "Tags used to select a subset of proxies by tags. Can only be used with kinds\n`MeshSubset` and `MeshServiceSubset`",
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "targetRef"
+            ],
+            "type": "object"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "kuma.io",
+      "kind": "MeshTCPRoute",
+      "version": "v1alpha1"
+    }
+  ]
+}

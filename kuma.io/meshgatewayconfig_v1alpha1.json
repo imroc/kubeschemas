@@ -1,0 +1,239 @@
+{
+  "description": "MeshGatewayConfig holds the configuration of a MeshGateway. A\nGatewayClass can refer to a MeshGatewayConfig via parametersRef.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "kuma.io/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "MeshGatewayConfig"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "MeshGatewayConfigSpec specifies the options available for a Kuma MeshGateway.",
+      "properties": {
+        "crossMesh": {
+          "description": "CrossMesh specifies whether listeners configured by this gateway are\ncross mesh listeners.",
+          "type": "boolean"
+        },
+        "podTemplate": {
+          "description": "PodTemplate configures the Pod owned by this config.",
+          "properties": {
+            "metadata": {
+              "description": "Metadata holds metadata configuration for a Service.",
+              "properties": {
+                "annotations": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "description": "Annotations holds annotations to be set on an object.",
+                  "type": "object"
+                },
+                "labels": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "description": "Labels holds labels to be set on an objects.",
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "spec": {
+              "description": "Spec holds some customizable fields of a Pod.",
+              "properties": {
+                "container": {
+                  "description": "Container corresponds to PodSpec.Container",
+                  "properties": {
+                    "securityContext": {
+                      "description": "ContainerSecurityContext corresponds to PodSpec.Container.SecurityContext",
+                      "properties": {
+                        "readOnlyRootFilesystem": {
+                          "description": "ReadOnlyRootFilesystem corresponds to PodSpec.Container.SecurityContext.ReadOnlyRootFilesystem",
+                          "type": "boolean"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                },
+                "securityContext": {
+                  "description": "PodSecurityContext corresponds to PodSpec.SecurityContext",
+                  "properties": {
+                    "fsGroup": {
+                      "description": "FSGroup corresponds to PodSpec.SecurityContext.FSGroup",
+                      "format": "int64",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                },
+                "serviceAccountName": {
+                  "description": "ServiceAccountName corresponds to PodSpec.ServiceAccountName.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "replicas": {
+          "default": 1,
+          "description": "Replicas is the number of dataplane proxy replicas to create. For\nnow this is a fixed number, but in the future it could be\nautomatically scaled based on metrics.",
+          "format": "int32",
+          "minimum": 1,
+          "type": "integer"
+        },
+        "resources": {
+          "description": "Resources specifies the compute resources for the proxy container.\nThe default can be set in the control plane config.",
+          "properties": {
+            "claims": {
+              "description": "Claims lists the names of resources, defined in spec.resourceClaims,\nthat are used by this container.\n\nThis is an alpha field and requires enabling the\nDynamicResourceAllocation feature gate.\n\nThis field is immutable. It can only be set for containers.",
+              "items": {
+                "description": "ResourceClaim references one entry in PodSpec.ResourceClaims.",
+                "properties": {
+                  "name": {
+                    "description": "Name must match the name of one entry in pod.spec.resourceClaims of\nthe Pod where this field is used. It makes that resource available\ninside a container.",
+                    "type": "string"
+                  },
+                  "request": {
+                    "description": "Request is the name chosen for a request in the referenced claim.\nIf empty, everything from the claim is made available, otherwise\nonly the result of this request.",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ],
+                "type": "object"
+              },
+              "type": "array",
+              "x-kubernetes-list-map-keys": [
+                "name"
+              ],
+              "x-kubernetes-list-type": "map"
+            },
+            "limits": {
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                "x-kubernetes-int-or-string": true
+              },
+              "description": "Limits describes the maximum amount of compute resources allowed.\nMore info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+              "type": "object"
+            },
+            "requests": {
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                "x-kubernetes-int-or-string": true
+              },
+              "description": "Requests describes the minimum amount of compute resources required.\nIf Requests is omitted for a container, it defaults to Limits if that is explicitly specified,\notherwise to an implementation-defined value. Requests cannot exceed Limits.\nMore info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "serviceTemplate": {
+          "description": "ServiceTemplate configures the Service owned by this config.",
+          "properties": {
+            "metadata": {
+              "description": "Metadata holds metadata configuration for a Service.",
+              "properties": {
+                "annotations": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "description": "Annotations holds annotations to be set on an object.",
+                  "type": "object"
+                },
+                "labels": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "description": "Labels holds labels to be set on an objects.",
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "spec": {
+              "description": "Spec holds some customizable fields of a Service.",
+              "properties": {
+                "loadBalancerIP": {
+                  "description": "LoadBalancerIP corresponds to ServiceSpec.LoadBalancerIP.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "serviceType": {
+          "default": "LoadBalancer",
+          "description": "ServiceType specifies the type of managed Service that will be\ncreated to expose the dataplane proxies to traffic from outside\nthe cluster. The ports to expose will be taken from the matching Gateway\nresource. If there is no matching Gateway, the managed Service will\nbe deleted.",
+          "enum": [
+            "LoadBalancer",
+            "ClusterIP",
+            "NodePort"
+          ],
+          "type": "string"
+        },
+        "tags": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Tags specifies a set of Kuma tags that are included in the\nMeshGatewayInstance and thus propagated to every Dataplane generated to\nserve the MeshGateway.\nThese tags should include a maximum of one `kuma.io/service` tag.",
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "description": "MeshGatewayConfigStatus holds information about the status of the gateway\ninstance.",
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "kuma.io",
+      "kind": "MeshGatewayConfig",
+      "version": "v1alpha1"
+    }
+  ]
+}

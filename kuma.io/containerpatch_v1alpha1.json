@@ -1,0 +1,122 @@
+{
+  "description": "ContainerPatch stores a list of patches to apply to init and sidecar containers.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "kuma.io/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "ContainerPatch"
+      ],
+      "type": "string"
+    },
+    "mesh": {
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "ContainerPatchSpec specifies the options available for a ContainerPatch",
+      "properties": {
+        "initPatch": {
+          "description": "InitPatch specifies jsonpatch to apply to an init container.",
+          "items": {
+            "description": "JsonPatchBlock is one json patch operation block.",
+            "properties": {
+              "from": {
+                "description": "From is a jsonpatch from string, used by move and copy operations.",
+                "type": "string"
+              },
+              "op": {
+                "description": "Op is a jsonpatch operation string.",
+                "enum": [
+                  "add",
+                  "remove",
+                  "replace",
+                  "move",
+                  "copy"
+                ],
+                "type": "string"
+              },
+              "path": {
+                "description": "Path is a jsonpatch path string.",
+                "type": "string"
+              },
+              "value": {
+                "description": "Value must be a string representing a valid json object used\nby replace and add operations. String has to be escaped with \" to be valid a json object.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "op",
+              "path"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "sidecarPatch": {
+          "description": "SidecarPatch specifies jsonpatch to apply to a sidecar container.",
+          "items": {
+            "description": "JsonPatchBlock is one json patch operation block.",
+            "properties": {
+              "from": {
+                "description": "From is a jsonpatch from string, used by move and copy operations.",
+                "type": "string"
+              },
+              "op": {
+                "description": "Op is a jsonpatch operation string.",
+                "enum": [
+                  "add",
+                  "remove",
+                  "replace",
+                  "move",
+                  "copy"
+                ],
+                "type": "string"
+              },
+              "path": {
+                "description": "Path is a jsonpatch path string.",
+                "type": "string"
+              },
+              "value": {
+                "description": "Value must be a string representing a valid json object used\nby replace and add operations. String has to be escaped with \" to be valid a json object.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "op",
+              "path"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "kuma.io",
+      "kind": "ContainerPatch",
+      "version": "v1alpha1"
+    }
+  ]
+}
