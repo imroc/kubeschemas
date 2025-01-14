@@ -1,0 +1,46 @@
+{
+  "description": "K8sGPTList is a list of K8sGPT",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "core.k8sgpt.ai/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "items": {
+      "description": "List of k8sgpts. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md",
+      "items": {
+        "$ref": "../core.k8sgpt.ai/k8sgpt_v1alpha1.json"
+      },
+      "type": "array"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "K8sGPTList"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/listmeta_v1.json"
+        }
+      ],
+      "description": "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "core.k8sgpt.ai",
+      "kind": "K8sGPTList",
+      "version": "v1alpha1"
+    }
+  ]
+}

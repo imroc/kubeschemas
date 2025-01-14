@@ -1,0 +1,391 @@
+{
+  "description": "K8sGPT is the Schema for the k8sgpts API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "core.k8sgpt.ai/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "K8sGPT"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "K8sGPTSpec defines the desired state of K8sGPT",
+      "properties": {
+        "ai": {
+          "properties": {
+            "anonymized": {
+              "default": true,
+              "type": "boolean"
+            },
+            "backOff": {
+              "properties": {
+                "enabled": {
+                  "default": false,
+                  "type": "boolean"
+                },
+                "maxRetries": {
+                  "default": 5,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "enabled",
+                "maxRetries"
+              ],
+              "type": "object"
+            },
+            "backend": {
+              "default": "openai",
+              "enum": [
+                "ibmwatsonxai",
+                "openai",
+                "localai",
+                "azureopenai",
+                "amazonbedrock",
+                "cohere",
+                "amazonsagemaker",
+                "google",
+                "googlevertexai"
+              ],
+              "type": "string"
+            },
+            "baseUrl": {
+              "type": "string"
+            },
+            "enabled": {
+              "type": "boolean"
+            },
+            "engine": {
+              "type": "string"
+            },
+            "language": {
+              "default": "english",
+              "type": "string"
+            },
+            "maxTokens": {
+              "default": "2048",
+              "type": "string"
+            },
+            "model": {
+              "default": "gpt-3.5-turbo",
+              "type": "string"
+            },
+            "providerId": {
+              "type": "string"
+            },
+            "proxyEndpoint": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            },
+            "secret": {
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "topk": {
+              "default": "50",
+              "type": "string"
+            }
+          },
+          "required": [
+            "backend"
+          ],
+          "type": "object"
+        },
+        "customAnalyzers": {
+          "items": {
+            "properties": {
+              "connection": {
+                "properties": {
+                  "port": {
+                    "type": "integer"
+                  },
+                  "url": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "extraOptions": {
+          "properties": {
+            "backstage": {
+              "properties": {
+                "enabled": {
+                  "type": "boolean"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "filters": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "imagePullSecrets": {
+          "items": {
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "integrations": {
+          "properties": {
+            "trivy": {
+              "properties": {
+                "enabled": {
+                  "type": "boolean"
+                },
+                "namespace": {
+                  "type": "string"
+                },
+                "skipInstall": {
+                  "type": "boolean"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "kubeconfig": {
+          "description": "Define the kubeconfig the Deployment must use.\nIf empty, the Deployment will use the ServiceAccount provided by Kubernetes itself.",
+          "properties": {
+            "key": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "noCache": {
+          "type": "boolean"
+        },
+        "nodeSelector": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "remoteCache": {
+          "properties": {
+            "azure": {
+              "properties": {
+                "containerName": {
+                  "type": "string"
+                },
+                "storageAccount": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "credentials": {
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "gcs": {
+              "properties": {
+                "bucketName": {
+                  "type": "string"
+                },
+                "projectId": {
+                  "type": "string"
+                },
+                "region": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "interplex": {
+              "properties": {
+                "endpoint": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "s3": {
+              "properties": {
+                "bucketName": {
+                  "type": "string"
+                },
+                "region": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "repository": {
+          "default": "ghcr.io/k8sgpt-ai/k8sgpt",
+          "type": "string"
+        },
+        "resources": {
+          "description": "ResourceRequirements describes the compute resource requirements.",
+          "properties": {
+            "claims": {
+              "description": "Claims lists the names of resources, defined in spec.resourceClaims,\nthat are used by this container.\n\n\nThis is an alpha field and requires enabling the\nDynamicResourceAllocation feature gate.\n\n\nThis field is immutable. It can only be set for containers.",
+              "items": {
+                "description": "ResourceClaim references one entry in PodSpec.ResourceClaims.",
+                "properties": {
+                  "name": {
+                    "description": "Name must match the name of one entry in pod.spec.resourceClaims of\nthe Pod where this field is used. It makes that resource available\ninside a container.",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ],
+                "type": "object"
+              },
+              "type": "array",
+              "x-kubernetes-list-map-keys": [
+                "name"
+              ],
+              "x-kubernetes-list-type": "map"
+            },
+            "limits": {
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                "x-kubernetes-int-or-string": true
+              },
+              "description": "Limits describes the maximum amount of compute resources allowed.\nMore info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+              "type": "object"
+            },
+            "requests": {
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                "x-kubernetes-int-or-string": true
+              },
+              "description": "Requests describes the minimum amount of compute resources required.\nIf Requests is omitted for a container, it defaults to Limits if that is explicitly specified,\notherwise to an implementation-defined value. Requests cannot exceed Limits.\nMore info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "sink": {
+          "properties": {
+            "channel": {
+              "type": "string"
+            },
+            "icon_url": {
+              "type": "string"
+            },
+            "secret": {
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": {
+              "enum": [
+                "slack",
+                "mattermost"
+              ],
+              "type": "string"
+            },
+            "username": {
+              "type": "string"
+            },
+            "webhook": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "targetNamespace": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "description": "K8sGPTStatus defines the observed state of K8sGPT\nshow the current backend used",
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "core.k8sgpt.ai",
+      "kind": "K8sGPT",
+      "version": "v1alpha1"
+    }
+  ]
+}

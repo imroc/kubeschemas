@@ -2629,6 +2629,18 @@
       "$ref": "core.api.k8s.io/servicelist_v1.json"
     },
     {
+      "$ref": "core.k8sgpt.ai/k8sgpt_v1alpha1.json"
+    },
+    {
+      "$ref": "core.k8sgpt.ai/k8sgptlist_v1alpha1.json"
+    },
+    {
+      "$ref": "core.k8sgpt.ai/result_v1alpha1.json"
+    },
+    {
+      "$ref": "core.k8sgpt.ai/resultlist_v1alpha1.json"
+    },
+    {
       "$ref": "core.oam.dev/application_v1beta1.json"
     },
     {

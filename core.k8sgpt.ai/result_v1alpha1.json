@@ -1,0 +1,105 @@
+{
+  "description": "Result is the Schema for the results API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "core.k8sgpt.ai/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "Result"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "ResultSpec defines the desired state of Result",
+      "properties": {
+        "backend": {
+          "type": "string"
+        },
+        "details": {
+          "type": "string"
+        },
+        "error": {
+          "items": {
+            "properties": {
+              "sensitive": {
+                "items": {
+                  "properties": {
+                    "masked": {
+                      "type": "string"
+                    },
+                    "unmasked": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "text": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "parentObject": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "backend",
+        "details",
+        "error",
+        "kind",
+        "name",
+        "parentObject"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "description": "ResultStatus defines the observed state of Result",
+      "properties": {
+        "lifecycle": {
+          "type": "string"
+        },
+        "webhook": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "core.k8sgpt.ai",
+      "kind": "Result",
+      "version": "v1alpha1"
+    }
+  ]
+}
