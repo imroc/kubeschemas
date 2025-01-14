@@ -31,6 +31,7 @@
             "custom": {
               "properties": {
                 "url": {
+                  "description": "This is the URL of an already running instance of the Broker, this is alternative to specifying the native configuration of the Broker instance",
                   "type": "string"
                 }
               },
@@ -39,9 +40,11 @@
             "native": {
               "properties": {
                 "name": {
+                  "description": "Name of the Broker instance to be deployed",
                   "type": "string"
                 },
                 "namespace": {
+                  "description": "Namespace within which the Broker instance to be deployed would run in",
                   "type": "string"
                 }
               },
@@ -51,8 +54,32 @@
           "type": "object"
         },
         "size": {
+          "description": "Desired replica count of the MeshSync instance, will be an integer value denoting the number of MeshSync instances that that should be in one cluster, currently only one instance of MeshSync is supported",
           "format": "int32",
           "type": "integer"
+        },
+        "version": {
+          "description": "The current version of the Meshery application as from its release",
+          "type": "string"
+        },
+        "watch-list": {
+          "description": "A ConfigMap that sets the resources e.g. pods,deployments and event types e.g. ADDED, MODIFIED… that the MeshSync instance tracks or ignores in the Kubernetes cluster",
+          "properties": {
+            "data": {
+              "properties": {
+                "blacklist": {
+                  "description": "Blacklist resources are resources that the MeshSync should ignore its changes, More info: https://docs.meshery.io/reference/meshery-operator-crds#meshsync-crd-properties",
+                  "type": "string"
+                },
+                "whitelist": {
+                  "description": "Whitelist resources are resources that the MeshSync should track its changes, More info: https://docs.meshery.io/reference/meshery-operator-crds#meshsync-crd-properties",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
         }
       },
       "type": "object"
