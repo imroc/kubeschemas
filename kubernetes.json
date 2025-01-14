@@ -1654,6 +1654,24 @@
       "$ref": "cilium.io/ciliumpodippoollist_v2alpha1.json"
     },
     {
+      "$ref": "cilium.io/podinfo_v1alpha1.json"
+    },
+    {
+      "$ref": "cilium.io/podinfolist_v1alpha1.json"
+    },
+    {
+      "$ref": "cilium.io/tracingpolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "cilium.io/tracingpolicylist_v1alpha1.json"
+    },
+    {
+      "$ref": "cilium.io/tracingpolicynamespaced_v1alpha1.json"
+    },
+    {
+      "$ref": "cilium.io/tracingpolicynamespacedlist_v1alpha1.json"
+    },
+    {
       "$ref": "cis.cattle.io/clusterscan_v1.json"
     },
     {

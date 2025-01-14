@@ -1,0 +1,98 @@
+{
+  "description": "PodInfo is the Scheme for the Podinfo API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "cilium.io/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "PodInfo"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "hostNetwork": {
+          "description": "Host networking requested for this pod. Use the host's network namespace.\nIf this option is set, the ports that will be used must be specified.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "properties": {
+        "podIP": {
+          "description": "IP address allocated to the pod. Routable at least within the cluster.\nEmpty if not yet allocated.",
+          "type": "string"
+        },
+        "podIPs": {
+          "description": "List of Ip addresses allocated to the pod. 0th entry must be same as PodIP.",
+          "items": {
+            "properties": {
+              "IP": {
+                "description": "IP is an IP address (IPv4 or IPv6) assigned to the pod",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "workloadObject": {
+      "description": "Workload that created this pod.",
+      "properties": {
+        "name": {
+          "description": "Name of the object.",
+          "type": "string"
+        },
+        "namespace": {
+          "description": "Namespace of this object.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "workloadType": {
+      "description": "Workload type (e.g. \"Deployment\", \"Daemonset\") that created this pod.",
+      "properties": {
+        "apiVersion": {
+          "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+          "type": "string"
+        },
+        "kind": {
+          "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "cilium.io",
+      "kind": "PodInfo",
+      "version": "v1alpha1"
+    }
+  ]
+}

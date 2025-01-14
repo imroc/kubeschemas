@@ -28,7 +28,7 @@ CRDs from open source project:
 - [MCS API](https://github.com/kubernetes-sigs/mcs-api/tree/master/config/crd)
 - [Istio](https://istio.io/latest/docs/setup/install/helm/)
 - [Envoy Gateway](https://github.com/envoyproxy/gateway/tree/main/charts/gateway-helm/crds)
-- [Cilium](https://github.com/cilium/cilium/tree/main/pkg/k8s/apis/cilium.io/client/crds)
+- [Cilium](https://github.com/cilium/cilium/tree/main/pkg/k8s/apis/cilium.io/client/crds) and [Tetragon](https://github.com/cilium/tetragon/tree/main/install/kubernetes/tetragon/crds-yaml)
 - [APISIX](https://github.com/apache/apisix-helm-chart/tree/master/charts/apisix-ingress-controller/crds)
 - [Higress](https://github.com/alibaba/higress/tree/main/helm/core/crds)
 - [Traefik](https://github.com/traefik/traefik-helm-chart/tree/master/traefik/crds)
