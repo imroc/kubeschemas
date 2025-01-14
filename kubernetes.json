@@ -3358,6 +3358,12 @@
       "$ref": "events.api.k8s.io/eventlist_v1.json"
     },
     {
+      "$ref": "eventtracker.litmuschaos.io/eventtrackerpolicy_v1.json"
+    },
+    {
+      "$ref": "eventtracker.litmuschaos.io/eventtrackerpolicylist_v1.json"
+    },
+    {
       "$ref": "expansion.gatekeeper.sh/expansiontemplate_v1alpha1.json"
     },
     {
@@ -5408,6 +5414,24 @@
     },
     {
       "$ref": "linkerd.io/serviceprofilelist_v1alpha2.json"
+    },
+    {
+      "$ref": "litmuschaos.io/chaosengine_v1alpha1.json"
+    },
+    {
+      "$ref": "litmuschaos.io/chaosenginelist_v1alpha1.json"
+    },
+    {
+      "$ref": "litmuschaos.io/chaosexperiment_v1alpha1.json"
+    },
+    {
+      "$ref": "litmuschaos.io/chaosexperimentlist_v1alpha1.json"
+    },
+    {
+      "$ref": "litmuschaos.io/chaosresult_v1alpha1.json"
+    },
+    {
+      "$ref": "litmuschaos.io/chaosresultlist_v1alpha1.json"
     },
     {
       "$ref": "localvolume.everest.io/nodelocalvolume_v1.json"
