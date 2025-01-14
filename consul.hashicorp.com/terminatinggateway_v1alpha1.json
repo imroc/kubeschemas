@@ -1,0 +1,128 @@
+{
+  "description": "TerminatingGateway is the Schema for the terminatinggateways API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "consul.hashicorp.com/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "TerminatingGateway"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "TerminatingGatewaySpec defines the desired state of TerminatingGateway.",
+      "properties": {
+        "services": {
+          "description": "Services is a list of service names represented by the terminating gateway.",
+          "items": {
+            "description": "A LinkedService is a service represented by a terminating gateway.",
+            "properties": {
+              "caFile": {
+                "description": "CAFile is the optional path to a CA certificate to use for TLS connections\nfrom the gateway to the linked service.",
+                "type": "string"
+              },
+              "certFile": {
+                "description": "CertFile is the optional path to a client certificate to use for TLS connections\nfrom the gateway to the linked service.",
+                "type": "string"
+              },
+              "disableAutoHostRewrite": {
+                "description": "DisableAutoHostRewrite disables terminating gateways auto host rewrite feature when set to true.",
+                "type": "boolean"
+              },
+              "keyFile": {
+                "description": "KeyFile is the optional path to a private key to use for TLS connections\nfrom the gateway to the linked service.",
+                "type": "string"
+              },
+              "name": {
+                "description": "Name is the name of the service, as defined in Consul's catalog.",
+                "type": "string"
+              },
+              "namespace": {
+                "description": "The namespace the service is registered in.",
+                "type": "string"
+              },
+              "sni": {
+                "description": "SNI is the optional name to specify during the TLS handshake with a linked service.",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "properties": {
+        "conditions": {
+          "description": "Conditions indicate the latest available observations of a resource's current state.",
+          "items": {
+            "description": "Conditions define a readiness condition for a Consul resource.\nSee: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#typical-status-properties",
+            "properties": {
+              "lastTransitionTime": {
+                "description": "LastTransitionTime is the last time the condition transitioned from one status to another.",
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "description": "A human readable message indicating details about the transition.",
+                "type": "string"
+              },
+              "reason": {
+                "description": "The reason for the condition's last transition.",
+                "type": "string"
+              },
+              "status": {
+                "description": "Status of the condition, one of True, False, Unknown.",
+                "type": "string"
+              },
+              "type": {
+                "description": "Type of condition.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "type"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "lastSyncedTime": {
+          "description": "LastSyncedTime is the last time the resource successfully synced with Consul.",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "consul.hashicorp.com",
+      "kind": "TerminatingGateway",
+      "version": "v1alpha1"
+    }
+  ]
+}

@@ -77,6 +77,7 @@ CRDs from open source project:
 - [KubeVirt](https://kubevirt.io/quickstart_cloud/)
 - [KubeOVN](https://github.com/kubeovn/kube-ovn/blob/master/charts/kube-ovn/templates/kube-ovn-crd.yaml)
 - [Meshery](https://github.com/meshery/meshery/blob/master/install/kubernetes/helm/meshery-operator/crds/crds.yaml)
+- [Consul](https://github.com/hashicorp/consul-k8s/tree/main/charts/consul/templates)
 - OpenShift ([operator-framework-olm](https://github.com/openshift/operator-framework-olm/tree/master), [microshift](https://github.com/openshift/microshift/tree/main/assets/crd), [hypershift](https://github.com/openshift/hypershift), [lvm-operator](https://github.com/openshift/lvm-operator/tree/main/config/crd/bases), [sriov-network-operator](https://github.com/openshift/sriov-network-operator/tree/master/config/crd), [cloud-credential-operator](https://github.com/openshift/cloud-credential-operator) and etc).
 - Rancher ([fleet](https://github.com/rancher/fleet/blob/main/charts/fleet-crd/templates/crds.yaml), [cis-operator](https://github.com/rancher/cis-operator/tree/main/crds), [k3k](https://github.com/rancher/k3k/tree/main/charts/k3k/crds) and etc).
 - KubeSphere

@@ -1,0 +1,130 @@
+{
+  "description": "ExportedServices is the Schema for the exportedservices API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "consul.hashicorp.com/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "ExportedServices"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "ExportedServicesSpec defines the desired state of ExportedServices.",
+      "properties": {
+        "services": {
+          "description": "Services is a list of services to be exported and the list of partitions\nto expose them to.",
+          "items": {
+            "description": "ExportedService manages the exporting of a service in the local partition to\nother partitions.",
+            "properties": {
+              "consumers": {
+                "description": "Consumers is a list of downstream consumers of the service to be exported.",
+                "items": {
+                  "description": "ServiceConsumer represents a downstream consumer of the service to be exported.",
+                  "properties": {
+                    "partition": {
+                      "description": "Partition is the admin partition to export the service to.",
+                      "type": "string"
+                    },
+                    "peer": {
+                      "description": "Peer is the name of the peer to export the service to.",
+                      "type": "string"
+                    },
+                    "samenessGroup": {
+                      "description": "SamenessGroup is the name of the sameness group to export the service to.",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "name": {
+                "description": "Name is the name of the service to be exported.",
+                "type": "string"
+              },
+              "namespace": {
+                "description": "Namespace is the namespace to export the service from.",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "properties": {
+        "conditions": {
+          "description": "Conditions indicate the latest available observations of a resource's current state.",
+          "items": {
+            "description": "Conditions define a readiness condition for a Consul resource.\nSee: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#typical-status-properties",
+            "properties": {
+              "lastTransitionTime": {
+                "description": "LastTransitionTime is the last time the condition transitioned from one status to another.",
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "description": "A human readable message indicating details about the transition.",
+                "type": "string"
+              },
+              "reason": {
+                "description": "The reason for the condition's last transition.",
+                "type": "string"
+              },
+              "status": {
+                "description": "Status of the condition, one of True, False, Unknown.",
+                "type": "string"
+              },
+              "type": {
+                "description": "Type of condition.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "type"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "lastSyncedTime": {
+          "description": "LastSyncedTime is the last time the resource successfully synced with Consul.",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "consul.hashicorp.com",
+      "kind": "ExportedServices",
+      "version": "v1alpha1"
+    }
+  ]
+}

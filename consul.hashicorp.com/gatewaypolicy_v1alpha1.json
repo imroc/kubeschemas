@@ -1,0 +1,268 @@
+{
+  "description": "GatewayPolicy is the Schema for the gatewaypolicies API.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "consul.hashicorp.com/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "GatewayPolicy"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "GatewayPolicySpec defines the desired state of GatewayPolicy.",
+      "properties": {
+        "default": {
+          "properties": {
+            "jwt": {
+              "description": "GatewayJWTRequirement holds the list of JWT providers to be verified against.",
+              "properties": {
+                "providers": {
+                  "description": "Providers is a list of providers to consider when verifying a JWT.",
+                  "items": {
+                    "description": "GatewayJWTProvider holds the provider and claim verification information.",
+                    "properties": {
+                      "name": {
+                        "description": "Name is the name of the JWT provider. There MUST be a corresponding\n\"jwt-provider\" config entry with this name.",
+                        "type": "string"
+                      },
+                      "verifyClaims": {
+                        "description": "VerifyClaims is a list of additional claims to verify in a JWT's payload.",
+                        "items": {
+                          "description": "GatewayJWTClaimVerification holds the actual claim information to be verified.",
+                          "properties": {
+                            "path": {
+                              "description": "Path is the path to the claim in the token JSON.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            "value": {
+                              "description": "Value is the expected value at the given path:\n- If the type at the path is a list then we verify\n  that this value is contained in the list.\n\n\n- If the type at the path is a string then we verify\n  that this value matches.",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "path",
+                            "value"
+                          ],
+                          "type": "object"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "providers"
+              ],
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "override": {
+          "properties": {
+            "jwt": {
+              "description": "GatewayJWTRequirement holds the list of JWT providers to be verified against.",
+              "properties": {
+                "providers": {
+                  "description": "Providers is a list of providers to consider when verifying a JWT.",
+                  "items": {
+                    "description": "GatewayJWTProvider holds the provider and claim verification information.",
+                    "properties": {
+                      "name": {
+                        "description": "Name is the name of the JWT provider. There MUST be a corresponding\n\"jwt-provider\" config entry with this name.",
+                        "type": "string"
+                      },
+                      "verifyClaims": {
+                        "description": "VerifyClaims is a list of additional claims to verify in a JWT's payload.",
+                        "items": {
+                          "description": "GatewayJWTClaimVerification holds the actual claim information to be verified.",
+                          "properties": {
+                            "path": {
+                              "description": "Path is the path to the claim in the token JSON.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            "value": {
+                              "description": "Value is the expected value at the given path:\n- If the type at the path is a list then we verify\n  that this value is contained in the list.\n\n\n- If the type at the path is a string then we verify\n  that this value matches.",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "path",
+                            "value"
+                          ],
+                          "type": "object"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "providers"
+              ],
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "targetRef": {
+          "description": "TargetRef identifies an API object to apply policy to.",
+          "properties": {
+            "group": {
+              "description": "Group is the group of the target resource.",
+              "maxLength": 253,
+              "minLength": 1,
+              "type": "string"
+            },
+            "kind": {
+              "description": "Kind is kind of the target resource.",
+              "maxLength": 253,
+              "minLength": 1,
+              "type": "string"
+            },
+            "name": {
+              "description": "Name is the name of the target resource.",
+              "maxLength": 253,
+              "minLength": 1,
+              "type": "string"
+            },
+            "namespace": {
+              "description": "Namespace is the namespace of the referent. When unspecified, the local\nnamespace is inferred. Even when policy targets a resource in a different\nnamespace, it may only apply to traffic originating from the same\nnamespace as the policy.",
+              "maxLength": 253,
+              "minLength": 1,
+              "type": "string"
+            },
+            "sectionName": {
+              "description": "SectionName refers to the listener targeted by this policy.",
+              "maxLength": 253,
+              "minLength": 1,
+              "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "group",
+            "kind",
+            "name"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "targetRef"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "description": "GatewayPolicyStatus defines the observed state of the gateway.",
+      "properties": {
+        "conditions": {
+          "description": "Conditions describe the current conditions of the Policy.\n\n\nKnown condition types are:\n\n\n* \"Accepted\"\n* \"ResolvedRefs\"",
+          "items": {
+            "description": "Condition contains details for one aspect of the current state of this API Resource.\n---\nThis struct is intended for direct use as an array at the field path .status.conditions.  For example,\n\n\n\ttype FooStatus struct{\n\t    // Represents the observations of a foo's current state.\n\t    // Known .status.conditions.type are: \"Available\", \"Progressing\", and \"Degraded\"\n\t    // +patchMergeKey=type\n\t    // +patchStrategy=merge\n\t    // +listType=map\n\t    // +listMapKey=type\n\t    Conditions []metav1.Condition `json:\"conditions,omitempty\" patchStrategy:\"merge\" patchMergeKey:\"type\" protobuf:\"bytes,1,rep,name=conditions\"`\n\n\n\t    // other fields\n\t}",
+            "properties": {
+              "lastTransitionTime": {
+                "description": "lastTransitionTime is the last time the condition transitioned from one status to another.\nThis should be when the underlying condition changed.  If that is not known, then using the time when the API field changed is acceptable.",
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "description": "message is a human readable message indicating details about the transition.\nThis may be an empty string.",
+                "maxLength": 32768,
+                "type": "string"
+              },
+              "observedGeneration": {
+                "description": "observedGeneration represents the .metadata.generation that the condition was set based upon.\nFor instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date\nwith respect to the current state of the instance.",
+                "format": "int64",
+                "minimum": 0,
+                "type": "integer"
+              },
+              "reason": {
+                "description": "reason contains a programmatic identifier indicating the reason for the condition's last transition.\nProducers of specific condition types may define expected values and meanings for this field,\nand whether the values are considered a guaranteed API.\nThe value should be a CamelCase string.\nThis field may not be empty.",
+                "maxLength": 1024,
+                "minLength": 1,
+                "pattern": "^[A-Za-z]([A-Za-z0-9_,:]*[A-Za-z0-9_])?$",
+                "type": "string"
+              },
+              "status": {
+                "description": "status of the condition, one of True, False, Unknown.",
+                "enum": [
+                  "True",
+                  "False",
+                  "Unknown"
+                ],
+                "type": "string"
+              },
+              "type": {
+                "description": "type of condition in CamelCase or in foo.example.com/CamelCase.\n---\nMany .condition.type values are consistent across resources like Available, but because arbitrary conditions can be\nuseful (see .node.status.conditions), the ability to deconflict is important.\nThe regex it matches is (dns1123SubdomainFmt/)?(qualifiedNameFmt)",
+                "maxLength": 316,
+                "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "lastTransitionTime",
+              "message",
+              "reason",
+              "status",
+              "type"
+            ],
+            "type": "object"
+          },
+          "maxItems": 8,
+          "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "consul.hashicorp.com",
+      "kind": "GatewayPolicy",
+      "version": "v1alpha1"
+    }
+  ]
+}

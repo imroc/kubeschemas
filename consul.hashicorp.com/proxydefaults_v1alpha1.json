@@ -1,0 +1,239 @@
+{
+  "description": "ProxyDefaults is the Schema for the proxydefaults API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "consul.hashicorp.com/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "ProxyDefaults"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "ProxyDefaultsSpec defines the desired state of ProxyDefaults.",
+      "properties": {
+        "accessLogs": {
+          "description": "AccessLogs controls all envoy instances' access logging configuration.",
+          "properties": {
+            "disableListenerLogs": {
+              "description": "DisableListenerLogs turns off just listener logs for connections rejected by Envoy because they don't\nhave a matching listener filter.",
+              "type": "boolean"
+            },
+            "enabled": {
+              "description": "Enabled turns on all access logging",
+              "type": "boolean"
+            },
+            "jsonFormat": {
+              "description": "JSONFormat is a JSON-formatted string of an Envoy access log format dictionary.\nSee for more info on formatting: https://www.envoyproxy.io/docs/envoy/latest/configuration/observability/access_log/usage#format-dictionaries\nDefining JSONFormat and TextFormat is invalid.",
+              "type": "string"
+            },
+            "path": {
+              "description": "Path is the output file to write logs for file-type logging",
+              "type": "string"
+            },
+            "textFormat": {
+              "description": "TextFormat is a representation of Envoy access logs format.\nSee for more info on formatting: https://www.envoyproxy.io/docs/envoy/latest/configuration/observability/access_log/usage#format-strings\nDefining JSONFormat and TextFormat is invalid.",
+              "type": "string"
+            },
+            "type": {
+              "description": "Type selects the output for logs\none of \"file\", \"stderr\". \"stdout\"",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "config": {
+          "description": "Config is an arbitrary map of configuration values used by Connect proxies.\nAny values that your proxy allows can be configured globally here.\nSupports JSON config values. See https://www.consul.io/docs/connect/proxies/envoy#configuration-formatting",
+          "type": "object",
+          "x-kubernetes-preserve-unknown-fields": true
+        },
+        "envoyExtensions": {
+          "description": "EnvoyExtensions are a list of extensions to modify Envoy proxy configuration.",
+          "items": {
+            "description": "EnvoyExtension has configuration for an extension that patches Envoy resources.",
+            "properties": {
+              "arguments": {
+                "type": "object",
+                "x-kubernetes-preserve-unknown-fields": true
+              },
+              "name": {
+                "type": "string"
+              },
+              "required": {
+                "type": "boolean"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "expose": {
+          "description": "Expose controls the default expose path configuration for Envoy.",
+          "properties": {
+            "checks": {
+              "description": "Checks defines whether paths associated with Consul checks will be exposed.\nThis flag triggers exposing all HTTP and GRPC check paths registered for the service.",
+              "type": "boolean"
+            },
+            "paths": {
+              "description": "Paths is the list of paths exposed through the proxy.",
+              "items": {
+                "properties": {
+                  "listenerPort": {
+                    "description": "ListenerPort defines the port of the proxy's listener for exposed paths.",
+                    "type": "integer"
+                  },
+                  "localPathPort": {
+                    "description": "LocalPathPort is the port that the service is listening on for the given path.",
+                    "type": "integer"
+                  },
+                  "path": {
+                    "description": "Path is the path to expose through the proxy, ie. \"/metrics\".",
+                    "type": "string"
+                  },
+                  "protocol": {
+                    "description": "Protocol describes the upstream's service protocol.\nValid values are \"http\" and \"http2\", defaults to \"http\".",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        },
+        "failoverPolicy": {
+          "description": "FailoverPolicy specifies the exact mechanism used for failover.",
+          "properties": {
+            "mode": {
+              "description": "Mode specifies the type of failover that will be performed. Valid values are\n\"sequential\", \"\" (equivalent to \"sequential\") and \"order-by-locality\".",
+              "type": "string"
+            },
+            "regions": {
+              "description": "Regions is the ordered list of the regions of the failover targets.\nValid values can be \"us-west-1\", \"us-west-2\", and so on.",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        },
+        "meshGateway": {
+          "description": "MeshGateway controls the default mesh gateway configuration for this service.",
+          "properties": {
+            "mode": {
+              "description": "Mode is the mode that should be used for the upstream connection.\nOne of none, local, or remote.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "mode": {
+          "description": "Mode can be one of \"direct\" or \"transparent\". \"transparent\" represents that inbound and outbound\napplication traffic is being captured and redirected through the proxy. This mode does not\nenable the traffic redirection itself. Instead it signals Consul to configure Envoy as if\ntraffic is already being redirected. \"direct\" represents that the proxy's listeners must be\ndialed directly by the local application and other proxies.\nNote: This cannot be set using the CRD and should be set using annotations on the\nservices that are part of the mesh.",
+          "type": "string"
+        },
+        "mutualTLSMode": {
+          "description": "MutualTLSMode controls whether mutual TLS is required for all incoming\nconnections when transparent proxy is enabled. This can be set to\n\"permissive\" or \"strict\". \"strict\" is the default which requires mutual\nTLS for incoming connections. In the insecure \"permissive\" mode,\nconnections to the sidecar proxy public listener port require mutual\nTLS, but connections to the service port do not require mutual TLS and\nare proxied to the application unmodified. Note: Intentions are not\nenforced for non-mTLS connections. To keep your services secure, we\nrecommend using \"strict\" mode whenever possible and enabling\n\"permissive\" mode only when necessary.",
+          "type": "string"
+        },
+        "prioritizeByLocality": {
+          "description": "PrioritizeByLocality controls whether the locality of services within the\nlocal partition will be used to prioritize connectivity.",
+          "properties": {
+            "mode": {
+              "description": "Mode specifies the type of prioritization that will be performed\nwhen selecting nodes in the local partition.\nValid values are: \"\" (default \"none\"), \"none\", and \"failover\".",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "transparentProxy": {
+          "description": "TransparentProxy controls configuration specific to proxies in transparent mode.\nNote: This cannot be set using the CRD and should be set using annotations on the\nservices that are part of the mesh.",
+          "properties": {
+            "dialedDirectly": {
+              "description": "DialedDirectly indicates whether transparent proxies can dial this proxy instance directly.\nThe discovery chain is not considered when dialing a service instance directly.\nThis setting is useful when addressing stateful services, such as a database cluster with a leader node.",
+              "type": "boolean"
+            },
+            "outboundListenerPort": {
+              "description": "OutboundListenerPort is the port of the listener where outbound application\ntraffic is being redirected to.",
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "properties": {
+        "conditions": {
+          "description": "Conditions indicate the latest available observations of a resource's current state.",
+          "items": {
+            "description": "Conditions define a readiness condition for a Consul resource.\nSee: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#typical-status-properties",
+            "properties": {
+              "lastTransitionTime": {
+                "description": "LastTransitionTime is the last time the condition transitioned from one status to another.",
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "description": "A human readable message indicating details about the transition.",
+                "type": "string"
+              },
+              "reason": {
+                "description": "The reason for the condition's last transition.",
+                "type": "string"
+              },
+              "status": {
+                "description": "Status of the condition, one of True, False, Unknown.",
+                "type": "string"
+              },
+              "type": {
+                "description": "Type of condition.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "type"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "lastSyncedTime": {
+          "description": "LastSyncedTime is the last time the resource successfully synced with Consul.",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "consul.hashicorp.com",
+      "kind": "ProxyDefaults",
+      "version": "v1alpha1"
+    }
+  ]
+}

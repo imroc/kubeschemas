@@ -928,6 +928,12 @@
       "$ref": "audit.k8s.io/policylist_v1.json"
     },
     {
+      "$ref": "auth.consul.hashicorp.com/trafficpermissions_v2beta1.json"
+    },
+    {
+      "$ref": "auth.consul.hashicorp.com/trafficpermissionslist_v2beta1.json"
+    },
+    {
       "$ref": "authentication.api.k8s.io/selfsubjectreview_v1.json"
     },
     {
@@ -2369,6 +2375,126 @@
     },
     {
       "$ref": "constraints.gatekeeper.sh/noupdateserviceaccountlist_v1beta1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/controlplanerequestlimit_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/controlplanerequestlimitlist_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/exportedservices_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/exportedserviceslist_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/gatewayclassconfig_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/gatewayclassconfiglist_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/gatewaypolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/gatewaypolicylist_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/ingressgateway_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/ingressgatewaylist_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/jwtprovider_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/jwtproviderlist_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/mesh_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/meshlist_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/meshservice_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/meshservicelist_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/proxydefaults_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/proxydefaultslist_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/registration_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/registrationlist_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/routeauthfilter_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/routeauthfilterlist_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/routeretryfilter_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/routeretryfilterlist_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/routetimeoutfilter_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/routetimeoutfilterlist_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/samenessgroup_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/samenessgrouplist_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/servicedefaults_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/servicedefaultslist_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/serviceintentions_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/serviceintentionslist_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/serviceresolver_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/serviceresolverlist_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/servicerouter_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/servicerouterlist_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/servicesplitter_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/servicesplitterlist_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/terminatinggateway_v1alpha1.json"
+    },
+    {
+      "$ref": "consul.hashicorp.com/terminatinggatewaylist_v1alpha1.json"
     },
     {
       "$ref": "controllermanager.config.k8s.io/leadermigrationconfiguration_v1alpha1.json"
