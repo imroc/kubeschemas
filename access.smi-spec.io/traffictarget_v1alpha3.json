@@ -1,0 +1,128 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "access.smi-spec.io/v1alpha3"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "TrafficTarget"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "destination": {
+          "description": "The destination of this traffic target.",
+          "properties": {
+            "kind": {
+              "description": "Kind of the destination.",
+              "type": "string"
+            },
+            "name": {
+              "description": "Name of the destination.",
+              "type": "string"
+            },
+            "namespace": {
+              "description": "Namespace of the destination.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "kind"
+          ],
+          "type": "object"
+        },
+        "rules": {
+          "description": "Specifications of this traffic target.",
+          "items": {
+            "properties": {
+              "kind": {
+                "description": "Kind of this spec.",
+                "enum": [
+                  "HTTPRouteGroup",
+                  "TCPRoute",
+                  "UDPRoute"
+                ],
+                "type": "string"
+              },
+              "matches": {
+                "description": "Match conditions of this spec.",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "name": {
+                "description": "Name of this spec.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "kind"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "sources": {
+          "description": "Sources of this traffic target.",
+          "items": {
+            "properties": {
+              "kind": {
+                "description": "Kind of this source.",
+                "type": "string"
+              },
+              "name": {
+                "description": "Name of this source.",
+                "type": "string"
+              },
+              "namespace": {
+                "description": "Namespace of this source.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "kind"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "destination",
+        "rules",
+        "sources"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "access.smi-spec.io",
+      "kind": "TrafficTarget",
+      "version": "v1alpha3"
+    }
+  ]
+}

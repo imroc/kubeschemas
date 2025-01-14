@@ -1,0 +1,96 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "split.smi-spec.io/v1alpha4"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "TrafficSplit"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "backends": {
+          "description": "The backend services of this split.",
+          "items": {
+            "properties": {
+              "service": {
+                "description": "Name of the Kubernetes service.",
+                "type": "string"
+              },
+              "weight": {
+                "description": "Traffic weight value of this backend.",
+                "type": "number"
+              }
+            },
+            "required": [
+              "service",
+              "weight"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "matches": {
+          "description": "The HTTP route groups that this traffic split should match.",
+          "items": {
+            "properties": {
+              "kind": {
+                "description": "Kind of the matching group.",
+                "enum": [
+                  "HTTPRouteGroup"
+                ],
+                "type": "string"
+              },
+              "name": {
+                "description": "Name of the matching group.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "kind",
+              "name"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "service": {
+          "description": "The apex service of this split.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "service",
+        "backends"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "split.smi-spec.io",
+      "kind": "TrafficSplit",
+      "version": "v1alpha4"
+    }
+  ]
+}

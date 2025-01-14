@@ -68,6 +68,7 @@ CRDs from open source project:
 - [Sealed Secrets](https://raw.githubusercontent.com/bitnami-labs/sealed-secrets/refs/heads/main/helm/sealed-secrets/crds/bitnami.com_sealedsecrets.yaml)
 - [kapp-controller](https://raw.githubusercontent.com/carvel-dev/kapp-controller/refs/heads/develop/config/config/crds.yml)
 - [terraform-controller](https://github.com/kubevela/terraform-controller/tree/master/chart/crds)
+- [SMI](https://github.com/servicemeshinterface/smi-sdk-go/tree/main/crds)
 - [kaito](https://github.com/kaito-project/kaito/tree/main/config/crd)
 - [calico](https://github.com/projectcalico/calico)
 - [kserve](https://github.com/kserve/kserve/tree/master/config/crd)

@@ -1,0 +1,97 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "specs.smi-spec.io/v1alpha4"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "HTTPRouteGroup"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "matches": {
+          "description": "Match conditions of this route group.",
+          "items": {
+            "properties": {
+              "headers": {
+                "description": "Header match conditions of this route.",
+                "items": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "description": "Header match condition of this route.",
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "methods": {
+                "description": "The HTTP methods of this HTTP route.",
+                "items": {
+                  "description": "The HTTP method of this HTTP route.",
+                  "enum": [
+                    "*",
+                    "GET",
+                    "HEAD",
+                    "PUT",
+                    "POST",
+                    "DELETE",
+                    "CONNECT",
+                    "OPTIONS",
+                    "TRACE",
+                    "PATCH"
+                  ],
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "name": {
+                "description": "Name of the HTTP route.",
+                "type": "string"
+              },
+              "pathRegex": {
+                "description": "URI path regex of the HTTP route.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "name"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "matches"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "specs.smi-spec.io",
+      "kind": "HTTPRouteGroup",
+      "version": "v1alpha4"
+    }
+  ]
+}

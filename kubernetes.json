@@ -7,6 +7,12 @@
       "$ref": "accelerator.volcano.sh/nvidianodeconfigurationlist_v1beta1.json"
     },
     {
+      "$ref": "access.smi-spec.io/traffictarget_v1alpha3.json"
+    },
+    {
+      "$ref": "access.smi-spec.io/traffictargetlist_v1alpha3.json"
+    },
+    {
       "$ref": "acid.zalan.do/operatorconfiguration_v1.json"
     },
     {
@@ -8369,6 +8375,30 @@
     },
     {
       "$ref": "sparkoperator.k8s.io/sparkapplicationlist_v1beta2.json"
+    },
+    {
+      "$ref": "specs.smi-spec.io/httproutegroup_v1alpha4.json"
+    },
+    {
+      "$ref": "specs.smi-spec.io/httproutegrouplist_v1alpha4.json"
+    },
+    {
+      "$ref": "specs.smi-spec.io/tcproute_v1alpha4.json"
+    },
+    {
+      "$ref": "specs.smi-spec.io/tcproutelist_v1alpha4.json"
+    },
+    {
+      "$ref": "specs.smi-spec.io/udproute_v1alpha4.json"
+    },
+    {
+      "$ref": "specs.smi-spec.io/udproutelist_v1alpha4.json"
+    },
+    {
+      "$ref": "split.smi-spec.io/trafficsplit_v1alpha4.json"
+    },
+    {
+      "$ref": "split.smi-spec.io/trafficsplitlist_v1alpha4.json"
     },
     {
       "$ref": "sriovnetwork.openshift.io/ovsnetwork_v1.json"
