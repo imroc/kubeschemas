@@ -4711,6 +4711,48 @@
       "$ref": "kritis.grafeas.io/kritisconfiglist_v1beta1.json"
     },
     {
+      "$ref": "kuadrant.io/authpolicy_v1.json"
+    },
+    {
+      "$ref": "kuadrant.io/authpolicylist_v1.json"
+    },
+    {
+      "$ref": "kuadrant.io/dnshealthcheckprobe_v1alpha1.json"
+    },
+    {
+      "$ref": "kuadrant.io/dnshealthcheckprobelist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuadrant.io/dnspolicy_v1.json"
+    },
+    {
+      "$ref": "kuadrant.io/dnspolicylist_v1.json"
+    },
+    {
+      "$ref": "kuadrant.io/dnsrecord_v1alpha1.json"
+    },
+    {
+      "$ref": "kuadrant.io/dnsrecordlist_v1alpha1.json"
+    },
+    {
+      "$ref": "kuadrant.io/kuadrant_v1beta1.json"
+    },
+    {
+      "$ref": "kuadrant.io/kuadrantlist_v1beta1.json"
+    },
+    {
+      "$ref": "kuadrant.io/ratelimitpolicy_v1.json"
+    },
+    {
+      "$ref": "kuadrant.io/ratelimitpolicylist_v1.json"
+    },
+    {
+      "$ref": "kuadrant.io/tlspolicy_v1.json"
+    },
+    {
+      "$ref": "kuadrant.io/tlspolicylist_v1.json"
+    },
+    {
       "$ref": "kubeadm.k8s.io/clusterconfiguration_v1beta3.json"
     },
     {
@@ -5420,6 +5462,12 @@
     },
     {
       "$ref": "kustomize.toolkit.fluxcd.io/kustomizationlist_v1beta2.json"
+    },
+    {
+      "$ref": "limitador.kuadrant.io/limitador_v1alpha1.json"
+    },
+    {
+      "$ref": "limitador.kuadrant.io/limitadorlist_v1alpha1.json"
     },
     {
       "$ref": "linkerd.io/serviceprofile_v1alpha1.json"
@@ -6932,6 +6980,12 @@
     },
     {
       "$ref": "operations.kubeedge.io/nodeupgradejoblist_v1alpha1.json"
+    },
+    {
+      "$ref": "operator.authorino.kuadrant.io/authorino_v1beta1.json"
+    },
+    {
+      "$ref": "operator.authorino.kuadrant.io/authorinolist_v1beta1.json"
     },
     {
       "$ref": "operator.karmada.io/karmada_v1alpha1.json"

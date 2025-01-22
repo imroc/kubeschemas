@@ -1,0 +1,46 @@
+{
+  "description": "AuthorinoList is a list of Authorino",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "operator.authorino.kuadrant.io/v1beta1"
+      ],
+      "type": "string"
+    },
+    "items": {
+      "description": "List of authorinos. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md",
+      "items": {
+        "$ref": "../operator.authorino.kuadrant.io/authorino_v1beta1.json"
+      },
+      "type": "array"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "AuthorinoList"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/listmeta_v1.json"
+        }
+      ],
+      "description": "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "operator.authorino.kuadrant.io",
+      "kind": "AuthorinoList",
+      "version": "v1beta1"
+    }
+  ]
+}
