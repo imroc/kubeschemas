@@ -8364,6 +8364,5 @@
       "kind": "DataProcess",
       "version": "v1alpha1"
     }
-  ],
-  "x-kubernetes-selectable-fields": []
+  ]
 }

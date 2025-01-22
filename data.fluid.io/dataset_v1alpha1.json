@@ -592,6 +592,5 @@
       "kind": "Dataset",
       "version": "v1alpha1"
     }
-  ],
-  "x-kubernetes-selectable-fields": []
+  ]
 }

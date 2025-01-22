@@ -88,6 +88,7 @@ CRDs from open source project:
 - [Network Service Mesh](https://github.com/networkservicemesh/nsm-operator/tree/master/config/crd)
 - [Keycloak Operator](https://www.keycloak.org/operator/installation#_installing_by_using_kubectl_without_operator_lifecycle_manager)
 - [Kuadrant](https://kuadrant.io/) ([Kuadrant Operator](https://github.com/Kuadrant/kuadrant-operator/tree/main/config/crd), [dns-operator](https://github.com/Kuadrant/dns-operator/tree/main/charts/dns-operator), [Limitador Operator](https://github.com/Kuadrant/limitador-operator/tree/main/config/crd), [Authorino Operator](https://github.com/Kuadrant/authorino-operator/tree/main/config/crd))
+- [fluid](https://github.com/fluid-cloudnative/fluid/tree/master/config/crd)
 - OpenShift ([operator-framework-olm](https://github.com/openshift/operator-framework-olm/tree/master), [microshift](https://github.com/openshift/microshift/tree/main/assets/crd), [hypershift](https://github.com/openshift/hypershift), [lvm-operator](https://github.com/openshift/lvm-operator/tree/main/config/crd/bases), [sriov-network-operator](https://github.com/openshift/sriov-network-operator/tree/master/config/crd), [cloud-credential-operator](https://github.com/openshift/cloud-credential-operator) and etc).
 - Rancher ([fleet](https://github.com/rancher/fleet/blob/main/charts/fleet-crd/templates/crds.yaml), [cis-operator](https://github.com/rancher/cis-operator/tree/main/crds), [k3k](https://github.com/rancher/k3k/tree/main/charts/k3k/crds) and etc).
 - KubeSphere
