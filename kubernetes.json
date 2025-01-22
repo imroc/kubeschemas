@@ -4564,6 +4564,18 @@
       "$ref": "k8s.cni.cncf.io/networkattachmentdefinitionlist_v1.json"
     },
     {
+      "$ref": "k8s.keycloak.org/keycloak_v2alpha1.json"
+    },
+    {
+      "$ref": "k8s.keycloak.org/keycloaklist_v2alpha1.json"
+    },
+    {
+      "$ref": "k8s.keycloak.org/keycloakrealmimport_v2alpha1.json"
+    },
+    {
+      "$ref": "k8s.keycloak.org/keycloakrealmimportlist_v2alpha1.json"
+    },
+    {
       "$ref": "kai.alibabacloud.com/genericnode_v1alpha1.json"
     },
     {
