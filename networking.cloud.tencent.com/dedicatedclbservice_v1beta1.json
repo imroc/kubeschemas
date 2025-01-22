@@ -4,7 +4,7 @@
     "apiVersion": {
       "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
       "enum": [
-        "networking.cloud.tencent.com/v1alpha1"
+        "networking.cloud.tencent.com/v1beta1"
       ],
       "type": "string"
     },
@@ -26,10 +26,31 @@
     "spec": {
       "description": "DedicatedCLBServiceSpec defines the desired state of DedicatedCLBService",
       "properties": {
-        "existedLbIds": {
+        "existedCLBs": {
           "description": "复用的已有的 CLB ID，可动态追加。",
           "items": {
-            "type": "string"
+            "items": {
+              "properties": {
+                "alias": {
+                  "description": "Alias of the CLB instance.",
+                  "type": "string"
+                },
+                "id": {
+                  "description": "CLB 实例的 ID。",
+                  "type": "string"
+                },
+                "region": {
+                  "description": "region of the CLB instance.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "alias",
+                "id"
+              ],
+              "type": "object"
+            },
+            "type": "array"
           },
           "type": "array"
         },
@@ -40,28 +61,54 @@
               "description": "是否启用自动创建 CLB 的功能，如果启用，当 CLB 不足时，会自动创建新的 CLB。",
               "type": "boolean"
             },
-            "extensiveParameters": {
-              "description": "创建 CLB 时的参数，JSON 格式，详细参数请参考 CreateLoadBalancer 接口：https://cloud.tencent.com/document/api/214/30692",
-              "type": "string"
+            "parameters": {
+              "items": {
+                "properties": {
+                  "addressIPVersion": {
+                    "enum": [
+                      "IPV4",
+                      "IPV6",
+                      "IPv6FullChain"
+                    ],
+                    "type": "string"
+                  },
+                  "alias": {
+                    "type": "string"
+                  },
+                  "extensiveParameters": {
+                    "description": "创建 CLB 时的参数，JSON 格式，详细参数请参考 CreateLoadBalancer 接口：https://cloud.tencent.com/document/api/214/30692",
+                    "type": "string"
+                  },
+                  "loadBalancerName": {
+                    "type": "string"
+                  },
+                  "region": {
+                    "type": "string"
+                  },
+                  "vipIsp": {
+                    "type": "string"
+                  },
+                  "vpcId": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
             }
           },
           "type": "object"
         },
-        "lbRegion": {
-          "description": "CLB 所在地域，不填则使用 TKE 集群所在的地域。",
-          "type": "string"
-        },
         "listenerExtensiveParameters": {
-          "description": "创建监听器的参数，JSON 格式，详细参数请参考 CreateListener 接口：https://cloud.tencent.com/document/api/214/30693",
+          "description": "创建监听器的参数，JSON 格式，详细参数请参考 CreateListener 接口: https://cloud.tencent.com/document/api/214/30693",
           "type": "string"
         },
-        "maxPod": {
+        "maxListener": {
           "description": "限制单个 CLB 的 Pod/监听器 的最大数量。",
           "format": "int64",
           "type": "integer"
         },
         "maxPort": {
-          "default": 50000,
           "description": "CLB 端口范围的最大端口号。",
           "format": "int64",
           "type": "integer"
@@ -86,7 +133,7 @@
                 "type": "string"
               },
               "protocol": {
-                "description": "端口协议，支持 TCP、UDP。",
+                "description": "端口协议，支持 TCP、UDP、TCPUDP。",
                 "type": "string"
               },
               "targetPort": {
@@ -103,71 +150,72 @@
           },
           "type": "array"
         },
-        "selector": {
-          "additionalProperties": {
-            "type": "string"
+        "target": {
+          "properties": {
+            "node": {
+              "properties": {
+                "nodeSelector": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "pod": {
+              "properties": {
+                "podSelector": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "type": "object"
+                }
+              },
+              "required": [
+                "podSelector"
+              ],
+              "type": "object"
+            }
           },
-          "description": "Pod 的标签选择器，被选中的 Pod 会被绑定到 CLB 监听器下。",
           "type": "object"
-        },
-        "vpcId": {
-          "description": "CLB 所在 VPC ID，不填则使用 TKE 集群所在的 VPC 的 ID。",
-          "type": "string"
         }
       },
       "required": [
         "ports",
-        "selector"
+        "target"
       ],
       "type": "object"
     },
     "status": {
       "description": "DedicatedCLBServiceStatus defines the observed state of DedicatedCLBService",
       "properties": {
-        "allocatableLb": {
-          "description": "可分配端口的 CLB 列表",
+        "clbs": {
           "items": {
-            "properties": {
-              "autoCreate": {
-                "description": "是否是自动创建的 CLB。如果是，删除 DedicatedCLBService 时，CLB 也会被清理。",
-                "type": "boolean"
+            "items": {
+              "properties": {
+                "alias": {
+                  "type": "string"
+                },
+                "autoCreate": {
+                  "description": "是否是自动创建的 CLB。如果是，删除 DedicatedCLBService 时，CLB 也会被清理。",
+                  "type": "boolean"
+                },
+                "lbId": {
+                  "description": "CLB 实例的 ID。",
+                  "type": "string"
+                },
+                "region": {
+                  "type": "string"
+                }
               },
-              "currentPort": {
-                "description": "CLB 当前已被分配的端口。",
-                "format": "int64",
-                "type": "integer"
-              },
-              "lbId": {
-                "description": "CLB 实例的 ID。",
-                "type": "string"
-              }
+              "required": [
+                "lbId",
+                "region"
+              ],
+              "type": "object"
             },
-            "required": [
-              "autoCreate",
-              "lbId"
-            ],
-            "type": "object"
-          },
-          "type": "array"
-        },
-        "allocatedLb": {
-          "description": "已分配完端口的 CLB 列表",
-          "items": {
-            "properties": {
-              "autoCreate": {
-                "description": "是否是自动创建的 CLB。如果是，删除 DedicatedCLBService 时，CLB 也会被清理。",
-                "type": "boolean"
-              },
-              "lbId": {
-                "description": "CLB 实例的 ID。",
-                "type": "string"
-              }
-            },
-            "required": [
-              "autoCreate",
-              "lbId"
-            ],
-            "type": "object"
+            "type": "array"
           },
           "type": "array"
         }
@@ -184,7 +232,7 @@
     {
       "group": "networking.cloud.tencent.com",
       "kind": "DedicatedCLBService",
-      "version": "v1alpha1"
+      "version": "v1beta1"
     }
   ]
 }
