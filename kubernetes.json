@@ -628,6 +628,108 @@
       "$ref": "apps.kruise.io/workloadspreadlist_v1alpha1.json"
     },
     {
+      "$ref": "apps.kubeblocks.io/cluster_v1.json"
+    },
+    {
+      "$ref": "apps.kubeblocks.io/cluster_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kubeblocks.io/clusterdefinition_v1.json"
+    },
+    {
+      "$ref": "apps.kubeblocks.io/clusterdefinition_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kubeblocks.io/clusterdefinitionlist_v1.json"
+    },
+    {
+      "$ref": "apps.kubeblocks.io/clusterdefinitionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kubeblocks.io/clusterlist_v1.json"
+    },
+    {
+      "$ref": "apps.kubeblocks.io/clusterlist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kubeblocks.io/component_v1.json"
+    },
+    {
+      "$ref": "apps.kubeblocks.io/component_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kubeblocks.io/componentdefinition_v1.json"
+    },
+    {
+      "$ref": "apps.kubeblocks.io/componentdefinition_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kubeblocks.io/componentdefinitionlist_v1.json"
+    },
+    {
+      "$ref": "apps.kubeblocks.io/componentdefinitionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kubeblocks.io/componentlist_v1.json"
+    },
+    {
+      "$ref": "apps.kubeblocks.io/componentlist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kubeblocks.io/componentversion_v1.json"
+    },
+    {
+      "$ref": "apps.kubeblocks.io/componentversion_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kubeblocks.io/componentversionlist_v1.json"
+    },
+    {
+      "$ref": "apps.kubeblocks.io/componentversionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kubeblocks.io/configconstraint_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kubeblocks.io/configconstraint_v1beta1.json"
+    },
+    {
+      "$ref": "apps.kubeblocks.io/configconstraintlist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kubeblocks.io/configconstraintlist_v1beta1.json"
+    },
+    {
+      "$ref": "apps.kubeblocks.io/configuration_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kubeblocks.io/configurationlist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kubeblocks.io/servicedescriptor_v1.json"
+    },
+    {
+      "$ref": "apps.kubeblocks.io/servicedescriptor_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kubeblocks.io/servicedescriptorlist_v1.json"
+    },
+    {
+      "$ref": "apps.kubeblocks.io/servicedescriptorlist_v1alpha1.json"
+    },
+    {
+      "$ref": "apps.kubeblocks.io/shardingdefinition_v1.json"
+    },
+    {
+      "$ref": "apps.kubeblocks.io/shardingdefinitionlist_v1.json"
+    },
+    {
+      "$ref": "apps.kubeblocks.io/sidecardefinition_v1.json"
+    },
+    {
+      "$ref": "apps.kubeblocks.io/sidecardefinitionlist_v1.json"
+    },
+    {
       "$ref": "apps.kubedl.io/cron_v1alpha1.json"
     },
     {
@@ -3115,6 +3217,54 @@
       "$ref": "databases.spotahome.com/redisfailoverlist_v1.json"
     },
     {
+      "$ref": "dataprotection.kubeblocks.io/actionset_v1alpha1.json"
+    },
+    {
+      "$ref": "dataprotection.kubeblocks.io/actionsetlist_v1alpha1.json"
+    },
+    {
+      "$ref": "dataprotection.kubeblocks.io/backup_v1alpha1.json"
+    },
+    {
+      "$ref": "dataprotection.kubeblocks.io/backuplist_v1alpha1.json"
+    },
+    {
+      "$ref": "dataprotection.kubeblocks.io/backuppolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "dataprotection.kubeblocks.io/backuppolicylist_v1alpha1.json"
+    },
+    {
+      "$ref": "dataprotection.kubeblocks.io/backuppolicytemplate_v1alpha1.json"
+    },
+    {
+      "$ref": "dataprotection.kubeblocks.io/backuppolicytemplatelist_v1alpha1.json"
+    },
+    {
+      "$ref": "dataprotection.kubeblocks.io/backuprepo_v1alpha1.json"
+    },
+    {
+      "$ref": "dataprotection.kubeblocks.io/backuprepolist_v1alpha1.json"
+    },
+    {
+      "$ref": "dataprotection.kubeblocks.io/backupschedule_v1alpha1.json"
+    },
+    {
+      "$ref": "dataprotection.kubeblocks.io/backupschedulelist_v1alpha1.json"
+    },
+    {
+      "$ref": "dataprotection.kubeblocks.io/restore_v1alpha1.json"
+    },
+    {
+      "$ref": "dataprotection.kubeblocks.io/restorelist_v1alpha1.json"
+    },
+    {
+      "$ref": "dataprotection.kubeblocks.io/storageprovider_v1alpha1.json"
+    },
+    {
+      "$ref": "dataprotection.kubeblocks.io/storageproviderlist_v1alpha1.json"
+    },
+    {
       "$ref": "devices.kubeedge.io/device_v1alpha2.json"
     },
     {
@@ -3382,6 +3532,12 @@
       "$ref": "expansion.gatekeeper.sh/expansiontemplatelist_v1beta1.json"
     },
     {
+      "$ref": "experimental.kubeblocks.io/nodecountscaler_v1alpha1.json"
+    },
+    {
+      "$ref": "experimental.kubeblocks.io/nodecountscalerlist_v1alpha1.json"
+    },
+    {
       "$ref": "export.kubevirt.io/virtualmachineexport_v1alpha1.json"
     },
     {
@@ -3404,6 +3560,12 @@
     },
     {
       "$ref": "extensions.istio.io/wasmpluginlist_v1alpha1.json"
+    },
+    {
+      "$ref": "extensions.kubeblocks.io/addon_v1alpha1.json"
+    },
+    {
+      "$ref": "extensions.kubeblocks.io/addonlist_v1alpha1.json"
     },
     {
       "$ref": "external_metrics.apis.pkg.metrics.k8s.io/externalmetricvalue_v1beta1.json"
@@ -6970,6 +7132,18 @@
       "$ref": "opentelemetry.io/opentelemetrycollectorlist_v1beta1.json"
     },
     {
+      "$ref": "operations.kubeblocks.io/opsdefinition_v1alpha1.json"
+    },
+    {
+      "$ref": "operations.kubeblocks.io/opsdefinitionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "operations.kubeblocks.io/opsrequest_v1alpha1.json"
+    },
+    {
+      "$ref": "operations.kubeblocks.io/opsrequestlist_v1alpha1.json"
+    },
+    {
       "$ref": "operations.kubeedge.io/imageprepulljob_v1alpha1.json"
     },
     {
@@ -8779,6 +8953,12 @@
       "$ref": "topolvm.io/logicalvolumelist_v1.json"
     },
     {
+      "$ref": "trace.kubeblocks.io/reconciliationtrace_v1.json"
+    },
+    {
+      "$ref": "trace.kubeblocks.io/reconciliationtracelist_v1.json"
+    },
+    {
       "$ref": "traefik.containo.us/ingressroute_v1alpha1.json"
     },
     {
@@ -9131,6 +9311,18 @@
     },
     {
       "$ref": "work.open-cluster-management.io/manifestworkreplicasetlist_v1alpha1.json"
+    },
+    {
+      "$ref": "workloads.kubeblocks.io/instanceset_v1.json"
+    },
+    {
+      "$ref": "workloads.kubeblocks.io/instanceset_v1alpha1.json"
+    },
+    {
+      "$ref": "workloads.kubeblocks.io/instancesetlist_v1.json"
+    },
+    {
+      "$ref": "workloads.kubeblocks.io/instancesetlist_v1alpha1.json"
     },
     {
       "$ref": "ys.jibudata.com/backupjob_v1alpha1.json"
