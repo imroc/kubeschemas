@@ -5626,6 +5626,12 @@
       "$ref": "kustomize.toolkit.fluxcd.io/kustomizationlist_v1beta2.json"
     },
     {
+      "$ref": "leaderworkerset.x-k8s.io/leaderworkerset_v1.json"
+    },
+    {
+      "$ref": "leaderworkerset.x-k8s.io/leaderworkersetlist_v1.json"
+    },
+    {
       "$ref": "limitador.kuadrant.io/limitador_v1alpha1.json"
     },
     {
