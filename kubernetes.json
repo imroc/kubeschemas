@@ -1318,6 +1318,18 @@
       "$ref": "bitnami.com/sealedsecretlist_v1alpha1.json"
     },
     {
+      "$ref": "bootstrap.cluster.x-k8s.io/k3sconfig_v1beta1.json"
+    },
+    {
+      "$ref": "bootstrap.cluster.x-k8s.io/k3sconfiglist_v1beta1.json"
+    },
+    {
+      "$ref": "bootstrap.cluster.x-k8s.io/k3sconfigtemplate_v1beta1.json"
+    },
+    {
+      "$ref": "bootstrap.cluster.x-k8s.io/k3sconfigtemplatelist_v1beta1.json"
+    },
+    {
       "$ref": "bpfman.io/bpfapplication_v1alpha1.json"
     },
     {
@@ -2627,6 +2639,18 @@
     },
     {
       "$ref": "controllermanager.config.k8s.io/leadermigrationconfiguration_v1beta1.json"
+    },
+    {
+      "$ref": "controlplane.cluster.x-k8s.io/k3scontrolplane_v1beta1.json"
+    },
+    {
+      "$ref": "controlplane.cluster.x-k8s.io/k3scontrolplanelist_v1beta1.json"
+    },
+    {
+      "$ref": "controlplane.cluster.x-k8s.io/k3scontrolplanetemplate_v1beta1.json"
+    },
+    {
+      "$ref": "controlplane.cluster.x-k8s.io/k3scontrolplanetemplatelist_v1beta1.json"
     },
     {
       "$ref": "coordination.api.k8s.io/lease_v1.json"
@@ -4468,6 +4492,36 @@
       "$ref": "infrastructure.cluster.x-k8s.io/ibmvpcmachinetemplatelist_v1beta2.json"
     },
     {
+      "$ref": "infrastructure.cluster.x-k8s.io/kkcluster_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/kkclusterlist_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/kkclustertemplate_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/kkclustertemplatelist_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/kkinstance_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/kkinstancelist_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/kkmachine_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/kkmachinelist_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/kkmachinetemplate_v1beta1.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/kkmachinetemplatelist_v1beta1.json"
+    },
+    {
       "$ref": "infrastructure.cluster.x-k8s.io/kubevirtcluster_v1alpha1.json"
     },
     {
@@ -5018,6 +5072,24 @@
     },
     {
       "$ref": "kubeflow.tkestack.io/jupyternotebooklist_v1alpha1.json"
+    },
+    {
+      "$ref": "kubekey.kubesphere.io/config_v1.json"
+    },
+    {
+      "$ref": "kubekey.kubesphere.io/configlist_v1.json"
+    },
+    {
+      "$ref": "kubekey.kubesphere.io/inventory_v1.json"
+    },
+    {
+      "$ref": "kubekey.kubesphere.io/inventorylist_v1.json"
+    },
+    {
+      "$ref": "kubekey.kubesphere.io/pipeline_v1.json"
+    },
+    {
+      "$ref": "kubekey.kubesphere.io/pipelinelist_v1.json"
     },
     {
       "$ref": "kubelet.config.k8s.io/credentialproviderconfig_v1.json"

@@ -1,0 +1,84 @@
+{
+  "description": "Inventory store hosts vars for playbook.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "kubekey.kubesphere.io/v1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "Inventory"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "InventorySpec of Inventory",
+      "properties": {
+        "groups": {
+          "additionalProperties": {
+            "description": "InventoryGroup of Inventory",
+            "properties": {
+              "groups": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "hosts": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "vars": {
+                "type": "object",
+                "x-kubernetes-preserve-unknown-fields": true
+              }
+            },
+            "type": "object"
+          },
+          "description": "Groups nodes. a group contains repeated nodes",
+          "type": "object"
+        },
+        "hosts": {
+          "additionalProperties": {
+            "type": "object",
+            "x-kubernetes-preserve-unknown-fields": true
+          },
+          "description": "Hosts is all nodes",
+          "type": "object"
+        },
+        "vars": {
+          "description": "Vars for all host. the priority for vars is: host vars \u003e group vars \u003e inventory vars",
+          "type": "object",
+          "x-kubernetes-preserve-unknown-fields": true
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "kubekey.kubesphere.io",
+      "kind": "Inventory",
+      "version": "v1"
+    }
+  ]
+}
