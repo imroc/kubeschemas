@@ -1,0 +1,241 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "bgppolicydefinition.loxilb.io/v1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "BGPPolicyDefinitionService"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "statements": {
+          "items": {
+            "properties": {
+              "actions": {
+                "properties": {
+                  "bgpActions": {
+                    "properties": {
+                      "setAsPathPrepend": {
+                        "properties": {
+                          "as": {
+                            "type": "string"
+                          },
+                          "repeatN": {
+                            "type": "integer"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "setCommunity": {
+                        "properties": {
+                          "options": {
+                            "type": "string"
+                          },
+                          "setCommunityMethod": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "setExtCommunity": {
+                        "properties": {
+                          "options": {
+                            "type": "string"
+                          },
+                          "setCommunityMethod": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "setLargeCommunity": {
+                        "properties": {
+                          "options": {
+                            "type": "string"
+                          },
+                          "setCommunityMethod": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "setLocalPref": {
+                        "type": "integer"
+                      },
+                      "setMed": {
+                        "type": "string"
+                      },
+                      "setNextHop": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "routeDisposition": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "conditions": {
+                "properties": {
+                  "bgpConditions": {
+                    "properties": {
+                      "afiSafiIn": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "asPathLength": {
+                        "properties": {
+                          "operator": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "integer"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "matchAsPathSet": {
+                        "properties": {
+                          "asPathSet": {
+                            "type": "string"
+                          },
+                          "matchSetOptions": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "matchCommunitySet": {
+                        "properties": {
+                          "communitySet": {
+                            "type": "string"
+                          },
+                          "matchSetOptions": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "matchExtCommunitySet": {
+                        "properties": {
+                          "communitySet": {
+                            "type": "string"
+                          },
+                          "matchSetOptions": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "matchLargeCommunitySet": {
+                        "properties": {
+                          "communitySet": {
+                            "type": "string"
+                          },
+                          "matchSetOptions": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "nextHopInList": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "routeType": {
+                        "type": "string"
+                      },
+                      "rpki": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "matchNeighborSet": {
+                    "properties": {
+                      "matchSetOption": {
+                        "type": "string"
+                      },
+                      "neighborSet": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "matchPrefixSet": {
+                    "properties": {
+                      "matchSetOption": {
+                        "type": "string"
+                      },
+                      "prefixSet": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "type": "object",
+      "x-kubernetes-preserve-unknown-fields": true
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "bgppolicydefinition.loxilb.io",
+      "kind": "BGPPolicyDefinitionService",
+      "version": "v1"
+    }
+  ]
+}

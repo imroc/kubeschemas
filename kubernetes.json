@@ -1312,6 +1312,30 @@
       "$ref": "batch.volcano.sh/joblist_v1alpha1.json"
     },
     {
+      "$ref": "bgppeer.loxilb.io/bgppeerservice_v1.json"
+    },
+    {
+      "$ref": "bgppeer.loxilb.io/bgppeerservicelist_v1.json"
+    },
+    {
+      "$ref": "bgppolicyapply.loxilb.io/bgppolicyapplyservice_v1.json"
+    },
+    {
+      "$ref": "bgppolicyapply.loxilb.io/bgppolicyapplyservicelist_v1.json"
+    },
+    {
+      "$ref": "bgppolicydefinedsets.loxilb.io/bgppolicydefinedsetsservice_v1.json"
+    },
+    {
+      "$ref": "bgppolicydefinedsets.loxilb.io/bgppolicydefinedsetsservicelist_v1.json"
+    },
+    {
+      "$ref": "bgppolicydefinition.loxilb.io/bgppolicydefinitionservice_v1.json"
+    },
+    {
+      "$ref": "bgppolicydefinition.loxilb.io/bgppolicydefinitionservicelist_v1.json"
+    },
+    {
       "$ref": "bitnami.com/sealedsecret_v1alpha1.json"
     },
     {
@@ -2213,6 +2237,30 @@
     },
     {
       "$ref": "configuration.konghq.com/udpingresslist_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/blockcrddeletion_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/blockcrddeletion_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/blockcrddeletionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/blockcrddeletionlist_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/blocknamespacedeletion_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/blocknamespacedeletion_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/blocknamespacedeletionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/blocknamespacedeletionlist_v1beta1.json"
     },
     {
       "$ref": "constraints.gatekeeper.sh/k8saffinity_v1alpha1.json"
@@ -3323,6 +3371,12 @@
     },
     {
       "$ref": "dragonflydb.io/dragonflylist_v1alpha1.json"
+    },
+    {
+      "$ref": "egress.loxilb.io/egress_v1.json"
+    },
+    {
+      "$ref": "egress.loxilb.io/egresslist_v1.json"
     },
     {
       "$ref": "eks.amazonaws.com/cninode_v1alpha1.json"
@@ -6092,6 +6146,12 @@
     },
     {
       "$ref": "longhorn.io/volumelist_v1beta2.json"
+    },
+    {
+      "$ref": "loxiurl.loxilb.io/loxiurl_v1.json"
+    },
+    {
+      "$ref": "loxiurl.loxilb.io/loxiurllist_v1.json"
     },
     {
       "$ref": "lvm.topolvm.io/lvmcluster_v1alpha1.json"
