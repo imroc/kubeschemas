@@ -190,6 +190,24 @@
       "$ref": "agones.dev/gameserversetlist_v1.json"
     },
     {
+      "$ref": "aigateway.envoyproxy.io/aigatewayroute_v1alpha1.json"
+    },
+    {
+      "$ref": "aigateway.envoyproxy.io/aigatewayroutelist_v1alpha1.json"
+    },
+    {
+      "$ref": "aigateway.envoyproxy.io/aiservicebackend_v1alpha1.json"
+    },
+    {
+      "$ref": "aigateway.envoyproxy.io/aiservicebackendlist_v1alpha1.json"
+    },
+    {
+      "$ref": "aigateway.envoyproxy.io/backendsecuritypolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "aigateway.envoyproxy.io/backendsecuritypolicylist_v1alpha1.json"
+    },
+    {
       "$ref": "aks.cattle.io/aksclusterconfig_v1.json"
     },
     {
