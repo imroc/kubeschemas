@@ -1,0 +1,186 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "autoscaling.aibrix.ai/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "PodAutoscaler"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "maxReplicas": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "metricsSources": {
+          "items": {
+            "properties": {
+              "endpoint": {
+                "type": "string"
+              },
+              "metricSourceType": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "port": {
+                "type": "string"
+              },
+              "protocolType": {
+                "type": "string"
+              },
+              "targetMetric": {
+                "type": "string"
+              },
+              "targetValue": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "metricSourceType",
+              "path",
+              "protocolType",
+              "targetMetric",
+              "targetValue"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "minReplicas": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "scaleTargetRef": {
+          "properties": {
+            "apiVersion": {
+              "type": "string"
+            },
+            "fieldPath": {
+              "type": "string"
+            },
+            "kind": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "namespace": {
+              "type": "string"
+            },
+            "resourceVersion": {
+              "type": "string"
+            },
+            "uid": {
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "x-kubernetes-map-type": "atomic"
+        },
+        "scalingStrategy": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "maxReplicas",
+        "scaleTargetRef",
+        "scalingStrategy"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "properties": {
+        "actualScale": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "conditions": {
+          "items": {
+            "properties": {
+              "lastTransitionTime": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "maxLength": 32768,
+                "type": "string"
+              },
+              "observedGeneration": {
+                "format": "int64",
+                "minimum": 0,
+                "type": "integer"
+              },
+              "reason": {
+                "maxLength": 1024,
+                "minLength": 1,
+                "pattern": "^[A-Za-z]([A-Za-z0-9_,:]*[A-Za-z0-9_])?$",
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "True",
+                  "False",
+                  "Unknown"
+                ],
+                "type": "string"
+              },
+              "type": {
+                "maxLength": 316,
+                "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "lastTransitionTime",
+              "message",
+              "reason",
+              "status",
+              "type"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "desiredScale": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "lastScaleTime": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "autoscaling.aibrix.ai",
+      "kind": "PodAutoscaler",
+      "version": "v1alpha1"
+    }
+  ]
+}

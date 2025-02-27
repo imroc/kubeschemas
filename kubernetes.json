@@ -1129,6 +1129,12 @@
       "$ref": "autoscaling.agones.dev/fleetautoscalerlist_v1.json"
     },
     {
+      "$ref": "autoscaling.aibrix.ai/podautoscaler_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.aibrix.ai/podautoscalerlist_v1alpha1.json"
+    },
+    {
       "$ref": "autoscaling.alibabacloud.com/advancedhorizontalpodautoscaler_v1beta1.json"
     },
     {
@@ -6400,6 +6406,12 @@
       "$ref": "migrations.kubevirt.io/migrationpolicylist_v1alpha1.json"
     },
     {
+      "$ref": "model.aibrix.ai/modeladapter_v1alpha1.json"
+    },
+    {
+      "$ref": "model.aibrix.ai/modeladapterlist_v1alpha1.json"
+    },
+    {
       "$ref": "mongodb.com/mongodb_v1.json"
     },
     {
@@ -7682,6 +7694,24 @@
     },
     {
       "$ref": "operators.coreos.com/subscriptionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "orchestration.aibrix.ai/kvcache_v1alpha1.json"
+    },
+    {
+      "$ref": "orchestration.aibrix.ai/kvcachelist_v1alpha1.json"
+    },
+    {
+      "$ref": "orchestration.aibrix.ai/rayclusterfleet_v1alpha1.json"
+    },
+    {
+      "$ref": "orchestration.aibrix.ai/rayclusterfleetlist_v1alpha1.json"
+    },
+    {
+      "$ref": "orchestration.aibrix.ai/rayclusterreplicaset_v1alpha1.json"
+    },
+    {
+      "$ref": "orchestration.aibrix.ai/rayclusterreplicasetlist_v1alpha1.json"
     },
     {
       "$ref": "packaging.carvel.dev/packageinstall_v1alpha1.json"
