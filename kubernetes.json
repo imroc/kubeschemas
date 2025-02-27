@@ -5071,6 +5071,12 @@
       "$ref": "kubeadm.k8s.io/upgradeconfiguration_v1beta4.json"
     },
     {
+      "$ref": "kubeai.org/model_v1.json"
+    },
+    {
+      "$ref": "kubeai.org/modellist_v1.json"
+    },
+    {
       "$ref": "kubecontrollermanager.config.k8s.io/kubecontrollermanagerconfiguration_v1alpha1.json"
     },
     {
