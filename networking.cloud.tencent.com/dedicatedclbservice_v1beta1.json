@@ -45,7 +45,6 @@
                 }
               },
               "required": [
-                "alias",
                 "id"
               ],
               "type": "object"
