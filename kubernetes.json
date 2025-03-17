@@ -4870,6 +4870,24 @@
       "$ref": "k8s.keycloak.org/keycloakrealmimportlist_v2alpha1.json"
     },
     {
+      "$ref": "kagent.dev/agent_v1alpha1.json"
+    },
+    {
+      "$ref": "kagent.dev/agentlist_v1alpha1.json"
+    },
+    {
+      "$ref": "kagent.dev/modelconfig_v1alpha1.json"
+    },
+    {
+      "$ref": "kagent.dev/modelconfiglist_v1alpha1.json"
+    },
+    {
+      "$ref": "kagent.dev/team_v1alpha1.json"
+    },
+    {
+      "$ref": "kagent.dev/teamlist_v1alpha1.json"
+    },
+    {
       "$ref": "kai.alibabacloud.com/genericnode_v1alpha1.json"
     },
     {
@@ -6811,25 +6829,13 @@
       "$ref": "networking.cloud.tencent.com/dedicatedclblistener_v1alpha1.json"
     },
     {
-      "$ref": "networking.cloud.tencent.com/dedicatedclblistener_v1beta1.json"
-    },
-    {
       "$ref": "networking.cloud.tencent.com/dedicatedclblistenerlist_v1alpha1.json"
-    },
-    {
-      "$ref": "networking.cloud.tencent.com/dedicatedclblistenerlist_v1beta1.json"
     },
     {
       "$ref": "networking.cloud.tencent.com/dedicatedclbservice_v1alpha1.json"
     },
     {
-      "$ref": "networking.cloud.tencent.com/dedicatedclbservice_v1beta1.json"
-    },
-    {
       "$ref": "networking.cloud.tencent.com/dedicatedclbservicelist_v1alpha1.json"
-    },
-    {
-      "$ref": "networking.cloud.tencent.com/dedicatedclbservicelist_v1beta1.json"
     },
     {
       "$ref": "networking.gke.io/frontendconfig_v1beta1.json"
