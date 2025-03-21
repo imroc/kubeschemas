@@ -4570,6 +4570,18 @@
       "$ref": "infrastructure.cluster.x-k8s.io/ibmvpcmachinetemplatelist_v1beta2.json"
     },
     {
+      "$ref": "infrastructure.cluster.x-k8s.io/kairoscluster_v1alpha3.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/kairosclusterlist_v1alpha3.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/kairosmachine_v1alpha3.json"
+    },
+    {
+      "$ref": "infrastructure.cluster.x-k8s.io/kairosmachinelist_v1alpha3.json"
+    },
+    {
       "$ref": "infrastructure.cluster.x-k8s.io/kkcluster_v1beta1.json"
     },
     {
@@ -6826,16 +6838,46 @@
       "$ref": "networking.api.k8s.io/networkpolicylist_v1.json"
     },
     {
+      "$ref": "networking.cloud.tencent.com/clbnodebinding_v1alpha1.json"
+    },
+    {
+      "$ref": "networking.cloud.tencent.com/clbnodebindinglist_v1alpha1.json"
+    },
+    {
+      "$ref": "networking.cloud.tencent.com/clbpodbinding_v1alpha1.json"
+    },
+    {
+      "$ref": "networking.cloud.tencent.com/clbpodbindinglist_v1alpha1.json"
+    },
+    {
+      "$ref": "networking.cloud.tencent.com/clbportpool_v1alpha1.json"
+    },
+    {
+      "$ref": "networking.cloud.tencent.com/clbportpoollist_v1alpha1.json"
+    },
+    {
       "$ref": "networking.cloud.tencent.com/dedicatedclblistener_v1alpha1.json"
+    },
+    {
+      "$ref": "networking.cloud.tencent.com/dedicatedclblistener_v1beta1.json"
     },
     {
       "$ref": "networking.cloud.tencent.com/dedicatedclblistenerlist_v1alpha1.json"
     },
     {
+      "$ref": "networking.cloud.tencent.com/dedicatedclblistenerlist_v1beta1.json"
+    },
+    {
       "$ref": "networking.cloud.tencent.com/dedicatedclbservice_v1alpha1.json"
     },
     {
+      "$ref": "networking.cloud.tencent.com/dedicatedclbservice_v1beta1.json"
+    },
+    {
       "$ref": "networking.cloud.tencent.com/dedicatedclbservicelist_v1alpha1.json"
+    },
+    {
+      "$ref": "networking.cloud.tencent.com/dedicatedclbservicelist_v1beta1.json"
     },
     {
       "$ref": "networking.gke.io/frontendconfig_v1beta1.json"
