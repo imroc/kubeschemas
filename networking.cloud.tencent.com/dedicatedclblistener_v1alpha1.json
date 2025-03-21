@@ -26,25 +26,6 @@
     "spec": {
       "description": "DedicatedCLBListenerSpec defines the desired state of DedicatedCLBListener",
       "properties": {
-        "clbs": {
-          "items": {
-            "properties": {
-              "id": {
-                "description": "CLB 实例的 ID。",
-                "type": "string"
-              },
-              "region": {
-                "description": "region of the CLB instance.",
-                "type": "string"
-              }
-            },
-            "required": [
-              "id"
-            ],
-            "type": "object"
-          },
-          "type": "array"
-        },
         "extensiveParameters": {
           "description": "创建监听器的参数，JSON 格式，详细参数请参考 CreateListener 接口：https://cloud.tencent.com/document/api/214/30693",
           "type": "string"
@@ -105,25 +86,6 @@
             }
           ]
         },
-        "targetNode": {
-          "description": "Target node of the CLB listener.",
-          "properties": {
-            "nodeName": {
-              "description": "Node 的名称。",
-              "type": "string"
-            },
-            "targetPort": {
-              "description": "Node 监听的端口。",
-              "format": "int64",
-              "type": "integer"
-            }
-          },
-          "required": [
-            "nodeName",
-            "targetPort"
-          ],
-          "type": "object"
-        },
         "targetPod": {
           "description": "CLB 监听器绑定的目标 Pod。",
           "properties": {
@@ -145,7 +107,7 @@
         }
       },
       "required": [
-        "clbs",
+        "lbId",
         "lbPort",
         "protocol"
       ],
@@ -161,46 +123,6 @@
         "listenerId": {
           "description": "CLB 监听器的 ID。",
           "type": "string"
-        },
-        "listenerStatuses": {
-          "items": {
-            "properties": {
-              "address": {
-                "description": "CLB 监听器的外部地址。",
-                "type": "string"
-              },
-              "clb": {
-                "properties": {
-                  "id": {
-                    "description": "CLB 实例的 ID。",
-                    "type": "string"
-                  },
-                  "region": {
-                    "description": "region of the CLB instance.",
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "id"
-                ],
-                "type": "object"
-              },
-              "listenerId": {
-                "description": "CLB 监听器的 ID。",
-                "type": "string"
-              },
-              "message": {
-                "description": "记录 CLB 监听器的失败信息。",
-                "type": "string"
-              },
-              "state": {
-                "description": "CLB 监听器的状态。",
-                "type": "string"
-              }
-            },
-            "type": "object"
-          },
-          "type": "array"
         },
         "message": {
           "description": "记录 CLB 监听器的失败信息。",

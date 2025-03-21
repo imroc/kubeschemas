@@ -189,7 +189,13 @@
         },
         "region": {
           "description": "地域代码，如ap-chengdu",
-          "type": "string"
+          "type": "string",
+          "x-kubernetes-validations": [
+            {
+              "message": "Value is immutable",
+              "rule": "self == oldSelf"
+            }
+          ]
         },
         "segmentLength": {
           "description": "端口段的长度",
@@ -213,7 +219,6 @@
         }
       },
       "required": [
-        "region",
         "startPort"
       ],
       "type": "object"
@@ -226,6 +231,9 @@
           "items": {
             "description": "LoadBalancerStatus 定义负载均衡器状态",
             "properties": {
+              "autoCreated": {
+                "type": "boolean"
+              },
               "hostname": {
                 "type": "string"
               },
