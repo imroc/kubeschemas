@@ -33,6 +33,10 @@
               "description": "是否启用自动创建",
               "type": "boolean"
             },
+            "maxLoadBalancers": {
+              "description": "自动创建的最大负载均衡器数量",
+              "type": "integer"
+            },
             "parameters": {
               "description": "自动创建参数",
               "properties": {
@@ -263,10 +267,13 @@
           "type": "string"
         },
         "state": {
-          "description": "状态: Active/Error",
+          "description": "状态: Pending/Active/Scaling",
           "type": "string"
         }
       },
+      "required": [
+        "state"
+      ],
       "type": "object"
     }
   },
