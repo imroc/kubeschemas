@@ -4039,6 +4039,42 @@
       "$ref": "gateway.envoyproxy.io/securitypolicylist_v1alpha1.json"
     },
     {
+      "$ref": "gateway.kgateway.dev/backend_v1alpha1.json"
+    },
+    {
+      "$ref": "gateway.kgateway.dev/backendlist_v1alpha1.json"
+    },
+    {
+      "$ref": "gateway.kgateway.dev/directresponse_v1alpha1.json"
+    },
+    {
+      "$ref": "gateway.kgateway.dev/directresponselist_v1alpha1.json"
+    },
+    {
+      "$ref": "gateway.kgateway.dev/gatewayextension_v1alpha1.json"
+    },
+    {
+      "$ref": "gateway.kgateway.dev/gatewayextensionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "gateway.kgateway.dev/gatewayparameters_v1alpha1.json"
+    },
+    {
+      "$ref": "gateway.kgateway.dev/gatewayparameterslist_v1alpha1.json"
+    },
+    {
+      "$ref": "gateway.kgateway.dev/httplistenerpolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "gateway.kgateway.dev/httplistenerpolicylist_v1alpha1.json"
+    },
+    {
+      "$ref": "gateway.kgateway.dev/routepolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "gateway.kgateway.dev/routepolicylist_v1alpha1.json"
+    },
+    {
       "$ref": "gateway.networking.k8s.io/backendlbpolicy_v1alpha2.json"
     },
     {
