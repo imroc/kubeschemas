@@ -1,0 +1,23 @@
+{
+  "properties": {
+    "cuda": {
+      "type": "string"
+    },
+    "cudnn": {
+      "type": "string"
+    },
+    "driver": {
+      "type": "string"
+    },
+    "fabric": {
+      "type": "boolean"
+    },
+    "instanceType": {
+      "type": "string"
+    },
+    "migEnable": {
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}

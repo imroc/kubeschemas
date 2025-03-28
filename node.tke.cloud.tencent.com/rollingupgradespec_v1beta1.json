@@ -1,0 +1,41 @@
+{
+  "description": "RollingUpgradeSpec defines the desired state of RollingUpgrade.",
+  "properties": {
+    "autoUpgrade": {
+      "description": "AutoUpgrade specifies whether node auto-upgrade is enabled for the node pool. If enabled, node auto-upgrade helps keep the nodes in your node pool up to date with the latest release version of Kubernetes.",
+      "type": "boolean"
+    },
+    "components": {
+      "description": "Components defines which component to upgrade when available",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array",
+      "x-kubernetes-patch-strategy": "merge"
+    },
+    "desiredKubeletVersion": {
+      "type": "string"
+    },
+    "desiredRuntimeVersion": {
+      "type": "string"
+    },
+    "ignoreUpgradeFailures": {
+      "type": "boolean"
+    },
+    "machineSetName": {
+      "description": "MachineSetName specify the name of the machineset for this rollingupgrade.",
+      "type": "string"
+    },
+    "strategy": {
+      "$ref": "../node.tke.cloud.tencent.com/updatestrategy_v1beta1.json",
+      "default": {}
+    },
+    "upgradeOptions": {
+      "$ref": "../node.tke.cloud.tencent.com/autoupgradeoptions_v1beta1.json",
+      "default": {},
+      "description": "UpgradeOptions Specifies the Auto Upgrade knobs for the node pool."
+    }
+  },
+  "type": "object"
+}

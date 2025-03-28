@@ -1,0 +1,54 @@
+{
+  "description": "MachineStatus defines the observed state of Machine",
+  "properties": {
+    "addresses": {
+      "description": "Addresses is a list of addresses assigned to the machine. Queried from cloud provider, if available.",
+      "items": {
+        "$ref": "../core.api.k8s.io/nodeaddress_v1.json",
+        "default": {}
+      },
+      "type": "array",
+      "x-kubernetes-patch-merge-key": "type",
+      "x-kubernetes-patch-strategy": "merge"
+    },
+    "conditions": {
+      "description": "Conditions defines the current state of the Machine",
+      "items": {
+        "$ref": "../node.tke.cloud.tencent.com/condition_v1beta1.json",
+        "default": {}
+      },
+      "type": "array",
+      "x-kubernetes-patch-merge-key": "type",
+      "x-kubernetes-patch-strategy": "merge"
+    },
+    "failureMessage": {
+      "description": "FailureMessage will be set in the event that there is a terminal problem reconciling the Machine and will contain a more verbose string suitable for logging and human consumption.\n\nThis field should not be set for transitive errors that a controller faces that are expected to be fixed automatically over time (like service outages), but instead indicate that something is fundamentally wrong with the Machine's spec or the configuration of the controller, and that manual intervention is required. Examples of terminal errors would be invalid combinations of settings in the spec, values that are unsupported by the controller, or the responsible controller itself being critically misconfigured.\n\nAny transient errors that occur during the reconciliation of Machines can be added as events to the Machine object and/or logged in the controller's output.",
+      "type": "string"
+    },
+    "failureReason": {
+      "description": "FailureReason will be set in the event that there is a terminal problem reconciling the Machine and will contain a succinct value suitable for machine interpretation.\n\nThis field should not be set for transitive errors that a controller faces that are expected to be fixed automatically over time (like service outages), but instead indicate that something is fundamentally wrong with the Machine's spec or the configuration of the controller, and that manual intervention is required. Examples of terminal errors would be invalid combinations of settings in the spec, values that are unsupported by the controller, or the responsible controller itself being critically misconfigured.\n\nAny transient errors that occur during the reconciliation of Machines can be added as events to the Machine object and/or logged in the controller's output.",
+      "type": "string"
+    },
+    "lastOperation": {
+      "$ref": "../node.tke.cloud.tencent.com/lastoperation_v1beta1.json",
+      "description": "LastOperation describes the last-operation performed by the machine-controller. This API should be useful as a history in terms of the latest operation performed on the specific machine. It should also convey the state of the latest-operation for example if it is still on-going, failed or completed successfully."
+    },
+    "lastUpdated": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/time_v1.json",
+      "description": "LastUpdated identifies when this status was last observed."
+    },
+    "nodeRef": {
+      "$ref": "../node.tke.cloud.tencent.com/nodereference_v1beta1.json",
+      "description": "NodeRef will point to the corresponding Node if it exists."
+    },
+    "phase": {
+      "description": "Phase represents the current phase of machine actuation. One of: Failed, Provisioning, Provisioned, Running, Deleting This field is maintained by machine controller.",
+      "type": "string"
+    },
+    "providerStatus": {
+      "$ref": "../pkg.apimachinery.k8s.io/rawextension_runtime.json",
+      "description": "ProviderStatus details a Provider-specific status. It is recommended that providers maintain their own versioned API types that should be serialized/deserialized from this field."
+    }
+  },
+  "type": "object"
+}

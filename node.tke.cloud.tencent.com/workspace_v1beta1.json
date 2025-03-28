@@ -1,0 +1,26 @@
+{
+  "description": "WorkspaceConfig defines a workspace configuration for the fakevm cloud provider.",
+  "properties": {
+    "datacenter": {
+      "description": "Datacenter is the datacenter in which VMs are created/located.",
+      "type": "string"
+    },
+    "datastore": {
+      "description": "Datastore is the datastore in which VMs are created/located.",
+      "type": "string"
+    },
+    "folder": {
+      "description": "Folder is the folder in which VMs are created/located.",
+      "type": "string"
+    },
+    "resourcePool": {
+      "description": "ResourcePool is the resource pool in which VMs are created/located.",
+      "type": "string"
+    },
+    "server": {
+      "description": "Server is the IP address or FQDN of the fakevm endpoint.",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,24 @@
+{
+  "description": "MachinSetScaling  specifies scaling options.",
+  "properties": {
+    "createPolicy": {
+      "description": "CreatePolicy defines the machine create policy when create machine, default ZoneEquality\n\nPossible enum values:\n - `\"ZoneEquality\"` means choose zone equality when create machine.\n - `\"ZonePriority\"` means choose zone priority when create machine.",
+      "enum": [
+        "ZoneEquality",
+        "ZonePriority"
+      ],
+      "type": "string"
+    },
+    "maxReplicas": {
+      "description": "MaxReplicas constrains the maximal number of replicas of a scalable resource",
+      "format": "int32",
+      "type": "integer"
+    },
+    "minReplicas": {
+      "description": "MinReplicas constrains the minimal number of replicas of a scalable resource",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,36 @@
+{
+  "description": "FakeVMMachineProviderCondition is a condition in a FakeVMMachineProviderStatus.",
+  "properties": {
+    "lastProbeTime": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/time_v1.json",
+      "description": "LastProbeTime is the last time we probed the condition."
+    },
+    "lastTransitionTime": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/time_v1.json",
+      "description": "LastTransitionTime is the last time the condition transitioned from one status to another."
+    },
+    "message": {
+      "description": "Message is a human-readable message indicating details about last transition.",
+      "type": "string"
+    },
+    "reason": {
+      "description": "Reason is a unique, one-word, CamelCase reason for the condition's last transition.",
+      "type": "string"
+    },
+    "status": {
+      "default": "",
+      "description": "Status is the status of the condition.",
+      "type": "string"
+    },
+    "type": {
+      "default": "",
+      "description": "Type is the type of the condition.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "type",
+    "status"
+  ],
+  "type": "object"
+}

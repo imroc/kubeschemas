@@ -1,0 +1,14 @@
+{
+  "description": "NetworkDeviceSpec defines the network configuration for a virtual machine's network device.",
+  "properties": {
+    "networkName": {
+      "default": "",
+      "description": "NetworkName is the name of the fakevm network to which the device will be connected.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "networkName"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,16 @@
+{
+  "description": "UpdateStrategy holds the information needed to perform update based on different update strategies",
+  "properties": {
+    "maxUnavailable": {
+      "$ref": "../util.pkg.apimachinery.k8s.io/intorstring_intstr.json",
+      "description": "The maximum number of machines that can be unavailable during the update. Value can be an absolute number (ex: 5) or a percentage of desired machines (ex: 10%). Absolute number is calculated from percentage by rounding down. This can not be 0 if MaxSurge is 0. Defaults to 25%."
+    },
+    "type": {
+      "type": "string"
+    },
+    "upgradeTimeout": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,14 @@
+{
+  "description": "MachineUpdateStrategy defines rolling update machine params strategy",
+  "properties": {
+    "maxConfigUnavailable": {
+      "$ref": "../util.pkg.apimachinery.k8s.io/intorstring_intstr.json",
+      "description": "MaxConfigUnavailable indicates the maximum config unavailable number of updated nodes in the node pool, including update failed or updating"
+    },
+    "maxSteps": {
+      "$ref": "../util.pkg.apimachinery.k8s.io/intorstring_intstr.json",
+      "description": "MaxSteps indicates the maximum number of nodes that can be updated simultaneously in a single update round"
+    }
+  },
+  "type": "object"
+}

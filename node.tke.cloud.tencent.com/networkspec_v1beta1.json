@@ -1,0 +1,17 @@
+{
+  "description": "NetworkSpec defines the virtual machine's network configuration.",
+  "properties": {
+    "devices": {
+      "description": "Devices defines the virtual machine's network interfaces.",
+      "items": {
+        "$ref": "../node.tke.cloud.tencent.com/networkdevicespec_v1beta1.json",
+        "default": {}
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "devices"
+  ],
+  "type": "object"
+}

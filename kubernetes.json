@@ -7282,6 +7282,30 @@
       "$ref": "node.gke.io/gcpresourceallowlistlist_v1.json"
     },
     {
+      "$ref": "node.tke.cloud.tencent.com/fakevmmachineproviderspec_v1beta1.json"
+    },
+    {
+      "$ref": "node.tke.cloud.tencent.com/fakevmmachineproviderstatus_v1beta1.json"
+    },
+    {
+      "$ref": "node.tke.cloud.tencent.com/machine_v1beta1.json"
+    },
+    {
+      "$ref": "node.tke.cloud.tencent.com/machinelist_v1beta1.json"
+    },
+    {
+      "$ref": "node.tke.cloud.tencent.com/machineset_v1beta1.json"
+    },
+    {
+      "$ref": "node.tke.cloud.tencent.com/machinesetlist_v1beta1.json"
+    },
+    {
+      "$ref": "node.tke.cloud.tencent.com/rollingupgrade_v1beta1.json"
+    },
+    {
+      "$ref": "node.tke.cloud.tencent.com/rollingupgradelist_v1beta1.json"
+    },
+    {
       "$ref": "nodeinfo.volcano.sh/numatopology_v1alpha1.json"
     },
     {

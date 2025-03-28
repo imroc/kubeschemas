@@ -1,0 +1,38 @@
+{
+  "description": "RollingUpgradeStatus defines the observed state of RollingUpgrade.",
+  "properties": {
+    "completePercentage": {
+      "type": "string"
+    },
+    "conditions": {
+      "items": {
+        "$ref": "../node.tke.cloud.tencent.com/rollingupgradecondition_v1beta1.json",
+        "default": {}
+      },
+      "type": "array",
+      "x-kubernetes-patch-merge-key": "type",
+      "x-kubernetes-patch-strategy": "merge"
+    },
+    "endTime": {
+      "type": "string"
+    },
+    "machinesProcessed": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "startTime": {
+      "type": "string"
+    },
+    "totalMachines": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "totalProcessingTime": {
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

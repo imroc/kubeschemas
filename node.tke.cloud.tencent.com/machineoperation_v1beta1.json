@@ -1,0 +1,11 @@
+{
+  "properties": {
+    "action": {
+      "type": "string"
+    },
+    "stopType": {
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

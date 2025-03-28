@@ -1,0 +1,14 @@
+{
+  "description": "ProviderSpec defines the configuration to use during node creation.",
+  "properties": {
+    "type": {
+      "description": "MachineType defines the type of the Machine. Different MachineSet use the different MachineType.",
+      "type": "string"
+    },
+    "value": {
+      "$ref": "../pkg.apimachinery.k8s.io/rawextension_runtime.json",
+      "description": "Value is an inlined, serialized representation of the resource configuration. It is recommended that providers maintain their own versioned API types that should be serialized/deserialized from this field, akin to component config."
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,85 @@
+{
+  "description": "MachineSetSpec defines the desired state of MachineSet",
+  "properties": {
+    "autoRepair": {
+      "description": "AutoRepair specifies whether the node auto-repair is enabled for the node pool. If enabled, the nodes in this node pool will be monitored and, if they fail health checks too many times, an automatic repair action will be triggered.",
+      "type": "boolean"
+    },
+    "deletePolicy": {
+      "description": "DeletePolicy defines the policy used to identify nodes to delete when downscaling. Defaults to \"Random\".  Valid values are \"Random, \"Newest\", \"Oldest\"",
+      "type": "string"
+    },
+    "displayName": {
+      "description": "The display name of the machineset.",
+      "type": "string"
+    },
+    "gpuConfigs": {
+      "description": "GPUConfigs stores message of Gpu driver version installed in machine",
+      "items": {
+        "$ref": "../node.tke.cloud.tencent.com/gpuconfig_v1beta1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "healthCheckPolicyName": {
+      "description": "HealthCheckPolicyName is the healthcheckpolicy name used by this machineset. When created, the latest healthcheckpolicy resource version will be recorded in `healthCheckPolicyResourceVersion` in the status field.",
+      "type": "string"
+    },
+    "instanceTypes": {
+      "description": "InstanceTypes specifies the tke instance types.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array",
+      "x-kubernetes-patch-strategy": "merge"
+    },
+    "keyID": {
+      "description": "KeyID stores machine set ssh public key id",
+      "type": "string"
+    },
+    "machineUpdateStrategy": {
+      "$ref": "../node.tke.cloud.tencent.com/machineupdatestrategy_v1beta1.json",
+      "default": {},
+      "description": "MachineUpdateStrategy store update specified machine params strategy"
+    },
+    "minReadySeconds": {
+      "description": "MinReadySeconds is the minimum number of seconds for which a newly created machine should be ready. Defaults to 0 (machine will be considered available as soon as it is ready)",
+      "format": "int32",
+      "type": "integer"
+    },
+    "replicas": {
+      "description": "Replicas is the number of desired replicas. This is a pointer to distinguish between explicit zero and unspecified. Defaults to 1.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "scaling": {
+      "$ref": "../node.tke.cloud.tencent.com/machinsetscaling_v1beta1.json",
+      "default": {},
+      "description": "Scaling is the machine autoscaler configuration for this machineset."
+    },
+    "selector": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/labelselector_v1.json",
+      "description": "Selector is a label query over machines that should match the replica count. Label keys and values that must match in order to be controlled by this MachineSet. It must match the machine template's labels. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors"
+    },
+    "subnetIDs": {
+      "description": "SubnetIDs is an array of subnets used by the specified instances.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array",
+      "x-kubernetes-patch-strategy": "merge"
+    },
+    "template": {
+      "$ref": "../node.tke.cloud.tencent.com/machinetemplatespec_v1beta1.json",
+      "default": {},
+      "description": "Template is the object that describes the machine that will be created if insufficient replicas are detected."
+    },
+    "type": {
+      "description": "MachineSetType is the type of this MachineSet. Different types have different operation and maintenance policy.",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

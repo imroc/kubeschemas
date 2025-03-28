@@ -1,0 +1,20 @@
+{
+  "description": "TagSpecification is the name/value pair for a tag.",
+  "properties": {
+    "name": {
+      "default": "",
+      "description": "Name of the tag",
+      "type": "string"
+    },
+    "value": {
+      "default": "",
+      "description": "Value of the tag",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "value"
+  ],
+  "type": "object"
+}

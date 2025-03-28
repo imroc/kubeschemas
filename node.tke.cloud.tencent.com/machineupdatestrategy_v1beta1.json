@@ -1,0 +1,14 @@
+{
+  "description": "MachineUpdateStrategy defines update machine params strategy",
+  "properties": {
+    "rollingUpdate": {
+      "$ref": "../node.tke.cloud.tencent.com/machinerollingupdatestrategy_v1beta1.json",
+      "description": "When the type is RollingUpdate, the RollingUpdate field works"
+    },
+    "type": {
+      "description": "currently only one type: RollingUpdate",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,57 @@
+{
+  "description": "MachineSetStatus defines the observed state of MachineSet.",
+  "properties": {
+    "availableReplicas": {
+      "description": "The number of available replicas (ready for at least minReadySeconds) for this MachineSet.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "conditions": {
+      "description": "Represents the latest available observations of a machine set's current state.",
+      "items": {
+        "$ref": "../node.tke.cloud.tencent.com/machinesetcondition_v1beta1.json",
+        "default": {}
+      },
+      "type": "array",
+      "x-kubernetes-patch-merge-key": "type",
+      "x-kubernetes-patch-strategy": "merge"
+    },
+    "fullyLabeledReplicas": {
+      "description": "The number of replicas that have labels matching the labels of the machine template of the MachineSet.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "healthCheckPolicyRevision": {
+      "description": "HealthCheckPolicyResourceVersion record the healthcheckpolicy resource version used by this machineset. This value is set automatically at runtime and should not be set or modified by users.",
+      "type": "string"
+    },
+    "kubeletVersion": {
+      "description": "Kubelet version is the kubelet version of the machineset This value is set automatically at runtime and should not be set or modified by users.",
+      "type": "string"
+    },
+    "observedGeneration": {
+      "description": "ObservedGeneration reflects the generation of the most recently observed MachineSet.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "readyReplicas": {
+      "description": "The number of ready replicas for this MachineSet. A machine is considered ready when the node has been created and is \"Ready\".",
+      "format": "int32",
+      "type": "integer"
+    },
+    "replicas": {
+      "default": 0,
+      "description": "Replicas is the most recently observed number of replicas.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "runtimeVersion": {
+      "description": "Runtime version is the runtime version of the machineset This value is set automatically at runtime and should not be set or modified by users.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "replicas"
+  ],
+  "type": "object"
+}

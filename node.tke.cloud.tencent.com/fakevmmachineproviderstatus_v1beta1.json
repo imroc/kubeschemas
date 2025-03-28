@@ -1,0 +1,44 @@
+{
+  "description": "FakeVMMachineProviderStatus is the type that will be embedded in a Machine.Status.ProviderStatus field. It contains FakeVM-specific status information. Compatibility level 2: Stable within a major release for a minimum of 9 months or 3 minor releases (whichever is longer).",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "node.tke.cloud.tencent.com/v1beta1"
+      ],
+      "type": "string"
+    },
+    "conditions": {
+      "description": "Conditions is a set of conditions associated with the Machine to indicate errors or other status",
+      "items": {
+        "$ref": "../node.tke.cloud.tencent.com/fakevmmachineprovidercondition_v1beta1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "instanceId": {
+      "description": "InstanceID is the ID of the instance in FakeVM",
+      "type": "string"
+    },
+    "instanceState": {
+      "description": "InstanceState is the provisioning state of the FakeVM Instance.",
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "FakeVMMachineProviderStatus"
+      ],
+      "type": "string"
+    },
+    "taskRef": {
+      "description": "TaskRef is a managed object reference to a Task related to the machine. This value is set automatically at runtime and should not be set or modified by users.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object"
+}

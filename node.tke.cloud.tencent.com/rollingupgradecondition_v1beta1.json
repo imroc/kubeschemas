@@ -1,0 +1,12 @@
+{
+  "description": "RollingUpgradeCondition describes the state of the RollingUpgrade",
+  "properties": {
+    "status": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    }
+  },
+  "type": "object"
+}
