@@ -9,6 +9,10 @@
       "$ref": "../gateway.envoyproxy.io/extensionhooks_v1alpha1.json",
       "description": "Hooks defines the set of hooks the extension supports"
     },
+    "maxMessageSize": {
+      "$ref": "../api.pkg.apimachinery.k8s.io/quantity_resource.json",
+      "description": "MaxMessageSize defines the maximum message size in bytes that can be sent to or received from the Extension Service. Default: 4M"
+    },
     "policyResources": {
       "description": "PolicyResources defines the set of K8S resources the extension server will handle as directly attached GatewayAPI policies",
       "items": {

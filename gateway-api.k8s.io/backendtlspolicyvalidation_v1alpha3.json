@@ -1,0 +1,34 @@
+{
+  "description": "BackendTLSPolicyValidation contains backend TLS validation configuration.",
+  "properties": {
+    "caCertificateRefs": {
+      "description": "CACertificateRefs contains one or more references to Kubernetes objects that contain a PEM-encoded TLS CA certificate bundle, which is used to validate a TLS handshake between the Gateway and backend Pod.\n\nIf CACertificateRefs is empty or unspecified, then WellKnownCACertificates must be specified. Only one of CACertificateRefs or WellKnownCACertificates may be specified, not both. If CACertificateRefs is empty or unspecified, the configuration for WellKnownCACertificates MUST be honored instead if supported by the implementation.\n\nReferences to a resource in a different namespace are invalid for the moment, although we will revisit this in the future.\n\nA single CACertificateRef to a Kubernetes ConfigMap kind has \"Core\" support. Implementations MAY choose to support attaching multiple certificates to a backend, but this behavior is implementation-specific.\n\nSupport: Core - An optional single reference to a Kubernetes ConfigMap, with the CA certificate in a key named `ca.crt`.\n\nSupport: Implementation-specific (More than one reference, or other kinds of resources).",
+      "items": {
+        "$ref": "../gateway-api.k8s.io/localobjectreference_v1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "hostname": {
+      "default": "",
+      "description": "Hostname is used for two purposes in the connection between Gateways and backends:\n\n1. Hostname MUST be used as the SNI to connect to the backend (RFC 6066). 2. Hostname MUST be used for authentication and MUST match the certificate served by the matching backend, unless SubjectAltNames is specified.\n   authentication and MUST match the certificate served by the matching\n   backend.\n\nSupport: Core",
+      "type": "string"
+    },
+    "subjectAltNames": {
+      "description": "SubjectAltNames contains one or more Subject Alternative Names. When specified the certificate served from the backend MUST have at least one Subject Alternate Name matching one of the specified SubjectAltNames.\n\nSupport: Extended",
+      "items": {
+        "$ref": "../gateway-api.k8s.io/subjectaltname_v1alpha3.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "wellKnownCACertificates": {
+      "description": "WellKnownCACertificates specifies whether system CA certificates may be used in the TLS handshake between the gateway and backend pod.\n\nIf WellKnownCACertificates is unspecified or empty (\"\"), then CACertificateRefs must be specified with at least one entry for a valid configuration. Only one of CACertificateRefs or WellKnownCACertificates may be specified, not both. If an implementation does not support the WellKnownCACertificates field or the value supplied is not supported, the Status Conditions on the Policy MUST be updated to include an Accepted: False Condition with Reason: Invalid.\n\nSupport: Implementation-specific",
+      "type": "string"
+    }
+  },
+  "required": [
+    "hostname"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,22 @@
+{
+  "description": "ExtProcMetadata defines options related to the sending and receiving of dynamic metadata to and from the external processor service",
+  "properties": {
+    "accessibleNamespaces": {
+      "description": "AccessibleNamespaces are metadata namespaces that are sent to the external processor as context",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "writableNamespaces": {
+      "description": "WritableNamespaces are metadata namespaces that the external processor can write to",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

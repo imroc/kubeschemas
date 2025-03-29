@@ -1,6 +1,10 @@
 {
   "description": "ExtProcProcessingMode defines if and how headers and bodies are sent to the service. https://www.envoyproxy.io/docs/envoy/latest/api-v3/extensions/filters/http/ext_proc/v3/processing_mode.proto#envoy-v3-api-msg-extensions-filters-http-ext-proc-v3-processingmode",
   "properties": {
+    "allowModeOverride": {
+      "description": "AllowModeOverride allows the external processor to override the processing mode set via the `mode_override` field in the gRPC response message. This defaults to false.",
+      "type": "boolean"
+    },
     "request": {
       "$ref": "../gateway.envoyproxy.io/processingmodeoptions_v1alpha1.json",
       "description": "Defines processing mode for requests. If present, request headers are sent. Request body is processed according to the specified mode."

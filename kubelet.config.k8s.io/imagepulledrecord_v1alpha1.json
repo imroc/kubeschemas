@@ -1,0 +1,41 @@
+{
+  "description": "ImagePullRecord is a record of an image that was pulled by the kubelet.\n\nIf there are no records in the `kubernetesSecrets` field and both `nodeWideCredentials` and `anonymous` are `false`, credentials must be re-checked the next time an image represented by this record is being requested.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "kubelet.config.k8s.io/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "credentialMapping": {
+      "additionalProperties": {
+        "$ref": "../kubelet.config.k8s.io/imagepullcredentials_v1alpha1.json",
+        "default": {}
+      },
+      "description": "CredentialMapping maps `image` to the set of credentials that it was previously pulled with. `image` in this case is the content of a pod's container `image` field that's got its tag/digest removed.\n\nExample:\n  Container requests the `hello-world:latest@sha256:91fb4b041da273d5a3273b6d587d62d518300a6ad268b28628f74997b93171b2` image:\n    \"credentialMapping\": {\n      \"hello-world\": { \"nodePodsAccessible\": true }\n    }",
+      "type": "object"
+    },
+    "imageRef": {
+      "default": "",
+      "description": "ImageRef is a reference to the image represented by this file as received from the CRI. The filename is a SHA-256 hash of this value. This is to avoid filename-unsafe characters like ':' and '/'.",
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "ImagePulledRecord"
+      ],
+      "type": "string"
+    },
+    "lastUpdatedTime": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/time_v1.json",
+      "description": "LastUpdatedTime is the time of the last update to this record"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object"
+}

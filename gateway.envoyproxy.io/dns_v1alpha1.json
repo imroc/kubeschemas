@@ -4,6 +4,17 @@
       "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
       "description": "DNSRefreshRate specifies the rate at which DNS records should be refreshed. Defaults to 30 seconds."
     },
+    "lookupFamily": {
+      "description": "LookupFamily determines how Envoy would resolve DNS for Routes where the backend is specified as a fully qualified domain name (FQDN). If set, this configuration overrides other defaults.\n\nPossible enum values:\n - `\"IPv4\"` means the DNS resolver will first perform a lookup for addresses in the IPv4 family.\n - `\"IPv4AndIPv6\"` mean the DNS resolver will perform a lookup for both IPv4 and IPv6 families, and return all resolved addresses. When this is used, Happy Eyeballs will be enabled for upstream connections.\n - `\"IPv4Preferred\"` means the DNS resolver will first perform a lookup for addresses in the IPv4 family and fallback to a lookup for addresses in the IPv6 family.\n - `\"IPv6\"` means the DNS resolver will first perform a lookup for addresses in the IPv6 family.\n - `\"IPv6Preferred\"` means the DNS resolver will first perform a lookup for addresses in the IPv6 family and fallback to a lookup for addresses in the IPv4 family.",
+      "enum": [
+        "IPv4",
+        "IPv4AndIPv6",
+        "IPv4Preferred",
+        "IPv6",
+        "IPv6Preferred"
+      ],
+      "type": "string"
+    },
     "respectDnsTtl": {
       "description": "RespectDNSTTL indicates whether the DNS Time-To-Live (TTL) should be respected. If the value is set to true, the DNS refresh rate will be set to the resource record’s TTL. Defaults to true.",
       "type": "boolean"

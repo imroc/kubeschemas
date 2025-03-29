@@ -1,9 +1,25 @@
 {
   "description": "RemoteJWKS defines how to fetch and cache JSON Web Key Sets (JWKS) from a remote HTTP/HTTPS endpoint.",
   "properties": {
+    "backendRef": {
+      "$ref": "../gateway-api.k8s.io/backendobjectreference_v1.json",
+      "description": "BackendRef references a Kubernetes object that represents the backend server to which the authorization request will be sent.\n\nDeprecated: Use BackendRefs instead."
+    },
+    "backendRefs": {
+      "description": "BackendRefs references a Kubernetes object that represents the backend server to which the authorization request will be sent.",
+      "items": {
+        "$ref": "../gateway.envoyproxy.io/backendref_v1alpha1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "backendSettings": {
+      "$ref": "../gateway.envoyproxy.io/clustersettings_v1alpha1.json",
+      "description": "BackendSettings holds configuration for managing the connection to the backend."
+    },
     "uri": {
       "default": "",
-      "description": "URI is the HTTPS URI to fetch the JWKS. Envoy's system trust bundle is used to validate the server certificate.",
+      "description": "URI is the HTTPS URI to fetch the JWKS. Envoy's system trust bundle is used to validate the server certificate. If a custom trust bundle is needed, it can be specified in a BackendTLSConfig resource and target the BackendRefs.",
       "type": "string"
     }
   },

@@ -13,6 +13,10 @@
       "description": "DryRun tells if the dry run mode is enabled, don't apply any change if it is and just output what would be done.",
       "type": "boolean"
     },
+    "etcdUpgrade": {
+      "description": "EtcdUpgrade instructs kubeadm to execute etcd upgrade during upgrades. Defaults to true.",
+      "type": "boolean"
+    },
     "ignorePreflightErrors": {
       "description": "IgnorePreflightErrors provides a slice of pre-flight errors to be ignored during the upgrade process, e.g. 'IsPrivilegedUser,Swap'. Value 'all' ignores errors from all checks.",
       "items": {

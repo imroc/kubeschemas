@@ -1,0 +1,22 @@
+{
+  "description": "SubjectAltName represents Subject Alternative Name.",
+  "properties": {
+    "hostname": {
+      "description": "Hostname contains Subject Alternative Name specified in DNS name format. Required when Type is set to Hostname, ignored otherwise.\n\nSupport: Core",
+      "type": "string"
+    },
+    "type": {
+      "default": "",
+      "description": "Type determines the format of the Subject Alternative Name. Always required.\n\nSupport: Core",
+      "type": "string"
+    },
+    "uri": {
+      "description": "URI contains Subject Alternative Name specified in a full URI format. It MUST include both a scheme (e.g., \"http\" or \"ftp\") and a scheme-specific-part. Common values include SPIFFE IDs like \"spiffe://mycluster.example.com/ns/myns/sa/svc1sa\". Required when Type is set to URI, ignored otherwise.\n\nSupport: Core",
+      "type": "string"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object"
+}

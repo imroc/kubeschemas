@@ -1,10 +1,10 @@
 {
-  "description": "ExtensionTLS defines the TLS configuration when connecting to an extension service",
+  "description": "ExtensionTLS defines the TLS configuration when connecting to an extension service.",
   "properties": {
     "certificateRef": {
       "$ref": "../gateway-api.k8s.io/secretobjectreference_v1.json",
       "default": {},
-      "description": "CertificateRef contains a references to objects (Kubernetes objects or otherwise) that contains a TLS certificate and private keys. These certificates are used to establish a TLS handshake to the extension server.\n\nCertificateRef can only reference a Kubernetes Secret at this time."
+      "description": "CertificateRef is a reference to a Kubernetes Secret with a CA certificate in a key named \"tls.crt\".\n\nThe CA certificate is used by Envoy Gateway the verify the server certificate presented by the extension server. At this time, Envoy Gateway does not support Client Certificate authentication of Envoy Gateway towards the extension server (mTLS)."
     }
   },
   "required": [

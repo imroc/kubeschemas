@@ -1,6 +1,10 @@
 {
   "description": "SecurityPolicySpec defines the desired state of SecurityPolicy.",
   "properties": {
+    "apiKeyAuth": {
+      "$ref": "../gateway.envoyproxy.io/apikeyauth_v1alpha1.json",
+      "description": "APIKeyAuth defines the configuration for the API Key Authentication."
+    },
     "authorization": {
       "$ref": "../gateway.envoyproxy.io/authorization_v1alpha1.json",
       "description": "Authorization defines the authorization configuration."
@@ -24,26 +28,6 @@
     "oidc": {
       "$ref": "../gateway.envoyproxy.io/oidc_v1alpha1.json",
       "description": "OIDC defines the configuration for the OpenID Connect (OIDC) authentication."
-    },
-    "targetRef": {
-      "$ref": "../gateway-api.k8s.io/localpolicytargetreferencewithsectionname_v1alpha2.json",
-      "description": "TargetRef is the name of the resource this policy is being attached to. This policy and the TargetRef MUST be in the same namespace for this Policy to have effect\n\nDeprecated: use targetRefs/targetSelectors instead"
-    },
-    "targetRefs": {
-      "description": "TargetRefs are the names of the Gateway resources this policy is being attached to.",
-      "items": {
-        "$ref": "../gateway-api.k8s.io/localpolicytargetreferencewithsectionname_v1alpha2.json",
-        "default": {}
-      },
-      "type": "array"
-    },
-    "targetSelectors": {
-      "description": "TargetSelectors allow targeting resources for this policy based on labels",
-      "items": {
-        "$ref": "../gateway.envoyproxy.io/targetselector_v1alpha1.json",
-        "default": {}
-      },
-      "type": "array"
     }
   },
   "type": "object"

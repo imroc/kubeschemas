@@ -10,7 +10,7 @@
       "type": "array"
     },
     "type": {
-      "description": "Type is the type of the bootstrap configuration, it should be either Replace,  Merge, or JSONPatch. If unspecified, it defaults to Replace.",
+      "description": "Type is the type of the bootstrap configuration, it should be either **Replace**,  **Merge**, or **JSONPatch**. If unspecified, it defaults to Replace.",
       "type": "string"
     },
     "value": {

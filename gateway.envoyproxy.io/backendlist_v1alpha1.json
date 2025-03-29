@@ -1,5 +1,5 @@
 {
-  "description": "BackendList is a list of Backend",
+  "description": "BackendList contains a list of Backend resources.",
   "properties": {
     "apiVersion": {
       "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -9,9 +9,9 @@
       "type": "string"
     },
     "items": {
-      "description": "List of backends. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md",
       "items": {
-        "$ref": "../gateway.envoyproxy.io/backend_v1alpha1.json"
+        "$ref": "../gateway.envoyproxy.io/backend_v1alpha1.json",
+        "default": {}
       },
       "type": "array"
     },
@@ -23,24 +23,13 @@
       "type": "string"
     },
     "metadata": {
-      "allOf": [
-        {
-          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/listmeta_v1.json"
-        }
-      ],
-      "description": "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/listmeta_v1.json",
+      "default": {}
     }
   },
   "required": [
     "apiVersion",
     "kind"
   ],
-  "type": "object",
-  "x-kubernetes-group-version-kind": [
-    {
-      "group": "gateway.envoyproxy.io",
-      "kind": "BackendList",
-      "version": "v1alpha1"
-    }
-  ]
+  "type": "object"
 }

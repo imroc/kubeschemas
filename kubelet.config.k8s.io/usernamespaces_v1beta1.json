@@ -1,0 +1,11 @@
+{
+  "description": "UserNamespaces contains User Namespace configurations.",
+  "properties": {
+    "idsPerPod": {
+      "description": "IDsPerPod is the mapping length of UIDs and GIDs. The length must be a multiple of 65536, and must be less than 1\u003c\u003c32. On non-linux such as windows, only null / absent is allowed.\n\nChanging the value may require recreating all containers on the node.\n\nDefault: 65536",
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "type": "object"
+}

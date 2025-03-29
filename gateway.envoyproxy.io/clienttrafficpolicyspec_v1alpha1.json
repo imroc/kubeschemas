@@ -37,26 +37,6 @@
       "$ref": "../gateway.envoyproxy.io/pathsettings_v1alpha1.json",
       "description": "Path enables managing how the incoming path set by clients can be normalized."
     },
-    "targetRef": {
-      "$ref": "../gateway-api.k8s.io/localpolicytargetreferencewithsectionname_v1alpha2.json",
-      "description": "TargetRef is the name of the resource this policy is being attached to. This policy and the TargetRef MUST be in the same namespace for this Policy to have effect\n\nDeprecated: use targetRefs/targetSelectors instead"
-    },
-    "targetRefs": {
-      "description": "TargetRefs are the names of the Gateway resources this policy is being attached to.",
-      "items": {
-        "$ref": "../gateway-api.k8s.io/localpolicytargetreferencewithsectionname_v1alpha2.json",
-        "default": {}
-      },
-      "type": "array"
-    },
-    "targetSelectors": {
-      "description": "TargetSelectors allow targeting resources for this policy based on labels",
-      "items": {
-        "$ref": "../gateway.envoyproxy.io/targetselector_v1alpha1.json",
-        "default": {}
-      },
-      "type": "array"
-    },
     "tcpKeepalive": {
       "$ref": "../gateway.envoyproxy.io/tcpkeepalive_v1alpha1.json",
       "description": "TcpKeepalive settings associated with the downstream client connection. If defined, sets SO_KEEPALIVE on the listener socket to enable TCP Keepalives. Disabled by default."

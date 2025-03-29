@@ -32,6 +32,13 @@
       "$ref": "../gateway.envoyproxy.io/http2settings_v1alpha1.json",
       "description": "HTTP2 provides HTTP/2 configuration for backend connections."
     },
+    "httpUpgrade": {
+      "description": "HTTPUpgrade defines the configuration for HTTP protocol upgrades. If not specified, the default upgrade configuration(websocket) will be used.",
+      "items": {
+        "$ref": "../gateway.envoyproxy.io/protocolupgradeconfig_v1alpha1.json"
+      },
+      "type": "array"
+    },
     "loadBalancer": {
       "$ref": "../gateway.envoyproxy.io/loadbalancer_v1alpha1.json",
       "description": "LoadBalancer policy to apply when routing traffic from the gateway to the backend endpoints. Defaults to `LeastRequest`."
@@ -44,6 +51,10 @@
       "$ref": "../gateway.envoyproxy.io/ratelimitspec_v1alpha1.json",
       "description": "RateLimit allows the user to limit the number of incoming requests to a predefined value based on attributes within the traffic flow."
     },
+    "requestBuffer": {
+      "$ref": "../gateway.envoyproxy.io/requestbuffer_v1alpha1.json",
+      "description": "RequestBuffer allows the gateway to buffer and fully receive each request from a client before continuing to send the request upstream to the backends. This can be helpful to shield your backend servers from slow clients, and also to enforce a maximum size per request as any requests larger than the buffer size will be rejected.\n\nThis can have a negative performance impact so should only be enabled when necessary.\n\nWhen enabling this option, you should also configure your connection buffer size to account for these request buffers. There will also be an increase in memory usage for Envoy that should be accounted for in your deployment settings."
+    },
     "responseOverride": {
       "description": "ResponseOverride defines the configuration to override specific responses with a custom one. If multiple configurations are specified, the first one to match wins.",
       "items": {
@@ -54,26 +65,6 @@
     "retry": {
       "$ref": "../gateway.envoyproxy.io/retry_v1alpha1.json",
       "description": "Retry provides more advanced usage, allowing users to customize the number of retries, retry fallback strategy, and retry triggering conditions. If not set, retry will be disabled."
-    },
-    "targetRef": {
-      "$ref": "../gateway-api.k8s.io/localpolicytargetreferencewithsectionname_v1alpha2.json",
-      "description": "TargetRef is the name of the resource this policy is being attached to. This policy and the TargetRef MUST be in the same namespace for this Policy to have effect\n\nDeprecated: use targetRefs/targetSelectors instead"
-    },
-    "targetRefs": {
-      "description": "TargetRefs are the names of the Gateway resources this policy is being attached to.",
-      "items": {
-        "$ref": "../gateway-api.k8s.io/localpolicytargetreferencewithsectionname_v1alpha2.json",
-        "default": {}
-      },
-      "type": "array"
-    },
-    "targetSelectors": {
-      "description": "TargetSelectors allow targeting resources for this policy based on labels",
-      "items": {
-        "$ref": "../gateway.envoyproxy.io/targetselector_v1alpha1.json",
-        "default": {}
-      },
-      "type": "array"
     },
     "tcpKeepalive": {
       "$ref": "../gateway.envoyproxy.io/tcpkeepalive_v1alpha1.json",

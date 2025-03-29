@@ -1,6 +1,9 @@
 {
   "description": "HTTPRouteFilterSpec defines the desired state of HTTPRouteFilter.",
   "properties": {
+    "credentialInjection": {
+      "$ref": "../gateway.envoyproxy.io/httpcredentialinjectionfilter_v1alpha1.json"
+    },
     "directResponse": {
       "$ref": "../gateway.envoyproxy.io/httpdirectresponsefilter_v1alpha1.json"
     },
@@ -12,6 +15,7 @@
   "x-kubernetes-unions": [
     {
       "fields-to-discriminateBy": {
+        "credentialInjection": "CredentialInjection",
         "directResponse": "DirectResponse",
         "urlRewrite": "URLRewrite"
       }

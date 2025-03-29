@@ -17,26 +17,6 @@
       },
       "type": "array"
     },
-    "targetRef": {
-      "$ref": "../gateway-api.k8s.io/localpolicytargetreferencewithsectionname_v1alpha2.json",
-      "description": "TargetRef is the name of the resource this policy is being attached to. This policy and the TargetRef MUST be in the same namespace for this Policy to have effect\n\nDeprecated: use targetRefs/targetSelectors instead"
-    },
-    "targetRefs": {
-      "description": "TargetRefs are the names of the Gateway resources this policy is being attached to.",
-      "items": {
-        "$ref": "../gateway-api.k8s.io/localpolicytargetreferencewithsectionname_v1alpha2.json",
-        "default": {}
-      },
-      "type": "array"
-    },
-    "targetSelectors": {
-      "description": "TargetSelectors allow targeting resources for this policy based on labels",
-      "items": {
-        "$ref": "../gateway.envoyproxy.io/targetselector_v1alpha1.json",
-        "default": {}
-      },
-      "type": "array"
-    },
     "wasm": {
       "description": "Wasm is a list of Wasm extensions to be loaded by the Gateway. Order matters, as the extensions will be loaded in the order they are defined in this list.",
       "items": {

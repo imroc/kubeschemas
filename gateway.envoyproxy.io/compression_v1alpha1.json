@@ -1,6 +1,10 @@
 {
   "description": "Compression defines the config of enabling compression. This can help reduce the bandwidth at the expense of higher CPU.",
   "properties": {
+    "brotli": {
+      "$ref": "../gateway.envoyproxy.io/brotlicompressor_v1alpha1.json",
+      "description": "The configuration for Brotli compressor."
+    },
     "gzip": {
       "$ref": "../gateway.envoyproxy.io/gzipcompressor_v1alpha1.json",
       "description": "The configuration for GZIP compressor."

@@ -1,0 +1,9 @@
+{
+  "properties": {
+    "limit": {
+      "$ref": "../api.pkg.apimachinery.k8s.io/quantity_resource.json",
+      "description": "Limit specifies the maximum allowed size in bytes for each incoming request buffer. If exceeded, the request will be rejected with HTTP 413 Content Too Large.\n\nAccepts values in resource.Quantity format (e.g., \"10Mi\", \"500Ki\")."
+    }
+  },
+  "type": "object"
+}

@@ -94,7 +94,7 @@
       "description": "cpuCFSQuotaPeriod is the CPU CFS quota period value, `cpu.cfs_period_us`. The value must be between 1 ms and 1 second, inclusive. Requires the CustomCPUCFSQuotaPeriod feature gate to be enabled. Default: \"100ms\""
     },
     "cpuManagerPolicy": {
-      "description": "cpuManagerPolicy is the name of the policy to use. Requires the CPUManager feature gate to be enabled. Default: \"None\"",
+      "description": "cpuManagerPolicy is the name of the policy to use. Default: \"None\"",
       "type": "string"
     },
     "cpuManagerPolicyOptions": {
@@ -102,12 +102,12 @@
         "default": "",
         "type": "string"
       },
-      "description": "cpuManagerPolicyOptions is a set of key=value which \tallows to set extra options to fine tune the behaviour of the cpu manager policies. Requires  both the \"CPUManager\" and \"CPUManagerPolicyOptions\" feature gates to be enabled. Default: nil",
+      "description": "cpuManagerPolicyOptions is a set of key=value which \tallows to set extra options to fine tune the behaviour of the cpu manager policies. Default: nil",
       "type": "object"
     },
     "cpuManagerReconcilePeriod": {
       "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
-      "description": "cpuManagerReconcilePeriod is the reconciliation period for the CPU Manager. Requires the CPUManager feature gate to be enabled. Default: \"10s\""
+      "description": "cpuManagerReconcilePeriod is the reconciliation period for the CPU Manager. Default: \"10s\""
     },
     "crashLoopBackOff": {
       "$ref": "../kubelet.config.k8s.io/crashloopbackoffconfig_v1beta1.json",
@@ -143,7 +143,7 @@
       "type": "boolean"
     },
     "enableSystemLogQuery": {
-      "description": "enableSystemLogQuery enables the node log query feature on the /logs endpoint. EnableSystemLogHandler has to be enabled in addition for this feature to work. Default: false",
+      "description": "enableSystemLogQuery enables the node log query feature on the /logs endpoint. EnableSystemLogHandler has to be enabled in addition for this feature to work. Enabling this feature has security implications. The recommendation is to enable it on a need basis for debugging purposes and disabling otherwise. Default: false",
       "type": "boolean"
     },
     "enforceNodeAllocatable": {
@@ -187,7 +187,7 @@
     },
     "evictionPressureTransitionPeriod": {
       "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
-      "description": "evictionPressureTransitionPeriod is the duration for which the kubelet has to wait before transitioning out of an eviction pressure condition. Default: \"5m\""
+      "description": "evictionPressureTransitionPeriod is the duration for which the kubelet has to wait before transitioning out of an eviction pressure condition. A duration of 0s will be converted to the default value of 5m Default: \"5m\""
     },
     "evictionSoft": {
       "additionalProperties": {
@@ -259,6 +259,10 @@
     "imageMinimumGCAge": {
       "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
       "description": "imageMinimumGCAge is the minimum age for an unused image before it is garbage collected. Default: \"2m\""
+    },
+    "imagePullCredentialsVerificationPolicy": {
+      "description": "imagePullCredentialsVerificationPolicy determines how credentials should be verified when pod requests an image that is already present on the node:\n  - NeverVerify\n      - anyone on a node can use any image present on the node\n  - NeverVerifyPreloadedImages\n      - images that were pulled to the node by something else than the kubelet\n        can be used without reverifying pull credentials\n  - NeverVerifyAllowlistedImages\n      - like \"NeverVerifyPreloadedImages\" but only node images from\n        `preloadedImagesVerificationAllowlist` don't require reverification\n  - AlwaysVerify\n      - all images require credential reverification",
+      "type": "string"
     },
     "imageServiceEndpoint": {
       "description": "ImageServiceEndpoint is the endpoint of container image service. Unix Domain Socket are supported on Linux, while npipe and tcp endpoints are supported on Windows. Examples:'unix:///path/to/runtime.sock', 'npipe:////./pipe/runtime'. If not specified, the value in containerRuntimeEndpoint is used.",
@@ -353,6 +357,10 @@
       "format": "double",
       "type": "number"
     },
+    "mergeDefaultEvictionSettings": {
+      "description": "mergeDefaultEvictionSettings indicates that defaults for the evictionHard, evictionSoft, evictionSoftGracePeriod, and evictionMinimumReclaim fields should be merged into values specified for those fields in this configuration. Signals specified in this configuration take precedence. Signals not specified in this configuration inherit their defaults. If false, and if any signal is specified in this configuration then other signals that are not specified in this configuration will be set to 0. It applies to merging the fields for which the default exists, and currently only evictionHard has default values. Default: false",
+      "type": "boolean"
+    },
     "nodeLeaseDurationSeconds": {
       "description": "nodeLeaseDurationSeconds is the duration the Kubelet will set on its corresponding Lease. NodeLease provides an indicator of node health by having the Kubelet create and periodically renew a lease, named after the node, in the kube-node-lease namespace. If the lease expires, the node can be considered unhealthy. The lease is currently renewed every 10s, per KEP-0009. In the future, the lease renewal interval may be set based on the lease duration. The field value must be greater than 0. Default: 40",
       "format": "int32",
@@ -398,6 +406,15 @@
       "description": "port is the port for the Kubelet to serve on. The port number must be between 1 and 65535, inclusive. Default: 10250",
       "format": "int32",
       "type": "integer"
+    },
+    "preloadedImagesVerificationAllowlist": {
+      "description": "preloadedImagesVerificationAllowlist specifies a list of images that are exempted from credential reverification for the \"NeverVerifyAllowlistedImages\" `imagePullCredentialsVerificationPolicy`. The list accepts a full path segment wildcard suffix \"/*\". Only use image specs without an image tag or digest.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array",
+      "x-kubernetes-list-type": "set"
     },
     "protectKernelDefaults": {
       "description": "protectKernelDefaults, if true, causes the Kubelet to error if kernel flags are not as it expects. Otherwise the Kubelet will attempt to modify kernel flags to match its expectation. Default: false",
@@ -588,6 +605,10 @@
     "tracing": {
       "$ref": "../api.tracing.component-base.k8s.io/tracingconfiguration_v1.json",
       "description": "Tracing specifies the versioned configuration for OpenTelemetry tracing clients. See https://kep.k8s.io/2832 for more details. Default: nil"
+    },
+    "userNamespaces": {
+      "$ref": "../kubelet.config.k8s.io/usernamespaces_v1beta1.json",
+      "description": "UserNamespaces contains User Namespace configurations."
     },
     "volumePluginDir": {
       "description": "volumePluginDir is the full path of the directory in which to search for additional third party volume plugins. Default: \"/usr/libexec/kubernetes/kubelet-plugins/volume/exec/\"",

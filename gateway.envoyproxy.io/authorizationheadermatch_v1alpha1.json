@@ -1,0 +1,23 @@
+{
+  "description": "AuthorizationHeaderMatch specifies how to match against the value of an HTTP header within a authorization rule.",
+  "properties": {
+    "name": {
+      "default": "",
+      "description": "Name of the HTTP header. The header name is case-insensitive unless PreserveHeaderCase is set to true. For example, \"Foo\" and \"foo\" are considered the same header.",
+      "type": "string"
+    },
+    "values": {
+      "description": "Values are the values that the header must match. If multiple values are specified, the rule will match if any of the values match.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "name",
+    "values"
+  ],
+  "type": "object"
+}

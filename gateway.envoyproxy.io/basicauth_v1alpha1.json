@@ -1,6 +1,10 @@
 {
   "description": "BasicAuth defines the configuration for \tthe HTTP Basic Authentication.",
   "properties": {
+    "forwardUsernameHeader": {
+      "description": "This field specifies the header name to forward a successfully authenticated user to the backend. The header will be added to the request with the username as the value.\n\nIf it is not specified, the username will not be forwarded.",
+      "type": "string"
+    },
     "users": {
       "$ref": "../gateway-api.k8s.io/secretobjectreference_v1.json",
       "default": {},

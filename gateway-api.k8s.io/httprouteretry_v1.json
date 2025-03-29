@@ -2,7 +2,7 @@
   "description": "HTTPRouteRetry defines retry configuration for an HTTPRoute.\n\nImplementations SHOULD retry on connection errors (disconnect, reset, timeout, TCP failure) if a retry stanza is configured.",
   "properties": {
     "attempts": {
-      "description": "Attempts specifies the maxmimum number of times an individual request from the gateway to a backend should be retried.\n\nIf the maximum number of retries has been attempted without a successful response from the backend, the Gateway MUST return an error.\n\nWhen this field is unspecified, the number of times to attempt to retry a backend request is implementation-specific.\n\nSupport: Extended",
+      "description": "Attempts specifies the maximum number of times an individual request from the gateway to a backend should be retried.\n\nIf the maximum number of retries has been attempted without a successful response from the backend, the Gateway MUST return an error.\n\nWhen this field is unspecified, the number of times to attempt to retry a backend request is implementation-specific.\n\nSupport: Extended",
       "format": "int32",
       "type": "integer"
     },

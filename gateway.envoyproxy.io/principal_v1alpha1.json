@@ -1,11 +1,19 @@
 {
-  "description": "If there are multiple principal types, all principals must match for the rule to match.",
+  "description": "Principal specifies the client identity of a request. A client identity can be a client IP, a JWT claim, username from the Authorization header, or any other identity that can be extracted from a custom header. If there are multiple principal types, all principals must match for the rule to match.",
   "properties": {
     "clientCIDRs": {
       "description": "ClientCIDRs are the IP CIDR ranges of the client. Valid examples are \"192.168.1.0/24\" or \"2001:db8::/64\"\n\nIf multiple CIDR ranges are specified, one of the CIDR ranges must match the client IP for the rule to match.\n\nThe client IP is inferred from the X-Forwarded-For header, a custom header, or the proxy protocol. You can use the `ClientIPDetection` or the `EnableProxyProtocol` field in the `ClientTrafficPolicy` to configure how the client IP is detected.",
       "items": {
         "default": "",
         "type": "string"
+      },
+      "type": "array"
+    },
+    "headers": {
+      "description": "Headers authorize the request based on user identity extracted from custom headers. If multiple headers are specified, all headers must match for the rule to match.",
+      "items": {
+        "$ref": "../gateway.envoyproxy.io/authorizationheadermatch_v1alpha1.json",
+        "default": {}
       },
       "type": "array"
     },

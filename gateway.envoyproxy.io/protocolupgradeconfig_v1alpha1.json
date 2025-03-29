@@ -1,0 +1,13 @@
+{
+  "properties": {
+    "type": {
+      "default": "",
+      "description": "Type is the case-insensitive type of protocol upgrade. e.g. `websocket`, `CONNECT`, `spdy/3.1` etc.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object"
+}

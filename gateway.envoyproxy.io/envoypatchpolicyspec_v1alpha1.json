@@ -26,8 +26,7 @@
     }
   },
   "required": [
-    "type",
-    "targetRef"
+    "type"
   ],
   "type": "object",
   "x-kubernetes-unions": [

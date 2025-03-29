@@ -9,10 +9,6 @@
       "$ref": "../gateway.envoyproxy.io/leaderelection_v1alpha1.json",
       "description": "LeaderElection specifies the configuration for leader election. If it's not set up, leader election will be active by default, using Kubernetes' standard settings."
     },
-    "overwriteControlPlaneCerts": {
-      "description": "OverwriteControlPlaneCerts updates the secrets containing the control plane certs, when set.",
-      "type": "boolean"
-    },
     "rateLimitDeployment": {
       "$ref": "../gateway.envoyproxy.io/kubernetesdeploymentspec_v1alpha1.json",
       "description": "RateLimitDeployment defines the desired state of the Envoy ratelimit deployment resource. If unspecified, default settings for the managed Envoy ratelimit deployment resource are applied."

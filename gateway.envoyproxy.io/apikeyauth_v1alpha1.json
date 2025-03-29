@@ -1,0 +1,25 @@
+{
+  "description": "APIKeyAuth defines the configuration for the API Key Authentication.",
+  "properties": {
+    "credentialRefs": {
+      "description": "CredentialRefs is the Kubernetes secret which contains the API keys. This is an Opaque secret. Each API key is stored in the key representing the client id. If the secrets have a key for a duplicated client, the first one will be used.",
+      "items": {
+        "$ref": "../gateway-api.k8s.io/secretobjectreference_v1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "extractFrom": {
+      "description": "ExtractFrom is where to fetch the key from the coming request. The value from the first source that has a key will be used.",
+      "items": {
+        "$ref": "../gateway.envoyproxy.io/extractfrom_v1alpha1.json"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "credentialRefs",
+    "extractFrom"
+  ],
+  "type": "object"
+}

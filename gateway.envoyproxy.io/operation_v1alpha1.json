@@ -1,0 +1,17 @@
+{
+  "description": "Operation specifies the operation of a request.",
+  "properties": {
+    "methods": {
+      "description": "Methods are the HTTP methods of the request. If multiple methods are specified, all specified methods are allowed or denied, based on the action of the rule.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "methods"
+  ],
+  "type": "object"
+}

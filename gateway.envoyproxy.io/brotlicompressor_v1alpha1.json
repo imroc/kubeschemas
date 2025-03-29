@@ -1,0 +1,4 @@
+{
+  "description": "BrotliCompressor defines the config for the Brotli compressor. The default values can be found here: https://www.envoyproxy.io/docs/envoy/latest/api-v3/extensions/compression/brotli/compressor/v3/brotli.proto#extension-envoy-compression-brotli-compressor",
+  "type": "object"
+}
