@@ -1,0 +1,31 @@
+{
+  "description": "InternetAccessible describes network interfaces for CXM.",
+  "properties": {
+    "addressID": {
+      "description": "The ID of the EIP instance, like `eip-hxlqja90`.",
+      "type": "string"
+    },
+    "addressType": {
+      "description": "Resource type of the EIP, including `EIP` (elastic IP).",
+      "type": "string"
+    },
+    "bandwidthPackageID": {
+      "description": "Bandwidth package ID. To obatin the IDs.",
+      "type": "string"
+    },
+    "chargeType": {
+      "description": "ChargeType specify the network connection billing plan. Default `TrafficPostpaidByHour`",
+      "type": "string"
+    },
+    "maxBandwidthOut": {
+      "description": "The maximum outbound bandwidth of the public network, in Mbps. The default value is 1 Mbps. For more information, see [Purchase Network Bandwidth](https://intl.cloud.tencent.com/document/product/213/12523?from_cn_redirect=1).",
+      "format": "int32",
+      "type": "integer"
+    },
+    "publicIPAssigned": {
+      "description": "PublicIPAssigned indicates whether the public IP is assigned to the instance.",
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}

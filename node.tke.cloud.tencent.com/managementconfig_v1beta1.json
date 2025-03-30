@@ -1,0 +1,40 @@
+{
+  "description": "ManagementConfig defines the content of automatic operation and maintenance.",
+  "properties": {
+    "hosts": {
+      "description": "Hosts is an optional list of hosts and IPs that will be injected into the pod's hosts file if specified. This is only valid for non-hostNetwork pods.",
+      "items": {
+        "$ref": "../apis.pkg.kubernetes.k8s.io/hostalias_core.json",
+        "default": {}
+      },
+      "type": "array",
+      "x-kubernetes-patch-merge-key": "ip",
+      "x-kubernetes-patch-strategy": "merge"
+    },
+    "kernelArgs": {
+      "description": "Custom linux kernel arguments.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "kubeletArgs": {
+      "description": "Custom kubernetes kubelet arguments.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "nameservers": {
+      "description": "DNS nameservers.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,61 @@
+{
+  "description": "CXMDisk describes disks for CXM.",
+  "properties": {
+    "DiskPartition": {
+      "default": "",
+      "description": "DiskPartition specify use device name mount disk",
+      "type": "string"
+    },
+    "autoFormatAndMount": {
+      "description": "AutoFormatAndMount specify whether automatic format and mount this disk by tke. When AutoFormatAndMount is true, `FileSystem` and `MountTarget` must be specified.",
+      "type": "boolean"
+    },
+    "deleteWithInstance": {
+      "description": "DeleteWithInstance indicates if the disk will be auto-deleted when the instance is deleted (default false).",
+      "type": "boolean"
+    },
+    "diskID": {
+      "description": "DiskID is the id of the disk. SystemDisk and DataDisk share this field This value is set automatically at runtime and should not be set or modified by users.",
+      "type": "string"
+    },
+    "diskSize": {
+      "description": "DiskSize is the size of the disk (in GB). SystemDisk and DataDisk share this field.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "diskType": {
+      "description": "DiskType is the type of the disk (eg: pd-standard). Default: CloudPremiumDiskType. SystemDisk and DataDisk share this field.",
+      "type": "string"
+    },
+    "encrypt": {
+      "description": "Encrypt specify whether to encrypt this disk.",
+      "type": "string"
+    },
+    "fileSystem": {
+      "description": "FileSystem specify the filesystem used by this disk. Different file systems will be selected according to different operating systems.",
+      "type": "string"
+    },
+    "imageCacheId": {
+      "description": "ImageCacheId specify image cache id with snapshot reference https://cloud.tencent.com/document/product/457/65908",
+      "type": "string"
+    },
+    "kmsKeyId": {
+      "description": "KmsKeyId specify the KMS key used to encrypt this disk.",
+      "type": "string"
+    },
+    "mountTarget": {
+      "description": "MountTarget specify where to mount this disk.",
+      "type": "string"
+    },
+    "snapshotId": {
+      "description": "SnapshotId specify the snapshot id used to create this disk.",
+      "type": "string"
+    },
+    "throughputPerformance": {
+      "description": "ThroughputPerformance specify the throughput performance of this disk.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "type": "object"
+}

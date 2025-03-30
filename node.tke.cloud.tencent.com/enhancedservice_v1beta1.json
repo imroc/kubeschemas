@@ -1,0 +1,14 @@
+{
+  "description": "EnhancedService contains Tencent Cloud services can be enabled.",
+  "properties": {
+    "monitorService": {
+      "description": "Enables cloud monitor service. If this parameter is not specified, the cloud monitor service will be enabled by default.",
+      "type": "boolean"
+    },
+    "securityService": {
+      "description": "Enables cloud security service. If this parameter is not specified, the cloud security service will be enabled by default.",
+      "type": "boolean"
+    }
+  },
+  "type": "object"
+}

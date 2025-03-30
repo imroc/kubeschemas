@@ -1,0 +1,13 @@
+{
+  "properties": {
+    "postInit": {
+      "description": "PostInit hooks will be executed after node initialization.",
+      "type": "string"
+    },
+    "preInit": {
+      "description": "PreInit hooks will be executed before node initialization.",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}
