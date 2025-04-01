@@ -3688,6 +3688,12 @@
       "$ref": "externaldata.gatekeeper.sh/providerlist_v1beta1.json"
     },
     {
+      "$ref": "externaldns.k8s.io/dnsendpoint_v1alpha1.json"
+    },
+    {
+      "$ref": "externaldns.k8s.io/dnsendpointlist_v1alpha1.json"
+    },
+    {
       "$ref": "federation.pingcap.com/volumebackup_v1alpha1.json"
     },
     {
