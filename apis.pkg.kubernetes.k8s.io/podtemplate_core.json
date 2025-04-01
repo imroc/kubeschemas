@@ -1,0 +1,22 @@
+{
+  "description": "PodTemplate describes a template for creating copies of a predefined pod.",
+  "properties": {
+    "ObjectMeta": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json",
+      "default": {}
+    },
+    "Template": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/podtemplatespec_core.json",
+      "default": {},
+      "description": "Template defines the pods that will be created from this pod template"
+    },
+    "TypeMeta": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/typemeta_v1.json",
+      "default": {}
+    }
+  },
+  "required": [
+    "TypeMeta"
+  ],
+  "type": "object"
+}

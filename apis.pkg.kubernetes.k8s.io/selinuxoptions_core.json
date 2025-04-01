@@ -1,0 +1,26 @@
+{
+  "description": "SELinuxOptions are the labels to be applied to the container.",
+  "properties": {
+    "Level": {
+      "default": "",
+      "description": "SELinux level label.",
+      "type": "string"
+    },
+    "Role": {
+      "default": "",
+      "description": "SELinux role label",
+      "type": "string"
+    },
+    "Type": {
+      "default": "",
+      "description": "SELinux type label",
+      "type": "string"
+    },
+    "User": {
+      "default": "",
+      "description": "SELinux user label",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

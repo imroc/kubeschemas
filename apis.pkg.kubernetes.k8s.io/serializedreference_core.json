@@ -1,0 +1,17 @@
+{
+  "description": "SerializedReference represents a serialized object reference",
+  "properties": {
+    "Reference": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/objectreference_core.json",
+      "default": {}
+    },
+    "TypeMeta": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/typemeta_v1.json",
+      "default": {}
+    }
+  },
+  "required": [
+    "TypeMeta"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,97 @@
+{
+  "description": "PersistentVolumeSource is similar to VolumeSource but meant for the administrator who creates PVs. Exactly one of its members must be set.",
+  "properties": {
+    "AWSElasticBlockStore": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/awselasticblockstorevolumesource_core.json",
+      "description": "awsElasticBlockStore represents an AWS Disk resource that is attached to a kubelet's host machine and then exposed to the pod. Deprecated: AWSElasticBlockStore is deprecated. All operations for the in-tree awsElasticBlockStore type are redirected to the ebs.csi.aws.com CSI driver."
+    },
+    "AzureDisk": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/azurediskvolumesource_core.json",
+      "description": "azureDisk represents an Azure Data Disk mount on the host and bind mount to the pod. Deprecated: AzureDisk is deprecated. All operations for the in-tree azureDisk type are redirected to the disk.csi.azure.com CSI driver."
+    },
+    "AzureFile": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/azurefilepersistentvolumesource_core.json",
+      "description": "azureFile represents an Azure File Service mount on the host and bind mount to the pod. Deprecated: AzureFile is deprecated. All operations for the in-tree azureFile type are redirected to the file.csi.azure.com CSI driver."
+    },
+    "CSI": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/csipersistentvolumesource_core.json",
+      "description": "csi represents storage that is handled by an external CSI driver."
+    },
+    "CephFS": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/cephfspersistentvolumesource_core.json",
+      "description": "cephFS represents a Ceph FS mount on the host that shares a pod's lifetime. Deprecated: CephFS is deprecated and the in-tree cephfs type is no longer supported."
+    },
+    "Cinder": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/cinderpersistentvolumesource_core.json",
+      "description": "cinder represents a cinder volume attached and mounted on kubelets host machine. Deprecated: Cinder is deprecated. All operations for the in-tree cinder type are redirected to the cinder.csi.openstack.org CSI driver."
+    },
+    "FC": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/fcvolumesource_core.json",
+      "description": "fc represents a Fibre Channel resource that is attached to a kubelet's host machine and then exposed to the pod."
+    },
+    "FlexVolume": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/flexpersistentvolumesource_core.json",
+      "description": "flexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin. Deprecated: FlexVolume is deprecated. Consider using a CSIDriver instead."
+    },
+    "Flocker": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/flockervolumesource_core.json",
+      "description": "flocker represents a Flocker volume attached to a kubelet's host machine and exposed to the pod for its usage. This depends on the Flocker control service being running. Deprecated: Flocker is deprecated and the in-tree flocker type is no longer supported."
+    },
+    "GCEPersistentDisk": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/gcepersistentdiskvolumesource_core.json",
+      "description": "gcePersistentDisk represents a GCE Disk resource that is attached to a kubelet's host machine and then exposed to the pod. Provisioned by an admin. Deprecated: GCEPersistentDisk is deprecated. All operations for the in-tree gcePersistentDisk type are redirected to the pd.csi.storage.gke.io CSI driver."
+    },
+    "Glusterfs": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/glusterfspersistentvolumesource_core.json",
+      "description": "glusterfs represents a Glusterfs volume that is attached to a host and exposed to the pod. Provisioned by an admin. Deprecated: Glusterfs is deprecated and the in-tree glusterfs type is no longer supported."
+    },
+    "HostPath": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/hostpathvolumesource_core.json",
+      "description": "hostPath represents a directory on the host. Provisioned by a developer or tester. This is useful for single-node development and testing only! On-host storage is not supported in any way and WILL NOT WORK in a multi-node cluster."
+    },
+    "ISCSI": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/iscsipersistentvolumesource_core.json",
+      "description": "iscsi represents an ISCSI resource that is attached to a kubelet's host machine and then exposed to the pod."
+    },
+    "Local": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/localvolumesource_core.json",
+      "description": "local represents directly-attached storage with node affinity"
+    },
+    "NFS": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/nfsvolumesource_core.json",
+      "description": "nfs represents an NFS mount on the host that shares a pod's lifetime"
+    },
+    "PhotonPersistentDisk": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/photonpersistentdiskvolumesource_core.json",
+      "description": "photonPersistentDisk represents a PhotonController persistent disk attached and mounted on kubelets host machine. Deprecated: PhotonPersistentDisk is deprecated and the in-tree photonPersistentDisk type is no longer supported."
+    },
+    "PortworxVolume": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/portworxvolumesource_core.json",
+      "description": "portworxVolume represents a portworx volume attached and mounted on kubelets host machine. Deprecated: PortworxVolume is deprecated. All operations for the in-tree portworxVolume type are redirected to the pxd.portworx.com CSI driver when the CSIMigrationPortworx feature-gate is on."
+    },
+    "Quobyte": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/quobytevolumesource_core.json",
+      "description": "quobyte represents a Quobyte mount on the host that shares a pod's lifetime. Deprecated: Quobyte is deprecated and the in-tree quobyte type is no longer supported."
+    },
+    "RBD": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/rbdpersistentvolumesource_core.json",
+      "description": "rbd represents a Rados Block Device mount on the host that shares a pod's lifetime. Deprecated: RBD is deprecated and the in-tree rbd type is no longer supported."
+    },
+    "ScaleIO": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/scaleiopersistentvolumesource_core.json",
+      "description": "scaleIO represents a ScaleIO persistent volume attached and mounted on Kubernetes nodes. Deprecated: ScaleIO is deprecated and the in-tree scaleIO type is no longer supported."
+    },
+    "StorageOS": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/storageospersistentvolumesource_core.json",
+      "description": "storageOS represents a StorageOS volume that is attached to the kubelet's host machine and mounted into the pod. Deprecated: StorageOS is deprecated and the in-tree storageos type is no longer supported."
+    },
+    "VsphereVolume": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/vspherevirtualdiskvolumesource_core.json",
+      "description": "vsphereVolume represents a vSphere volume attached and mounted on kubelets host machine. Deprecated: VsphereVolume is deprecated. All operations for the in-tree vsphereVolume type are redirected to the csi.vsphere.vmware.com CSI driver."
+    }
+  },
+  "required": [
+    "PhotonPersistentDisk"
+  ],
+  "type": "object"
+}

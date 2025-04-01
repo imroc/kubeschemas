@@ -1,0 +1,12 @@
+{
+  "description": "Deprecated: NodeConfigSource specifies a source of node configuration. Exactly one subfield must be non-nil.",
+  "properties": {
+    "ConfigMap": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/configmapnodeconfigsource_core.json"
+    }
+  },
+  "required": [
+    "ConfigMap"
+  ],
+  "type": "object"
+}

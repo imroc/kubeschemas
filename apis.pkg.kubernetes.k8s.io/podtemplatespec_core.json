@@ -1,0 +1,16 @@
+{
+  "description": "PodTemplateSpec describes the data a pod should have when created from a template",
+  "properties": {
+    "ObjectMeta": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json",
+      "default": {},
+      "description": "Metadata of the pods created from this template."
+    },
+    "Spec": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/podspec_core.json",
+      "default": {},
+      "description": "Spec defines the behavior of a pod."
+    }
+  },
+  "type": "object"
+}

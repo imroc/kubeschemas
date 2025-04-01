@@ -1,0 +1,15 @@
+{
+  "description": "TCPSocketAction describes an action based on opening a socket",
+  "properties": {
+    "Host": {
+      "default": "",
+      "description": "Optional: Host name to connect to, defaults to the pod IP.",
+      "type": "string"
+    },
+    "Port": {
+      "$ref": "../util.pkg.apimachinery.k8s.io/intorstring_intstr.json",
+      "description": "Required: Port to connect to."
+    }
+  },
+  "type": "object"
+}

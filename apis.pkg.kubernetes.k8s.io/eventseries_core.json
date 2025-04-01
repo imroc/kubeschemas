@@ -1,0 +1,20 @@
+{
+  "description": "EventSeries represents a series ov events",
+  "properties": {
+    "Count": {
+      "default": 0,
+      "description": "Number of occurrences in this series up to the last heartbeat time",
+      "format": "int32",
+      "type": "integer"
+    },
+    "LastObservedTime": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/microtime_v1.json",
+      "description": "Time of the last occurrence observed"
+    }
+  },
+  "required": [
+    "Count",
+    "LastObservedTime"
+  ],
+  "type": "object"
+}

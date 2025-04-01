@@ -1,0 +1,19 @@
+{
+  "description": "HostPathVolumeSource represents a host path mapped into a pod. Host path volumes do not support ownership management or SELinux relabeling.",
+  "properties": {
+    "Path": {
+      "default": "",
+      "description": "If the path is a symlink, it will follow the link to the real path.",
+      "type": "string"
+    },
+    "Type": {
+      "description": "Defaults to \"\"",
+      "type": "string"
+    }
+  },
+  "required": [
+    "Path",
+    "Type"
+  ],
+  "type": "object"
+}

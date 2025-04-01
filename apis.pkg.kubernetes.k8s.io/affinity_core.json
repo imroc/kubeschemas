@@ -1,0 +1,18 @@
+{
+  "description": "Affinity is a group of affinity scheduling rules.",
+  "properties": {
+    "NodeAffinity": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/nodeaffinity_core.json",
+      "description": "Describes node affinity scheduling rules for the pod."
+    },
+    "PodAffinity": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/podaffinity_core.json",
+      "description": "Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s))."
+    },
+    "PodAntiAffinity": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/podantiaffinity_core.json",
+      "description": "Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s))."
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,9 @@
+{
+  "description": "ContainerStateRunning represents the running state of a container",
+  "properties": {
+    "StartedAt": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/time_v1.json"
+    }
+  },
+  "type": "object"
+}

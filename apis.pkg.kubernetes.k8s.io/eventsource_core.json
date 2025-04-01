@@ -1,0 +1,16 @@
+{
+  "description": "EventSource represents the source from which an event is generated",
+  "properties": {
+    "Component": {
+      "default": "",
+      "description": "Component from which the event is generated.",
+      "type": "string"
+    },
+    "Host": {
+      "default": "",
+      "description": "Node name on which the event is generated.",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

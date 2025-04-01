@@ -1,0 +1,24 @@
+{
+  "description": "ConfigMapKeySelector selects a key from a ConfigMap.",
+  "properties": {
+    "Key": {
+      "default": "",
+      "description": "The key to select.",
+      "type": "string"
+    },
+    "LocalObjectReference": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/localobjectreference_core.json",
+      "default": {},
+      "description": "The ConfigMap to select from."
+    },
+    "Optional": {
+      "description": "Specify whether the ConfigMap or its key must be defined",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "LocalObjectReference",
+    "Key"
+  ],
+  "type": "object"
+}

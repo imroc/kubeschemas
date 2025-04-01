@@ -1,0 +1,18 @@
+{
+  "description": "ConfigMapEnvSource selects a ConfigMap to populate the environment variables with.\n\nThe contents of the target ConfigMap's Data field will represent the key-value pairs as environment variables.",
+  "properties": {
+    "LocalObjectReference": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/localobjectreference_core.json",
+      "default": {},
+      "description": "The ConfigMap to select from."
+    },
+    "Optional": {
+      "description": "Specify whether the ConfigMap must be defined",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "LocalObjectReference"
+  ],
+  "type": "object"
+}

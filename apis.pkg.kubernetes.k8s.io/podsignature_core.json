@@ -1,0 +1,10 @@
+{
+  "description": "PodSignature describes the class of pods that should avoid this node. Exactly one field should be set.",
+  "properties": {
+    "PodController": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/ownerreference_v1.json",
+      "description": "Reference to controller whose pods should avoid this node."
+    }
+  },
+  "type": "object"
+}

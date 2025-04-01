@@ -1,0 +1,24 @@
+{
+  "description": "Binding ties one object to another; for example, a pod is bound to a node by a scheduler.",
+  "properties": {
+    "ObjectMeta": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json",
+      "default": {},
+      "description": "ObjectMeta describes the object that is being bound."
+    },
+    "Target": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/objectreference_core.json",
+      "default": {},
+      "description": "Target is the object to bind to."
+    },
+    "TypeMeta": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/typemeta_v1.json",
+      "default": {}
+    }
+  },
+  "required": [
+    "TypeMeta",
+    "Target"
+  ],
+  "type": "object"
+}

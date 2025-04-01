@@ -1,0 +1,27 @@
+{
+  "description": "Namespace provides a scope for Names. Use of multiple namespaces is optional",
+  "properties": {
+    "ObjectMeta": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json",
+      "default": {}
+    },
+    "Spec": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/namespacespec_core.json",
+      "default": {},
+      "description": "Spec defines the behavior of the Namespace."
+    },
+    "Status": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/namespacestatus_core.json",
+      "default": {},
+      "description": "Status describes the current status of a Namespace"
+    },
+    "TypeMeta": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/typemeta_v1.json",
+      "default": {}
+    }
+  },
+  "required": [
+    "TypeMeta"
+  ],
+  "type": "object"
+}

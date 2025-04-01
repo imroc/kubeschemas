@@ -1,0 +1,33 @@
+{
+  "description": "ReplicationControllerSpec is the specification of a replication controller. As the internal representation of a replication controller, it may have either a TemplateRef or a Template set.",
+  "properties": {
+    "MinReadySeconds": {
+      "default": 0,
+      "description": "Minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready)",
+      "format": "int32",
+      "type": "integer"
+    },
+    "Replicas": {
+      "description": "Replicas is the number of desired replicas.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "Selector": {
+      "additionalProperties": {
+        "default": "",
+        "type": "string"
+      },
+      "description": "Selector is a label query over pods that should match the Replicas count.",
+      "type": "object"
+    },
+    "Template": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/podtemplatespec_core.json",
+      "description": "Template is the object that describes the pod that will be created if insufficient replicas are detected. Internally, this takes precedence over a TemplateRef. The only allowed template.spec.restartPolicy value is \"Always\"."
+    }
+  },
+  "required": [
+    "Replicas",
+    "Selector"
+  ],
+  "type": "object"
+}

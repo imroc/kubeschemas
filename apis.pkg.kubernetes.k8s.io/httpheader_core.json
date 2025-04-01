@@ -1,0 +1,20 @@
+{
+  "description": "HTTPHeader describes a custom header to be used in HTTP probes",
+  "properties": {
+    "Name": {
+      "default": "",
+      "description": "The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header.",
+      "type": "string"
+    },
+    "Value": {
+      "default": "",
+      "description": "The header field value",
+      "type": "string"
+    }
+  },
+  "required": [
+    "Name",
+    "Value"
+  ],
+  "type": "object"
+}

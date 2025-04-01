@@ -1,0 +1,22 @@
+{
+  "description": "LimitRange sets resource usage limits for each kind of resource in a Namespace",
+  "properties": {
+    "ObjectMeta": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json",
+      "default": {}
+    },
+    "Spec": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/limitrangespec_core.json",
+      "default": {},
+      "description": "Spec defines the limits enforced"
+    },
+    "TypeMeta": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/typemeta_v1.json",
+      "default": {}
+    }
+  },
+  "required": [
+    "TypeMeta"
+  ],
+  "type": "object"
+}

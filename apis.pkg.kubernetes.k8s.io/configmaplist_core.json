@@ -1,0 +1,26 @@
+{
+  "description": "ConfigMapList is a resource containing a list of ConfigMap objects.",
+  "properties": {
+    "Items": {
+      "description": "Items is the list of ConfigMaps.",
+      "items": {
+        "$ref": "../apis.pkg.kubernetes.k8s.io/configmap_core.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "ListMeta": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/listmeta_v1.json",
+      "default": {}
+    },
+    "TypeMeta": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/typemeta_v1.json",
+      "default": {}
+    }
+  },
+  "required": [
+    "TypeMeta",
+    "Items"
+  ],
+  "type": "object"
+}

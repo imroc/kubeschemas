@@ -1,0 +1,14 @@
+{
+  "description": "LoadBalancerStatus represents the status of a load-balancer",
+  "properties": {
+    "Ingress": {
+      "description": "Ingress is a list containing ingress points for the load-balancer; traffic intended for the service should be sent to these ingress points.",
+      "items": {
+        "$ref": "../apis.pkg.kubernetes.k8s.io/loadbalanceringress_core.json",
+        "default": {}
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

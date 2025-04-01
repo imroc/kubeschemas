@@ -1,0 +1,47 @@
+{
+  "description": "ReplicationControllerStatus represents the current status of a replication controller.",
+  "properties": {
+    "AvailableReplicas": {
+      "default": 0,
+      "description": "The number of available replicas (ready for at least minReadySeconds) for this replication controller.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "Conditions": {
+      "description": "Represents the latest available observations of a replication controller's current state.",
+      "items": {
+        "$ref": "../apis.pkg.kubernetes.k8s.io/replicationcontrollercondition_core.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "FullyLabeledReplicas": {
+      "default": 0,
+      "description": "The number of pods that have labels matching the labels of the pod template of the replication controller.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "ObservedGeneration": {
+      "default": 0,
+      "description": "ObservedGeneration is the most recent generation observed by the controller.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "ReadyReplicas": {
+      "default": 0,
+      "description": "The number of ready replicas for this replication controller.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "Replicas": {
+      "default": 0,
+      "description": "Replicas is the number of actual replicas.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "Replicas"
+  ],
+  "type": "object"
+}

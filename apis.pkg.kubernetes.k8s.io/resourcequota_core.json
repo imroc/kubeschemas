@@ -1,0 +1,27 @@
+{
+  "description": "ResourceQuota sets aggregate quota restrictions enforced per namespace",
+  "properties": {
+    "ObjectMeta": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json",
+      "default": {}
+    },
+    "Spec": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/resourcequotaspec_core.json",
+      "default": {},
+      "description": "Spec defines the desired quota"
+    },
+    "Status": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/resourcequotastatus_core.json",
+      "default": {},
+      "description": "Status defines the actual enforced quota and its current usage"
+    },
+    "TypeMeta": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/typemeta_v1.json",
+      "default": {}
+    }
+  },
+  "required": [
+    "TypeMeta"
+  ],
+  "type": "object"
+}

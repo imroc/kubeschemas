@@ -1,0 +1,18 @@
+{
+  "description": "NamespaceStatus is information about the current status of a Namespace.",
+  "properties": {
+    "Conditions": {
+      "items": {
+        "$ref": "../apis.pkg.kubernetes.k8s.io/namespacecondition_core.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "Phase": {
+      "default": "",
+      "description": "Phase is the current lifecycle phase of the namespace.",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

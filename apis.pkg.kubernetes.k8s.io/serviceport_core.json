@@ -1,0 +1,43 @@
+{
+  "description": "ServicePort represents the port on which the service is exposed",
+  "properties": {
+    "AppProtocol": {
+      "description": "The application protocol for this port. This is used as a hint for implementations to offer richer behavior for protocols that they understand. This field follows standard Kubernetes label syntax. Valid values are either:\n\n* Un-prefixed protocol names - reserved for IANA standard service names (as per RFC-6335 and https://www.iana.org/assignments/service-names).\n\n* Kubernetes-defined prefixed names:\n  * 'kubernetes.io/h2c' - HTTP/2 prior knowledge over cleartext as described in https://www.rfc-editor.org/rfc/rfc9113.html#name-starting-http-2-with-prior-\n  * 'kubernetes.io/ws'  - WebSocket over cleartext as described in https://www.rfc-editor.org/rfc/rfc6455\n  * 'kubernetes.io/wss' - WebSocket over TLS as described in https://www.rfc-editor.org/rfc/rfc6455\n\n* Other protocols should use implementation-defined prefixed names such as mycompany.com/my-custom-protocol.",
+      "type": "string"
+    },
+    "Name": {
+      "default": "",
+      "description": "Optional if only one ServicePort is defined on this service: The name of this port within the service.  This must be a DNS_LABEL. All ports within a ServiceSpec must have unique names.  This maps to the 'Name' field in EndpointPort objects.",
+      "type": "string"
+    },
+    "NodePort": {
+      "default": 0,
+      "description": "The port on each node on which this service is exposed. Default is to auto-allocate a port if the ServiceType of this Service requires one.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "Port": {
+      "default": 0,
+      "description": "The port that will be exposed on the service.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "Protocol": {
+      "default": "",
+      "description": "The IP protocol for this port.  Supports \"TCP\", \"UDP\", and \"SCTP\".",
+      "type": "string"
+    },
+    "TargetPort": {
+      "$ref": "../util.pkg.apimachinery.k8s.io/intorstring_intstr.json",
+      "description": "Optional: The target port on pods selected by this service.  If this is a string, it will be looked up as a named port in the target Pod's container ports.  If this is not specified, the value of the 'port' field is used (an identity map). This field is ignored for services with clusterIP=None, and should be omitted or set equal to the 'port' field."
+    }
+  },
+  "required": [
+    "Name",
+    "Protocol",
+    "Port",
+    "TargetPort",
+    "NodePort"
+  ],
+  "type": "object"
+}

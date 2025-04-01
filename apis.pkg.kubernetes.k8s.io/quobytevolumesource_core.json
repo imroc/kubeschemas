@@ -1,0 +1,40 @@
+{
+  "description": "QuobyteVolumeSource represents a Quobyte mount that lasts the lifetime of a pod. Quobyte volumes do not support ownership management or SELinux relabeling.",
+  "properties": {
+    "Group": {
+      "default": "",
+      "description": "Group to map volume access to Default is no group",
+      "type": "string"
+    },
+    "ReadOnly": {
+      "default": false,
+      "description": "Defaults to false (read/write). ReadOnly here will force the Quobyte to be mounted with read-only permissions",
+      "type": "boolean"
+    },
+    "Registry": {
+      "default": "",
+      "description": "Registry represents a single or multiple Quobyte Registry services specified as a string as host:port pair (multiple entries are separated with commas) which acts as the central registry for volumes",
+      "type": "string"
+    },
+    "Tenant": {
+      "default": "",
+      "description": "Tenant owning the given Quobyte volume in the Backend Used with dynamically provisioned Quobyte volumes, value is set by the plugin",
+      "type": "string"
+    },
+    "User": {
+      "default": "",
+      "description": "User to map volume access to Defaults to the root user",
+      "type": "string"
+    },
+    "Volume": {
+      "default": "",
+      "description": "Volume is a string that references an already created Quobyte volume by name.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "Registry",
+    "Volume"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,27 @@
+{
+  "description": "Service is a named abstraction of software service (for example, mysql) consisting of local port (for example 3306) that the proxy listens on, and the selector that determines which pods will answer requests sent through the proxy.",
+  "properties": {
+    "ObjectMeta": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json",
+      "default": {}
+    },
+    "Spec": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/servicespec_core.json",
+      "default": {},
+      "description": "Spec defines the behavior of a service."
+    },
+    "Status": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/servicestatus_core.json",
+      "default": {},
+      "description": "Status represents the current status of a service."
+    },
+    "TypeMeta": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/typemeta_v1.json",
+      "default": {}
+    }
+  },
+  "required": [
+    "TypeMeta"
+  ],
+  "type": "object"
+}

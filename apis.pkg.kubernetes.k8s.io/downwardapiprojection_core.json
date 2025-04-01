@@ -1,0 +1,14 @@
+{
+  "description": "DownwardAPIProjection represents downward API info for projecting into a projected volume. Note that this is identical to a downwardAPI volume source without the default mode.",
+  "properties": {
+    "Items": {
+      "description": "Items is a list of DownwardAPIVolume file",
+      "items": {
+        "$ref": "../apis.pkg.kubernetes.k8s.io/downwardapivolumefile_core.json",
+        "default": {}
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

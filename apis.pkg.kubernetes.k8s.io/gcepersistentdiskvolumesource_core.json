@@ -1,0 +1,30 @@
+{
+  "description": "GCEPersistentDiskVolumeSource represents a Persistent Disk resource in Google Compute Engine.\n\nA GCE PD must exist before mounting to a container. The disk must also be in the same GCE project and zone as the kubelet. A GCE PD can only be mounted as read/write once or read-only many times. GCE PDs support ownership management and SELinux relabeling.",
+  "properties": {
+    "FSType": {
+      "default": "",
+      "description": "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.",
+      "type": "string"
+    },
+    "PDName": {
+      "default": "",
+      "description": "Unique name of the PD resource. Used to identify the disk in GCE",
+      "type": "string"
+    },
+    "Partition": {
+      "default": 0,
+      "description": "Optional: Partition on the disk to mount. If omitted, kubelet will attempt to mount the device name. Ex. For /dev/sda1, this field is \"1\", for /dev/sda, this field is 0 or empty.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "ReadOnly": {
+      "default": false,
+      "description": "Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "PDName"
+  ],
+  "type": "object"
+}

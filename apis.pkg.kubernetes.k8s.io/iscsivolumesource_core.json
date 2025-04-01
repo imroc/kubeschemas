@@ -1,0 +1,63 @@
+{
+  "description": "ISCSIVolumeSource represents an ISCSI disk. ISCSI volumes can only be mounted as read/write once. ISCSI volumes support ownership management and SELinux relabeling.",
+  "properties": {
+    "DiscoveryCHAPAuth": {
+      "default": false,
+      "description": "Optional: whether support iSCSI Discovery CHAP authentication",
+      "type": "boolean"
+    },
+    "FSType": {
+      "default": "",
+      "description": "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.",
+      "type": "string"
+    },
+    "IQN": {
+      "default": "",
+      "description": "Required:  target iSCSI Qualified Name",
+      "type": "string"
+    },
+    "ISCSIInterface": {
+      "default": "",
+      "description": "Optional: Defaults to 'default' (tcp). iSCSI interface name that uses an iSCSI transport.",
+      "type": "string"
+    },
+    "InitiatorName": {
+      "description": "Optional: Custom initiator name per volume. If initiatorName is specified with iscsiInterface simultaneously, new iSCSI interface \u003ctarget portal\u003e:\u003cvolume name\u003e will be created for the connection.",
+      "type": "string"
+    },
+    "Lun": {
+      "default": 0,
+      "description": "Required: iSCSI target lun number",
+      "format": "int32",
+      "type": "integer"
+    },
+    "Portals": {
+      "description": "Optional: list of iSCSI target portal ips for high availability. the portal is either an IP or ip_addr:port if port is other than default (typically TCP ports 860 and 3260)",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "ReadOnly": {
+      "default": false,
+      "description": "Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.",
+      "type": "boolean"
+    },
+    "SecretRef": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/localobjectreference_core.json",
+      "description": "Optional: CHAP secret for iSCSI target and initiator authentication. The secret is used if either DiscoveryCHAPAuth or SessionCHAPAuth is true"
+    },
+    "SessionCHAPAuth": {
+      "default": false,
+      "description": "Optional: whether support iSCSI Session CHAP authentication",
+      "type": "boolean"
+    },
+    "TargetPortal": {
+      "default": "",
+      "description": "Required: iSCSI target portal the portal is either an IP or ip_addr:port if port is other than default (typically TCP ports 860 and 3260)",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

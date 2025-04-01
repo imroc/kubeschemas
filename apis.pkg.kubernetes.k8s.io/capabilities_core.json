@@ -1,0 +1,22 @@
+{
+  "description": "Capabilities represent POSIX capabilities that can be added or removed to a running container.",
+  "properties": {
+    "Add": {
+      "description": "Added capabilities",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "Drop": {
+      "description": "Removed capabilities",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

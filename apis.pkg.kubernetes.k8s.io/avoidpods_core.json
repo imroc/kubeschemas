@@ -1,0 +1,14 @@
+{
+  "description": "AvoidPods describes pods that should avoid this node. This is the value for a Node annotation with key scheduler.alpha.kubernetes.io/preferAvoidPods and will eventually become a field of NodeStatus.",
+  "properties": {
+    "PreferAvoidPods": {
+      "description": "Bounded-sized list of signatures of pods that should avoid this node, sorted in timestamp order from oldest to newest. Size of the slice is unspecified.",
+      "items": {
+        "$ref": "../apis.pkg.kubernetes.k8s.io/preferavoidpodsentry_core.json",
+        "default": {}
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

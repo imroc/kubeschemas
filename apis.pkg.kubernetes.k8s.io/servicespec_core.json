@@ -1,0 +1,124 @@
+{
+  "description": "ServiceSpec describes the attributes that a user creates on a service",
+  "properties": {
+    "AllocateLoadBalancerNodePorts": {
+      "description": "allocateLoadBalancerNodePorts defines if NodePorts will be automatically allocated for services with type LoadBalancer.  Default is \"true\". It may be set to \"false\" if the cluster load-balancer does not rely on NodePorts.  If the caller requests specific NodePorts (by specifying a value), those requests will be respected, regardless of this field. This field may only be set for services with type LoadBalancer and will be cleared if the type is changed to any other type.",
+      "type": "boolean"
+    },
+    "ClusterIP": {
+      "default": "",
+      "description": "ClusterIP is the IP address of the service and is usually assigned randomly by the master. If an address is specified manually and is not in use by others, it will be allocated to the service; otherwise, creation of the service will fail. This field can not be changed through updates. Valid values are \"None\", empty string (\"\"), or a valid IP address. \"None\" can be specified for headless services when proxying is not required. Only applies to types ClusterIP, NodePort, and LoadBalancer. Ignored if type is ExternalName. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies",
+      "type": "string"
+    },
+    "ClusterIPs": {
+      "description": "ClusterIPs identifies all the ClusterIPs assigned to this service. ClusterIPs are assigned or reserved based on the values of service.spec.ipFamilies. A maximum of two entries (dual-stack IPs) are allowed in ClusterIPs. The IPFamily of each ClusterIP must match values provided in service.spec.ipFamilies. Clients using ClusterIPs must keep it in sync with ClusterIP (if provided) by having ClusterIP matching first element of ClusterIPs.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "ExternalIPs": {
+      "description": "ExternalIPs are used by external load balancers, or can be set by users to handle external traffic that arrives at a node.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "ExternalName": {
+      "default": "",
+      "description": "ExternalName is the external reference that kubedns or equivalent will return as a CNAME record for this service. No proxying will be involved. Must be a valid RFC-1123 hostname (https://tools.ietf.org/html/rfc1123) and requires Type to be ExternalName.",
+      "type": "string"
+    },
+    "ExternalTrafficPolicy": {
+      "default": "",
+      "description": "externalTrafficPolicy describes how nodes distribute service traffic they receive on one of the Service's \"externally-facing\" addresses (NodePorts, ExternalIPs, and LoadBalancer IPs). If set to \"Local\", the proxy will configure the service in a way that assumes that external load balancers will take care of balancing the service traffic between nodes, and so each node will deliver traffic only to the node-local endpoints of the service, without masquerading the client source IP. (Traffic mistakenly sent to a node with no endpoints will be dropped.) The default value, \"Cluster\", uses the standard behavior of routing to all endpoints evenly (possibly modified by topology and other features). Note that traffic sent to an External IP or LoadBalancer IP from within the cluster will always get \"Cluster\" semantics, but clients sending to a NodePort from within the cluster may need to take traffic policy into account when picking a node.",
+      "type": "string"
+    },
+    "HealthCheckNodePort": {
+      "default": 0,
+      "description": "healthCheckNodePort specifies the healthcheck nodePort for the service. If not specified, HealthCheckNodePort is created by the service api backend with the allocated nodePort. Will use user-specified nodePort value if specified by the client. Only effects when Type is set to LoadBalancer and ExternalTrafficPolicy is set to Local.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "IPFamilies": {
+      "description": "IPFamilies identifies all the IPFamilies assigned for this Service. If a value was not provided for IPFamilies it will be defaulted based on the cluster configuration and the value of service.spec.ipFamilyPolicy. A maximum of two values (dual-stack IPFamilies) are allowed in IPFamilies. IPFamilies field is conditionally mutable: it allows for adding or removing a secondary IPFamily, but it does not allow changing the primary IPFamily of the service.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "IPFamilyPolicy": {
+      "description": "IPFamilyPolicy represents the dual-stack-ness requested or required by this Service. If there is no value provided, then this Service will be considered SingleStack (single IPFamily). Services can be SingleStack (single IPFamily), PreferDualStack (two dual-stack IPFamilies on dual-stack clusters or single IPFamily on single-stack clusters), or RequireDualStack (two dual-stack IPFamilies on dual-stack configured clusters, otherwise fail). The IPFamilies and ClusterIPs assigned to this service can be controlled by service.spec.ipFamilies and service.spec.clusterIPs respectively.",
+      "type": "string"
+    },
+    "InternalTrafficPolicy": {
+      "description": "InternalTrafficPolicy describes how nodes distribute service traffic they receive on the ClusterIP. If set to \"Local\", the proxy will assume that pods only want to talk to endpoints of the service on the same node as the pod, dropping the traffic if there are no local endpoints. The default value, \"Cluster\", uses the standard behavior of routing to all endpoints evenly (possibly modified by topology and other features).",
+      "type": "string"
+    },
+    "LoadBalancerClass": {
+      "description": "loadBalancerClass is the class of the load balancer implementation this Service belongs to. If specified, the value of this field must be a label-style identifier, with an optional prefix, e.g. \"internal-vip\" or \"example.com/internal-vip\". Unprefixed names are reserved for end-users. This field can only be set when the Service type is 'LoadBalancer'. If not set, the default load balancer implementation is used, today this is typically done through the cloud provider integration, but should apply for any default implementation. If set, it is assumed that a load balancer implementation is watching for Services with a matching class. Any default load balancer implementation (e.g. cloud providers) should ignore Services that set this field. This field can only be set when creating or updating a Service to type 'LoadBalancer'. Once set, it can not be changed. This field will be wiped when a service is updated to a non 'LoadBalancer' type.",
+      "type": "string"
+    },
+    "LoadBalancerIP": {
+      "default": "",
+      "description": "Only applies to Service Type: LoadBalancer LoadBalancer will get created with the IP specified in this field. This feature depends on whether the underlying cloud-provider supports specifying the loadBalancerIP when a load balancer is created. This field will be ignored if the cloud-provider does not support the feature. Deprecated: This field was under-specified and its meaning varies across implementations. Using it is non-portable and it may not support dual-stack. Users are encouraged to use implementation-specific annotations when available.",
+      "type": "string"
+    },
+    "LoadBalancerSourceRanges": {
+      "description": "Optional: If specified and supported by the platform, this will restrict traffic through the cloud-provider load-balancer will be restricted to the specified client IPs. This field will be ignored if the cloud-provider does not support the feature.\"",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "Ports": {
+      "description": "Required: The list of ports that are exposed by this service.",
+      "items": {
+        "$ref": "../apis.pkg.kubernetes.k8s.io/serviceport_core.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "PublishNotReadyAddresses": {
+      "default": false,
+      "description": "publishNotReadyAddresses indicates that any agent which deals with endpoints for this Service should disregard any indications of ready/not-ready. The primary use case for setting this field is for a StatefulSet's Headless Service to propagate SRV DNS records for its Pods for the purpose of peer discovery. The Kubernetes controllers that generate Endpoints and EndpointSlice resources for Services interpret this to mean that all endpoints are considered \"ready\" even if the Pods themselves are not. Agents which consume only Kubernetes generated endpoints through the Endpoints or EndpointSlice resources can safely assume this behavior.",
+      "type": "boolean"
+    },
+    "Selector": {
+      "additionalProperties": {
+        "default": "",
+        "type": "string"
+      },
+      "description": "Route service traffic to pods with label keys and values matching this selector. If empty or not present, the service is assumed to have an external process managing its endpoints, which Kubernetes will not modify. Only applies to types ClusterIP, NodePort, and LoadBalancer. Ignored if type is ExternalName. More info: https://kubernetes.io/docs/concepts/services-networking/service/",
+      "type": "object"
+    },
+    "SessionAffinity": {
+      "default": "",
+      "description": "Optional: Supports \"ClientIP\" and \"None\".  Used to maintain session affinity.",
+      "type": "string"
+    },
+    "SessionAffinityConfig": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/sessionaffinityconfig_core.json",
+      "description": "sessionAffinityConfig contains the configurations of session affinity."
+    },
+    "TrafficDistribution": {
+      "description": "TrafficDistribution offers a way to express preferences for how traffic is distributed to Service endpoints. Implementations can use this field as a hint, but are not required to guarantee strict adherence. If the field is not set, the implementation will apply its default routing strategy. If set to \"PreferClose\", implementations should prioritize endpoints that are in the same zone.",
+      "type": "string"
+    },
+    "Type": {
+      "default": "",
+      "description": "Type determines how the Service is exposed. Defaults to ClusterIP. Valid options are ExternalName, ClusterIP, NodePort, and LoadBalancer. \"ExternalName\" maps to the specified externalName. \"ClusterIP\" allocates a cluster-internal IP address for load-balancing to endpoints. Endpoints are determined by the selector or if that is not specified, by manual construction of an Endpoints object. If clusterIP is \"None\", no virtual IP is allocated and the endpoints are published as a set of endpoints rather than a stable IP. \"NodePort\" builds on ClusterIP and allocates a port on every node which routes to the clusterIP. \"LoadBalancer\" builds on NodePort and creates an external load-balancer (if supported in the current cloud) which routes to the clusterIP. More info: https://kubernetes.io/docs/concepts/services-networking/service/",
+      "type": "string"
+    }
+  },
+  "required": [
+    "Ports",
+    "Selector",
+    "ExternalName"
+  ],
+  "type": "object"
+}

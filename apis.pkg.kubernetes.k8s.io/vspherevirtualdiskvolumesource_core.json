@@ -1,0 +1,29 @@
+{
+  "description": "VsphereVirtualDiskVolumeSource represents a vSphere volume resource.",
+  "properties": {
+    "FSType": {
+      "default": "",
+      "description": "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.",
+      "type": "string"
+    },
+    "StoragePolicyID": {
+      "default": "",
+      "description": "Storage Policy Based Management (SPBM) profile ID associated with the StoragePolicyName.",
+      "type": "string"
+    },
+    "StoragePolicyName": {
+      "default": "",
+      "description": "Storage Policy Based Management (SPBM) profile name.",
+      "type": "string"
+    },
+    "VolumePath": {
+      "default": "",
+      "description": "Path that identifies vSphere volume vmdk",
+      "type": "string"
+    }
+  },
+  "required": [
+    "VolumePath"
+  ],
+  "type": "object"
+}

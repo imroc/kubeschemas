@@ -1,0 +1,27 @@
+{
+  "description": "Node is a worker node in Kubernetes The name of the node according to etcd is in ObjectMeta.Name.",
+  "properties": {
+    "ObjectMeta": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json",
+      "default": {}
+    },
+    "Spec": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/nodespec_core.json",
+      "default": {},
+      "description": "Spec defines the behavior of a node."
+    },
+    "Status": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/nodestatus_core.json",
+      "default": {},
+      "description": "Status describes the current status of a Node"
+    },
+    "TypeMeta": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/typemeta_v1.json",
+      "default": {}
+    }
+  },
+  "required": [
+    "TypeMeta"
+  ],
+  "type": "object"
+}

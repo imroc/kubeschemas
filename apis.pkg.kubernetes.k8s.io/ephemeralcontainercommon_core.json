@@ -1,0 +1,145 @@
+{
+  "description": "EphemeralContainerCommon is a copy of all fields in Container to be inlined in EphemeralContainer. This separate type allows easy conversion from EphemeralContainer to Container and allows separate documentation for the fields of EphemeralContainer. When a new field is added to Container it must be added here as well.",
+  "properties": {
+    "Args": {
+      "description": "Optional: The container image's cmd is used if this is not provided; cannot be updated. Variable references $(VAR_NAME) are expanded using the container's environment.  If a variable cannot be resolved, the reference in the input string will be unchanged.  Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\".  Escaped references will never be expanded, regardless of whether the variable exists or not.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "Command": {
+      "description": "Optional: The container image's entrypoint is used if this is not provided; cannot be updated. Variable references $(VAR_NAME) are expanded using the container's environment.  If a variable cannot be resolved, the reference in the input string will be unchanged.  Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\".  Escaped references will never be expanded, regardless of whether the variable exists or not.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "Env": {
+      "items": {
+        "$ref": "../apis.pkg.kubernetes.k8s.io/envvar_core.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "EnvFrom": {
+      "description": "List of sources to populate environment variables in the container. The keys defined within a source must be a C_IDENTIFIER. All invalid keys will be reported as an event when the container is starting. When a key exists in multiple sources, the value associated with the last source will take precedence. Values defined by an Env with a duplicate key will take precedence. Cannot be updated.",
+      "items": {
+        "$ref": "../apis.pkg.kubernetes.k8s.io/envfromsource_core.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "Image": {
+      "default": "",
+      "description": "Required.",
+      "type": "string"
+    },
+    "ImagePullPolicy": {
+      "default": "",
+      "description": "Required: Policy for pulling images for this container",
+      "type": "string"
+    },
+    "Lifecycle": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/lifecycle_core.json",
+      "description": "Lifecycle is not allowed for ephemeral containers."
+    },
+    "LivenessProbe": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/probe_core.json",
+      "description": "Probes are not allowed for ephemeral containers."
+    },
+    "Name": {
+      "default": "",
+      "description": "Required: This must be a DNS_LABEL.  Each container in a pod must have a unique name.",
+      "type": "string"
+    },
+    "Ports": {
+      "description": "Ports are not allowed for ephemeral containers.",
+      "items": {
+        "$ref": "../apis.pkg.kubernetes.k8s.io/containerport_core.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "ReadinessProbe": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/probe_core.json",
+      "description": "Probes are not allowed for ephemeral containers."
+    },
+    "ResizePolicy": {
+      "description": "Resources resize policy for the container.",
+      "items": {
+        "$ref": "../apis.pkg.kubernetes.k8s.io/containerresizepolicy_core.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "Resources": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/resourcerequirements_core.json",
+      "default": {},
+      "description": "Resources are not allowed for ephemeral containers. Ephemeral containers use spare resources already allocated to the pod."
+    },
+    "RestartPolicy": {
+      "description": "Restart policy for the container to manage the restart behavior of each container within a pod. This may only be set for init containers. You cannot set this field on ephemeral containers.",
+      "type": "string"
+    },
+    "SecurityContext": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/securitycontext_core.json",
+      "description": "Optional: SecurityContext defines the security options the ephemeral container should be run with. If set, the fields of SecurityContext override the equivalent fields of PodSecurityContext."
+    },
+    "StartupProbe": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/probe_core.json",
+      "description": "Probes are not allowed for ephemeral containers."
+    },
+    "Stdin": {
+      "default": false,
+      "description": "Variables for interactive containers, these have very specialized use-cases (e.g. debugging) and shouldn't be used for general purpose containers.",
+      "type": "boolean"
+    },
+    "StdinOnce": {
+      "default": false,
+      "type": "boolean"
+    },
+    "TTY": {
+      "default": false,
+      "type": "boolean"
+    },
+    "TerminationMessagePath": {
+      "default": "",
+      "description": "Required.",
+      "type": "string"
+    },
+    "TerminationMessagePolicy": {
+      "default": "",
+      "type": "string"
+    },
+    "VolumeDevices": {
+      "description": "volumeDevices is the list of block devices to be used by the container.",
+      "items": {
+        "$ref": "../apis.pkg.kubernetes.k8s.io/volumedevice_core.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "VolumeMounts": {
+      "description": "Pod volumes to mount into the container's filesystem. Subpath mounts are not allowed for ephemeral containers.",
+      "items": {
+        "$ref": "../apis.pkg.kubernetes.k8s.io/volumemount_core.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "WorkingDir": {
+      "default": "",
+      "description": "Optional: Defaults to the container runtime's default working directory.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "Name",
+    "Image",
+    "ImagePullPolicy"
+  ],
+  "type": "object"
+}

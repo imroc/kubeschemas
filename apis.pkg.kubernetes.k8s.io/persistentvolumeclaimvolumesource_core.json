@@ -1,0 +1,19 @@
+{
+  "description": "PersistentVolumeClaimVolumeSource represents a reference to a PersistentVolumeClaim in the same namespace",
+  "properties": {
+    "ClaimName": {
+      "default": "",
+      "description": "ClaimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume",
+      "type": "string"
+    },
+    "ReadOnly": {
+      "default": false,
+      "description": "Optional: Defaults to false (read/write).  ReadOnly here will force the ReadOnly setting in VolumeMounts",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "ClaimName"
+  ],
+  "type": "object"
+}

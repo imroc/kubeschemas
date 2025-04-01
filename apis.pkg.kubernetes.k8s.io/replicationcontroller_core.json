@@ -1,0 +1,27 @@
+{
+  "description": "ReplicationController represents the configuration of a replication controller.",
+  "properties": {
+    "ObjectMeta": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json",
+      "default": {}
+    },
+    "Spec": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/replicationcontrollerspec_core.json",
+      "default": {},
+      "description": "Spec defines the desired behavior of this replication controller."
+    },
+    "Status": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/replicationcontrollerstatus_core.json",
+      "default": {},
+      "description": "Status is the current status of this replication controller. This data may be out of date by some window of time."
+    },
+    "TypeMeta": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/typemeta_v1.json",
+      "default": {}
+    }
+  },
+  "required": [
+    "TypeMeta"
+  ],
+  "type": "object"
+}

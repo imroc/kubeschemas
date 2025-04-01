@@ -1,0 +1,22 @@
+{
+  "description": "PodPortForwardOptions is the query options to a Pod's port forward call",
+  "properties": {
+    "Ports": {
+      "description": "The list of ports to forward",
+      "items": {
+        "default": 0,
+        "format": "int32",
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "TypeMeta": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/typemeta_v1.json",
+      "default": {}
+    }
+  },
+  "required": [
+    "TypeMeta"
+  ],
+  "type": "object"
+}

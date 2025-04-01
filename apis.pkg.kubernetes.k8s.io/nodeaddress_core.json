@@ -1,0 +1,18 @@
+{
+  "description": "NodeAddress represents node's address",
+  "properties": {
+    "Address": {
+      "default": "",
+      "type": "string"
+    },
+    "Type": {
+      "default": "",
+      "type": "string"
+    }
+  },
+  "required": [
+    "Type",
+    "Address"
+  ],
+  "type": "object"
+}

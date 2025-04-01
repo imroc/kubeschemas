@@ -1,0 +1,37 @@
+{
+  "description": "ContainerStateTerminated represents the terminated state of a container",
+  "properties": {
+    "ContainerID": {
+      "default": "",
+      "type": "string"
+    },
+    "ExitCode": {
+      "default": 0,
+      "format": "int32",
+      "type": "integer"
+    },
+    "FinishedAt": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/time_v1.json"
+    },
+    "Message": {
+      "default": "",
+      "type": "string"
+    },
+    "Reason": {
+      "default": "",
+      "type": "string"
+    },
+    "Signal": {
+      "default": 0,
+      "format": "int32",
+      "type": "integer"
+    },
+    "StartedAt": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/time_v1.json"
+    }
+  },
+  "required": [
+    "ExitCode"
+  ],
+  "type": "object"
+}

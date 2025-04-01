@@ -1,0 +1,25 @@
+{
+  "description": "SeccompProfile defines a pod/container's seccomp profile settings. Only one profile source may be set.",
+  "properties": {
+    "LocalhostProfile": {
+      "description": "Load a profile defined in static file on the node. The profile must be preconfigured on the node to work. LocalhostProfile cannot be an absolute nor a descending path.",
+      "type": "string"
+    },
+    "Type": {
+      "default": "",
+      "type": "string"
+    }
+  },
+  "required": [
+    "Type"
+  ],
+  "type": "object",
+  "x-kubernetes-unions": [
+    {
+      "discriminator": "Type",
+      "fields-to-discriminateBy": {
+        "LocalhostProfile": "LocalhostProfile"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "description": "LinuxContainerUser represents user identity information in Linux containers",
+  "properties": {
+    "GID": {
+      "default": 0,
+      "description": "GID is the primary gid initially attached to the first process in the container",
+      "format": "int64",
+      "type": "integer"
+    },
+    "SupplementalGroups": {
+      "description": "SupplementalGroups are the supplemental groups initially attached to the first process in the container",
+      "items": {
+        "default": 0,
+        "format": "int64",
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "UID": {
+      "default": 0,
+      "description": "UID is the primary uid initially attached to the first process in the container",
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "UID",
+    "GID",
+    "SupplementalGroups"
+  ],
+  "type": "object"
+}

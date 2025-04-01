@@ -1,0 +1,37 @@
+{
+  "description": "FCVolumeSource represents a Fibre Channel volume. Fibre Channel volumes can only be mounted as read/write once. Fibre Channel volumes support ownership management and SELinux relabeling.",
+  "properties": {
+    "FSType": {
+      "default": "",
+      "description": "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.",
+      "type": "string"
+    },
+    "Lun": {
+      "description": "Optional: FC target lun number",
+      "format": "int32",
+      "type": "integer"
+    },
+    "ReadOnly": {
+      "default": false,
+      "description": "Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.",
+      "type": "boolean"
+    },
+    "TargetWWNs": {
+      "description": "Optional: FC target worldwide names (WWNs)",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "WWIDs": {
+      "description": "Optional: FC volume World Wide Identifiers (WWIDs) Either WWIDs or TargetWWNs and Lun must be set, but not both simultaneously.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

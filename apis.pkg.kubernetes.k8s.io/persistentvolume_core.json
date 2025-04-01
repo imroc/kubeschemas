@@ -1,0 +1,27 @@
+{
+  "description": "PersistentVolume struct captures the details of the implementation of PV storage",
+  "properties": {
+    "ObjectMeta": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json",
+      "default": {}
+    },
+    "Spec": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/persistentvolumespec_core.json",
+      "default": {},
+      "description": "Spec defines a persistent volume owned by the cluster"
+    },
+    "Status": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/persistentvolumestatus_core.json",
+      "default": {},
+      "description": "Status represents the current information about persistent volume."
+    },
+    "TypeMeta": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/typemeta_v1.json",
+      "default": {}
+    }
+  },
+  "required": [
+    "TypeMeta"
+  ],
+  "type": "object"
+}

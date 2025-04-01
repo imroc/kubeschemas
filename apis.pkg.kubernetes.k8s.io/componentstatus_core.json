@@ -1,0 +1,24 @@
+{
+  "description": "ComponentStatus (and ComponentStatusList) holds the cluster validation info. Deprecated: This API is deprecated in v1.19+",
+  "properties": {
+    "Conditions": {
+      "items": {
+        "$ref": "../apis.pkg.kubernetes.k8s.io/componentcondition_core.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "ObjectMeta": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json",
+      "default": {}
+    },
+    "TypeMeta": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/typemeta_v1.json",
+      "default": {}
+    }
+  },
+  "required": [
+    "TypeMeta"
+  ],
+  "type": "object"
+}

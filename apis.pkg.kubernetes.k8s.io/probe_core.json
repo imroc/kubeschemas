@@ -1,0 +1,49 @@
+{
+  "description": "Probe describes a health check to be performed against a container to determine whether it is alive or ready to receive traffic.",
+  "properties": {
+    "FailureThreshold": {
+      "default": 0,
+      "description": "Minimum consecutive failures for the probe to be considered failed after having succeeded.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "InitialDelaySeconds": {
+      "default": 0,
+      "description": "Length of time before health checking is activated.  In seconds.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "PeriodSeconds": {
+      "default": 0,
+      "description": "How often (in seconds) to perform the probe.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "ProbeHandler": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/probehandler_core.json",
+      "default": {},
+      "description": "The action taken to determine the health of a container"
+    },
+    "SuccessThreshold": {
+      "default": 0,
+      "description": "Minimum consecutive successes for the probe to be considered successful after having failed. Must be 1 for liveness and startup.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "TerminationGracePeriodSeconds": {
+      "description": "Optional duration in seconds the pod needs to terminate gracefully upon probe failure. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. If this value is nil, the pod's terminationGracePeriodSeconds will be used. Otherwise, this value overrides the value provided by the pod spec. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). This is a beta field and requires enabling ProbeTerminationGracePeriod feature gate.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "TimeoutSeconds": {
+      "default": 0,
+      "description": "Length of time before health checking times out.  In seconds.",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "ProbeHandler"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,23 @@
+{
+  "description": "EnvVar represents an environment variable present in a Container.",
+  "properties": {
+    "Name": {
+      "default": "",
+      "description": "Required: Name of the environment variable. When the RelaxedEnvironmentVariableValidation feature gate is disabled, this must consist of alphabetic characters, digits, '_', '-', or '.', and must not start with a digit. When the RelaxedEnvironmentVariableValidation feature gate is enabled, this may contain any printable ASCII characters except '='.",
+      "type": "string"
+    },
+    "Value": {
+      "default": "",
+      "description": "Optional: no more than one of the following may be specified. Optional: Defaults to \"\"; variable references $(VAR_NAME) are expanded using the previously defined environment variables in the container and any service environment variables.  If a variable cannot be resolved, the reference in the input string will be unchanged.  Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\".  Escaped references will never be expanded, regardless of whether the variable exists or not.",
+      "type": "string"
+    },
+    "ValueFrom": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/envvarsource_core.json",
+      "description": "Optional: Specifies a source the value of this var should come from."
+    }
+  },
+  "required": [
+    "Name"
+  ],
+  "type": "object"
+}

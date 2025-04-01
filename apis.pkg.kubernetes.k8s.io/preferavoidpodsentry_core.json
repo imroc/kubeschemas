@@ -1,0 +1,28 @@
+{
+  "description": "PreferAvoidPodsEntry describes a class of pods that should avoid this node.",
+  "properties": {
+    "EvictionTime": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/time_v1.json",
+      "description": "Time at which this entry was added to the list."
+    },
+    "Message": {
+      "default": "",
+      "description": "Human readable message indicating why this entry was added to the list.",
+      "type": "string"
+    },
+    "PodSignature": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/podsignature_core.json",
+      "default": {},
+      "description": "The class of pods."
+    },
+    "Reason": {
+      "default": "",
+      "description": "(brief) reason why this entry was added to the list.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "PodSignature"
+  ],
+  "type": "object"
+}

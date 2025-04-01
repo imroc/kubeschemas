@@ -1,0 +1,22 @@
+{
+  "description": "EnvVarSource represents a source for the value of an EnvVar. Only one of its fields may be set.",
+  "properties": {
+    "ConfigMapKeyRef": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/configmapkeyselector_core.json",
+      "description": "Selects a key of a ConfigMap."
+    },
+    "FieldRef": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/objectfieldselector_core.json",
+      "description": "Selects a field of the pod: supports metadata.name, metadata.namespace, `metadata.labels['\u003cKEY\u003e']`, `metadata.annotations['\u003cKEY\u003e']`, metadata.uid, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP, status.podIPs."
+    },
+    "ResourceFieldRef": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/resourcefieldselector_core.json",
+      "description": "Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported."
+    },
+    "SecretKeyRef": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/secretkeyselector_core.json",
+      "description": "Selects a key of a secret in the pod's namespace."
+    }
+  },
+  "type": "object"
+}

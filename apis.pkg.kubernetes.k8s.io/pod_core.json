@@ -1,0 +1,27 @@
+{
+  "description": "Pod is a collection of containers, used as either input (create, update) or as output (list, get).",
+  "properties": {
+    "ObjectMeta": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json",
+      "default": {}
+    },
+    "Spec": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/podspec_core.json",
+      "default": {},
+      "description": "Spec defines the behavior of a pod."
+    },
+    "Status": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/podstatus_core.json",
+      "default": {},
+      "description": "Status represents the current information about a pod. This data may not be up to date."
+    },
+    "TypeMeta": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/typemeta_v1.json",
+      "default": {}
+    }
+  },
+  "required": [
+    "TypeMeta"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,25 @@
+{
+  "description": "PodList is a list of Pods.",
+  "properties": {
+    "Items": {
+      "items": {
+        "$ref": "../apis.pkg.kubernetes.k8s.io/pod_core.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "ListMeta": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/listmeta_v1.json",
+      "default": {}
+    },
+    "TypeMeta": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/typemeta_v1.json",
+      "default": {}
+    }
+  },
+  "required": [
+    "TypeMeta",
+    "Items"
+  ],
+  "type": "object"
+}

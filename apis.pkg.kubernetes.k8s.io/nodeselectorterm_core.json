@@ -1,0 +1,26 @@
+{
+  "description": "NodeSelectorTerm represents expressions and fields required to select nodes. A null or empty node selector term matches no objects. The requirements of them are ANDed. The TopologySelectorTerm type implements a subset of the NodeSelectorTerm.",
+  "properties": {
+    "MatchExpressions": {
+      "description": "A list of node selector requirements by node's labels.",
+      "items": {
+        "$ref": "../apis.pkg.kubernetes.k8s.io/nodeselectorrequirement_core.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "MatchFields": {
+      "description": "A list of node selector requirements by node's fields.",
+      "items": {
+        "$ref": "../apis.pkg.kubernetes.k8s.io/nodeselectorrequirement_core.json",
+        "default": {}
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "MatchExpressions",
+    "MatchFields"
+  ],
+  "type": "object"
+}

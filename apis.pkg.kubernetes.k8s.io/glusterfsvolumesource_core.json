@@ -1,0 +1,25 @@
+{
+  "description": "GlusterfsVolumeSource represents a Glusterfs mount that lasts the lifetime of a pod. Glusterfs volumes do not support ownership management or SELinux relabeling.",
+  "properties": {
+    "EndpointsName": {
+      "default": "",
+      "description": "Required: EndpointsName is the endpoint name that details Glusterfs topology",
+      "type": "string"
+    },
+    "Path": {
+      "default": "",
+      "description": "Required: Path is the Glusterfs volume path",
+      "type": "string"
+    },
+    "ReadOnly": {
+      "default": false,
+      "description": "Optional: Defaults to false (read/write). ReadOnly here will force the Glusterfs to be mounted with read-only permissions",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "EndpointsName",
+    "Path"
+  ],
+  "type": "object"
+}

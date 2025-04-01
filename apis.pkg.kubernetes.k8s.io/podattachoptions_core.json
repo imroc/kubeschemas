@@ -1,0 +1,38 @@
+{
+  "description": "PodAttachOptions is the query options to a Pod's remote attach call",
+  "properties": {
+    "Container": {
+      "default": "",
+      "description": "Container to attach to.",
+      "type": "string"
+    },
+    "Stderr": {
+      "default": false,
+      "description": "Stderr if true indicates that stderr is to be redirected for the attach call",
+      "type": "boolean"
+    },
+    "Stdin": {
+      "default": false,
+      "description": "Stdin if true indicates that stdin is to be redirected for the attach call",
+      "type": "boolean"
+    },
+    "Stdout": {
+      "default": false,
+      "description": "Stdout if true indicates that stdout is to be redirected for the attach call",
+      "type": "boolean"
+    },
+    "TTY": {
+      "default": false,
+      "description": "TTY if true indicates that a tty will be allocated for the attach call",
+      "type": "boolean"
+    },
+    "TypeMeta": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/typemeta_v1.json",
+      "default": {}
+    }
+  },
+  "required": [
+    "TypeMeta"
+  ],
+  "type": "object"
+}

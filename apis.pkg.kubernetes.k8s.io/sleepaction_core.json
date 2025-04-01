@@ -1,0 +1,15 @@
+{
+  "description": "SleepAction describes a \"sleep\" action.",
+  "properties": {
+    "Seconds": {
+      "default": 0,
+      "description": "Seconds is the number of seconds to sleep.",
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "Seconds"
+  ],
+  "type": "object"
+}

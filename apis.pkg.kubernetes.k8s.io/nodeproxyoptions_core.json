@@ -1,0 +1,19 @@
+{
+  "description": "NodeProxyOptions is the query options to a Node's proxy call",
+  "properties": {
+    "Path": {
+      "default": "",
+      "description": "Path is the URL path to use for the current proxy request",
+      "type": "string"
+    },
+    "TypeMeta": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/typemeta_v1.json",
+      "default": {}
+    }
+  },
+  "required": [
+    "TypeMeta",
+    "Path"
+  ],
+  "type": "object"
+}

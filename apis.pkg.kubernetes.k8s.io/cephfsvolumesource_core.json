@@ -1,0 +1,41 @@
+{
+  "description": "CephFSVolumeSource represents a Ceph Filesystem mount that lasts the lifetime of a pod Cephfs volumes do not support ownership management or SELinux relabeling.",
+  "properties": {
+    "Monitors": {
+      "description": "Required: Monitors is a collection of Ceph monitors",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "Path": {
+      "default": "",
+      "description": "Optional: Used as the mounted root, rather than the full Ceph tree, default is /",
+      "type": "string"
+    },
+    "ReadOnly": {
+      "default": false,
+      "description": "Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.",
+      "type": "boolean"
+    },
+    "SecretFile": {
+      "default": "",
+      "description": "Optional: SecretFile is the path to key ring for User, default is /etc/ceph/user.secret",
+      "type": "string"
+    },
+    "SecretRef": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/localobjectreference_core.json",
+      "description": "Optional: SecretRef is reference to the authentication secret for User, default is empty."
+    },
+    "User": {
+      "default": "",
+      "description": "Optional: User is the rados user name, default is admin",
+      "type": "string"
+    }
+  },
+  "required": [
+    "Monitors"
+  ],
+  "type": "object"
+}

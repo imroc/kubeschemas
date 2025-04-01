@@ -1,0 +1,19 @@
+{
+  "description": "ServiceStatus represents the current status of a service",
+  "properties": {
+    "Conditions": {
+      "description": "Current service condition",
+      "items": {
+        "$ref": "../meta.apis.pkg.apimachinery.k8s.io/condition_v1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "LoadBalancer": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/loadbalancerstatus_core.json",
+      "default": {},
+      "description": "LoadBalancer contains the current status of the load-balancer, if one is present."
+    }
+  },
+  "type": "object"
+}

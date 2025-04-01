@@ -1,0 +1,64 @@
+{
+  "description": "PersistentVolumeSpec has most of the details required to define a persistent volume",
+  "properties": {
+    "AccessModes": {
+      "description": "AccessModes contains all ways the volume can be mounted",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "Capacity": {
+      "additionalProperties": {
+        "$ref": "../api.pkg.apimachinery.k8s.io/quantity_resource.json"
+      },
+      "description": "Resources represents the actual resources of the volume",
+      "type": "object"
+    },
+    "ClaimRef": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/objectreference_core.json",
+      "description": "ClaimRef is part of a bi-directional binding between PersistentVolume and PersistentVolumeClaim. ClaimRef is expected to be non-nil when bound. claim.VolumeName is the authoritative bind between PV and PVC. When set to non-nil value, PVC.Spec.Selector of the referenced PVC is ignored, i.e. labels of this PV do not need to match PVC selector."
+    },
+    "MountOptions": {
+      "description": "A list of mount options, e.g. [\"ro\", \"soft\"]. Not validated - mount will simply fail if one is invalid.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "NodeAffinity": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/volumenodeaffinity_core.json",
+      "description": "NodeAffinity defines constraints that limit what nodes this volume can be accessed from. This field influences the scheduling of pods that use this volume."
+    },
+    "PersistentVolumeReclaimPolicy": {
+      "default": "",
+      "description": "Optional: what happens to a persistent volume when released from its claim.",
+      "type": "string"
+    },
+    "PersistentVolumeSource": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/persistentvolumesource_core.json",
+      "default": {},
+      "description": "Source represents the location and type of a volume to mount."
+    },
+    "StorageClassName": {
+      "default": "",
+      "description": "Name of StorageClass to which this persistent volume belongs. Empty value means that this volume does not belong to any StorageClass.",
+      "type": "string"
+    },
+    "VolumeAttributesClassName": {
+      "description": "Name of VolumeAttributesClass to which this persistent volume belongs. Empty value is not allowed. When this field is not set, it indicates that this volume does not belong to any VolumeAttributesClass. This field is mutable and can be changed by the CSI driver after a volume has been updated successfully to a new class. For an unbound PersistentVolume, the volumeAttributesClassName will be matched with unbound PersistentVolumeClaims during the binding process. This is a beta field and requires enabling VolumeAttributesClass feature (off by default).",
+      "type": "string"
+    },
+    "VolumeMode": {
+      "description": "volumeMode defines if a volume is intended to be used with a formatted filesystem or to remain in raw block state. Value of Filesystem is implied when not included in spec.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "Capacity",
+    "PersistentVolumeSource"
+  ],
+  "type": "object"
+}

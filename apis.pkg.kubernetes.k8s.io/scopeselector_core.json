@@ -1,0 +1,14 @@
+{
+  "description": "ScopeSelector represents the AND of the selectors represented by the scoped-resource selector terms.",
+  "properties": {
+    "MatchExpressions": {
+      "description": "A list of scope selector requirements by scope of the resources.",
+      "items": {
+        "$ref": "../apis.pkg.kubernetes.k8s.io/scopedresourceselectorrequirement_core.json",
+        "default": {}
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

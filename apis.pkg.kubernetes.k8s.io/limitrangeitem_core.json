@@ -1,0 +1,46 @@
+{
+  "description": "LimitRangeItem defines a min/max usage limit for any resource that matches on kind",
+  "properties": {
+    "Default": {
+      "additionalProperties": {
+        "$ref": "../api.pkg.apimachinery.k8s.io/quantity_resource.json"
+      },
+      "description": "Default resource requirement limit value by resource name.",
+      "type": "object"
+    },
+    "DefaultRequest": {
+      "additionalProperties": {
+        "$ref": "../api.pkg.apimachinery.k8s.io/quantity_resource.json"
+      },
+      "description": "DefaultRequest resource requirement request value by resource name.",
+      "type": "object"
+    },
+    "Max": {
+      "additionalProperties": {
+        "$ref": "../api.pkg.apimachinery.k8s.io/quantity_resource.json"
+      },
+      "description": "Max usage constraints on this kind by resource name",
+      "type": "object"
+    },
+    "MaxLimitRequestRatio": {
+      "additionalProperties": {
+        "$ref": "../api.pkg.apimachinery.k8s.io/quantity_resource.json"
+      },
+      "description": "MaxLimitRequestRatio represents the max burst value for the named resource",
+      "type": "object"
+    },
+    "Min": {
+      "additionalProperties": {
+        "$ref": "../api.pkg.apimachinery.k8s.io/quantity_resource.json"
+      },
+      "description": "Min usage constraints on this kind by resource name",
+      "type": "object"
+    },
+    "Type": {
+      "default": "",
+      "description": "Type of resource that this limit applies to",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

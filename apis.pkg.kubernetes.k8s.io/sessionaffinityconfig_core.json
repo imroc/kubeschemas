@@ -1,0 +1,10 @@
+{
+  "description": "SessionAffinityConfig represents the configurations of session affinity.",
+  "properties": {
+    "ClientIP": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/clientipconfig_core.json",
+      "description": "clientIP contains the configurations of Client IP based session affinity."
+    }
+  },
+  "type": "object"
+}

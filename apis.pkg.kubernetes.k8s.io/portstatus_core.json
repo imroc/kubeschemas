@@ -1,0 +1,25 @@
+{
+  "description": "PortStatus represents the error condition of a service port",
+  "properties": {
+    "Error": {
+      "description": "Error is to record the problem with the service port The format of the error shall comply with the following rules: - built-in error values shall be specified in this file and those shall use\n  CamelCase names\n- cloud provider specific error values must have names that comply with the\n  format foo.example.com/CamelCase.",
+      "type": "string"
+    },
+    "Port": {
+      "default": 0,
+      "description": "Port is the port number of the service port of which status is recorded here",
+      "format": "int32",
+      "type": "integer"
+    },
+    "Protocol": {
+      "default": "",
+      "description": "Protocol is the protocol of the service port of which status is recorded here",
+      "type": "string"
+    }
+  },
+  "required": [
+    "Port",
+    "Protocol"
+  ],
+  "type": "object"
+}

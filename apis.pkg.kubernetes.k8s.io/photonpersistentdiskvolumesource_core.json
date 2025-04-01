@@ -1,0 +1,20 @@
+{
+  "description": "PhotonPersistentDiskVolumeSource represents a Photon Controller persistent disk resource.",
+  "properties": {
+    "FSType": {
+      "default": "",
+      "description": "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.",
+      "type": "string"
+    },
+    "PdID": {
+      "default": "",
+      "description": "ID that identifies Photon Controller persistent disk",
+      "type": "string"
+    }
+  },
+  "required": [
+    "PdID",
+    "FSType"
+  ],
+  "type": "object"
+}

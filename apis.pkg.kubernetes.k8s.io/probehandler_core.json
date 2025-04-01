@@ -1,0 +1,22 @@
+{
+  "description": "ProbeHandler defines a specific action that should be taken in a probe. One and only one of the fields must be specified.",
+  "properties": {
+    "Exec": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/execaction_core.json",
+      "description": "Exec specifies the action to take."
+    },
+    "GRPC": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/grpcaction_core.json",
+      "description": "GRPC specifies an action involving a GRPC port."
+    },
+    "HTTPGet": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/httpgetaction_core.json",
+      "description": "HTTPGet specifies the http request to perform."
+    },
+    "TCPSocket": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/tcpsocketaction_core.json",
+      "description": "TCPSocket specifies an action involving a TCP port."
+    }
+  },
+  "type": "object"
+}

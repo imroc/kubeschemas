@@ -1,0 +1,19 @@
+{
+  "description": "PersistentVolumeClaimTemplate is used to produce PersistentVolumeClaim objects as part of an EphemeralVolumeSource.",
+  "properties": {
+    "ObjectMeta": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json",
+      "default": {},
+      "description": "ObjectMeta may contain labels and annotations that will be copied into the PVC when creating it. No other fields are allowed and will be rejected during validation."
+    },
+    "Spec": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/persistentvolumeclaimspec_core.json",
+      "default": {},
+      "description": "Spec for the PersistentVolumeClaim. The entire content is copied unchanged into the PVC that gets created from this template. The same fields as in a PersistentVolumeClaim are also valid here."
+    }
+  },
+  "required": [
+    "Spec"
+  ],
+  "type": "object"
+}

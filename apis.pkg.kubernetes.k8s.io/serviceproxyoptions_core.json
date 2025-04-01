@@ -1,0 +1,19 @@
+{
+  "description": "ServiceProxyOptions is the query options to a Service's proxy call.",
+  "properties": {
+    "Path": {
+      "default": "",
+      "description": "Path is the part of URLs that include service endpoints, suffixes, and parameters to use for the current proxy request to service. For example, the whole request URL is http://localhost/api/v1/namespaces/kube-system/services/elasticsearch-logging/_search?q=user:kimchy. Path is _search?q=user:kimchy.",
+      "type": "string"
+    },
+    "TypeMeta": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/typemeta_v1.json",
+      "default": {}
+    }
+  },
+  "required": [
+    "TypeMeta",
+    "Path"
+  ],
+  "type": "object"
+}

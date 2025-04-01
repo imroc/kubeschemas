@@ -1,0 +1,36 @@
+{
+  "description": "ContainerPort represents a network port in a single container",
+  "properties": {
+    "ContainerPort": {
+      "default": 0,
+      "description": "Required: This must be a valid port number, 0 \u003c x \u003c 65536.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "HostIP": {
+      "default": "",
+      "description": "Optional: What host IP to bind the external port to.",
+      "type": "string"
+    },
+    "HostPort": {
+      "default": 0,
+      "description": "Optional: If specified, this must be a valid port number, 0 \u003c x \u003c 65536. If HostNetwork is specified, this must match ContainerPort.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "Name": {
+      "default": "",
+      "description": "Optional: If specified, this must be an IANA_SVC_NAME  Each named port in a pod must have a unique name.",
+      "type": "string"
+    },
+    "Protocol": {
+      "default": "",
+      "description": "Required: Supports \"TCP\", \"UDP\" and \"SCTP\"",
+      "type": "string"
+    }
+  },
+  "required": [
+    "ContainerPort"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,30 @@
+{
+  "description": "AWSElasticBlockStoreVolumeSource represents a Persistent Disk resource in AWS.\n\nAn AWS EBS disk must exist before mounting to a container. The disk must also be in the same AWS zone as the kubelet. An AWS EBS disk can only be mounted as read/write once. AWS EBS volumes support ownership management and SELinux relabeling.",
+  "properties": {
+    "FSType": {
+      "default": "",
+      "description": "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.",
+      "type": "string"
+    },
+    "Partition": {
+      "default": 0,
+      "description": "Optional: Partition on the disk to mount. If omitted, kubelet will attempt to mount the device name. Ex. For /dev/sda1, this field is \"1\", for /dev/sda, this field is 0 or empty.",
+      "format": "int32",
+      "type": "integer"
+    },
+    "ReadOnly": {
+      "default": false,
+      "description": "Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.",
+      "type": "boolean"
+    },
+    "VolumeID": {
+      "default": "",
+      "description": "Unique id of the persistent disk resource. Used to identify the disk in AWS",
+      "type": "string"
+    }
+  },
+  "required": [
+    "VolumeID"
+  ],
+  "type": "object"
+}

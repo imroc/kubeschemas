@@ -1,0 +1,37 @@
+{
+  "description": "PodCondition represents pod's condition",
+  "properties": {
+    "LastProbeTime": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/time_v1.json"
+    },
+    "LastTransitionTime": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/time_v1.json"
+    },
+    "Message": {
+      "default": "",
+      "type": "string"
+    },
+    "ObservedGeneration": {
+      "default": 0,
+      "format": "int64",
+      "type": "integer"
+    },
+    "Reason": {
+      "default": "",
+      "type": "string"
+    },
+    "Status": {
+      "default": "",
+      "type": "string"
+    },
+    "Type": {
+      "default": "",
+      "type": "string"
+    }
+  },
+  "required": [
+    "Type",
+    "Status"
+  ],
+  "type": "object"
+}

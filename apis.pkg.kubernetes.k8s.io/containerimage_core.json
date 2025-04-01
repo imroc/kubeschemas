@@ -1,0 +1,20 @@
+{
+  "description": "ContainerImage describe a container image",
+  "properties": {
+    "Names": {
+      "description": "Names by which this image is known.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "SizeBytes": {
+      "default": 0,
+      "description": "The size of the image in bytes.",
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "type": "object"
+}

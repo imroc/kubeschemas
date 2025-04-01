@@ -1,0 +1,32 @@
+{
+  "description": "PersistentVolumeClaimCondition represents the current condition of PV claim",
+  "properties": {
+    "LastProbeTime": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/time_v1.json"
+    },
+    "LastTransitionTime": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/time_v1.json"
+    },
+    "Message": {
+      "default": "",
+      "type": "string"
+    },
+    "Reason": {
+      "default": "",
+      "type": "string"
+    },
+    "Status": {
+      "default": "",
+      "type": "string"
+    },
+    "Type": {
+      "default": "",
+      "type": "string"
+    }
+  },
+  "required": [
+    "Type",
+    "Status"
+  ],
+  "type": "object"
+}

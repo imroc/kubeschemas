@@ -1,0 +1,26 @@
+{
+  "description": "ComponentCondition represents the condition of a component",
+  "properties": {
+    "Error": {
+      "default": "",
+      "type": "string"
+    },
+    "Message": {
+      "default": "",
+      "type": "string"
+    },
+    "Status": {
+      "default": "",
+      "type": "string"
+    },
+    "Type": {
+      "default": "",
+      "type": "string"
+    }
+  },
+  "required": [
+    "Type",
+    "Status"
+  ],
+  "type": "object"
+}

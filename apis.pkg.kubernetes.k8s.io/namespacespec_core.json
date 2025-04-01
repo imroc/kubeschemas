@@ -1,0 +1,17 @@
+{
+  "description": "NamespaceSpec describes the attributes on a Namespace",
+  "properties": {
+    "Finalizers": {
+      "description": "Finalizers is an opaque list of values that must be empty to permanently remove object from storage",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "Finalizers"
+  ],
+  "type": "object"
+}

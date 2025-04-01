@@ -1,0 +1,16 @@
+{
+  "description": "ContainerStateWaiting represents the waiting state of a container",
+  "properties": {
+    "Message": {
+      "default": "",
+      "description": "A human-readable message indicating details about why the container is in waiting state.",
+      "type": "string"
+    },
+    "Reason": {
+      "default": "",
+      "description": "A brief CamelCase string indicating details about why the container is in waiting state.",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

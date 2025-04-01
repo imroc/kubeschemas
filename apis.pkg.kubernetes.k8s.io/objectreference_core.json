@@ -1,0 +1,35 @@
+{
+  "description": "ObjectReference contains enough information to let you inspect or modify the referred object.",
+  "properties": {
+    "APIVersion": {
+      "default": "",
+      "type": "string"
+    },
+    "FieldPath": {
+      "default": "",
+      "description": "Optional. If referring to a piece of an object instead of an entire object, this string should contain information to identify the sub-object. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object.",
+      "type": "string"
+    },
+    "Kind": {
+      "default": "",
+      "type": "string"
+    },
+    "Name": {
+      "default": "",
+      "type": "string"
+    },
+    "Namespace": {
+      "default": "",
+      "type": "string"
+    },
+    "ResourceVersion": {
+      "default": "",
+      "type": "string"
+    },
+    "UID": {
+      "default": "",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

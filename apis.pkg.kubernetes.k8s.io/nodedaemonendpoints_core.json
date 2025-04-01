@@ -1,0 +1,11 @@
+{
+  "description": "NodeDaemonEndpoints lists ports opened by daemons running on the Node.",
+  "properties": {
+    "KubeletEndpoint": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/daemonendpoint_core.json",
+      "default": {},
+      "description": "Endpoint on which Kubelet is listening."
+    }
+  },
+  "type": "object"
+}
