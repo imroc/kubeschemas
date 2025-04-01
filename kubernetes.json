@@ -3910,6 +3910,12 @@
       "$ref": "gateway-api.k8s.io/backendlbpolicylist_v1alpha2.json"
     },
     {
+      "$ref": "gateway-api.k8s.io/backendtlspolicy_v1alpha3.json"
+    },
+    {
+      "$ref": "gateway-api.k8s.io/backendtlspolicylist_v1alpha3.json"
+    },
+    {
       "$ref": "gateway-api.k8s.io/gateway_v1.json"
     },
     {
@@ -5249,6 +5255,12 @@
     },
     {
       "$ref": "kubelet.config.k8s.io/credentialproviderconfig_v1beta1.json"
+    },
+    {
+      "$ref": "kubelet.config.k8s.io/imagepulledrecord_v1alpha1.json"
+    },
+    {
+      "$ref": "kubelet.config.k8s.io/imagepullintent_v1alpha1.json"
     },
     {
       "$ref": "kubelet.config.k8s.io/kubeletconfiguration_v1beta1.json"
@@ -7280,6 +7292,12 @@
     },
     {
       "$ref": "node.gke.io/gcpresourceallowlistlist_v1.json"
+    },
+    {
+      "$ref": "node.tke.cloud.tencent.com/cxmmachineproviderspec_v1beta1.json"
+    },
+    {
+      "$ref": "node.tke.cloud.tencent.com/cxmmachineproviderstatus_v1beta1.json"
     },
     {
       "$ref": "node.tke.cloud.tencent.com/fakevmmachineproviderspec_v1beta1.json"
