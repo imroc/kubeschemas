@@ -538,6 +538,24 @@
       "$ref": "apps.clusternet.io/subscriptionlist_v1alpha1.json"
     },
     {
+      "$ref": "apps.foundationdb.org/foundationdbbackup_v1beta2.json"
+    },
+    {
+      "$ref": "apps.foundationdb.org/foundationdbbackuplist_v1beta2.json"
+    },
+    {
+      "$ref": "apps.foundationdb.org/foundationdbcluster_v1beta2.json"
+    },
+    {
+      "$ref": "apps.foundationdb.org/foundationdbclusterlist_v1beta2.json"
+    },
+    {
+      "$ref": "apps.foundationdb.org/foundationdbrestore_v1beta2.json"
+    },
+    {
+      "$ref": "apps.foundationdb.org/foundationdbrestorelist_v1beta2.json"
+    },
+    {
       "$ref": "apps.karmada.io/workloadrebalancer_v1alpha1.json"
     },
     {
