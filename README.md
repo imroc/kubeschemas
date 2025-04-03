@@ -38,6 +38,7 @@ CRDs from open source project:
 - [Consul](https://github.com/hashicorp/consul-k8s/tree/main/charts/consul/templates)
 - [Contour](https://github.com/projectcontour/contour/blob/main/examples/contour/01-crds.yaml)
 - [crane](https://github.com/gocrane/helm-charts/tree/main/charts/crane/crds)
+- [cyclops](https://github.com/cyclops-ui/cyclops/tree/main/install/chart/crds)
 - [dragonfly-operator](https://raw.githubusercontent.com/dragonflydb/dragonfly-operator/refs/heads/main/manifests/crd.yaml)
 - [Envoy Gateway](https://github.com/envoyproxy/gateway/tree/main/charts/gateway-helm/crds) (including [ai-gateway](https://github.com/envoyproxy/ai-gateway/tree/main/manifests/charts/ai-gateway-helm/crds))
 - [external-dns](https://github.com/kubernetes-sigs/external-dns/tree/master/charts/external-dns/crds)

@@ -3247,6 +3247,24 @@
       "$ref": "custommetrics.apis.pkg.hpa-metrics-server.qc_container_cluster.cloud.tencent.com/custommetricslist_v1alpha1.json"
     },
     {
+      "$ref": "cyclops-ui.com/module_v1alpha1.json"
+    },
+    {
+      "$ref": "cyclops-ui.com/modulelist_v1alpha1.json"
+    },
+    {
+      "$ref": "cyclops-ui.com/templateauthrule_v1alpha1.json"
+    },
+    {
+      "$ref": "cyclops-ui.com/templateauthrulelist_v1alpha1.json"
+    },
+    {
+      "$ref": "cyclops-ui.com/templatestore_v1alpha1.json"
+    },
+    {
+      "$ref": "cyclops-ui.com/templatestorelist_v1alpha1.json"
+    },
+    {
       "$ref": "data.fluid.io/alluxioruntime_v1alpha1.json"
     },
     {

@@ -1,0 +1,190 @@
+{
+  "description": "Module is the Schema for the modules API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "cyclops-ui.com/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "history": {
+      "items": {
+        "properties": {
+          "generation": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "template": {
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "repo": {
+                "type": "string"
+              },
+              "sourceType": {
+                "enum": [
+                  "git",
+                  "helm",
+                  "oci"
+                ],
+                "type": "string"
+              },
+              "version": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "repo",
+              "version"
+            ],
+            "type": "object"
+          },
+          "values": {
+            "x-kubernetes-preserve-unknown-fields": true
+          }
+        },
+        "required": [
+          "generation",
+          "template",
+          "values"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "Module"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "ModuleSpec defines the desired state of Module",
+      "properties": {
+        "targetNamespace": {
+          "type": "string"
+        },
+        "template": {
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "repo": {
+              "type": "string"
+            },
+            "sourceType": {
+              "enum": [
+                "git",
+                "helm",
+                "oci"
+              ],
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "repo",
+            "version"
+          ],
+          "type": "object"
+        },
+        "values": {
+          "x-kubernetes-preserve-unknown-fields": true
+        }
+      },
+      "required": [
+        "template",
+        "values"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "description": "ModuleStatus defines the observed state of Module",
+      "properties": {
+        "iconURL": {
+          "type": "string"
+        },
+        "managedGVRs": {
+          "items": {
+            "properties": {
+              "group": {
+                "type": "string"
+              },
+              "resource": {
+                "type": "string"
+              },
+              "version": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "group",
+              "resource",
+              "version"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "reconciliationStatus": {
+          "properties": {
+            "errors": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "reason": {
+              "type": "string"
+            },
+            "status": {
+              "default": "unknown",
+              "enum": [
+                "unknown",
+                "succeeded",
+                "failed"
+              ],
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "templateResolvedVersion": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "reconciliationStatus",
+        "templateResolvedVersion"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "cyclops-ui.com",
+      "kind": "Module",
+      "version": "v1alpha1"
+    }
+  ]
+}
