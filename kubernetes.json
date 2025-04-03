@@ -5002,6 +5002,48 @@
       "$ref": "kappctrl.k14s.io/applist_v1alpha1.json"
     },
     {
+      "$ref": "kargo.akuity.io/clusterpromotiontask_v1alpha1.json"
+    },
+    {
+      "$ref": "kargo.akuity.io/clusterpromotiontasklist_v1alpha1.json"
+    },
+    {
+      "$ref": "kargo.akuity.io/freight_v1alpha1.json"
+    },
+    {
+      "$ref": "kargo.akuity.io/freightlist_v1alpha1.json"
+    },
+    {
+      "$ref": "kargo.akuity.io/project_v1alpha1.json"
+    },
+    {
+      "$ref": "kargo.akuity.io/projectlist_v1alpha1.json"
+    },
+    {
+      "$ref": "kargo.akuity.io/promotion_v1alpha1.json"
+    },
+    {
+      "$ref": "kargo.akuity.io/promotionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "kargo.akuity.io/promotiontask_v1alpha1.json"
+    },
+    {
+      "$ref": "kargo.akuity.io/promotiontasklist_v1alpha1.json"
+    },
+    {
+      "$ref": "kargo.akuity.io/stage_v1alpha1.json"
+    },
+    {
+      "$ref": "kargo.akuity.io/stagelist_v1alpha1.json"
+    },
+    {
+      "$ref": "kargo.akuity.io/warehouse_v1alpha1.json"
+    },
+    {
+      "$ref": "kargo.akuity.io/warehouselist_v1alpha1.json"
+    },
+    {
       "$ref": "karpenter.k8s.aws/ec2nodeclass_v1.json"
     },
     {
