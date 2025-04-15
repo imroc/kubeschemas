@@ -123,9 +123,10 @@
                   "ports": {
                     "description": "Ports is a list of records of service ports\nIf used, every port defined in the service should have an entry in it",
                     "items": {
+                      "description": "PortStatus represents the error condition of a service port",
                       "properties": {
                         "error": {
-                          "description": "Error is to record the problem with the service port\nThe format of the error shall comply with the following rules:\n- built-in error values shall be specified in this file and those shall use\n  CamelCase names\n- cloud provider specific error values must have names that comply with the\n  format foo.example.com/CamelCase.\n---\nThe regex it matches is (dns1123SubdomainFmt/)?(qualifiedNameFmt)",
+                          "description": "Error is to record the problem with the service port\nThe format of the error shall comply with the following rules:\n- built-in error values shall be specified in this file and those shall use\n  CamelCase names\n- cloud provider specific error values must have names that comply with the\n  format foo.example.com/CamelCase.",
                           "maxLength": 316,
                           "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$",
                           "type": "string"
@@ -136,12 +137,12 @@
                           "type": "integer"
                         },
                         "protocol": {
-                          "default": "TCP",
                           "description": "Protocol is the protocol of the service port of which status is recorded here\nThe supported values are: \"TCP\", \"UDP\", \"SCTP\"",
                           "type": "string"
                         }
                       },
                       "required": [
+                        "error",
                         "port",
                         "protocol"
                       ],
@@ -153,7 +154,8 @@
                 },
                 "type": "object"
               },
-              "type": "array"
+              "type": "array",
+              "x-kubernetes-list-type": "atomic"
             }
           },
           "type": "object"

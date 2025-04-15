@@ -39,12 +39,12 @@
                     "type": "boolean"
                   },
                   "error-retry-base": {
-                    "description": "Base error retry back-off time Format: duration",
+                    "description": "Base error retry back-off time\nFormat: duration",
                     "format": "int64",
                     "type": "integer"
                   },
                   "interval": {
-                    "description": "Regular synchronization interval Format: duration",
+                    "description": "Regular synchronization interval\nFormat: duration",
                     "format": "int64",
                     "type": "integer"
                   }
@@ -95,21 +95,25 @@
           "description": "Encryption is the encryption configuration of the node",
           "properties": {
             "key": {
-              "description": "Key is the index to the key to use for encryption or 0 if encryption is disabled.",
+              "description": "Key is the index to the key to use for encryption or 0 if encryption is\ndisabled.",
               "type": "integer"
             }
           },
           "type": "object"
         },
         "external-identifiers": {
-          "description": "ExternalIdentifiers is a set of identifiers to identify the endpoint apart from the pod name. This includes container runtime IDs.",
+          "description": "ExternalIdentifiers is a set of identifiers to identify the endpoint\napart from the pod name. This includes container runtime IDs.",
           "properties": {
+            "cni-attachment-id": {
+              "description": "ID assigned to this attachment by container runtime",
+              "type": "string"
+            },
             "container-id": {
-              "description": "ID assigned by container runtime",
+              "description": "ID assigned by container runtime (deprecated, may not be unique)",
               "type": "string"
             },
             "container-name": {
-              "description": "Name assigned to container",
+              "description": "Name assigned to container (deprecated, may not be unique)",
               "type": "string"
             },
             "docker-endpoint-id": {
@@ -121,15 +125,15 @@
               "type": "string"
             },
             "k8s-namespace": {
-              "description": "K8s namespace for this endpoint",
+              "description": "K8s namespace for this endpoint (deprecated, may not be unique)",
               "type": "string"
             },
             "k8s-pod-name": {
-              "description": "K8s pod name for this endpoint",
+              "description": "K8s pod name for this endpoint (deprecated, may not be unique)",
               "type": "string"
             },
             "pod-name": {
-              "description": "K8s pod for this endpoint(Deprecated, use K8sPodName and K8sNamespace instead)",
+              "description": "K8s pod for this endpoint (deprecated, may not be unique)",
               "type": "string"
             }
           },
@@ -183,10 +187,10 @@
         "log": {
           "description": "Log is the list of the last few warning and error log entries",
           "items": {
-            "description": "EndpointStatusChange Indication of a change of status \n swagger:model EndpointStatusChange",
+            "description": "EndpointStatusChange Indication of a change of status\n\nswagger:model EndpointStatusChange",
             "properties": {
               "code": {
-                "description": "Code indicate type of status change Enum: [ok failed]",
+                "description": "Code indicate type of status change\nEnum: [\"ok\",\"failed\"]",
                 "type": "string"
               },
               "message": {
@@ -207,9 +211,9 @@
           "type": "array"
         },
         "named-ports": {
-          "description": "NamedPorts List of named Layer 4 port and protocol pairs which will be used in Network Policy specs. \n swagger:model NamedPorts",
+          "description": "NamedPorts List of named Layer 4 port and protocol pairs which will be used in Network\nPolicy specs.\n\nswagger:model NamedPorts",
           "items": {
-            "description": "Port Layer 4 port / protocol pair \n swagger:model Port",
+            "description": "Port Layer 4 port / protocol pair\n\nswagger:model Port",
             "properties": {
               "name": {
                 "description": "Optional layer 4 port name",
@@ -220,7 +224,7 @@
                 "type": "integer"
               },
               "protocol": {
-                "description": "Layer 4 protocol Enum: [TCP UDP SCTP ICMP ICMPV6 ANY]",
+                "description": "Layer 4 protocol\nEnum: [\"TCP\",\"UDP\",\"SCTP\",\"ICMP\",\"ICMPV6\",\"ANY\"]",
                 "type": "string"
               }
             },
@@ -248,7 +252,7 @@
               "type": "array"
             },
             "node": {
-              "description": "NodeIP is the IP of the node the endpoint is running on. The IP must be reachable between nodes.",
+              "description": "NodeIP is the IP of the node the endpoint is running on. The IP must\nbe reachable between nodes.",
               "type": "string"
             }
           },
@@ -258,7 +262,7 @@
           "type": "object"
         },
         "policy": {
-          "description": "EndpointPolicy represents the endpoint's policy by listing all allowed ingress and egress identities in combination with L4 port and protocol.",
+          "description": "EndpointPolicy represents the endpoint's policy by listing all allowed\ningress and egress identities in combination with L4 port and protocol.",
           "properties": {
             "egress": {
               "description": "EndpointPolicyDirection is the list of allowed identities per direction.",
@@ -290,7 +294,7 @@
                   "type": "array"
                 },
                 "allowed": {
-                  "description": "AllowedIdentityList is a list of IdentityTuples that species peers that are allowed.",
+                  "description": "AllowedIdentityList is a list of IdentityTuples that species peers that are\nallowed.",
                   "items": {
                     "description": "IdentityTuple specifies a peer by identity, destination port and protocol.",
                     "properties": {
@@ -316,7 +320,7 @@
                   "type": "array"
                 },
                 "denied": {
-                  "description": "DenyIdentityList is a list of IdentityTuples that species peers that are denied.",
+                  "description": "DenyIdentityList is a list of IdentityTuples that species peers that are\ndenied.",
                   "items": {
                     "description": "IdentityTuple specifies a peer by identity, destination port and protocol.",
                     "properties": {
@@ -410,7 +414,7 @@
                   "type": "array"
                 },
                 "allowed": {
-                  "description": "AllowedIdentityList is a list of IdentityTuples that species peers that are allowed.",
+                  "description": "AllowedIdentityList is a list of IdentityTuples that species peers that are\nallowed.",
                   "items": {
                     "description": "IdentityTuple specifies a peer by identity, destination port and protocol.",
                     "properties": {
@@ -436,7 +440,7 @@
                   "type": "array"
                 },
                 "denied": {
-                  "description": "DenyIdentityList is a list of IdentityTuples that species peers that are denied.",
+                  "description": "DenyIdentityList is a list of IdentityTuples that species peers that are\ndenied.",
                   "items": {
                     "description": "IdentityTuple specifies a peer by identity, destination port and protocol.",
                     "properties": {
@@ -517,9 +521,6 @@
             "disconnected",
             "invalid"
           ],
-          "type": "string"
-        },
-        "visibility-policy-status": {
           "type": "string"
         }
       },

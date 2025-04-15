@@ -17,7 +17,6 @@
           "$ref": "../meta.apis.pkg.apimachinery.k8s.io/time_v1.json"
         }
       ],
-      "default": {},
       "description": "Time at which the container last terminated"
     },
     "message": {
@@ -39,7 +38,6 @@
           "$ref": "../meta.apis.pkg.apimachinery.k8s.io/time_v1.json"
         }
       ],
-      "default": {},
       "description": "Time at which previous execution of the container started"
     }
   },

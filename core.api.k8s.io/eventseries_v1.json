@@ -12,7 +12,6 @@
           "$ref": "../meta.apis.pkg.apimachinery.k8s.io/microtime_v1.json"
         }
       ],
-      "default": {},
       "description": "Time of the last occurrence observed"
     }
   },

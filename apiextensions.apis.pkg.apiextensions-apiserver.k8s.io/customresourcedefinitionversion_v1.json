@@ -11,7 +11,8 @@
         ],
         "default": {}
       },
-      "type": "array"
+      "type": "array",
+      "x-kubernetes-list-type": "atomic"
     },
     "deprecated": {
       "description": "deprecated indicates this version of the custom resource API is deprecated. When set to true, API requests to this version receive a warning header in the server response. Defaults to false.",
@@ -33,6 +34,19 @@
         }
       ],
       "description": "schema describes the schema used for validation, pruning, and defaulting of this version of the custom resource."
+    },
+    "selectableFields": {
+      "description": "selectableFields specifies paths to fields that may be used as field selectors. A maximum of 8 selectable fields are allowed. See https://kubernetes.io/docs/concepts/overview/working-with-objects/field-selectors",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "../apiextensions.apis.pkg.apiextensions-apiserver.k8s.io/selectablefield_v1.json"
+          }
+        ],
+        "default": {}
+      },
+      "type": "array",
+      "x-kubernetes-list-type": "atomic"
     },
     "served": {
       "default": false,

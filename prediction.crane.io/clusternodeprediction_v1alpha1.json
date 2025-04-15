@@ -150,6 +150,9 @@
                               },
                               "sampleInterval": {
                                 "type": "string"
+                              },
+                              "targetUtilization": {
+                                "type": "string"
                               }
                             },
                             "type": "object"

@@ -84,7 +84,7 @@
                       },
                       "rule": {
                         "nullable": true,
-                        "type": "string"
+                        "type": "integer"
                       },
                       "value": {
                         "nullable": true,
@@ -141,6 +141,10 @@
                   "type": "array"
                 },
                 "logRegex": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "rawLogKey": {
                   "nullable": true,
                   "type": "string"
                 },
@@ -619,6 +623,10 @@
                 }
               },
               "type": "object"
+            },
+            "outputType": {
+              "nullable": true,
+              "type": "string"
             },
             "rdKafka": {
               "additionalProperties": {

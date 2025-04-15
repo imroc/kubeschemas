@@ -26,7 +26,7 @@
       "description": "CalicoNodeStatusSpec contains the specification for a CalicoNodeStatus resource.",
       "properties": {
         "classes": {
-          "description": "Classes declares the types of information to monitor for this calico/node, and allows for selective status reporting about certain subsets of information.",
+          "description": "Classes declares the types of information to monitor for this calico/node,\nand allows for selective status reporting about certain subsets of information.",
           "items": {
             "type": "string"
           },
@@ -37,7 +37,7 @@
           "type": "string"
         },
         "updatePeriodSeconds": {
-          "description": "UpdatePeriodSeconds is the period at which CalicoNodeStatus should be updated. Set to 0 to disable CalicoNodeStatus refresh. Maximum update period is one day.",
+          "description": "UpdatePeriodSeconds is the period at which CalicoNodeStatus should be updated.\nSet to 0 to disable CalicoNodeStatus refresh. Maximum update period is one day.",
           "format": "int32",
           "type": "integer"
         }
@@ -45,7 +45,7 @@
       "type": "object"
     },
     "status": {
-      "description": "CalicoNodeStatusStatus defines the observed state of CalicoNodeStatus. No validation needed for status since it is updated by Calico.",
+      "description": "CalicoNodeStatusStatus defines the observed state of CalicoNodeStatus.\nNo validation needed for status since it is updated by Calico.",
       "properties": {
         "agent": {
           "description": "Agent holds agent status on the node.",
@@ -142,7 +142,7 @@
                     "type": "string"
                   },
                   "type": {
-                    "description": "Type indicates whether this peer is configured via the node-to-node mesh, or via en explicit global or per-node BGPPeer object.",
+                    "description": "Type indicates whether this peer is configured via the node-to-node mesh,\nor via en explicit global or per-node BGPPeer object.",
                     "type": "string"
                   }
                 },
@@ -168,7 +168,7 @@
                     "type": "string"
                   },
                   "type": {
-                    "description": "Type indicates whether this peer is configured via the node-to-node mesh, or via en explicit global or per-node BGPPeer object.",
+                    "description": "Type indicates whether this peer is configured via the node-to-node mesh,\nor via en explicit global or per-node BGPPeer object.",
                     "type": "string"
                   }
                 },
@@ -186,7 +186,7 @@
           "type": "object"
         },
         "lastUpdated": {
-          "description": "LastUpdated is a timestamp representing the server time when CalicoNodeStatus object last updated. It is represented in RFC3339 form and is in UTC.",
+          "description": "LastUpdated is a timestamp representing the server time when CalicoNodeStatus object\nlast updated. It is represented in RFC3339 form and is in UTC.",
           "format": "date-time",
           "nullable": true,
           "type": "string"

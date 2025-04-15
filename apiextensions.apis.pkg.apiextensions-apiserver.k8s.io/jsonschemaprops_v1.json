@@ -22,7 +22,8 @@
         ],
         "default": {}
       },
-      "type": "array"
+      "type": "array",
+      "x-kubernetes-list-type": "atomic"
     },
     "anyOf": {
       "items": {
@@ -33,7 +34,8 @@
         ],
         "default": {}
       },
-      "type": "array"
+      "type": "array",
+      "x-kubernetes-list-type": "atomic"
     },
     "default": {
       "allOf": [
@@ -56,12 +58,7 @@
     },
     "dependencies": {
       "additionalProperties": {
-        "allOf": [
-          {
-            "$ref": "../apiextensions.apis.pkg.apiextensions-apiserver.k8s.io/jsonschemapropsorstringarray_v1.json"
-          }
-        ],
-        "default": {}
+        "$ref": "../apiextensions.apis.pkg.apiextensions-apiserver.k8s.io/jsonschemapropsorstringarray_v1.json"
       },
       "type": "object"
     },
@@ -70,14 +67,10 @@
     },
     "enum": {
       "items": {
-        "allOf": [
-          {
-            "$ref": "../apiextensions.apis.pkg.apiextensions-apiserver.k8s.io/json_v1.json"
-          }
-        ],
-        "default": {}
+        "$ref": "../apiextensions.apis.pkg.apiextensions-apiserver.k8s.io/json_v1.json"
       },
-      "type": "array"
+      "type": "array",
+      "x-kubernetes-list-type": "atomic"
     },
     "example": {
       "$ref": "../apiextensions.apis.pkg.apiextensions-apiserver.k8s.io/json_v1.json"
@@ -152,7 +145,8 @@
         ],
         "default": {}
       },
-      "type": "array"
+      "type": "array",
+      "x-kubernetes-list-type": "atomic"
     },
     "pattern": {
       "type": "string"
@@ -184,7 +178,8 @@
         "default": "",
         "type": "string"
       },
-      "type": "array"
+      "type": "array",
+      "x-kubernetes-list-type": "atomic"
     },
     "title": {
       "type": "string"
@@ -209,7 +204,8 @@
         "default": "",
         "type": "string"
       },
-      "type": "array"
+      "type": "array",
+      "x-kubernetes-list-type": "atomic"
     },
     "x-kubernetes-list-type": {
       "description": "x-kubernetes-list-type annotates an array to further describe its topology. This extension must only be used on lists and may have 3 possible values:\n\n1) `atomic`: the list is treated as a single entity, like a scalar.\n     Atomic lists will be entirely replaced when updated. This extension\n     may be used on any type of list (struct, scalar, ...).\n2) `set`:\n     Sets are lists that must not have multiple items with the same value. Each\n     value must be a scalar, an object with x-kubernetes-map-type `atomic` or an\n     array with x-kubernetes-list-type `atomic`.\n3) `map`:\n     These lists are like maps in that their elements have a non-index key\n     used to identify them. Order is preserved upon merge. The map tag\n     must only be used on a list with elements of type object.\nDefaults to atomic for arrays.",

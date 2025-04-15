@@ -90,14 +90,6 @@
             }
           },
           "type": "object"
-        },
-        "rdmaMode": {
-          "description": "RDMA subsystem. Allowed value \"shared\", \"exclusive\".",
-          "enum": [
-            "shared",
-            "exclusive"
-          ],
-          "type": "string"
         }
       },
       "type": "object"

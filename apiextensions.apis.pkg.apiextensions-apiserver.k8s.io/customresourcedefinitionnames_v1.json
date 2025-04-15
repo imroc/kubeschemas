@@ -7,7 +7,8 @@
         "default": "",
         "type": "string"
       },
-      "type": "array"
+      "type": "array",
+      "x-kubernetes-list-type": "atomic"
     },
     "kind": {
       "default": "",
@@ -29,7 +30,8 @@
         "default": "",
         "type": "string"
       },
-      "type": "array"
+      "type": "array",
+      "x-kubernetes-list-type": "atomic"
     },
     "singular": {
       "description": "singular is the singular name of the resource. It must be all lowercase. Defaults to lowercased `kind`.",

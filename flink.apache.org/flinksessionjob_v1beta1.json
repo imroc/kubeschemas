@@ -44,6 +44,9 @@
               },
               "type": "array"
             },
+            "checkpointTriggerNonce": {
+              "type": "integer"
+            },
             "entryClass": {
               "type": "string"
             },
@@ -54,6 +57,9 @@
               "type": "string"
             },
             "parallelism": {
+              "type": "integer"
+            },
+            "savepointRedeployNonce": {
               "type": "integer"
             },
             "savepointTriggerNonce": {
@@ -68,8 +74,8 @@
             },
             "upgradeMode": {
               "enum": [
-                "savepoint",
                 "last-state",
+                "savepoint",
                 "stateless"
               ],
               "type": "string"
@@ -90,6 +96,65 @@
         },
         "jobStatus": {
           "properties": {
+            "checkpointInfo": {
+              "properties": {
+                "formatType": {
+                  "enum": [
+                    "FULL",
+                    "INCREMENTAL",
+                    "UNKNOWN"
+                  ],
+                  "type": "string"
+                },
+                "lastCheckpoint": {
+                  "properties": {
+                    "formatType": {
+                      "enum": [
+                        "FULL",
+                        "INCREMENTAL",
+                        "UNKNOWN"
+                      ],
+                      "type": "string"
+                    },
+                    "timeStamp": {
+                      "type": "integer"
+                    },
+                    "triggerNonce": {
+                      "type": "integer"
+                    },
+                    "triggerType": {
+                      "enum": [
+                        "MANUAL",
+                        "PERIODIC",
+                        "UNKNOWN",
+                        "UPGRADE"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "lastPeriodicCheckpointTimestamp": {
+                  "type": "integer"
+                },
+                "triggerId": {
+                  "type": "string"
+                },
+                "triggerTimestamp": {
+                  "type": "integer"
+                },
+                "triggerType": {
+                  "enum": [
+                    "MANUAL",
+                    "PERIODIC",
+                    "UNKNOWN",
+                    "UPGRADE"
+                  ],
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
             "jobId": {
               "type": "string"
             },
@@ -98,23 +163,42 @@
             },
             "savepointInfo": {
               "properties": {
+                "formatType": {
+                  "enum": [
+                    "CANONICAL",
+                    "NATIVE",
+                    "UNKNOWN"
+                  ],
+                  "type": "string"
+                },
                 "lastPeriodicSavepointTimestamp": {
                   "type": "integer"
                 },
                 "lastSavepoint": {
                   "properties": {
+                    "formatType": {
+                      "enum": [
+                        "CANONICAL",
+                        "NATIVE",
+                        "UNKNOWN"
+                      ],
+                      "type": "string"
+                    },
                     "location": {
                       "type": "string"
                     },
                     "timeStamp": {
                       "type": "integer"
                     },
+                    "triggerNonce": {
+                      "type": "integer"
+                    },
                     "triggerType": {
                       "enum": [
                         "MANUAL",
                         "PERIODIC",
-                        "UPGRADE",
-                        "UNKNOWN"
+                        "UNKNOWN",
+                        "UPGRADE"
                       ],
                       "type": "string"
                     }
@@ -124,18 +208,29 @@
                 "savepointHistory": {
                   "items": {
                     "properties": {
+                      "formatType": {
+                        "enum": [
+                          "CANONICAL",
+                          "NATIVE",
+                          "UNKNOWN"
+                        ],
+                        "type": "string"
+                      },
                       "location": {
                         "type": "string"
                       },
                       "timeStamp": {
                         "type": "integer"
                       },
+                      "triggerNonce": {
+                        "type": "integer"
+                      },
                       "triggerType": {
                         "enum": [
                           "MANUAL",
                           "PERIODIC",
-                          "UPGRADE",
-                          "UNKNOWN"
+                          "UNKNOWN",
+                          "UPGRADE"
                         ],
                         "type": "string"
                       }
@@ -154,8 +249,8 @@
                   "enum": [
                     "MANUAL",
                     "PERIODIC",
-                    "UPGRADE",
-                    "UNKNOWN"
+                    "UNKNOWN",
+                    "UPGRADE"
                   ],
                   "type": "string"
                 }
@@ -166,13 +261,45 @@
               "type": "string"
             },
             "state": {
+              "enum": [
+                "CANCELED",
+                "CANCELLING",
+                "CREATED",
+                "FAILED",
+                "FAILING",
+                "FINISHED",
+                "INITIALIZING",
+                "RECONCILING",
+                "RESTARTING",
+                "RUNNING",
+                "SUSPENDED"
+              ],
               "type": "string"
             },
             "updateTime": {
               "type": "string"
+            },
+            "upgradeSavepointPath": {
+              "type": "string"
             }
           },
           "type": "object"
+        },
+        "lifecycleState": {
+          "enum": [
+            "CREATED",
+            "DEPLOYED",
+            "FAILED",
+            "ROLLED_BACK",
+            "ROLLING_BACK",
+            "STABLE",
+            "SUSPENDED",
+            "UPGRADING"
+          ],
+          "type": "string"
+        },
+        "observedGeneration": {
+          "type": "integer"
         },
         "reconciliationStatus": {
           "properties": {
@@ -188,9 +315,9 @@
             "state": {
               "enum": [
                 "DEPLOYED",
-                "UPGRADING",
+                "ROLLED_BACK",
                 "ROLLING_BACK",
-                "ROLLED_BACK"
+                "UPGRADING"
               ],
               "type": "string"
             }

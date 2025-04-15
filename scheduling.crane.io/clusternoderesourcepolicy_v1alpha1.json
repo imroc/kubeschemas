@@ -86,6 +86,47 @@
               "properties": {
                 "autoResourceExpansion": {
                   "description": "AutoResourceExpansion is the auto resource expansion strategy, crane auto expansion the node resource",
+                  "properties": {
+                    "crontab": {
+                      "default": "0 * * * 0-6",
+                      "description": "Crontab defines the time to run scale func Default is \"0 * * * 0-6\"",
+                      "type": "string"
+                    },
+                    "decayLife": {
+                      "default": "168h",
+                      "description": "DecayLife is the amount of time it takes a historical CPU/memory usage sample to lose min is 1d default is 168h (7d)",
+                      "format": "duration",
+                      "type": "string"
+                    },
+                    "maxRatios": {
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "description": "MaxRatios define the max expansion ratio percent for node resource, such as cpu/memory. 150 means expansion 1.5 for the node resource capacity MaxRatios range is 1.0~infinity",
+                      "type": "object"
+                    },
+                    "minRatios": {
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "description": "MinRatios define the min expansion ratio for node resource MinRatios range is 1.0~infinity and MinRatios must less than or equal MaxRatios",
+                      "type": "object"
+                    },
+                    "targetLoadThreshold": {
+                      "description": "TargetLoadThreshold is the target utilization percent for expansion",
+                      "properties": {
+                        "percents": {
+                          "additionalProperties": {
+                            "format": "int64",
+                            "type": "integer"
+                          },
+                          "description": "Percents such as ['cpu':60]",
+                          "type": "object"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
                   "type": "object"
                 },
                 "evictLoadThreshold": {
@@ -139,7 +180,7 @@
                   "type": "object"
                 },
                 "targetLoadThreshold": {
-                  "description": "TargetLoadThreshold is the target utilization percent",
+                  "description": "TargetLoadThreshold is the target utilization percent for scheduler",
                   "properties": {
                     "percents": {
                       "additionalProperties": {

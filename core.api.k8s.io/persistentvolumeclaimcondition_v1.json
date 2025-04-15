@@ -7,7 +7,6 @@
           "$ref": "../meta.apis.pkg.apimachinery.k8s.io/time_v1.json"
         }
       ],
-      "default": {},
       "description": "lastProbeTime is the time we probed the condition."
     },
     "lastTransitionTime": {
@@ -16,7 +15,6 @@
           "$ref": "../meta.apis.pkg.apimachinery.k8s.io/time_v1.json"
         }
       ],
-      "default": {},
       "description": "lastTransitionTime is the time the condition transitioned from one status to another."
     },
     "message": {
@@ -24,7 +22,7 @@
       "type": "string"
     },
     "reason": {
-      "description": "reason is a unique, this should be a short, machine understandable string that gives the reason for condition's last transition. If it reports \"ResizeStarted\" that means the underlying persistent volume is being resized.",
+      "description": "reason is a unique, this should be a short, machine understandable string that gives the reason for condition's last transition. If it reports \"Resizing\" that means the underlying persistent volume is being resized.",
       "type": "string"
     },
     "status": {

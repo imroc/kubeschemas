@@ -3,12 +3,7 @@
   "properties": {
     "allocatedResources": {
       "additionalProperties": {
-        "allOf": [
-          {
-            "$ref": "../api.pkg.apimachinery.k8s.io/quantity_resource.json"
-          }
-        ],
-        "default": {}
+        "$ref": "../api.pkg.apimachinery.k8s.io/quantity_resource.json"
       },
       "description": "AllocatedResources represents the compute resources allocated for this container by the node. Kubelet sets this value to Container.Resources.Requests upon successful pod admission and after successfully admitting desired pod resize.",
       "type": "object"
@@ -72,6 +67,24 @@
       ],
       "default": {},
       "description": "State holds details about the container's current condition."
+    },
+    "volumeMounts": {
+      "description": "Status of volume mounts.",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "../core.api.k8s.io/volumemountstatus_v1.json"
+          }
+        ],
+        "default": {}
+      },
+      "type": "array",
+      "x-kubernetes-list-map-keys": [
+        "mountPath"
+      ],
+      "x-kubernetes-list-type": "map",
+      "x-kubernetes-patch-merge-key": "mountPath",
+      "x-kubernetes-patch-strategy": "merge"
     }
   },
   "required": [

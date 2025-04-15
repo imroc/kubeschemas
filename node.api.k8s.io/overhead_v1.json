@@ -3,12 +3,7 @@
   "properties": {
     "podFixed": {
       "additionalProperties": {
-        "allOf": [
-          {
-            "$ref": "../api.pkg.apimachinery.k8s.io/quantity_resource.json"
-          }
-        ],
-        "default": {}
+        "$ref": "../api.pkg.apimachinery.k8s.io/quantity_resource.json"
       },
       "description": "podFixed represents the fixed resource overhead associated with running a pod.",
       "type": "object"

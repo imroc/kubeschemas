@@ -7,7 +7,6 @@
           "$ref": "../meta.apis.pkg.apimachinery.k8s.io/time_v1.json"
         }
       ],
-      "default": {},
       "description": "Last time the condition transitioned from one status to another."
     },
     "lastUpdateTime": {
@@ -16,7 +15,6 @@
           "$ref": "../meta.apis.pkg.apimachinery.k8s.io/time_v1.json"
         }
       ],
-      "default": {},
       "description": "The last time this condition was updated."
     },
     "message": {

@@ -332,21 +332,6 @@
           },
           "type": "object"
         },
-        "helmAppOptions": {
-          "description": "HelmAppOptions stores the options relative to HelmApp resources\nNon-nil HelmAppOptions indicate that the source of resources is a Helm chart,\nnot a git repository.",
-          "nullable": true,
-          "properties": {
-            "helmAppInsecureSkipTLSVerify": {
-              "description": "InsecureSkipTLSverify will use insecure HTTPS to clone the helm app resource.",
-              "type": "boolean"
-            },
-            "helmAppSecretName": {
-              "description": "SecretName stores the secret name for storing credentials when accessing\na remote helm repository defined in a HelmApp resource",
-              "type": "string"
-            }
-          },
-          "type": "object"
-        },
         "ignore": {
           "description": "IgnoreOptions can be used to ignore fields when monitoring the bundle.",
           "properties": {

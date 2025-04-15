@@ -42,6 +42,5 @@
       "kind": "NetworkPolicyList",
       "version": "v1"
     }
-  ],
-  "x-kubernetes-selectable-fields": []
+  ]
 }

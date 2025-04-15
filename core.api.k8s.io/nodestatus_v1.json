@@ -12,29 +12,23 @@
         "default": {}
       },
       "type": "array",
+      "x-kubernetes-list-map-keys": [
+        "type"
+      ],
+      "x-kubernetes-list-type": "map",
       "x-kubernetes-patch-merge-key": "type",
       "x-kubernetes-patch-strategy": "merge"
     },
     "allocatable": {
       "additionalProperties": {
-        "allOf": [
-          {
-            "$ref": "../api.pkg.apimachinery.k8s.io/quantity_resource.json"
-          }
-        ],
-        "default": {}
+        "$ref": "../api.pkg.apimachinery.k8s.io/quantity_resource.json"
       },
       "description": "Allocatable represents the resources of a node that are available for scheduling. Defaults to Capacity.",
       "type": "object"
     },
     "capacity": {
       "additionalProperties": {
-        "allOf": [
-          {
-            "$ref": "../api.pkg.apimachinery.k8s.io/quantity_resource.json"
-          }
-        ],
-        "default": {}
+        "$ref": "../api.pkg.apimachinery.k8s.io/quantity_resource.json"
       },
       "description": "Capacity represents the total resources of a node. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#capacity",
       "type": "object"
@@ -50,6 +44,10 @@
         "default": {}
       },
       "type": "array",
+      "x-kubernetes-list-map-keys": [
+        "type"
+      ],
+      "x-kubernetes-list-type": "map",
       "x-kubernetes-patch-merge-key": "type",
       "x-kubernetes-patch-strategy": "merge"
     },
@@ -80,7 +78,8 @@
         ],
         "default": {}
       },
-      "type": "array"
+      "type": "array",
+      "x-kubernetes-list-type": "atomic"
     },
     "nodeInfo": {
       "allOf": [
@@ -100,6 +99,19 @@
       ],
       "type": "string"
     },
+    "runtimeHandlers": {
+      "description": "The available runtime handlers.",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "../core.api.k8s.io/noderuntimehandler_v1.json"
+          }
+        ],
+        "default": {}
+      },
+      "type": "array",
+      "x-kubernetes-list-type": "atomic"
+    },
     "volumesAttached": {
       "description": "List of volumes that are attached to the node.",
       "items": {
@@ -110,7 +122,8 @@
         ],
         "default": {}
       },
-      "type": "array"
+      "type": "array",
+      "x-kubernetes-list-type": "atomic"
     },
     "volumesInUse": {
       "description": "List of attachable volumes in use (mounted) by the node.",
@@ -118,7 +131,8 @@
         "default": "",
         "type": "string"
       },
-      "type": "array"
+      "type": "array",
+      "x-kubernetes-list-type": "atomic"
     }
   },
   "type": "object"

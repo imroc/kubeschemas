@@ -1,4 +1,5 @@
 {
+  "description": "GlobalNetworkSet contains a set of arbitrary IP sub-networks/CIDRs that share labels to\nallow rules to refer to them via selectors.  The labels of GlobalNetworkSet are not namespaced.",
   "properties": {
     "apiVersion": {
       "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -23,7 +24,17 @@
       "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
     },
     "spec": {
-      "x-kubernetes-preserve-unknown-fields": true
+      "description": "GlobalNetworkSetSpec contains the specification for a NetworkSet resource.",
+      "properties": {
+        "nets": {
+          "description": "The list of IP networks that belong to this set.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
     }
   },
   "required": [
@@ -37,6 +48,5 @@
       "kind": "GlobalNetworkSet",
       "version": "v1"
     }
-  ],
-  "x-kubernetes-selectable-fields": []
+  ]
 }

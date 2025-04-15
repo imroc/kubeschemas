@@ -13,7 +13,6 @@
           "$ref": "../meta.apis.pkg.apimachinery.k8s.io/microtime_v1.json"
         }
       ],
-      "default": {},
       "description": "lastObservedTime is the time when last Event from the series was seen before last heartbeat."
     }
   },

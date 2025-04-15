@@ -1,5 +1,5 @@
 {
-  "description": "KongConsumer is the Schema for the kongconsumers API",
+  "description": "KongConsumer is the Schema for the kongconsumers API.",
   "properties": {
     "apiVersion": {
       "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -8,15 +8,24 @@
       ],
       "type": "string"
     },
-    "credentials": {
-      "description": "Credentials are references to secrets containing a credential to be provisioned in Kong.",
+    "consumerGroups": {
+      "description": "ConsumerGroups are references to consumer groups (that consumer wants to be part of)\nprovisioned in Kong.",
       "items": {
         "type": "string"
       },
-      "type": "array"
+      "type": "array",
+      "x-kubernetes-list-type": "set"
+    },
+    "credentials": {
+      "description": "Credentials are references to secrets containing a credential to be\nprovisioned in Kong.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "x-kubernetes-list-type": "set"
     },
     "custom_id": {
-      "description": "CustomID existing unique ID for the consumer - useful for mapping Kong with users in your existing database",
+      "description": "CustomID is a Kong cluster-unique existing ID for the consumer - useful for mapping\nKong with users in your existing database.",
       "type": "string"
     },
     "kind": {
@@ -34,8 +43,197 @@
       ],
       "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
     },
+    "spec": {
+      "description": "KongConsumerSpec defines the specification of the KongConsumer.",
+      "properties": {
+        "controlPlaneRef": {
+          "description": "ControlPlaneRef is a reference to a ControlPlane this Consumer is associated with.",
+          "properties": {
+            "konnectID": {
+              "description": "KonnectID is the schema for the KonnectID type.\nThis field is required when the Type is konnectID.",
+              "type": "string"
+            },
+            "konnectNamespacedRef": {
+              "description": "KonnectNamespacedRef is a reference to a Konnect Control Plane entity inside the cluster.\nIt contains the name of the Konnect Control Plane.\nThis field is required when the Type is konnectNamespacedRef.",
+              "properties": {
+                "name": {
+                  "description": "Name is the name of the Konnect Control Plane.",
+                  "type": "string"
+                },
+                "namespace": {
+                  "description": "Namespace is the namespace where the Konnect Control Plane is in.\nCurrently only cluster scoped resources (KongVault) are allowed to set `konnectNamespacedRef.namespace`.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "type": "object"
+            },
+            "type": {
+              "default": "kic",
+              "description": "Type indicates the type of the control plane being referenced. Allowed values:\n- konnectNamespacedRef\n- kic\n\nThe default is kic, which implies that the Control Plane is KIC.",
+              "enum": [
+                "konnectNamespacedRef",
+                "kic"
+              ],
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "x-kubernetes-validations": [
+            {
+              "message": "when type is konnectNamespacedRef, konnectNamespacedRef must be set",
+              "rule": "(has(self.type) \u0026\u0026 self.type == 'konnectNamespacedRef') ? has(self.konnectNamespacedRef) : true"
+            },
+            {
+              "message": "when type is konnectNamespacedRef, konnectID must not be set",
+              "rule": "(has(self.type) \u0026\u0026 self.type == 'konnectNamespacedRef') ? !has(self.konnectID) : true"
+            },
+            {
+              "message": "when type is konnectID, konnectID must be set",
+              "rule": "(has(self.type) \u0026\u0026 self.type == 'konnectID') ? has(self.konnectID) : true"
+            },
+            {
+              "message": "when type is konnectID, konnectNamespacedRef must not be set",
+              "rule": "(has(self.type) \u0026\u0026 self.type == 'konnectID') ? !has(self.konnectNamespacedRef) : true"
+            },
+            {
+              "message": "when type is kic, konnectID must not be set",
+              "rule": "(has(self.type) \u0026\u0026 self.type == 'kic') ? !has(self.konnectID) : true"
+            },
+            {
+              "message": "when type is kic, konnectNamespacedRef must not be set",
+              "rule": "(has(self.type) \u0026\u0026 self.type == 'kic') ? !has(self.konnectNamespacedRef) : true"
+            },
+            {
+              "message": "when type is unset, konnectID must not be set",
+              "rule": "!has(self.type) ? !has(self.konnectID) : true"
+            },
+            {
+              "message": "when type is unset, konnectNamespacedRef must not be set",
+              "rule": "!has(self.type) ? !has(self.konnectNamespacedRef) : true"
+            }
+          ]
+        },
+        "tags": {
+          "description": "Tags is an optional set of tags applied to the consumer.",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 20,
+          "type": "array",
+          "x-kubernetes-validations": [
+            {
+              "message": "tags entries must not be longer than 128 characters",
+              "rule": "self.all(tag, size(tag) \u003e= 1 \u0026\u0026 size(tag) \u003c= 128)"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "default": {
+        "conditions": [
+          {
+            "lastTransitionTime": "1970-01-01T00:00:00Z",
+            "message": "Waiting for controller",
+            "reason": "Pending",
+            "status": "Unknown",
+            "type": "Programmed"
+          }
+        ]
+      },
+      "description": "Status represents the current status of the KongConsumer resource.",
+      "properties": {
+        "conditions": {
+          "description": "Conditions describe the current conditions of the KongConsumer.\n\nKnown condition types are:\n\n* \"Programmed\"",
+          "items": {
+            "description": "Condition contains details for one aspect of the current state of this API Resource.",
+            "properties": {
+              "lastTransitionTime": {
+                "description": "lastTransitionTime is the last time the condition transitioned from one status to another.\nThis should be when the underlying condition changed.  If that is not known, then using the time when the API field changed is acceptable.",
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "description": "message is a human readable message indicating details about the transition.\nThis may be an empty string.",
+                "maxLength": 32768,
+                "type": "string"
+              },
+              "observedGeneration": {
+                "description": "observedGeneration represents the .metadata.generation that the condition was set based upon.\nFor instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date\nwith respect to the current state of the instance.",
+                "format": "int64",
+                "minimum": 0,
+                "type": "integer"
+              },
+              "reason": {
+                "description": "reason contains a programmatic identifier indicating the reason for the condition's last transition.\nProducers of specific condition types may define expected values and meanings for this field,\nand whether the values are considered a guaranteed API.\nThe value should be a CamelCase string.\nThis field may not be empty.",
+                "maxLength": 1024,
+                "minLength": 1,
+                "pattern": "^[A-Za-z]([A-Za-z0-9_,:]*[A-Za-z0-9_])?$",
+                "type": "string"
+              },
+              "status": {
+                "description": "status of the condition, one of True, False, Unknown.",
+                "enum": [
+                  "True",
+                  "False",
+                  "Unknown"
+                ],
+                "type": "string"
+              },
+              "type": {
+                "description": "type of condition in CamelCase or in foo.example.com/CamelCase.",
+                "maxLength": 316,
+                "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "lastTransitionTime",
+              "message",
+              "reason",
+              "status",
+              "type"
+            ],
+            "type": "object"
+          },
+          "maxItems": 8,
+          "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map"
+        },
+        "konnect": {
+          "description": "Konnect contains the Konnect entity status.",
+          "properties": {
+            "controlPlaneID": {
+              "description": "ControlPlaneID is the Konnect ID of the ControlPlane this Route is associated with.",
+              "type": "string"
+            },
+            "id": {
+              "description": "ID is the unique identifier of the Konnect entity as assigned by Konnect API.\nIf it's unset (empty string), it means the Konnect entity hasn't been created yet.",
+              "type": "string"
+            },
+            "organizationID": {
+              "description": "OrgID is ID of Konnect Org that this entity has been created in.",
+              "type": "string"
+            },
+            "serverURL": {
+              "description": "ServerURL is the URL of the Konnect server in which the entity exists.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
     "username": {
-      "description": "Username unique username of the consumer.",
+      "description": "Username is a Kong cluster-unique username of the consumer.",
       "type": "string"
     }
   },
@@ -49,6 +247,24 @@
       "group": "configuration.konghq.com",
       "kind": "KongConsumer",
       "version": "v1"
+    }
+  ],
+  "x-kubernetes-validations": [
+    {
+      "message": "Need to provide either username or custom_id",
+      "rule": "has(self.username) || has(self.custom_id)"
+    },
+    {
+      "message": "controlPlaneRef is required once set",
+      "rule": "(!has(oldSelf.spec) || !has(oldSelf.spec.controlPlaneRef)) || has(self.spec.controlPlaneRef)"
+    },
+    {
+      "message": "spec.controlPlaneRef cannot specify namespace for namespaced resource",
+      "rule": "(!has(self.spec) || !has(self.spec.controlPlaneRef) || !has(self.spec.controlPlaneRef.konnectNamespacedRef)) ? true : !has(self.spec.controlPlaneRef.konnectNamespacedRef.__namespace__)"
+    },
+    {
+      "message": "spec.controlPlaneRef is immutable when an entity is already Programmed",
+      "rule": "(!has(self.spec) || !has(self.spec.controlPlaneRef)) ? true : (!has(self.status) || !self.status.conditions.exists(c, c.type == 'Programmed' \u0026\u0026 c.status == 'True')) ? true : oldSelf.spec.controlPlaneRef == self.spec.controlPlaneRef"
     }
   ]
 }

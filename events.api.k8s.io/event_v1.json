@@ -23,7 +23,6 @@
           "$ref": "../meta.apis.pkg.apimachinery.k8s.io/time_v1.json"
         }
       ],
-      "default": {},
       "description": "deprecatedFirstTimestamp is the deprecated field assuring backward compatibility with core.v1 Event type."
     },
     "deprecatedLastTimestamp": {
@@ -32,7 +31,6 @@
           "$ref": "../meta.apis.pkg.apimachinery.k8s.io/time_v1.json"
         }
       ],
-      "default": {},
       "description": "deprecatedLastTimestamp is the deprecated field assuring backward compatibility with core.v1 Event type."
     },
     "deprecatedSource": {
@@ -50,7 +48,6 @@
           "$ref": "../meta.apis.pkg.apimachinery.k8s.io/microtime_v1.json"
         }
       ],
-      "default": {},
       "description": "eventTime is the time when this Event was first observed. It is required."
     },
     "kind": {

@@ -1201,7 +1201,7 @@
           "type": "integer"
         },
         "resourceCounts": {
-          "description": "ResourceCounts is an aggregate over the ResourceCounts.",
+          "description": "ResourceCounts is an aggregate over the GitRepoResourceCounts.",
           "properties": {
             "desiredReady": {
               "description": "DesiredReady is the number of resources that should be ready.",
@@ -1239,7 +1239,7 @@
           "type": "object"
         },
         "summary": {
-          "description": "Summary is a summary of the bundledeployments.",
+          "description": "Summary is a summary of the bundledeployments. The resource counts\nare copied from the gitrepo resource.",
           "properties": {
             "desiredReady": {
               "description": "DesiredReady is the number of bundle deployments that should be\nready.",

@@ -42,6 +42,5 @@
       "kind": "GlobalNetworkPolicyList",
       "version": "v1"
     }
-  ],
-  "x-kubernetes-selectable-fields": []
+  ]
 }

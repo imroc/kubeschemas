@@ -23,7 +23,6 @@
           "$ref": "../meta.apis.pkg.apimachinery.k8s.io/microtime_v1.json"
         }
       ],
-      "default": {},
       "description": "Time when this Event was first observed."
     },
     "firstTimestamp": {
@@ -32,7 +31,6 @@
           "$ref": "../meta.apis.pkg.apimachinery.k8s.io/time_v1.json"
         }
       ],
-      "default": {},
       "description": "The time at which the event was first recorded. (Time of server receipt is in TypeMeta.)"
     },
     "involvedObject": {
@@ -57,7 +55,6 @@
           "$ref": "../meta.apis.pkg.apimachinery.k8s.io/time_v1.json"
         }
       ],
-      "default": {},
       "description": "The time at which the most recent occurrence of this event was recorded."
     },
     "message": {

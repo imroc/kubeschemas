@@ -11,7 +11,6 @@
           "$ref": "../meta.apis.pkg.apimachinery.k8s.io/time_v1.json"
         }
       ],
-      "default": {},
       "description": "time represents the time the error was encountered."
     }
   },

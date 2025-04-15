@@ -2,12 +2,7 @@
   "description": "NamespaceCondition contains details about state of namespace.",
   "properties": {
     "lastTransitionTime": {
-      "allOf": [
-        {
-          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/time_v1.json"
-        }
-      ],
-      "default": {}
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/time_v1.json"
     },
     "message": {
       "type": "string"

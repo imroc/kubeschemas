@@ -14,7 +14,8 @@
         "default": "",
         "type": "string"
       },
-      "type": "array"
+      "type": "array",
+      "x-kubernetes-list-type": "atomic"
     },
     "gracePeriodSeconds": {
       "description": "The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.",
@@ -55,6 +56,261 @@
       "group": "",
       "kind": "DeleteOptions",
       "version": "v1"
+    },
+    {
+      "group": "admissionregistration.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1"
+    },
+    {
+      "group": "admissionregistration.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1alpha1"
+    },
+    {
+      "group": "admissionregistration.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1beta1"
+    },
+    {
+      "group": "apps",
+      "kind": "DeleteOptions",
+      "version": "v1"
+    },
+    {
+      "group": "apps",
+      "kind": "DeleteOptions",
+      "version": "v1beta1"
+    },
+    {
+      "group": "apps",
+      "kind": "DeleteOptions",
+      "version": "v1beta2"
+    },
+    {
+      "group": "authentication.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1"
+    },
+    {
+      "group": "authentication.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1alpha1"
+    },
+    {
+      "group": "authentication.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1beta1"
+    },
+    {
+      "group": "authorization.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1"
+    },
+    {
+      "group": "authorization.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1beta1"
+    },
+    {
+      "group": "autoscaling",
+      "kind": "DeleteOptions",
+      "version": "v1"
+    },
+    {
+      "group": "autoscaling",
+      "kind": "DeleteOptions",
+      "version": "v2"
+    },
+    {
+      "group": "autoscaling",
+      "kind": "DeleteOptions",
+      "version": "v2beta1"
+    },
+    {
+      "group": "autoscaling",
+      "kind": "DeleteOptions",
+      "version": "v2beta2"
+    },
+    {
+      "group": "batch",
+      "kind": "DeleteOptions",
+      "version": "v1"
+    },
+    {
+      "group": "batch",
+      "kind": "DeleteOptions",
+      "version": "v1beta1"
+    },
+    {
+      "group": "certificates.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1"
+    },
+    {
+      "group": "certificates.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1alpha1"
+    },
+    {
+      "group": "certificates.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1beta1"
+    },
+    {
+      "group": "coordination.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1"
+    },
+    {
+      "group": "coordination.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1beta1"
+    },
+    {
+      "group": "discovery.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1"
+    },
+    {
+      "group": "discovery.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1beta1"
+    },
+    {
+      "group": "events.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1"
+    },
+    {
+      "group": "events.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1beta1"
+    },
+    {
+      "group": "extensions",
+      "kind": "DeleteOptions",
+      "version": "v1beta1"
+    },
+    {
+      "group": "flowcontrol.apiserver.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1"
+    },
+    {
+      "group": "flowcontrol.apiserver.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1beta1"
+    },
+    {
+      "group": "flowcontrol.apiserver.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1beta2"
+    },
+    {
+      "group": "flowcontrol.apiserver.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1beta3"
+    },
+    {
+      "group": "internal.apiserver.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1alpha1"
+    },
+    {
+      "group": "networking.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1"
+    },
+    {
+      "group": "networking.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1alpha1"
+    },
+    {
+      "group": "networking.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1beta1"
+    },
+    {
+      "group": "node.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1"
+    },
+    {
+      "group": "node.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1alpha1"
+    },
+    {
+      "group": "node.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1beta1"
+    },
+    {
+      "group": "policy",
+      "kind": "DeleteOptions",
+      "version": "v1"
+    },
+    {
+      "group": "policy",
+      "kind": "DeleteOptions",
+      "version": "v1beta1"
+    },
+    {
+      "group": "rbac.authorization.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1"
+    },
+    {
+      "group": "rbac.authorization.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1alpha1"
+    },
+    {
+      "group": "rbac.authorization.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1beta1"
+    },
+    {
+      "group": "resource.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1alpha2"
+    },
+    {
+      "group": "scheduling.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1"
+    },
+    {
+      "group": "scheduling.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1alpha1"
+    },
+    {
+      "group": "scheduling.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1beta1"
+    },
+    {
+      "group": "storage.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1"
+    },
+    {
+      "group": "storage.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1alpha1"
+    },
+    {
+      "group": "storage.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1beta1"
+    },
+    {
+      "group": "storagemigration.k8s.io",
+      "kind": "DeleteOptions",
+      "version": "v1alpha1"
     }
   ]
 }

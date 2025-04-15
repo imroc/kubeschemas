@@ -15,7 +15,8 @@
         ],
         "default": {}
       },
-      "type": "array"
+      "type": "array",
+      "x-kubernetes-list-type": "atomic"
     },
     "path": {
       "description": "Path to access on the HTTP server.",
@@ -27,7 +28,6 @@
           "$ref": "../util.pkg.apimachinery.k8s.io/intorstring_intstr.json"
         }
       ],
-      "default": {},
       "description": "Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME."
     },
     "scheme": {

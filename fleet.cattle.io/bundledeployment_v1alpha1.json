@@ -109,20 +109,6 @@
           "nullable": true,
           "type": "string"
         },
-        "helmChartOptions": {
-          "description": "HelmChartOptions is not nil and has the helm chart config details when contents\nshould be downloaded from a helm chart",
-          "properties": {
-            "helmAppInsecureSkipTLSVerify": {
-              "description": "InsecureSkipTLSverify will use insecure HTTPS to clone the helm app resource.",
-              "type": "boolean"
-            },
-            "helmAppSecretName": {
-              "description": "SecretName stores the secret name for storing credentials when accessing\na remote helm repository defined in a HelmApp resource",
-              "type": "string"
-            }
-          },
-          "type": "object"
-        },
         "ociContents": {
           "description": "OCIContents is true when this deployment's contents is stored in an oci registry",
           "type": "boolean"

@@ -1,4 +1,5 @@
 {
+  "description": "ClusterInformation contains the cluster specific information.",
   "properties": {
     "apiVersion": {
       "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -23,7 +24,30 @@
       "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
     },
     "spec": {
-      "x-kubernetes-preserve-unknown-fields": true
+      "description": "ClusterInformationSpec contains the values of describing the cluster.",
+      "properties": {
+        "calicoVersion": {
+          "description": "CalicoVersion is the version of Calico that the cluster is running",
+          "type": "string"
+        },
+        "clusterGUID": {
+          "description": "ClusterGUID is the GUID of the cluster",
+          "type": "string"
+        },
+        "clusterType": {
+          "description": "ClusterType describes the type of the cluster",
+          "type": "string"
+        },
+        "datastoreReady": {
+          "description": "DatastoreReady is used during significant datastore migrations to signal to components\nsuch as Felix that it should wait before accessing the datastore.",
+          "type": "boolean"
+        },
+        "variant": {
+          "description": "Variant declares which variant of Calico should be active.",
+          "type": "string"
+        }
+      },
+      "type": "object"
     }
   },
   "required": [
@@ -37,6 +61,5 @@
       "kind": "ClusterInformation",
       "version": "v1"
     }
-  ],
-  "x-kubernetes-selectable-fields": []
+  ]
 }

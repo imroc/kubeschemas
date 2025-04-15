@@ -42,6 +42,5 @@
       "kind": "CiliumNetworkPolicyList",
       "version": "v2"
     }
-  ],
-  "x-kubernetes-selectable-fields": []
+  ]
 }

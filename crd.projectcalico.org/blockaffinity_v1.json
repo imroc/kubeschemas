@@ -29,13 +29,16 @@
           "type": "string"
         },
         "deleted": {
-          "description": "Deleted indicates that this block affinity is being deleted. This field is a string for compatibility with older releases that mistakenly treat this field as a string.",
+          "description": "Deleted indicates that this block affinity is being deleted.\nThis field is a string for compatibility with older releases that\nmistakenly treat this field as a string.",
           "type": "string"
         },
         "node": {
           "type": "string"
         },
         "state": {
+          "type": "string"
+        },
+        "type": {
           "type": "string"
         }
       },

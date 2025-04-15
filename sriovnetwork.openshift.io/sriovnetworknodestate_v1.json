@@ -184,19 +184,6 @@
             "type": "object"
           },
           "type": "array"
-        },
-        "system": {
-          "properties": {
-            "rdmaMode": {
-              "description": "RDMA subsystem. Allowed value \"shared\", \"exclusive\".",
-              "enum": [
-                "shared",
-                "exclusive"
-              ],
-              "type": "string"
-            }
-          },
-          "type": "object"
         }
       },
       "type": "object"
@@ -414,19 +401,6 @@
         },
         "syncStatus": {
           "type": "string"
-        },
-        "system": {
-          "properties": {
-            "rdmaMode": {
-              "description": "RDMA subsystem. Allowed value \"shared\", \"exclusive\".",
-              "enum": [
-                "shared",
-                "exclusive"
-              ],
-              "type": "string"
-            }
-          },
-          "type": "object"
         }
       },
       "type": "object"

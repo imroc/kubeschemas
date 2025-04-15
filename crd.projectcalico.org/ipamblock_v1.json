@@ -26,11 +26,11 @@
       "description": "IPAMBlockSpec contains the specification for an IPAMBlock resource.",
       "properties": {
         "affinity": {
-          "description": "Affinity of the block, if this block has one. If set, it will be of the form \"host:\u003chostname\u003e\". If not set, this block is not affine to a host.",
+          "description": "Affinity of the block, if this block has one. If set, it will be of the form\n\"host:\u003chostname\u003e\". If not set, this block is not affine to a host.",
           "type": "string"
         },
         "allocations": {
-          "description": "Array of allocations in-use within this block. nil entries mean the allocation is free. For non-nil entries at index i, the index is the ordinal of the allocation within this block and the value is the index of the associated attributes in the Attributes array.",
+          "description": "Array of allocations in-use within this block. nil entries mean the allocation is free.\nFor non-nil entries at index i, the index is the ordinal of the allocation within this block\nand the value is the index of the associated attributes in the Attributes array.",
           "items": {
             "nullable": true,
             "type": "integer"
@@ -38,7 +38,7 @@
           "type": "array"
         },
         "attributes": {
-          "description": "Attributes is an array of arbitrary metadata associated with allocations in the block. To find attributes for a given allocation, use the value of the allocation's entry in the Allocations array as the index of the element in this array.",
+          "description": "Attributes is an array of arbitrary metadata associated with allocations in the block. To find\nattributes for a given allocation, use the value of the allocation's entry in the Allocations array\nas the index of the element in this array.",
           "items": {
             "properties": {
               "handle_id": {
@@ -60,12 +60,12 @@
           "type": "string"
         },
         "deleted": {
-          "description": "Deleted is an internal boolean used to workaround a limitation in the Kubernetes API whereby deletion will not return a conflict error if the block has been updated. It should not be set manually.",
+          "description": "Deleted is an internal boolean used to workaround a limitation in the Kubernetes API whereby\ndeletion will not return a conflict error if the block has been updated. It should not be set manually.",
           "type": "boolean"
         },
         "sequenceNumber": {
           "default": 0,
-          "description": "We store a sequence number that is updated each time the block is written. Each allocation will also store the sequence number of the block at the time of its creation. When releasing an IP, passing the sequence number associated with the allocation allows us to protect against a race condition and ensure the IP hasn't been released and re-allocated since the release request.",
+          "description": "We store a sequence number that is updated each time the block is written.\nEach allocation will also store the sequence number of the block at the time of its creation.\nWhen releasing an IP, passing the sequence number associated with the allocation allows us\nto protect against a race condition and ensure the IP hasn't been released and re-allocated\nsince the release request.",
           "format": "int64",
           "type": "integer"
         },
@@ -74,7 +74,7 @@
             "format": "int64",
             "type": "integer"
           },
-          "description": "Map of allocated ordinal within the block to sequence number of the block at the time of allocation. Kubernetes does not allow numerical keys for maps, so the key is cast to a string.",
+          "description": "Map of allocated ordinal within the block to sequence number of the block at\nthe time of allocation. Kubernetes does not allow numerical keys for maps, so\nthe key is cast to a string.",
           "type": "object"
         },
         "strictAffinity": {

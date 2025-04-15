@@ -60,7 +60,7 @@
                 "x-kubernetes-validations": [
                   {
                     "message": "wildcard not allowed in label value match",
-                    "rule": "!self.contains('*')"
+                    "rule": "!self.contains(\"*\")"
                   }
                 ]
               },
@@ -70,7 +70,7 @@
               "x-kubernetes-validations": [
                 {
                   "message": "wildcard not allowed in label key match",
-                  "rule": "self.all(key, !key.contains('*'))"
+                  "rule": "self.all(key, !key.contains(\"*\"))"
                 },
                 {
                   "message": "key must not be empty",
@@ -104,6 +104,18 @@
                 "description": "Human-readable message indicating details about last transition.",
                 "type": "string"
               },
+              "observedGeneration": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "description": "Resource Generation to which the Condition refers.",
+                "x-kubernetes-int-or-string": true
+              },
               "reason": {
                 "description": "Unique, one-word, CamelCase reason for the condition's last transition.",
                 "type": "string"
@@ -130,7 +142,6 @@
               "type": "string"
             }
           ],
-          "description": "Resource Generation to which the Reconciled Condition refers.",
           "x-kubernetes-int-or-string": true
         },
         "validationMessages": {

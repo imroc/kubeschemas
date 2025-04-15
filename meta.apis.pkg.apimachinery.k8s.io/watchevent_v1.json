@@ -7,7 +7,6 @@
           "$ref": "../pkg.apimachinery.k8s.io/rawextension_runtime.json"
         }
       ],
-      "default": {},
       "description": "Object is:\n * If Type is Added or Modified: the new state of the object.\n * If Type is Deleted: the state of the object immediately before deletion.\n * If Type is Error: *Status is recommended; other types may make sense\n   depending on context."
     },
     "type": {
@@ -194,7 +193,7 @@
     {
       "group": "flowcontrol.apiserver.k8s.io",
       "kind": "WatchEvent",
-      "version": "v1alpha1"
+      "version": "v1"
     },
     {
       "group": "flowcontrol.apiserver.k8s.io",
@@ -310,6 +309,11 @@
       "group": "storage.k8s.io",
       "kind": "WatchEvent",
       "version": "v1beta1"
+    },
+    {
+      "group": "storagemigration.k8s.io",
+      "kind": "WatchEvent",
+      "version": "v1alpha1"
     }
   ]
 }

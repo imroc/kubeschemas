@@ -65,6 +65,11 @@
                     "required": [
                       "exec"
                     ]
+                  },
+                  {
+                    "required": [
+                      "grpc"
+                    ]
                   }
                 ]
               }
@@ -82,6 +87,11 @@
             {
               "required": [
                 "exec"
+              ]
+            },
+            {
+              "required": [
+                "grpc"
               ]
             }
           ],
@@ -108,6 +118,27 @@
               "format": "int32",
               "minimum": 0,
               "type": "integer"
+            },
+            "grpc": {
+              "description": "GRPC call is made and response/error is used to determine health.",
+              "properties": {
+                "port": {
+                  "description": "Port on which the endpoint lives.",
+                  "maximum": 4294967295,
+                  "minimum": 0,
+                  "type": "integer",
+                  "x-kubernetes-validations": [
+                    {
+                      "message": "port must be between 1-65535",
+                      "rule": "0 \u003c self \u0026\u0026 self \u003c= 65535"
+                    }
+                  ]
+                },
+                "service": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
             },
             "httpGet": {
               "description": "`httpGet` is performed to a given endpoint and the status/able to connect determines health.",
@@ -153,7 +184,7 @@
                   "x-kubernetes-validations": [
                     {
                       "message": "scheme must be one of [HTTP, HTTPS]",
-                      "rule": "self in ['', 'HTTP', 'HTTPS']"
+                      "rule": "self in [\"\", \"HTTP\", \"HTTPS\"]"
                     }
                   ]
                 }
@@ -223,11 +254,11 @@
               "x-kubernetes-validations": [
                 {
                   "message": "UDS must be an absolute path or abstract socket",
-                  "rule": "self.startsWith('unix://') ? (self.substring(7,8) == '/' || self.substring(7,8) == '@') : true"
+                  "rule": "self.startsWith(\"unix://\") ? (self.substring(7, 8) == \"/\" || self.substring(7, 8) == \"@\") : true"
                 },
                 {
                   "message": "UDS may not be a dir",
-                  "rule": "self.startsWith('unix://') ? !self.endsWith('/') : true"
+                  "rule": "self.startsWith(\"unix://\") ? !self.endsWith(\"/\") : true"
                 }
               ]
             },
@@ -267,7 +298,7 @@
               "x-kubernetes-validations": [
                 {
                   "message": "port name must be valid",
-                  "rule": "self.all(key, size(key) \u003c 63 \u0026\u0026 key.matches('^[a-zA-Z0-9](?:[-a-zA-Z0-9]*[a-zA-Z0-9])?$'))"
+                  "rule": "self.all(key, size(key) \u003c 63 \u0026\u0026 key.matches(\"^[a-zA-Z0-9](?:[-a-zA-Z0-9]*[a-zA-Z0-9])?$\"))"
                 }
               ]
             },
@@ -287,7 +318,7 @@
           "x-kubernetes-validations": [
             {
               "message": "UDS may not include ports",
-              "rule": "(has(self.address) \u0026\u0026 self.address.startsWith('unix://')) ? !has(self.ports) : true"
+              "rule": "(has(self.address) ? self.address : \"\").startsWith(\"unix://\") ? !has(self.ports) : true"
             }
           ]
         }
@@ -317,6 +348,18 @@
                 "description": "Human-readable message indicating details about last transition.",
                 "type": "string"
               },
+              "observedGeneration": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "description": "Resource Generation to which the Condition refers.",
+                "x-kubernetes-int-or-string": true
+              },
               "reason": {
                 "description": "Unique, one-word, CamelCase reason for the condition's last transition.",
                 "type": "string"
@@ -343,7 +386,6 @@
               "type": "string"
             }
           ],
-          "description": "Resource Generation to which the Reconciled Condition refers.",
           "x-kubernetes-int-or-string": true
         },
         "validationMessages": {

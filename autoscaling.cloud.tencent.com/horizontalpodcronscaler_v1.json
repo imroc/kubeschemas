@@ -99,6 +99,10 @@
             "namespace"
           ],
           "type": "object"
+        },
+        "suspend": {
+          "description": "If true, all cron jobs will be suspended.",
+          "type": "boolean"
         }
       },
       "required": [

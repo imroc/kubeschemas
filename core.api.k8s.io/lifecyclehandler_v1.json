@@ -17,6 +17,14 @@
       ],
       "description": "HTTPGet specifies the http request to perform."
     },
+    "sleep": {
+      "allOf": [
+        {
+          "$ref": "../core.api.k8s.io/sleepaction_v1.json"
+        }
+      ],
+      "description": "Sleep represents the duration that the container should sleep before being terminated."
+    },
     "tcpSocket": {
       "allOf": [
         {

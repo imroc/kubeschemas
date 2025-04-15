@@ -3,12 +3,7 @@
   "properties": {
     "hard": {
       "additionalProperties": {
-        "allOf": [
-          {
-            "$ref": "../api.pkg.apimachinery.k8s.io/quantity_resource.json"
-          }
-        ],
-        "default": {}
+        "$ref": "../api.pkg.apimachinery.k8s.io/quantity_resource.json"
       },
       "description": "hard is the set of desired hard limits for each named resource. More info: https://kubernetes.io/docs/concepts/policy/resource-quotas/",
       "type": "object"
@@ -25,9 +20,18 @@
       "description": "A collection of filters that must match each object tracked by a quota. If not specified, the quota matches all objects.",
       "items": {
         "default": "",
+        "enum": [
+          "BestEffort",
+          "CrossNamespacePodAffinity",
+          "NotBestEffort",
+          "NotTerminating",
+          "PriorityClass",
+          "Terminating"
+        ],
         "type": "string"
       },
-      "type": "array"
+      "type": "array",
+      "x-kubernetes-list-type": "atomic"
     }
   },
   "type": "object"

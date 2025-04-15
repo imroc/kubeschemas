@@ -137,6 +137,9 @@
                       },
                       "sampleInterval": {
                         "type": "string"
+                      },
+                      "targetUtilization": {
+                        "type": "string"
                       }
                     },
                     "type": "object"
@@ -354,11 +357,18 @@
                 },
                 "type": "array"
               },
+              "ready": {
+                "description": "Specifies whether the prediction is Ready.",
+                "type": "boolean"
+              },
               "resourceIdentifier": {
                 "description": "ResourceIdentifier is a resource to identify the metric, but now it is just an identifier now. such as cpu, memory",
                 "type": "string"
               }
             },
+            "required": [
+              "ready"
+            ],
             "type": "object"
           },
           "type": "array"
