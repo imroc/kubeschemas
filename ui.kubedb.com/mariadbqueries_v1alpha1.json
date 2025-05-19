@@ -1,0 +1,108 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "ui.kubedb.com/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "MariaDBQueries"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "queries": {
+          "items": {
+            "properties": {
+              "db": {
+                "type": "string"
+              },
+              "insertId": {
+                "format": "int64",
+                "type": "integer"
+              },
+              "lastInsertId": {
+                "format": "int64",
+                "type": "integer"
+              },
+              "lockTimeMilliSeconds": {
+                "type": "string"
+              },
+              "queryTimeMilliSeconds": {
+                "type": "string"
+              },
+              "rowsAffected": {
+                "format": "int64",
+                "type": "integer"
+              },
+              "rowsExamined": {
+                "format": "int64",
+                "type": "integer"
+              },
+              "rowsSent": {
+                "format": "int64",
+                "type": "integer"
+              },
+              "serverId": {
+                "format": "int64",
+                "type": "integer"
+              },
+              "sqlText": {
+                "type": "string"
+              },
+              "startTime": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "threadId": {
+                "format": "int64",
+                "type": "integer"
+              },
+              "userHost": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "db",
+              "lockTimeMilliSeconds",
+              "queryTimeMilliSeconds",
+              "startTime",
+              "userHost"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "queries"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "ui.kubedb.com",
+      "kind": "MariaDBQueries",
+      "version": "v1alpha1"
+    }
+  ]
+}

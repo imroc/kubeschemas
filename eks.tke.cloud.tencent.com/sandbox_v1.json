@@ -1,0 +1,165 @@
+{
+  "description": "SandboxStatusInfo is the Schema for the SandboxStatusInfo API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "eks.tke.cloud.tencent.com/v1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "Sandbox"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "SandboxSpec defines the desired state of SandboxSpec",
+      "properties": {
+        "imageCacheDiskSize": {
+          "type": "string"
+        },
+        "instanceId": {
+          "type": "string"
+        },
+        "nodeName": {
+          "description": "resources spec",
+          "type": "string"
+        },
+        "ownerPodName": {
+          "description": "for static ip pod",
+          "type": "string"
+        },
+        "ownerPodNamespace": {
+          "type": "string"
+        },
+        "requests": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+            "x-kubernetes-int-or-string": true
+          },
+          "description": "ResourceList is a set of (resource name, quantity) pairs.",
+          "type": "object"
+        },
+        "rootCbsSize": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "description": "SandboxStatus defines the observed state of SandboxStatus",
+      "properties": {
+        "connUID": {
+          "type": "string"
+        },
+        "idleAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "lastRunningPod": {
+          "description": "CxmInfoStatus defines the observed state of CxmInfo",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "namespace": {
+              "type": "string"
+            },
+            "uid": {
+              "type": "string"
+            },
+            "workloadKind": {
+              "type": "string"
+            },
+            "workloadName": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "namespace",
+            "uid",
+            "workloadKind",
+            "workloadName"
+          ],
+          "type": "object"
+        },
+        "reUseAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "underlay": {
+          "description": "CxmInfoStatus defines the observed state of CxmInfo",
+          "properties": {
+            "cpu": {
+              "type": "string"
+            },
+            "createdTime": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "gpu": {
+              "type": "string"
+            },
+            "gpuType": {
+              "type": "string"
+            },
+            "memory": {
+              "type": "string"
+            },
+            "startTime": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "cpu",
+            "gpu",
+            "gpuType",
+            "memory",
+            "status"
+          ],
+          "type": "object"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "eks.tke.cloud.tencent.com",
+      "kind": "Sandbox",
+      "version": "v1"
+    }
+  ]
+}

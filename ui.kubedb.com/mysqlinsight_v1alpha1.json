@@ -1,0 +1,167 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "ui.kubedb.com/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "MySQLInsight"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "abortedClients": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "abortedConnections": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "longQueryTimeThresholdSeconds": {
+          "format": "double",
+          "type": "number"
+        },
+        "maxConnections": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "maxUsedConnections": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "mode": {
+          "type": "string"
+        },
+        "numberOfSlowQueries": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "questions": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "status": {
+          "type": "string"
+        },
+        "threadsCached": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "threadsConnected": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "threadsCreated": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "threadsRunning": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "mode",
+        "status",
+        "version"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "properties": {
+        "authSecret": {
+          "properties": {
+            "lastUpdateTimestamp": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "conditions": {
+          "items": {
+            "properties": {
+              "lastTransitionTime": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "observedGeneration": {
+                "format": "int64",
+                "type": "integer"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "severity": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "lastTransitionTime",
+              "status",
+              "type"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "observedGeneration": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "phase": {
+          "enum": [
+            "Provisioning",
+            "DataRestoring",
+            "Ready",
+            "Critical",
+            "NotReady",
+            "Halted",
+            "Unknown"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "ui.kubedb.com",
+      "kind": "MySQLInsight",
+      "version": "v1alpha1"
+    }
+  ]
+}

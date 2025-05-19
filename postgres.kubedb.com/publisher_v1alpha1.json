@@ -1,0 +1,278 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "postgres.kubedb.com/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "Publisher"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "allowedSubscribers": {
+          "default": {
+            "namespaces": {
+              "from": "Same"
+            }
+          },
+          "properties": {
+            "namespaces": {
+              "default": {
+                "from": "Same"
+              },
+              "properties": {
+                "from": {
+                  "default": "Same",
+                  "enum": [
+                    "All",
+                    "Selector",
+                    "Same"
+                  ],
+                  "type": "string"
+                },
+                "selector": {
+                  "properties": {
+                    "matchExpressions": {
+                      "items": {
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "operator": {
+                            "type": "string"
+                          },
+                          "values": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array",
+                            "x-kubernetes-list-type": "atomic"
+                          }
+                        },
+                        "required": [
+                          "key",
+                          "operator"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array",
+                      "x-kubernetes-list-type": "atomic"
+                    },
+                    "matchLabels": {
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object",
+                  "x-kubernetes-map-type": "atomic"
+                }
+              },
+              "type": "object"
+            },
+            "selector": {
+              "properties": {
+                "matchExpressions": {
+                  "items": {
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "operator": {
+                        "type": "string"
+                      },
+                      "values": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array",
+                        "x-kubernetes-list-type": "atomic"
+                      }
+                    },
+                    "required": [
+                      "key",
+                      "operator"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array",
+                  "x-kubernetes-list-type": "atomic"
+                },
+                "matchLabels": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object",
+              "x-kubernetes-map-type": "atomic"
+            }
+          },
+          "type": "object"
+        },
+        "databaseName": {
+          "type": "string"
+        },
+        "databaseRef": {
+          "properties": {
+            "name": {
+              "default": "",
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "x-kubernetes-map-type": "atomic"
+        },
+        "deletionPolicy": {
+          "default": "Delete",
+          "enum": [
+            "Delete",
+            "Retain"
+          ],
+          "type": "string"
+        },
+        "disable": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "parameters": {
+          "properties": {
+            "operations": {
+              "items": {
+                "enum": [
+                  "insert",
+                  "update",
+                  "delete",
+                  "truncate"
+                ],
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "publishViaPartitionRoot": {
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        },
+        "publishAllTables": {
+          "type": "boolean"
+        },
+        "tables": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "databaseName",
+        "databaseRef",
+        "name"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "properties": {
+        "conditions": {
+          "items": {
+            "properties": {
+              "lastTransitionTime": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "observedGeneration": {
+                "format": "int64",
+                "type": "integer"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "severity": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "lastTransitionTime",
+              "status",
+              "type"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "observedGeneration": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "phase": {
+          "enum": [
+            "Pending",
+            "InProgress",
+            "Current",
+            "Failed"
+          ],
+          "type": "string"
+        },
+        "subscribers": {
+          "items": {
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "namespace": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "postgres.kubedb.com",
+      "kind": "Publisher",
+      "version": "v1alpha1"
+    }
+  ]
+}

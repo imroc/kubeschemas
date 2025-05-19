@@ -1,0 +1,14 @@
+{
+  "description": "UserAgentSubject holds detailed information for user-agent-kind subject.",
+  "properties": {
+    "nameRegexp": {
+      "default": "",
+      "description": "`nameRegexp` is the agent name regular expression that matches. Required.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "nameRegexp"
+  ],
+  "type": "object"
+}

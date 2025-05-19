@@ -862,6 +862,36 @@
       "$ref": "apps.openyurt.io/yurtstaticsetlist_v1alpha1.json"
     },
     {
+      "$ref": "archiver.kubedb.com/mariadbarchiver_v1alpha1.json"
+    },
+    {
+      "$ref": "archiver.kubedb.com/mariadbarchiverlist_v1alpha1.json"
+    },
+    {
+      "$ref": "archiver.kubedb.com/mongodbarchiver_v1alpha1.json"
+    },
+    {
+      "$ref": "archiver.kubedb.com/mongodbarchiverlist_v1alpha1.json"
+    },
+    {
+      "$ref": "archiver.kubedb.com/mssqlserverarchiver_v1alpha1.json"
+    },
+    {
+      "$ref": "archiver.kubedb.com/mssqlserverarchiverlist_v1alpha1.json"
+    },
+    {
+      "$ref": "archiver.kubedb.com/mysqlarchiver_v1alpha1.json"
+    },
+    {
+      "$ref": "archiver.kubedb.com/mysqlarchiverlist_v1alpha1.json"
+    },
+    {
+      "$ref": "archiver.kubedb.com/postgresarchiver_v1alpha1.json"
+    },
+    {
+      "$ref": "archiver.kubedb.com/postgresarchiverlist_v1alpha1.json"
+    },
+    {
       "$ref": "argoproj.io/analysisrun_v1alpha1.json"
     },
     {
@@ -1294,6 +1324,144 @@
       "$ref": "autoscaling.karmada.io/federatedhpalist_v1alpha1.json"
     },
     {
+      "$ref": "autoscaling.kubedb.com/cassandraautoscaler_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/cassandraautoscalerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/clickhouseautoscaler_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/clickhouseautoscalerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/druidautoscaler_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/druidautoscalerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/elasticsearchautoscaler_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/elasticsearchautoscalerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/etcdautoscaler_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/etcdautoscalerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/ferretdbautoscaler_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/ferretdbautoscalerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/kafkaautoscaler_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/kafkaautoscalerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/mariadbautoscaler_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/mariadbautoscalerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/memcachedautoscaler_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/memcachedautoscalerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/mongodbautoscaler_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/mongodbautoscalerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/mssqlserverautoscaler_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/mssqlserverautoscalerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/mysqlautoscaler_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/mysqlautoscalerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/perconaxtradbautoscaler_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/perconaxtradbautoscalerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/pgbouncerautoscaler_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/pgbouncerautoscalerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/pgpoolautoscaler_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/pgpoolautoscalerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/postgresautoscaler_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/postgresautoscalerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/proxysqlautoscaler_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/proxysqlautoscalerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/rabbitmqautoscaler_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/rabbitmqautoscalerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/redisautoscaler_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/redisautoscalerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/redissentinelautoscaler_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/redissentinelautoscalerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/singlestoreautoscaler_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/singlestoreautoscalerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/solrautoscaler_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/solrautoscalerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/zookeeperautoscaler_v1alpha1.json"
+    },
+    {
+      "$ref": "autoscaling.kubedb.com/zookeeperautoscalerlist_v1alpha1.json"
+    },
+    {
       "$ref": "autoscaling.x-k8s.io/provisioningrequest_v1beta1.json"
     },
     {
@@ -1520,6 +1688,156 @@
     },
     {
       "$ref": "catalog.cattle.io/uipluginlist_v1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/cassandraversion_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/cassandraversionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/clickhouseversion_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/clickhouseversionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/druidversion_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/druidversionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/elasticsearchversion_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/elasticsearchversionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/etcdversion_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/etcdversionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/ferretdbversion_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/ferretdbversionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/igniteversion_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/igniteversionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/kafkaconnectorversion_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/kafkaconnectorversionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/kafkaversion_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/kafkaversionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/mariadbversion_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/mariadbversionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/memcachedversion_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/memcachedversionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/mongodbversion_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/mongodbversionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/mssqlserverversion_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/mssqlserverversionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/mysqlversion_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/mysqlversionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/perconaxtradbversion_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/perconaxtradbversionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/pgbouncerversion_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/pgbouncerversionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/pgpoolversion_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/pgpoolversionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/postgresversion_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/postgresversionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/proxysqlversion_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/proxysqlversionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/rabbitmqversion_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/rabbitmqversionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/redisversion_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/redisversionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/schemaregistryversion_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/schemaregistryversionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/singlestoreversion_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/singlestoreversionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/solrversion_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/solrversionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/zookeeperversion_v1alpha1.json"
+    },
+    {
+      "$ref": "catalog.kubedb.com/zookeeperversionlist_v1alpha1.json"
     },
     {
       "$ref": "cert-manager.io/certificate_v1.json"
@@ -3481,10 +3799,22 @@
       "$ref": "eks.tke.cloud.tencent.com/injectpodlist_v1.json"
     },
     {
+      "$ref": "eks.tke.cloud.tencent.com/sandbox_v1.json"
+    },
+    {
+      "$ref": "eks.tke.cloud.tencent.com/sandboxlist_v1.json"
+    },
+    {
       "$ref": "elasticgpu.io/gpu_v1alpha1.json"
     },
     {
       "$ref": "elasticgpu.io/gpulist_v1alpha1.json"
+    },
+    {
+      "$ref": "elasticsearch.kubedb.com/elasticsearchdashboard_v1alpha1.json"
+    },
+    {
+      "$ref": "elasticsearch.kubedb.com/elasticsearchdashboardlist_v1alpha1.json"
     },
     {
       "$ref": "elbv2.k8s.aws/ingressclassparams_v1beta1.json"
@@ -4223,6 +4553,126 @@
     },
     {
       "$ref": "geip.cce.io/geiplist_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/druid_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/druidlist_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/elasticsearch_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/elasticsearchlist_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/ferretdb_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/ferretdblist_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/kafka_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/kafkalist_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/mariadb_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/mariadblist_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/memcached_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/memcachedlist_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/mongodb_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/mongodblist_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/mssqlserver_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/mssqlserverlist_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/mysql_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/mysqllist_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/perconaxtradb_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/perconaxtradblist_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/pgbouncer_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/pgbouncerlist_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/pgpool_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/pgpoollist_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/postgres_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/postgreslist_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/proxysql_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/proxysqllist_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/rabbitmq_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/rabbitmqlist_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/redis_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/redislist_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/redissentinel_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/redissentinellist_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/singlestore_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/singlestorelist_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/solr_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/solrlist_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/zookeeper_v1alpha1.json"
+    },
+    {
+      "$ref": "gitops.kubedb.com/zookeeperlist_v1alpha1.json"
     },
     {
       "$ref": "gke.cattle.io/gkeclusterconfig_v1.json"
@@ -4966,6 +5416,30 @@
       "$ref": "k8s.keycloak.org/keycloakrealmimportlist_v2alpha1.json"
     },
     {
+      "$ref": "kafka.kubedb.com/connectcluster_v1alpha1.json"
+    },
+    {
+      "$ref": "kafka.kubedb.com/connectclusterlist_v1alpha1.json"
+    },
+    {
+      "$ref": "kafka.kubedb.com/connector_v1alpha1.json"
+    },
+    {
+      "$ref": "kafka.kubedb.com/connectorlist_v1alpha1.json"
+    },
+    {
+      "$ref": "kafka.kubedb.com/restproxy_v1alpha1.json"
+    },
+    {
+      "$ref": "kafka.kubedb.com/restproxylist_v1alpha1.json"
+    },
+    {
+      "$ref": "kafka.kubedb.com/schemaregistry_v1alpha1.json"
+    },
+    {
+      "$ref": "kafka.kubedb.com/schemaregistrylist_v1alpha1.json"
+    },
+    {
       "$ref": "kagent.dev/agent_v1alpha1.json"
     },
     {
@@ -5234,6 +5708,222 @@
     },
     {
       "$ref": "kubecontrollermanager.config.k8s.io/kubecontrollermanagerconfiguration_v1alpha1.json"
+    },
+    {
+      "$ref": "kubedb.com/cassandra_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/cassandralist_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/clickhouse_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/clickhouselist_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/druid_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/druidlist_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/elasticsearch_v1.json"
+    },
+    {
+      "$ref": "kubedb.com/elasticsearch_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/elasticsearchlist_v1.json"
+    },
+    {
+      "$ref": "kubedb.com/elasticsearchlist_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/etcd_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/etcdlist_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/ferretdb_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/ferretdblist_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/ignite_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/ignitelist_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/kafka_v1.json"
+    },
+    {
+      "$ref": "kubedb.com/kafka_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/kafkalist_v1.json"
+    },
+    {
+      "$ref": "kubedb.com/kafkalist_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/mariadb_v1.json"
+    },
+    {
+      "$ref": "kubedb.com/mariadb_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/mariadblist_v1.json"
+    },
+    {
+      "$ref": "kubedb.com/mariadblist_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/memcached_v1.json"
+    },
+    {
+      "$ref": "kubedb.com/memcached_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/memcachedlist_v1.json"
+    },
+    {
+      "$ref": "kubedb.com/memcachedlist_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/mongodb_v1.json"
+    },
+    {
+      "$ref": "kubedb.com/mongodb_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/mongodblist_v1.json"
+    },
+    {
+      "$ref": "kubedb.com/mongodblist_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/mssqlserver_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/mssqlserverlist_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/mysql_v1.json"
+    },
+    {
+      "$ref": "kubedb.com/mysql_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/mysqllist_v1.json"
+    },
+    {
+      "$ref": "kubedb.com/mysqllist_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/perconaxtradb_v1.json"
+    },
+    {
+      "$ref": "kubedb.com/perconaxtradb_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/perconaxtradblist_v1.json"
+    },
+    {
+      "$ref": "kubedb.com/perconaxtradblist_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/pgbouncer_v1.json"
+    },
+    {
+      "$ref": "kubedb.com/pgbouncer_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/pgbouncerlist_v1.json"
+    },
+    {
+      "$ref": "kubedb.com/pgbouncerlist_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/pgpool_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/pgpoollist_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/postgres_v1.json"
+    },
+    {
+      "$ref": "kubedb.com/postgres_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/postgreslist_v1.json"
+    },
+    {
+      "$ref": "kubedb.com/postgreslist_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/proxysql_v1.json"
+    },
+    {
+      "$ref": "kubedb.com/proxysql_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/proxysqllist_v1.json"
+    },
+    {
+      "$ref": "kubedb.com/proxysqllist_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/rabbitmq_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/rabbitmqlist_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/redis_v1.json"
+    },
+    {
+      "$ref": "kubedb.com/redis_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/redislist_v1.json"
+    },
+    {
+      "$ref": "kubedb.com/redislist_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/redissentinel_v1.json"
+    },
+    {
+      "$ref": "kubedb.com/redissentinel_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/redissentinellist_v1.json"
+    },
+    {
+      "$ref": "kubedb.com/redissentinellist_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/singlestore_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/singlestorelist_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/solr_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/solrlist_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/zookeeper_v1alpha2.json"
+    },
+    {
+      "$ref": "kubedb.com/zookeeperlist_v1alpha2.json"
     },
     {
       "$ref": "kubeflow.org/mpijob_v1.json"
@@ -7912,6 +8602,138 @@
       "$ref": "operators.coreos.com/subscriptionlist_v1alpha1.json"
     },
     {
+      "$ref": "ops.kubedb.com/clickhouseopsrequest_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/clickhouseopsrequestlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/druidopsrequest_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/druidopsrequestlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/elasticsearchopsrequest_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/elasticsearchopsrequestlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/etcdopsrequest_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/etcdopsrequestlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/ferretdbopsrequest_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/ferretdbopsrequestlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/kafkaopsrequest_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/kafkaopsrequestlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/mariadbopsrequest_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/mariadbopsrequestlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/memcachedopsrequest_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/memcachedopsrequestlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/mongodbopsrequest_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/mongodbopsrequestlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/mssqlserveropsrequest_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/mssqlserveropsrequestlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/mysqlopsrequest_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/mysqlopsrequestlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/perconaxtradbopsrequest_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/perconaxtradbopsrequestlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/pgbounceropsrequest_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/pgbounceropsrequestlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/pgpoolopsrequest_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/pgpoolopsrequestlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/postgresopsrequest_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/postgresopsrequestlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/proxysqlopsrequest_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/proxysqlopsrequestlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/rabbitmqopsrequest_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/rabbitmqopsrequestlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/redisopsrequest_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/redisopsrequestlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/redissentinelopsrequest_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/redissentinelopsrequestlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/singlestoreopsrequest_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/singlestoreopsrequestlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/solropsrequest_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/solropsrequestlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/zookeeperopsrequest_v1alpha1.json"
+    },
+    {
+      "$ref": "ops.kubedb.com/zookeeperopsrequestlist_v1alpha1.json"
+    },
+    {
       "$ref": "orchestration.aibrix.ai/kvcache_v1alpha1.json"
     },
     {
@@ -8219,6 +9041,18 @@
     },
     {
       "$ref": "postgres-operator.crunchydata.com/postgresclusterlist_v1beta1.json"
+    },
+    {
+      "$ref": "postgres.kubedb.com/publisher_v1alpha1.json"
+    },
+    {
+      "$ref": "postgres.kubedb.com/publisherlist_v1alpha1.json"
+    },
+    {
+      "$ref": "postgres.kubedb.com/subscriber_v1alpha1.json"
+    },
+    {
+      "$ref": "postgres.kubedb.com/subscriberlist_v1alpha1.json"
     },
     {
       "$ref": "prediction.crane.io/clusternodeprediction_v1alpha1.json"
@@ -8555,6 +9389,30 @@
     },
     {
       "$ref": "scheduling.x-k8s.io/queueunitlist_v1alpha1.json"
+    },
+    {
+      "$ref": "schema.kubedb.com/mariadbdatabase_v1alpha1.json"
+    },
+    {
+      "$ref": "schema.kubedb.com/mariadbdatabaselist_v1alpha1.json"
+    },
+    {
+      "$ref": "schema.kubedb.com/mongodbdatabase_v1alpha1.json"
+    },
+    {
+      "$ref": "schema.kubedb.com/mongodbdatabaselist_v1alpha1.json"
+    },
+    {
+      "$ref": "schema.kubedb.com/mysqldatabase_v1alpha1.json"
+    },
+    {
+      "$ref": "schema.kubedb.com/mysqldatabaselist_v1alpha1.json"
+    },
+    {
+      "$ref": "schema.kubedb.com/postgresdatabase_v1alpha1.json"
+    },
+    {
+      "$ref": "schema.kubedb.com/postgresdatabaselist_v1alpha1.json"
     },
     {
       "$ref": "secrets-store.csi.x-k8s.io/secretproviderclass_v1.json"
@@ -9545,6 +10403,174 @@
     },
     {
       "$ref": "triggers.tekton.dev/triggertemplatelist_v1beta1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/databaseconnection_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/databaseconnectionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/elasticsearchinsight_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/elasticsearchinsightlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/elasticsearchnodesstats_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/elasticsearchnodesstatslist_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/elasticsearchschemaoverview_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/elasticsearchschemaoverviewlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/mariadbinsight_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/mariadbinsightlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/mariadbqueries_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/mariadbquerieslist_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/mariadbschemaoverview_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/mariadbschemaoverviewlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/mongodbinsight_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/mongodbinsightlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/mongodbqueries_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/mongodbquerieslist_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/mongodbschemaoverview_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/mongodbschemaoverviewlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/mysqlinsight_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/mysqlinsightlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/mysqlqueries_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/mysqlquerieslist_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/mysqlschemaoverview_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/mysqlschemaoverviewlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/pgbouncerinsight_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/pgbouncerinsightlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/pgbouncerpooloverview_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/pgbouncerpooloverviewlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/pgbouncerpools_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/pgbouncerpoolslist_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/pgbouncerserveroverview_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/pgbouncerserveroverviewlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/pgbouncersettings_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/pgbouncersettingslist_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/postgresinsight_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/postgresinsightlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/postgresqueries_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/postgresquerieslist_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/postgresschemaoverview_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/postgresschemaoverviewlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/postgressettings_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/postgressettingslist_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/proxysqlinsight_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/proxysqlinsightlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/proxysqlqueries_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/proxysqlquerieslist_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/proxysqlsettings_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/proxysqlsettingslist_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/redisinsight_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/redisinsightlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/redisqueries_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/redisquerieslist_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/redisschemaoverview_v1alpha1.json"
+    },
+    {
+      "$ref": "ui.kubedb.com/redisschemaoverviewlist_v1alpha1.json"
     },
     {
       "$ref": "upgrade.cattle.io/plan_v1.json"
