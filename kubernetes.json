@@ -127,13 +127,25 @@
       "$ref": "addons.cluster.x-k8s.io/clusterresourceset_v1beta1.json"
     },
     {
+      "$ref": "addons.cluster.x-k8s.io/clusterresourceset_v1beta2.json"
+    },
+    {
       "$ref": "addons.cluster.x-k8s.io/clusterresourcesetbinding_v1beta1.json"
+    },
+    {
+      "$ref": "addons.cluster.x-k8s.io/clusterresourcesetbinding_v1beta2.json"
     },
     {
       "$ref": "addons.cluster.x-k8s.io/clusterresourcesetbindinglist_v1beta1.json"
     },
     {
+      "$ref": "addons.cluster.x-k8s.io/clusterresourcesetbindinglist_v1beta2.json"
+    },
+    {
       "$ref": "addons.cluster.x-k8s.io/clusterresourcesetlist_v1beta1.json"
+    },
+    {
+      "$ref": "addons.cluster.x-k8s.io/clusterresourcesetlist_v1beta2.json"
     },
     {
       "$ref": "admission.k8s.io/admissionreview_v1.json"
@@ -2344,43 +2356,97 @@
       "$ref": "cluster.x-k8s.io/cluster_v1beta1.json"
     },
     {
+      "$ref": "cluster.x-k8s.io/cluster_v1beta2.json"
+    },
+    {
       "$ref": "cluster.x-k8s.io/clusterclass_v1beta1.json"
+    },
+    {
+      "$ref": "cluster.x-k8s.io/clusterclass_v1beta2.json"
     },
     {
       "$ref": "cluster.x-k8s.io/clusterclasslist_v1beta1.json"
     },
     {
+      "$ref": "cluster.x-k8s.io/clusterclasslist_v1beta2.json"
+    },
+    {
       "$ref": "cluster.x-k8s.io/clusterlist_v1beta1.json"
+    },
+    {
+      "$ref": "cluster.x-k8s.io/clusterlist_v1beta2.json"
     },
     {
       "$ref": "cluster.x-k8s.io/machine_v1beta1.json"
     },
     {
+      "$ref": "cluster.x-k8s.io/machine_v1beta2.json"
+    },
+    {
       "$ref": "cluster.x-k8s.io/machinedeployment_v1beta1.json"
+    },
+    {
+      "$ref": "cluster.x-k8s.io/machinedeployment_v1beta2.json"
     },
     {
       "$ref": "cluster.x-k8s.io/machinedeploymentlist_v1beta1.json"
     },
     {
+      "$ref": "cluster.x-k8s.io/machinedeploymentlist_v1beta2.json"
+    },
+    {
+      "$ref": "cluster.x-k8s.io/machinedrainrule_v1beta1.json"
+    },
+    {
+      "$ref": "cluster.x-k8s.io/machinedrainrule_v1beta2.json"
+    },
+    {
+      "$ref": "cluster.x-k8s.io/machinedrainrulelist_v1beta1.json"
+    },
+    {
+      "$ref": "cluster.x-k8s.io/machinedrainrulelist_v1beta2.json"
+    },
+    {
       "$ref": "cluster.x-k8s.io/machinehealthcheck_v1beta1.json"
+    },
+    {
+      "$ref": "cluster.x-k8s.io/machinehealthcheck_v1beta2.json"
     },
     {
       "$ref": "cluster.x-k8s.io/machinehealthchecklist_v1beta1.json"
     },
     {
+      "$ref": "cluster.x-k8s.io/machinehealthchecklist_v1beta2.json"
+    },
+    {
       "$ref": "cluster.x-k8s.io/machinelist_v1beta1.json"
+    },
+    {
+      "$ref": "cluster.x-k8s.io/machinelist_v1beta2.json"
     },
     {
       "$ref": "cluster.x-k8s.io/machinepool_v1beta1.json"
     },
     {
+      "$ref": "cluster.x-k8s.io/machinepool_v1beta2.json"
+    },
+    {
       "$ref": "cluster.x-k8s.io/machinepoollist_v1beta1.json"
+    },
+    {
+      "$ref": "cluster.x-k8s.io/machinepoollist_v1beta2.json"
     },
     {
       "$ref": "cluster.x-k8s.io/machineset_v1beta1.json"
     },
     {
+      "$ref": "cluster.x-k8s.io/machineset_v1beta2.json"
+    },
+    {
       "$ref": "cluster.x-k8s.io/machinesetlist_v1beta1.json"
+    },
+    {
+      "$ref": "cluster.x-k8s.io/machinesetlist_v1beta2.json"
     },
     {
       "$ref": "clusters.clusternet.io/clusterregistrationrequest_v1beta1.json"
@@ -5344,16 +5410,40 @@
       "$ref": "iot.openyurt.io/platformadminlist_v1beta1.json"
     },
     {
+      "$ref": "ipam.cluster.x-k8s.io/ipaddress_v1alpha1.json"
+    },
+    {
       "$ref": "ipam.cluster.x-k8s.io/ipaddress_v1beta1.json"
+    },
+    {
+      "$ref": "ipam.cluster.x-k8s.io/ipaddress_v1beta2.json"
+    },
+    {
+      "$ref": "ipam.cluster.x-k8s.io/ipaddressclaim_v1alpha1.json"
     },
     {
       "$ref": "ipam.cluster.x-k8s.io/ipaddressclaim_v1beta1.json"
     },
     {
+      "$ref": "ipam.cluster.x-k8s.io/ipaddressclaim_v1beta2.json"
+    },
+    {
+      "$ref": "ipam.cluster.x-k8s.io/ipaddressclaimlist_v1alpha1.json"
+    },
+    {
       "$ref": "ipam.cluster.x-k8s.io/ipaddressclaimlist_v1beta1.json"
     },
     {
+      "$ref": "ipam.cluster.x-k8s.io/ipaddressclaimlist_v1beta2.json"
+    },
+    {
+      "$ref": "ipam.cluster.x-k8s.io/ipaddresslist_v1alpha1.json"
+    },
+    {
       "$ref": "ipam.cluster.x-k8s.io/ipaddresslist_v1beta1.json"
+    },
+    {
+      "$ref": "ipam.cluster.x-k8s.io/ipaddresslist_v1beta2.json"
     },
     {
       "$ref": "k0s.k0sproject.io/clusterconfig_v1beta1.json"
@@ -7462,6 +7552,12 @@
       "$ref": "multicluster.agones.dev/gameserverallocationpolicylist_v1.json"
     },
     {
+      "$ref": "multicluster.x-k8s.io/clusterprofile_v1alpha1.json"
+    },
+    {
+      "$ref": "multicluster.x-k8s.io/clusterprofilelist_v1alpha1.json"
+    },
+    {
       "$ref": "multicluster.x-k8s.io/serviceexport_v1alpha1.json"
     },
     {
@@ -9269,6 +9365,18 @@
     },
     {
       "$ref": "rules.kubeedge.io/rulelist_v1.json"
+    },
+    {
+      "$ref": "runtime.cluster.x-k8s.io/extensionconfig_v1alpha1.json"
+    },
+    {
+      "$ref": "runtime.cluster.x-k8s.io/extensionconfig_v1beta2.json"
+    },
+    {
+      "$ref": "runtime.cluster.x-k8s.io/extensionconfiglist_v1alpha1.json"
+    },
+    {
+      "$ref": "runtime.cluster.x-k8s.io/extensionconfiglist_v1beta2.json"
     },
     {
       "$ref": "scheduling.alibabacloud.com/resourcepolicy_v1alpha1.json"

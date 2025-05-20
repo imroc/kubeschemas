@@ -1,0 +1,173 @@
+{
+  "description": "ClusterProfile represents a single cluster in a multi-cluster deployment.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "multicluster.x-k8s.io/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "ClusterProfile"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "ClusterProfileSpec defines the desired state of ClusterProfile.",
+      "properties": {
+        "clusterManager": {
+          "description": "ClusterManager defines which cluster manager owns this ClusterProfile resource",
+          "properties": {
+            "name": {
+              "description": "Name defines the name of the cluster manager",
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "type": "object",
+          "x-kubernetes-validations": [
+            {
+              "message": "ClusterManager is immutable",
+              "rule": "self == oldSelf"
+            }
+          ]
+        },
+        "displayName": {
+          "description": "DisplayName defines a human-readable name of the ClusterProfile",
+          "type": "string"
+        }
+      },
+      "required": [
+        "clusterManager"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "description": "ClusterProfileStatus defines the observed state of ClusterProfile.",
+      "properties": {
+        "conditions": {
+          "description": "Conditions contains the different condition statuses for this cluster.",
+          "items": {
+            "description": "Condition contains details for one aspect of the current state of this API Resource.\n---\nThis struct is intended for direct use as an array at the field path .status.conditions.  For example,\n\n\n\ttype FooStatus struct{\n\t    // Represents the observations of a foo's current state.\n\t    // Known .status.conditions.type are: \"Available\", \"Progressing\", and \"Degraded\"\n\t    // +patchMergeKey=type\n\t    // +patchStrategy=merge\n\t    // +listType=map\n\t    // +listMapKey=type\n\t    Conditions []metav1.Condition `json:\"conditions,omitempty\" patchStrategy:\"merge\" patchMergeKey:\"type\" protobuf:\"bytes,1,rep,name=conditions\"`\n\n\n\t    // other fields\n\t}",
+            "properties": {
+              "lastTransitionTime": {
+                "description": "lastTransitionTime is the last time the condition transitioned from one status to another.\nThis should be when the underlying condition changed.  If that is not known, then using the time when the API field changed is acceptable.",
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "description": "message is a human readable message indicating details about the transition.\nThis may be an empty string.",
+                "maxLength": 32768,
+                "type": "string"
+              },
+              "observedGeneration": {
+                "description": "observedGeneration represents the .metadata.generation that the condition was set based upon.\nFor instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date\nwith respect to the current state of the instance.",
+                "format": "int64",
+                "minimum": 0,
+                "type": "integer"
+              },
+              "reason": {
+                "description": "reason contains a programmatic identifier indicating the reason for the condition's last transition.\nProducers of specific condition types may define expected values and meanings for this field,\nand whether the values are considered a guaranteed API.\nThe value should be a CamelCase string.\nThis field may not be empty.",
+                "maxLength": 1024,
+                "minLength": 1,
+                "pattern": "^[A-Za-z]([A-Za-z0-9_,:]*[A-Za-z0-9_])?$",
+                "type": "string"
+              },
+              "status": {
+                "description": "status of the condition, one of True, False, Unknown.",
+                "enum": [
+                  "True",
+                  "False",
+                  "Unknown"
+                ],
+                "type": "string"
+              },
+              "type": {
+                "description": "type of condition in CamelCase or in foo.example.com/CamelCase.\n---\nMany .condition.type values are consistent across resources like Available, but because arbitrary conditions can be\nuseful (see .node.status.conditions), the ability to deconflict is important.\nThe regex it matches is (dns1123SubdomainFmt/)?(qualifiedNameFmt)",
+                "maxLength": 316,
+                "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "lastTransitionTime",
+              "message",
+              "reason",
+              "status",
+              "type"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "properties": {
+          "description": "Properties defines cluster characteristics through a list of Property objects.\nEach Property can be one of:\n1. A ClusterProperty resource (as defined in KEP-2149)\n2. Custom information from cluster manager implementations\nProperty names support both:\n- Standard names from ClusterProperty resources\n- Custom names defined by cluster managers",
+          "items": {
+            "description": "Property defines the data structure to represent a property of a cluster.\nIt contains a name/value pair and the last observed time of the property on the cluster.\nThis property can store various configurable details and metrics of a cluster,\nwhich may include information such as the entry point of the cluster, types of nodes, location, etc. according to KEP 4322.",
+            "properties": {
+              "lastObservedTime": {
+                "description": "LastObservedTime is the last time the property was observed on the corresponding cluster.\nThe value is the timestamp when the property was observed not the time when the property was updated in the cluster-profile.",
+                "format": "date-time",
+                "type": "string"
+              },
+              "name": {
+                "description": "Name is the name of a property resource on cluster. It's a well-known\nor customized name to identify the property.",
+                "maxLength": 253,
+                "minLength": 1,
+                "type": "string"
+              },
+              "value": {
+                "description": "Value is a property-dependent string",
+                "maxLength": 1024,
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "value"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "version": {
+          "description": "Version defines the version information of the cluster.",
+          "properties": {
+            "kubernetes": {
+              "description": "Kubernetes is the kubernetes version of the cluster.",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "multicluster.x-k8s.io",
+      "kind": "ClusterProfile",
+      "version": "v1alpha1"
+    }
+  ]
+}

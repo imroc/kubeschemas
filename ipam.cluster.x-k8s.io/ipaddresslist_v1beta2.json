@@ -1,0 +1,46 @@
+{
+  "description": "IPAddressList is a list of IPAddress",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "ipam.cluster.x-k8s.io/v1beta2"
+      ],
+      "type": "string"
+    },
+    "items": {
+      "description": "List of ipaddresses. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md",
+      "items": {
+        "$ref": "../ipam.cluster.x-k8s.io/ipaddress_v1beta2.json"
+      },
+      "type": "array"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "IPAddressList"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/listmeta_v1.json"
+        }
+      ],
+      "description": "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "ipam.cluster.x-k8s.io",
+      "kind": "IPAddressList",
+      "version": "v1beta2"
+    }
+  ]
+}

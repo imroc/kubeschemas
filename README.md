@@ -84,6 +84,7 @@ CRDs from open source project:
 - [LoxiLB](https://github.com/loxilb-io/kube-loxilb/tree/main/manifest/crds)
 - [lws](https://github.com/kubernetes-sigs/lws/tree/main/config/crd)(LeaderWorkerSet)
 - [MCS API](https://github.com/kubernetes-sigs/mcs-api/tree/master/config/crd)
+- [cluster-inventory-api](https://github.com/kubernetes-sigs/cluster-inventory-api/tree/main/config/crd/bases)
 - [Meshery](https://github.com/meshery/meshery/blob/master/install/kubernetes/helm/meshery-operator/crds/crds.yaml)
 - [MetalLB](https://github.com/metallb/metallb/tree/main/config/crd)
 - [mongodb atlas-operator](https://github.com/mongodb/helm-charts/tree/main/charts/atlas-operator-crds), [mongodb community-operator](https://github.com/mongodb/helm-charts/tree/main/charts/community-operator-crds) and [mongodb enterprise-operator](https://github.com/mongodb/helm-charts/tree/main/charts/enterprise-operator/crds)

@@ -1,17 +1,17 @@
 {
-  "description": "ClusterResourceSet is the Schema for the clusterresourcesets API.\nFor advanced use cases an add-on provider should be used instead.",
+  "description": "ExtensionConfig is the Schema for the ExtensionConfig API.",
   "properties": {
     "apiVersion": {
       "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
       "enum": [
-        "addons.cluster.x-k8s.io/v1beta1"
+        "runtime.cluster.x-k8s.io/v1alpha1"
       ],
       "type": "string"
     },
     "kind": {
       "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
       "enum": [
-        "ClusterResourceSet"
+        "ExtensionConfig"
       ],
       "type": "string"
     },
@@ -24,10 +24,62 @@
       "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
     },
     "spec": {
-      "description": "spec is the desired state of ClusterResourceSet.",
+      "description": "spec is the desired state of the ExtensionConfig.",
       "properties": {
-        "clusterSelector": {
-          "description": "clusterSelector is the label selector for Clusters. The Clusters that are\nselected by this will be the ones affected by this ClusterResourceSet.\nIt must match the Cluster labels. This field is immutable.\nLabel selector cannot be empty.",
+        "clientConfig": {
+          "description": "clientConfig defines how to communicate with the Extension server.",
+          "properties": {
+            "caBundle": {
+              "description": "caBundle is a PEM encoded CA bundle which will be used to validate the Extension server's server certificate.",
+              "format": "byte",
+              "maxLength": 51200,
+              "minLength": 1,
+              "type": "string"
+            },
+            "service": {
+              "description": "service is a reference to the Kubernetes service for the Extension server.\nNote: Exactly one of `url` or `service` must be specified.\n\nIf the Extension server is running within a cluster, then you should use `service`.",
+              "properties": {
+                "name": {
+                  "description": "name is the name of the service.",
+                  "maxLength": 63,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "namespace": {
+                  "description": "namespace is the namespace of the service.",
+                  "maxLength": 63,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "path": {
+                  "description": "path is an optional URL path and if present may be any string permissible in\na URL. If a path is set it will be used as prefix to the hook-specific path.",
+                  "maxLength": 512,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "port": {
+                  "description": "port is the port on the service that's hosting the Extension server.\nDefaults to 443.\nPort should be a valid port number (1-65535, inclusive).",
+                  "format": "int32",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "name",
+                "namespace"
+              ],
+              "type": "object"
+            },
+            "url": {
+              "description": "url gives the location of the Extension server, in standard URL form\n(`scheme://host:port/path`).\nNote: Exactly one of `url` or `service` must be specified.\n\nThe scheme must be \"https\".\n\nThe `host` should not refer to a service running in the cluster; use\nthe `service` field instead.\n\nA path is optional, and if present may be any string permissible in\na URL. If a path is set it will be used as prefix to the hook-specific path.\n\nAttempting to use a user or basic auth e.g. \"user:password@\" is not\nallowed. Fragments (\"#...\") and query parameters (\"?...\") are not\nallowed either.",
+              "maxLength": 512,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "namespaceSelector": {
+          "description": "namespaceSelector decides whether to call the hook for an object based\non whether the namespace for that object matches the selector.\nDefaults to the empty LabelSelector, which matches all objects.",
           "properties": {
             "matchExpressions": {
               "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
@@ -71,54 +123,24 @@
           "type": "object",
           "x-kubernetes-map-type": "atomic"
         },
-        "resources": {
-          "description": "resources is a list of Secrets/ConfigMaps where each contains 1 or more resources to be applied to remote clusters.",
-          "items": {
-            "description": "ResourceRef specifies a resource.",
-            "properties": {
-              "kind": {
-                "description": "kind of the resource. Supported kinds are: Secrets and ConfigMaps.",
-                "enum": [
-                  "Secret",
-                  "ConfigMap"
-                ],
-                "type": "string"
-              },
-              "name": {
-                "description": "name of the resource that is in the same namespace with ClusterResourceSet object.",
-                "maxLength": 253,
-                "minLength": 1,
-                "type": "string"
-              }
-            },
-            "required": [
-              "kind",
-              "name"
-            ],
-            "type": "object"
+        "settings": {
+          "additionalProperties": {
+            "type": "string"
           },
-          "maxItems": 100,
-          "type": "array"
-        },
-        "strategy": {
-          "description": "strategy is the strategy to be used during applying resources. Defaults to ApplyOnce. This field is immutable.",
-          "enum": [
-            "ApplyOnce",
-            "Reconcile"
-          ],
-          "type": "string"
+          "description": "settings defines key value pairs to be passed to all calls\nto all supported RuntimeExtensions.\nNote: Settings can be overridden on the ClusterClass.",
+          "type": "object"
         }
       },
       "required": [
-        "clusterSelector"
+        "clientConfig"
       ],
       "type": "object"
     },
     "status": {
-      "description": "status is the observed state of ClusterResourceSet.",
+      "description": "status is the current state of the ExtensionConfig",
       "properties": {
         "conditions": {
-          "description": "conditions defines current state of the ClusterResourceSet.",
+          "description": "conditions define the current service state of the ExtensionConfig.",
           "items": {
             "description": "Condition defines an observation of a Cluster API resource operational state.",
             "properties": {
@@ -164,16 +186,71 @@
           },
           "type": "array"
         },
-        "observedGeneration": {
-          "description": "observedGeneration reflects the generation of the most recently observed ClusterResourceSet.",
-          "format": "int64",
-          "type": "integer"
+        "handlers": {
+          "description": "handlers defines the current ExtensionHandlers supported by an Extension.",
+          "items": {
+            "description": "ExtensionHandler specifies the details of a handler for a particular runtime hook registered by an Extension server.",
+            "properties": {
+              "failurePolicy": {
+                "description": "failurePolicy defines how failures in calls to the ExtensionHandler should be handled by a client.\nDefaults to Fail if not set.",
+                "enum": [
+                  "Ignore",
+                  "Fail"
+                ],
+                "type": "string"
+              },
+              "name": {
+                "description": "name is the unique name of the ExtensionHandler.",
+                "maxLength": 512,
+                "minLength": 1,
+                "type": "string"
+              },
+              "requestHook": {
+                "description": "requestHook defines the versioned runtime hook which this ExtensionHandler serves.",
+                "properties": {
+                  "apiVersion": {
+                    "description": "apiVersion is the group and version of the Hook.",
+                    "maxLength": 512,
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "hook": {
+                    "description": "hook is the name of the hook.",
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "apiVersion",
+                  "hook"
+                ],
+                "type": "object"
+              },
+              "timeoutSeconds": {
+                "description": "timeoutSeconds defines the timeout duration for client calls to the ExtensionHandler.\nDefaults to 10 is not set.",
+                "format": "int32",
+                "type": "integer"
+              }
+            },
+            "required": [
+              "name",
+              "requestHook"
+            ],
+            "type": "object"
+          },
+          "maxItems": 512,
+          "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "name"
+          ],
+          "x-kubernetes-list-type": "map"
         },
         "v1beta2": {
-          "description": "v1beta2 groups all the fields that will be added or modified in ClusterResourceSet's status with the V1Beta2 version.",
+          "description": "v1beta2 groups all the fields that will be added or modified in ExtensionConfig's status with the V1Beta2 version.",
           "properties": {
             "conditions": {
-              "description": "conditions represents the observations of a ClusterResourceSet's current state.\nKnown condition types are ResourceSetApplied, Deleting.",
+              "description": "conditions represents the observations of a ExtensionConfig's current state.\nKnown condition types are Discovered, Paused.",
               "items": {
                 "description": "Condition contains details for one aspect of the current state of this API Resource.",
                 "properties": {
@@ -246,9 +323,9 @@
   "type": "object",
   "x-kubernetes-group-version-kind": [
     {
-      "group": "addons.cluster.x-k8s.io",
-      "kind": "ClusterResourceSet",
-      "version": "v1beta1"
+      "group": "runtime.cluster.x-k8s.io",
+      "kind": "ExtensionConfig",
+      "version": "v1alpha1"
     }
   ]
 }
