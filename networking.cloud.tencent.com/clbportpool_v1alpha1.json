@@ -42,6 +42,11 @@
               "properties": {
                 "addressIPVersion": {
                   "description": "仅适用于公网负载均衡。IP版本，可取值：IPV4、IPV6、IPv6FullChain，不区分大小写，默认值 IPV4。说明：取值为IPV6表示为IPV6 NAT64版本；取值为IPv6FullChain，表示为IPv6版本。",
+                  "enum": [
+                    "IPV4",
+                    "IPV6",
+                    "IPv6FullChain"
+                  ],
                   "type": "string"
                 },
                 "bandwidthPackageId": {
@@ -56,7 +61,7 @@
                   "description": "仅适用于公网负载均衡。负载均衡的网络计费模式。",
                   "properties": {
                     "bandwidthpkgSubType": {
-                      "description": "带宽包的类型，如SINGLEISP（单线）、BGP（多线）。",
+                      "description": "带宽包的类型，如 SINGLEISP（单线）、BGP（多线）。",
                       "enum": [
                         "SINGLEISP",
                         "BGP"
@@ -99,6 +104,10 @@
                 },
                 "loadBalancerType": {
                   "description": "负载均衡实例的网络类型：OPEN：公网属性， INTERNAL：内网属性。默认使用 OPEN（公网负载均衡）。",
+                  "enum": [
+                    "OPEN",
+                    "INTERNAL"
+                  ],
                   "type": "string"
                 },
                 "masterZoneId": {
@@ -150,11 +159,17 @@
                   "type": "array"
                 },
                 "vip": {
-                  "description": "仅适用于公网负载均衡。目前仅广州、上海、南京、济南、杭州、福州、北京、石家庄、武汉、长沙、成都、重庆地域支持静态单线 IP 线路类型，如需体验，请联系商务经理申请。申请通过后，即可选择中国移动（CMCC）、中国联通（CUCC）或中国电信（CTCC）的运营商类型，网络计费模式只能使用按带宽包计费(BANDWIDTH_PACKAGE)。 如果不指定本参数，则默认使用BGP。可通过 DescribeResources 接口查询一个地域所支持的Isp。",
+                  "description": "指定VIP申请负载均衡。此参数选填，不填写此参数时自动分配VIP。IPv4和IPv6类型支持此参数，IPv6 NAT64类型不支持。\n注意：当指定VIP创建内网实例、或公网IPv6 BGP实例时，若VIP不属于指定VPC子网的网段内时，会创建失败；若VIP已被占用，也会创建失败。",
                   "type": "string"
                 },
                 "vipIsp": {
                   "description": "仅适用于公网负载均衡。目前仅广州、上海、南京、济南、杭州、福州、北京、石家庄、武汉、长沙、成都、重庆地域支持静态单线 IP 线路类型，如需体验，请联系商务经理申请。申请通过后，即可选择中国移动（CMCC）、中国联通（CUCC）或中国电信（CTCC）的运营商类型，网络计费模式只能使用按带宽包计费(BANDWIDTH_PACKAGE)。 如果不指定本参数，则默认使用BGP。可通过 DescribeResources 接口查询一个地域所支持的Isp。",
+                  "enum": [
+                    "CMCC",
+                    "CUCC",
+                    "CTCC",
+                    "BGP"
+                  ],
                   "type": "string"
                 },
                 "vpcId": {
@@ -190,6 +205,16 @@
             "type": "string"
           },
           "type": "array"
+        },
+        "listenerQuota": {
+          "description": "监听器数量配额。仅用在单独调整了指定 CLB 实例监听器数量配额的场景（TOTAL_LISTENER_QUOTA），\n控制器默认会获取账号维度的监听器数量配额作为端口分配的依据，如果 listenerQuota 不为空，\n将以它的值作为该端口池中所有 CLB 监听器数量配额覆盖账号维度的监听器数量配额。\n\n\n注意：如果指定了 listenerQuota，不支持启用 CLB 自动创建，且需自行保证该端口池中所有 CLB\n实例的监听器数量配额均等于 listenerQuota 的值。",
+          "type": "integer",
+          "x-kubernetes-validations": [
+            {
+              "message": "Value is immutable",
+              "rule": "self == oldSelf"
+            }
+          ]
         },
         "region": {
           "description": "地域代码，如ap-chengdu",
@@ -252,11 +277,15 @@
               },
               "loadbalancerName": {
                 "type": "string"
+              },
+              "state": {
+                "type": "string"
               }
             },
             "required": [
               "loadbalancerID",
-              "loadbalancerName"
+              "loadbalancerName",
+              "state"
             ],
             "type": "object"
           },
