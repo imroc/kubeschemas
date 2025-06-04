@@ -107,6 +107,7 @@ CRDs from open source project:
 - [volcano](https://github.com/volcano-sh/volcano/tree/master/config/crd)
 - [zalando postgres-operator](https://github.com/zalando/postgres-operator/tree/master/charts/postgres-operator/crds) and [CrunchyData postgres-operator](https://github.com/CrunchyData/postgres-operator-examples/tree/main/helm/install/crds)
 - [kubedb](https://github.com/kubedb/apimachinery/tree/master/crds)
+- [KubeRay](https://github.com/ray-project/kuberay-helm/tree/main/helm-chart/kuberay-operator/crds)
 
 ## Configuration File
 

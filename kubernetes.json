@@ -9205,6 +9205,42 @@
       "$ref": "raven.openyurt.io/gatewaylist_v1beta1.json"
     },
     {
+      "$ref": "ray.io/raycluster_v1.json"
+    },
+    {
+      "$ref": "ray.io/raycluster_v1alpha1.json"
+    },
+    {
+      "$ref": "ray.io/rayclusterlist_v1.json"
+    },
+    {
+      "$ref": "ray.io/rayclusterlist_v1alpha1.json"
+    },
+    {
+      "$ref": "ray.io/rayjob_v1.json"
+    },
+    {
+      "$ref": "ray.io/rayjob_v1alpha1.json"
+    },
+    {
+      "$ref": "ray.io/rayjoblist_v1.json"
+    },
+    {
+      "$ref": "ray.io/rayjoblist_v1alpha1.json"
+    },
+    {
+      "$ref": "ray.io/rayservice_v1.json"
+    },
+    {
+      "$ref": "ray.io/rayservice_v1alpha1.json"
+    },
+    {
+      "$ref": "ray.io/rayservicelist_v1.json"
+    },
+    {
+      "$ref": "ray.io/rayservicelist_v1alpha1.json"
+    },
+    {
       "$ref": "rbac.api.k8s.io/clusterrole_v1.json"
     },
     {
