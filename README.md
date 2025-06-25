@@ -83,6 +83,7 @@ CRDs from open source project:
 - [Litmus Chaos](https://docs.litmuschaos.io/docs/getting-started/installation)
 - [LoxiLB](https://github.com/loxilb-io/kube-loxilb/tree/main/manifest/crds)
 - [lws](https://github.com/kubernetes-sigs/lws/tree/main/config/crd)(LeaderWorkerSet)
+- [llm-d](https://github.com/llm-d/llm-d) ([llm-d-model-service](https://github.com/llm-d/llm-d-model-service/tree/main/config/crd/bases))
 - [MCS API](https://github.com/kubernetes-sigs/mcs-api/tree/master/config/crd)
 - [cluster-inventory-api](https://github.com/kubernetes-sigs/cluster-inventory-api/tree/main/config/crd/bases)
 - [Meshery](https://github.com/meshery/meshery/blob/master/install/kubernetes/helm/meshery-operator/crds/crds.yaml)

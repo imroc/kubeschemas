@@ -1,0 +1,363 @@
+{
+  "description": "PlacementPolicy defines the PlacementPolicy custom resource",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "scheduling.crane.io/scheduling"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "PlacementPolicy"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "PlacementPolicySpec defines the desired state of PlacementPolicy",
+      "properties": {
+        "nodeGroups": {
+          "description": "NodeGroups defines the list of node groups.",
+          "items": {
+            "description": "NodeGroup defines the group of nodes",
+            "properties": {
+              "max": {
+                "description": "Max defines the max number of pods in the group.",
+                "maximum": 1000,
+                "minimum": 0,
+                "type": "integer"
+              },
+              "name": {
+                "description": "Name defines the name of node group.",
+                "type": "string"
+              },
+              "nodeResourceFitStrategy": {
+                "description": "NodeResourceFitStrategy defines the strategy of node resource fit",
+                "properties": {
+                  "resources": {
+                    "description": "Resources defines the list of resource spec",
+                    "items": {
+                      "description": "ResourceSpec defines the resource spec",
+                      "properties": {
+                        "name": {
+                          "description": "ResourceName is the name identifying various resources in a ResourceList.",
+                          "type": "string"
+                        },
+                        "weight": {
+                          "maximum": 100,
+                          "minimum": 1,
+                          "type": "integer"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "type": {
+                    "description": "Type defines the type of node resource fit strategy.",
+                    "enum": [
+                      "LeastAllocated",
+                      "MostAllocated"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "nodeSelectorTerms": {
+                "description": "NodeSelectorTerms defines the node selector terms used to select nodes for this node group.",
+                "items": {
+                  "description": "A null or empty node selector term matches no objects. The requirements of them are ANDed. The TopologySelectorTerm type implements a subset of the NodeSelectorTerm.",
+                  "properties": {
+                    "matchExpressions": {
+                      "description": "A list of node selector requirements by node's labels.",
+                      "items": {
+                        "description": "A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.",
+                        "properties": {
+                          "key": {
+                            "description": "The label key that the selector applies to.",
+                            "type": "string"
+                          },
+                          "operator": {
+                            "description": "Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.",
+                            "type": "string"
+                          },
+                          "values": {
+                            "description": "An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.",
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          }
+                        },
+                        "required": [
+                          "key",
+                          "operator"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "matchFields": {
+                      "description": "A list of node selector requirements by node's fields.",
+                      "items": {
+                        "description": "A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.",
+                        "properties": {
+                          "key": {
+                            "description": "The label key that the selector applies to.",
+                            "type": "string"
+                          },
+                          "operator": {
+                            "description": "Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.",
+                            "type": "string"
+                          },
+                          "values": {
+                            "description": "An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.",
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          }
+                        },
+                        "required": [
+                          "key",
+                          "operator"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "nodeType": {
+                "description": "NodeType defines the type of node group.",
+                "type": "string"
+              },
+              "priority": {
+                "description": "Priority defines the priority of the node group.",
+                "maximum": 1000,
+                "minimum": 0,
+                "type": "integer"
+              },
+              "whenUnsatisfiable": {
+                "default": "ScheduleAnyway",
+                "description": "UnsatisfiableConstraintAction defines the actions that can be taken for an unsatisfiable constraint.",
+                "enum": [
+                  "DoNotSchedule",
+                  "ScheduleAnyway"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "nodeType"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "targets": {
+          "description": "Targets defines the pod selection criteria",
+          "properties": {
+            "namespaces": {
+              "description": "Namespaces defines the include and exclude rules for namespaces",
+              "properties": {
+                "exclude": {
+                  "description": "Exclude specifies the list of namespaces to be excluded",
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "include": {
+                  "description": "Include specifies the list of namespaces to be included",
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "podSelectors": {
+              "description": "A list of pod selector terms. The terms are ORed.",
+              "items": {
+                "properties": {
+                  "matchExpressions": {
+                    "description": "A list of pod selector requirements by pod's labels. The MatchExpressions are ANDed",
+                    "items": {
+                      "description": "A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.",
+                      "properties": {
+                        "key": {
+                          "description": "key is the label key that the selector applies to.",
+                          "type": "string"
+                        },
+                        "operator": {
+                          "description": "operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.",
+                          "type": "string"
+                        },
+                        "values": {
+                          "description": "values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.",
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "required": [
+                        "key",
+                        "operator"
+                      ],
+                      "type": "object"
+                    },
+                    "type": "array"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "workloadRefs": {
+              "description": "A list of workload terms. The terms are ORed.",
+              "items": {
+                "properties": {
+                  "apiVersion": {
+                    "type": "string"
+                  },
+                  "kind": {
+                    "type": "string"
+                  },
+                  "matchExpressions": {
+                    "description": "A list of label selector requirements by workload's labels. The MatchExpressions are ANDed. Only Support for deployment now.",
+                    "items": {
+                      "description": "A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.",
+                      "properties": {
+                        "key": {
+                          "description": "key is the label key that the selector applies to.",
+                          "type": "string"
+                        },
+                        "operator": {
+                          "description": "operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.",
+                          "type": "string"
+                        },
+                        "values": {
+                          "description": "values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.",
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "required": [
+                        "key",
+                        "operator"
+                      ],
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "namespace": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "properties": {
+        "conditions": {
+          "description": "Conditions is the condition status of PlacementPolicyStatus",
+          "items": {
+            "description": "Condition contains details for one aspect of the current state of this API Resource. --- This struct is intended for direct use as an array at the field path .status.conditions.  For example, type FooStatus struct{     // Represents the observations of a foo's current state.     // Known .status.conditions.type are: \"Available\", \"Progressing\", and \"Degraded\"     // +patchMergeKey=type     // +patchStrategy=merge     // +listType=map     // +listMapKey=type     Conditions []metav1.Condition `json:\"conditions,omitempty\" patchStrategy:\"merge\" patchMergeKey:\"type\" protobuf:\"bytes,1,rep,name=conditions\"` \n     // other fields }",
+            "properties": {
+              "lastTransitionTime": {
+                "description": "lastTransitionTime is the last time the condition transitioned from one status to another. This should be when the underlying condition changed.  If that is not known, then using the time when the API field changed is acceptable.",
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "description": "message is a human readable message indicating details about the transition. This may be an empty string.",
+                "maxLength": 32768,
+                "type": "string"
+              },
+              "observedGeneration": {
+                "description": "observedGeneration represents the .metadata.generation that the condition was set based upon. For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date with respect to the current state of the instance.",
+                "format": "int64",
+                "minimum": 0,
+                "type": "integer"
+              },
+              "reason": {
+                "description": "reason contains a programmatic identifier indicating the reason for the condition's last transition. Producers of specific condition types may define expected values and meanings for this field, and whether the values are considered a guaranteed API. The value should be a CamelCase string. This field may not be empty.",
+                "maxLength": 1024,
+                "minLength": 1,
+                "pattern": "^[A-Za-z]([A-Za-z0-9_,:]*[A-Za-z0-9_])?$",
+                "type": "string"
+              },
+              "status": {
+                "description": "status of the condition, one of True, False, Unknown.",
+                "enum": [
+                  "True",
+                  "False",
+                  "Unknown"
+                ],
+                "type": "string"
+              },
+              "type": {
+                "description": "type of condition in CamelCase or in foo.example.com/CamelCase. --- Many .condition.type values are consistent across resources like Available, but because arbitrary conditions can be useful (see .node.status.conditions), the ability to deconflict is important. The regex it matches is (dns1123SubdomainFmt/)?(qualifiedNameFmt)",
+                "maxLength": 316,
+                "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "lastTransitionTime",
+              "message",
+              "reason",
+              "status",
+              "type"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "scheduling.crane.io",
+      "kind": "PlacementPolicy",
+      "version": "scheduling"
+    }
+  ]
+}

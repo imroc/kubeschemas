@@ -6772,6 +6772,12 @@
       "$ref": "litmuschaos.io/chaosresultlist_v1alpha1.json"
     },
     {
+      "$ref": "llm-d.ai/modelservice_v1alpha1.json"
+    },
+    {
+      "$ref": "llm-d.ai/modelservicelist_v1alpha1.json"
+    },
+    {
       "$ref": "localvolume.everest.io/nodelocalvolume_v1.json"
     },
     {
@@ -9461,6 +9467,18 @@
     },
     {
       "$ref": "scheduling.crane.io/noderesourcepolicylist_v1alpha1.json"
+    },
+    {
+      "$ref": "scheduling.crane.io/placementpolicy_scheduling.json"
+    },
+    {
+      "$ref": "scheduling.crane.io/placementpolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "scheduling.crane.io/placementpolicylist_scheduling.json"
+    },
+    {
+      "$ref": "scheduling.crane.io/placementpolicylist_v1alpha1.json"
     },
     {
       "$ref": "scheduling.hypershift.openshift.io/clustersizingconfiguration_v1alpha1.json"
