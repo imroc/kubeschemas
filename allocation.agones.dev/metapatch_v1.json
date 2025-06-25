@@ -1,0 +1,20 @@
+{
+  "description": "MetaPatch is the metadata used to patch the GameServer metadata on allocation",
+  "properties": {
+    "annotations": {
+      "additionalProperties": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "labels": {
+      "additionalProperties": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "object"
+    }
+  },
+  "type": "object"
+}

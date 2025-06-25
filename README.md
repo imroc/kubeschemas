@@ -116,6 +116,7 @@ Some kubernetes related configuration file schemas are also included:
 - [EnvoyGateway Config File](https://github.com/envoyproxy/gateway/blob/main/api/v1alpha1/envoygateway_types.go)
 - [K3D Config File](https://k3d.io/stable/usage/configfile/)
 - [Kind Configuration](https://kind.sigs.k8s.io/docs/user/configuration/)
+- [Agones GameServerAllocation](https://agones.dev/site/docs/reference/gameserverallocation/) (it's not CRD).
 - [Kubernetes Configuration APIs](https://kubernetes.io/docs/reference/config-api/) (e.g. kubeconfig, kubeadm/kubelet/kube-proxy/kube-apiserver/controller-manager/kube-scheduler configuration files and etc)
 
 ## Contributing

@@ -1,0 +1,67 @@
+{
+  "description": "GameServerStatus is the status for a GameServer resource",
+  "properties": {
+    "address": {
+      "default": "",
+      "type": "string"
+    },
+    "addresses": {
+      "description": "Addresses is the array of addresses at which the GameServer can be reached; copy of Node.Status.addresses.",
+      "items": {
+        "$ref": "../core.api.k8s.io/nodeaddress_v1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "counters": {
+      "additionalProperties": {
+        "$ref": "../agones.apis.pkg.agones.agones.dev/counterstatus_v1.json",
+        "default": {}
+      },
+      "description": "(Beta, CountsAndLists feature flag) Counters and Lists provides the configuration for generic tracking features.",
+      "type": "object"
+    },
+    "eviction": {
+      "$ref": "../agones.apis.pkg.agones.agones.dev/eviction_v1.json",
+      "description": "Eviction specifies the eviction tolerance of the GameServer."
+    },
+    "lists": {
+      "additionalProperties": {
+        "$ref": "../agones.apis.pkg.agones.agones.dev/liststatus_v1.json",
+        "default": {}
+      },
+      "type": "object"
+    },
+    "nodeName": {
+      "default": "",
+      "type": "string"
+    },
+    "players": {
+      "$ref": "../agones.apis.pkg.agones.agones.dev/playerstatus_v1.json",
+      "description": "[Stage:Alpha] [FeatureFlag:PlayerTracking]"
+    },
+    "ports": {
+      "items": {
+        "$ref": "../agones.apis.pkg.agones.agones.dev/gameserverstatusport_v1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "reservedUntil": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/time_v1.json"
+    },
+    "state": {
+      "default": "",
+      "description": "GameServerState is the current state of a GameServer, e.g. Creating, Starting, Ready, etc",
+      "type": "string"
+    }
+  },
+  "required": [
+    "state",
+    "ports",
+    "address",
+    "nodeName",
+    "reservedUntil"
+  ],
+  "type": "object"
+}

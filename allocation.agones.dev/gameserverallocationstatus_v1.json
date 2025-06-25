@@ -1,0 +1,62 @@
+{
+  "description": "GameServerAllocationStatus is the status for an GameServerAllocation resource",
+  "properties": {
+    "address": {
+      "type": "string"
+    },
+    "addresses": {
+      "items": {
+        "$ref": "../core.api.k8s.io/nodeaddress_v1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "counters": {
+      "additionalProperties": {
+        "$ref": "../agones.apis.pkg.agones.agones.dev/counterstatus_v1.json",
+        "default": {}
+      },
+      "type": "object"
+    },
+    "gameServerName": {
+      "default": "",
+      "type": "string"
+    },
+    "lists": {
+      "additionalProperties": {
+        "$ref": "../agones.apis.pkg.agones.agones.dev/liststatus_v1.json",
+        "default": {}
+      },
+      "type": "object"
+    },
+    "metadata": {
+      "$ref": "../allocation.agones.dev/gameservermetadata_v1.json"
+    },
+    "nodeName": {
+      "type": "string"
+    },
+    "ports": {
+      "items": {
+        "$ref": "../agones.apis.pkg.agones.agones.dev/gameserverstatusport_v1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "source": {
+      "default": "",
+      "description": "If the allocation is from a remote cluster, Source is the endpoint of the remote agones-allocator. Otherwise, Source is \"local\"",
+      "type": "string"
+    },
+    "state": {
+      "default": "",
+      "description": "GameServerState is the current state of an GameServerAllocation, e.g. Allocated, or UnAllocated",
+      "type": "string"
+    }
+  },
+  "required": [
+    "state",
+    "gameServerName",
+    "source"
+  ],
+  "type": "object"
+}

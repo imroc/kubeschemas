@@ -1,0 +1,28 @@
+{
+  "description": "PlayerStatus stores the current player capacity values",
+  "properties": {
+    "capacity": {
+      "default": 0,
+      "format": "int64",
+      "type": "integer"
+    },
+    "count": {
+      "default": 0,
+      "format": "int64",
+      "type": "integer"
+    },
+    "ids": {
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "count",
+    "capacity",
+    "ids"
+  ],
+  "type": "object"
+}

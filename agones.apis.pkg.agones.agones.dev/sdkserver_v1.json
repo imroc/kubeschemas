@@ -1,0 +1,20 @@
+{
+  "description": "SdkServer specifies parameters for the Agones SDK Server sidecar container",
+  "properties": {
+    "grpcPort": {
+      "description": "GRPCPort is the port on which the SDK Server binds the gRPC server to accept incoming connections",
+      "format": "int32",
+      "type": "integer"
+    },
+    "httpPort": {
+      "description": "HTTPPort is the port on which the SDK Server binds the HTTP gRPC gateway server to accept incoming connections",
+      "format": "int32",
+      "type": "integer"
+    },
+    "logLevel": {
+      "description": "LogLevel for SDK server (sidecar) logs. Defaults to \"Info\"",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

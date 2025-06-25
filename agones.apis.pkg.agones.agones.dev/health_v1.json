@@ -1,0 +1,25 @@
+{
+  "description": "Health configures health checking on the GameServer",
+  "properties": {
+    "disabled": {
+      "description": "Disabled is whether health checking is disabled or not",
+      "type": "boolean"
+    },
+    "failureThreshold": {
+      "description": "FailureThreshold how many failures in a row constitutes unhealthy",
+      "format": "int32",
+      "type": "integer"
+    },
+    "initialDelaySeconds": {
+      "description": "InitialDelaySeconds initial delay before checking health",
+      "format": "int32",
+      "type": "integer"
+    },
+    "periodSeconds": {
+      "description": "PeriodSeconds is the number of seconds each health ping has to occur in",
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "type": "object"
+}

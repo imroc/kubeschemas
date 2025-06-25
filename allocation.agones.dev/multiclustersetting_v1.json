@@ -1,0 +1,13 @@
+{
+  "description": "MultiClusterSetting specifies settings for multi-cluster allocation.",
+  "properties": {
+    "enabled": {
+      "type": "boolean"
+    },
+    "policySelector": {
+      "$ref": "../meta.apis.pkg.apimachinery.k8s.io/labelselector_v1.json",
+      "default": {}
+    }
+  },
+  "type": "object"
+}

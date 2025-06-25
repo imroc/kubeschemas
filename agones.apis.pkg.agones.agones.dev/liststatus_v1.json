@@ -1,0 +1,22 @@
+{
+  "description": "ListStatus stores the current list values and maximum capacity",
+  "properties": {
+    "capacity": {
+      "default": 0,
+      "format": "int64",
+      "type": "integer"
+    },
+    "values": {
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "capacity",
+    "values"
+  ],
+  "type": "object"
+}

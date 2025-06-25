@@ -1,0 +1,66 @@
+{
+  "description": "GameServerAllocationSpec is the spec for a GameServerAllocation",
+  "properties": {
+    "counters": {
+      "additionalProperties": {
+        "$ref": "../allocation.agones.dev/counteraction_v1.json",
+        "default": {}
+      },
+      "description": "[Stage: Beta] [FeatureFlag:CountsAndLists] Counter actions to perform during allocation.",
+      "type": "object"
+    },
+    "lists": {
+      "additionalProperties": {
+        "$ref": "../allocation.agones.dev/listaction_v1.json",
+        "default": {}
+      },
+      "description": "[Stage: Beta] [FeatureFlag:CountsAndLists] List actions to perform during allocation.",
+      "type": "object"
+    },
+    "metadata": {
+      "$ref": "../allocation.agones.dev/metapatch_v1.json",
+      "default": {},
+      "description": "MetaPatch is optional custom metadata that is added to the game server at allocation You can use this to tell the server necessary session data"
+    },
+    "multiClusterSetting": {
+      "$ref": "../allocation.agones.dev/multiclustersetting_v1.json",
+      "default": {},
+      "description": "MultiClusterPolicySelector if specified, multi-cluster policies are applied. Otherwise, allocation will happen locally."
+    },
+    "preferred": {
+      "description": "Deprecated: use field Selectors instead. If Selectors is set, this field is ignored. Preferred is an ordered list of preferred GameServer selectors that are optional to be fulfilled, but will be searched before the `required` selector. If the first selector is not matched, the selection attempts the second selector, and so on. If any of the preferred selectors are matched, the required selector is not considered. This is useful for things like smoke testing of new game servers.",
+      "items": {
+        "$ref": "../allocation.agones.dev/gameserverselector_v1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "priorities": {
+      "description": "[Stage: Beta] [FeatureFlag:CountsAndLists] `Priorities` configuration alters the order in which `GameServers` are searched for matches to the configured `selectors`.\n\nPriority of sorting is in descending importance. I.e. The position 0 `priority` entry is checked first.\n\nFor `Packed` strategy sorting, this priority list will be the tie-breaker within the least utilised infrastructure, to ensure optimal infrastructure usage while also allowing some custom prioritisation of `GameServers`.\n\nFor `Distributed` strategy sorting, the entire selection of `GameServers` will be sorted by this priority list to provide the order that `GameServers` will be allocated by.",
+      "items": {
+        "$ref": "../agones.apis.pkg.agones.agones.dev/priority_v1.json",
+        "default": {}
+      },
+      "type": "array"
+    },
+    "required": {
+      "$ref": "../allocation.agones.dev/gameserverselector_v1.json",
+      "default": {},
+      "description": "Deprecated: use field Selectors instead. If Selectors is set, this field is ignored. Required is the GameServer selector from which to choose GameServers from. Defaults to all GameServers."
+    },
+    "scheduling": {
+      "default": "",
+      "description": "Scheduling strategy. Defaults to \"Packed\".",
+      "type": "string"
+    },
+    "selectors": {
+      "description": "Ordered list of GameServer label selectors. If the first selector is not matched, the selection attempts the second selector, and so on. This is useful for things like smoke testing of new game servers. Note: This field can only be set if neither Required or Preferred is set.",
+      "items": {
+        "$ref": "../allocation.agones.dev/gameserverselector_v1.json",
+        "default": {}
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

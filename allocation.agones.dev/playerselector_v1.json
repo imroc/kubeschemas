@@ -1,0 +1,14 @@
+{
+  "description": "PlayerSelector is the filter options for a GameServer based on player counts",
+  "properties": {
+    "maxAvailable": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "minAvailable": {
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "type": "object"
+}

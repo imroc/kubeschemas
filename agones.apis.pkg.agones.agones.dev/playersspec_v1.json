@@ -1,0 +1,10 @@
+{
+  "description": "PlayersSpec tracks the initial player capacity",
+  "properties": {
+    "initialCapacity": {
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "type": "object"
+}

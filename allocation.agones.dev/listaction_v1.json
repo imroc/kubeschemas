@@ -1,0 +1,27 @@
+{
+  "description": "ListAction is an optional action that can be performed on a List at allocation.",
+  "properties": {
+    "addValues": {
+      "description": "AddValues appends values to a List's Values array. Any duplicate values will be ignored.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "capacity": {
+      "description": "Capacity updates the maximum capacity of the Counter to this number. Min 0, Max 1000.",
+      "format": "int64",
+      "type": "integer"
+    },
+    "deleteValues": {
+      "description": "DeleteValues removes values from a List's Values array. Any nonexistant values will be ignored.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

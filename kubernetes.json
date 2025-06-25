@@ -250,6 +250,12 @@
       "$ref": "alibabacloud.com/resourceflavorlist_v1beta2.json"
     },
     {
+      "$ref": "allocation.agones.dev/gameserverallocation_v1.json"
+    },
+    {
+      "$ref": "allocation.agones.dev/gameserverallocationlist_v1.json"
+    },
+    {
       "$ref": "analysis.crane.io/analytics_v1alpha1.json"
     },
     {

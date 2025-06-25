@@ -1,0 +1,26 @@
+{
+  "description": "Priority is a sorting option for GameServers with Counters or Lists based on the available capacity, i.e. the current Capacity value, minus either the Count value or List length.",
+  "properties": {
+    "key": {
+      "default": "",
+      "description": "Key: The name of the Counter or List. If not found on the GameServer, has no impact.",
+      "type": "string"
+    },
+    "order": {
+      "default": "",
+      "description": "Order: Sort by \"Ascending\" or \"Descending\". \"Descending\" a bigger available capacity is preferred. \"Ascending\" would be smaller available capacity is preferred. The default sort order is \"Ascending\"",
+      "type": "string"
+    },
+    "type": {
+      "default": "",
+      "description": "Type: Sort by a \"Counter\" or a \"List\".",
+      "type": "string"
+    }
+  },
+  "required": [
+    "type",
+    "key",
+    "order"
+  ],
+  "type": "object"
+}

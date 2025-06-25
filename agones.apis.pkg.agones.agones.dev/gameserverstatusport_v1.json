@@ -1,0 +1,17 @@
+{
+  "description": "GameServerStatusPort shows the port that was allocated to a GameServer.",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "port": {
+      "default": 0,
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "port"
+  ],
+  "type": "object"
+}

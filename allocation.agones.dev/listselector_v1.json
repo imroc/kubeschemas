@@ -1,0 +1,23 @@
+{
+  "description": "ListSelector is the filter options for a GameServer based on List available capacity and/or the existence of a value in a List.",
+  "properties": {
+    "containsValue": {
+      "default": "",
+      "description": "ContainsValue says to only match GameServers who has this value in the list. Defaults to \"\", which is all.",
+      "type": "string"
+    },
+    "maxAvailable": {
+      "default": 0,
+      "description": "MaxAvailable specifies the maximum capacity (current capacity - current count) available on a GameServer. Defaults to 0, which is translated as max(int64).",
+      "format": "int64",
+      "type": "integer"
+    },
+    "minAvailable": {
+      "default": 0,
+      "description": "MinAvailable specifies the minimum capacity (current capacity - current count) available on a GameServer. Defaults to 0.",
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "type": "object"
+}

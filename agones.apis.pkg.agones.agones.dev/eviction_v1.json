@@ -1,0 +1,10 @@
+{
+  "description": "Eviction specifies the eviction tolerance of the GameServer",
+  "properties": {
+    "safe": {
+      "description": "Game server supports termination via SIGTERM: - Always: Allow eviction for both Cluster Autoscaler and node drain for upgrades - OnUpgrade: Allow eviction for upgrades alone - Never (default): Pod should run to completion",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

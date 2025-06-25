@@ -1,0 +1,42 @@
+{
+  "description": "GameServerPort defines a set of Ports that are to be exposed via the GameServer",
+  "properties": {
+    "container": {
+      "description": "Container is the name of the container on which to open the port. Defaults to the game server container.",
+      "type": "string"
+    },
+    "containerPort": {
+      "description": "ContainerPort is the port that is being opened on the specified container's process",
+      "format": "int32",
+      "type": "integer"
+    },
+    "hostPort": {
+      "description": "HostPort the port exposed on the host for clients to connect to",
+      "format": "int32",
+      "type": "integer"
+    },
+    "name": {
+      "description": "Name is the descriptive name of the port",
+      "type": "string"
+    },
+    "portPolicy": {
+      "description": "PortPolicy defines the policy for how the HostPort is populated. Dynamic port will allocate a HostPort within the selected MIN_PORT and MAX_PORT range passed to the controller at installation time. When `Static` portPolicy is specified, `HostPort` is required, to specify the port that game clients will connect to `Passthrough` dynamically sets the `containerPort` to the same value as the dynamically selected hostPort. `None` portPolicy ignores `HostPort` and the `containerPort` (optional) is used to set the port on the GameServer instance.",
+      "type": "string"
+    },
+    "protocol": {
+      "description": "Protocol is the network protocol being used. Defaults to UDP. TCP and TCPUDP are other options.\n\nPossible enum values:\n - `\"SCTP\"` is the SCTP protocol.\n - `\"TCP\"` is the TCP protocol.\n - `\"TCPUDP\"` Protocol exposes the hostPort allocated for this container for both TCP and UDP.\n - `\"UDP\"` is the UDP protocol.",
+      "enum": [
+        "SCTP",
+        "TCP",
+        "TCPUDP",
+        "UDP"
+      ],
+      "type": "string"
+    },
+    "range": {
+      "description": "(Alpha, PortRanges feature flag) Range is the port range name from which to select a port when using a 'Dynamic' or 'Passthrough' port policy.",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}
