@@ -1,5 +1,5 @@
 {
-  "description": "Team is the Schema for the teams API.",
+  "description": "Memory is the Schema for the memories API.",
   "properties": {
     "apiVersion": {
       "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -11,7 +11,7 @@
     "kind": {
       "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
       "enum": [
-        "Team"
+        "Memory"
       ],
       "type": "string"
     },
@@ -24,161 +24,64 @@
       "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
     },
     "spec": {
-      "description": "TeamSpec defines the desired state of Team.",
+      "description": "MemorySpec defines the desired state of Memory.",
       "properties": {
-        "description": {
+        "apiKeySecretKey": {
+          "description": "The key in the secret that contains the API key",
           "type": "string"
         },
-        "magenticOneTeamConfig": {
+        "apiKeySecretRef": {
+          "description": "The reference to the secret that contains the API key. Can either be a reference to the name of a secret in the same namespace as the referencing Memory,\nor a reference to the name of a secret in a different namespace in the form \u003cnamespace\u003e/\u003cname\u003e",
+          "type": "string"
+        },
+        "pinecone": {
+          "description": "The configuration for the Pinecone memory provider",
           "properties": {
-            "finalAnswerPrompt": {
+            "indexHost": {
+              "description": "The index host to connect to",
               "type": "string"
             },
-            "maxStalls": {
+            "namespace": {
+              "description": "The namespace to use for the Pinecone index. If not provided, the default namespace will be used.",
+              "type": "string"
+            },
+            "recordFields": {
+              "description": "The fields to retrieve from the Pinecone index. If not provided, all fields will be retrieved.",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "scoreThreshold": {
+              "description": "The score threshold of results to include in the context. Results with a score below this threshold will be ignored.",
+              "type": "string"
+            },
+            "topK": {
+              "description": "The number of results to return from the Pinecone index",
               "type": "integer"
             }
           },
           "required": [
-            "finalAnswerPrompt",
-            "maxStalls"
+            "indexHost"
           ],
           "type": "object"
         },
-        "maxTurns": {
-          "format": "int64",
-          "type": "integer"
-        },
-        "modelConfig": {
-          "description": "Can either be a reference to the name of a ModelConfig in the same namespace as the referencing Team, or a reference to the name of a ModelConfig in a different namespace in the form \u003cnamespace\u003e/\u003cname\u003e",
+        "provider": {
+          "default": "Pinecone",
+          "description": "The provider of the memory",
+          "enum": [
+            "Pinecone"
+          ],
           "type": "string"
-        },
-        "participants": {
-          "description": "Each Participant can either be a reference to the name of an Agent in the same namespace as the referencing Team, or a reference to the name of an Agent in a different namespace in the form \u003cnamespace\u003e/\u003cname\u003e",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
-        "roundRobinTeamConfig": {
-          "type": "object"
-        },
-        "selectorTeamConfig": {
-          "properties": {
-            "selectorPrompt": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "selectorPrompt"
-          ],
-          "type": "object"
-        },
-        "swarmTeamConfig": {
-          "type": "object"
-        },
-        "terminationCondition": {
-          "properties": {
-            "finalTextMessageTermination": {
-              "properties": {
-                "source": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "source"
-              ],
-              "type": "object"
-            },
-            "maxMessageTermination": {
-              "description": "ONEOF: maxMessageTermination, textMentionTermination, orTermination",
-              "properties": {
-                "maxMessages": {
-                  "type": "integer"
-                }
-              },
-              "required": [
-                "maxMessages"
-              ],
-              "type": "object"
-            },
-            "orTermination": {
-              "properties": {
-                "conditions": {
-                  "items": {
-                    "properties": {
-                      "maxMessageTermination": {
-                        "properties": {
-                          "maxMessages": {
-                            "type": "integer"
-                          }
-                        },
-                        "required": [
-                          "maxMessages"
-                        ],
-                        "type": "object"
-                      },
-                      "textMentionTermination": {
-                        "properties": {
-                          "text": {
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "text"
-                        ],
-                        "type": "object"
-                      }
-                    },
-                    "type": "object"
-                  },
-                  "type": "array"
-                }
-              },
-              "required": [
-                "conditions"
-              ],
-              "type": "object"
-            },
-            "stopMessageTermination": {
-              "type": "object"
-            },
-            "textMentionTermination": {
-              "properties": {
-                "text": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "text"
-              ],
-              "type": "object"
-            },
-            "textMessageTermination": {
-              "properties": {
-                "source": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "source"
-              ],
-              "type": "object"
-            }
-          },
-          "type": "object"
         }
       },
       "required": [
-        "description",
-        "maxTurns",
-        "modelConfig",
-        "participants",
-        "terminationCondition"
+        "provider"
       ],
       "type": "object"
     },
     "status": {
-      "description": "TeamStatus defines the observed state of Team.",
+      "description": "MemoryStatus defines the observed state of Memory.",
       "properties": {
         "conditions": {
           "items": {
@@ -254,7 +157,7 @@
   "x-kubernetes-group-version-kind": [
     {
       "group": "kagent.dev",
-      "kind": "Team",
+      "kind": "Memory",
       "version": "v1alpha1"
     }
   ]

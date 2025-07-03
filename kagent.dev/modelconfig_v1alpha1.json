@@ -24,24 +24,310 @@
       "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
     },
     "spec": {
-      "description": "ModelConfigSpec defines the desired state of ModelConfig.",
       "properties": {
+        "anthropic": {
+          "description": "Anthropic-specific configuration",
+          "properties": {
+            "baseUrl": {
+              "description": "Base URL for the Anthropic API (overrides default)",
+              "type": "string"
+            },
+            "maxTokens": {
+              "description": "Maximum tokens to generate",
+              "type": "integer"
+            },
+            "temperature": {
+              "description": "Temperature for sampling",
+              "type": "string"
+            },
+            "topK": {
+              "description": "Top-k sampling parameter",
+              "type": "integer"
+            },
+            "topP": {
+              "description": "Top-p sampling parameter",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "anthropicVertexAI": {
+          "description": "Anthropic-specific configuration",
+          "properties": {
+            "location": {
+              "description": "The project location",
+              "type": "string"
+            },
+            "maxTokens": {
+              "description": "Maximum tokens to generate",
+              "type": "integer"
+            },
+            "projectID": {
+              "description": "The project ID",
+              "type": "string"
+            },
+            "stopSequences": {
+              "description": "Stop sequences",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "temperature": {
+              "description": "Temperature",
+              "type": "string"
+            },
+            "topK": {
+              "description": "Top-k sampling parameter",
+              "type": "string"
+            },
+            "topP": {
+              "description": "Top-p sampling parameter",
+              "type": "string"
+            }
+          },
+          "required": [
+            "location",
+            "projectID"
+          ],
+          "type": "object"
+        },
         "apiKeySecretKey": {
+          "description": "The key in the secret that contains the API key",
           "type": "string"
         },
-        "apiKeySecretName": {
+        "apiKeySecretRef": {
+          "description": "The reference to the secret that contains the API key. Can either be a reference to the name of a secret in the same namespace as the referencing ModelConfig, or a reference to the name of a Secret in a different namespace in the form \u003cnamespace\u003e/\u003cname\u003e",
           "type": "string"
+        },
+        "azureOpenAI": {
+          "description": "Azure OpenAI-specific configuration",
+          "properties": {
+            "apiVersion": {
+              "description": "API version for the Azure OpenAI API",
+              "type": "string"
+            },
+            "azureAdToken": {
+              "description": "Azure AD token for authentication",
+              "type": "string"
+            },
+            "azureDeployment": {
+              "description": "Deployment name for the Azure OpenAI API",
+              "type": "string"
+            },
+            "azureEndpoint": {
+              "description": "Endpoint for the Azure OpenAI API",
+              "type": "string"
+            },
+            "maxTokens": {
+              "description": "Maximum tokens to generate",
+              "type": "integer"
+            },
+            "temperature": {
+              "description": "Temperature for sampling",
+              "type": "string"
+            },
+            "topP": {
+              "description": "Top-p sampling parameter",
+              "type": "string"
+            }
+          },
+          "required": [
+            "apiVersion",
+            "azureEndpoint"
+          ],
+          "type": "object"
+        },
+        "defaultHeaders": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "geminiVertexAI": {
+          "description": "Gemini-specific configuration",
+          "properties": {
+            "candidateCount": {
+              "description": "Candidate count",
+              "type": "integer"
+            },
+            "location": {
+              "description": "The project location",
+              "type": "string"
+            },
+            "maxOutputTokens": {
+              "description": "Maximum output tokens",
+              "type": "integer"
+            },
+            "projectID": {
+              "description": "The project ID",
+              "type": "string"
+            },
+            "responseMimeType": {
+              "description": "Response mime type",
+              "type": "string"
+            },
+            "stopSequences": {
+              "description": "Stop sequences",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "temperature": {
+              "description": "Temperature",
+              "type": "string"
+            },
+            "topK": {
+              "description": "Top-k sampling parameter",
+              "type": "string"
+            },
+            "topP": {
+              "description": "Top-p sampling parameter",
+              "type": "string"
+            }
+          },
+          "required": [
+            "location",
+            "projectID"
+          ],
+          "type": "object"
         },
         "model": {
+          "type": "string"
+        },
+        "modelInfo": {
+          "description": "ModelInfo contains information about the model.\nThis field is required if the model is not one of the\npre-defined autogen models. That list can be found here:",
+          "properties": {
+            "family": {
+              "type": "string"
+            },
+            "functionCalling": {
+              "type": "boolean"
+            },
+            "jsonOutput": {
+              "type": "boolean"
+            },
+            "multipleSystemMessages": {
+              "type": "boolean"
+            },
+            "structuredOutput": {
+              "type": "boolean"
+            },
+            "vision": {
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        },
+        "ollama": {
+          "description": "Ollama-specific configuration",
+          "properties": {
+            "host": {
+              "description": "Host for the Ollama API",
+              "type": "string"
+            },
+            "options": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "description": "Options for the Ollama API",
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "openAI": {
+          "description": "OpenAI-specific configuration",
+          "properties": {
+            "baseUrl": {
+              "description": "Base URL for the OpenAI API (overrides default)",
+              "type": "string"
+            },
+            "frequencyPenalty": {
+              "description": "Frequency penalty",
+              "type": "string"
+            },
+            "maxTokens": {
+              "description": "Maximum tokens to generate",
+              "type": "integer"
+            },
+            "n": {
+              "description": "N value",
+              "type": "integer"
+            },
+            "organization": {
+              "description": "Organization ID for the OpenAI API",
+              "type": "string"
+            },
+            "presencePenalty": {
+              "description": "Presence penalty",
+              "type": "string"
+            },
+            "seed": {
+              "description": "Seed value",
+              "type": "integer"
+            },
+            "temperature": {
+              "description": "Temperature for sampling",
+              "type": "string"
+            },
+            "timeout": {
+              "description": "Timeout",
+              "type": "integer"
+            },
+            "topP": {
+              "description": "Top-p sampling parameter",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "provider": {
+          "default": "OpenAI",
+          "description": "The provider of the model",
+          "enum": [
+            "Anthropic",
+            "OpenAI",
+            "AzureOpenAI",
+            "Ollama",
+            "GeminiVertexAI",
+            "AnthropicVertexAI"
+          ],
           "type": "string"
         }
       },
       "required": [
-        "apiKeySecretKey",
-        "apiKeySecretName",
-        "model"
+        "model",
+        "provider"
       ],
-      "type": "object"
+      "type": "object",
+      "x-kubernetes-validations": [
+        {
+          "message": "provider.openAI must be nil if the provider is not OpenAI",
+          "rule": "!(has(self.openAI) \u0026\u0026 self.provider != 'OpenAI')"
+        },
+        {
+          "message": "provider.anthropic must be nil if the provider is not Anthropic",
+          "rule": "!(has(self.anthropic) \u0026\u0026 self.provider != 'Anthropic')"
+        },
+        {
+          "message": "provider.azureOpenAI must be nil if the provider is not AzureOpenAI",
+          "rule": "!(has(self.azureOpenAI) \u0026\u0026 self.provider != 'AzureOpenAI')"
+        },
+        {
+          "message": "provider.ollama must be nil if the provider is not Ollama",
+          "rule": "!(has(self.ollama) \u0026\u0026 self.provider != 'Ollama')"
+        },
+        {
+          "message": "provider.geminiVertexAI must be nil if the provider is not GeminiVertexAI",
+          "rule": "!(has(self.geminiVertexAI) \u0026\u0026 self.provider != 'GeminiVertexAI')"
+        },
+        {
+          "message": "provider.anthropicVertexAI must be nil if the provider is not AnthropicVertexAI",
+          "rule": "!(has(self.anthropicVertexAI) \u0026\u0026 self.provider != 'AnthropicVertexAI')"
+        }
+      ]
     },
     "status": {
       "description": "ModelConfigStatus defines the observed state of ModelConfig.",

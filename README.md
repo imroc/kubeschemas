@@ -54,7 +54,7 @@ CRDs from open source project:
 - [k0s](https://github.com/k0sproject/k0s/tree/main/static/_crds)
 - [k3s](https://github.com/k3s-io/k3s)
 - [K8sGPT](https://github.com/k8sgpt-ai/k8sgpt-operator)
-- [kagent](https://github.com/kagent-dev/kagent/tree/main/helm/crds)
+- [kagent](https://github.com/kagent-dev/kagent/tree/main/helm/kagent-crds/templates)
 - [Kairos](https://github.com/kairos-io/cluster-api-provider-kairos)
 - [kaito](https://github.com/kaito-project/kaito/tree/main/config/crd)
 - [kapp-controller](https://raw.githubusercontent.com/carvel-dev/kapp-controller/refs/heads/develop/config/config/crds.yml)
