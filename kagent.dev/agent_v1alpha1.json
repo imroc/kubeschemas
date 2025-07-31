@@ -76,7 +76,8 @@
                 },
                 "required": [
                   "id",
-                  "name"
+                  "name",
+                  "tags"
                 ],
                 "type": "object"
               },

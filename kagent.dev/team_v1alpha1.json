@@ -29,21 +29,6 @@
         "description": {
           "type": "string"
         },
-        "magenticOneTeamConfig": {
-          "properties": {
-            "finalAnswerPrompt": {
-              "type": "string"
-            },
-            "maxStalls": {
-              "type": "integer"
-            }
-          },
-          "required": [
-            "finalAnswerPrompt",
-            "maxStalls"
-          ],
-          "type": "object"
-        },
         "maxTurns": {
           "format": "int64",
           "type": "integer"
@@ -60,20 +45,6 @@
           "type": "array"
         },
         "roundRobinTeamConfig": {
-          "type": "object"
-        },
-        "selectorTeamConfig": {
-          "properties": {
-            "selectorPrompt": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "selectorPrompt"
-          ],
-          "type": "object"
-        },
-        "swarmTeamConfig": {
           "type": "object"
         },
         "terminationCondition": {
@@ -172,8 +143,7 @@
         "description",
         "maxTurns",
         "modelConfig",
-        "participants",
-        "terminationCondition"
+        "participants"
       ],
       "type": "object"
     },

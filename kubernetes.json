@@ -5542,6 +5542,12 @@
       "$ref": "kagent.dev/agentlist_v1alpha1.json"
     },
     {
+      "$ref": "kagent.dev/mcpserver_v1alpha1.json"
+    },
+    {
+      "$ref": "kagent.dev/mcpserverlist_v1alpha1.json"
+    },
+    {
       "$ref": "kagent.dev/memory_v1alpha1.json"
     },
     {
