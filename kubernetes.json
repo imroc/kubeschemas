@@ -7672,6 +7672,12 @@
       "$ref": "network.alibabacloud.com/globalnetworkpolicylist_v1beta2.json"
     },
     {
+      "$ref": "network.alibabacloud.com/networkinterface_v1beta1.json"
+    },
+    {
+      "$ref": "network.alibabacloud.com/networkinterfacelist_v1beta1.json"
+    },
+    {
       "$ref": "network.alibabacloud.com/networkpolicy_v1beta2.json"
     },
     {
@@ -7768,6 +7774,12 @@
       "$ref": "network.qingcloud.com/vxnetpoollist_v1alpha1.json"
     },
     {
+      "$ref": "networking.alibabacloud.com/customdnsconfig_v1beta1.json"
+    },
+    {
+      "$ref": "networking.alibabacloud.com/customdnsconfiglist_v1beta1.json"
+    },
+    {
       "$ref": "networking.api.k8s.io/ingress_v1.json"
     },
     {
@@ -7780,10 +7792,22 @@
       "$ref": "networking.api.k8s.io/ingresslist_v1.json"
     },
     {
+      "$ref": "networking.api.k8s.io/ipaddress_v1.json"
+    },
+    {
+      "$ref": "networking.api.k8s.io/ipaddresslist_v1.json"
+    },
+    {
       "$ref": "networking.api.k8s.io/networkpolicy_v1.json"
     },
     {
       "$ref": "networking.api.k8s.io/networkpolicylist_v1.json"
+    },
+    {
+      "$ref": "networking.api.k8s.io/servicecidr_v1.json"
+    },
+    {
+      "$ref": "networking.api.k8s.io/servicecidrlist_v1.json"
     },
     {
       "$ref": "networking.cloud.tencent.com/clbnodebinding_v1alpha1.json"
@@ -9223,6 +9247,12 @@
       "$ref": "projectcontour.io/tlscertificatedelegationlist_v1.json"
     },
     {
+      "$ref": "ramauthenticator.k8s.alibabacloud/ramidentitymapping_v1alpha1.json"
+    },
+    {
+      "$ref": "ramauthenticator.k8s.alibabacloud/ramidentitymappinglist_v1alpha1.json"
+    },
+    {
       "$ref": "raven.openyurt.io/gateway_v1alpha1.json"
     },
     {
@@ -10384,7 +10414,13 @@
       "$ref": "topology.node.k8s.io/noderesourcetopology_v1alpha1.json"
     },
     {
+      "$ref": "topology.node.k8s.io/noderesourcetopology_v1alpha2.json"
+    },
+    {
       "$ref": "topology.node.k8s.io/noderesourcetopologylist_v1alpha1.json"
+    },
+    {
+      "$ref": "topology.node.k8s.io/noderesourcetopologylist_v1alpha2.json"
     },
     {
       "$ref": "topology.volcano.sh/hypercluster_v1alpha1.json"

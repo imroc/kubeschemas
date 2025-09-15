@@ -1,0 +1,14 @@
+{
+  "description": "ForNode provides information about which nodes should consume this endpoint.",
+  "properties": {
+    "name": {
+      "default": "",
+      "description": "name represents the name of the node.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,205 @@
+{
+  "description": "NetworkInterface is the Schema for the NetworkInterface API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "network.alibabacloud.com/v1beta1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "NetworkInterface"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "eni": {
+          "description": "ENI eni info",
+          "properties": {
+            "attachmentOptions": {
+              "properties": {
+                "trunk": {
+                  "type": "boolean"
+                }
+              },
+              "type": "object"
+            },
+            "id": {
+              "type": "string"
+            },
+            "mac": {
+              "type": "string"
+            },
+            "resourceGroupID": {
+              "type": "string"
+            },
+            "securityGroupIDs": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "vSwitchID": {
+              "type": "string"
+            },
+            "vpcID": {
+              "type": "string"
+            },
+            "zone": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "extraConfig": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "ipv4": {
+          "type": "string"
+        },
+        "ipv4CIDR": {
+          "type": "string"
+        },
+        "ipv6": {
+          "type": "string"
+        },
+        "ipv6CIDR": {
+          "type": "string"
+        },
+        "managePolicy": {
+          "properties": {
+            "cache": {
+              "description": "whether to cache on node",
+              "type": "boolean"
+            },
+            "unManaged": {
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        },
+        "podENIRef": {
+          "description": "PodENIRef only some filed is used, uid, name, namespace",
+          "properties": {
+            "apiVersion": {
+              "description": "API version of the referent.",
+              "type": "string"
+            },
+            "fieldPath": {
+              "description": "If referring to a piece of an object instead of an entire object, this string\nshould contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2].\nFor example, if the object reference is to a container within a pod, this would take on a value like:\n\"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered\nthe event) or if no container name is specified \"spec.containers[2]\" (container with\nindex 2 in this pod). This syntax is chosen only to have some well-defined way of\nreferencing a part of an object.",
+              "type": "string"
+            },
+            "kind": {
+              "description": "Kind of the referent.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+              "type": "string"
+            },
+            "name": {
+              "description": "Name of the referent.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+              "type": "string"
+            },
+            "namespace": {
+              "description": "Namespace of the referent.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/",
+              "type": "string"
+            },
+            "resourceVersion": {
+              "description": "Specific resourceVersion to which this reference is made, if any.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency",
+              "type": "string"
+            },
+            "uid": {
+              "description": "UID of the referent.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids",
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "x-kubernetes-map-type": "atomic"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "properties": {
+        "eniInfo": {
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "networkCardIndex": {
+              "type": "integer"
+            },
+            "status": {
+              "description": "ENIBindStatus is the current status for the eni",
+              "type": "string"
+            },
+            "type": {
+              "description": "ENIType for this eni, only Secondary and Member is supported",
+              "enum": [
+                "Secondary",
+                "Trunk",
+                "Primary",
+                "Member"
+              ],
+              "type": "string"
+            },
+            "vfID": {
+              "format": "int32",
+              "type": "integer"
+            },
+            "vid": {
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
+        "instanceID": {
+          "description": "InstanceID for ecs",
+          "type": "string"
+        },
+        "networkCardIndex": {
+          "type": "integer"
+        },
+        "nodeName": {
+          "type": "string"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "trunkENIID": {
+          "description": "TrunkENIID is the trunk eni id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "eniInfo",
+        "phase"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "network.alibabacloud.com",
+      "kind": "NetworkInterface",
+      "version": "v1beta1"
+    }
+  ]
+}
