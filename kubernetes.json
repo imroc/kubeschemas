@@ -1165,6 +1165,12 @@
       "$ref": "auto.gke.io/allowlistedworkloadlist_v1alpha1.json"
     },
     {
+      "$ref": "auto.gke.io/allowlistsynchronizer_v1.json"
+    },
+    {
+      "$ref": "auto.gke.io/allowlistsynchronizerlist_v1.json"
+    },
+    {
       "$ref": "auto.gke.io/workloadallowlist_v1.json"
     },
     {
@@ -1480,7 +1486,13 @@
       "$ref": "autoscaling.kubedb.com/zookeeperautoscalerlist_v1alpha1.json"
     },
     {
+      "$ref": "autoscaling.x-k8s.io/provisioningrequest_v1.json"
+    },
+    {
       "$ref": "autoscaling.x-k8s.io/provisioningrequest_v1beta1.json"
+    },
+    {
+      "$ref": "autoscaling.x-k8s.io/provisioningrequestlist_v1.json"
     },
     {
       "$ref": "autoscaling.x-k8s.io/provisioningrequestlist_v1beta1.json"
@@ -3737,6 +3749,12 @@
     },
     {
       "$ref": "databases.spotahome.com/redisfailoverlist_v1.json"
+    },
+    {
+      "$ref": "datalayer.gke.io/gcpdatasource_v1.json"
+    },
+    {
+      "$ref": "datalayer.gke.io/gcpdatasourcelist_v1.json"
     },
     {
       "$ref": "dataprotection.kubeblocks.io/actionset_v1alpha1.json"
@@ -7873,6 +7891,36 @@
       "$ref": "networking.gke.io/gcpgatewaypolicylist_v1.json"
     },
     {
+      "$ref": "networking.gke.io/gcproutingextension_v1.json"
+    },
+    {
+      "$ref": "networking.gke.io/gcproutingextensionlist_v1.json"
+    },
+    {
+      "$ref": "networking.gke.io/gcptrafficdistributionpolicy_v1.json"
+    },
+    {
+      "$ref": "networking.gke.io/gcptrafficdistributionpolicylist_v1.json"
+    },
+    {
+      "$ref": "networking.gke.io/gcptrafficextension_v1.json"
+    },
+    {
+      "$ref": "networking.gke.io/gcptrafficextensionlist_v1.json"
+    },
+    {
+      "$ref": "networking.gke.io/gcpwasmplugin_v1.json"
+    },
+    {
+      "$ref": "networking.gke.io/gcpwasmpluginlist_v1.json"
+    },
+    {
+      "$ref": "networking.gke.io/gkeiproute_v1.json"
+    },
+    {
+      "$ref": "networking.gke.io/gkeiproutelist_v1.json"
+    },
+    {
       "$ref": "networking.gke.io/gkenetworkparamset_v1.json"
     },
     {
@@ -7919,6 +7967,12 @@
     },
     {
       "$ref": "networking.gke.io/networklogginglist_v1alpha1.json"
+    },
+    {
+      "$ref": "networking.gke.io/nodetopology_v1.json"
+    },
+    {
+      "$ref": "networking.gke.io/nodetopologylist_v1.json"
     },
     {
       "$ref": "networking.gke.io/redirectservice_v1alpha1.json"
@@ -9680,6 +9734,12 @@
     },
     {
       "$ref": "secrets-store.csi.x-k8s.io/secretproviderclasspodstatuslist_v1alpha1.json"
+    },
+    {
+      "$ref": "security.cloud.google.com/gkeclustertrustbundle_v1.json"
+    },
+    {
+      "$ref": "security.cloud.google.com/gkeclustertrustbundlelist_v1.json"
     },
     {
       "$ref": "security.cloud.google.com/trustconfig_v1.json"
