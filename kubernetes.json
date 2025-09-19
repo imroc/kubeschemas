@@ -7264,6 +7264,9 @@
       "$ref": "metrics.api.pkg.resource-intelligence-controller.cos.gitlab.alibaba-inc.com/predictionsobserverlist_v1beta1.json"
     },
     {
+      "$ref": "metrics.apis.pkg.eks-extension-metrics-apiserver.aws.gitlab.com/etcd_v1.json"
+    },
+    {
       "$ref": "metrics.apis.pkg.eks-extension-metrics-apiserver.aws.gitlab.com/kcm_v1.json"
     },
     {
@@ -9359,6 +9362,30 @@
     },
     {
       "$ref": "resolution.tekton.dev/resolutionrequestlist_v1beta1.json"
+    },
+    {
+      "$ref": "resource.api.k8s.io/deviceclass_v1beta1.json"
+    },
+    {
+      "$ref": "resource.api.k8s.io/deviceclasslist_v1beta1.json"
+    },
+    {
+      "$ref": "resource.api.k8s.io/resourceclaim_v1beta1.json"
+    },
+    {
+      "$ref": "resource.api.k8s.io/resourceclaimlist_v1beta1.json"
+    },
+    {
+      "$ref": "resource.api.k8s.io/resourceclaimtemplate_v1beta1.json"
+    },
+    {
+      "$ref": "resource.api.k8s.io/resourceclaimtemplatelist_v1beta1.json"
+    },
+    {
+      "$ref": "resource.api.k8s.io/resourceslice_v1beta1.json"
+    },
+    {
+      "$ref": "resource.api.k8s.io/resourceslicelist_v1beta1.json"
     },
     {
       "$ref": "resources.cattle.io/backup_v1.json"

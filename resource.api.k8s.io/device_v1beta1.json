@@ -1,0 +1,22 @@
+{
+  "description": "Device represents one individual hardware instance that can be selected based on its attributes. Besides the name, exactly one field must be set.",
+  "properties": {
+    "basic": {
+      "allOf": [
+        {
+          "$ref": "../resource.api.k8s.io/basicdevice_v1beta1.json"
+        }
+      ],
+      "description": "Basic defines one device instance."
+    },
+    "name": {
+      "default": "",
+      "description": "Name is unique identifier among all devices managed by the driver in the pool. It must be a DNS label.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "type": "object"
+}

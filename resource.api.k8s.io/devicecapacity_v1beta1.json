@@ -1,0 +1,17 @@
+{
+  "description": "DeviceCapacity describes a quantity associated with a device.",
+  "properties": {
+    "value": {
+      "allOf": [
+        {
+          "$ref": "../api.pkg.apimachinery.k8s.io/quantity_resource.json"
+        }
+      ],
+      "description": "Value defines how much of a certain device capacity is available."
+    }
+  },
+  "required": [
+    "value"
+  ],
+  "type": "object"
+}

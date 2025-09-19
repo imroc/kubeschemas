@@ -1,0 +1,27 @@
+{
+  "description": "CounterSet defines a named set of counters that are available to be used by devices defined in the ResourceSlice.\n\nThe counters are not allocatable by themselves, but can be referenced by devices. When a device is allocated, the portion of counters it uses will no longer be available for use by other devices.",
+  "properties": {
+    "counters": {
+      "additionalProperties": {
+        "allOf": [
+          {
+            "$ref": "../resource.api.k8s.io/counter_v1beta1.json"
+          }
+        ],
+        "default": {}
+      },
+      "description": "Counters defines the set of counters for this CounterSet The name of each counter must be unique in that set and must be a DNS label.\n\nThe maximum number of counters is 32.",
+      "type": "object"
+    },
+    "name": {
+      "default": "",
+      "description": "Name defines the name of the counter set. It must be a DNS label.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "counters"
+  ],
+  "type": "object"
+}

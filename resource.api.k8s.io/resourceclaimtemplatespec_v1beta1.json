@@ -1,0 +1,27 @@
+{
+  "description": "ResourceClaimTemplateSpec contains the metadata and fields for a ResourceClaim.",
+  "properties": {
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "default": {},
+      "description": "ObjectMeta may contain labels and annotations that will be copied into the ResourceClaim when creating it. No other fields are allowed and will be rejected during validation."
+    },
+    "spec": {
+      "allOf": [
+        {
+          "$ref": "../resource.api.k8s.io/resourceclaimspec_v1beta1.json"
+        }
+      ],
+      "default": {},
+      "description": "Spec for the ResourceClaim. The entire content is copied unchanged into the ResourceClaim that gets created from this template. The same fields as in a ResourceClaim are also valid here."
+    }
+  },
+  "required": [
+    "spec"
+  ],
+  "type": "object"
+}

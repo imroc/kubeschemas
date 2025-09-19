@@ -1,0 +1,72 @@
+{
+  "description": "BasicDevice defines one device instance.",
+  "properties": {
+    "allNodes": {
+      "description": "AllNodes indicates that all nodes have access to the device.\n\nMust only be set if Spec.PerDeviceNodeSelection is set to true. At most one of NodeName, NodeSelector and AllNodes can be set.",
+      "type": "boolean"
+    },
+    "attributes": {
+      "additionalProperties": {
+        "allOf": [
+          {
+            "$ref": "../resource.api.k8s.io/deviceattribute_v1beta1.json"
+          }
+        ],
+        "default": {}
+      },
+      "description": "Attributes defines the set of attributes for this device. The name of each attribute must be unique in that set.\n\nThe maximum number of attributes and capacities combined is 32.",
+      "type": "object"
+    },
+    "capacity": {
+      "additionalProperties": {
+        "allOf": [
+          {
+            "$ref": "../resource.api.k8s.io/devicecapacity_v1beta1.json"
+          }
+        ],
+        "default": {}
+      },
+      "description": "Capacity defines the set of capacities for this device. The name of each capacity must be unique in that set.\n\nThe maximum number of attributes and capacities combined is 32.",
+      "type": "object"
+    },
+    "consumesCounters": {
+      "description": "ConsumesCounters defines a list of references to sharedCounters and the set of counters that the device will consume from those counter sets.\n\nThere can only be a single entry per counterSet.\n\nThe total number of device counter consumption entries must be \u003c= 32. In addition, the total number in the entire ResourceSlice must be \u003c= 1024 (for example, 64 devices with 16 counters each).",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "../resource.api.k8s.io/devicecounterconsumption_v1beta1.json"
+          }
+        ],
+        "default": {}
+      },
+      "type": "array",
+      "x-kubernetes-list-type": "atomic"
+    },
+    "nodeName": {
+      "description": "NodeName identifies the node where the device is available.\n\nMust only be set if Spec.PerDeviceNodeSelection is set to true. At most one of NodeName, NodeSelector and AllNodes can be set.",
+      "type": "string"
+    },
+    "nodeSelector": {
+      "allOf": [
+        {
+          "$ref": "../core.api.k8s.io/nodeselector_v1.json"
+        }
+      ],
+      "description": "NodeSelector defines the nodes where the device is available.\n\nMust use exactly one term.\n\nMust only be set if Spec.PerDeviceNodeSelection is set to true. At most one of NodeName, NodeSelector and AllNodes can be set."
+    },
+    "taints": {
+      "description": "If specified, these are the driver-defined taints.\n\nThe maximum number of taints is 4.\n\nThis is an alpha field and requires enabling the DRADeviceTaints feature gate.",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "../resource.api.k8s.io/devicetaint_v1beta1.json"
+          }
+        ],
+        "default": {}
+      },
+      "type": "array",
+      "x-kubernetes-list-type": "atomic"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,23 @@
+{
+  "description": "DeviceClaimConfiguration is used for configuration parameters in DeviceClaim.",
+  "properties": {
+    "opaque": {
+      "allOf": [
+        {
+          "$ref": "../resource.api.k8s.io/opaquedeviceconfiguration_v1beta1.json"
+        }
+      ],
+      "description": "Opaque provides driver-specific configuration parameters."
+    },
+    "requests": {
+      "description": "Requests lists the names of requests where the configuration applies. If empty, it applies to all requests.\n\nReferences to subrequests must include the name of the main request and may include the subrequest using the format \u003cmain request\u003e[/\u003csubrequest\u003e]. If just the main request is given, the configuration applies to all subrequests.",
+      "items": {
+        "default": "",
+        "type": "string"
+      },
+      "type": "array",
+      "x-kubernetes-list-type": "atomic"
+    }
+  },
+  "type": "object"
+}

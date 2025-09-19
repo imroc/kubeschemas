@@ -1,0 +1,23 @@
+{
+  "description": "AllocationResult contains attributes of an allocated resource.",
+  "properties": {
+    "devices": {
+      "allOf": [
+        {
+          "$ref": "../resource.api.k8s.io/deviceallocationresult_v1beta1.json"
+        }
+      ],
+      "default": {},
+      "description": "Devices is the result of allocating devices."
+    },
+    "nodeSelector": {
+      "allOf": [
+        {
+          "$ref": "../core.api.k8s.io/nodeselector_v1.json"
+        }
+      ],
+      "description": "NodeSelector defines where the allocated resources are available. If unset, they are available everywhere."
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,32 @@
+{
+  "description": "DeviceAllocationResult is the result of allocating devices.",
+  "properties": {
+    "config": {
+      "description": "This field is a combination of all the claim and class configuration parameters. Drivers can distinguish between those based on a flag.\n\nThis includes configuration parameters for drivers which have no allocated devices in the result because it is up to the drivers which configuration parameters they support. They can silently ignore unknown configuration parameters.",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "../resource.api.k8s.io/deviceallocationconfiguration_v1beta1.json"
+          }
+        ],
+        "default": {}
+      },
+      "type": "array",
+      "x-kubernetes-list-type": "atomic"
+    },
+    "results": {
+      "description": "Results lists all allocated devices.",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "../resource.api.k8s.io/devicerequestallocationresult_v1beta1.json"
+          }
+        ],
+        "default": {}
+      },
+      "type": "array",
+      "x-kubernetes-list-type": "atomic"
+    }
+  },
+  "type": "object"
+}
