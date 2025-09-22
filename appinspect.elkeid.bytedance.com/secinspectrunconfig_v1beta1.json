@@ -1,0 +1,62 @@
+{
+  "description": "SecInspectRunConfig is the Schema for the secinspectrunconfigs API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "appinspect.elkeid.bytedance.com/v1beta1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "SecInspectRunConfig"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "SecInspectRunConfigSpec defines the desired state of SecInspectRunConfig",
+      "properties": {
+        "cron": {
+          "description": "cron config",
+          "type": "string"
+        },
+        "open": {
+          "description": "open the cron or not",
+          "type": "string"
+        },
+        "starttag": {
+          "default": "-1",
+          "description": "start tag for run job once",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "description": "SecInspectRunConfigStatus defines the observed state of SecInspectRunConfig",
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "appinspect.elkeid.bytedance.com",
+      "kind": "SecInspectRunConfig",
+      "version": "v1beta1"
+    }
+  ]
+}

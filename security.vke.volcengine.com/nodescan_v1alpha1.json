@@ -1,0 +1,141 @@
+{
+  "description": "NodeScan is a specification for a NodeScan resource",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "security.vke.volcengine.com/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "NodeScan"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "Spec defines the desired state of NodeScan",
+      "properties": {
+        "node": {
+          "description": "Node is the target node to run scan job",
+          "type": "string"
+        }
+      },
+      "required": [
+        "node"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "description": "Status defines the observed state of NodeScan",
+      "properties": {
+        "completionTime": {
+          "description": "CompletionTime is the completion timestamp of the scan task.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "conditions": {
+          "description": "Current state of NodeScan.",
+          "items": {
+            "description": "NodeScanCondition describes current state of a NodeScan.",
+            "properties": {
+              "lastProbeTime": {
+                "description": "Last time the condition was checked.",
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "description": "Human readable message indicating details about last transition.",
+                "type": "string"
+              },
+              "reason": {
+                "description": "(brief) reason for the condition's last transition.",
+                "type": "string"
+              },
+              "status": {
+                "description": "Status of the condition, one of True, False, Unknown.",
+                "type": "string"
+              },
+              "type": {
+                "description": "Type of NodeScan condition, Succeed or Failed.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "type"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "results": {
+          "description": "Result provides result details",
+          "items": {
+            "description": "Result is the check result on the target node",
+            "properties": {
+              "policy": {
+                "description": "Policy is the name or identifier of the policy",
+                "type": "string"
+              },
+              "result": {
+                "description": "Result indicates the outcome of the policy rule execution",
+                "enum": [
+                  "pass",
+                  "fail",
+                  "warn",
+                  "error",
+                  "skip"
+                ],
+                "type": "string"
+              },
+              "severity": {
+                "description": "Severity indicates policy check result criticality",
+                "enum": [
+                  "high",
+                  "low",
+                  "medium",
+                  "critical"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "policy"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "startTime": {
+          "description": "StartTime is the start timestamp of the scan task.",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "security.vke.volcengine.com",
+      "kind": "NodeScan",
+      "version": "v1alpha1"
+    }
+  ]
+}

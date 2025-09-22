@@ -448,6 +448,30 @@
       "$ref": "app.k8s.io/applicationlist_v1beta1.json"
     },
     {
+      "$ref": "appinspect.elkeid.bytedance.com/secinspectclusterreport_v1beta1.json"
+    },
+    {
+      "$ref": "appinspect.elkeid.bytedance.com/secinspectclusterreportlist_v1beta1.json"
+    },
+    {
+      "$ref": "appinspect.elkeid.bytedance.com/secinspectpolicy_v1beta1.json"
+    },
+    {
+      "$ref": "appinspect.elkeid.bytedance.com/secinspectpolicylist_v1beta1.json"
+    },
+    {
+      "$ref": "appinspect.elkeid.bytedance.com/secinspectreport_v1beta1.json"
+    },
+    {
+      "$ref": "appinspect.elkeid.bytedance.com/secinspectreportlist_v1beta1.json"
+    },
+    {
+      "$ref": "appinspect.elkeid.bytedance.com/secinspectrunconfig_v1beta1.json"
+    },
+    {
+      "$ref": "appinspect.elkeid.bytedance.com/secinspectrunconfiglist_v1beta1.json"
+    },
+    {
       "$ref": "application.epinio.io/app_v1.json"
     },
     {
@@ -2108,6 +2132,12 @@
     },
     {
       "$ref": "cilium.io/ciliumegressgatewaypolicylist_v2.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumegressnatpolicy_v2alpha1.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumegressnatpolicylist_v2alpha1.json"
     },
     {
       "$ref": "cilium.io/ciliumendpoint_v2.json"
@@ -6814,6 +6844,12 @@
       "$ref": "llm-d.ai/modelservicelist_v1alpha1.json"
     },
     {
+      "$ref": "loadbalancer.vke.volcengine.com/albinstance_v1beta1.json"
+    },
+    {
+      "$ref": "loadbalancer.vke.volcengine.com/albinstancelist_v1beta1.json"
+    },
+    {
       "$ref": "localvolume.everest.io/nodelocalvolume_v1.json"
     },
     {
@@ -8275,6 +8311,12 @@
       "$ref": "node.gke.io/gcpresourceallowlistlist_v1.json"
     },
     {
+      "$ref": "node.katalyst.kubewharf.io/customnoderesource_v1alpha1.json"
+    },
+    {
+      "$ref": "node.katalyst.kubewharf.io/customnoderesourcelist_v1alpha1.json"
+    },
+    {
       "$ref": "node.tke.cloud.tencent.com/cxmmachineproviderspec_v1beta1.json"
     },
     {
@@ -8947,6 +8989,12 @@
       "$ref": "orchestration.aibrix.ai/kvcachelist_v1alpha1.json"
     },
     {
+      "$ref": "orchestration.aibrix.ai/podset_v1alpha1.json"
+    },
+    {
+      "$ref": "orchestration.aibrix.ai/podsetlist_v1alpha1.json"
+    },
+    {
       "$ref": "orchestration.aibrix.ai/rayclusterfleet_v1alpha1.json"
     },
     {
@@ -8957,6 +9005,18 @@
     },
     {
       "$ref": "orchestration.aibrix.ai/rayclusterreplicasetlist_v1alpha1.json"
+    },
+    {
+      "$ref": "orchestration.aibrix.ai/roleset_v1alpha1.json"
+    },
+    {
+      "$ref": "orchestration.aibrix.ai/rolesetlist_v1alpha1.json"
+    },
+    {
+      "$ref": "orchestration.aibrix.ai/stormservice_v1alpha1.json"
+    },
+    {
+      "$ref": "orchestration.aibrix.ai/stormservicelist_v1alpha1.json"
     },
     {
       "$ref": "packaging.carvel.dev/packageinstall_v1alpha1.json"
@@ -9658,6 +9718,30 @@
       "$ref": "scheduling.sigs.k8s.io/podgrouplist_v1alpha1.json"
     },
     {
+      "$ref": "scheduling.vke.volcengine.com/elasticquota_v1beta1.json"
+    },
+    {
+      "$ref": "scheduling.vke.volcengine.com/elasticquotalist_v1beta1.json"
+    },
+    {
+      "$ref": "scheduling.vke.volcengine.com/elasticquotatree_v1beta1.json"
+    },
+    {
+      "$ref": "scheduling.vke.volcengine.com/elasticquotatreelist_v1beta1.json"
+    },
+    {
+      "$ref": "scheduling.vke.volcengine.com/nodemonitor_v1beta1.json"
+    },
+    {
+      "$ref": "scheduling.vke.volcengine.com/nodemonitorlist_v1beta1.json"
+    },
+    {
+      "$ref": "scheduling.vke.volcengine.com/resourcepolicy_v1beta1.json"
+    },
+    {
+      "$ref": "scheduling.vke.volcengine.com/resourcepolicylist_v1beta1.json"
+    },
+    {
       "$ref": "scheduling.volcano.sh/podgroup_v1beta1.json"
     },
     {
@@ -9812,6 +9896,24 @@
     },
     {
       "$ref": "security.openshift.io/securitycontextconstraintslist_v1.json"
+    },
+    {
+      "$ref": "security.vke.volcengine.com/clusterscan_v1alpha1.json"
+    },
+    {
+      "$ref": "security.vke.volcengine.com/clusterscanlist_v1alpha1.json"
+    },
+    {
+      "$ref": "security.vke.volcengine.com/cronclusterscan_v1alpha1.json"
+    },
+    {
+      "$ref": "security.vke.volcengine.com/cronclusterscanlist_v1alpha1.json"
+    },
+    {
+      "$ref": "security.vke.volcengine.com/nodescan_v1alpha1.json"
+    },
+    {
+      "$ref": "security.vke.volcengine.com/nodescanlist_v1alpha1.json"
     },
     {
       "$ref": "securityinspector.alibabacloud.com/benchmarkcsvresult_v1alpha1.json"
@@ -10978,6 +11080,12 @@
       "$ref": "version.cce.io/packageversionlist_v1beta1.json"
     },
     {
+      "$ref": "vke.volcengine.com/cronhpa_v1alpha1.json"
+    },
+    {
+      "$ref": "vke.volcengine.com/cronhpalist_v1alpha1.json"
+    },
+    {
       "$ref": "vpcresources.k8s.aws/cninode_v1alpha1.json"
     },
     {
@@ -10994,6 +11102,18 @@
     },
     {
       "$ref": "warden.gke.io/auditlist_v1.json"
+    },
+    {
+      "$ref": "wgpolicyk8s.io/clusterpolicyreport_v1alpha2.json"
+    },
+    {
+      "$ref": "wgpolicyk8s.io/clusterpolicyreportlist_v1alpha2.json"
+    },
+    {
+      "$ref": "wgpolicyk8s.io/policyreport_v1alpha2.json"
+    },
+    {
+      "$ref": "wgpolicyk8s.io/policyreportlist_v1alpha2.json"
     },
     {
       "$ref": "windows.k8s.io/gmsacredentialspec_v1.json"

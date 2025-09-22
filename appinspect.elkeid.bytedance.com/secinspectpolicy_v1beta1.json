@@ -1,0 +1,89 @@
+{
+  "description": "SecInspectPolicy is the Schema for the secinspectpolicies API",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "appinspect.elkeid.bytedance.com/v1beta1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "SecInspectPolicy"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "SecInspectPolicySpec defines the desired state of SecInspectPolicy",
+      "properties": {
+        "act": {
+          "description": "policy active or not",
+          "enum": [
+            "active",
+            "stop"
+          ],
+          "type": "string"
+        },
+        "data": {
+          "description": "policy content",
+          "type": "string"
+        },
+        "level": {
+          "description": "policy risk level",
+          "enum": [
+            "critical",
+            "high",
+            "medium",
+            "low",
+            "info"
+          ],
+          "type": "string"
+        },
+        "range": {
+          "description": "policy range",
+          "enum": [
+            "cluster",
+            "namespace"
+          ],
+          "type": "string"
+        },
+        "type": {
+          "description": "policy type",
+          "enum": [
+            "baseline",
+            "restricted",
+            "exploit-mitigation"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "description": "SecInspectPolicyStatus defines the observed state of SecInspectPolicy",
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "appinspect.elkeid.bytedance.com",
+      "kind": "SecInspectPolicy",
+      "version": "v1beta1"
+    }
+  ]
+}

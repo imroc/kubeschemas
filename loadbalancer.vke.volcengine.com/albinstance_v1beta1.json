@@ -1,0 +1,240 @@
+{
+  "description": "ALBInstance describes all configs to create the alb resource.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "loadbalancer.vke.volcengine.com/v1beta1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "ALBInstance"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "Specification of the desired behavior of the LoadBalancer.",
+      "properties": {
+        "blockCascadeDeletion": {
+          "description": "block cascade deletion when deleting the last associated ingress. Deprecated: will not use soon.",
+          "type": "boolean"
+        },
+        "instance": {
+          "description": "Specify alb instance spec. Required when creating new alb instance.",
+          "properties": {
+            "addressType": {
+              "default": "public",
+              "description": "The address type of alb instance. Supported types: public(default), private",
+              "type": "string"
+            },
+            "deleteProtection": {
+              "description": "The DeleteProtection status for alb instance. Supported: on, off(default)",
+              "type": "string"
+            },
+            "eipSpec": {
+              "description": "The EIP config for public alb instance.",
+              "properties": {
+                "bandwidth": {
+                  "default": 10,
+                  "description": "The Bandwidth of EIP.",
+                  "type": "integer"
+                },
+                "bandwidthPackageID": {
+                  "description": "The sharing BandwidthPackageID of EIP.",
+                  "type": "string"
+                },
+                "billingType": {
+                  "default": 3,
+                  "description": "The BillingType of EIP.",
+                  "type": "integer"
+                },
+                "isp": {
+                  "default": "BGP",
+                  "description": "The ISP type of EIP.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "ipVersion": {
+              "default": "ipv4",
+              "description": "The IPVersion of alb instance. Supported types: ipv4(default), ipv6",
+              "type": "string"
+            },
+            "name": {
+              "description": "The specified name of alb instance.",
+              "type": "string"
+            },
+            "subnetID": {
+              "description": "The Subnet of alb instance.",
+              "type": "string"
+            },
+            "zoneMappings": {
+              "description": "The list of subnet in different available zone",
+              "items": {
+                "description": "ZoneMapping ...",
+                "properties": {
+                  "subnetId": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "subnetId"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        },
+        "instanceID": {
+          "description": "Only apply when using exist alb instance.",
+          "type": "string"
+        },
+        "listeners": {
+          "description": "Specify listener specs of alb instance.",
+          "items": {
+            "description": "ListenerSpec ...",
+            "properties": {
+              "certificateID": {
+                "description": "CertificateID specify the certificate of HTTPS listener.",
+                "type": "string"
+              },
+              "certificateSource": {
+                "description": "CertificateSource specify the certificate source of cert.",
+                "type": "string"
+              },
+              "domainExtensions": {
+                "description": "Extension domains for the HTTPS listener.",
+                "items": {
+                  "description": "DomainExtension ...",
+                  "properties": {
+                    "certificateID": {
+                      "description": "The Certificate id for the extension domain.",
+                      "type": "string"
+                    },
+                    "certificateSource": {
+                      "description": "The CertificateSource for the cert.",
+                      "type": "string"
+                    },
+                    "domain": {
+                      "description": "Extension domain for the HTTPS listener.",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "enableHTTP2": {
+                "description": "EnableHTTP2 enable http2 for HTTPS listener.",
+                "type": "boolean"
+              },
+              "enableQUIC": {
+                "description": "EnableQUIC enable quic for HTTPS listener.",
+                "type": "boolean"
+              },
+              "port": {
+                "default": 80,
+                "description": "Port of listener",
+                "format": "int32",
+                "type": "integer"
+              },
+              "protocol": {
+                "default": "HTTP",
+                "description": "Protocol of listener Supported types: HTTP(default), HTTPS",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "description": "Most recently observed status of the LoadBalancer.",
+      "properties": {
+        "ingress": {
+          "description": "Ingress represents the ingress infos of alb instance.",
+          "properties": {
+            "hostname": {
+              "description": "Hostname is set for load-balancer ingress points that are DNS based (typically AWS load-balancers)",
+              "type": "string"
+            },
+            "ip": {
+              "description": "IP is set for load-balancer ingress points that are IP based (typically GCE or OpenStack load-balancers)",
+              "type": "string"
+            },
+            "ports": {
+              "description": "Ports is a list of records of service ports If used, every port defined in the service should have an entry in it",
+              "items": {
+                "properties": {
+                  "error": {
+                    "description": "Error is to record the problem with the service port The format of the error shall comply with the following rules: - built-in error values shall be specified in this file and those shall use CamelCase names - cloud provider specific error values must have names that comply with the format foo.example.com/CamelCase. --- The regex it matches is (dns1123SubdomainFmt/)?(qualifiedNameFmt)",
+                    "maxLength": 316,
+                    "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$",
+                    "type": "string"
+                  },
+                  "port": {
+                    "description": "Port is the port number of the service port of which status is recorded here",
+                    "format": "int32",
+                    "type": "integer"
+                  },
+                  "protocol": {
+                    "default": "TCP",
+                    "description": "Protocol is the protocol of the service port of which status is recorded here The supported values are: \"TCP\", \"UDP\", \"SCTP\"",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "port",
+                  "protocol"
+                ],
+                "type": "object"
+              },
+              "type": "array",
+              "x-kubernetes-list-type": "atomic"
+            }
+          },
+          "type": "object"
+        },
+        "instanceID": {
+          "description": "InstanceID represents the alb instance id.",
+          "type": "string"
+        },
+        "phase": {
+          "default": "Pending",
+          "description": "Phase represents the current phase of alb instance.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "loadbalancer.vke.volcengine.com",
+      "kind": "ALBInstance",
+      "version": "v1beta1"
+    }
+  ]
+}

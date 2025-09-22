@@ -1,0 +1,125 @@
+{
+  "description": "CronHPA represents a set of crontabs to set target's replicas.",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "vke.volcengine.com/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "CronHPA"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "A CronHPASpec is the specification of a CronHPA.",
+      "properties": {
+        "crons": {
+          "items": {
+            "description": "Cron is one crontab to set target's replicas",
+            "properties": {
+              "schedule": {
+                "type": "string"
+              },
+              "target": {
+                "format": "int32",
+                "type": "integer"
+              }
+            },
+            "required": [
+              "schedule",
+              "target"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "scaleTargetRef": {
+          "description": "CrossVersionObjectReference contains enough information to let you identify the referred resource.",
+          "properties": {
+            "apiVersion": {
+              "description": "API version of the referent",
+              "type": "string"
+            },
+            "kind": {
+              "description": "Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds\"",
+              "type": "string"
+            },
+            "name": {
+              "description": "Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names",
+              "type": "string"
+            }
+          },
+          "required": [
+            "kind",
+            "name"
+          ],
+          "type": "object"
+        },
+        "scaleWorkloadRef": {
+          "description": "CrossVersionObjectReference contains enough information to let you identify the referred resource.",
+          "properties": {
+            "apiVersion": {
+              "description": "API version of the referent",
+              "type": "string"
+            },
+            "kind": {
+              "description": "Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds\"",
+              "type": "string"
+            },
+            "name": {
+              "description": "Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names",
+              "type": "string"
+            }
+          },
+          "required": [
+            "kind",
+            "name"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "crons",
+        "scaleTargetRef",
+        "scaleWorkloadRef"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "description": "CronHPAStatus represents the current state of a CronHPA.",
+      "properties": {
+        "lastScheduleTime": {
+          "description": "Information when was the last time the schedule was successfully scheduled.",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "vke.volcengine.com",
+      "kind": "CronHPA",
+      "version": "v1alpha1"
+    }
+  ]
+}
