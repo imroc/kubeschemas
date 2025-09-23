@@ -1,0 +1,14 @@
+{
+  "description": "DeviceSelector must have exactly one field set.",
+  "properties": {
+    "cel": {
+      "allOf": [
+        {
+          "$ref": "../resource.api.k8s.io/celdeviceselector_v1.json"
+        }
+      ],
+      "description": "CEL contains a CEL expression for selecting a device."
+    }
+  },
+  "type": "object"
+}

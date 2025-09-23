@@ -9478,25 +9478,49 @@
       "$ref": "resolution.tekton.dev/resolutionrequestlist_v1beta1.json"
     },
     {
+      "$ref": "resource.api.k8s.io/deviceclass_v1.json"
+    },
+    {
       "$ref": "resource.api.k8s.io/deviceclass_v1beta1.json"
+    },
+    {
+      "$ref": "resource.api.k8s.io/deviceclasslist_v1.json"
     },
     {
       "$ref": "resource.api.k8s.io/deviceclasslist_v1beta1.json"
     },
     {
+      "$ref": "resource.api.k8s.io/resourceclaim_v1.json"
+    },
+    {
       "$ref": "resource.api.k8s.io/resourceclaim_v1beta1.json"
+    },
+    {
+      "$ref": "resource.api.k8s.io/resourceclaimlist_v1.json"
     },
     {
       "$ref": "resource.api.k8s.io/resourceclaimlist_v1beta1.json"
     },
     {
+      "$ref": "resource.api.k8s.io/resourceclaimtemplate_v1.json"
+    },
+    {
       "$ref": "resource.api.k8s.io/resourceclaimtemplate_v1beta1.json"
+    },
+    {
+      "$ref": "resource.api.k8s.io/resourceclaimtemplatelist_v1.json"
     },
     {
       "$ref": "resource.api.k8s.io/resourceclaimtemplatelist_v1beta1.json"
     },
     {
+      "$ref": "resource.api.k8s.io/resourceslice_v1.json"
+    },
+    {
       "$ref": "resource.api.k8s.io/resourceslice_v1beta1.json"
+    },
+    {
+      "$ref": "resource.api.k8s.io/resourceslicelist_v1.json"
     },
     {
       "$ref": "resource.api.k8s.io/resourceslicelist_v1beta1.json"
@@ -10444,7 +10468,13 @@
       "$ref": "storage.api.k8s.io/volumeattachmentlist_v1.json"
     },
     {
+      "$ref": "storage.api.k8s.io/volumeattributesclass_v1.json"
+    },
+    {
       "$ref": "storage.api.k8s.io/volumeattributesclass_v1beta1.json"
+    },
+    {
+      "$ref": "storage.api.k8s.io/volumeattributesclasslist_v1.json"
     },
     {
       "$ref": "storage.api.k8s.io/volumeattributesclasslist_v1beta1.json"

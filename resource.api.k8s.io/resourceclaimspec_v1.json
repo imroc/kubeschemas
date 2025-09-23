@@ -1,0 +1,15 @@
+{
+  "description": "ResourceClaimSpec defines what is being requested in a ResourceClaim and how to configure it.",
+  "properties": {
+    "devices": {
+      "allOf": [
+        {
+          "$ref": "../resource.api.k8s.io/deviceclaim_v1.json"
+        }
+      ],
+      "default": {},
+      "description": "Devices defines how to request devices."
+    }
+  },
+  "type": "object"
+}
