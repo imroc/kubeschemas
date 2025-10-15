@@ -2110,7 +2110,13 @@
       "$ref": "cilium.io/ciliumbgppeeringpolicylist_v2alpha1.json"
     },
     {
+      "$ref": "cilium.io/ciliumcidrgroup_v2.json"
+    },
+    {
       "$ref": "cilium.io/ciliumcidrgroup_v2alpha1.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumcidrgrouplist_v2.json"
     },
     {
       "$ref": "cilium.io/ciliumcidrgrouplist_v2alpha1.json"
@@ -2176,7 +2182,13 @@
       "$ref": "cilium.io/ciliuml2announcementpolicylist_v2alpha1.json"
     },
     {
+      "$ref": "cilium.io/ciliumloadbalancerippool_v2.json"
+    },
+    {
       "$ref": "cilium.io/ciliumloadbalancerippool_v2alpha1.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumloadbalancerippoollist_v2.json"
     },
     {
       "$ref": "cilium.io/ciliumloadbalancerippoollist_v2alpha1.json"
@@ -2318,6 +2330,12 @@
     },
     {
       "$ref": "cloud.tencent.com/nginxingresslist_v1alpha1.json"
+    },
+    {
+      "$ref": "cloud.tencent.com/targetgroup_v1alpha1.json"
+    },
+    {
+      "$ref": "cloud.tencent.com/targetgrouplist_v1alpha1.json"
     },
     {
       "$ref": "cloud.tencent.com/tkeserviceconfig_v1alpha1.json"
@@ -2735,6 +2753,42 @@
     },
     {
       "$ref": "constraints.gatekeeper.sh/blocknamespacedeletionlist_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/blockpvdeletion_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/blockpvdeletion_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/blockpvdeletionlist_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/blockpvdeletionlist_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/blockschedulablenodedelete_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/blockschedulablenodedelete_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/blockschedulablenodedeletelist_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/blockschedulablenodedeletelist_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/corednsprotect_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/corednsprotect_v1beta1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/corednsprotectlist_v1alpha1.json"
+    },
+    {
+      "$ref": "constraints.gatekeeper.sh/corednsprotectlist_v1beta1.json"
     },
     {
       "$ref": "constraints.gatekeeper.sh/k8saffinity_v1alpha1.json"
@@ -8239,10 +8293,16 @@
       "$ref": "networking.karmada.io/multiclusterservicelist_v1alpha1.json"
     },
     {
+      "$ref": "networking.tke.cloud.tencent.com/eip_v1.json"
+    },
+    {
       "$ref": "networking.tke.cloud.tencent.com/eipclaim_v1.json"
     },
     {
       "$ref": "networking.tke.cloud.tencent.com/eipclaimlist_v1.json"
+    },
+    {
+      "$ref": "networking.tke.cloud.tencent.com/eiplist_v1.json"
     },
     {
       "$ref": "networking.tke.cloud.tencent.com/loadbalancerresource_v1alpha1.json"
@@ -10490,6 +10550,12 @@
     },
     {
       "$ref": "tcfsoperator.k8s.io/tcfslist_v1alpha1.json"
+    },
+    {
+      "$ref": "tcr.tencentcloudcr.com/imagepullsecret_v1.json"
+    },
+    {
+      "$ref": "tcr.tencentcloudcr.com/imagepullsecretlist_v1.json"
     },
     {
       "$ref": "tekton.dev/clustertask_v1beta1.json"

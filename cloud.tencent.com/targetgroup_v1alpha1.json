@@ -1,0 +1,288 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "cloud.tencent.com/v1alpha1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "TargetGroup"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "properties": {
+        "healthCheck": {
+          "description": "The health check of the target group.",
+          "properties": {
+            "custom": {
+              "description": "Extra options of the custom health check.",
+              "properties": {
+                "contextType": {
+                  "description": "The type of the context, oneof HEX or TEXT.",
+                  "enum": [
+                    "HEX",
+                    "TEXT"
+                  ],
+                  "type": "string"
+                },
+                "receiveContext": {
+                  "description": "The receive context of the custom health check.",
+                  "maxLength": 500,
+                  "type": "string"
+                },
+                "sendContext": {
+                  "description": "The send context of the custom health check.",
+                  "maxLength": 500,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "contextType"
+              ],
+              "type": "object"
+            },
+            "extendedCode": {
+              "description": "The healthy status code of the GRPC protocol. Default is 12.",
+              "type": "string"
+            },
+            "healthyThresholdCount": {
+              "description": "The healthy threshold count of the health check. Default is 3.",
+              "format": "int64",
+              "maximum": 10,
+              "minimum": 2,
+              "type": "integer"
+            },
+            "http": {
+              "description": "Extra options of the HTTP health check.",
+              "properties": {
+                "domain": {
+                  "description": "The domain of the HTTP health check.",
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "method": {
+                  "description": "The method of the HTTP health check. Oneof HEAD, GET. Default is HEAD.",
+                  "enum": [
+                    "HEAD",
+                    "GET"
+                  ],
+                  "type": "string"
+                },
+                "path": {
+                  "description": "The path of the HTTP health check. Default is /.",
+                  "pattern": "^/.*$",
+                  "type": "string"
+                },
+                "statusCodes": {
+                  "description": "The response status codes which are considered healthy. 1 means 1xx, 2 means 2xx, 3 means 3xx, 4 means 4xx, 5 means 5xx. Default is 1,2,3,4.",
+                  "items": {
+                    "enum": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5
+                    ],
+                    "type": "integer"
+                  },
+                  "type": "array"
+                },
+                "version": {
+                  "description": "The HTTP version of the HTTP health check. Oneof HTTP/1.0, HTTP/1.1. Default is HTTP/1.1.",
+                  "enum": [
+                    "HTTP/1.0",
+                    "HTTP/1.1"
+                  ],
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "interval": {
+              "description": "The interval seconds of the health check. Default is 5.",
+              "format": "int64",
+              "maximum": 300,
+              "minimum": 3,
+              "type": "integer"
+            },
+            "jumboFrame": {
+              "description": "Whether to enable Jumbo frame. Default is false.",
+              "type": "boolean"
+            },
+            "port": {
+              "description": "The health check port of the target group, default is the registered rs port.",
+              "format": "int64",
+              "maximum": 65535,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "protocol": {
+              "description": "The health check protocol of the target group.",
+              "enum": [
+                "TCP",
+                "HTTP",
+                "HTTPS",
+                "PING",
+                "CUSTOM",
+                "GRPC"
+              ],
+              "type": "string"
+            },
+            "timeout": {
+              "description": "The timeout seconds of the health check. Default is 2.",
+              "format": "int64",
+              "maximum": 60,
+              "minimum": 2,
+              "type": "integer"
+            },
+            "unhealthyThresholdCount": {
+              "description": "The unhealthy threshold count of the health check. Default is 3.",
+              "format": "int64",
+              "maximum": 10,
+              "minimum": 2,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "protocol"
+          ],
+          "type": "object"
+        },
+        "id": {
+          "description": "The target group instance ID that already exists on the clb side.",
+          "pattern": "^lbtg-[0-9a-z]{8}$",
+          "type": "string"
+        },
+        "keepAlive": {
+          "description": "Whether to enable the Keep Alive feature. Default is false.",
+          "type": "boolean"
+        },
+        "name": {
+          "description": "The name of the target group. Default is \u003cclusterID\u003e.\u003cname\u003e",
+          "maxLength": 60,
+          "minLength": 1,
+          "type": "string"
+        },
+        "protocol": {
+          "description": "Target group protocol.",
+          "enum": [
+            "TCP",
+            "UDP",
+            "HTTP",
+            "HTTPS",
+            "TCP_SSL",
+            "QUIC",
+            "GRPC"
+          ],
+          "type": "string"
+        },
+        "scheduleAlgorithm": {
+          "description": "The schedule algorithm of the target group. Default is WRR.",
+          "enum": [
+            "WRR",
+            "LEAST_CONN",
+            "IP_HASH"
+          ],
+          "type": "string"
+        },
+        "sessionExpireTime": {
+          "description": "The expire time of the session. Default is 0.",
+          "format": "int64",
+          "maximum": 3600,
+          "minimum": 30,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "properties": {
+        "conditions": {
+          "items": {
+            "description": "Condition contains details for one aspect of the current state of this API Resource.",
+            "properties": {
+              "lastTransitionTime": {
+                "description": "lastTransitionTime is the last time the condition transitioned from one status to another.\nThis should be when the underlying condition changed.  If that is not known, then using the time when the API field changed is acceptable.",
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "description": "message is a human readable message indicating details about the transition.\nThis may be an empty string.",
+                "maxLength": 32768,
+                "type": "string"
+              },
+              "observedGeneration": {
+                "description": "observedGeneration represents the .metadata.generation that the condition was set based upon.\nFor instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date\nwith respect to the current state of the instance.",
+                "format": "int64",
+                "minimum": 0,
+                "type": "integer"
+              },
+              "reason": {
+                "description": "reason contains a programmatic identifier indicating the reason for the condition's last transition.\nProducers of specific condition types may define expected values and meanings for this field,\nand whether the values are considered a guaranteed API.\nThe value should be a CamelCase string.\nThis field may not be empty.",
+                "maxLength": 1024,
+                "minLength": 1,
+                "pattern": "^[A-Za-z]([A-Za-z0-9_,:]*[A-Za-z0-9_])?$",
+                "type": "string"
+              },
+              "status": {
+                "description": "status of the condition, one of True, False, Unknown.",
+                "enum": [
+                  "True",
+                  "False",
+                  "Unknown"
+                ],
+                "type": "string"
+              },
+              "type": {
+                "description": "type of condition in CamelCase or in foo.example.com/CamelCase.",
+                "maxLength": 316,
+                "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "lastTransitionTime",
+              "message",
+              "reason",
+              "status",
+              "type"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "id": {
+          "description": "The ID of the target group.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "cloud.tencent.com",
+      "kind": "TargetGroup",
+      "version": "v1alpha1"
+    }
+  ],
+  "x-kubernetes-selectable-fields": []
+}
