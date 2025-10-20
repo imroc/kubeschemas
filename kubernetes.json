@@ -2170,6 +2170,12 @@
       "$ref": "cilium.io/ciliumexternalworkloadlist_v2.json"
     },
     {
+      "$ref": "cilium.io/ciliumgatewayclassconfig_v2alpha1.json"
+    },
+    {
+      "$ref": "cilium.io/ciliumgatewayclassconfiglist_v2alpha1.json"
+    },
+    {
       "$ref": "cilium.io/ciliumidentity_v2.json"
     },
     {
