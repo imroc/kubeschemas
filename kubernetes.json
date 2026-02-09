@@ -8287,6 +8287,24 @@
       "$ref": "networking.istio.io/workloadgrouplist_v1beta1.json"
     },
     {
+      "$ref": "networking.k8s.aws/applicationnetworkpolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "networking.k8s.aws/applicationnetworkpolicylist_v1alpha1.json"
+    },
+    {
+      "$ref": "networking.k8s.aws/clusternetworkpolicy_v1alpha1.json"
+    },
+    {
+      "$ref": "networking.k8s.aws/clusternetworkpolicylist_v1alpha1.json"
+    },
+    {
+      "$ref": "networking.k8s.aws/clusterpolicyendpoint_v1alpha1.json"
+    },
+    {
+      "$ref": "networking.k8s.aws/clusterpolicyendpointlist_v1alpha1.json"
+    },
+    {
       "$ref": "networking.k8s.aws/policyendpoint_v1alpha1.json"
     },
     {
