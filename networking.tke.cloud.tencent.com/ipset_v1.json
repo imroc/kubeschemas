@@ -1,0 +1,138 @@
+{
+  "description": "IPSet is a specification for a IPSet resource",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "enum": [
+        "networking.tke.cloud.tencent.com/v1"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "enum": [
+        "IPSet"
+      ],
+      "type": "string"
+    },
+    "metadata": {
+      "allOf": [
+        {
+          "$ref": "../meta.apis.pkg.apimachinery.k8s.io/objectmeta_v1.json"
+        }
+      ],
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata"
+    },
+    "spec": {
+      "description": "IPSetSpec is a description for a IPSet",
+      "properties": {
+        "fromSubnets": {
+          "description": "List of subnet IDs to allocate IPs from",
+          "items": {
+            "default": "",
+            "type": "string"
+          },
+          "type": "array",
+          "x-kubernetes-list-type": "atomic"
+        },
+        "requestIPNum": {
+          "default": 0,
+          "description": "Number of IP addresses to request",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "fromSubnets",
+        "requestIPNum"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "description": "IPSetStatus defines the observed state of IPSet",
+      "properties": {
+        "allocatedIPs": {
+          "description": "Details of allocated IPs",
+          "items": {
+            "description": "AllocatedIP contains details of a single allocated IP",
+            "properties": {
+              "ip": {
+                "default": "",
+                "description": "CIDR format IP address (e.g., 172.16.0.2/24)",
+                "type": "string"
+              },
+              "podName": {
+                "description": "Reference to the pod using this IP (format: podname)",
+                "type": "string"
+              }
+            },
+            "required": [
+              "ip"
+            ],
+            "type": "object"
+          },
+          "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "ip"
+          ],
+          "x-kubernetes-list-type": "map"
+        },
+        "conditions": {
+          "description": "Current Condition of vpc ip.",
+          "items": {
+            "description": "IPSetCondition 定义条件类型",
+            "properties": {
+              "lastProbeTime": {
+                "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+                "format": "date-time",
+                "type": "string"
+              },
+              "lastTransitionTime": {
+                "description": "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.",
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "description": "人类可读消息",
+                "type": "string"
+              },
+              "reason": {
+                "description": "唯一驼峰式原因，如 AllocatedSucceed",
+                "type": "string"
+              },
+              "status": {
+                "default": "",
+                "description": "状态: True, False, Unknown",
+                "type": "string"
+              },
+              "type": {
+                "default": "",
+                "description": "条件类型: Ready",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array",
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind"
+  ],
+  "type": "object",
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "networking.tke.cloud.tencent.com",
+      "kind": "IPSet",
+      "version": "v1"
+    }
+  ]
+}

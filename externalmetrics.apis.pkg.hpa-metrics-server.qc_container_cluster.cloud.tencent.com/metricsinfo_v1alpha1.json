@@ -1,0 +1,31 @@
+{
+  "properties": {
+    "labels": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "metrics labels",
+      "type": "object"
+    },
+    "name": {
+      "description": "metrics name",
+      "type": "string"
+    },
+    "timestamp": {
+      "description": "metrics timestampe",
+      "format": "int64",
+      "type": "integer"
+    },
+    "value": {
+      "description": "metrics value",
+      "format": "double",
+      "type": "number"
+    }
+  },
+  "required": [
+    "name",
+    "value",
+    "timestamp"
+  ],
+  "type": "object"
+}

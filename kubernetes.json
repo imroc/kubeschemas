@@ -4243,6 +4243,12 @@
       "$ref": "externaldns.k8s.io/dnsendpointlist_v1alpha1.json"
     },
     {
+      "$ref": "externalmetrics.apis.pkg.hpa-metrics-server.qc_container_cluster.cloud.tencent.com/externalmetrics_v1alpha1.json"
+    },
+    {
+      "$ref": "externalmetrics.apis.pkg.hpa-metrics-server.qc_container_cluster.cloud.tencent.com/externalmetricslist_v1alpha1.json"
+    },
+    {
       "$ref": "federation.pingcap.com/volumebackup_v1alpha1.json"
     },
     {
@@ -8336,6 +8342,12 @@
     },
     {
       "$ref": "networking.tke.cloud.tencent.com/eiplist_v1.json"
+    },
+    {
+      "$ref": "networking.tke.cloud.tencent.com/ipset_v1.json"
+    },
+    {
+      "$ref": "networking.tke.cloud.tencent.com/ipsetlist_v1.json"
     },
     {
       "$ref": "networking.tke.cloud.tencent.com/loadbalancerresource_v1alpha1.json"

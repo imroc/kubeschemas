@@ -1,0 +1,12 @@
+{
+  "properties": {
+    "metricsInfo": {
+      "description": "MetricsInfo is the detailed info about the metrics",
+      "items": {
+        "$ref": "../externalmetrics.apis.pkg.hpa-metrics-server.qc_container_cluster.cloud.tencent.com/metricsinfo_v1alpha1.json"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}
