@@ -4,8 +4,7 @@
     "MatchLabelExpressions": {
       "description": "A list of topology selector requirements by labels.",
       "items": {
-        "$ref": "../apis.pkg.kubernetes.k8s.io/topologyselectorlabelrequirement_core.json",
-        "default": {}
+        "$ref": "../apis.pkg.kubernetes.k8s.io/topologyselectorlabelrequirement_core.json"
       },
       "type": "array"
     }

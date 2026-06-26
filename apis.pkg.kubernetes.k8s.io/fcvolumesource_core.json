@@ -19,7 +19,6 @@
     "TargetWWNs": {
       "description": "Optional: FC target worldwide names (WWNs)",
       "items": {
-        "default": "",
         "type": "string"
       },
       "type": "array"
@@ -27,7 +26,6 @@
     "WWIDs": {
       "description": "Optional: FC volume World Wide Identifiers (WWIDs) Either WWIDs or TargetWWNs and Lun must be set, but not both simultaneously.",
       "items": {
-        "default": "",
         "type": "string"
       },
       "type": "array"

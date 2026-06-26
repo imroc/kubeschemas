@@ -28,7 +28,6 @@
     "ignorePreflightErrors": {
       "description": "IgnorePreflightErrors provides a slice of pre-flight errors to be ignored during the upgrade process, e.g. 'IsPrivilegedUser,Swap'. Value 'all' ignores errors from all checks.",
       "items": {
-        "default": "",
         "type": "string"
       },
       "type": "array"
@@ -61,7 +60,6 @@
     "skipPhases": {
       "description": "SkipPhases is a list of phases to skip during command execution. NOTE: This field is currently ignored for \"kubeadm upgrade apply\", but in the future it will be supported.",
       "items": {
-        "default": "",
         "type": "string"
       },
       "type": "array"

@@ -4,8 +4,7 @@
     "Conditions": {
       "description": "Current service condition",
       "items": {
-        "$ref": "../meta.apis.pkg.apimachinery.k8s.io/condition_v1.json",
-        "default": {}
+        "$ref": "../meta.apis.pkg.apimachinery.k8s.io/condition_v1.json"
       },
       "type": "array"
     },

@@ -13,7 +13,7 @@
     },
     "TimeAdded": {
       "$ref": "../meta.apis.pkg.apimachinery.k8s.io/time_v1.json",
-      "description": "TimeAdded represents the time at which the taint was added. It is only written for NoExecute taints."
+      "description": "TimeAdded represents the time at which the taint was added."
     },
     "Value": {
       "default": "",

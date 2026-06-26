@@ -4,8 +4,7 @@
     "MatchExpressions": {
       "description": "A list of scope selector requirements by scope of the resources.",
       "items": {
-        "$ref": "../apis.pkg.kubernetes.k8s.io/scopedresourceselectorrequirement_core.json",
-        "default": {}
+        "$ref": "../apis.pkg.kubernetes.k8s.io/scopedresourceselectorrequirement_core.json"
       },
       "type": "array"
     }

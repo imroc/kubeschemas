@@ -38,7 +38,6 @@
     },
     "VolumeAttributes": {
       "additionalProperties": {
-        "default": "",
         "type": "string"
       },
       "description": "Attributes of the volume to publish.",

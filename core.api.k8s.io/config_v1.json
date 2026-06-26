@@ -11,16 +11,14 @@
     "clusters": {
       "description": "Clusters is a map of referencable names to cluster configs",
       "items": {
-        "$ref": "../core.api.k8s.io/namedcluster_v1.json",
-        "default": {}
+        "$ref": "../core.api.k8s.io/namedcluster_v1.json"
       },
       "type": "array"
     },
     "contexts": {
       "description": "Contexts is a map of referencable names to context configs",
       "items": {
-        "$ref": "../core.api.k8s.io/namedcontext_v1.json",
-        "default": {}
+        "$ref": "../core.api.k8s.io/namedcontext_v1.json"
       },
       "type": "array"
     },
@@ -32,8 +30,7 @@
     "extensions": {
       "description": "Extensions holds additional information. This is useful for extenders so that reads and writes don't clobber unknown fields",
       "items": {
-        "$ref": "../core.api.k8s.io/namedextension_v1.json",
-        "default": {}
+        "$ref": "../core.api.k8s.io/namedextension_v1.json"
       },
       "type": "array"
     },
@@ -47,13 +44,12 @@
     "preferences": {
       "$ref": "../core.api.k8s.io/preferences_v1.json",
       "default": {},
-      "description": "Preferences holds general information to be use for cli interactions"
+      "description": "Preferences holds general information to be use for cli interactions Deprecated: this field is deprecated in v1.34. It is not used by any of the Kubernetes components."
     },
     "users": {
       "description": "AuthInfos is a map of referencable names to user configs",
       "items": {
-        "$ref": "../core.api.k8s.io/namedauthinfo_v1.json",
-        "default": {}
+        "$ref": "../core.api.k8s.io/namedauthinfo_v1.json"
       },
       "type": "array"
     }

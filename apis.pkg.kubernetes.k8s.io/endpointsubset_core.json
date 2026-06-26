@@ -3,22 +3,19 @@
   "properties": {
     "Addresses": {
       "items": {
-        "$ref": "../apis.pkg.kubernetes.k8s.io/endpointaddress_core.json",
-        "default": {}
+        "$ref": "../apis.pkg.kubernetes.k8s.io/endpointaddress_core.json"
       },
       "type": "array"
     },
     "NotReadyAddresses": {
       "items": {
-        "$ref": "../apis.pkg.kubernetes.k8s.io/endpointaddress_core.json",
-        "default": {}
+        "$ref": "../apis.pkg.kubernetes.k8s.io/endpointaddress_core.json"
       },
       "type": "array"
     },
     "Ports": {
       "items": {
-        "$ref": "../apis.pkg.kubernetes.k8s.io/endpointport_core.json",
-        "default": {}
+        "$ref": "../apis.pkg.kubernetes.k8s.io/endpointport_core.json"
       },
       "type": "array"
     }

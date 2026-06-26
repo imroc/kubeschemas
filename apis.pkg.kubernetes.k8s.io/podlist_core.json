@@ -3,8 +3,7 @@
   "properties": {
     "Items": {
       "items": {
-        "$ref": "../apis.pkg.kubernetes.k8s.io/pod_core.json",
-        "default": {}
+        "$ref": "../apis.pkg.kubernetes.k8s.io/pod_core.json"
       },
       "type": "array"
     },

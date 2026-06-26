@@ -4,8 +4,7 @@
     "headers": {
       "description": "Headers specifies gRPC request header matchers. Multiple match values are ANDed together, meaning, a request MUST match all the specified headers to select the route.",
       "items": {
-        "$ref": "../gateway-api.k8s.io/grpcheadermatch_v1.json",
-        "default": {}
+        "$ref": "../gateway-api.k8s.io/grpcheadermatch_v1.json"
       },
       "type": "array",
       "x-kubernetes-list-map-keys": [

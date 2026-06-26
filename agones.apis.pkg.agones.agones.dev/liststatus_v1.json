@@ -8,7 +8,6 @@
     },
     "values": {
       "items": {
-        "default": "",
         "type": "string"
       },
       "type": "array"

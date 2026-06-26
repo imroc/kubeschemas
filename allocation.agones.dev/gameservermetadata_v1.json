@@ -3,14 +3,12 @@
   "properties": {
     "annotations": {
       "additionalProperties": {
-        "default": "",
         "type": "string"
       },
       "type": "object"
     },
     "labels": {
       "additionalProperties": {
-        "default": "",
         "type": "string"
       },
       "type": "object"

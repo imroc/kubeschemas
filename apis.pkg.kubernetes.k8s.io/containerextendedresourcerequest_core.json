@@ -1,0 +1,25 @@
+{
+  "properties": {
+    "ContainerName": {
+      "default": "",
+      "description": "The name of the container requesting resources.",
+      "type": "string"
+    },
+    "RequestName": {
+      "default": "",
+      "description": "The name of the request in the special ResourceClaim which corresponds to the extended resource.",
+      "type": "string"
+    },
+    "ResourceName": {
+      "default": "",
+      "description": "The name of the extended resource in that container which gets backed by DRA.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "ContainerName",
+    "ResourceName",
+    "RequestName"
+  ],
+  "type": "object"
+}

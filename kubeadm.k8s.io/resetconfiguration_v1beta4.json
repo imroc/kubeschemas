@@ -31,7 +31,6 @@
     "ignorePreflightErrors": {
       "description": "IgnorePreflightErrors provides a slice of pre-flight errors to be ignored during the reset process, e.g. 'IsPrivilegedUser,Swap'. Value 'all' ignores errors from all checks.",
       "items": {
-        "default": "",
         "type": "string"
       },
       "type": "array"
@@ -46,7 +45,6 @@
     "skipPhases": {
       "description": "SkipPhases is a list of phases to skip during command execution. The list of phases can be obtained with the \"kubeadm reset phase --help\" command.",
       "items": {
-        "default": "",
         "type": "string"
       },
       "type": "array"
@@ -58,7 +56,6 @@
     "unmountFlags": {
       "description": "UnmountFlags is a list of unmount2() syscall flags that kubeadm can use when unmounting directories during \"reset\". A flag can be one of: MNT_FORCE, MNT_DETACH, MNT_EXPIRE, UMOUNT_NOFOLLOW. By default this list is empty.",
       "items": {
-        "default": "",
         "type": "string"
       },
       "type": "array"

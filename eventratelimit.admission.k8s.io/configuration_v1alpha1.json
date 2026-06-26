@@ -18,8 +18,7 @@
     "limits": {
       "description": "limits are the limits to place on event queries received. Limits can be placed on events received server-wide, per namespace, per user, and per source+object. At least one limit is required.",
       "items": {
-        "$ref": "../eventratelimit.admission.k8s.io/limit_v1alpha1.json",
-        "default": {}
+        "$ref": "../eventratelimit.admission.k8s.io/limit_v1alpha1.json"
       },
       "type": "array"
     }

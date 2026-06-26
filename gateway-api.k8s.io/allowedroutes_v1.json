@@ -4,8 +4,7 @@
     "kinds": {
       "description": "Kinds specifies the groups and kinds of Routes that are allowed to bind to this Gateway Listener. When unspecified or empty, the kinds of Routes selected are determined using the Listener protocol.\n\nA RouteGroupKind MUST correspond to kinds of Routes that are compatible with the application protocol specified in the Listener's Protocol field. If an implementation does not support or recognize this resource type, it MUST set the \"ResolvedRefs\" condition to False for this Listener with the \"InvalidRouteKinds\" reason.\n\nSupport: Core",
       "items": {
-        "$ref": "../gateway-api.k8s.io/routegroupkind_v1.json",
-        "default": {}
+        "$ref": "../gateway-api.k8s.io/routegroupkind_v1.json"
       },
       "type": "array"
     },

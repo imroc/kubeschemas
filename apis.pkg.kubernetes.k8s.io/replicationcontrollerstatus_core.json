@@ -10,8 +10,7 @@
     "Conditions": {
       "description": "Represents the latest available observations of a replication controller's current state.",
       "items": {
-        "$ref": "../apis.pkg.kubernetes.k8s.io/replicationcontrollercondition_core.json",
-        "default": {}
+        "$ref": "../apis.pkg.kubernetes.k8s.io/replicationcontrollercondition_core.json"
       },
       "type": "array"
     },

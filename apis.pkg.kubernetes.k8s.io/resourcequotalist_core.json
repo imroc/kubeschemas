@@ -4,8 +4,7 @@
     "Items": {
       "description": "Items is a list of ResourceQuota objects",
       "items": {
-        "$ref": "../apis.pkg.kubernetes.k8s.io/resourcequota_core.json",
-        "default": {}
+        "$ref": "../apis.pkg.kubernetes.k8s.io/resourcequota_core.json"
       },
       "type": "array"
     },

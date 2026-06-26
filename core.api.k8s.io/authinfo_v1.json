@@ -8,7 +8,6 @@
     "as-groups": {
       "description": "ImpersonateGroups is the groups to impersonate.",
       "items": {
-        "default": "",
         "type": "string"
       },
       "type": "array"
@@ -20,7 +19,6 @@
     "as-user-extra": {
       "additionalProperties": {
         "items": {
-          "default": "",
           "type": "string"
         },
         "type": "array"
@@ -57,8 +55,7 @@
     "extensions": {
       "description": "Extensions holds additional information. This is useful for extenders so that reads and writes don't clobber unknown fields",
       "items": {
-        "$ref": "../core.api.k8s.io/namedextension_v1.json",
-        "default": {}
+        "$ref": "../core.api.k8s.io/namedextension_v1.json"
       },
       "type": "array"
     },
@@ -71,7 +68,7 @@
       "type": "string"
     },
     "tokenFile": {
-      "description": "TokenFile is a pointer to a file that contains a bearer token (as described above).  If both Token and TokenFile are present, Token takes precedence.",
+      "description": "TokenFile is a pointer to a file that contains a bearer token (as described above).  If both Token and TokenFile are present, the TokenFile will be periodically read and the last successfully read value takes precedence over Token.",
       "type": "string"
     },
     "username": {

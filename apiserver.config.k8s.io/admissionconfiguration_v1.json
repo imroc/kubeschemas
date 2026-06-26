@@ -18,8 +18,7 @@
     "plugins": {
       "description": "Plugins allows specifying a configuration per admission control plugin.",
       "items": {
-        "$ref": "../apiserver.config.k8s.io/admissionpluginconfiguration_v1.json",
-        "default": {}
+        "$ref": "../apiserver.config.k8s.io/admissionpluginconfiguration_v1.json"
       },
       "type": "array"
     }

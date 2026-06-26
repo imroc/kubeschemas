@@ -8,15 +8,13 @@
     "addresses": {
       "description": "Addresses is the array of addresses at which the GameServer can be reached; copy of Node.Status.addresses.",
       "items": {
-        "$ref": "../core.api.k8s.io/nodeaddress_v1.json",
-        "default": {}
+        "$ref": "../core.api.k8s.io/nodeaddress_v1.json"
       },
       "type": "array"
     },
     "counters": {
       "additionalProperties": {
-        "$ref": "../agones.apis.pkg.agones.agones.dev/counterstatus_v1.json",
-        "default": {}
+        "$ref": "../agones.apis.pkg.agones.agones.dev/counterstatus_v1.json"
       },
       "description": "(Beta, CountsAndLists feature flag) Counters and Lists provides the configuration for generic tracking features.",
       "type": "object"
@@ -27,8 +25,7 @@
     },
     "lists": {
       "additionalProperties": {
-        "$ref": "../agones.apis.pkg.agones.agones.dev/liststatus_v1.json",
-        "default": {}
+        "$ref": "../agones.apis.pkg.agones.agones.dev/liststatus_v1.json"
       },
       "type": "object"
     },
@@ -42,8 +39,7 @@
     },
     "ports": {
       "items": {
-        "$ref": "../agones.apis.pkg.agones.agones.dev/gameserverstatusport_v1.json",
-        "default": {}
+        "$ref": "../agones.apis.pkg.agones.agones.dev/gameserverstatusport_v1.json"
       },
       "type": "array"
     },

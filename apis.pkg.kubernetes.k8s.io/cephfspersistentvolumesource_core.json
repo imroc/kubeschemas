@@ -4,7 +4,6 @@
     "Monitors": {
       "description": "Required: Monitors is a collection of Ceph monitors",
       "items": {
-        "default": "",
         "type": "string"
       },
       "type": "array"

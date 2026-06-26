@@ -11,8 +11,7 @@
     "bootstrapTokens": {
       "description": "BootstrapTokens is respected at `kubeadm init` time and describes a set of Bootstrap Tokens to create. This information IS NOT uploaded to the kubeadm cluster configmap, partly because of its sensitive nature",
       "items": {
-        "$ref": "../bootstraptoken.apis.app.kubeadm.cmd.kubernetes.k8s.io/bootstraptoken_v1.json",
-        "default": {}
+        "$ref": "../kubeadm.k8s.io/bootstraptoken_v1.json"
       },
       "type": "array"
     },
@@ -48,7 +47,6 @@
     "skipPhases": {
       "description": "SkipPhases is a list of phases to skip during command execution. The list of phases can be obtained with the \"kubeadm init --help\" command. The flag \"--skip-phases\" takes precedence over this field.",
       "items": {
-        "default": "",
         "type": "string"
       },
       "type": "array"

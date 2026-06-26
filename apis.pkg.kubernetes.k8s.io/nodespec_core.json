@@ -13,7 +13,6 @@
     "PodCIDRs": {
       "description": "PodCIDRs represents the IP ranges assigned to the node for usage by Pods on that node. It may contain AT MOST one value for each of IPv4 and IPv6. Note: assigning IP ranges to nodes might need to be revisited when we support migratable IPs.",
       "items": {
-        "default": "",
         "type": "string"
       },
       "type": "array"
@@ -26,8 +25,7 @@
     "Taints": {
       "description": "If specified, the node's taints.",
       "items": {
-        "$ref": "../apis.pkg.kubernetes.k8s.io/taint_core.json",
-        "default": {}
+        "$ref": "../apis.pkg.kubernetes.k8s.io/taint_core.json"
       },
       "type": "array"
     },

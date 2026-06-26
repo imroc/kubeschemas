@@ -1,0 +1,10 @@
+{
+  "description": "VolumeStatus represents the status of a mounted volume. At most one of its members must be specified.",
+  "properties": {
+    "Image": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/imagevolumestatus_core.json",
+      "description": "image represents an OCI object (a container image or artifact) pulled and mounted on the kubelet's host machine."
+    }
+  },
+  "type": "object"
+}

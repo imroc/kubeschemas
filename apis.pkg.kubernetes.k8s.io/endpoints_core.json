@@ -8,8 +8,7 @@
     "Subsets": {
       "description": "The set of all endpoints is the union of all subsets.",
       "items": {
-        "$ref": "../apis.pkg.kubernetes.k8s.io/endpointsubset_core.json",
-        "default": {}
+        "$ref": "../apis.pkg.kubernetes.k8s.io/endpointsubset_core.json"
       },
       "type": "array"
     },

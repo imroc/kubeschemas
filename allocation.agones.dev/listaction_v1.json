@@ -4,7 +4,6 @@
     "addValues": {
       "description": "AddValues appends values to a List's Values array. Any duplicate values will be ignored.",
       "items": {
-        "default": "",
         "type": "string"
       },
       "type": "array"
@@ -17,7 +16,6 @@
     "deleteValues": {
       "description": "DeleteValues removes values from a List's Values array. Any nonexistant values will be ignored.",
       "items": {
-        "default": "",
         "type": "string"
       },
       "type": "array"

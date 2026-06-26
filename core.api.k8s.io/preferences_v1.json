@@ -1,4 +1,5 @@
 {
+  "description": "Deprecated: this structure is deprecated in v1.34. It is not used by any of the Kubernetes components.",
   "properties": {
     "colors": {
       "type": "boolean"
@@ -6,8 +7,7 @@
     "extensions": {
       "description": "Extensions holds additional information. This is useful for extenders so that reads and writes don't clobber unknown fields",
       "items": {
-        "$ref": "../core.api.k8s.io/namedextension_v1.json",
-        "default": {}
+        "$ref": "../core.api.k8s.io/namedextension_v1.json"
       },
       "type": "array"
     }

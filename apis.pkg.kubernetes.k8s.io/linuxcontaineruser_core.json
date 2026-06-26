@@ -10,7 +10,6 @@
     "SupplementalGroups": {
       "description": "SupplementalGroups are the supplemental groups initially attached to the first process in the container",
       "items": {
-        "default": 0,
         "format": "int64",
         "type": "integer"
       },

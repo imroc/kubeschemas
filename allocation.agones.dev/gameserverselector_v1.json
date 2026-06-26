@@ -3,8 +3,7 @@
   "properties": {
     "counters": {
       "additionalProperties": {
-        "$ref": "../allocation.agones.dev/counterselector_v1.json",
-        "default": {}
+        "$ref": "../allocation.agones.dev/counterselector_v1.json"
       },
       "description": "[Stage: Beta] [FeatureFlag:CountsAndLists] Counters provides filters on minimum and maximum values for a Counter's count and available capacity when retrieving a GameServer through Allocation. Defaults to no limits.",
       "type": "object"
@@ -15,8 +14,7 @@
     },
     "lists": {
       "additionalProperties": {
-        "$ref": "../allocation.agones.dev/listselector_v1.json",
-        "default": {}
+        "$ref": "../allocation.agones.dev/listselector_v1.json"
       },
       "description": "[Stage: Beta] [FeatureFlag:CountsAndLists] Lists provides filters on minimum and maximum values for List capacity, and for the existence of a value in a List, when retrieving a GameServer through Allocation. Defaults to no limits.",
       "type": "object"
@@ -24,15 +22,13 @@
     "matchExpressions": {
       "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
       "items": {
-        "$ref": "../meta.apis.pkg.apimachinery.k8s.io/labelselectorrequirement_v1.json",
-        "default": {}
+        "$ref": "../meta.apis.pkg.apimachinery.k8s.io/labelselectorrequirement_v1.json"
       },
       "type": "array",
       "x-kubernetes-list-type": "atomic"
     },
     "matchLabels": {
       "additionalProperties": {
-        "default": "",
         "type": "string"
       },
       "description": "matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is \"key\", the operator is \"In\", and the values array contains only \"value\". The requirements are ANDed.",

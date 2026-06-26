@@ -3,7 +3,7 @@
   "properties": {
     "Name": {
       "default": "",
-      "description": "Required: Name of the environment variable. When the RelaxedEnvironmentVariableValidation feature gate is disabled, this must consist of alphabetic characters, digits, '_', '-', or '.', and must not start with a digit. When the RelaxedEnvironmentVariableValidation feature gate is enabled, this may contain any printable ASCII characters except '='.",
+      "description": "Required: Name of the environment variable. May consist of any printable ASCII characters except '='.",
       "type": "string"
     },
     "Value": {

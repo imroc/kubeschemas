@@ -1,0 +1,30 @@
+{
+  "description": "NodeAllocatableResourceClaimStatus describes the status of node allocatable resources allocated via DRA.",
+  "properties": {
+    "Containers": {
+      "description": "Containers lists the names of all containers in this pod that reference the claim.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "x-kubernetes-list-type": "set"
+    },
+    "ResourceClaimName": {
+      "default": "",
+      "description": "ResourceClaimName is the resource claim referenced by the pod that resulted in this node allocatable resource allocation.",
+      "type": "string"
+    },
+    "Resources": {
+      "additionalProperties": {
+        "$ref": "../api.pkg.apimachinery.k8s.io/quantity_resource.json"
+      },
+      "description": "Resources is a map of the node-allocatable resource name to the aggregate quantity allocated to the claim.",
+      "type": "object"
+    }
+  },
+  "required": [
+    "ResourceClaimName",
+    "Resources"
+  ],
+  "type": "object"
+}

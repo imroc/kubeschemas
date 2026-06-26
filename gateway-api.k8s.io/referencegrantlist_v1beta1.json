@@ -10,8 +10,7 @@
     },
     "items": {
       "items": {
-        "$ref": "../gateway-api.k8s.io/referencegrant_v1beta1.json",
-        "default": {}
+        "$ref": "../gateway-api.k8s.io/referencegrant_v1beta1.json"
       },
       "type": "array"
     },

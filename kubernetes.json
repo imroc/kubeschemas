@@ -292,6 +292,9 @@
       "$ref": "apiserver.config.k8s.io/admissionconfiguration_v1alpha1.json"
     },
     {
+      "$ref": "apiserver.config.k8s.io/authenticationconfiguration_v1.json"
+    },
+    {
       "$ref": "apiserver.config.k8s.io/authenticationconfiguration_v1alpha1.json"
     },
     {
@@ -313,7 +316,7 @@
       "$ref": "apiserver.config.k8s.io/egressselectorconfiguration_v1beta1.json"
     },
     {
-      "$ref": "apiserver.config.k8s.io/encryptionconfiguration_v1.json"
+      "$ref": "apiserver.config.k8s.io/tracingconfiguration_v1.json"
     },
     {
       "$ref": "apiserver.config.k8s.io/tracingconfiguration_v1alpha1.json"

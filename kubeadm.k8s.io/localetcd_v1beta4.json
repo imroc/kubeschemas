@@ -7,18 +7,16 @@
       "type": "string"
     },
     "extraArgs": {
-      "description": "ExtraArgs are extra arguments provided to the etcd binary when run inside a static pod. An argument name in this list is the flag name as it appears on the command line except without leading dash(es). Extra arguments will override existing default arguments. Duplicate extra arguments are allowed.",
+      "description": "ExtraArgs are extra arguments provided to the etcd binary when run inside a static pod. An argument name in this list is the flag name as it appears on the command line except without leading dash(es). Extra arguments will override existing default arguments. Duplicate extra arguments are allowed. The default arguments are sorted alpha-numerically but the extra arguments are not.",
       "items": {
-        "$ref": "../kubeadm.k8s.io/arg_v1beta4.json",
-        "default": {}
+        "$ref": "../kubeadm.k8s.io/arg_v1beta4.json"
       },
       "type": "array"
     },
     "extraEnvs": {
       "description": "ExtraEnvs is an extra set of environment variables to pass to the control plane component. Environment variables passed using ExtraEnvs will override any existing environment variables, or *_proxy environment variables that kubeadm adds by default.",
       "items": {
-        "$ref": "../kubeadm.k8s.io/envvar_v1beta4.json",
-        "default": {}
+        "$ref": "../kubeadm.k8s.io/envvar_v1beta4.json"
       },
       "type": "array"
     },
@@ -33,7 +31,6 @@
     "peerCertSANs": {
       "description": "PeerCertSANs sets extra Subject Alternative Names for the etcd peer signing cert.",
       "items": {
-        "default": "",
         "type": "string"
       },
       "type": "array"
@@ -41,7 +38,6 @@
     "serverCertSANs": {
       "description": "ServerCertSANs sets extra Subject Alternative Names for the etcd server signing cert.",
       "items": {
-        "default": "",
         "type": "string"
       },
       "type": "array"

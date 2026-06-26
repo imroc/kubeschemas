@@ -20,7 +20,6 @@
     "ignorePreflightErrors": {
       "description": "IgnorePreflightErrors provides a slice of pre-flight errors to be ignored during the upgrade process, e.g. 'IsPrivilegedUser,Swap'. Value 'all' ignores errors from all checks.",
       "items": {
-        "default": "",
         "type": "string"
       },
       "type": "array"

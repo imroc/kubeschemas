@@ -4,8 +4,7 @@
     "headers": {
       "description": "Headers specifies HTTP request header matchers. Multiple match values are ANDed together, meaning, a request must match all the specified headers to select the route.",
       "items": {
-        "$ref": "../gateway-api.k8s.io/httpheadermatch_v1.json",
-        "default": {}
+        "$ref": "../gateway-api.k8s.io/httpheadermatch_v1.json"
       },
       "type": "array",
       "x-kubernetes-list-map-keys": [
@@ -24,8 +23,7 @@
     "queryParams": {
       "description": "QueryParams specifies HTTP query parameter matchers. Multiple match values are ANDed together, meaning, a request must match all the specified query parameters to select the route.\n\nSupport: Extended",
       "items": {
-        "$ref": "../gateway-api.k8s.io/httpqueryparammatch_v1.json",
-        "default": {}
+        "$ref": "../gateway-api.k8s.io/httpqueryparammatch_v1.json"
       },
       "type": "array",
       "x-kubernetes-list-map-keys": [

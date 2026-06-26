@@ -19,6 +19,10 @@
     "RecursiveReadOnly": {
       "description": "RecursiveReadOnly must be set to Disabled, Enabled, or unspecified (for non-readonly mounts). An IfPossible value in the original VolumeMount must be translated to Disabled or Enabled, depending on the mount result.",
       "type": "string"
+    },
+    "VolumeStatus": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/volumestatus_core.json",
+      "description": "volumeStatus represents volume-type-specific status about the mounted volume."
     }
   },
   "required": [

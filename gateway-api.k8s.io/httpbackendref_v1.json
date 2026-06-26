@@ -1,11 +1,10 @@
 {
-  "description": "HTTPBackendRef defines how a HTTPRoute should forward an HTTP request.",
+  "description": "HTTPBackendRef defines how a HTTPRoute forwards a HTTP request.\n\nNote that when a namespace different than the local namespace is specified, a ReferenceGrant object is required in the referent namespace to allow that namespace's owner to accept the reference. See the ReferenceGrant documentation for details.\n\n\u003cgateway:experimental:description\u003e\n\nWhen the BackendRef points to a Kubernetes Service, implementations SHOULD honor the appProtocol field if it is set for the target Service Port.\n\nImplementations supporting appProtocol SHOULD recognize the Kubernetes Standard Application Protocols defined in KEP-3726.\n\nIf a Service appProtocol isn't specified, an implementation MAY infer the backend protocol through its own means. Implementations MAY infer the protocol from the Route type referring to the backend Service.\n\nIf a Route is not able to send traffic to the backend using the specified protocol then the backend is considered invalid. Implementations MUST set the \"ResolvedRefs\" condition to \"False\" with the \"UnsupportedProtocol\" reason.\n\n\u003c/gateway:experimental:description\u003e",
   "properties": {
     "filters": {
       "description": "Filters defined at this level should be executed if and only if the request is being forwarded to the backend defined here.\n\nSupport: Implementation-specific (For broader support of filters, use the Filters field in HTTPRouteRule.)",
       "items": {
-        "$ref": "../gateway-api.k8s.io/httproutefilter_v1.json",
-        "default": {}
+        "$ref": "../gateway-api.k8s.io/httproutefilter_v1.json"
       },
       "type": "array"
     },

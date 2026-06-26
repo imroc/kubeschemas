@@ -10,8 +10,7 @@
     },
     "items": {
       "items": {
-        "$ref": "../allocation.agones.dev/gameserverallocation_v1.json",
-        "default": {}
+        "$ref": "../allocation.agones.dev/gameserverallocation_v1.json"
       },
       "type": "array"
     },

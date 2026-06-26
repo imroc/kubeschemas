@@ -11,8 +11,7 @@
     "AllocatedResourcesStatus": {
       "description": "AllocatedResourcesStatus represents the status of various resources allocated for this Pod.",
       "items": {
-        "$ref": "../apis.pkg.kubernetes.k8s.io/resourcestatus_core.json",
-        "default": {}
+        "$ref": "../apis.pkg.kubernetes.k8s.io/resourcestatus_core.json"
       },
       "type": "array"
     },
@@ -143,8 +142,7 @@
     "VolumeMounts": {
       "description": "Status of volume mounts.",
       "items": {
-        "$ref": "../apis.pkg.kubernetes.k8s.io/volumemountstatus_core.json",
-        "default": {}
+        "$ref": "../apis.pkg.kubernetes.k8s.io/volumemountstatus_core.json"
       },
       "type": "array",
       "x-kubernetes-list-type": "atomic"

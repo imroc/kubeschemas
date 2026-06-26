@@ -13,15 +13,13 @@
     "ClusterIPs": {
       "description": "ClusterIPs identifies all the ClusterIPs assigned to this service. ClusterIPs are assigned or reserved based on the values of service.spec.ipFamilies. A maximum of two entries (dual-stack IPs) are allowed in ClusterIPs. The IPFamily of each ClusterIP must match values provided in service.spec.ipFamilies. Clients using ClusterIPs must keep it in sync with ClusterIP (if provided) by having ClusterIP matching first element of ClusterIPs.",
       "items": {
-        "default": "",
         "type": "string"
       },
       "type": "array"
     },
     "ExternalIPs": {
-      "description": "ExternalIPs are used by external load balancers, or can be set by users to handle external traffic that arrives at a node.",
+      "description": "ExternalIPs are used by external load balancers, or can be set by users to handle external traffic that arrives at a node.\n\nDeprecated: ExternalIPs is deprecated and may be removed in a future version.",
       "items": {
-        "default": "",
         "type": "string"
       },
       "type": "array"
@@ -45,7 +43,6 @@
     "IPFamilies": {
       "description": "IPFamilies identifies all the IPFamilies assigned for this Service. If a value was not provided for IPFamilies it will be defaulted based on the cluster configuration and the value of service.spec.ipFamilyPolicy. A maximum of two values (dual-stack IPFamilies) are allowed in IPFamilies. IPFamilies field is conditionally mutable: it allows for adding or removing a secondary IPFamily, but it does not allow changing the primary IPFamily of the service.",
       "items": {
-        "default": "",
         "type": "string"
       },
       "type": "array"
@@ -70,7 +67,6 @@
     "LoadBalancerSourceRanges": {
       "description": "Optional: If specified and supported by the platform, this will restrict traffic through the cloud-provider load-balancer will be restricted to the specified client IPs. This field will be ignored if the cloud-provider does not support the feature.\"",
       "items": {
-        "default": "",
         "type": "string"
       },
       "type": "array"
@@ -78,8 +74,7 @@
     "Ports": {
       "description": "Required: The list of ports that are exposed by this service.",
       "items": {
-        "$ref": "../apis.pkg.kubernetes.k8s.io/serviceport_core.json",
-        "default": {}
+        "$ref": "../apis.pkg.kubernetes.k8s.io/serviceport_core.json"
       },
       "type": "array"
     },
@@ -90,7 +85,6 @@
     },
     "Selector": {
       "additionalProperties": {
-        "default": "",
         "type": "string"
       },
       "description": "Route service traffic to pods with label keys and values matching this selector. If empty or not present, the service is assumed to have an external process managing its endpoints, which Kubernetes will not modify. Only applies to types ClusterIP, NodePort, and LoadBalancer. Ignored if type is ExternalName. More info: https://kubernetes.io/docs/concepts/services-networking/service/",

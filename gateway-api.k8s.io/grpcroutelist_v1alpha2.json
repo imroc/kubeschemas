@@ -9,8 +9,7 @@
     },
     "items": {
       "items": {
-        "$ref": "../gateway-api.k8s.io/grpcroute_v1alpha2.json",
-        "default": {}
+        "$ref": "../gateway-api.k8s.io/grpcroute_v1alpha2.json"
       },
       "type": "array"
     },

@@ -13,6 +13,10 @@
       "$ref": "../apis.pkg.kubernetes.k8s.io/downwardapiprojection_core.json",
       "description": "information about the downwardAPI data to project"
     },
+    "PodCertificate": {
+      "$ref": "../apis.pkg.kubernetes.k8s.io/podcertificateprojection_core.json",
+      "description": "information about the pod certificate to project."
+    },
     "Secret": {
       "$ref": "../apis.pkg.kubernetes.k8s.io/secretprojection_core.json",
       "description": "information about the secret data to project"
@@ -27,7 +31,8 @@
     "DownwardAPI",
     "ConfigMap",
     "ServiceAccountToken",
-    "ClusterTrustBundle"
+    "ClusterTrustBundle",
+    "PodCertificate"
   ],
   "type": "object"
 }

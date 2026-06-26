@@ -4,7 +4,6 @@
     "Args": {
       "description": "Optional: The container image's cmd is used if this is not provided; cannot be updated. Variable references $(VAR_NAME) are expanded using the container's environment.  If a variable cannot be resolved, the reference in the input string will be unchanged.  Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\".  Escaped references will never be expanded, regardless of whether the variable exists or not.",
       "items": {
-        "default": "",
         "type": "string"
       },
       "type": "array"
@@ -12,23 +11,20 @@
     "Command": {
       "description": "Optional: The container image's entrypoint is used if this is not provided; cannot be updated. Variable references $(VAR_NAME) are expanded using the container's environment.  If a variable cannot be resolved, the reference in the input string will be unchanged.  Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\".  Escaped references will never be expanded, regardless of whether the variable exists or not.",
       "items": {
-        "default": "",
         "type": "string"
       },
       "type": "array"
     },
     "Env": {
       "items": {
-        "$ref": "../apis.pkg.kubernetes.k8s.io/envvar_core.json",
-        "default": {}
+        "$ref": "../apis.pkg.kubernetes.k8s.io/envvar_core.json"
       },
       "type": "array"
     },
     "EnvFrom": {
-      "description": "List of sources to populate environment variables in the container. The keys defined within a source must be a C_IDENTIFIER. All invalid keys will be reported as an event when the container is starting. When a key exists in multiple sources, the value associated with the last source will take precedence. Values defined by an Env with a duplicate key will take precedence. Cannot be updated.",
+      "description": "List of sources to populate environment variables in the container. The keys defined within a source may consist of any printable ASCII characters except '='. All invalid keys will be reported as an event when the container is starting. When a key exists in multiple sources, the value associated with the last source will take precedence. Values defined by an Env with a duplicate key will take precedence. Cannot be updated.",
       "items": {
-        "$ref": "../apis.pkg.kubernetes.k8s.io/envfromsource_core.json",
-        "default": {}
+        "$ref": "../apis.pkg.kubernetes.k8s.io/envfromsource_core.json"
       },
       "type": "array"
     },
@@ -55,8 +51,7 @@
     },
     "Ports": {
       "items": {
-        "$ref": "../apis.pkg.kubernetes.k8s.io/containerport_core.json",
-        "default": {}
+        "$ref": "../apis.pkg.kubernetes.k8s.io/containerport_core.json"
       },
       "type": "array"
     },
@@ -64,10 +59,9 @@
       "$ref": "../apis.pkg.kubernetes.k8s.io/probe_core.json"
     },
     "ResizePolicy": {
-      "description": "Resources resize policy for the container.",
+      "description": "Resources resize policy for the container. This field cannot be set on ephemeral containers.",
       "items": {
-        "$ref": "../apis.pkg.kubernetes.k8s.io/containerresizepolicy_core.json",
-        "default": {}
+        "$ref": "../apis.pkg.kubernetes.k8s.io/containerresizepolicy_core.json"
       },
       "type": "array"
     },
@@ -77,8 +71,16 @@
       "description": "Compute resource requirements."
     },
     "RestartPolicy": {
-      "description": "RestartPolicy defines the restart behavior of individual containers in a pod. This field may only be set for init containers, and the only allowed value is \"Always\". For non-init containers or when this field is not specified, the restart behavior is defined by the Pod's restart policy and the container type. Setting the RestartPolicy as \"Always\" for the init container will have the following effect: this init container will be continually restarted on exit until all regular containers have terminated. Once all regular containers have completed, all init containers with restartPolicy \"Always\" will be shut down. This lifecycle differs from normal init containers and is often referred to as a \"sidecar\" container. Although this init container still starts in the init container sequence, it does not wait for the container to complete before proceeding to the next init container. Instead, the next init container starts immediately after this init container is started, or after any startupProbe has successfully completed.",
+      "description": "RestartPolicy defines the restart behavior of individual containers in a pod. This overrides the pod-level restart policy. When this field is not specified, the restart behavior is defined by the Pod's restart policy and the container type. If restartPolicyRules are specified, the container-level restartPolicy is also required as the \"default\" policy if no rules matched. The restartPolicyRules takes precedence over the container-level restart policies. This is an alpha-level feature and is controlled by the feature gate \"ContainerRestartRules\". If the feature is not enabled, the only allowed value is \"Always\". Additionally, setting the RestartPolicy as \"Always\" for the init container will have the following effect: this init container will be continually restarted on exit until all regular containers have terminated. Once all regular containers have completed, all init containers with restartPolicy \"Always\" will be shut down. This lifecycle differs from normal init containers and is often referred to as a \"sidecar\" container. Although this init container still starts in the init container sequence, it does not wait for the container to complete before proceeding to the next init container. Instead, the next init container starts immediately after this init container is started, or after any startupProbe has successfully completed.",
       "type": "string"
+    },
+    "RestartPolicyRules": {
+      "description": "Represents a list of rules to be checked to determine if the container should be restarted on exit. The rules are evaluated in order. Once a rule matches a container exit condition, the remaining rules are ignored. If no rule matches the container exit condition, the Container-level restart policy determines the whether the container is restarted or not. This is an alpha-level feature, and controlled by the feature gate \"ContainerRestartRules\". If the feature is not enabled, this field is not allowed. Constraints on the rules: - At most 20 rules are allowed. - Rules can have the same action. - Identical rules are not forbidden in validations. When rules are specified, container MUST set RestartPolicy explicitly even it if matches the Pod's RestartPolicy.",
+      "items": {
+        "$ref": "../apis.pkg.kubernetes.k8s.io/containerrestartrule_core.json"
+      },
+      "type": "array",
+      "x-kubernetes-list-type": "atomic"
     },
     "SecurityContext": {
       "$ref": "../apis.pkg.kubernetes.k8s.io/securitycontext_core.json",
@@ -112,15 +114,13 @@
     "VolumeDevices": {
       "description": "volumeDevices is the list of block devices to be used by the container.",
       "items": {
-        "$ref": "../apis.pkg.kubernetes.k8s.io/volumedevice_core.json",
-        "default": {}
+        "$ref": "../apis.pkg.kubernetes.k8s.io/volumedevice_core.json"
       },
       "type": "array"
     },
     "VolumeMounts": {
       "items": {
-        "$ref": "../apis.pkg.kubernetes.k8s.io/volumemount_core.json",
-        "default": {}
+        "$ref": "../apis.pkg.kubernetes.k8s.io/volumemount_core.json"
       },
       "type": "array"
     },

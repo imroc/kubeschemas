@@ -10,8 +10,7 @@
     },
     "items": {
       "items": {
-        "$ref": "../gateway-api.k8s.io/backendtlspolicy_v1alpha3.json",
-        "default": {}
+        "$ref": "../gateway-api.k8s.io/backendtlspolicy_v1alpha3.json"
       },
       "type": "array"
     },

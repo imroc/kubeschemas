@@ -1,5 +1,5 @@
 {
-  "description": "GatewayAddress describes an address that can be bound to a Gateway.",
+  "description": "GatewaySpecAddress describes an address that can be bound to a Gateway.",
   "properties": {
     "type": {
       "description": "Type of the address.",

@@ -1,5 +1,5 @@
 {
-  "description": "HTTPPathModifier defines configuration for path modifiers. \u003cgateway:experimental\u003e",
+  "description": "HTTPPathModifier defines configuration for path modifiers.",
   "properties": {
     "replaceFullPath": {
       "description": "ReplaceFullPath specifies the value with which to replace the full path of a request during a rewrite or redirect.",

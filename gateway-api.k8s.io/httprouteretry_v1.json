@@ -13,7 +13,6 @@
     "codes": {
       "description": "Codes defines the HTTP response status codes for which a backend request should be retried.\n\nSupport: Extended",
       "items": {
-        "default": 0,
         "format": "int32",
         "type": "integer"
       },

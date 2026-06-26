@@ -4,8 +4,7 @@
     "Addresses": {
       "description": "Queried from cloud provider, if available.",
       "items": {
-        "$ref": "../apis.pkg.kubernetes.k8s.io/nodeaddress_core.json",
-        "default": {}
+        "$ref": "../apis.pkg.kubernetes.k8s.io/nodeaddress_core.json"
       },
       "type": "array"
     },
@@ -26,8 +25,7 @@
     "Conditions": {
       "description": "Conditions is an array of current node conditions.",
       "items": {
-        "$ref": "../apis.pkg.kubernetes.k8s.io/nodecondition_core.json",
-        "default": {}
+        "$ref": "../apis.pkg.kubernetes.k8s.io/nodecondition_core.json"
       },
       "type": "array"
     },
@@ -40,6 +38,13 @@
       "default": {},
       "description": "Endpoints of daemons running on the Node."
     },
+    "DeclaredFeatures": {
+      "description": "DeclaredFeatures represents the declared features of a node.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
     "Features": {
       "$ref": "../apis.pkg.kubernetes.k8s.io/nodefeatures_core.json",
       "description": "Features describes the set of features implemented by the CRI implementation."
@@ -47,8 +52,7 @@
     "Images": {
       "description": "List of container images on this node",
       "items": {
-        "$ref": "../apis.pkg.kubernetes.k8s.io/containerimage_core.json",
-        "default": {}
+        "$ref": "../apis.pkg.kubernetes.k8s.io/containerimage_core.json"
       },
       "type": "array"
     },
@@ -65,23 +69,20 @@
     "RuntimeHandlers": {
       "description": "The available runtime handlers.",
       "items": {
-        "$ref": "../apis.pkg.kubernetes.k8s.io/noderuntimehandler_core.json",
-        "default": {}
+        "$ref": "../apis.pkg.kubernetes.k8s.io/noderuntimehandler_core.json"
       },
       "type": "array"
     },
     "VolumesAttached": {
       "description": "List of volumes that are attached to the node.",
       "items": {
-        "$ref": "../apis.pkg.kubernetes.k8s.io/attachedvolume_core.json",
-        "default": {}
+        "$ref": "../apis.pkg.kubernetes.k8s.io/attachedvolume_core.json"
       },
       "type": "array"
     },
     "VolumesInUse": {
       "description": "List of attachable volumes in use (mounted) by the node.",
       "items": {
-        "default": "",
         "type": "string"
       },
       "type": "array"

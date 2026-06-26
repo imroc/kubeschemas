@@ -13,7 +13,6 @@
     },
     "Options": {
       "additionalProperties": {
-        "default": "",
         "type": "string"
       },
       "description": "Optional: Extra driver options if any.",

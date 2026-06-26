@@ -8,7 +8,6 @@
     "args": {
       "description": "Arguments to pass to the command when executing it.",
       "items": {
-        "default": "",
         "type": "string"
       },
       "type": "array"
@@ -21,8 +20,7 @@
     "env": {
       "description": "Env defines additional environment variables to expose to the process. These are unioned with the host's environment, as well as variables client-go uses to pass argument to the plugin.",
       "items": {
-        "$ref": "../core.api.k8s.io/execenvvar_v1.json",
-        "default": {}
+        "$ref": "../core.api.k8s.io/execenvvar_v1.json"
       },
       "type": "array"
     },

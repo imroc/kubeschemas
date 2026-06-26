@@ -8,7 +8,6 @@
     "caCertHashes": {
       "description": "CACertHashes specifies a set of public key pins to verify when token-based discovery is used. The root CA found during discovery must match one of these values. Specifying an empty set disables root CA pinning, which can be unsafe. Each hash is specified as \"\u003ctype\u003e:\u003cvalue\u003e\", where the only currently supported type is \"sha256\". This is a hex-encoded SHA-256 hash of the Subject Public Key Info (SPKI) object in DER-encoded ASN.1. These hashes can be calculated using, for example, OpenSSL.",
       "items": {
-        "default": "",
         "type": "string"
       },
       "type": "array"

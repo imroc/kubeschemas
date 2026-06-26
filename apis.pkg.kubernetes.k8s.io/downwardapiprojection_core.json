@@ -4,8 +4,7 @@
     "Items": {
       "description": "Items is a list of DownwardAPIVolume file",
       "items": {
-        "$ref": "../apis.pkg.kubernetes.k8s.io/downwardapivolumefile_core.json",
-        "default": {}
+        "$ref": "../apis.pkg.kubernetes.k8s.io/downwardapivolumefile_core.json"
       },
       "type": "array"
     }

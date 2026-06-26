@@ -3,7 +3,6 @@
   "properties": {
     "Hostnames": {
       "items": {
-        "default": "",
         "type": "string"
       },
       "type": "array"

@@ -9,8 +9,7 @@
     "conditions": {
       "description": "Conditions describes the status of the Policy with respect to the given Ancestor.",
       "items": {
-        "$ref": "../meta.apis.pkg.apimachinery.k8s.io/condition_v1.json",
-        "default": {}
+        "$ref": "../meta.apis.pkg.apimachinery.k8s.io/condition_v1.json"
       },
       "type": "array",
       "x-kubernetes-list-map-keys": [

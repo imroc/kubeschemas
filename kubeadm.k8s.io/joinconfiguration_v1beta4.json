@@ -44,7 +44,6 @@
     "skipPhases": {
       "description": "SkipPhases is a list of phases to skip during command execution. The list of phases can be obtained with the \"kubeadm join --help\" command. The flag \"--skip-phases\" takes precedence over this field.",
       "items": {
-        "default": "",
         "type": "string"
       },
       "type": "array"

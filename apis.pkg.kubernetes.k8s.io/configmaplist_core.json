@@ -4,8 +4,7 @@
     "Items": {
       "description": "Items is the list of ConfigMaps.",
       "items": {
-        "$ref": "../apis.pkg.kubernetes.k8s.io/configmap_core.json",
-        "default": {}
+        "$ref": "../apis.pkg.kubernetes.k8s.io/configmap_core.json"
       },
       "type": "array"
     },

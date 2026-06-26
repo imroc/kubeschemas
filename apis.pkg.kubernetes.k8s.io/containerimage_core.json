@@ -4,7 +4,6 @@
     "Names": {
       "description": "Names by which this image is known.",
       "items": {
-        "default": "",
         "type": "string"
       },
       "type": "array"

@@ -10,8 +10,7 @@
     "authorizers": {
       "description": "Authorizers is an ordered list of authorizers to authorize requests against. This is similar to the --authorization-modes kube-apiserver flag Must be at least one.",
       "items": {
-        "$ref": "../apiserver.config.k8s.io/authorizerconfiguration_v1.json",
-        "default": {}
+        "$ref": "../apiserver.config.k8s.io/authorizerconfiguration_v1.json"
       },
       "type": "array"
     },

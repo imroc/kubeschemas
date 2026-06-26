@@ -4,8 +4,7 @@
     "HTTPHeaders": {
       "description": "Optional: Custom headers to set in the request. HTTP allows repeated headers.",
       "items": {
-        "$ref": "../apis.pkg.kubernetes.k8s.io/httpheader_core.json",
-        "default": {}
+        "$ref": "../apis.pkg.kubernetes.k8s.io/httpheader_core.json"
       },
       "type": "array"
     },

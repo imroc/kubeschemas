@@ -4,7 +4,6 @@
     "Command": {
       "description": "Command is the remote command to execute; argv array; not executed within a shell.",
       "items": {
-        "default": "",
         "type": "string"
       },
       "type": "array"

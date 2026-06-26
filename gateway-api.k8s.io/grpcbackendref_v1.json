@@ -4,8 +4,7 @@
     "filters": {
       "description": "Filters defined at this level MUST be executed if and only if the request is being forwarded to the backend defined here.\n\nSupport: Implementation-specific (For broader support of filters, use the Filters field in GRPCRouteRule.)",
       "items": {
-        "$ref": "../gateway-api.k8s.io/grpcroutefilter_v1.json",
-        "default": {}
+        "$ref": "../gateway-api.k8s.io/grpcroutefilter_v1.json"
       },
       "type": "array"
     },

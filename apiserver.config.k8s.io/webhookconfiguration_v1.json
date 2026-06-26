@@ -4,6 +4,14 @@
       "$ref": "../meta.apis.pkg.apimachinery.k8s.io/duration_v1.json",
       "description": "The duration to cache 'authorized' responses from the webhook authorizer. Same as setting `--authorization-webhook-cache-authorized-ttl` flag Default: 5m0s"
     },
+    "cacheAuthorizedRequests": {
+      "description": "CacheAuthorizedRequests specifies whether authorized requests should be cached. If set to true, the TTL for cached decisions can be configured via the AuthorizedTTL field. Default: true",
+      "type": "boolean"
+    },
+    "cacheUnauthorizedRequests": {
+      "description": "CacheUnauthorizedRequests specifies whether unauthorized requests should be cached. If set to true, the TTL for cached decisions can be configured via the UnauthorizedTTL field. Default: true",
+      "type": "boolean"
+    },
     "connectionInfo": {
       "$ref": "../apiserver.config.k8s.io/webhookconnectioninfo_v1.json",
       "default": {},
@@ -22,8 +30,7 @@
     "matchConditions": {
       "description": "matchConditions is a list of conditions that must be met for a request to be sent to this webhook. An empty list of matchConditions matches all requests. There are a maximum of 64 match conditions allowed.\n\nThe exact matching logic is (in order):\n  1. If at least one matchCondition evaluates to FALSE, then the webhook is skipped.\n  2. If ALL matchConditions evaluate to TRUE, then the webhook is called.\n  3. If at least one matchCondition evaluates to an error (but none are FALSE):\n     - If failurePolicy=Deny, then the webhook rejects the request\n     - If failurePolicy=NoOpinion, then the error is ignored and the webhook is skipped",
       "items": {
-        "$ref": "../apiserver.config.k8s.io/webhookmatchcondition_v1.json",
-        "default": {}
+        "$ref": "../apiserver.config.k8s.io/webhookmatchcondition_v1.json"
       },
       "type": "array"
     },

@@ -8,7 +8,6 @@
     "ignorePreflightErrors": {
       "description": "IgnorePreflightErrors provides a slice of pre-flight errors to be ignored when the current node is registered, e.g. 'IsPrivilegedUser,Swap'. Value 'all' ignores errors from all checks.",
       "items": {
-        "default": "",
         "type": "string"
       },
       "type": "array"
@@ -27,10 +26,9 @@
       "type": "boolean"
     },
     "kubeletExtraArgs": {
-      "description": "KubeletExtraArgs passes through extra arguments to the kubelet. The arguments here are passed to the kubelet command line via the environment file kubeadm writes at runtime for the kubelet to source. This overrides the generic base-level configuration in the kubelet-config ConfigMap Flags have higher priority when parsing. These values are local and specific to the node kubeadm is executing on. An argument name in this list is the flag name as it appears on the command line except without leading dash(es). Extra arguments will override existing default arguments. Duplicate extra arguments are allowed.",
+      "description": "KubeletExtraArgs passes through extra arguments to the kubelet. The arguments here are passed to the kubelet command line via the environment file kubeadm writes at runtime for the kubelet to source. This overrides the generic base-level configuration in the kubelet-config ConfigMap Flags have higher priority when parsing. These values are local and specific to the node kubeadm is executing on. An argument name in this list is the flag name as it appears on the command line except without leading dash(es). Extra arguments will override existing default arguments. Duplicate extra arguments are allowed. The default arguments are sorted alpha-numerically but the extra arguments are not.",
       "items": {
-        "$ref": "../kubeadm.k8s.io/arg_v1beta4.json",
-        "default": {}
+        "$ref": "../kubeadm.k8s.io/arg_v1beta4.json"
       },
       "type": "array"
     },
@@ -41,8 +39,7 @@
     "taints": {
       "description": "Taints specifies the taints the Node API object should be registered with. If this field is unset, i.e. nil, it will be defaulted with a control-plane taint for control-plane nodes. If you don't want to taint your control-plane node, set this field to an empty slice, i.e. `taints: []` in the YAML file. This field is solely used for Node registration.",
       "items": {
-        "$ref": "../core.api.k8s.io/taint_v1.json",
-        "default": {}
+        "$ref": "../core.api.k8s.io/taint_v1.json"
       },
       "type": "array"
     }

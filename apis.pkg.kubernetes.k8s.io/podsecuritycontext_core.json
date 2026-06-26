@@ -14,25 +14,6 @@
       "description": "fsGroupChangePolicy defines behavior of changing ownership and permission of the volume before being exposed inside Pod. This field will only apply to volume types which support fsGroup based ownership(and permissions). It will have no effect on ephemeral volume types such as: secret, configmaps and emptydir. Valid values are \"OnRootMismatch\" and \"Always\". If not specified, \"Always\" is used. Note that this field cannot be set when spec.os.name is windows.",
       "type": "string"
     },
-    "HostIPC": {
-      "default": false,
-      "description": "Use the host's ipc namespace. Optional: Default to false. Note that this field cannot be set when spec.os.name is windows.",
-      "type": "boolean"
-    },
-    "HostNetwork": {
-      "default": false,
-      "description": "Use the host's network namespace.  If this option is set, the ports that will be used must be specified. Optional: Default to false",
-      "type": "boolean"
-    },
-    "HostPID": {
-      "default": false,
-      "description": "Use the host's pid namespace. Optional: Default to false. Note that this field cannot be set when spec.os.name is windows.",
-      "type": "boolean"
-    },
-    "HostUsers": {
-      "description": "Use the host's user namespace. Optional: Default to true. If set to true or not present, the pod will be run in the host user namespace, useful for when the pod needs a feature only available to the host user namespace, such as loading a kernel module with CAP_SYS_MODULE. When set to false, a new user namespace is created for the pod. Setting false is useful for mitigating container breakout vulnerabilities even allowing users to run their containers as root without actually having root privileges on the host. Note that this field cannot be set when spec.os.name is windows.",
-      "type": "boolean"
-    },
     "RunAsGroup": {
       "description": "The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container. Note that this field cannot be set when spec.os.name is windows.",
       "format": "int64",
@@ -59,14 +40,9 @@
       "$ref": "../apis.pkg.kubernetes.k8s.io/seccompprofile_core.json",
       "description": "The seccomp options to use by the containers in this pod. Note that this field cannot be set when spec.os.name is windows."
     },
-    "ShareProcessNamespace": {
-      "description": "Share a single process namespace between all of the containers in a pod. When this is set containers will be able to view and signal processes from other containers in the same pod, and the first process in each container will not be assigned PID 1. HostPID and ShareProcessNamespace cannot both be set. Note that this field cannot be set when spec.os.name is windows. Optional: Default to false.",
-      "type": "boolean"
-    },
     "SupplementalGroups": {
       "description": "A list of groups applied to the first process run in each container, in addition to the container's primary GID and fsGroup (if specified).  If the SupplementalGroupsPolicy feature is enabled, the supplementalGroupsPolicy field determines whether these are in addition to or instead of any group memberships defined in the container image. If unspecified, no additional groups are added, though group memberships defined in the container image may still be used, depending on the supplementalGroupsPolicy field. Note that this field cannot be set when spec.os.name is windows.",
       "items": {
-        "default": 0,
         "format": "int64",
         "type": "integer"
       },
@@ -79,8 +55,7 @@
     "Sysctls": {
       "description": "Sysctls hold a list of namespaced sysctls used for the pod. Pods with unsupported sysctls (by the container runtime) might fail to launch. Note that this field cannot be set when spec.os.name is windows.",
       "items": {
-        "$ref": "../apis.pkg.kubernetes.k8s.io/sysctl_core.json",
-        "default": {}
+        "$ref": "../apis.pkg.kubernetes.k8s.io/sysctl_core.json"
       },
       "type": "array"
     },

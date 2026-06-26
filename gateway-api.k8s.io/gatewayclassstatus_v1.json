@@ -4,8 +4,7 @@
     "conditions": {
       "description": "Conditions is the current status from the controller for this GatewayClass.\n\nControllers should prefer to publish conditions using values of GatewayClassConditionType for the type of each Condition.",
       "items": {
-        "$ref": "../meta.apis.pkg.apimachinery.k8s.io/condition_v1.json",
-        "default": {}
+        "$ref": "../meta.apis.pkg.apimachinery.k8s.io/condition_v1.json"
       },
       "type": "array",
       "x-kubernetes-list-map-keys": [

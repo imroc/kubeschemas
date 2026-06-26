@@ -13,7 +13,6 @@
     },
     "ids": {
       "items": {
-        "default": "",
         "type": "string"
       },
       "type": "array"

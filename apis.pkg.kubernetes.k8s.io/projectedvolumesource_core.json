@@ -9,8 +9,7 @@
     "Sources": {
       "description": "list of volume projections",
       "items": {
-        "$ref": "../apis.pkg.kubernetes.k8s.io/volumeprojection_core.json",
-        "default": {}
+        "$ref": "../apis.pkg.kubernetes.k8s.io/volumeprojection_core.json"
       },
       "type": "array"
     }
